@@ -1,0 +1,18 @@
+{
+  "minStars": 500,
+  "newRepoDays": 365,
+  "activeRepoDays": 84,
+  "searchPages": 1,
+  "maxCandidates": 42,
+  "growthCandidateQuota": 30,
+  "activeStarsCandidateQuota": 12,
+  "timeZone": "Asia/Shanghai",
+  "watchlistRetentionWeeks": 4,
+  "researchSelectionCount": 8,
+  "candidateWindowDays": 7,
+  "absoluteGrowthThreshold": 5000,
+  "absoluteGrowthStep": 5000,
+  "relativeGrowthBaselineFloor": 5000,
+  "languages": ["Python", "TypeScript", "JavaScript", "Rust", "Go"],
+  "trendingLanguages": ["", "python", "typescript", "javascript", "rust", "go"]
+}

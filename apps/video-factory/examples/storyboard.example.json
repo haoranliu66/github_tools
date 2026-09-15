@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "GitHub 本周开源新星",
+    "repo": "owner/repository",
+    "accent": "#7c5cff",
+    "width": 1280,
+    "height": 720,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "duration": 4,
+      "title": "这个项目一周增长 8,000 Star",
+      "subtitle": "它究竟解决了什么问题？"
+    },
+    {
+      "type": "stat",
+      "duration": 4,
+      "heading": "过去七天",
+      "value": "+8,000",
+      "label": "GitHub Stars",
+      "body": "增长来自 trend-scout 的本地快照"
+    },
+    {
+      "type": "bullets",
+      "duration": 6,
+      "heading": "为什么值得关注",
+      "bullets": [
+        "把复杂流程压缩成三个命令",
+        "工程文件可编辑、可复现",
+        "同时支持本地和自动化运行"
+      ]
+    },
+    {
+      "type": "code",
+      "duration": 6,
+      "heading": "快速开始",
+      "code": "git clone https://github.com/owner/repository\ncd repository\npnpm install && pnpm dev"
+    },
+    {
+      "type": "text",
+      "duration": 6,
+      "heading": "它适合谁？",
+      "body": "适合希望快速验证工作流的开发者；正式采用前仍需检查许可证、安全边界和维护活跃度。"
+    },
+    {
+      "type": "outro",
+      "duration": 4,
+      "title": "先实测，再推荐",
+      "subtitle": "项目链接和完整证据放在视频简介"
+    }
+  ]
+}
+

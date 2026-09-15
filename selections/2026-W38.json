@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "weekId": "2026-W38",
+  "status": "approved",
+  "sourceReport": "output/trend-reports/2026-09-14.json",
+  "selectedRepositories": [
+    "ayghri/i-have-adhd",
+    "bilawalsidhu/gods-eye-view",
+    "tt-a1i/archify",
+    "affaan-m/ECC",
+    "react/react",
+    "anomalyco/opencode",
+    "microsoft/vscode",
+    "langgenius/dify"
+  ],
+  "videoProjects": [],
+  "notes": "用户于 2026-09-15 明确要求研究当前周榜前八名。仅批准只读研究；videoProjects 仍为空，尚未批准视频制作。"
+}

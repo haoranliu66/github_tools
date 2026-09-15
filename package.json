@@ -1,0 +1,32 @@
+{
+  "name": "zimeiti",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "scout:collect": "node --use-env-proxy --env-file-if-exists=.env.local apps/trend-scout/src/cli.mjs collect",
+    "scout:report": "node --use-env-proxy --env-file-if-exists=.env.local apps/trend-scout/src/cli.mjs report",
+    "scout:weekly": "node --use-env-proxy --env-file-if-exists=.env.local apps/trend-scout/src/cli.mjs all",
+    "scout:refresh": "node --use-env-proxy --env-file-if-exists=.env.local apps/trend-scout/src/cli.mjs all",
+    "scout:select": "node apps/trend-scout/src/cli.mjs selection",
+    "scout:final": "node apps/trend-scout/src/cli.mjs finalize",
+    "research": "node --env-file-if-exists=.env.local apps/repo-researcher/src/cli.mjs research",
+    "research:batch": "node --env-file-if-exists=.env.local apps/repo-researcher/src/batch.mjs",
+    "video:validate": "node apps/video-factory/src/cli.mjs validate --storyboard apps/video-factory/examples/storyboard.example.json",
+    "video:render": "node apps/video-factory/src/cli.mjs render",
+    "video:smoke": "node apps/video-factory/src/cli.mjs render --final-ranking apps/video-factory/examples/final-ranking.smoke.json --repo zimeiti/system-check --output output/video/smoke.mp4",
+    "video:studio": "node apps/video-factory/src/cli.mjs studio",
+    "test": "node scripts/run-project-tests.mjs"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@remotion/cli": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  }
+}

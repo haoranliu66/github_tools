@@ -1,0 +1,198 @@
+#!/usr/bin/env node
+import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {dirname, join, resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {buildResearchPrompt} from './prompt.mjs';
+import {writeResearchArtifacts} from './artifacts.mjs';
+import {cloneRepository} from './clone.mjs';
+
+const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+const SCHEMA_PATH = join(PROJECT_ROOT, 'apps/repo-researcher/schemas/research.schema.json');
+
+function hasFlag(name) {
+  return process.argv.includes(name);
+}
+
+function optionValue(name, fallback = null) {
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] : fallback;
+}
+
+function parseFullName(value) {
+  if (!value || !/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(value)) {
+    throw new Error('Repository must use the owner/name format.');
+  }
+  return value;
+}
+
+function parseCodexJson(stdout) {
+  const cleaned = stdout.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+  return JSON.parse(cleaned);
+}
+
+export function buildCodexArgs(
+  prompt,
+  allowRun,
+  platform = process.platform,
+  windowsSandbox = 'elevated',
+) {
+  const args = [
+    'exec',
+    '--ephemeral',
+    '--ignore-user-config',
+    '--ignore-rules',
+    '-c',
+    'project_doc_max_bytes=0',
+    '--color',
+    'never',
+    '--sandbox',
+    allowRun ? 'workspace-write' : 'read-only',
+    '--output-schema',
+    SCHEMA_PATH,
+  ];
+  // Ignoring user config also drops the native Windows sandbox backend setting.
+  // Select the installed backend explicitly without relaxing read-only permissions.
+  if (platform === 'win32') args.push('-c', `windows.sandbox="${windowsSandbox}"`);
+  if (allowRun) args.push('--approve-for-me');
+  args.push(prompt);
+  return args;
+}
+
+export function buildWindowsSandboxPlan({configured = 'auto', allowRun}) {
+  if (!['auto', 'elevated', 'unelevated'].includes(configured)) {
+    throw new Error('CODEX_WINDOWS_SANDBOX must be auto, elevated, or unelevated.');
+  }
+  if (configured !== 'auto') return [configured];
+  return allowRun ? ['elevated'] : ['elevated', 'unelevated'];
+}
+
+export function classifyCodexFailure({
+  stderr = '',
+  blockedReason = '',
+  processError = '',
+  researchStatus = '',
+} = {}) {
+  if (researchStatus === 'completed' && !processError) {
+    return {code: 'OK', canUseUnelevatedFallback: false};
+  }
+  const detail = `${stderr}\n${blockedReason}\n${processError}`;
+  if (/orchestrator_helper_launch_canceled|ShellExecuteExW[^\n]*1223|setup helper[^\n]*1223/i.test(detail)) {
+    return {code: 'WINDOWS_SANDBOX_SETUP_CANCELED', canUseUnelevatedFallback: true};
+  }
+  if (blockedReason) {
+    return {code: 'CODEX_RESEARCH_BLOCKED', canUseUnelevatedFallback: false};
+  }
+  return {code: 'CODEX_EXEC_FAILED', canUseUnelevatedFallback: false};
+}
+
+function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox) {
+  const startedAt = new Date();
+  console.log(`Starting ${allowRun ? 'run-enabled' : 'read-only'} Codex research ` +
+    `with Windows sandbox ${windowsSandbox ?? 'n/a'} in ${repositoryPath}...`);
+  const result = spawnSync('codex', buildCodexArgs(
+    prompt, allowRun, process.platform, windowsSandbox ?? 'elevated',
+  ), {
+    cwd: repositoryPath,
+    encoding: 'utf8',
+    maxBuffer: 20 * 1024 * 1024,
+    timeout: 30 * 60 * 1000,
+  });
+  let parsed = null;
+  let parseError = null;
+  if (result.status === 0 && !result.error) {
+    try {
+      parsed = parseCodexJson(result.stdout);
+    } catch (error) {
+      parseError = error;
+    }
+  }
+  const diagnosis = classifyCodexFailure({
+    stderr: result.stderr,
+    blockedReason: parsed?.blockedReason,
+    processError: result.error?.message ?? parseError?.message,
+    researchStatus: parsed?.status,
+  });
+  const runDirectory = join(PROJECT_ROOT, 'output/research/_runs',
+    `${startedAt.toISOString().replace(/[:.]/g, '-')}-${process.pid}-${windowsSandbox ?? 'default'}`);
+  mkdirSync(runDirectory, {recursive: true});
+  writeFileSync(join(runDirectory, 'codex.stdout.txt'), result.stdout ?? '', 'utf8');
+  writeFileSync(join(runDirectory, 'codex.stderr.log'), result.stderr ?? '', 'utf8');
+  writeFileSync(join(runDirectory, 'run.json'), `${JSON.stringify({
+    startedAt: startedAt.toISOString(), repositoryPath,
+    sandbox: allowRun ? 'workspace-write' : 'read-only',
+    windowsSandbox: process.platform === 'win32' ? 'elevated' : null,
+    durationMs: Date.now() - startedAt.getTime(), exitCode: result.status,
+    processError: result.error?.message ?? parseError?.message ?? null,
+    diagnosticCode: diagnosis.code,
+  }, null, 2)}\n`, 'utf8');
+  console.log(`Research execution logs: ${runDirectory}`);
+  if (result.stderr) process.stderr.write(result.stderr);
+  return {process: result, parsed, parseError, diagnosis};
+}
+
+function runCodex(repositoryPath, prompt, allowRun) {
+  const windowsSandboxes = process.platform === 'win32'
+    ? buildWindowsSandboxPlan({
+      configured: process.env.CODEX_WINDOWS_SANDBOX || 'auto',
+      allowRun,
+    })
+    : [null];
+
+  for (let index = 0; index < windowsSandboxes.length; index += 1) {
+    const execution = runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandboxes[index]);
+    const hasFallback = index + 1 < windowsSandboxes.length;
+    if (hasFallback && execution.diagnosis.canUseUnelevatedFallback) {
+      console.warn('Elevated Windows sandbox setup was canceled; retrying read-only research ' +
+        'with the documented unelevated fallback.');
+      continue;
+    }
+    if (execution.process.error) throw execution.process.error;
+    if (execution.process.status !== 0) {
+      throw new Error(`${execution.diagnosis.code}: codex exec failed with exit code ${execution.process.status}`);
+    }
+    if (execution.parseError) throw execution.parseError;
+    return execution.parsed;
+  }
+
+  throw new Error('CODEX_EXEC_FAILED: no Codex sandbox attempt completed.');
+}
+
+function main() {
+  const fullName = parseFullName(process.argv[3] ?? process.argv[2]);
+  const allowRun = hasFlag('--allow-run');
+  const dryRun = hasFlag('--dry-run');
+  const localOnly = hasFlag('--local');
+  const repositoryPath = resolve(
+    optionValue('--local', join(PROJECT_ROOT, 'workspaces/repos', fullName.replace('/', '--'))),
+  );
+  const repositoryUrl = localOnly ? `local:${fullName}` : `https://github.com/${fullName}`;
+  const prompt = buildResearchPrompt({fullName, repositoryUrl, allowRun, localOnly});
+  const date = new Date().toISOString().slice(0, 10);
+
+  if (dryRun) {
+    const directory = join(PROJECT_ROOT, 'output/research', date, fullName.replace('/', '--'));
+    mkdirSync(directory, {recursive: true});
+    const promptPath = join(directory, 'codex-prompt.txt');
+    writeFileSync(promptPath, prompt, 'utf8');
+    console.log(`Dry run complete. Prompt written to ${promptPath}`);
+    return;
+  }
+
+  if (!localOnly) cloneRepository(fullName, repositoryPath);
+  if (!existsSync(repositoryPath)) throw new Error(`Repository path does not exist: ${repositoryPath}`);
+
+  JSON.parse(readFileSync(SCHEMA_PATH, 'utf8'));
+  const result = runCodex(repositoryPath, prompt, allowRun);
+  const output = writeResearchArtifacts(result, join(PROJECT_ROOT, 'output/research'), fullName, date);
+  console.log(`Research package written to ${output}`);
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    main();
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
+}

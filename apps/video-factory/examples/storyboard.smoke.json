@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "zimeiti smoke test",
+    "repo": "zimeiti/system-check",
+    "accent": "#5ee1a2",
+    "width": 320,
+    "height": 240,
+    "fps": 15
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "duration": 1,
+      "title": "zimeiti",
+      "subtitle": "render pipeline ready"
+    },
+    {
+      "type": "stat",
+      "duration": 1,
+      "value": "3/3",
+      "label": "modules online"
+    }
+  ]
+}
+

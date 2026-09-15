@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.local
+data/*.sqlite
+data/*.sqlite-*
+data/trend-scout-weekly-state.json
+output/**
+!output/.gitkeep
+workspaces/**
+!workspaces/.gitkeep
+apps/video-factory/public/generated/**
+!apps/video-factory/public/generated/.gitkeep
+*.log
+# Assistant working data (memory notes, automation state) - never publish
+.workbuddy-ai/
+

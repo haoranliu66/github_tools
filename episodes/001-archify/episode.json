@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "Archify：让架构图有据可查",
+    "repo": "tt-a1i/archify",
+    "template": "editorial",
+    "accent": "#b8f76c",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "episode": "001",
+    "researchMode": "static-source-review",
+    "commit": "06dd052602dd9a369e4d034e24faef0917b5a60c",
+    "dataDate": "2026-09-04"
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "title": "ARCHIFY",
+      "subtitle": "架构图很漂亮，\n但它画对了吗？",
+      "tagline": "第 001 期 · 源码研究版",
+      "source": "项目：github.com/tt-a1i/archify · 源码版本 06dd052 · 本期不含项目运行实测",
+      "sentences": [
+        {"text": "AI 画的架构图很漂亮，但它画对了吗？", "spoken": "人工智能画的架构图很漂亮，但它画对了吗？"},
+        {"text": "今天看一个把图解变成可检查产物的项目。"}
+      ]
+    },
+    {
+      "type": "stat",
+      "heading": "为什么选它？",
+      "value": "46,987",
+      "label": "GitHub Stars · 2026-09-04 采集快照",
+      "body": "热度用于发现项目，不等于质量背书。",
+      "bullets": ["本次候选榜 第 1 名", "候选分数 93.65", "总 Stars 权重 15%"],
+      "source": "数据：trend-scout / 2026-09-04.json · 增长信号为 Trending 冷启动，非本地七日净增长",
+      "sentences": [
+        {"text": "本次采集，它有四万六千九百八十七颗星。"},
+        {"text": "但热度只是线索，真正要看的是工作原理。"}
+      ]
+    },
+    {
+      "type": "media",
+      "heading": "不是一张\n静态截图",
+      "body": "组件、边界与连接\n组织成可交互系统图。\n\n右侧是仓库自带示例。",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-menu.png",
+      "caption": "官方示例 · 已保留 MIT 署名",
+      "source": "来源：README.md / docs/assets/archify-menu.png @ 06dd052 · © 2026 tt-a1i / © 2025 Cocoon AI · MIT",
+      "sentences": [
+        {"text": "它的名字叫 Archify。", "spoken": "它的名字叫阿奇菲。"},
+        {"text": "项目把系统描述转换为可交互的架构图。"},
+        {"text": "这是官方示例，不是我本机运行的画面。"}
+      ]
+    },
+    {
+      "type": "bullets",
+      "eyebrow": "MECHANISM / 原理拆解",
+      "heading": "让模型负责表达，让程序负责检查",
+      "bullets": ["系统描述\n明确范围", "JSON IR\n结构化表达", "确定性校验\n检查约束", "HTML / SVG\n渲染交付"],
+      "note": "本图是依据源码整理的流程示意；通过校验不代表系统事实自动正确。",
+      "source": "依据：README.md「How it works」/ archify/bin/archify.mjs @ 06dd052",
+      "sentences": [
+        {"text": "关键不是让模型直接自由画图。"},
+        {"text": "模型先写结构化数据，再由程序校验和渲染。"},
+        {"text": "这样，输入和图之间就多了一层可检查的约束。"}
+      ]
+    },
+    {
+      "type": "code",
+      "heading": "图背后，节点和连线都有名字",
+      "code": "{\n  \"id\": \"api-sql\",\n  \"from\": \"api\",\n  \"to\": \"db\",\n  \"label\": \"SQL\"\n}",
+      "body": "api → db\n不是随手画的箭头，\n而是明确的数据关系。",
+      "note": "官方 JSON 示例中的单条连接摘录。\n不是完整输入，也不是可独立运行的程序。",
+      "source": "源码：docs/gallery/sources/web-app.architecture.json · connections / api-sql @ 06dd052",
+      "sentences": [
+        {"text": "比如这条官方示例里的连接。"},
+        {"text": "它明确写出：从接口服务指向数据库。"},
+        {"text": "后续改图，可以针对这条关系修改。"}
+      ]
+    },
+    {
+      "type": "media",
+      "heading": "一次请求\n怎么走？",
+      "body": "时序图示例：\n鉴权 → 读缓存 → 查数据库\n\n它适合帮助团队\n讲清调用顺序。",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-sequence.png",
+      "fit": "cover",
+      "position": "center 38%",
+      "caption": "官方示例 · 局部放大",
+      "source": "来源：README.md「Sequence」/ docs/assets/archify-sequence.png @ 06dd052 · MIT · 非运行轨迹",
+      "sentences": [
+        {"text": "它还支持时序图、工作流等不同表达方式。"},
+        {"text": "比如用时序图，讲清鉴权、缓存和数据库的调用顺序。"}
+      ]
+    },
+    {
+      "type": "bullets",
+      "eyebrow": "USE CASE / 使用价值",
+      "heading": "适合把复杂系统，讲给别人听",
+      "bullets": ["新人入门\n看懂组件关系", "方案评审\n对齐结构变化", "技术分享\n组织讲解路径"],
+      "note": "本页是基于功能的使用场景判断，不是效率提升或生产性能的实测结论。",
+      "source": "依据：README.md / 官方示例；场景价值为编辑判断 @ 06dd052",
+      "sentences": [
+        {"text": "我的判断是，它更适合技术沟通。"},
+        {"text": "新人入门、方案评审和知识分享，都能用到这种表达。"}
+      ]
+    },
+    {
+      "type": "bullets",
+      "eyebrow": "REALITY CHECK / 使用边界",
+      "heading": "校验通过，不等于理解正确",
+      "bullets": ["输入的事实\n仍需人工核对", "不是通用\n拖拽绘图编辑器", "功能结论基于源码\n未做端到端演示"],
+      "note": "官方图展示的是作者写入的关系；不能据此推断真实系统的运行状态或性能。",
+      "source": "依据：README.md「Why Archify / Reference and scope」；本期验证范围说明",
+      "sentences": [
+        {"text": "但要注意：校验通过，不等于模型理解正确。"},
+        {"text": "系统事实仍要人工核对，它也不是通用拖拽编辑器。"},
+        {"text": "本期功能结论基于源码，未做端到端演示。"}
+      ]
+    },
+    {
+      "type": "outro",
+      "eyebrow": "TAKEAWAY / 一句话带走",
+      "title": "让图有结构，\n让结论有依据。",
+      "subtitle": "先看源码和示例，再决定是否采用。",
+      "tagline": "项目链接、证据与许可说明见配套简介",
+      "source": "github.com/tt-a1i/archify · 数据截至 2026-09-04 · 中文合成旁白 · 开源观察 001",
+      "sentences": [
+        {"text": "它值得关注的，是把图变成可检查、可修改的产物。"},
+        {"text": "项目链接和证据已整理在简介，先看清，再采用。"}
+      ]
+    }
+  ]
+}

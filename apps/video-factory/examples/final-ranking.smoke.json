@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "weekId": "fixture-W01",
+  "rows": [
+    {
+      "fullName": "zimeiti/system-check",
+      "researchStatus": "completed",
+      "finalScore": 100,
+      "videoApproved": true,
+      "storyboardPath": "apps/video-factory/examples/storyboard.smoke.json"
+    }
+  ]
+}

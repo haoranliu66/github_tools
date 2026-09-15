@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "blockedReason", "inspectedFiles", "project", "executiveSummary", "audience", "findings", "claims", "demoPlan", "demoability", "limitations", "video"],
+  "properties": {
+    "status": {"type": "string", "enum": ["completed", "blocked", "failed"]},
+    "blockedReason": {"type": "string"},
+    "inspectedFiles": {"type": "array", "items": {"type": "string"}},
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "versionOrCommit", "license", "primaryLanguage"],
+      "properties": {
+        "name": {"type": "string"},
+        "url": {"type": "string"},
+        "versionOrCommit": {"type": "string"},
+        "license": {"type": "string"},
+        "primaryLanguage": {"type": "string"}
+      }
+    },
+    "executiveSummary": {"type": "string"},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "detail"],
+        "properties": {
+          "title": {"type": "string"},
+          "detail": {"type": "string"}
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "confidence", "evidence"],
+        "properties": {
+          "claim": {"type": "string"},
+          "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["source", "detail"],
+              "properties": {
+                "source": {"type": "string"},
+                "detail": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "demoPlan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "command", "expected", "status"],
+        "properties": {
+          "step": {"type": "string"},
+          "command": {"type": "string"},
+          "expected": {"type": "string"},
+          "status": {"type": "string", "enum": ["not-run", "passed", "failed", "blocked"]}
+        }
+      }
+    },
+    "demoability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "confidence", "reason"],
+      "properties": {
+        "score": {"type": "integer", "minimum": 0, "maximum": 7},
+        "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "hook", "sections", "closing"],
+      "properties": {
+        "title": {"type": "string"},
+        "hook": {"type": "string"},
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["heading", "narration", "visual"],
+            "properties": {
+              "heading": {"type": "string"},
+              "narration": {"type": "string"},
+              "visual": {"type": "string"}
+            }
+          }
+        },
+        "closing": {"type": "string"}
+      }
+    }
+  }
+}
