@@ -37,4 +37,4 @@ Generated content is not automatically published. Repository selection, claims a
 
 ## Artifact contract
 
-The research boundary is the approved `selections/YYYY-Www.json`; the rendering boundary is `output/final-rankings/YYYY-Www.json`. The final ranking resolves the exact research `storyboard.json`, so production rendering cannot bypass human selection or research completeness. Deterministic software remains responsible for timing, layout, rendering, and encoding.
+The research boundary is the approved `selections/YYYY-Www.json`; the rendering boundary is `output/final-rankings/YYYY-Www.json`. Every video-approved project must have a `videoStoryboards` production mapping inside the project root. `video:prepare` turns completed research into an evidence-labelled editorial storyboard and refuses unapproved projects. The final ranking resolves that exact production storyboard, so production rendering cannot bypass human selection, research completeness, video approval, or the editorial quality gate. Deterministic software remains responsible for planning constraints, timing, layout, rendering, encoding, and technical QA.

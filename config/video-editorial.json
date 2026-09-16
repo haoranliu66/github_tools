@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sceneCount": {
+    "min": 20,
+    "max": 28,
+    "target": 24
+  },
+  "durationSeconds": {
+    "min": 85,
+    "max": 145,
+    "maxAverage": 6.5,
+    "maxScene": 8.5
+  },
+  "rhythm": {
+    "maxSameTypeRun": 2,
+    "maxEvidenceSeriesRun": 3,
+    "maxProgressiveFlowRun": 4,
+    "maxProgressiveCodeRun": 3,
+    "minDistinctTypes": 6
+  },
+  "requiredSceneTypes": {
+    "flow": 2,
+    "code": 1,
+    "contrast": 2,
+    "audience": 1,
+    "outro": 1
+  },
+  "openingTypes": ["hero", "contrast"],
+  "evidence": {
+    "minimumCoverage": 1,
+    "officialDisclosure": "非本机实测"
+  },
+  "text": {
+    "maxNarrationCharacters": 68
+  },
+  "media": {
+    "extensions": [".png", ".jpg", ".jpeg", ".webp"],
+    "maxBytes": 12582912,
+    "maxAssets": 3
+  },
+  "qa": {
+    "sampleFrames": 8
+  }
+}

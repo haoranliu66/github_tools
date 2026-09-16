@@ -35,6 +35,15 @@ test('SRT timestamps use absolute clip positions across scene boundaries', () =>
     '1\n00:00:02,433 --> 00:00:04,433\n再见\n');
 });
 
+test('editorial timing can pad a short scene without stretching its caption', () => {
+  const draft = {meta: {fps: 30}, scenes: [{sentences: [{text: 'Short'}]}]};
+  const result = timing.buildNarratedStoryboard(draft, [1], {gapSeconds: 0.2, minSceneSeconds: 4});
+  assert.equal(result.storyboard.scenes[0].duration, 4);
+  assert.equal(result.storyboard.scenes[0].captions[0].endFrame, 30);
+  assert.equal(result.clips[0].frames, 120);
+  assert.equal(result.totalFrames, 120);
+});
+
 test('WAV duration is measured from PCM bytes rather than estimated narration length', () => {
   assert.equal(typeof timing.wavDuration, 'function');
   const wave = Buffer.alloc(44 + 32000);

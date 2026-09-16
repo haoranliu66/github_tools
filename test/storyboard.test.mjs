@@ -21,6 +21,28 @@ test('media scene requires a source', () => {
   assert.ok(validateStoryboard(invalid).some((error) => error.includes('.src')));
 });
 
+test('dynamic editorial scenes validate their required visual data', () => {
+  const valid = structuredClone(storyboard);
+  valid.scenes.push(
+    {type: 'hero', duration: 2, src: 'hero.png'},
+    {type: 'flow', duration: 2, steps: ['Input', 'Check', 'Output']},
+    {type: 'contrast', duration: 2, left: {title: 'Format'}, right: {title: 'Truth'}},
+    {type: 'audience', duration: 2, items: [{title: 'New hire'}, {title: 'Reviewer'}]},
+  );
+  assert.deepEqual(validateStoryboard(valid), []);
+
+  for (const scene of [
+    {type: 'hero', duration: 2},
+    {type: 'flow', duration: 2, steps: ['Only one']},
+    {type: 'contrast', duration: 2, left: {title: 'Only left'}},
+    {type: 'audience', duration: 2, items: [{title: 'Only one'}]},
+  ]) {
+    const invalid = structuredClone(storyboard);
+    invalid.scenes.push(scene);
+    assert.ok(validateStoryboard(invalid).length > 0);
+  }
+});
+
 test('subtitle cues cannot overlap, exceed a scene, or contain empty text', () => {
   for (const captions of [
     [{startFrame: 0, endFrame: 61, text: 'too long'}],

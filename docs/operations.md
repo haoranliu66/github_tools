@@ -43,7 +43,8 @@ GitHub 请求会对网络异常、408、429 和常见 5xx 最多尝试三次，�
 2. 人工保留 7～8 个仓库并把 `status` 改为 `approved`；程序拒绝覆盖已有选择文件。
 3. `pnpm research:batch -- --selection selections/YYYY-Www.json` 执行整批只读研究。单个失败不会阻止其他项目，并写入 `output/research-batches/YYYY-Www.json`。
 4. `pnpm scout:final -- --selection selections/YYYY-Www.json` 生成研究后最终榜。最终分 = 基础趋势分（最高 93）+ 可演示性（最高 7）。
-5. 只有在选择文件 `videoProjects` 中且研究完整的项目，最终榜才标记 `videoApproved=true`。`video-factory` 只接受这样的记录。
+5. 只有在选择文件 `videoProjects` 中、研究完整且具有 `videoStoryboards` 项目内生产分镜映射的项目，才能执行 `pnpm video:prepare`。编辑规划器生成 20～28 个动态场景并写出 `qa-report.json`。
+6. 重新生成最终榜后，只有 `videoApproved=true` 且动态分镜质量门禁通过的记录能正式渲染。渲染后自动执行完整音视频解码并生成 8 帧联系表，最终成片仍需人工审核。
 
 ## 克隆恢复
 

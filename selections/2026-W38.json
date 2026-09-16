@@ -13,6 +13,11 @@
     "microsoft/vscode",
     "langgenius/dify"
   ],
-  "videoProjects": [],
-  "notes": "用户于 2026-09-15 明确要求研究当前周榜前八名。仅批准只读研究；videoProjects 仍为空，尚未批准视频制作。"
+  "videoProjects": [
+    "tt-a1i/archify"
+  ],
+  "videoStoryboards": {
+    "tt-a1i/archify": "output/video/001-archify/storyboard.json"
+  },
+  "notes": "用户于 2026-09-15 明确批准 tt-a1i/archify 进入视频制作。研究仍为只读静态研究，成片不得表述为本机端到端实测。"
 }

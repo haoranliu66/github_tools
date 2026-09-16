@@ -1,7 +1,9 @@
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
-const SCENE_TYPES = new Set(['title', 'text', 'bullets', 'stat', 'code', 'media', 'outro']);
+const SCENE_TYPES = new Set([
+  'title', 'text', 'bullets', 'stat', 'code', 'media', 'hero', 'flow', 'contrast', 'audience', 'outro',
+]);
 
 export function validateStoryboard(storyboard) {
   const errors = [];
@@ -20,7 +22,18 @@ export function validateStoryboard(storyboard) {
     const prefix = `scenes[${index}]`;
     if (!SCENE_TYPES.has(scene.type)) errors.push(`${prefix}.type is unsupported: ${scene.type}`);
     if (!Number.isFinite(scene.duration) || scene.duration <= 0) errors.push(`${prefix}.duration must be positive.`);
-    if (scene.type === 'media' && !scene.src) errors.push(`${prefix}.src is required for media scenes.`);
+    if (['media', 'hero'].includes(scene.type) && !scene.src) {
+      errors.push(`${prefix}.src is required for ${scene.type} scenes.`);
+    }
+    if (scene.type === 'flow' && (!Array.isArray(scene.steps) || scene.steps.length < 2)) {
+      errors.push(`${prefix}.steps must contain at least two flow steps.`);
+    }
+    if (scene.type === 'contrast' && (!scene.left || !scene.right)) {
+      errors.push(`${prefix} requires left and right comparison items.`);
+    }
+    if (scene.type === 'audience' && (!Array.isArray(scene.items) || scene.items.length < 2)) {
+      errors.push(`${prefix}.items must contain at least two audience items.`);
+    }
     if (scene.type === 'stat' && (scene.value === undefined || !scene.label)) {
       errors.push(`${prefix} requires value and label.`);
     }

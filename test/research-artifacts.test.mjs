@@ -21,7 +21,8 @@ function completedResearch() {
     limitations: ['Static inspection only.'],
     video: {title: 'Tiny Notes', hook: 'A tiny formatter',
       sections: [{heading: 'How it works', narration: 'Trims and prefixes input.', visual: 'Show source.'}],
-      closing: 'Review before use.'},
+      closing: 'Review before use.',
+      visualAssets: [{path: 'docs/example.png', purpose: 'Show the official example', licenseBasis: 'MIT'}]},
   };
 }
 
@@ -41,6 +42,7 @@ test('completed static research produces seven artifacts without claiming execut
   assert.equal(result.demoability.score, 4);
   assert.match(readFileSync(join(output, 'research_brief.md'), 'utf8'), /可演示性：4\/7/);
   assert.equal(JSON.parse(readFileSync(join(output, 'storyboard.json'), 'utf8')).scenes[0].title, 'Tiny Notes');
+  assert.equal(JSON.parse(readFileSync(join(output, 'media_manifest.json'), 'utf8')).items.length, 1);
 });
 
 for (const score of [-1, 7.5, 8, undefined]) {

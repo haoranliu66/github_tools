@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 import {spawnSync} from 'node:child_process';
 import {copyFileSync, existsSync, mkdirSync, rmSync, writeFileSync} from 'node:fs';
-import {basename, dirname, extname, join, resolve} from 'node:path';
+import {basename, dirname, extname, join, resolve, sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
 import {durationInFrames, loadStoryboard} from './storyboard.mjs';
 import {buildRenderArgs} from './render-command.mjs';
 import {resolveApprovedStoryboard} from './approval.mjs';
+import {assertEditorialQuality, loadEditorialConfig} from './editorial-quality.mjs';
+import {writeVideoQa} from './video-qa.mjs';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const ENTRY_POINT = join(PROJECT_ROOT, 'apps/video-factory/remotion/index.jsx');
 const PUBLIC_ROOT = join(PROJECT_ROOT, 'apps/video-factory/public');
 const REMOTION_CLI = join(PROJECT_ROOT, 'node_modules/@remotion/cli/remotion-cli.js');
+const EDITORIAL_CONFIG = join(PROJECT_ROOT, 'config/video-editorial.json');
+const VIDEO_OUTPUT_ROOT = join(PROJECT_ROOT, 'output/video');
 
 function optionValue(name, fallback = null) {
   const index = process.argv.indexOf(name);
@@ -46,7 +50,7 @@ function stageStoryboard(storyboard, storyboardPath) {
     staged.voiceover = stageAsset(resolve(baseDirectory, staged.voiceover), runDirectory);
   }
   for (const scene of staged.scenes) {
-    if (scene.type === 'media' && scene.src && !/^https?:\/\//i.test(scene.src)) {
+    if (scene.src && !/^https?:\/\//i.test(scene.src)) {
       scene.src = stageAsset(resolve(baseDirectory, scene.src), runDirectory);
     }
   }
@@ -97,6 +101,10 @@ function main() {
   }
   const {storyboard, absolutePath} = loadStoryboard(storyboardArg);
   const frames = durationInFrames(storyboard);
+  const editorialConfig = storyboard.meta.template === 'editorial'
+    ? loadEditorialConfig(EDITORIAL_CONFIG)
+    : null;
+  if (editorialConfig) assertEditorialQuality(storyboard, editorialConfig);
 
   if (command === 'validate') {
     console.log(`Storyboard is valid: ${storyboard.scenes.length} scenes, ${frames} frames.`);
@@ -124,7 +132,11 @@ function main() {
   }
 
   const safeRepo = approved.row.fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
-  const outputPath = resolve(optionValue('--output', join(PROJECT_ROOT, 'output/video', `${safeRepo}.mp4`)));
+  const outputPath = resolve(optionValue('--output', join(VIDEO_OUTPUT_ROOT, `${safeRepo}.mp4`)));
+  const outputPrefix = `${resolve(VIDEO_OUTPUT_ROOT)}${sep}`.toLowerCase();
+  if (!outputPath.toLowerCase().startsWith(outputPrefix)) {
+    throw new Error(`Video output must stay inside ${VIDEO_OUTPUT_ROOT}.`);
+  }
   const rawOutput = process.argv.includes('--skip-ffmpeg')
     ? outputPath
     : join(dirname(outputPath), `${basename(outputPath, extname(outputPath))}.remotion${extname(outputPath) || '.mp4'}`);
@@ -142,6 +154,15 @@ function main() {
     if (!process.argv.includes('--skip-ffmpeg')) {
       postprocess(rawOutput, outputPath);
       rmSync(rawOutput, {force: true});
+    }
+    if (editorialConfig) {
+      const qa = writeVideoQa({
+        ffmpegPath: ffmpegInstaller.path,
+        videoPath: outputPath,
+        storyboard,
+        sampleCount: editorialConfig.qa.sampleFrames,
+      });
+      console.log(`Video QA passed; contact sheet: ${qa.contactSheet}`);
     }
     console.log(`Rendered ${frames} frames to ${outputPath}`);
   } finally {

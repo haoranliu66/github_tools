@@ -30,6 +30,7 @@ Research requirements:
 10. Optional metadata failures and Git warnings are not equivalent to a policy denial. If repository source and HEAD are verified, record such warnings as limitations and continue the supported static analysis; do not discard verified findings solely because an optional check failed. Keep every demo step not-run in read-only mode.
 11. Do not repair or override user Git configuration. In particular, do not set core.excludesFile to NUL or probe inaccessible user configuration files. For tracked working-tree changes prefer git --no-optional-locks diff --no-ext-diff --no-textconv --name-only HEAD; disclose changes and note that this check does not enumerate untracked files. Record failures per command instead of treating the last command in a batch as proof that all commands succeeded.
 12. ${demoabilityPolicy} Return demoability.score, demoability.confidence, and a concise evidence-based demoability.reason.
+13. For video.visualAssets, identify zero to three useful repository-owned PNG, JPG, JPEG, or WebP images that actually exist in the clone and can support the explanation. Use repository-relative paths only, state each image's purpose and license basis, and return an empty array when ownership or reuse permission is unclear. Repository images are official source material, not proof of a local run.
 
 Return only JSON matching the supplied schema.`;
 }

@@ -39,6 +39,28 @@ export function validateSelection(selection, {requireApproved = false} = {}) {
       errors.push('videoProjects must be a subset of selectedRepositories.');
     }
   }
+  if (selection?.videoStoryboards !== undefined) {
+    if (!selection.videoStoryboards || Array.isArray(selection.videoStoryboards) ||
+        typeof selection.videoStoryboards !== 'object') {
+      errors.push('videoStoryboards must be an object.');
+    } else {
+      const approved = new Set(selection?.videoProjects ?? []);
+      for (const [fullName, storyboardPath] of Object.entries(selection.videoStoryboards)) {
+        if (!approved.has(fullName)) {
+          errors.push('videoStoryboards keys must be approved in videoProjects.');
+        }
+        if (typeof storyboardPath !== 'string' || !storyboardPath.trim()) {
+          errors.push('videoStoryboards values must be non-empty paths.');
+        }
+      }
+    }
+  }
+  if (Array.isArray(selection?.videoProjects) && selection.videoProjects.length) {
+    const mapped = new Set(Object.keys(selection?.videoStoryboards ?? {}));
+    if (selection.videoProjects.some((name) => !mapped.has(name))) {
+      errors.push('every videoProjects entry must have a videoStoryboards production mapping.');
+    }
+  }
   return errors;
 }
 
@@ -79,10 +101,10 @@ export function createSelectionTemplate({projectRoot, reportPath, outputPath, co
     sourceReport: relative(projectRoot, absoluteReport).replaceAll('\\', '/'),
     selectedRepositories: eligible.slice(0, count).map((row) => row.fullName),
     videoProjects: [],
+    videoStoryboards: {},
     notes: '请人工调整为 7～8 个项目并把 status 改为 approved。研究完成后，再把获准制作视频的项目加入 videoProjects。',
   };
   mkdirSync(dirname(absoluteOutput), {recursive: true});
   writeFileSync(absoluteOutput, `${JSON.stringify(selection, null, 2)}\n`, 'utf8');
   return {selection, outputPath: absoluteOutput};
 }
-

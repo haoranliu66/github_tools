@@ -10,121 +10,415 @@
     "episode": "001",
     "researchMode": "static-source-review",
     "commit": "06dd052602dd9a369e4d034e24faef0917b5a60c",
-    "dataDate": "2026-09-04"
+    "dataDate": "2026-09-14"
   },
   "scenes": [
     {
-      "type": "title",
-      "title": "ARCHIFY",
-      "subtitle": "架构图很漂亮，\n但它画对了吗？",
-      "tagline": "第 001 期 · 源码研究版",
-      "source": "项目：github.com/tt-a1i/archify · 源码版本 06dd052 · 本期不含项目运行实测",
-      "sentences": [
-        {"text": "AI 画的架构图很漂亮，但它画对了吗？", "spoken": "人工智能画的架构图很漂亮，但它画对了吗？"},
-        {"text": "今天看一个把图解变成可检查产物的项目。"}
-      ]
-    },
-    {
-      "type": "stat",
-      "heading": "为什么选它？",
-      "value": "46,987",
-      "label": "GitHub Stars · 2026-09-04 采集快照",
-      "body": "热度用于发现项目，不等于质量背书。",
-      "bullets": ["本次候选榜 第 1 名", "候选分数 93.65", "总 Stars 权重 15%"],
-      "source": "数据：trend-scout / 2026-09-04.json · 增长信号为 Trending 冷启动，非本地七日净增长",
-      "sentences": [
-        {"text": "本次采集，它有四万六千九百八十七颗星。"},
-        {"text": "但热度只是线索，真正要看的是工作原理。"}
-      ]
-    },
-    {
-      "type": "media",
-      "heading": "不是一张\n静态截图",
-      "body": "组件、边界与连接\n组织成可交互系统图。\n\n右侧是仓库自带示例。",
+      "type": "hero",
       "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-menu.png",
-      "caption": "官方示例 · 已保留 MIT 署名",
-      "source": "来源：README.md / docs/assets/archify-menu.png @ 06dd052 · © 2026 tt-a1i / © 2025 Cocoon AI · MIT",
+      "position": "center",
+      "kicker": "OPEN WITH THE RESULT",
+      "headline": "漂亮，\n但画对了吗？",
+      "badges": ["ARCHIFY", "官方示例"],
+      "evidenceMode": "official",
+      "keyword": "画对了吗",
+      "source": "来源：docs/assets/archify-menu.png @ 06dd052 · 官方示例 · MIT · 非本机实测",
       "sentences": [
-        {"text": "它的名字叫 Archify。", "spoken": "它的名字叫阿奇菲。"},
-        {"text": "项目把系统描述转换为可交互的架构图。"},
-        {"text": "这是官方示例，不是我本机运行的画面。"}
+        {"text": "这张架构图很漂亮，但它画对了吗？"}
       ]
     },
     {
-      "type": "bullets",
-      "eyebrow": "MECHANISM / 原理拆解",
-      "heading": "让模型负责表达，让程序负责检查",
-      "bullets": ["系统描述\n明确范围", "JSON IR\n结构化表达", "确定性校验\n检查约束", "HTML / SVG\n渲染交付"],
-      "note": "本图是依据源码整理的流程示意；通过校验不代表系统事实自动正确。",
-      "source": "依据：README.md「How it works」/ archify/bin/archify.mjs @ 06dd052",
+      "type": "flow",
+      "heading": "把图，变成可检查的产物",
+      "steps": [
+        {"title": "系统描述", "detail": "明确范围"},
+        {"title": "JSON IR", "detail": "结构化关系"},
+        {"title": "确定性校验", "detail": "检查约束"},
+        {"title": "HTML / SVG", "detail": "渲染交付"}
+      ],
+      "activeIndex": 3,
+      "evidenceMode": "source",
+      "keyword": "结构化产物",
+      "source": "依据：README.md:15,194 / archify/bin/archify.mjs:889 @ 06dd052",
       "sentences": [
-        {"text": "关键不是让模型直接自由画图。"},
-        {"text": "模型先写结构化数据，再由程序校验和渲染。"},
-        {"text": "这样，输入和图之间就多了一层可检查的约束。"}
+        {"text": "Archify 的思路，是把图解先变成一种可以检查的结构化产物。", "spoken": "阿奇菲的思路，是把图解先变成一种可以检查的结构化产物。"}
+      ]
+    },
+    {
+      "type": "hero",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-menu.png",
+      "position": "center",
+      "kicker": "PROJECT / ARCHIFY",
+      "headline": "它叫 Archify",
+      "subhead": "用结构化 JSON 表达节点、边界与连接。",
+      "evidenceMode": "official",
+      "keyword": "Archify",
+      "source": "来源：README.md / docs/assets/archify-menu.png @ 06dd052 · 官方示例 · 非本机实测",
+      "sentences": [
+        {"text": "这个项目叫 Archify，它把节点、边界和连接组织成可交互的技术图。", "spoken": "这个项目叫阿奇菲，它把节点、边界和连接组织成可交互的技术图。"}
+      ]
+    },
+    {
+      "type": "hero",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-menu.png",
+      "position": "center 44%",
+      "kicker": "TREND SNAPSHOT",
+      "headline": "热度，只是一条线索",
+      "stat": {
+        "eyebrow": "GITHUB STARS",
+        "value": "61,476",
+        "label": "2026-09-14 采集快照"
+      },
+      "evidenceMode": "data",
+      "keyword": "六万一千四百七十六",
+      "source": "数据：output/trend-reports/2026-09-14.json · 当周趋势分 36.36 / 93",
+      "sentences": [
+        {"text": "截至九月十四日，它有六万一千四百七十六颗星，但热度只是一条线索。"}
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "THE QUESTION",
+      "heading": "真正值得看的，是它怎样工作",
+      "body": "从输入，到校验，再到最终图解。",
+      "evidenceMode": "editorial",
+      "keyword": "怎样工作",
+      "source": "编辑判断；机制依据 README.md 与 archify/bin/archify.mjs @ 06dd052",
+      "sentences": [
+        {"text": "真正值得看的，是它怎样把描述变成图。"}
+      ]
+    },
+    {
+      "type": "contrast",
+      "heading": "不是让模型直接自由画图",
+      "left": {
+        "eyebrow": "FREE-FORM",
+        "title": "模型直接画",
+        "body": "输出漂亮，\n关系却难以检查。",
+        "tone": "negative"
+      },
+      "right": {
+        "eyebrow": "STRUCTURED",
+        "title": "先写 JSON",
+        "body": "节点和连接\n都有明确字段。",
+        "tone": "positive"
+      },
+      "evidenceMode": "source",
+      "keyword": "自由画图",
+      "source": "依据：README.md:15,194 @ 06dd052；右侧为机制归纳",
+      "sentences": [
+        {"text": "关键不是让模型直接自由画图。"}
+      ]
+    },
+    {
+      "type": "flow",
+      "heading": "第一步：明确要表达的系统",
+      "steps": [
+        {"title": "系统描述", "detail": "输入意图"},
+        {"title": "JSON IR", "detail": "结构化表达"},
+        {"title": "校验", "detail": "约束检查"},
+        {"title": "HTML / SVG", "detail": "渲染交付"}
+      ],
+      "activeIndex": 0,
+      "evidenceMode": "source",
+      "keyword": "系统描述",
+      "source": "依据：README.md:194 @ 06dd052",
+      "sentences": [
+        {"text": "首先，Agent 根据系统描述写出图的范围。", "spoken": "首先，智能体根据系统描述写出图的范围。"}
+      ]
+    },
+    {
+      "type": "flow",
+      "heading": "第二步：把关系写进 JSON",
+      "steps": [
+        {"title": "系统描述", "detail": "输入意图"},
+        {"title": "JSON IR", "detail": "结构化表达"},
+        {"title": "校验", "detail": "约束检查"},
+        {"title": "HTML / SVG", "detail": "渲染交付"}
+      ],
+      "activeIndex": 1,
+      "evidenceMode": "source",
+      "keyword": "结构化数据",
+      "source": "依据：README.md:15,194 / archify/schemas/README.md:8 @ 06dd052",
+      "sentences": [
+        {"text": "接着，模型把节点和关系写成结构化数据。"}
+      ]
+    },
+    {
+      "type": "flow",
+      "heading": "第三步：程序检查约束",
+      "steps": [
+        {"title": "系统描述", "detail": "输入意图"},
+        {"title": "JSON IR", "detail": "结构化表达"},
+        {"title": "校验", "detail": "约束检查"},
+        {"title": "HTML / SVG", "detail": "渲染交付"}
+      ],
+      "activeIndex": 2,
+      "evidenceMode": "source",
+      "keyword": "校验器",
+      "source": "依据：archify/renderers/shared/validator.mjs:38 @ 06dd052",
+      "sentences": [
+        {"text": "然后，校验器检查字段、对象和支持的修复方式。"}
+      ]
+    },
+    {
+      "type": "flow",
+      "heading": "第四步：渲染并检查候选产物",
+      "steps": [
+        {"title": "系统描述", "detail": "输入意图"},
+        {"title": "JSON IR", "detail": "结构化表达"},
+        {"title": "校验", "detail": "约束检查"},
+        {"title": "HTML / SVG", "detail": "渲染交付"}
+      ],
+      "activeIndex": 3,
+      "evidenceMode": "source",
+      "keyword": "HTML 和 SVG",
+      "source": "依据：archify/bin/archify.mjs:889,908,1059 @ 06dd052",
+      "sentences": [
+        {"text": "通过后，程序再把它渲染成 HTML 和 SVG。", "spoken": "通过后，程序再把它渲染成网页和矢量图。"}
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "WHY IT MATTERS",
+      "heading": "输入和图之间，多了一层约束",
+      "body": "这层约束可以被定位、修改和再次校验。",
+      "evidenceMode": "source",
+      "keyword": "可检查",
+      "source": "机制归纳；依据 README.md:15,194 @ 06dd052",
+      "sentences": [
+        {"text": "于是，输入和图之间就多了一层可检查的约束。"}
       ]
     },
     {
       "type": "code",
-      "heading": "图背后，节点和连线都有名字",
+      "heading": "看一条真实连接",
       "code": "{\n  \"id\": \"api-sql\",\n  \"from\": \"api\",\n  \"to\": \"db\",\n  \"label\": \"SQL\"\n}",
-      "body": "api → db\n不是随手画的箭头，\n而是明确的数据关系。",
-      "note": "官方 JSON 示例中的单条连接摘录。\n不是完整输入，也不是可独立运行的程序。",
-      "source": "源码：docs/gallery/sources/web-app.architecture.json · connections / api-sql @ 06dd052",
+      "highlightLines": [2],
+      "evidenceMode": "source",
+      "keyword": "官方示例",
+      "source": "源码：docs/gallery/sources/web-app.architecture.json:37 @ 06dd052 · 单条连接摘录",
       "sentences": [
-        {"text": "比如这条官方示例里的连接。"},
-        {"text": "它明确写出：从接口服务指向数据库。"},
-        {"text": "后续改图，可以针对这条关系修改。"}
+        {"text": "比如这条官方示例里的连接。"}
+      ]
+    },
+    {
+      "type": "code",
+      "heading": "起点和终点，都写得很清楚",
+      "code": "{\n  \"id\": \"api-sql\",\n  \"from\": \"api\",\n  \"to\": \"db\",\n  \"label\": \"SQL\"\n}",
+      "highlightLines": [3, 4],
+      "evidenceMode": "source",
+      "keyword": "接口服务指向数据库",
+      "source": "源码：docs/gallery/sources/web-app.architecture.json:37 @ 06dd052",
+      "sentences": [
+        {"text": "它明确写出，从接口服务指向数据库。"}
+      ]
+    },
+    {
+      "type": "code",
+      "heading": "代码中的关系，映射到图上的箭头",
+      "code": "{\n  \"id\": \"api-sql\",\n  \"from\": \"api\",\n  \"to\": \"db\",\n  \"label\": \"SQL\"\n}",
+      "highlightLines": [3, 4, 5],
+      "diagram": {
+        "eyebrow": "CONNECTION",
+        "from": "API",
+        "to": "DB",
+        "label": "SQL"
+      },
+      "evidenceMode": "source",
+      "keyword": "明确的数据关系",
+      "source": "源码：docs/gallery/sources/web-app.architecture.json:37 @ 06dd052；右侧为对应关系示意",
+      "sentences": [
+        {"text": "这不是随手画的箭头，而是一条明确的数据关系。"}
       ]
     },
     {
       "type": "media",
-      "heading": "一次请求\n怎么走？",
-      "body": "时序图示例：\n鉴权 → 读缓存 → 查数据库\n\n它适合帮助团队\n讲清调用顺序。",
+      "heading": "图中的关系，可以被定位",
+      "body": "节点、连接、边界\n组织在同一个阅读界面。",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-menu.png",
+      "fit": "cover",
+      "position": "center",
+      "zoom": 1.04,
+      "zoomTravel": 0.09,
+      "callout": "官方阅读器示例",
+      "evidenceMode": "official",
+      "keyword": "针对这条关系修改",
+      "source": "来源：docs/assets/archify-menu.png @ 06dd052 · 官方示例 · MIT · 非本机实测",
+      "sentences": [
+        {"text": "后续改图，也可以针对这条关系修改。"}
+      ]
+    },
+    {
+      "type": "media",
+      "heading": "不只支持架构图",
+      "body": "源码入口列出五种类型：\n架构、工作流、时序、\n数据流和生命周期。",
       "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-sequence.png",
       "fit": "cover",
       "position": "center 38%",
-      "caption": "官方示例 · 局部放大",
-      "source": "来源：README.md「Sequence」/ docs/assets/archify-sequence.png @ 06dd052 · MIT · 非运行轨迹",
+      "zoom": 1.15,
+      "panX": -2,
+      "panY": -1,
+      "callout": "官方时序图示例",
+      "evidenceMode": "official",
+      "keyword": "五种图",
+      "source": "依据：archify/bin/archify.mjs:13 / README.md:142；图片：docs/assets/archify-sequence.png @ 06dd052",
       "sentences": [
-        {"text": "它还支持时序图、工作流等不同表达方式。"},
-        {"text": "比如用时序图，讲清鉴权、缓存和数据库的调用顺序。"}
+        {"text": "源码入口还明确支持五种图，包括架构图、工作流和时序图。"}
       ]
     },
     {
-      "type": "bullets",
-      "eyebrow": "USE CASE / 使用价值",
-      "heading": "适合把复杂系统，讲给别人听",
-      "bullets": ["新人入门\n看懂组件关系", "方案评审\n对齐结构变化", "技术分享\n组织讲解路径"],
-      "note": "本页是基于功能的使用场景判断，不是效率提升或生产性能的实测结论。",
+      "type": "media",
+      "heading": "一次请求，怎么走？",
+      "body": "鉴权 → 缓存 → 数据库\n\n用顺序，而不是一页文字，\n解释调用过程。",
+      "src": "../../workspaces/repos/tt-a1i--archify/docs/assets/archify-sequence.png",
+      "fit": "cover",
+      "position": "center 43%",
+      "zoom": 1.42,
+      "zoomTravel": 0.08,
+      "panX": 2,
+      "panY": -2,
+      "callout": "局部放大 · 非运行轨迹",
+      "evidenceMode": "official",
+      "keyword": "调用顺序",
+      "source": "来源：README.md「Sequence」/ docs/assets/archify-sequence.png @ 06dd052 · 官方示例 · 非运行轨迹",
+      "sentences": [
+        {"text": "时序图则适合讲清鉴权、缓存和数据库的调用顺序。"}
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "USE CASE",
+      "heading": "它的价值，是帮助团队沟通复杂系统",
+      "body": "不是替团队自动判断系统事实。",
+      "evidenceMode": "editorial",
+      "keyword": "技术沟通",
+      "source": "依据：README.md 与官方示例；使用价值为编辑判断 @ 06dd052",
+      "sentences": [
+        {"text": "我的判断是，它最适合技术沟通。"}
+      ]
+    },
+    {
+      "type": "audience",
+      "heading": "同一张图，服务三种沟通场景",
+      "items": [
+        {"title": "新人入门", "body": "先看懂组件和边界"},
+        {"title": "方案评审", "body": "对齐结构与关系变化"},
+        {"title": "技术分享", "body": "组织清晰的讲解路径"}
+      ],
+      "activeIndex": 1,
+      "evidenceMode": "editorial",
+      "keyword": "新人入门",
       "source": "依据：README.md / 官方示例；场景价值为编辑判断 @ 06dd052",
       "sentences": [
-        {"text": "我的判断是，它更适合技术沟通。"},
-        {"text": "新人入门、方案评审和知识分享，都能用到这种表达。"}
+        {"text": "新人入门、方案评审和技术分享，都能用到这种表达。"}
       ]
     },
     {
-      "type": "bullets",
-      "eyebrow": "REALITY CHECK / 使用边界",
-      "heading": "校验通过，不等于理解正确",
-      "bullets": ["输入的事实\n仍需人工核对", "不是通用\n拖拽绘图编辑器", "功能结论基于源码\n未做端到端演示"],
-      "note": "官方图展示的是作者写入的关系；不能据此推断真实系统的运行状态或性能。",
-      "source": "依据：README.md「Why Archify / Reference and scope」；本期验证范围说明",
+      "type": "contrast",
+      "heading": "但这里有一道重要边界",
+      "left": {
+        "eyebrow": "STRUCTURE CHECK",
+        "title": "格式合法",
+        "body": "字段、对象和关系\n满足结构约束。",
+        "tone": "positive"
+      },
+      "right": {
+        "eyebrow": "REALITY CHECK",
+        "title": "事实未必正确",
+        "body": "真实系统里是否存在，\n仍需回到证据核对。",
+        "tone": "negative"
+      },
+      "evidenceMode": "source",
+      "keyword": "不等于理解正确",
+      "source": "依据：README.md:148,188 @ 06dd052",
       "sentences": [
-        {"text": "但要注意：校验通过，不等于模型理解正确。"},
-        {"text": "系统事实仍要人工核对，它也不是通用拖拽编辑器。"},
-        {"text": "本期功能结论基于源码，未做端到端演示。"}
+        {"text": "但校验通过，不等于模型理解正确。"}
+      ]
+    },
+    {
+      "type": "contrast",
+      "heading": "程序能检查结构，团队要核对事实",
+      "left": {
+        "eyebrow": "PROGRAM",
+        "title": "检查输入",
+        "body": "必填字段、对象标识、\n支持的修复方式。",
+        "tone": "positive"
+      },
+      "right": {
+        "eyebrow": "HUMAN",
+        "title": "核对系统",
+        "body": "是否漏掉服务，\n关系是否符合源码。",
+        "tone": "positive"
+      },
+      "evidenceMode": "source",
+      "keyword": "人工核对",
+      "source": "依据：archify/renderers/shared/validator.mjs:38 / README.md:148 @ 06dd052",
+      "sentences": [
+        {"text": "系统事实仍要人工核对。"}
+      ]
+    },
+    {
+      "type": "contrast",
+      "heading": "它也不是通用拖拽绘图工具",
+      "left": {
+        "eyebrow": "NOT THIS",
+        "title": "自由拖拽",
+        "body": "随意摆放和绘制\n任意视觉元素。",
+        "tone": "negative"
+      },
+      "right": {
+        "eyebrow": "BUILT FOR",
+        "title": "结构化交付",
+        "body": "围绕技术关系\n生成可复查产物。",
+        "tone": "positive"
+      },
+      "evidenceMode": "source",
+      "keyword": "通用拖拽编辑器",
+      "source": "依据：README.md:192,274 @ 06dd052",
+      "sentences": [
+        {"text": "它也不是一个通用拖拽编辑器。"}
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "EVIDENCE BOUNDARY",
+      "heading": "本期只做了源码研究",
+      "body": "官方图片用于解释功能；没有把它包装成本机端到端实测。",
+      "evidenceMode": "source",
+      "keyword": "没有运行项目",
+      "source": "研究范围：output/research/2026-09-15/tt-a1i--archify/research.json",
+      "sentences": [
+        {"text": "本期没有运行项目，功能结论来自源码和官方示例。"}
+      ]
+    },
+    {
+      "type": "flow",
+      "heading": "一句话带走",
+      "steps": [
+        {"title": "保留结构", "detail": "JSON 可修改"},
+        {"title": "保留证据", "detail": "关系可追溯"},
+        {"title": "人工核对", "detail": "事实不外包"}
+      ],
+      "activeIndex": 2,
+      "evidenceMode": "editorial",
+      "keyword": "可检查、可修改",
+      "source": "编辑结论；依据 README.md 与已核验源码 @ 06dd052",
+      "sentences": [
+        {"text": "它真正值得关注的，是把图变成可检查、可修改的产物。"}
       ]
     },
     {
       "type": "outro",
-      "eyebrow": "TAKEAWAY / 一句话带走",
+      "eyebrow": "OPEN SOURCE NOTES / 001",
       "title": "让图有结构，\n让结论有依据。",
       "subtitle": "先看源码和示例，再决定是否采用。",
-      "tagline": "项目链接、证据与许可说明见配套简介",
-      "source": "github.com/tt-a1i/archify · 数据截至 2026-09-04 · 中文合成旁白 · 开源观察 001",
+      "tagline": "github.com/tt-a1i/archify",
+      "evidenceMode": "editorial",
+      "keyword": "先看清，再采用",
+      "source": "数据截至 2026-09-14 · 源码 06dd052 · 中文合成旁白 · 本期非运行实测",
       "sentences": [
-        {"text": "它值得关注的，是把图变成可检查、可修改的产物。"},
-        {"text": "项目链接和证据已整理在简介，先看清，再采用。"}
+        {"text": "项目链接和证据放在简介里，先看清，再采用。"}
       ]
     }
   ]

@@ -145,13 +145,28 @@ pnpm research -- owner/repository --allow-run
 pnpm video:validate
 ```
 
-研究完成后生成独立最终榜：
+研究完成后可先生成独立最终榜，用于比较研究后的最终分：
 
 ```powershell
 pnpm scout:final -- --selection selections/YYYY-Www.json
 ```
 
-先在选择文件的 `videoProjects` 中加入人工确认制作的项目，再重新生成最终榜。生产渲染只接受该最终榜中“研究完成 + 人工批准”的项目，不能直接传入任意分镜：
+确定制作项目后，必须同时把仓库加入选择文件的 `videoProjects`，并在 `videoStoryboards` 中配置目标生产分镜，例如 `output/video/owner--repository/storyboard.json`。随后由统一编辑预设自动生成 20～28 个动态场景、旁白、字幕和结构质检报告：
+
+```powershell
+pnpm video:voice:check
+pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
+```
+
+生产旁白默认使用 `.env.local` 中显式选择的 TTS 提供方。当前推荐 `VIDEO_TTS_PROVIDER=qwen`，通过 SSH 隧道调用已授权并注册的 Qwen3-TTS 克隆音色；健康、认证或音色检查失败时直接停止，不会静默退回旧声音。Windows Huihui 仅在显式设置 `VIDEO_TTS_PROVIDER=windows` 时使用。配置与安全边界见 [docs/qwen-tts.md](docs/qwen-tts.md)。
+
+新增音色时需同时提供参考录音和准确逐字稿；注册并激活后，之后所有 `video:prepare` 都会自动使用它：
+
+```powershell
+pnpm video:voice:register -- --name narrator-two --audio "C:\path\reference.wav" --ref-text-file "C:\path\reference.txt" --activate
+```
+
+审核 `episode.source.json`、`storyboard.json` 和 `qa-report.json` 后重新生成最终榜。生产渲染只接受最终榜中“研究完成 + 人工批准 + 生产分镜存在”的项目，不能直接传入任意分镜：
 
 ```powershell
 pnpm video:render -- --final-ranking output/final-rankings/YYYY-Www.json --repo owner/repository --output output/video/owner--repository.mp4
@@ -165,14 +180,16 @@ pnpm video:studio -- --final-ranking output/final-rankings/YYYY-Www.json --repo 
 
 `pnpm video:smoke` 使用仓库自带的合成最终榜，仅验证渲染链路，不代表真实项目获批。
 
-分镜中的 `media` 场景可以引用本地图片或视频，顶层 `voiceover` 可以引用本地旁白。渲染前这些素材会复制到忽略版本控制的临时静态目录。
+分镜支持 `hero`、`flow`、`code`、`media`、`contrast`、`audience` 等动态编辑场景。带 `src` 的场景可以引用本地图片，顶层 `voiceover` 可以引用本地旁白；渲染前这些素材会复制到忽略版本控制的临时静态目录。动态分镜必须通过节奏、场景多样性、证据覆盖率和研究边界门禁。正式渲染后还会自动完成音视频全量解码，抽取 8 个代表帧并生成 `qa/final/contact-sheet.png`。
 
 ## 推荐周更流程
 
 1. 自动任务每日调用 `pnpm scout:weekly`；本周成功后均无网络副作用，失败则在下次触发重试。
 2. 从基础榜生成草稿，人工确认 7～8 个项目并将选择文件改为 `approved`。
 3. 批量执行默认只读研究，审核事实清单；信任项目后才使用 `--allow-run` 做演示验证。
-4. 运行 `pnpm scout:final`，根据趋势分 93 + 可演示性 7 形成独立最终榜。
-5. 将获准制作的项目加入 `videoProjects`，重新生成最终榜，再由 `video-factory` 渲染。
+4. 运行 `pnpm scout:final`，根据趋势分 93 + 可演示性 7 形成独立最终榜，用它选择视频项目。
+5. 将获准制作的项目加入 `videoProjects`，并填写对应 `videoStoryboards` 路径。
+6. 运行 `pnpm video:prepare` 生成动态分镜和结构 QA，人工审核后重新生成最终榜。
+7. 由 `video-factory` 正式渲染；检查自动生成的联系表和解码报告后再做人工成片批准。
 
-详细边界和数据流见 [docs/architecture.md](docs/architecture.md)。
+详细编排规范见 [docs/video-editorial-workflow.md](docs/video-editorial-workflow.md)，边界和数据流见 [docs/architecture.md](docs/architecture.md)。

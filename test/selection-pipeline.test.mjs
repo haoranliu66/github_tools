@@ -47,6 +47,10 @@ test('selection requires exactly seven or eight unique repositories', () => {
   assert.match(validateSelection({...base, selectedRepositories: base.selectedRepositories.slice(0, 6)})[0], /7 or 8/);
   assert.ok(validateSelection({...base, selectedRepositories: [...base.selectedRepositories.slice(0, 6), base.selectedRepositories[0]]})
     .some((error) => /unique/.test(error)));
+  assert.ok(validateSelection({...base, videoStoryboards: {'fixture/repo-1': 'storyboard.json'}})
+    .some((error) => /approved in videoProjects/.test(error)));
+  assert.ok(validateSelection({...base, videoProjects: ['fixture/repo-1']})
+    .some((error) => /production mapping/.test(error)));
 });
 
 test('draft selection, batch research, and research-backed final ranking preserve human gates', (t) => {
@@ -56,7 +60,15 @@ test('draft selection, batch research, and research-backed final ranking preserv
   assert.equal(draft.selection.status, 'draft');
   assert.throws(() => runResearchBatch({selectionPath, projectRoot: root, runner: () => ({status: 0})}), /approved/);
 
-  const approved = {...draft.selection, status: 'approved', videoProjects: ['fixture/repo-1']};
+  const productionDirectory = join(root, 'output', 'video', 'repo-1');
+  mkdirSync(productionDirectory, {recursive: true});
+  writeFileSync(join(productionDirectory, 'storyboard.json'), JSON.stringify({production: true}));
+  const approved = {
+    ...draft.selection,
+    status: 'approved',
+    videoProjects: ['fixture/repo-1'],
+    videoStoryboards: {'fixture/repo-1': 'output/video/repo-1/storyboard.json'},
+  };
   writeFileSync(selectionPath, JSON.stringify(approved));
   let calls = 0;
   const batch = runResearchBatch({
@@ -77,5 +89,6 @@ test('draft selection, batch research, and research-backed final ranking preserv
   assert.equal(final.result.rows[1].fullName, 'fixture/repo-1');
   assert.equal(final.result.rows[1].finalScore, 22);
   assert.equal(final.result.rows[1].videoApproved, true);
+  assert.equal(final.result.rows[1].storyboardPath, 'output/video/repo-1/storyboard.json');
   assert.equal(final.result.rows.filter((row) => row.finalScore === null).length, 5);
 });

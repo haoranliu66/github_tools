@@ -30,9 +30,10 @@ export function wavDuration(buffer) {
   return dataBytes / byteRate;
 }
 
-export function buildNarratedStoryboard(draft, durations, {gapSeconds = 0.24} = {}) {
+export function buildNarratedStoryboard(draft, durations, {gapSeconds = 0.24, minSceneSeconds = 0} = {}) {
   const fps = draft.meta?.fps;
-  if (!Number.isFinite(fps) || fps <= 0 || !Number.isFinite(gapSeconds) || gapSeconds < 0) throw new Error('Invalid timing settings.');
+  if (!Number.isFinite(fps) || fps <= 0 || !Number.isFinite(gapSeconds) || gapSeconds < 0 ||
+      !Number.isFinite(minSceneSeconds) || minSceneSeconds < 0) throw new Error('Invalid timing settings.');
   const count = draft.scenes.reduce((n, scene) => n + (scene.sentences?.length ?? 0), 0);
   if (count !== durations.length || durations.some(d => !Number.isFinite(d) || d <= 0)) throw new Error('Missing or invalid narration durations.');
   const storyboard = structuredClone(draft);
@@ -51,6 +52,11 @@ export function buildNarratedStoryboard(draft, durations, {gapSeconds = 0.24} = 
       sceneFrames += frames;
       return cue;
     });
+    const minimumFrames = Math.ceil(minSceneSeconds * fps);
+    if (sceneFrames < minimumFrames) {
+      clips.at(-1).frames += minimumFrames - sceneFrames;
+      sceneFrames = minimumFrames;
+    }
     scene.duration = sceneFrames / fps;
     totalFrames += sceneFrames;
     delete scene.sentences;

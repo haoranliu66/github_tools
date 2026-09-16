@@ -159,8 +159,13 @@ export function writeResearchArtifacts(result, outputRoot, fullName, date) {
     'storyboard.json': toStoryboard(result),
     'media_manifest.json': {
       repository: result.project.url,
-      items: [],
-      note: '补充自主录制的演示画面、旁白和获得授权的媒体素材。',
+      items: (result.video.visualAssets ?? []).map((item) => ({
+        file: item.path,
+        purpose: item.purpose,
+        licenseBasis: item.licenseBasis,
+        type: 'official-repository-asset-not-local-demo',
+      })),
+      note: '仓库素材只能作为官方来源画面，不能当作本机运行证据；另行补充的媒体仍需审核授权。',
     },
   };
 

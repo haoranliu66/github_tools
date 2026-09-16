@@ -13,5 +13,6 @@
     "owner/project-seven"
   ],
   "videoProjects": [],
-  "notes": "人工确认后把 status 改为 approved；研究结束后再填写 videoProjects。"
+  "videoStoryboards": {},
+  "notes": "人工确认后把 status 改为 approved；研究结束后同时填写 videoProjects 和对应的 videoStoryboards 生产路径。"
 }

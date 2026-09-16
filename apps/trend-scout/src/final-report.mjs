@@ -6,7 +6,7 @@ function safeName(fullName) {
   return fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
 }
 
-function latestResearch(projectRoot, fullName) {
+export function latestResearch(projectRoot, fullName) {
   const researchRoot = join(projectRoot, 'output/research');
   if (!existsSync(researchRoot)) return null;
   const dates = readdirSync(researchRoot, {withFileTypes: true})
@@ -31,6 +31,16 @@ function latestResearch(projectRoot, fullName) {
     }
   }
   return null;
+}
+
+function productionStoryboard(projectRoot, selection, fullName, research) {
+  const override = selection.videoStoryboards?.[fullName];
+  if (!override) return research.storyboardPath;
+  const storyboardPath = resolveSelectionProjectPath(projectRoot, override);
+  if (!existsSync(storyboardPath)) {
+    throw new Error(`Approved production storyboard does not exist for ${fullName}: ${override}`);
+  }
+  return storyboardPath;
 }
 
 function markdownFor(result) {
@@ -67,6 +77,10 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
     const completed = research?.status === 'completed';
     const demoabilityScore = completed ? research.research.demoability.score : null;
     const finalScore = completed ? Number((base.trendScore + demoabilityScore).toFixed(2)) : null;
+    const videoApproved = completed && selection.videoProjects.includes(fullName);
+    const storyboardPath = completed
+      ? (videoApproved ? productionStoryboard(projectRoot, selection, fullName, research) : research.storyboardPath)
+      : null;
     return {
       finalRank: null,
       weekId: selection.weekId,
@@ -83,10 +97,10 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
       researchStatus: completed ? 'completed' : research?.status ?? 'missing',
       researchIssue: completed ? null : research?.reason ?? 'No current-schema research package found.',
       researchPath: research ? relative(projectRoot, research.directory).replaceAll('\\', '/') : null,
-      storyboardPath: completed
-        ? relative(projectRoot, research.storyboardPath).replaceAll('\\', '/')
+      storyboardPath: storyboardPath
+        ? relative(projectRoot, storyboardPath).replaceAll('\\', '/')
         : null,
-      videoApproved: completed && selection.videoProjects.includes(fullName),
+      videoApproved,
     };
   }).sort((a, b) => {
     if (a.finalScore === null && b.finalScore !== null) return 1;

@@ -13,3 +13,7 @@ After reviewing the research-backed final ranking, add only the repositories exp
 video production to `videoProjects`, then regenerate the final ranking. Video rendering refuses every
 repository that is not approved in that final ranking.
 
+Every approved video must define its project-root-relative production storyboard path in
+`videoStoryboards`. Every mapping key must already be present in `videoProjects`; unapproved projects
+cannot prepare or override a production storyboard. After editing the selection, run `pnpm video:prepare`
+before regenerating the final ranking.

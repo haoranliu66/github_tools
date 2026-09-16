@@ -85,7 +85,7 @@
     "video": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "hook", "sections", "closing"],
+      "required": ["title", "hook", "sections", "closing", "visualAssets"],
       "properties": {
         "title": {"type": "string"},
         "hook": {"type": "string"},
@@ -102,7 +102,21 @@
             }
           }
         },
-        "closing": {"type": "string"}
+        "closing": {"type": "string"},
+        "visualAssets": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "purpose", "licenseBasis"],
+            "properties": {
+              "path": {"type": "string"},
+              "purpose": {"type": "string"},
+              "licenseBasis": {"type": "string"}
+            }
+          }
+        }
       }
     }
   }
