@@ -6,4 +6,5 @@
 - Claims in research artifacts must cite a repository file, release, issue, official documentation URL, or recorded test evidence.
 - Prefer deterministic storyboard edits over ad-hoc timeline mutations.
 - Never commit tokens, credentials, cloned repositories, rendered videos, or generated research artifacts.
-
+- Before generating or regenerating narration audio, or before running `pnpm video:prepare`, read
+  `.agents/skills/audio-narration-preflight/SKILL.md` completely and follow its preflight and acceptance checks.

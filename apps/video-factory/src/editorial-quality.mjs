@@ -13,6 +13,10 @@ function narrationText(scene) {
   return '';
 }
 
+function latinTerms(value) {
+  return String(value ?? '').match(/[A-Za-z][A-Za-z0-9]*(?:[.+-][A-Za-z0-9]+)*/gu) ?? [];
+}
+
 function runLimit(scenes, start, config) {
   const type = scenes[start].type;
   if (['media', 'contrast'].includes(type)) return config.rhythm.maxEvidenceSeriesRun;
@@ -77,8 +81,43 @@ export function evaluateEditorialQuality(story, config) {
     }
     const narration = narrationText(scene);
     if (!narration.trim()) errors.push(`scenes[${index}] must contain narration or captions.`);
-    if (narration.length > config.text.maxNarrationCharacters) {
-      errors.push(`scenes[${index}] narration exceeds ${config.text.maxNarrationCharacters} characters.`);
+    const cues = Array.isArray(scene.sentences) ? scene.sentences : (scene.captions ?? []);
+    const longCues = cues.filter((item) => String(item?.text ?? '').length > config.text.softSubtitleCharacters);
+    if (longCues.length) {
+      warnings.push(`scenes[${index}] has ${longCues.length} subtitle cue(s) above the ` +
+        `${config.text.softSubtitleCharacters}-character soft target; semantic text was preserved.`);
+    }
+    const allowedLatin = new Set([
+      ...(config.text.spokenLatinAllowlist ?? []),
+      ...(story?.meta?.spokenLatinAllowlist ?? []),
+    ].flatMap(latinTerms).map((term) => term.toLowerCase()));
+    const spoken = Array.isArray(scene.sentences)
+      ? scene.sentences.map((item) => item?.spoken ?? item?.text ?? '').join('')
+      : narration;
+    const unexpectedLatin = [...new Set(latinTerms(spoken)
+      .filter((term) => !allowedLatin.has(term.toLowerCase())))];
+    if (unexpectedLatin.length) {
+      errors.push(`scenes[${index}] spoken narration contains untranslated Latin terms: ${unexpectedLatin.join(', ')}.`);
+    }
+  }
+
+  const narrationBlocks = Array.isArray(story?.narrationBlocks) ? story.narrationBlocks : [];
+  for (const [index, block] of narrationBlocks.entries()) {
+    if (!Number.isFinite(block.duration) || block.duration <= 0 ||
+        block.duration > config.narrationBlocks.maxAudioSeconds) {
+      errors.push(`narrationBlocks[${index}] must be no longer than ` +
+        `${config.narrationBlocks.maxAudioSeconds}s.`);
+    }
+    if (!Array.isArray(block.sceneIndexes) || block.sceneIndexes.length === 0 ||
+        block.sceneIndexes.length > 6) {
+      errors.push(`narrationBlocks[${index}] must cover 1-6 scenes.`);
+    } else if (block.sceneIndexes.length < 2) {
+      warnings.push(`narrationBlocks[${index}] covers one scene because a technical split was required.`);
+    }
+    if (!Number.isInteger(block.characters) || block.characters < 1 ||
+        block.characters > config.narrationBlocks.maxRequestCharacters) {
+      errors.push(`narrationBlocks[${index}] exceeds the ` +
+        `${config.narrationBlocks.maxRequestCharacters}-character request limit.`);
     }
   }
 
@@ -115,6 +154,7 @@ export function evaluateEditorialQuality(story, config) {
       typeCounts,
       distinctSceneTypes: Object.keys(typeCounts).length,
       evidenceCoverage: Number(evidenceCoverage.toFixed(3)),
+      narrationBlockCount: narrationBlocks.length || null,
       totalDurationSeconds: totalDurationSeconds === null ? null : Number(totalDurationSeconds.toFixed(3)),
       averageSceneDuration: averageSceneDuration === null ? null : Number(averageSceneDuration.toFixed(3)),
     },

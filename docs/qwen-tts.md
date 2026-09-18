@@ -8,25 +8,52 @@ QWEN_TTS_BASE_URL=http://127.0.0.1:8000
 QWEN_TTS_API_KEY=local-secret
 QWEN_TTS_VOICE_ID=32-character-voice-id
 QWEN_TTS_LANGUAGE=Chinese
+QWEN_TTS_SEED=20260918
+QWEN_TTS_DO_SAMPLE=true
+QWEN_TTS_TOP_K=50
+QWEN_TTS_TOP_P=1
+QWEN_TTS_TEMPERATURE=0.8
+QWEN_TTS_REPETITION_PENALTY=1.05
+QWEN_TTS_SUBTALKER_DO_SAMPLE=true
+QWEN_TTS_SUBTALKER_TOP_K=50
+QWEN_TTS_SUBTALKER_TOP_P=1
+QWEN_TTS_SUBTALKER_TEMPERATURE=0.8
+QWEN_TTS_AUTO_TUNNEL=true
+QWEN_TTS_SSH_HOST=192.168.1.100
+QWEN_TTS_SSH_USER=Administrator
+QWEN_TTS_SSH_KEY=C:\Users\YOUR_NAME\.ssh\id_ed25519
 ```
 
 Never commit `.env.local`, reference recordings, API keys, or SSH private keys. Only clone voices with explicit permission. The reference recording remains on the TTS host until its voice entry is deleted.
 
-## Connect to the remote workstation
+## Automatic connection to the remote workstation
 
-The service should remain bound to remote loopback. Establish an SSH tunnel from the video-production machine and keep it running:
+The service should remain bound to remote loopback. `video:prepare` first reuses a healthy local Qwen connection. If none is available, it starts a non-interactive SSH tunnel using the configured public-key login, waits for `/health`, generates every narration clip, and closes only the tunnel it started.
 
-```powershell
-ssh -i C:\Users\YOUR_NAME\.ssh\id_ed25519 -N -L 8000:127.0.0.1:8000 Administrator@REMOTE_HOST
+```dotenv
+QWEN_TTS_SSH_PORT=22
+QWEN_TTS_REMOTE_HOST=127.0.0.1
+QWEN_TTS_REMOTE_PORT=8000
+QWEN_TTS_TUNNEL_START_TIMEOUT_MS=20000
 ```
 
-Do not expose port 8000 to the public internet. Before preparing a video, run:
+The SSH command uses batch mode, so it never waits for a password or an interactive host-key prompt. Configure the public key and accept the remote host key once during machine setup. Do not expose port 8000 to the public internet.
+
+No separate audio command or manually maintained tunnel is required for production preparation:
 
 ```powershell
-pnpm video:voice:check
+pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
 ```
 
-The check verifies service health, API authentication, and that the configured `voice_id` is registered. It never prints the API key. `video:prepare` repeats the same checks and stops on failure; it does not silently fall back to the Windows voice.
+The command establishes transport, verifies service health, authenticates, checks the configured `voice_id`, synthesizes adaptive narration blocks, measures the returned WAV files, pads and concatenates them, and writes `narration.wav`, subtitles, timing data, and the production storyboard. A block can continue while several visual scenes change. Any failure stops the job; it does not silently fall back to the Windows voice. `pnpm video:voice:check` remains available as an optional diagnostic and uses the same automatic tunnel lifecycle.
+
+The deployed service uses `MAX_NEW_TOKENS=1024` and reports that value through `/health`; production preparation refuses an older service configuration. Each request remains limited to 1,000 characters. Returned WAV duration, not text length, is the primary gate: a block longer than 64 seconds is regenerated as two complete parts split at the nearest full sentence. Short adjacent blocks on the same topic are eligible for a measured merge. The service also resolves the already-downloaded model from its persistent cache with `HF_HUB_OFFLINE=1` and `TRANSFORMERS_OFFLINE=1`, so routine container restarts do not depend on Hugging Face availability.
+
+When `QWEN_TTS_SEED` is set, every block in the episode sends the same explicit sampling policy. The production preset keeps sampling enabled, fixes both top-k/top-p paths, and uses `0.8` for the main and subtalker temperatures. The authenticated preflight fails closed unless the remote `/health` response advertises every sampling control, and the non-secret policy is recorded in `timing.json`. This improves repeatability across independently generated blocks without claiming that zero-shot speaker identity is mathematically identical.
+
+The endpoint currently returns a WAV file without word timestamps. Scene changes and subtitle cues inside a continuous block therefore use measured block duration plus semantic text weights (`measured-block-weighted-cues`). This is deterministic but approximate, so final listening and subtitle review remain required; the metadata does not claim forced alignment.
+
+Before narration work, read `.agents/skills/audio-narration-preflight/SKILL.md`. It records the hard service limits, Chinese-first wording rule, adaptive cadence profiles, split/merge behavior, and mandatory human listening check.
 
 ## Register and select voices
 

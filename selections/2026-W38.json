@@ -13,11 +13,7 @@
     "microsoft/vscode",
     "langgenius/dify"
   ],
-  "videoProjects": [
-    "tt-a1i/archify"
-  ],
-  "videoStoryboards": {
-    "tt-a1i/archify": "output/video/001-archify/storyboard.json"
-  },
-  "notes": "用户于 2026-09-15 明确批准 tt-a1i/archify 进入视频制作。研究仍为只读静态研究，成片不得表述为本机端到端实测。"
+  "videoProjects": [],
+  "videoStoryboards": {},
+  "notes": "用户于 2026-09-18 要求永久删除全部 Archify 视频、音频、分镜及各版生成目录。后续如需重新制作，必须重新设置 videoProjects、videoStoryboards 并经过人工视频批准。研究仍为只读静态研究，不得表述为本机端到端实测。"
 }

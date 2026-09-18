@@ -16,16 +16,20 @@
 
 ## 自动质量门禁
 
-- 20～28 个场景，总长 85～145 秒。
-- 平均场景时长不超过 6.5 秒，单场不超过 8.5 秒。
+- 20～28 个场景，总长 85～300 秒。
+- 平均场景时长不超过 12.5 秒，单场不超过 24 秒。
 - 至少使用 6 种场景类型，并包含流程、源码、对比、受众和结尾场景。
 - 普通相同场景类型不得连续超过 2 次；渐进流程、源码高亮或证据序列可按配置放宽。
 - 100% 场景必须有 `source` 和 `evidenceMode`。
-- 只读研究不能出现 `demo` 证据；仓库图片统一显示“官方素材 · 非本机实测”。
+- 只读研究不能出现 `demo` 证据。
 - 有合规仓库图片时，第一场必须立即展示项目画面。
-- 单句旁白最多 68 个字符，避免画面长期不切换。
+- 32 字符只是单条字幕的可读性软目标；没有合适语义边界时保留完整文本。
+- 旁白块通常覆盖 2～6 个场景，并按项目自动选择概念讲解、代码分析、操作演示或快讯节奏。
+- 单次 Qwen 请求不超过 1,000 字符，实测音频不超过 64 秒；超限或请求超时时只在完整句子处拆分，不裁字、不裁音频。
+- 相同主题的相邻短块会尝试合并；合并后的实测音频仍须重新通过硬门禁。
+- 口播以中文为主，只保留必要的项目名和白名单英文术语。
 
-规则集中在 `config/video-editorial.json`，实现位于 `apps/video-factory/src/editorial-planner.mjs` 和 `editorial-quality.mjs`。
+规则集中在 `config/video-editorial.json`，实现位于 `apps/video-factory/src/editorial-planner.mjs`、`narration-blocks.mjs`、`narration.mjs` 和 `editorial-quality.mjs`。生成音频前还必须阅读 `.agents/skills/audio-narration-preflight/SKILL.md`。
 
 ## 每期操作
 

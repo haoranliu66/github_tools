@@ -56,3 +56,29 @@ test('WAV duration is measured from PCM bytes rather than estimated narration le
   assert.throws(() => timing.wavDuration(Buffer.from('not audio')));
   assert.throws(() => timing.wavDuration(wave.subarray(0, 50)));
 });
+
+test('one measured narration block can drive several visual scenes', () => {
+  assert.equal(typeof timing.buildNarratedStoryboardFromBlocks, 'function');
+  const blockDraft = {
+    meta: {fps: 10},
+    scenes: [
+      {type: 'text', sentences: [{text: '第一句。'}]},
+      {type: 'text', sentences: [{text: '第二句。'}]},
+      {type: 'outro', sentences: [{text: '第三句。'}]},
+    ],
+  };
+  const segments = blockDraft.scenes.map((scene, sceneIndex) => ({
+    sceneIndex, sentenceIndex: 0, text: scene.sentences[0].text,
+  }));
+  const result = timing.buildNarratedStoryboardFromBlocks(blockDraft, [{
+    id: 'block-000', profile: 'concept-explainer', segments, duration: 9,
+    text: '第一句。第二句。第三句。', sceneIndexes: [0, 1, 2], topics: ['overview'],
+  }], {gapSeconds: 0.2});
+  assert.equal(result.audioClips.length, 1);
+  assert.equal(result.clips.length, 3);
+  assert.equal(result.storyboard.narrationBlocks[0].sceneIndexes.length, 3);
+  assert.equal(result.storyboard.meta.narrationAlignment, 'measured-block-weighted-cues');
+  assert.equal(result.totalFrames, 92);
+  assert.equal(result.storyboard.scenes.reduce((sum, scene) => sum + scene.duration, 0), 9.2);
+  assert.ok(result.storyboard.scenes.every((scene) => scene.captions.length === 1));
+});

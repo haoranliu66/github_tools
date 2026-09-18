@@ -2,6 +2,7 @@
 import {readFileSync, renameSync, writeFileSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {ensureQwenTransport} from './qwen-tunnel.mjs';
 import {
   listQwenVoices,
   preflightTts,
@@ -39,36 +40,47 @@ function activateVoice(voiceId) {
 async function main() {
   const command = process.argv[2] ?? 'check';
   if (command === 'check') {
-    const report = await preflightTts(resolveTtsConfig());
-    console.log(JSON.stringify({status: 'passed', ...report}, null, 2));
+    const config = resolveTtsConfig();
+    const transport = await ensureQwenTransport(config);
+    try {
+      const report = await preflightTts(config);
+      console.log(JSON.stringify({status: 'passed', transport: transport.mode, ...report}, null, 2));
+    } finally {
+      await transport.close();
+    }
     return;
   }
   const service = resolveQwenServiceConfig(process.env, {requireVoice: false});
-  if (command === 'list') {
-    const voices = await listQwenVoices(service);
-    console.log(JSON.stringify({voices}, null, 2));
-    return;
-  }
-  if (command === 'use') {
-    const voiceId = requireOption('--voice-id').toLowerCase();
-    const voices = await listQwenVoices(service);
-    const voice = voices.find((item) => item.voice_id === voiceId);
-    if (!voice) throw new Error(`Registered voice not found: ${voiceId}`);
-    activateVoice(voiceId);
-    console.log(JSON.stringify({status: 'activated', voice}, null, 2));
-    return;
-  }
-  if (command === 'register') {
-    const refText = optionValue('--ref-text') ??
-      readFileSync(resolve(requireOption('--ref-text-file')), 'utf8').trim();
-    const result = await registerQwenVoice({
-      name: requireOption('--name'),
-      audioPath: resolve(requireOption('--audio')),
-      refText,
-    }, service);
-    if (process.argv.includes('--activate')) activateVoice(result.voiceId);
-    console.log(JSON.stringify({status: 'registered', activated: process.argv.includes('--activate'), ...result}, null, 2));
-    return;
+  const transport = await ensureQwenTransport(service);
+  try {
+    if (command === 'list') {
+      const voices = await listQwenVoices(service);
+      console.log(JSON.stringify({transport: transport.mode, voices}, null, 2));
+      return;
+    }
+    if (command === 'use') {
+      const voiceId = requireOption('--voice-id').toLowerCase();
+      const voices = await listQwenVoices(service);
+      const voice = voices.find((item) => item.voice_id === voiceId);
+      if (!voice) throw new Error(`Registered voice not found: ${voiceId}`);
+      activateVoice(voiceId);
+      console.log(JSON.stringify({status: 'activated', voice}, null, 2));
+      return;
+    }
+    if (command === 'register') {
+      const refText = optionValue('--ref-text') ??
+        readFileSync(resolve(requireOption('--ref-text-file')), 'utf8').trim();
+      const result = await registerQwenVoice({
+        name: requireOption('--name'),
+        audioPath: resolve(requireOption('--audio')),
+        refText,
+      }, service);
+      if (process.argv.includes('--activate')) activateVoice(result.voiceId);
+      console.log(JSON.stringify({status: 'registered', activated: process.argv.includes('--activate'), ...result}, null, 2));
+      return;
+    }
+  } finally {
+    await transport.close();
   }
   throw new Error('Usage: voice-cli.mjs <check|list|use|register> [options]');
 }

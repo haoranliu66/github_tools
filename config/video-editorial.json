@@ -7,9 +7,9 @@
   },
   "durationSeconds": {
     "min": 85,
-    "max": 145,
-    "maxAverage": 6.5,
-    "maxScene": 8.5
+    "max": 300,
+    "maxAverage": 12.5,
+    "maxScene": 26
   },
   "rhythm": {
     "maxSameTypeRun": 2,
@@ -31,7 +31,45 @@
     "officialDisclosure": "非本机实测"
   },
   "text": {
-    "maxNarrationCharacters": 68
+    "softSubtitleCharacters": 32,
+    "spokenLatinAllowlist": ["AI", "Mermaid"]
+  },
+  "narrationBlocks": {
+    "defaultProfile": "code-analysis",
+    "requiredMaxNewTokens": 1024,
+    "maxRequestCharacters": 1000,
+    "maxAudioSeconds": 64,
+    "gapSeconds": 0.24,
+    "profiles": {
+      "concept-explainer": {
+        "minScenes": 4,
+        "targetScenes": 5,
+        "maxScenes": 6,
+        "shortBlockSeconds": 14,
+        "topicChange": "soft"
+      },
+      "code-analysis": {
+        "minScenes": 2,
+        "targetScenes": 3,
+        "maxScenes": 5,
+        "shortBlockSeconds": 10,
+        "topicChange": "hard"
+      },
+      "operation-demo": {
+        "minScenes": 2,
+        "targetScenes": 3,
+        "maxScenes": 4,
+        "shortBlockSeconds": 8,
+        "topicChange": "hard"
+      },
+      "quick-news": {
+        "minScenes": 2,
+        "targetScenes": 2,
+        "maxScenes": 3,
+        "shortBlockSeconds": 6,
+        "topicChange": "soft"
+      }
+    }
   },
   "media": {
     "extensions": [".png", ".jpg", ".jpeg", ".webp"],

@@ -154,11 +154,10 @@ pnpm scout:final -- --selection selections/YYYY-Www.json
 确定制作项目后，必须同时把仓库加入选择文件的 `videoProjects`，并在 `videoStoryboards` 中配置目标生产分镜，例如 `output/video/owner--repository/storyboard.json`。随后由统一编辑预设自动生成 20～28 个动态场景、旁白、字幕和结构质检报告：
 
 ```powershell
-pnpm video:voice:check
 pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
 ```
 
-生产旁白默认使用 `.env.local` 中显式选择的 TTS 提供方。当前推荐 `VIDEO_TTS_PROVIDER=qwen`，通过 SSH 隧道调用已授权并注册的 Qwen3-TTS 克隆音色；健康、认证或音色检查失败时直接停止，不会静默退回旧声音。Windows Huihui 仅在显式设置 `VIDEO_TTS_PROVIDER=windows` 时使用。配置与安全边界见 [docs/qwen-tts.md](docs/qwen-tts.md)。
+生产旁白默认使用 `.env.local` 中显式选择的 TTS 提供方。当前推荐 `VIDEO_TTS_PROVIDER=qwen`：`video:prepare` 会复用可用连接，或自动建立免密 SSH 隧道，等待 Qwen 就绪后按项目节奏生成可跨 2～6 个画面的旁白块，再依据实测 WAV 时长生成场景和字幕时间轴。超过 64 秒或请求超时的旁白块只在完整句子处拆分；同主题短块会尝试合并，文案不会被裁掉。任务结束后只关闭本次自行建立的隧道。无需预先手动启动隧道，也无需单独执行音频命令；健康、认证或音色检查失败时直接停止，不会静默退回旧声音。Windows Huihui 仅在显式设置 `VIDEO_TTS_PROVIDER=windows` 时使用。生成前必须阅读 [.agents/skills/audio-narration-preflight/SKILL.md](.agents/skills/audio-narration-preflight/SKILL.md)，配置与安全边界见 [docs/qwen-tts.md](docs/qwen-tts.md)。
 
 新增音色时需同时提供参考录音和准确逐字稿；注册并激活后，之后所有 `video:prepare` 都会自动使用它：
 
