@@ -6,6 +6,8 @@ import {fileURLToPath} from 'node:url';
 import {buildResearchPrompt} from './prompt.mjs';
 import {writeResearchArtifacts} from './artifacts.mjs';
 import {cloneRepository} from './clone.mjs';
+import {loadSelection} from '../../trend-scout/src/selection.mjs';
+import {projectLayoutFromSelection, safeRepositoryName} from '../../shared/pipeline-paths.mjs';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const SCHEMA_PATH = join(PROJECT_ROOT, 'apps/repo-researcher/schemas/research.schema.json');
@@ -86,7 +88,7 @@ export function classifyCodexFailure({
   return {code: 'CODEX_EXEC_FAILED', canUseUnelevatedFallback: false};
 }
 
-function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox) {
+function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox, runRoot) {
   const startedAt = new Date();
   console.log(`Starting ${allowRun ? 'run-enabled' : 'read-only'} Codex research ` +
     `with Windows sandbox ${windowsSandbox ?? 'n/a'} in ${repositoryPath}...`);
@@ -113,7 +115,7 @@ function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox) {
     processError: result.error?.message ?? parseError?.message,
     researchStatus: parsed?.status,
   });
-  const runDirectory = join(PROJECT_ROOT, 'output/research/_runs',
+  const runDirectory = join(runRoot,
     `${startedAt.toISOString().replace(/[:.]/g, '-')}-${process.pid}-${windowsSandbox ?? 'default'}`);
   mkdirSync(runDirectory, {recursive: true});
   writeFileSync(join(runDirectory, 'codex.stdout.txt'), result.stdout ?? '', 'utf8');
@@ -121,7 +123,7 @@ function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox) {
   writeFileSync(join(runDirectory, 'run.json'), `${JSON.stringify({
     startedAt: startedAt.toISOString(), repositoryPath,
     sandbox: allowRun ? 'workspace-write' : 'read-only',
-    windowsSandbox: process.platform === 'win32' ? 'elevated' : null,
+    windowsSandbox: process.platform === 'win32' ? windowsSandbox : null,
     durationMs: Date.now() - startedAt.getTime(), exitCode: result.status,
     processError: result.error?.message ?? parseError?.message ?? null,
     diagnosticCode: diagnosis.code,
@@ -131,7 +133,7 @@ function runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandbox) {
   return {process: result, parsed, parseError, diagnosis};
 }
 
-function runCodex(repositoryPath, prompt, allowRun) {
+function runCodex(repositoryPath, prompt, allowRun, runRoot) {
   const windowsSandboxes = process.platform === 'win32'
     ? buildWindowsSandboxPlan({
       configured: process.env.CODEX_WINDOWS_SANDBOX || 'auto',
@@ -140,7 +142,13 @@ function runCodex(repositoryPath, prompt, allowRun) {
     : [null];
 
   for (let index = 0; index < windowsSandboxes.length; index += 1) {
-    const execution = runCodexAttempt(repositoryPath, prompt, allowRun, windowsSandboxes[index]);
+    const execution = runCodexAttempt(
+      repositoryPath,
+      prompt,
+      allowRun,
+      windowsSandboxes[index],
+      runRoot,
+    );
     const hasFallback = index + 1 < windowsSandboxes.length;
     if (hasFallback && execution.diagnosis.canUseUnelevatedFallback) {
       console.warn('Elevated Windows sandbox setup was canceled; retrying read-only research ' +
@@ -163,17 +171,24 @@ function main() {
   const allowRun = hasFlag('--allow-run');
   const dryRun = hasFlag('--dry-run');
   const localOnly = hasFlag('--local');
+  const selectionPath = optionValue('--selection');
+  if (!selectionPath) {
+    throw new Error('Research requires --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json.');
+  }
+  const {selection} = loadSelection(selectionPath, {requireApproved: true});
+  if (!selection.selectedRepositories.includes(fullName)) {
+    throw new Error(`Repository is not in the approved weekly research selection: ${fullName}`);
+  }
+  const layout = projectLayoutFromSelection(PROJECT_ROOT, selection, fullName);
+  mkdirSync(layout.resourcesDirectory, {recursive: true});
   const repositoryPath = resolve(
-    optionValue('--local', join(PROJECT_ROOT, 'workspaces/repos', fullName.replace('/', '--'))),
+    optionValue('--local', join(PROJECT_ROOT, 'workspaces/repos', safeRepositoryName(fullName))),
   );
   const repositoryUrl = localOnly ? `local:${fullName}` : `https://github.com/${fullName}`;
   const prompt = buildResearchPrompt({fullName, repositoryUrl, allowRun, localOnly});
-  const date = new Date().toISOString().slice(0, 10);
 
   if (dryRun) {
-    const directory = join(PROJECT_ROOT, 'output/research', date, fullName.replace('/', '--'));
-    mkdirSync(directory, {recursive: true});
-    const promptPath = join(directory, 'codex-prompt.txt');
+    const promptPath = join(layout.resourcesDirectory, 'codex-prompt.txt');
     writeFileSync(promptPath, prompt, 'utf8');
     console.log(`Dry run complete. Prompt written to ${promptPath}`);
     return;
@@ -183,8 +198,13 @@ function main() {
   if (!existsSync(repositoryPath)) throw new Error(`Repository path does not exist: ${repositoryPath}`);
 
   JSON.parse(readFileSync(SCHEMA_PATH, 'utf8'));
-  const result = runCodex(repositoryPath, prompt, allowRun);
-  const output = writeResearchArtifacts(result, join(PROJECT_ROOT, 'output/research'), fullName, date);
+  const result = runCodex(
+    repositoryPath,
+    prompt,
+    allowRun,
+    join(layout.resourcesDirectory, '_runs'),
+  );
+  const output = writeResearchArtifacts(result, layout.resourcesDirectory);
   console.log(`Research package written to ${output}`);
 }
 

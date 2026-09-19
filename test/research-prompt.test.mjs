@@ -15,6 +15,8 @@ test('read-only research prompt forbids repository execution', () => {
   assert.match(prompt, /maximum score is 4/i);
   assert.match(prompt, /video\.visualAssets/);
   assert.match(prompt, /not proof of a local run/i);
+  assert.match(prompt, /problem -> project action -> useful result/i);
+  assert.match(prompt, /Preserve product and company names/);
 });
 
 test('run-enabled prompt remains constrained to documented quick start', () => {

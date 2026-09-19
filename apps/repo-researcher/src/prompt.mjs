@@ -23,14 +23,21 @@ Research requirements:
 3. Prefer primary evidence from repository files and git metadata. Cite file paths with line numbers when practical.
 4. Separate verified facts from inferences. Lower confidence when evidence is incomplete.
 5. Avoid repeating marketing claims as facts.
-6. Produce a concise Chinese video concept with a strong hook, an actual demonstration plan, and a balanced conclusion.
+6. Produce a short, plain-language Chinese video concept for non-expert viewers. Lead with the familiar problem the
+   project solves, then show one or two concrete examples as problem -> project action -> useful result. Keep
+   video.sections to 2-4 concise sections. Do not write an architecture tour, research-method explanation, evidence
+   recap, or feature catalogue unless it is necessary to understand the problem.
 7. Set project.versionOrCommit to the full inspected Git HEAD commit SHA, not a branch name or a placeholder. Disclose any uncommitted changes or incomplete version checks as limitations.
 8. Set status="completed" only after reading repository files and fixing the inspected commit. List the files actually read as repository-relative paths in inspectedFiles. At least one claim must cite one of those files (for example src/index.mjs:2). Never list a file you could not read.
 9. Set status="blocked" if policy denies necessary repository reads, essential source files cannot be read, or the Git HEAD commit cannot be determined. Do not bypass a policy denial or try to access denied files. Explain the exact blocker in blockedReason. Use status="failed" for unrecoverable non-policy failures. For successful research, blockedReason must be empty.
 10. Optional metadata failures and Git warnings are not equivalent to a policy denial. If repository source and HEAD are verified, record such warnings as limitations and continue the supported static analysis; do not discard verified findings solely because an optional check failed. Keep every demo step not-run in read-only mode.
 11. Do not repair or override user Git configuration. In particular, do not set core.excludesFile to NUL or probe inaccessible user configuration files. For tracked working-tree changes prefer git --no-optional-locks diff --no-ext-diff --no-textconv --name-only HEAD; disclose changes and note that this check does not enumerate untracked files. Record failures per command instead of treating the last command in a batch as proof that all commands succeeded.
 12. ${demoabilityPolicy} Return demoability.score, demoability.confidence, and a concise evidence-based demoability.reason.
-13. For video.visualAssets, identify zero to three useful repository-owned PNG, JPG, JPEG, or WebP images that actually exist in the clone and can support the explanation. Use repository-relative paths only, state each image's purpose and license basis, and return an empty array when ownership or reuse permission is unclear. Repository images are official source material, not proof of a local run.
+13. For each video section, make narration conversational and make visual describe the exact B-roll: a repository
+    result image, README explanation, UI, diagram, or a simple example derived from verified behavior. Avoid academic
+    phrases such as “机制”“证据边界”“范式” when ordinary verbs and outcomes work. Preserve product and company names
+    such as Claude, OpenAI, GitHub, Codex, Qwen, and the repository name in English.
+14. For video.visualAssets, identify zero to three useful repository-owned PNG, JPG, JPEG, or WebP images that actually exist in the clone and can support the explanation. Use repository-relative paths only, state each image's purpose and license basis, and return an empty array when ownership or reuse permission is unclear. Repository images are official source material, not proof of a local run. Keep provenance in metadata; do not put production labels such as “官方素材” or “非本机实测” into the viewer script.
 
 Return only JSON matching the supplied schema.`;
 }

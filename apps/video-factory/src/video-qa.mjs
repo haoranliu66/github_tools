@@ -30,29 +30,35 @@ export function representativeFrames(storyboard, count = 8) {
   }));
 }
 
-export function writeVideoQa({ffmpegPath, videoPath, storyboard, sampleCount = 8}) {
+export function writeVideoQa({
+  ffmpegPath,
+  videoPath,
+  storyboard,
+  sampleCount = 8,
+  qaDirectory = null,
+}) {
   runFfmpeg(ffmpegPath, [
     '-v', 'error', '-xerror', '-i', videoPath,
     '-map', '0:v:0', '-map', '0:a:0', '-f', 'null', '-',
   ], 'Full audio/video decode');
 
-  const qaDirectory = join(dirname(videoPath), 'qa', 'final');
-  rmSync(qaDirectory, {recursive: true, force: true});
-  mkdirSync(qaDirectory, {recursive: true});
+  const resolvedQaDirectory = qaDirectory ?? join(dirname(videoPath), 'qa', 'final');
+  rmSync(resolvedQaDirectory, {recursive: true, force: true});
+  mkdirSync(resolvedQaDirectory, {recursive: true});
   const samples = representativeFrames(storyboard, sampleCount);
   for (const sample of samples) {
-    const output = join(qaDirectory, `sample-${String(sample.sampleIndex).padStart(2, '0')}.png`);
+    const output = join(resolvedQaDirectory, `sample-${String(sample.sampleIndex).padStart(2, '0')}.png`);
     runFfmpeg(ffmpegPath, [
       '-y', '-hide_banner', '-loglevel', 'error',
       '-ss', String(sample.frame / storyboard.meta.fps), '-i', videoPath, '-frames:v', '1', output,
     ], `QA frame ${sample.frame}`);
-    sample.file = relative(qaDirectory, output).replaceAll('\\', '/');
+    sample.file = relative(resolvedQaDirectory, output).replaceAll('\\', '/');
   }
   const rows = Math.ceil(samples.length / 2);
-  const contactSheet = join(qaDirectory, 'contact-sheet.png');
+  const contactSheet = join(resolvedQaDirectory, 'contact-sheet.png');
   runFfmpeg(ffmpegPath, [
     '-y', '-hide_banner', '-loglevel', 'error', '-framerate', '1', '-start_number', '1',
-    '-i', join(qaDirectory, 'sample-%02d.png'),
+    '-i', join(resolvedQaDirectory, 'sample-%02d.png'),
     '-vf', `scale=640:-1,tile=2x${rows}:padding=12:margin=12`, '-frames:v', '1', contactSheet,
   ], 'QA contact sheet');
 
@@ -73,8 +79,8 @@ export function writeVideoQa({ffmpegPath, videoPath, storyboard, sampleCount = 8
     durationSeconds: Number((totalFrames / storyboard.meta.fps).toFixed(3)),
     audioVideoDecode: 'passed',
     samples,
-    contactSheet: relative(join(qaDirectory, '..'), contactSheet).replaceAll('\\', '/'),
+    contactSheet: relative(join(resolvedQaDirectory, '..'), contactSheet).replaceAll('\\', '/'),
   };
-  writeFileSync(join(qaDirectory, 'report.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-  return {report, qaDirectory, contactSheet};
+  writeFileSync(join(resolvedQaDirectory, 'report.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  return {report, qaDirectory: resolvedQaDirectory, contactSheet};
 }

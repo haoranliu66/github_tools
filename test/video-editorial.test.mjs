@@ -46,7 +46,7 @@ function researchFixture() {
   };
 }
 
-test('editorial planner turns research evidence into a dense reusable visual plan', (t) => {
+test('editorial planner creates a concise problem-led B-roll plan', (t) => {
   const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
   t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
   mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
@@ -56,16 +56,28 @@ test('editorial planner turns research evidence into a dense reusable visual pla
     trendRow: {stars: 12345, trendScore: 42.5, weekId: '2026-W38'},
   });
   const report = evaluateEditorialQuality(episode, config);
+  assert.equal(config.durationSeconds.maxScene, 32);
   assert.deepEqual(report.errors, []);
   assert.deepEqual(warnings, []);
   assert.equal(episode.scenes[0].type, 'hero');
-  assert.match(episode.scenes[0].source, /非本机实测/);
+  assert.doesNotMatch(episode.scenes[0].source, /非本机实测/);
+  assert.equal(episode.scenes[0].stat.value, '12,345');
+  assert.equal(episode.meta.showEvidenceLabels, false);
   assert.equal(episode.scenes.length, config.sceneCount.target);
-  assert.ok(new Set(episode.scenes.map((scene) => scene.type)).size >= 6);
+  assert.ok(report.metrics.bRollCoverage >= config.bRoll.minimumCoverage);
+  assert.ok(new Set(episode.scenes.map((scene) => scene.type)).size >= config.rhythm.minDistinctTypes);
   assert.ok(episode.scenes.every((scene) => scene.source && scene.evidenceMode));
+  assert.ok(episode.scenes.every((scene) => scene.showEvidenceLabels === false));
   assert.ok(episode.scenes.every((scene) =>
     scene.sentences.every((item) => item.text && typeof item.sentenceEnd === 'boolean' && !item.text.includes('…'))));
   assert.equal(episode.meta.narrationProfile, 'code-analysis');
+  assert.equal(episode.scenes[1].heading, '它具体解决什么麻烦？');
+  const spoken = episode.scenes.flatMap((scene) => scene.sentences).map((item) => item.text).join('');
+  assert.doesNotMatch(spoken, /官方素材|非本机实测|趋势分|证据边界/);
+  assert.equal((spoken.match(/stars/giu) ?? []).length, 1);
+  const outro = episode.scenes.find((scene) => scene.type === 'outro');
+  assert.equal(outro.sentences.map((item) => item.text).join(''),
+    '保留结构和证据，再决定是否把它用于真实项目。');
 });
 
 test('editorial planner rejects repository media path traversal', (t) => {
@@ -82,13 +94,13 @@ test('subtitle soft splitting preserves the complete narration and Latin words',
   const research = researchFixture();
   research.video.visualAssets = [];
   research.video.sections[0].narration =
-    '相较通用绘图器或 Mermaid 图表工具，源码和文档明确边界。';
+    '相较通用绘图器或 Mermaid 图表工具，它的用途更清楚。';
   const shortConfig = {...config, text: {...config.text, softSubtitleCharacters: 18}};
   const {episode} = buildEditorialEpisode({research, repositoryRoot, config: shortConfig});
   const scene = episode.scenes.find((item) =>
     item.sentences?.some((cue) => cue.text.includes('Mermaid')));
   assert.equal(scene.sentences.map((item) => item.text).join(''),
-    '相较通用绘图器或 Mermaid 图表工具，源码和文档明确边界。');
+    '相较通用绘图器或 Mermaid 图表工具，它的用途更清楚。');
   assert.ok(scene.sentences.length > 1);
 });
 
@@ -107,16 +119,16 @@ test('subtitle soft splitting does not discard enumerated items', (t) => {
     '先打开现成网页，再依次展示环境检查命令、校验命令、交付命令和差异比较命令。');
 });
 
-test('editorial planner retains detailed findings up to the semantic boundary', (t) => {
+test('editorial planner keeps a complete selected example without research-report framing', (t) => {
   const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
   t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
   const research = researchFixture();
   research.video.visualAssets = [];
   const {episode} = buildEditorialEpisode({research, repositoryRoot, config});
   const narrations = episode.scenes.flatMap((scene) => scene.sentences ?? []).map((item) => item.text);
-  assert.ok(narrations.some((text) => text.startsWith('核心机制 1：读取结构化输入；')));
+  assert.ok(narrations.some((text) => text.startsWith('读取结构化输入；')));
   assert.ok(episode.scenes.some((scene) => scene.sentences.map((item) => item.text).join('') ===
-    '核心机制 1：读取结构化输入；检查第 1 类关系；生成可以继续复核的结果。'));
+    '读取结构化输入；检查第 1 类关系；生成可以继续复核的结果。'));
 });
 
 test('editorial planner gives code-switched technical narration a Chinese spoken form', (t) => {
@@ -131,6 +143,32 @@ test('editorial planner gives code-switched technical narration a Chinese spoken
   assert.equal(scene.sentences.map((item) => item.text).join(''),
     '命令行工具根据图类型选择渲染器；再通过类型化中间表示交付。');
   assert.ok(scene.sentences.every((item) => item.spoken === undefined));
+});
+
+test('evidence wrapping never splits a Latin identifier across lines', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  const research = researchFixture();
+  research.video.visualAssets = [];
+  research.claims[0].evidence[0].detail = 'frontmatter 设置 disable-model-invocation: true。';
+  const expandedConfig = {...config, sceneCount: {...config.sceneCount, target: 12, max: 12}};
+  const {episode} = buildEditorialEpisode({research, repositoryRoot, config: expandedConfig});
+  const scene = episode.scenes.find((item) => item.type === 'code' && item.code.includes('disable-model'));
+  assert.ok(scene);
+  assert.match(scene.code, /disable-model-invocation: true/u);
+  assert.doesNotMatch(scene.code, /disable-model-invocatio\nn/u);
+});
+
+test('proper product names stay in English while explanatory jargon can be translated', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  const research = researchFixture();
+  research.video.visualAssets = [];
+  research.video.sections[0].narration = 'Claude 和 OpenAI 都可以使用这个规则。';
+  const {episode} = buildEditorialEpisode({research, repositoryRoot, config});
+  const spoken = episode.scenes.flatMap((scene) => scene.sentences ?? []).map((item) => item.text).join('');
+  assert.match(spoken, /Claude 和 OpenAI/);
+  assert.deepEqual(evaluateEditorialQuality(episode, config).errors, []);
 });
 
 test('editorial quality rejects untranslated Latin terms in spoken narration', (t) => {

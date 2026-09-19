@@ -42,7 +42,7 @@ The SSH command uses batch mode, so it never waits for a password or an interact
 No separate audio command or manually maintained tunnel is required for production preparation:
 
 ```powershell
-pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
+pnpm video:prepare -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
 The command establishes transport, verifies service health, authenticates, checks the configured `voice_id`, synthesizes adaptive narration blocks, measures the returned WAV files, pads and concatenates them, and writes `narration.wav`, subtitles, timing data, and the production storyboard. A block can continue while several visual scenes change. Any failure stops the job; it does not silently fall back to the Windows voice. `pnpm video:voice:check` remains available as an optional diagnostic and uses the same automatic tunnel lifecycle.

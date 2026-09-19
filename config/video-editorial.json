@@ -1,38 +1,39 @@
 {
   "schemaVersion": 1,
   "sceneCount": {
-    "min": 20,
-    "max": 28,
-    "target": 24
+    "min": 6,
+    "max": 12,
+    "target": 6
   },
   "durationSeconds": {
-    "min": 85,
-    "max": 300,
-    "maxAverage": 12.5,
-    "maxScene": 26
+    "min": 45,
+    "max": 120,
+    "maxAverage": 20,
+    "maxScene": 32
   },
   "rhythm": {
     "maxSameTypeRun": 2,
     "maxEvidenceSeriesRun": 3,
     "maxProgressiveFlowRun": 4,
     "maxProgressiveCodeRun": 3,
-    "minDistinctTypes": 6
+    "minDistinctTypes": 3
   },
   "requiredSceneTypes": {
-    "flow": 2,
-    "code": 1,
-    "contrast": 2,
-    "audience": 1,
     "outro": 1
   },
   "openingTypes": ["hero", "contrast"],
   "evidence": {
     "minimumCoverage": 1,
-    "officialDisclosure": "非本机实测"
+    "viewerLabels": false
+  },
+  "bRoll": {
+    "types": ["hero", "media", "flow", "contrast", "code", "stat"],
+    "minimumCoverage": 0.6
   },
   "text": {
     "softSubtitleCharacters": 32,
-    "spokenLatinAllowlist": ["AI", "Mermaid"]
+    "maxNarrationCharacters": 430,
+    "spokenLatinAllowlist": ["AI", "ADHD", "Mermaid", "Claude", "OpenAI", "GitHub", "OpenCode", "Codex", "Qwen", "Pi", "Star", "Stars", "Node.js"]
   },
   "narrationBlocks": {
     "defaultProfile": "code-analysis",

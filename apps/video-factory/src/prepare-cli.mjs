@@ -6,6 +6,7 @@ import {basename, dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {latestResearch} from '../../trend-scout/src/final-report.mjs';
 import {loadSelection, resolveSelectionProjectPath} from '../../trend-scout/src/selection.mjs';
+import {projectLayoutFromSelection, safeRepositoryName} from '../../shared/pipeline-paths.mjs';
 import {buildEditorialEpisode} from './editorial-planner.mjs';
 import {assertEditorialQuality, loadEditorialConfig} from './editorial-quality.mjs';
 import {loadStoryboard} from './storyboard.mjs';
@@ -19,15 +20,11 @@ function optionValue(name) {
   return index >= 0 ? process.argv[index + 1] : null;
 }
 
-function safeName(fullName) {
-  return fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
-}
-
 function main() {
   const selectionPath = optionValue('--selection');
   const fullName = optionValue('--repo');
   if (!selectionPath || !fullName) {
-    throw new Error('Usage: prepare-cli.mjs --selection selections/YYYY-Www.json --repo owner/name');
+    throw new Error('Usage: prepare-cli.mjs --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/name');
   }
   const {selection} = loadSelection(selectionPath, {requireApproved: true});
   if (!selection.selectedRepositories.includes(fullName)) {
@@ -36,22 +33,18 @@ function main() {
   if (!selection.videoProjects.includes(fullName)) {
     throw new Error(`Repository is not approved for video production: ${fullName}`);
   }
-  const mappedStoryboard = selection.videoStoryboards?.[fullName];
-  if (!mappedStoryboard) throw new Error(`Approved project lacks a videoStoryboards mapping: ${fullName}`);
-  const storyboardPath = resolveSelectionProjectPath(PROJECT_ROOT, mappedStoryboard);
-  if (basename(storyboardPath).toLowerCase() !== 'storyboard.json') {
-    throw new Error('videoStoryboards must point to a file named storyboard.json.');
-  }
+  const layout = projectLayoutFromSelection(PROJECT_ROOT, selection, fullName);
+  const storyboardPath = layout.storyboardPath;
   if (existsSync(storyboardPath)) {
     throw new Error(`Production storyboard already exists; refusing to overwrite it: ${storyboardPath}`);
   }
 
-  const research = latestResearch(PROJECT_ROOT, fullName);
+  const research = latestResearch(PROJECT_ROOT, fullName, selection);
   if (research?.status !== 'completed') throw new Error(`Completed research is required for ${fullName}.`);
   const reportPath = resolveSelectionProjectPath(PROJECT_ROOT, selection.sourceReport);
   const trendRows = JSON.parse(readFileSync(reportPath, 'utf8'));
   const trendRow = trendRows.find((row) => row.fullName === fullName) ?? null;
-  const repositoryRoot = join(PROJECT_ROOT, 'workspaces/repos', safeName(fullName));
+  const repositoryRoot = join(PROJECT_ROOT, 'workspaces/repos', safeRepositoryName(fullName));
   if (!existsSync(repositoryRoot)) throw new Error(`Cloned repository is unavailable: ${repositoryRoot}`);
   const dataDate = basename(reportPath).match(/^(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? '';
   const config = loadEditorialConfig(CONFIG_PATH);

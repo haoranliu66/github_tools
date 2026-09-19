@@ -30,7 +30,7 @@ import {
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const draftPath = resolve(process.argv[2] ?? 'episodes/001-archify/episode.json');
-const output = resolve(process.argv[3] ?? 'output/video/001-archify');
+const output = resolve(process.argv[3] ?? 'output/videos/manual-project/resources/production');
 if (existsSync(join(output, 'storyboard.json'))) {
   throw new Error('Episode output exists. Choose a new output directory to preserve the previous cut.');
 }
@@ -149,6 +149,7 @@ const measuredSeconds = synthesis.blocks.map((block) => block.duration);
 const result = buildNarratedStoryboardFromBlocks(draft, synthesis.blocks, {
   gapSeconds: blockSettings.gapSeconds,
   minimumTotalSeconds: editorialConfig ? editorialConfig.durationSeconds.min : 0,
+  maxSceneSeconds: editorialConfig ? editorialConfig.durationSeconds.maxScene : 0,
 });
 for (const [index, clip] of result.audioClips.entries()) {
   run(ffmpeg.path, [

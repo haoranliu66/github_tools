@@ -1,44 +1,34 @@
-import {existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {join, relative, resolve} from 'node:path';
 import {loadSelection, resolveSelectionProjectPath} from './selection.mjs';
+import {
+  finalRankingWeekDirectory,
+  projectLayoutFromSelection,
+} from '../../shared/pipeline-paths.mjs';
 
-function safeName(fullName) {
-  return fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
-}
-
-export function latestResearch(projectRoot, fullName) {
-  const researchRoot = join(projectRoot, 'output/research');
-  if (!existsSync(researchRoot)) return null;
-  const dates = readdirSync(researchRoot, {withFileTypes: true})
-    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
-    .map((entry) => entry.name)
-    .sort().reverse();
-  for (const date of dates) {
-    const directory = join(researchRoot, date, safeName(fullName));
-    const researchPath = join(directory, 'research.json');
-    const storyboardPath = join(directory, 'storyboard.json');
-    if (!existsSync(researchPath)) continue;
-    try {
-      const research = JSON.parse(readFileSync(researchPath, 'utf8'));
-      const score = research?.demoability?.score;
-      if (research.status !== 'completed' || !Number.isInteger(score) || score < 0 || score > 7 ||
-          !existsSync(storyboardPath)) {
-        return {status: 'incomplete', directory, research, reason: 'Research lacks a valid demoability score or storyboard.'};
-      }
-      return {status: 'completed', directory, research, storyboardPath};
-    } catch (error) {
-      return {status: 'incomplete', directory, reason: error.message};
+export function latestResearch(projectRoot, fullName, selection) {
+  const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
+  const directory = layout.resourcesDirectory;
+  const researchPath = join(directory, 'research.json');
+  const storyboardPath = join(directory, 'storyboard.json');
+  if (!existsSync(researchPath)) return null;
+  try {
+    const research = JSON.parse(readFileSync(researchPath, 'utf8'));
+    const score = research?.demoability?.score;
+    if (research.status !== 'completed' || !Number.isInteger(score) || score < 0 || score > 7 ||
+        !existsSync(storyboardPath)) {
+      return {status: 'incomplete', directory, research, reason: 'Research lacks a valid demoability score or storyboard.'};
     }
+    return {status: 'completed', directory, research, storyboardPath, layout};
+  } catch (error) {
+    return {status: 'incomplete', directory, reason: error.message, layout};
   }
-  return null;
 }
 
-function productionStoryboard(projectRoot, selection, fullName, research) {
-  const override = selection.videoStoryboards?.[fullName];
-  if (!override) return research.storyboardPath;
-  const storyboardPath = resolveSelectionProjectPath(projectRoot, override);
+function productionStoryboard(projectRoot, selection, fullName) {
+  const storyboardPath = projectLayoutFromSelection(projectRoot, selection, fullName).storyboardPath;
   if (!existsSync(storyboardPath)) {
-    throw new Error(`Approved production storyboard does not exist for ${fullName}: ${override}`);
+    throw new Error(`Approved production storyboard does not exist for ${fullName}: ${storyboardPath}`);
   }
   return storyboardPath;
 }
@@ -73,13 +63,14 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
     if (base.eligibleForResearch === false || base.rankingStatus === 'not-rediscovered') {
       throw new Error(`Selected repository is not eligible for research this week: ${fullName}`);
     }
-    const research = latestResearch(projectRoot, fullName);
+    const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
+    const research = latestResearch(projectRoot, fullName, selection);
     const completed = research?.status === 'completed';
     const demoabilityScore = completed ? research.research.demoability.score : null;
     const finalScore = completed ? Number((base.trendScore + demoabilityScore).toFixed(2)) : null;
     const videoApproved = completed && selection.videoProjects.includes(fullName);
     const storyboardPath = completed
-      ? (videoApproved ? productionStoryboard(projectRoot, selection, fullName, research) : research.storyboardPath)
+      ? (videoApproved ? productionStoryboard(projectRoot, selection, fullName) : research.storyboardPath)
       : null;
     return {
       finalRank: null,
@@ -97,9 +88,11 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
       researchStatus: completed ? 'completed' : research?.status ?? 'missing',
       researchIssue: completed ? null : research?.reason ?? 'No current-schema research package found.',
       researchPath: research ? relative(projectRoot, research.directory).replaceAll('\\', '/') : null,
+      projectPath: relative(projectRoot, layout.projectDirectory).replaceAll('\\', '/'),
       storyboardPath: storyboardPath
         ? relative(projectRoot, storyboardPath).replaceAll('\\', '/')
         : null,
+      videoPath: relative(projectRoot, layout.videoPath).replaceAll('\\', '/'),
       videoApproved,
     };
   }).sort((a, b) => {
@@ -120,10 +113,10 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
     selectionFile: relative(projectRoot, absolutePath).replaceAll('\\', '/'),
     rows,
   };
-  const outputDirectory = join(projectRoot, 'output/final-rankings');
+  const outputDirectory = finalRankingWeekDirectory(projectRoot, selection.weekId);
   mkdirSync(outputDirectory, {recursive: true});
-  const jsonPath = join(outputDirectory, `${selection.weekId}.json`);
-  const markdownPath = join(outputDirectory, `${selection.weekId}.md`);
+  const jsonPath = join(outputDirectory, 'final-ranking.json');
+  const markdownPath = join(outputDirectory, 'final-ranking.md');
   writeFileSync(jsonPath, `${JSON.stringify(result, null, 2)}\n`, 'utf8');
   writeFileSync(markdownPath, markdownFor(result), 'utf8');
   return {result, jsonPath, markdownPath};

@@ -23,7 +23,7 @@
     "video:voice:use": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs use",
     "video:prepare": "node --env-file-if-exists=.env.local apps/video-factory/src/prepare-cli.mjs",
     "video:render": "node apps/video-factory/src/cli.mjs render",
-    "video:smoke": "node apps/video-factory/src/cli.mjs render --final-ranking apps/video-factory/examples/final-ranking.smoke.json --repo zimeiti/system-check --output output/video/smoke.mp4",
+    "video:smoke": "node apps/video-factory/src/cli.mjs render --final-ranking apps/video-factory/examples/final-ranking.smoke.json --repo zimeiti/system-check",
     "video:studio": "node apps/video-factory/src/cli.mjs studio",
     "test": "node scripts/run-project-tests.mjs"
   },

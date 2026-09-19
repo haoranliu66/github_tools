@@ -82,3 +82,25 @@ test('one measured narration block can drive several visual scenes', () => {
   assert.equal(result.storyboard.scenes.reduce((sum, scene) => sum + scene.duration, 0), 9.2);
   assert.ok(result.storyboard.scenes.every((scene) => scene.captions.length === 1));
 });
+
+test('measured block timing redistributes frames to respect the scene maximum', () => {
+  const blockDraft = {
+    meta: {fps: 10},
+    scenes: [
+      {type: 'text', sentences: [{text: '这是一段明显更长的旁白内容，用来占据大部分语义权重。'}]},
+      {type: 'text', sentences: [{text: '第二段。'}]},
+      {type: 'outro', sentences: [{text: '第三段。'}]},
+    ],
+  };
+  const segments = blockDraft.scenes.map((scene, sceneIndex) => ({
+    sceneIndex, sentenceIndex: 0, text: scene.sentences[0].text,
+  }));
+  const result = timing.buildNarratedStoryboardFromBlocks(blockDraft, [{
+    id: 'block-000', profile: 'concept-explainer', segments, duration: 9,
+    text: segments.map((segment) => segment.text).join(''), sceneIndexes: [0, 1, 2], topics: ['overview'],
+  }], {gapSeconds: 0.2, maxSceneSeconds: 4});
+  assert.equal(result.totalFrames, 92);
+  assert.equal(result.storyboard.scenes.reduce((sum, scene) => sum + scene.duration, 0), 9.2);
+  assert.ok(result.storyboard.scenes.every((scene) => scene.duration <= 4));
+  assert.equal(result.clips.reduce((sum, clip) => sum + clip.spokenFrames, 0), 90);
+});

@@ -17,12 +17,17 @@ topic selection, factual review, run authorization, voice authorization, and fin
 - A Qwen request must contain at most 1,000 characters, including punctuation.
 - A narration block normally covers 2-6 visual scenes. Technical duration or request-limit splits may temporarily
   produce a one-scene block and must be recorded in timing metadata.
-- Keep spoken narration predominantly Chinese. Retain English only for important names or terms on the configured
-  allowlist. Do not cluster many English terms in one request.
+- Keep explanations predominantly Chinese, but preserve proper product, company, model, and project names such as
+  Claude, OpenAI, GitHub, Codex, Qwen, and repository names in their English form. Translate or explain technical
+  jargon when an ordinary viewer would not understand it. Do not cluster many unrelated English terms in one request.
 - The 32-character value is a subtitle readability soft target, not a TTS request limit. A longer cue is acceptable
   when no clean semantic boundary exists.
 - Never fall back silently to another voice or provider. Confirm the configured voice ID through authenticated
   preflight without printing the API key.
+- Automated checks may mark narration ready for listening, but never accepted. A human must listen to the complete
+  narration in the final rendered MP4 at normal speed before final video approval.
+- Prepared scene timing may be up to the configured 32 seconds. This is separate from the 64-second hard ceiling for
+  one synthesized narration block.
 
 ## Choose cadence from the project
 
@@ -51,6 +56,10 @@ selected profile in `timing.json`.
    semantic allocation and must not be described as forced alignment.
 7. Verify `timing.json`, `storyboard.json`, `subtitles.srt`, the final narration duration, and all quality gates. Flag
    any one-scene technical split or subtitle cue above the soft target for review.
+8. In the final rendered MP4, listen to every narration block at normal speed. Check voice identity across block
+   boundaries, pronunciation of names and numbers, clipped phonemes, duplicated words, abnormal pauses, cadence
+   jumps, and subtitle agreement. Record the human full-episode listening result; metadata alone cannot pass this
+   step.
 
 ## Safe commands
 

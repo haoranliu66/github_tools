@@ -13,12 +13,26 @@ function clip(value, maximum = 54) {
   return `${text.slice(0, maximum - 1).trim()}…`;
 }
 
-function card(value, fallback) {
-  const text = clip(value || fallback, 30);
-  return {title: clip(text, 14), body: text.length > 14 ? text : '结合证据判断是否适用'};
-}
-
 const SPOKEN_REPLACEMENTS = [
+  [/Before\s*\/\s*After/giu, '前后'],
+  [/Action first/giu, '行动优先'],
+  [/Steps numbered/giu, '步骤编号'],
+  [/canonical\s+SKILL\.md/giu, '主技能规则文件'],
+  [/skills[\\/]i-have-adhd[\\/]SKILL\.md/giu, '项目的技能规则文件'],
+  [/SKILL\.md/gu, '技能规则文件'],
+  [/INSTALL\.md/gu, '安装说明'],
+  [/SessionStart/gu, '会话启动'],
+  [/always-on/giu, '持续启用'],
+  [/frontmatter/giu, '文档头部元数据'],
+  [/\bmanifest\b/giu, '清单文件'],
+  [/\bcanonical\b/giu, '主规则'],
+  [/\bskills\b/giu, '技能'],
+  [/平衡结论[:：]?/gu, '简单说，'],
+  [/核心机制/gu, '它的做法'],
+  [/证据边界/gu, '使用限制'],
+  [/低门槛/gu, '容易上手'],
+  [/工程封装完整/gu, '安装和使用方式比较完整'],
+  [/可靠性增强器/gu, '答案正确性的保证'],
   [/Architecture Delta/giu, '架构差异'],
   [/Workflow v2/giu, '第二版工作流'],
   [/Schema Validator/giu, '数据模式校验器'],
@@ -29,7 +43,6 @@ const SPOKEN_REPLACEMENTS = [
   [/visual-check/giu, '视觉检查命令'],
   [/Git commit/giu, '代码提交版本'],
   [/PRODUCT\.md/giu, '产品说明'],
-  [/Node\.js/giu, '节点运行环境'],
   [/WYSIWYG/giu, '所见即所得'],
   [/supportedFixes/gu, '支持的修复项'],
   [/authored reachability/giu, '作者定义的可达关系'],
@@ -55,8 +68,6 @@ const SPOKEN_REPLACEMENTS = [
   [/\bdeliver\b/giu, '交付命令'],
   [/\bcompare\b/giu, '差异比较命令'],
   [/\bcommit\b/giu, '提交版本'],
-  [/\bGitHub\b/giu, '代码托管平台'],
-  [/\bStars?\b/giu, '星标'],
   [/\bnot-run\b/giu, '未运行'],
 ];
 
@@ -74,7 +85,30 @@ function spokenNarration(value) {
 function completeSentences(value) {
   let text = clean(value);
   if (!/[。！？.!?]$/u.test(text)) text = `${text}。`;
-  return text.match(/[^。！？.!?]+[。！？.!?]+/gu) ?? [text];
+  return text.split(/(?<=[。！？])|(?<=[.!?])(?=\s|$)/u).map((item) => item.trim()).filter(Boolean);
+}
+
+function conciseNarration(value, maximum = 84) {
+  const viewerText = clean(value)
+    .replace(/^用[^：]{0,48}切入[:：]/u, '')
+    .replace(/^(?:展示|打开)[^：]{0,48}[:：]/u, '')
+    .replace(/^(?:平衡)?结论[:：]/u, '');
+  const sentences = completeSentences(viewerText);
+  let selected = '';
+  for (const sentence of sentences) {
+    if (selected && selected.length + sentence.length > maximum) break;
+    selected += sentence;
+    if (selected.length >= maximum) break;
+  }
+  if (selected.length <= maximum) return selected;
+  const clauses = selected.match(/[^，；：,;:]+[，；：,;:]?/gu) ?? [selected];
+  let compact = '';
+  for (const clause of clauses) {
+    if (compact && compact.length + clause.length > maximum) break;
+    compact += clause;
+  }
+  compact = compact.trim().replace(/[，；：,;:]$/u, '。');
+  return /[。！？.!?]$/u.test(compact) ? compact : `${compact}。`;
 }
 
 function subtitlePieces(sentence, softMaximum) {
@@ -131,10 +165,32 @@ function sourceLabel(source, commit) {
 }
 
 function wrapEvidence(value, width = 38) {
-  const text = clean(value);
+  let text = clean(value);
   const lines = [];
-  for (let offset = 0; offset < text.length && lines.length < 6; offset += width) {
-    lines.push(text.slice(offset, offset + width));
+  const tokenCharacter = /[A-Za-z0-9_.+-]/u;
+  while (text && lines.length < 6) {
+    if (text.length <= width) {
+      lines.push(text);
+      break;
+    }
+    let end = width;
+    if (tokenCharacter.test(text[end - 1]) && tokenCharacter.test(text[end])) {
+      const prefix = text.slice(0, end);
+      const whitespace = Math.max(prefix.lastIndexOf(' '), prefix.lastIndexOf('\t'));
+      if (whitespace > 0) {
+        end = whitespace;
+      } else {
+        while (end < text.length && tokenCharacter.test(text[end - 1]) && tokenCharacter.test(text[end])) end += 1;
+      }
+    } else {
+      const prefix = text.slice(0, end);
+      const naturalBreaks = ['，', '；', '：', '。', '、', ',', ';', ':', ' ']
+        .map((separator) => prefix.lastIndexOf(separator));
+      const naturalBreak = Math.max(...naturalBreaks);
+      if (naturalBreak >= Math.floor(width * 0.6)) end = naturalBreak + 1;
+    }
+    lines.push(text.slice(0, end).trim());
+    text = text.slice(end).trimStart();
   }
   return lines.join('\n');
 }
@@ -170,7 +226,7 @@ function approvedAssets(research, repositoryRoot, config) {
   return {assets, warnings};
 }
 
-function findingFlow(finding, commit, subtitleMaximum, topic) {
+function findingFlow(finding, commit, subtitleMaximum, topic, narrationText = finding.detail) {
   const parts = clean(finding.detail).split(/[；。]/u).map((item) => item.trim()).filter(Boolean).slice(0, 4);
   const steps = (parts.length >= 2 ? parts : [finding.title, finding.detail]).slice(0, 4).map((item) => ({
     title: clip(item, 14),
@@ -185,7 +241,7 @@ function findingFlow(finding, commit, subtitleMaximum, topic) {
     keyword: clip(finding.title, 8),
     source: sourceLabel('research.json / inspected repository files', commit),
     narrationTopic: topic,
-    sentences: narrationCues(`${finding.title}：${clean(finding.detail)}`, subtitleMaximum),
+    sentences: narrationCues(conciseNarration(narrationText, 86), subtitleMaximum),
   };
 }
 
@@ -205,22 +261,21 @@ function claimCode(claim, commit, subtitleMaximum, topic = 'evidence') {
   };
 }
 
-function mediaScene(asset, commit, index, subtitleMaximum, topic) {
+function mediaScene(asset, commit, index, subtitleMaximum, topic, narrationText) {
   return {
     type: 'media',
     heading: clip(asset.purpose, 30),
-    body: '仓库提供的项目画面，用来核对功能表达。',
+    body: clip(asset.purpose, 46),
     src: asset.absolutePath,
     fit: 'cover',
     position: 'center',
     zoom: 1.04 + index * 0.04,
     zoomTravel: 0.06,
-    callout: '官方仓库素材',
     evidenceMode: 'official',
-    keyword: '官方素材',
-    source: `来源：${asset.path} @ ${commit.slice(0, 8)} · ${asset.licenseBasis} · 非本机实测`,
+    keyword: clip(asset.purpose, 8),
+    source: `来源：${asset.path} @ ${commit.slice(0, 8)} · ${asset.licenseBasis}`,
     narrationTopic: topic,
-    sentences: narrationCues('官方素材展示项目画面，非本机实测。', subtitleMaximum),
+    sentences: narrationCues(narrationText || asset.purpose, subtitleMaximum),
   };
 }
 
@@ -237,149 +292,158 @@ export function buildEditorialEpisode({research, trendRow = null, repositoryRoot
   const subtitleMaximum = config.text.softSubtitleCharacters;
   const narration = (text) => narrationCues(text, subtitleMaximum);
   const narrationProfile = inferNarrationProfile(research);
-  const overviewItems = [...findings.map((item) => item.title), ...sections.map((item) => item.heading)]
-    .filter(Boolean).slice(0, 4);
-  while (overviewItems.length < 2) overviewItems.push(overviewItems.length ? '核对证据' : '理解问题');
+  const starValue = trendRow && Number.isFinite(trendRow.stars)
+    ? trendRow.stars.toLocaleString('en-US')
+    : '';
+  const starSentence = starValue ? `目前在 GitHub 已收获约 ${starValue} stars。` : '';
+  const openingNarration = `${conciseNarration(research.video.hook, 72)}${starSentence}`;
 
   const opening = assets.length ? {
     type: 'hero',
     src: assets[0].absolutePath,
     position: 'center',
-    kicker: 'OPEN WITH THE RESULT',
-    headline: `${name}\n值得关注吗？`,
+    kicker: '它解决什么问题？',
+    headline: name,
     subhead: clip(research.video.hook, 54),
-    badges: [name, '官方素材'],
+    badges: [name],
+    stat: starValue ? {eyebrow: 'GITHUB', value: starValue, label: 'Stars'} : undefined,
     evidenceMode: 'official',
-    keyword: '值得关注',
-    source: `来源：${assets[0].path} @ ${commit.slice(0, 8)} · ${assets[0].licenseBasis} · 非本机实测`,
+    keyword: name,
+    source: `来源：${assets[0].path} @ ${commit.slice(0, 8)} · ${assets[0].licenseBasis}`,
     narrationTopic: 'opening',
-    sentences: narration(research.video.hook),
+    sentences: narration(openingNarration),
   } : {
     type: 'contrast',
     heading: clip(research.video.hook, 34),
-    left: {eyebrow: 'FIRST LOOK', title: name, body: '先看项目解决什么问题', tone: 'positive'},
-    right: {eyebrow: 'REAL QUESTION', title: '证据够吗？', body: '再看源码、限制与适用场景', tone: 'positive'},
-    evidenceMode: 'editorial',
+    left: {eyebrow: '原来的麻烦', title: '信息太多', body: clip(research.video.hook, 38), tone: 'negative'},
+    right: {eyebrow: '项目的回答', title: name, body: clip(research.executiveSummary, 38), tone: 'positive'},
+    note: starValue ? `GitHub · ${starValue} stars` : undefined,
+    evidenceMode: 'source',
     keyword: name,
     source: sourceLabel('research.json / editorial hook', commit),
     narrationTopic: 'opening',
-    sentences: narration(research.video.hook),
+    sentences: narration(openingNarration),
   };
 
-  const scenes = [opening, {
-    type: 'flow',
-    heading: '先建立一条清晰的理解路径',
-    steps: overviewItems.map((item) => ({title: clip(item, 14), detail: '依据研究包逐项核对'})),
-    activeIndex: overviewItems.length - 1,
+  const firstSection = sections[0];
+  const firstFinding = findings[0];
+  const problemScene = {
+    type: 'contrast',
+    heading: '它具体解决什么麻烦？',
+    left: {
+      eyebrow: '以前',
+      title: '问题',
+      body: clip(firstSection?.narration || research.video.hook, 40),
+      tone: 'negative',
+    },
+    right: {
+      eyebrow: '用了这个项目',
+      title: '变化',
+      body: clip(firstFinding?.detail || research.executiveSummary, 40),
+      tone: 'positive',
+    },
     evidenceMode: 'source',
-    keyword: '理解路径',
-    source: sourceLabel('research.json findings', commit),
-    narrationTopic: 'opening',
-    sentences: narration(`这期看${overviewItems.slice(0, 3).join('、')}。`),
-  }];
+    keyword: clip(firstFinding?.title || name, 8),
+    source: sourceLabel('research.json problem and findings', commit),
+    narrationTopic: 'problem',
+    sentences: narration(conciseNarration(
+      firstFinding?.detail || firstSection?.narration || research.executiveSummary, 58,
+    )),
+  };
 
-  if (trendRow && Number.isFinite(trendRow.stars)) {
-    scenes.push({
-      type: 'stat', heading: '热度只是线索', value: trendRow.stars.toLocaleString('en-US'),
-      label: 'GitHub Stars', body: `${dataDate || trendRow.weekId || '当周'} 采集快照`,
-      evidenceMode: 'data', keyword: '热度',
-      source: `数据：weekly trend report · 趋势分 ${trendRow.trendScore} / 93`,
-      narrationTopic: 'opening',
-      sentences: narration(`采集时为${trendRow.stars.toLocaleString('zh-CN')}星，热度只是线索。`),
+  const explanations = [];
+  const usefulSections = sections.filter((section) =>
+    !/机制|架构|源码|代码|评测|安装|清单|manifest|钩子|扩展|演示/iu.test(
+      clean(`${section.heading} ${section.narration}`),
+    ),
+  );
+  for (const [index, section] of usefulSections.slice(0, 2).entries()) {
+    explanations.push({
+      type: 'text',
+      eyebrow: '举个例子',
+      heading: clip(section.heading, 30),
+      body: clip(section.visual, 48),
+      evidenceMode: 'source',
+      keyword: clip(section.heading, 8),
+      source: sourceLabel('research.json video example', commit),
+      narrationTopic: `example-${index + 1}`,
+      sentences: narration(conciseNarration(section.narration, 78)),
     });
   }
-  scenes.push({
-    type: 'text', eyebrow: 'THE THESIS', heading: clip(research.executiveSummary, 34),
-    body: '接下来把结论拆回机制、源码证据和使用边界。', evidenceMode: 'source', keyword: '机制',
-    source: sourceLabel('research.json executiveSummary', commit),
-    narrationTopic: 'opening',
-    sentences: narration(`${name}让技术图可检查、可追溯。`),
-  });
-
-  const mainCount = Math.max(sections.length, findings.length, claims.length, 1);
-  for (let index = 0; index < Math.min(mainCount, 6); index += 1) {
-    const section = sections[index];
-    const topic = section && /演示|操作|实测|步骤|路线/iu.test(
-      clean(`${section.heading} ${section.narration} ${section.visual}`),
-    ) ? 'adoption' : `main-${index + 1}`;
-    if (section) scenes.push({
-      type: 'text', eyebrow: `PART ${String(index + 1).padStart(2, '0')}`,
-      heading: clip(section.heading, 32), body: clip(section.visual, 52),
-      evidenceMode: 'editorial', keyword: clip(section.heading, 8),
-      source: sourceLabel('research.json video plan', commit),
-      narrationTopic: topic,
-      sentences: narration(section.narration),
-    });
-    const finding = findings[index];
-    if (finding) scenes.push(findingFlow(finding, commit, subtitleMaximum, topic));
-    const claim = claims[index];
-    if (claim) scenes.push(claimCode(claim, commit, subtitleMaximum, topic));
-    if (index < assets.length) scenes.push(mediaScene(assets[index], commit, index, subtitleMaximum, topic));
+  for (const [index, asset] of assets.slice(1, 3).entries()) {
+    explanations.push(mediaScene(
+      asset, commit, index + 1, subtitleMaximum, `example-media-${index + 1}`,
+      conciseNarration(asset.purpose, 72),
+    ));
+  }
+  const usefulFindings = findings.slice(1).filter((finding) =>
+    !/机制|架构|源码|代码|评测|安装|清单|manifest|钩子|扩展/iu.test(
+      clean(`${finding.title} ${finding.detail}`),
+    ),
+  );
+  for (const [index, finding] of usefulFindings.slice(0, 2).entries()) {
+    explanations.push(findingFlow(finding, commit, subtitleMaximum, `example-finding-${index + 1}`));
   }
 
-  const audience = (research.audience ?? []).slice(0, 3).map((item) => card(item, '技术内容读者'));
-  while (audience.length < 2) audience.push(card(audience.length ? '需要评估采用边界的团队' : '希望理解项目机制的开发者'));
-  const demoSteps = (research.demoPlan ?? []).slice(0, 4).map((item) => ({
-    title: clip(item.step, 14), detail: item.status === 'passed' ? '已验证' : '待运行验证',
-  }));
-  while (demoSteps.length < 2) demoSteps.push({title: demoSteps.length ? '核对输出' : '阅读文档', detail: '保留人工检查'});
-  const limitations = [...(research.limitations ?? [])];
-  while (limitations.length < 2) limitations.push(hasPassedDemo ? '运行结果仍需结合实际环境复核。' : '本期没有运行项目，效果仍需实际验证。');
-  const verified = claims[0]?.claim ?? research.executiveSummary;
+  const remainingProblemDetail = completeSentences(firstFinding?.detail ?? '').slice(1).join('');
+  if (firstFinding) {
+    explanations.push(findingFlow(
+      firstFinding, commit, subtitleMaximum, 'example-problem',
+      remainingProblemDetail || firstFinding.detail,
+    ));
+  }
+  if (claims[0]) explanations.push(claimCode(claims[0], commit, subtitleMaximum, 'example-proof'));
 
-  const tail = [{
-    type: 'audience', heading: '它更适合哪些人？', items: audience, activeIndex: Math.min(1, audience.length - 1),
-    evidenceMode: 'editorial', keyword: audience[0].title,
-    source: sourceLabel('research.json audience', commit),
-    narrationTopic: 'adoption',
-    sentences: narration('适合工程师、架构师和技术评审。'),
-  }, {
-    type: 'flow', heading: hasPassedDemo ? '演示验证路径' : '如果要实测，应该这样验证',
-    steps: demoSteps, activeIndex: hasPassedDemo ? demoSteps.length - 1 : 0,
-    evidenceMode: hasPassedDemo ? 'demo' : 'source', keyword: hasPassedDemo ? '已验证' : '实测',
-    source: sourceLabel('research.json demoPlan', commit),
-    narrationTopic: 'adoption',
-    sentences: narration(hasPassedDemo ? '演示已有记录，仍需结合环境复核。' : '演示步骤未运行，不能当作实测。'),
-  }, ...limitations.slice(0, 2).map((limitation, index) => ({
-    type: 'contrast', heading: index ? '采用前再看一个限制' : '这里有一道重要边界',
-    left: {eyebrow: 'VERIFIED', title: '源码能确认', body: clip(verified, 34), tone: 'positive'},
-    right: {eyebrow: 'LIMIT', title: '仍需复核', body: clip(limitation, 38), tone: 'negative'},
-    evidenceMode: 'source', keyword: '仍需复核',
-    source: sourceLabel('research.json claims / limitations', commit),
-    narrationTopic: 'limitations',
-    sentences: narration(index ? '浅克隆限制了提交历史检查。' : '这是只读研究，未验证实际运行。'),
-  })), {
-    type: 'text', eyebrow: 'EVIDENCE BOUNDARY',
-    heading: hasPassedDemo ? '结论包含已通过的演示步骤' : '本期只做了源码研究',
-    body: hasPassedDemo ? '运行结论只覆盖研究包记录的通过步骤。' : '官方素材用于解释功能，没有包装成本机端到端实测。',
-    evidenceMode: hasPassedDemo ? 'demo' : 'source', keyword: hasPassedDemo ? '通过步骤' : '源码研究',
-    source: sourceLabel('research.json demoability', commit),
-    narrationTopic: 'limitations',
-    sentences: narration(hasPassedDemo ? '运行结论只覆盖明确通过的步骤。' : '本期仅做源码研究，没有运行项目。'),
-  }, {
-    type: 'flow', heading: '一句话带走', steps: [
-      {title: '看问题', detail: '它解决什么'}, {title: '看机制', detail: '源码怎样实现'}, {title: '看边界', detail: '哪些仍未验证'},
-    ], activeIndex: 2, evidenceMode: 'editorial', keyword: '证据',
-    source: sourceLabel('editorial conclusion / research.json', commit),
+  const audience = clean(research.audience?.[0] || '想用更少步骤解决这个问题的人');
+  const practicalLimitation = (research.limitations ?? []).find((item) =>
+    !/本期|静态|未运行|没有运行|浅克隆|提交历史|研究/iu.test(item),
+  );
+  const fitScene = {
+    type: 'contrast',
+    heading: '它适合你吗？',
+    left: {eyebrow: '适合', title: '可以关注', body: clip(audience, 38), tone: 'positive'},
+    right: {
+      eyebrow: '先想清楚',
+      title: practicalLimitation ? '一个限制' : '你的需求',
+      body: clip(practicalLimitation || research.video.closing, 40),
+      tone: practicalLimitation ? 'negative' : 'positive',
+    },
+    evidenceMode: 'editorial',
+    keyword: name,
+    source: sourceLabel('research.json audience / limitations', commit),
     narrationTopic: 'conclusion',
-    sentences: narration(`${name}的价值，要结合证据和边界判断。`),
-  }, {
-    type: 'outro', eyebrow: 'OPEN SOURCE NOTES', title: clip(research.video.closing, 38),
-    subtitle: '先看证据，再决定是否采用。', tagline: research.project.url,
-    evidenceMode: 'editorial', keyword: '先看证据',
-    source: `${sourceLabel('research.json', commit)} · ${hasPassedDemo ? '含已通过演示步骤' : '本期非运行实测'}`,
+    sentences: narration(conciseNarration(
+      practicalLimitation
+        ? `如果你是${audience}，可以关注这个项目。不过，${practicalLimitation}`
+        : `如果你是${audience}，这个项目值得看看。`,
+      78,
+    )),
+  };
+
+  const outro = {
+    type: 'outro',
+    eyebrow: 'OPEN SOURCE NOTES',
+    title: clip(spokenNarration(conciseNarration(research.video.closing, 72)), 38),
+    subtitle: research.project.url,
+    evidenceMode: 'editorial',
+    keyword: name,
+    source: sourceLabel('research.json', commit),
     narrationTopic: 'conclusion',
-    sentences: narration('项目证据在简介里，先看清再采用。'),
-  }];
+    sentences: narration(conciseNarration(research.video.closing, 72)),
+  };
 
   const targetSceneCount = Math.min(config.sceneCount.max,
     Math.max(config.sceneCount.min, config.sceneCount.target ?? config.sceneCount.max));
-  while (scenes.length + tail.length < targetSceneCount) {
-    const claim = claims[(scenes.length + tail.length) % Math.max(1, claims.length)] ?? {claim: verified, evidence: []};
-    scenes.push(claimCode(claim, commit, subtitleMaximum, 'evidence-recap'));
+  const explanationSlots = Math.max(2, targetSceneCount - 4);
+  while (explanations.length < explanationSlots) {
+    const claim = claims[explanations.length % Math.max(1, claims.length)] ?? {
+      claim: research.executiveSummary,
+      evidence: [],
+    };
+    explanations.push(claimCode(claim, commit, subtitleMaximum, 'example'));
   }
-  const maximumCore = targetSceneCount - tail.length;
-  const finalScenes = [...scenes.slice(0, maximumCore), ...tail];
+  const finalScenes = [opening, problemScene, ...explanations.slice(0, explanationSlots), fitScene, outro]
+    .map((scene) => ({...scene, showEvidenceLabels: false}));
   return {
     episode: {
       meta: {
@@ -389,6 +453,7 @@ export function buildEditorialEpisode({research, trendRow = null, repositoryRoot
         researchMode: hasPassedDemo ? 'verified-demo' : 'static-source-review',
         commit, dataDate, planner: 'editorial', visualAssetCount: assets.length,
         spokenLatinAllowlist: [name], narrationProfile,
+        showEvidenceLabels: config.evidence.viewerLabels ?? false,
       },
       scenes: finalScenes,
     },

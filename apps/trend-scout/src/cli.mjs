@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {existsSync, readFileSync, readdirSync} from 'node:fs';
-import {dirname, join, resolve} from 'node:path';
+import {basename, dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ScoutDatabase} from './db.mjs';
 import {GitHubClient} from './github.mjs';
@@ -10,6 +10,10 @@ import {collectWeekly, isSuccessfulWeeklyRun, seedWatchlistFromReportRows} from 
 import {createSelectionTemplate} from './selection.mjs';
 import {writeFinalRanking} from './final-report.mjs';
 import {isoWeekIdFromDateString, localDateString, weekIdForDate} from './week.mjs';
+import {
+  selectionPathForReport,
+  trendReportWeekDirectory,
+} from '../../shared/pipeline-paths.mjs';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
@@ -25,20 +29,25 @@ function loadConfig() {
 
 function seedLegacyWatchlist(database, config, now) {
   if (database.hasAnyWeeklyDiscovery()) return 0;
-  const directory = join(PROJECT_ROOT, 'output/trend-reports');
+  const directory = join(PROJECT_ROOT, 'apps/trend-scout/trend_reports');
   if (!existsSync(directory)) return 0;
   const currentDate = localDateString(now, config.timeZone);
-  const file = readdirSync(directory)
-    .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0, 10) < currentDate)
-    .sort().at(-1);
-  if (!file) return 0;
-  const date = file.slice(0, 10);
-  const rows = JSON.parse(readFileSync(join(directory, file), 'utf8'));
+  const reportFiles = readdirSync(directory, {withFileTypes: true})
+    .filter((entry) => entry.isDirectory() && /^\d{4}-W\d{2}$/.test(entry.name))
+    .flatMap((entry) => readdirSync(join(directory, entry.name))
+      .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
+      .map((name) => join(directory, entry.name, name)))
+    .filter((path) => basename(path, '.json') < currentDate)
+    .sort();
+  const reportPath = reportFiles.at(-1);
+  if (!reportPath) return 0;
+  const date = basename(reportPath, '.json');
+  const rows = JSON.parse(readFileSync(reportPath, 'utf8'));
   const count = seedWatchlistFromReportRows(database, Array.isArray(rows) ? rows : [], {
     weekId: isoWeekIdFromDateString(date),
     observedAt: `${date}T12:00:00.000Z`,
   });
-  if (count) console.log(`Seeded ${count} watchlist entries from ${file}.`);
+  if (count) console.log(`Seeded ${count} watchlist entries from ${reportPath}.`);
   return count;
 }
 
@@ -76,7 +85,7 @@ function report(database, config, {onlyIfMissing = false} = {}) {
   const ranking = rankWeeklyRepositories(database, config, rankingNow, weekId);
   const output = writeRankingReport(
     ranking,
-    join(PROJECT_ROOT, 'output/trend-reports'),
+    trendReportWeekDirectory(PROJECT_ROOT, weekId),
     date,
     {weekId},
   );
@@ -100,14 +109,10 @@ async function main() {
   if (command === 'selection') {
     const reportPath = optionValue('--report');
     if (!reportPath) throw new Error('selection requires --report PATH.');
-    const reportDate = resolve(reportPath).match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1];
-    if (!reportDate) throw new Error('The report filename must use YYYY-MM-DD.json.');
-    const weekId = isoWeekIdFromDateString(reportDate);
-    const outputPath = optionValue('--output', join(PROJECT_ROOT, 'selections', `${weekId}.json`));
     const output = createSelectionTemplate({
       projectRoot: PROJECT_ROOT,
       reportPath,
-      outputPath,
+      outputPath: selectionPathForReport(reportPath),
       count: Number(optionValue('--count', config.researchSelectionCount ?? 8)),
     });
     console.log(`Draft human selection written to ${output.outputPath}`);

@@ -24,13 +24,6 @@ const panel = {
   borderRadius: 24,
   boxShadow: '0 28px 80px #02080d99',
 };
-const evidenceLabels = {
-  official: '\u5b98\u65b9\u7d20\u6750 \u00b7 \u975e\u672c\u673a\u5b9e\u6d4b',
-  source: '\u6e90\u7801\u8bc1\u636e \u00b7 \u9759\u6001\u7814\u7a76',
-  data: '\u8d8b\u52bf\u5feb\u7167',
-  editorial: '\u7f16\u8f91\u5224\u65ad',
-};
-
 function MediaAsset({scene, style}) {
   const mediaStyle = {width: '100%', height: '100%', objectFit: 'cover', ...style};
   if (/\.(mp4|webm|mov|m4v)$/i.test(scene.src)) {
@@ -39,18 +32,8 @@ function MediaAsset({scene, style}) {
   return <Img src={source(scene.src)} style={mediaStyle} />;
 }
 
-function EvidencePill({mode, accent}) {
-  if (!mode) return null;
-  return (
-    <div style={{
-      display: 'inline-flex', alignItems: 'center', gap: 10, padding: '10px 16px',
-      borderRadius: 999, background: '#061018dd', border: `1px solid ${accent}88`,
-      color: accent, fontSize: 19, letterSpacing: 1,
-    }}>
-      <span style={{width: 8, height: 8, borderRadius: 8, background: accent}} />
-      {evidenceLabels[mode] ?? mode}
-    </div>
-  );
+function EvidencePill() {
+  return null;
 }
 
 function HeroContent({scene, frame, fps, accent}) {
@@ -396,7 +379,9 @@ function EditorialScene({scene, meta, index, total, startFrame, totalFrames}) {
             </div>
           )}
         </div>
-        <div style={{position: 'absolute', left: 64, right: 180, top: 985, fontSize: 16, color: muted, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{scene.source}</div>
+        {meta.showEvidenceLabels !== false && (
+          <div style={{position: 'absolute', left: 64, right: 180, top: 985, fontSize: 16, color: muted, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{scene.source}</div>
+        )}
         <div style={{position: 'absolute', right: 64, top: 980, color: accent, fontSize: 20}}>{index + 1} / {total}</div>
         <div style={{position: 'absolute', left: 0, bottom: 0, width: '100%', height: 5, background: '#1b2c38'}}>
           <div style={{height: '100%', width: `${(startFrame + frame + 1) / totalFrames * 100}%`, background: accent}} />

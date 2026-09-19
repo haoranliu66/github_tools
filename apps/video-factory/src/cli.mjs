@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {spawnSync} from 'node:child_process';
 import {copyFileSync, existsSync, mkdirSync, rmSync, writeFileSync} from 'node:fs';
-import {basename, dirname, extname, join, resolve, sep} from 'node:path';
+import {basename, dirname, extname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
 import {durationInFrames, loadStoryboard} from './storyboard.mjs';
@@ -15,7 +15,6 @@ const ENTRY_POINT = join(PROJECT_ROOT, 'apps/video-factory/remotion/index.jsx');
 const PUBLIC_ROOT = join(PROJECT_ROOT, 'apps/video-factory/public');
 const REMOTION_CLI = join(PROJECT_ROOT, 'node_modules/@remotion/cli/remotion-cli.js');
 const EDITORIAL_CONFIG = join(PROJECT_ROOT, 'config/video-editorial.json');
-const VIDEO_OUTPUT_ROOT = join(PROJECT_ROOT, 'output/video');
 
 function optionValue(name, fallback = null) {
   const index = process.argv.indexOf(name);
@@ -131,11 +130,9 @@ function main() {
     return;
   }
 
-  const safeRepo = approved.row.fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
-  const outputPath = resolve(optionValue('--output', join(VIDEO_OUTPUT_ROOT, `${safeRepo}.mp4`)));
-  const outputPrefix = `${resolve(VIDEO_OUTPUT_ROOT)}${sep}`.toLowerCase();
-  if (!outputPath.toLowerCase().startsWith(outputPrefix)) {
-    throw new Error(`Video output must stay inside ${VIDEO_OUTPUT_ROOT}.`);
+  const outputPath = resolve(optionValue('--output', approved.videoPath));
+  if (outputPath.toLowerCase() !== approved.videoPath.toLowerCase()) {
+    throw new Error(`Video output must use the approved project path: ${approved.videoPath}.`);
   }
   const rawOutput = process.argv.includes('--skip-ffmpeg')
     ? outputPath
@@ -161,6 +158,7 @@ function main() {
         videoPath: outputPath,
         storyboard,
         sampleCount: editorialConfig.qa.sampleFrames,
+        qaDirectory: join(dirname(approved.storyboardPath), 'qa', 'final'),
       });
       console.log(`Video QA passed; contact sheet: ${qa.contactSheet}`);
     }

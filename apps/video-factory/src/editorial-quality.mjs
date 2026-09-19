@@ -60,6 +60,17 @@ export function evaluateEditorialQuality(story, config) {
   if (Object.keys(typeCounts).length < config.rhythm.minDistinctTypes) {
     errors.push(`requires at least ${config.rhythm.minDistinctTypes} distinct scene types.`);
   }
+  const explanatoryScenes = scenes.filter((scene) => scene.type !== 'outro');
+  const bRollTypes = new Set(config.bRoll?.types ?? []);
+  const bRollCount = explanatoryScenes.filter((scene) => bRollTypes.has(scene.type)).length;
+  const bRollCoverage = explanatoryScenes.length ? bRollCount / explanatoryScenes.length : 0;
+  if (config.bRoll && bRollCoverage < config.bRoll.minimumCoverage) {
+    errors.push(`B-roll coverage must be at least ${config.bRoll.minimumCoverage * 100}%; received ` +
+      `${(bRollCoverage * 100).toFixed(1)}%.`);
+  }
+  if (config.evidence.viewerLabels === false && story?.meta?.showEvidenceLabels !== false) {
+    errors.push('viewer-facing evidence labels must be disabled.');
+  }
 
   for (let start = 0; start < scenes.length;) {
     let end = start + 1;
@@ -72,8 +83,14 @@ export function evaluateEditorialQuality(story, config) {
 
   const sourced = scenes.filter((scene) => typeof scene.source === 'string' && scene.source.trim() && scene.evidenceMode).length;
   const evidenceCoverage = scenes.length ? sourced / scenes.length : 0;
+  const narrationCharacters = scenes.reduce((sum, scene) => sum + narrationText(scene).length, 0);
   if (evidenceCoverage < config.evidence.minimumCoverage) {
     errors.push(`evidence coverage must be ${config.evidence.minimumCoverage * 100}%; received ${(evidenceCoverage * 100).toFixed(1)}%.`);
+  }
+  if (config.text.maxNarrationCharacters &&
+      narrationCharacters > config.text.maxNarrationCharacters) {
+    errors.push(`narration exceeds the ${config.text.maxNarrationCharacters}-character short-form limit; received ` +
+      `${narrationCharacters}.`);
   }
   for (const [index, scene] of scenes.entries()) {
     if (story?.meta?.researchMode === 'static-source-review' && scene.evidenceMode === 'demo') {
@@ -154,6 +171,8 @@ export function evaluateEditorialQuality(story, config) {
       typeCounts,
       distinctSceneTypes: Object.keys(typeCounts).length,
       evidenceCoverage: Number(evidenceCoverage.toFixed(3)),
+      bRollCoverage: Number(bRollCoverage.toFixed(3)),
+      narrationCharacters,
       narrationBlockCount: narrationBlocks.length || null,
       totalDurationSeconds: totalDurationSeconds === null ? null : Number(totalDurationSeconds.toFixed(3)),
       averageSceneDuration: averageSceneDuration === null ? null : Number(averageSceneDuration.toFixed(3)),

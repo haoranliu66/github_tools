@@ -88,13 +88,71 @@ function allocateFrames(totalFrames, segments) {
   return frames;
 }
 
+function allocateFramesWithSceneMaximum(totalFrames, segments, maxSceneFrames, trailingGapFrames) {
+  if (!maxSceneFrames) return allocateFrames(totalFrames, segments);
+  const groups = [];
+  for (const [segmentIndex, segment] of segments.entries()) {
+    let group = groups.at(-1);
+    if (!group || group.sceneIndex !== segment.sceneIndex) {
+      group = {sceneIndex: segment.sceneIndex, segmentIndexes: [], segments: []};
+      groups.push(group);
+    }
+    group.segmentIndexes.push(segmentIndex);
+    group.segments.push(segment);
+  }
+  const groupSegments = groups.map((group) => ({
+    text: group.segments.map((segment) => segment.spoken ?? segment.text).join(''),
+  }));
+  const allocations = allocateFrames(totalFrames, groupSegments);
+  const capacities = groups.map((group, index) => {
+    const gap = index === groups.length - 1 ? trailingGapFrames : 0;
+    return maxSceneFrames - gap;
+  });
+  for (const [index, group] of groups.entries()) {
+    if (capacities[index] < group.segments.length) {
+      throw new Error(`Scene ${group.sceneIndex} cannot fit its narration cues within the configured maximum.`);
+    }
+  }
+  let excess = 0;
+  for (let index = 0; index < allocations.length; index += 1) {
+    if (allocations[index] > capacities[index]) {
+      excess += allocations[index] - capacities[index];
+      allocations[index] = capacities[index];
+    }
+  }
+  const redistributionOrder = groupSegments
+    .map((segment, index) => ({index, weight: speechWeight(segment.text)}))
+    .sort((left, right) => right.weight - left.weight || left.index - right.index);
+  while (excess > 0) {
+    let distributed = false;
+    for (const {index} of redistributionOrder) {
+      if (allocations[index] >= capacities[index]) continue;
+      allocations[index] += 1;
+      excess -= 1;
+      distributed = true;
+      if (excess === 0) break;
+    }
+    if (!distributed) throw new Error('Narration block cannot fit within the configured scene maximum.');
+  }
+  const frames = Array(segments.length).fill(0);
+  for (const [groupIndex, group] of groups.entries()) {
+    const groupFrames = allocateFrames(allocations[groupIndex], group.segments);
+    for (const [localIndex, segmentIndex] of group.segmentIndexes.entries()) {
+      frames[segmentIndex] = groupFrames[localIndex];
+    }
+  }
+  return frames;
+}
+
 export function buildNarratedStoryboardFromBlocks(draft, blocks, {
   gapSeconds = 0.24,
   minimumTotalSeconds = 0,
+  maxSceneSeconds = 0,
 } = {}) {
   const fps = draft.meta?.fps;
   if (!Number.isFinite(fps) || fps <= 0 || !Number.isFinite(gapSeconds) || gapSeconds < 0 ||
-      !Number.isFinite(minimumTotalSeconds) || minimumTotalSeconds < 0) {
+      !Number.isFinite(minimumTotalSeconds) || minimumTotalSeconds < 0 ||
+      !Number.isFinite(maxSceneSeconds) || maxSceneSeconds < 0) {
     throw new Error('Invalid block timing settings.');
   }
   if (!Array.isArray(blocks) || blocks.length === 0) throw new Error('Narration blocks are required.');
@@ -122,9 +180,12 @@ export function buildNarratedStoryboardFromBlocks(draft, blocks, {
   const blockSummaries = [];
   let totalFrames = 0;
   let previousSceneIndex = -1;
+  const maxSceneFrames = maxSceneSeconds ? Math.floor(maxSceneSeconds * fps) : 0;
   for (const [blockIndex, block] of blocks.entries()) {
     const spokenFrames = blockSpokenFrames[blockIndex];
-    const segmentFrames = allocateFrames(spokenFrames, block.segments);
+    const segmentFrames = allocateFramesWithSceneMaximum(
+      spokenFrames, block.segments, maxSceneFrames, gapFrames[blockIndex],
+    );
     let blockCursor = 0;
     for (const [segmentIndex, segment] of block.segments.entries()) {
       const sceneIndex = segment.sceneIndex;

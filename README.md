@@ -69,11 +69,11 @@ pnpm scout:report
 输出位置：
 
 - 数据库：`data/trend-scout.sqlite`
-- 周榜 Markdown：`output/trend-reports/YYYY-MM-DD.md`
-- 机器可读榜单：`output/trend-reports/YYYY-MM-DD.json`
-- 人工选择：`selections/YYYY-Www.json`
-- 批量研究清单：`output/research-batches/YYYY-Www.json`
-- 研究后最终榜：`output/final-rankings/YYYY-Www.md` 与 `.json`
+- 周榜 Markdown：`apps/trend-scout/trend_reports/YYYY-Www/YYYY-MM-DD.md`
+- 机器可读榜单：`apps/trend-scout/trend_reports/YYYY-Www/YYYY-MM-DD.json`
+- 人工选择门禁：同一周报文件夹内的 `selection.json`，不再另建选择产物目录
+- 项目研究资源：`output/videos/YYYY年MM月第N周-owner--repository/resources/`
+- 研究后最终榜：`apps/repo-researcher/final_rank/YYYY-Www/final-ranking.md` 与 `.json`
 
 长期运行优先使用 Codex 的本地定时任务，并把 `D:\zimeiti` 保存为独立 Codex 项目；这能在应用里查看运行历史和失败通知。任务可每日触发 `pnpm scout:weekly`，但实际联网最多每周成功一次。Windows 的 `scripts/daily.ps1` 和 `scripts/weekly.ps1` 都调用同一幂等入口，后者仅为旧任务兼容。以下注册脚本只作为本机回退方案（默认每天 09:00 尝试，周一 10:00 再提供一次补偿触发）：
 
@@ -90,33 +90,33 @@ powershell -ExecutionPolicy Bypass -File scripts/register-tasks.ps1
 先从基础榜创建人工选择文件：
 
 ```powershell
-pnpm scout:select -- --report output/trend-reports/YYYY-MM-DD.json
+pnpm scout:select -- --report apps/trend-scout/trend_reports/YYYY-Www/YYYY-MM-DD.json
 ```
 
 人工保留 7～8 个 `owner/name`，把 `status` 改为 `approved`，然后批量执行默认只读研究：
 
 ```powershell
-pnpm research:batch -- --selection selections/YYYY-Www.json
+pnpm research:batch -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
 ```
 
-`--dry-run` 可预览整批任务；只有逐仓库确认可信后才可在批量命令上增加 `--allow-run`。批处理会尝试所有选中项目，并在清单中分别记录成功或失败，不会因为单个项目失败而丢失其他结果。
+`--dry-run` 可预览整批任务；只有逐仓库确认可信后才可在批量命令上增加 `--allow-run`。批处理会尝试所有选中项目，并把每项状态写入该项目的 `resources/research-batch-result.json`，不会因为单个项目失败而丢失其他结果。
 
 先预览将交给 Codex 的任务，不发起模型运行：
 
 ```powershell
-pnpm research -- owner/repository --dry-run
+pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --dry-run
 ```
 
 执行只读研究：
 
 ```powershell
-pnpm research -- owner/repository
+pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
 ```
 
 只有在明确确认仓库可信时，才允许 Codex 按官方 Quick Start 运行项目：
 
 ```powershell
-pnpm research -- owner/repository --allow-run
+pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --allow-run
 ```
 
 安全默认值：
@@ -127,13 +127,13 @@ pnpm research -- owner/repository --allow-run
 - 不运行安装脚本，不写系统目录，不使用用户凭据。
 - `--allow-run` 会切换到 `workspace-write`，仍限制修改范围在克隆的研究工作区内。
 
-研究包输出到 `output/research/YYYY-MM-DD/owner--repository/`，包括研究简报、事实证据、演示步骤、口播稿和初始分镜。
+研究一开始就创建 `output/videos/YYYY年MM月第N周-owner--repository/resources/`，包括研究简报、事实证据、演示步骤、口播稿和初始分镜。即使项目最终不制作视频，也保留相同项目目录结构。
 
-本地仓库可使用 `pnpm research -- fixture/name --local 'C:\absolute\repository'`，该模式以 `local:fixture/name` 标识来源，不将测试标识误当成远程 GitHub 仓库。
+本地仓库可使用 `pnpm research -- fixture/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --local 'C:\absolute\repository'`，该模式以 `local:fixture/name` 标识来源，不将测试标识误当成远程 GitHub 仓库。
 
 研究结果必须声明 `status: completed`，包含完整 Git commit SHA、实际读取文件清单、至少一条引用已读文件的证据，以及带理由和置信度的 `demoability` 评分，才会生成脚本、分镜等七件产物。`blocked`、`failed` 或证据不足会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
 
-每次真实调用的标准输出、标准错误和运行元数据保存在 `output/research/_runs/`。该目录可能含仓库内容，不应公开提交；日志不记录环境变量或登录凭据。历史产物不会自动重新校验或清除。
+每次真实调用的标准输出、标准错误和运行元数据保存在对应项目的 `resources/_runs/`。该目录可能含仓库内容，不应公开提交；日志不记录环境变量或登录凭据。
 
 远程仓库先克隆到一次性同盘目录，成功后再原子重命名为正式工作区。瞬时网络失败最多重试三次；失败残留会清理，已有非 Git 目录则拒绝覆盖。
 
@@ -148,13 +148,13 @@ pnpm video:validate
 研究完成后可先生成独立最终榜，用于比较研究后的最终分：
 
 ```powershell
-pnpm scout:final -- --selection selections/YYYY-Www.json
+pnpm scout:final -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
 ```
 
-确定制作项目后，必须同时把仓库加入选择文件的 `videoProjects`，并在 `videoStoryboards` 中配置目标生产分镜，例如 `output/video/owner--repository/storyboard.json`。随后由统一编辑预设自动生成 20～28 个动态场景、旁白、字幕和结构质检报告：
+确定制作项目后，把仓库加入选择文件的 `videoProjects`。生产目录由周报日期和仓库名自动推导，不再人工填写分镜路径。随后由统一编辑预设自动生成动态场景、旁白、字幕和结构质检报告：
 
 ```powershell
-pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
+pnpm video:prepare -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
 生产旁白默认使用 `.env.local` 中显式选择的 TTS 提供方。当前推荐 `VIDEO_TTS_PROVIDER=qwen`：`video:prepare` 会复用可用连接，或自动建立免密 SSH 隧道，等待 Qwen 就绪后按项目节奏生成可跨 2～6 个画面的旁白块，再依据实测 WAV 时长生成场景和字幕时间轴。超过 64 秒或请求超时的旁白块只在完整句子处拆分；同主题短块会尝试合并，文案不会被裁掉。任务结束后只关闭本次自行建立的隧道。无需预先手动启动隧道，也无需单独执行音频命令；健康、认证或音色检查失败时直接停止，不会静默退回旧声音。Windows Huihui 仅在显式设置 `VIDEO_TTS_PROVIDER=windows` 时使用。生成前必须阅读 [.agents/skills/audio-narration-preflight/SKILL.md](.agents/skills/audio-narration-preflight/SKILL.md)，配置与安全边界见 [docs/qwen-tts.md](docs/qwen-tts.md)。
@@ -168,13 +168,13 @@ pnpm video:voice:register -- --name narrator-two --audio "C:\path\reference.wav"
 审核 `episode.source.json`、`storyboard.json` 和 `qa-report.json` 后重新生成最终榜。生产渲染只接受最终榜中“研究完成 + 人工批准 + 生产分镜存在”的项目，不能直接传入任意分镜：
 
 ```powershell
-pnpm video:render -- --final-ranking output/final-rankings/YYYY-Www.json --repo owner/repository --output output/video/owner--repository.mp4
+pnpm video:render -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json --repo owner/repository
 ```
 
 打开同一获准项目的 Remotion Studio：
 
 ```powershell
-pnpm video:studio -- --final-ranking output/final-rankings/YYYY-Www.json --repo owner/repository
+pnpm video:studio -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json --repo owner/repository
 ```
 
 `pnpm video:smoke` 使用仓库自带的合成最终榜，仅验证渲染链路，不代表真实项目获批。
@@ -187,7 +187,7 @@ pnpm video:studio -- --final-ranking output/final-rankings/YYYY-Www.json --repo 
 2. 从基础榜生成草稿，人工确认 7～8 个项目并将选择文件改为 `approved`。
 3. 批量执行默认只读研究，审核事实清单；信任项目后才使用 `--allow-run` 做演示验证。
 4. 运行 `pnpm scout:final`，根据趋势分 93 + 可演示性 7 形成独立最终榜，用它选择视频项目。
-5. 将获准制作的项目加入 `videoProjects`，并填写对应 `videoStoryboards` 路径。
+5. 将获准制作的项目加入 `videoProjects`；生产路径由程序自动推导。
 6. 运行 `pnpm video:prepare` 生成动态分镜和结构 QA，人工审核后重新生成最终榜。
 7. 由 `video-factory` 正式渲染；检查自动生成的联系表和解码报告后再做人工成片批准。
 

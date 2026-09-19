@@ -34,7 +34,7 @@ function temporaryOutput(t) {
 
 test('completed static research produces seven artifacts without claiming execution', (t) => {
   const root = temporaryOutput(t);
-  const output = writeResearchArtifacts(completedResearch(), root, 'fixture/tiny-notes', '2026-09-04');
+  const output = writeResearchArtifacts(completedResearch(), root);
   assert.equal(readdirSync(output).length, 7);
   const result = JSON.parse(readFileSync(join(output, 'research.json'), 'utf8'));
   assert.equal(result.status, 'completed');
@@ -50,7 +50,7 @@ for (const score of [-1, 7.5, 8, undefined]) {
     const root = temporaryOutput(t);
     const result = completedResearch();
     result.demoability = {score, confidence: 'medium', reason: 'fixture'};
-    assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'),
+    assert.throws(() => writeResearchArtifacts(result, root),
       /demoability|演示/);
     assert.deepEqual(readdirSync(root), []);
   });
@@ -60,7 +60,7 @@ test('an unexecuted demo cannot claim more than four demoability points', (t) =>
   const root = temporaryOutput(t);
   const result = completedResearch();
   result.demoability = {score: 5, confidence: 'high', reason: 'Documentation only.'};
-  assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'),
+  assert.throws(() => writeResearchArtifacts(result, root),
     /demoability|演示|execut/i);
   assert.deepEqual(readdirSync(root), []);
 });
@@ -70,7 +70,7 @@ test('a passed demo can claim the full seven demoability points', (t) => {
   const result = completedResearch();
   result.demoPlan[0].status = 'passed';
   result.demoability = {score: 7, confidence: 'high', reason: 'The concise demo passed.'};
-  const output = writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04');
+  const output = writeResearchArtifacts(result, root);
   assert.match(readFileSync(join(output, 'research_brief.md'), 'utf8'), /可演示性：7\/7/);
 });
 
@@ -82,7 +82,7 @@ for (const demoability of [
     const root = temporaryOutput(t);
     const result = completedResearch();
     result.demoability = demoability;
-    assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'),
+    assert.throws(() => writeResearchArtifacts(result, root),
       /demoability|演示/i);
     assert.deepEqual(readdirSync(root), []);
   });
@@ -92,7 +92,7 @@ for (const status of ['blocked', 'failed', undefined]) {
   test(`research status ${status} cannot produce a script or storyboard`, (t) => {
     const root = temporaryOutput(t);
     const result = {...completedResearch(), status, blockedReason: 'Read command rejected by policy.'};
-    assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'), /research|blocked|completed/i);
+    assert.throws(() => writeResearchArtifacts(result, root), /research|blocked|completed/i);
     assert.deepEqual(readdirSync(root), []);
   });
 }
@@ -102,7 +102,7 @@ for (const versionOrCommit of ['未能获取；未完成版本固定', '', 'main
     const root = temporaryOutput(t);
     const result = completedResearch();
     result.project.versionOrCommit = versionOrCommit;
-    assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'), /commit|revision/i);
+    assert.throws(() => writeResearchArtifacts(result, root), /commit|revision/i);
     assert.deepEqual(readdirSync(root), []);
   });
 }
@@ -110,7 +110,7 @@ for (const versionOrCommit of ['未能获取；未完成版本固定', '', 'main
 test('a completed label without inspected files cannot hide a read failure', (t) => {
   const root = temporaryOutput(t);
   const result = {...completedResearch(), inspectedFiles: []};
-  assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'), /inspected|files/i);
+  assert.throws(() => writeResearchArtifacts(result, root), /inspected|files/i);
   assert.deepEqual(readdirSync(root), []);
 });
 
@@ -118,6 +118,6 @@ test('tool-error evidence is not accepted as repository evidence', (t) => {
   const root = temporaryOutput(t);
   const result = completedResearch();
   result.claims[0].evidence = [{source: 'functions.exec', detail: 'blocked by policy'}];
-  assert.throws(() => writeResearchArtifacts(result, root, 'fixture/tiny-notes', '2026-09-04'), /evidence/i);
-  assert.equal(existsSync(join(root, '2026-09-04')), false);
+  assert.throws(() => writeResearchArtifacts(result, root), /evidence/i);
+  assert.deepEqual(readdirSync(root), []);
 });

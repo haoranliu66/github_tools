@@ -1,6 +1,7 @@
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {dirname, isAbsolute, relative, resolve, sep} from 'node:path';
 import {isoWeekIdFromDateString} from './week.mjs';
+import {selectionPathForReport} from '../../shared/pipeline-paths.mjs';
 
 const REPOSITORY_PATTERN = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
 
@@ -40,26 +41,7 @@ export function validateSelection(selection, {requireApproved = false} = {}) {
     }
   }
   if (selection?.videoStoryboards !== undefined) {
-    if (!selection.videoStoryboards || Array.isArray(selection.videoStoryboards) ||
-        typeof selection.videoStoryboards !== 'object') {
-      errors.push('videoStoryboards must be an object.');
-    } else {
-      const approved = new Set(selection?.videoProjects ?? []);
-      for (const [fullName, storyboardPath] of Object.entries(selection.videoStoryboards)) {
-        if (!approved.has(fullName)) {
-          errors.push('videoStoryboards keys must be approved in videoProjects.');
-        }
-        if (typeof storyboardPath !== 'string' || !storyboardPath.trim()) {
-          errors.push('videoStoryboards values must be non-empty paths.');
-        }
-      }
-    }
-  }
-  if (Array.isArray(selection?.videoProjects) && selection.videoProjects.length) {
-    const mapped = new Set(Object.keys(selection?.videoStoryboards ?? {}));
-    if (selection.videoProjects.some((name) => !mapped.has(name))) {
-      errors.push('every videoProjects entry must have a videoStoryboards production mapping.');
-    }
+    errors.push('videoStoryboards is obsolete; production paths are derived from the weekly project directory.');
   }
   return errors;
 }
@@ -78,7 +60,7 @@ export function resolveSelectionProjectPath(projectRoot, pathValue) {
   return target;
 }
 
-export function createSelectionTemplate({projectRoot, reportPath, outputPath, count = 8}) {
+export function createSelectionTemplate({projectRoot, reportPath, outputPath = null, count = 8}) {
   if (![7, 8].includes(count)) throw new Error('Research selection count must be 7 or 8.');
   const absoluteReport = resolveSelectionProjectPath(projectRoot, reportPath);
   if (!existsSync(absoluteReport)) throw new Error(`Trend report does not exist: ${absoluteReport}`);
@@ -90,7 +72,11 @@ export function createSelectionTemplate({projectRoot, reportPath, outputPath, co
   const reportDate = absoluteReport.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1];
   const weekId = eligible[0]?.weekId ?? (reportDate ? isoWeekIdFromDateString(reportDate) : null);
   if (!weekId) throw new Error('Cannot determine the ISO week for the selection.');
-  const absoluteOutput = resolveSelectionProjectPath(projectRoot, outputPath);
+  const expectedOutput = selectionPathForReport(absoluteReport);
+  const absoluteOutput = resolveSelectionProjectPath(projectRoot, outputPath ?? expectedOutput);
+  if (absoluteOutput.toLowerCase() !== expectedOutput.toLowerCase()) {
+    throw new Error(`Selection must stay beside its weekly report: ${expectedOutput}`);
+  }
   if (existsSync(absoluteOutput)) {
     throw new Error(`Selection file already exists; refusing to overwrite human input: ${absoluteOutput}`);
   }
@@ -101,8 +87,7 @@ export function createSelectionTemplate({projectRoot, reportPath, outputPath, co
     sourceReport: relative(projectRoot, absoluteReport).replaceAll('\\', '/'),
     selectedRepositories: eligible.slice(0, count).map((row) => row.fullName),
     videoProjects: [],
-    videoStoryboards: {},
-    notes: '请人工调整为 7～8 个项目并把 status 改为 approved。研究完成后，再把获准制作视频的项目加入 videoProjects。',
+    notes: '请人工调整为 7～8 个项目并把 status 改为 approved。研究完成后，把获准制作视频的项目加入 videoProjects；所有目录由周报日期自动推导。',
   };
   mkdirSync(dirname(absoluteOutput), {recursive: true});
   writeFileSync(absoluteOutput, `${JSON.stringify(selection, null, 2)}\n`, 'utf8');

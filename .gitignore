@@ -6,6 +6,10 @@ data/*.sqlite-*
 data/trend-scout-weekly-state.json
 output/**
 !output/.gitkeep
+apps/trend-scout/trend_reports/**
+!apps/trend-scout/trend_reports/.gitkeep
+apps/repo-researcher/final_rank/**
+!apps/repo-researcher/final_rank/.gitkeep
 workspaces/**
 !workspaces/.gitkeep
 apps/video-factory/public/generated/**

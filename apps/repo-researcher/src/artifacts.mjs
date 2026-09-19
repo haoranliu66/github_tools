@@ -5,10 +5,6 @@ function markdownList(items) {
   return items.length ? items.map((item) => `- ${item}`).join('\n') : '- 暂无';
 }
 
-function safeName(fullName) {
-  return fullName.replace('/', '--').replace(/[^A-Za-z0-9_.-]/g, '-');
-}
-
 function sectionDuration(narration) {
   const chineseCharacters = (narration.match(/[\u3400-\u9fff]/g) ?? []).length;
   const otherWords = narration.replace(/[\u3400-\u9fff]/g, ' ').trim().split(/\s+/).filter(Boolean).length;
@@ -66,7 +62,7 @@ function toStoryboard(result) {
   };
 }
 
-export function writeResearchArtifacts(result, outputRoot, fullName, date) {
+export function writeResearchArtifacts(result, outputDirectory) {
   if (result.status !== 'completed') {
     throw new Error(`Research is not completed (${result.status ?? 'missing status'}): ${result.blockedReason || 'No verified research result.'}`);
   }
@@ -85,8 +81,7 @@ export function writeResearchArtifacts(result, outputRoot, fullName, date) {
   if (!hasRepositoryEvidence) throw new Error('Research must cite evidence from an inspected repository file.');
   validateDemoability(result);
 
-  const directory = join(outputRoot, date, safeName(fullName));
-  mkdirSync(directory, {recursive: true});
+  mkdirSync(outputDirectory, {recursive: true});
 
   const brief = [
     `# ${result.project.name} 研究简报`,
@@ -171,7 +166,7 @@ export function writeResearchArtifacts(result, outputRoot, fullName, date) {
 
   for (const [name, content] of Object.entries(files)) {
     const serialized = typeof content === 'string' ? content : `${JSON.stringify(content, null, 2)}\n`;
-    writeFileSync(join(directory, name), serialized, 'utf8');
+    writeFileSync(join(outputDirectory, name), serialized, 'utf8');
   }
-  return directory;
+  return outputDirectory;
 }
