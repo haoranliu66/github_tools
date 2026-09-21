@@ -21,15 +21,17 @@ moving compelling later moments earlier because audiences normally decrease over
 
 ## Zimeiti default format
 
-Use a 45-120 second single-project explanation, targeting 60-90 seconds. A practical outline is:
+Use a 45-120 second single-project explanation. Prefer 55-75 seconds for static research; use 75-105 seconds only
+when an authorized real demo adds useful input/action/result evidence. A practical outline is:
 
-1. **0-5 seconds — familiar problem.** Show the frustrating before-state or the project's result while the narration
-   names the problem in ordinary language.
-2. **5-15 seconds — the answer.** Name the project, say what it changes, and mention its current stars once if useful.
-3. **15-60 seconds — concrete example.** Use repository B-roll and one research-backed example to show problem,
-   project action, and result. Add a second example only when it teaches a different use.
-4. **60-90 seconds — takeaway.** Say who benefits and the one caveat that changes the decision. End without a recap
-   of every section.
+1. **0-5 seconds — familiar personal problem.** Show the frustrating before-state or the project's result while the
+   narration names a situation an individual developer can recognize. Do not default to a colleague or team meeting.
+2. **5-15 seconds — the answer.** Say “这个开源工具可能会帮到你，它叫 ProjectName”, show the official GitHub
+   repository preview with a simple 2-4 second push-in, say what it changes, and mention approximate stars once.
+3. **15-60 seconds — concrete example.** Use README-linked B-roll, an authorized local demo, or one README-backed
+   example to show problem, project action, and result. Add a second example only when it teaches a different use.
+4. **60-90 seconds — takeaway.** Say who benefits and end without a recap of every section. Do not add a separate
+   project-boundary or limitation segment.
 
 The time ranges are editorial guidance, not forced chapter boundaries. Delete a beat when the project is already
 clear.
@@ -42,23 +44,34 @@ A-roll is primarily the voiceover. Its jobs are limited to naming the problem, e
 example, and stating the takeaway. Use short sentences and familiar verbs. Do not narrate research methodology,
 provenance labels, trend formulas, or a catalogue of features.
 
+Draft A-roll as one continuous paragraph first. Only after the transitions work should it be divided into the hook,
+sections, subtitle cues, and narration blocks. The section join must sound like one speaker continuing the same thought,
+not several independent cards placed next to each other.
+
 ### B-roll
 
 B-roll should carry the explanation rather than decorate it. Choose in this order:
 
-1. repository-owned result image, GIF frame, interface, or README diagram that shows what the viewer gets;
+1. result image, GIF frame, interface, or diagram linked from the official README that shows what the viewer gets;
 2. a cropped README statement placed beside the visual it describes;
-3. a simple before/action/after example constructed from verified repository behavior;
-4. a short flow or code excerpt only when a non-expert can understand why it matters immediately.
+3. a captured input/action/result sequence from an explicitly authorized local run;
+4. a simple before/action/after example constructed from a feature stated in the official README.
 
-Change B-roll when the subject or action changes, not at every sentence. Keep one focal point per scene. A source path,
-license, confidence, and static-review status remain in storyboard metadata but are not viewer-facing labels.
+Change B-roll when the subject, action, proof, or result changes. A sentence may drive several beats, while several
+short sentences may share one beat when the visual meaning is unchanged. Keep one focal point per beat. License,
+confidence, truth mode, and static-review status remain in storyboard metadata but are not viewer-facing labels.
+
+Research on transcript-aligned B-roll found common clip lengths of 0.5-8 seconds and strong alignment between insertion
+points and nearby narration keywords. Treat that as timing guidance, not a universal quota for technical animation:
+
+- <https://arxiv.org/abs/1902.11216>
 
 ## What to cut
 
 - separate research-method, evidence-boundary, demo-plan, and source-disclosure scenes;
 - repeated “who it is for” and “should you use it” sections;
 - trend score explanations or more than one stars mention;
+- exact star counts, or a popularity sentence separated from the project introduction;
 - architecture and code detail that does not change the viewer's understanding of the problem;
 - academic words that can be replaced by a situation, action, or result;
-- an outro that repeats the hook, mechanism, proof, and caveat.
+- an outro that repeats the hook, mechanism, proof, and caveat, or says “项目地址见画面”.

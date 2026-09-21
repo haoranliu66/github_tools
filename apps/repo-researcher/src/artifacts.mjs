@@ -1,5 +1,6 @@
 import {mkdirSync, writeFileSync} from 'node:fs';
 import {join} from 'node:path';
+import {assertEditorialResearch} from './editorial-contract.mjs';
 
 function markdownList(items) {
   return items.length ? items.map((item) => `- ${item}`).join('\n') : '- 暂无';
@@ -24,6 +25,37 @@ function validateDemoability(result) {
   if (demoability.score > 4 && !hasPassedDemo) {
     throw new Error('Research demoability above 4 requires at least one successfully executed demo step.');
   }
+}
+
+function validateResearchEvidence(result) {
+  if (result.blockedReason?.trim()) {
+    throw new Error('Completed research cannot retain a blocked reason.');
+  }
+  if (result.inspectedFiles.length !== 1 ||
+      !/(?:^|[\\/])README(?:\.[^\\/]+)?$/iu.test(result.inspectedFiles[0])) {
+    throw new Error('Completed research may list only the official README in inspectedFiles.');
+  }
+  if (!Array.isArray(result.claims) || result.claims.length === 0) {
+    throw new Error('Completed research requires at least one evidenced claim.');
+  }
+  result.claims.forEach((claim, claimIndex) => {
+    if (!Array.isArray(claim?.evidence) || claim.evidence.length === 0) {
+      throw new Error(`Claim ${claimIndex} requires official README or executed-demo evidence.`);
+    }
+    claim.evidence.forEach((evidence, evidenceIndex) => {
+      if (typeof evidence?.detail !== 'string' || !evidence.detail.trim()) {
+        throw new Error(`Claim ${claimIndex} evidence ${evidenceIndex} requires a useful detail.`);
+      }
+      if (evidence.source === 'official-readme') return;
+      const match = /^executed-demo:(\d+)$/u.exec(evidence.source ?? '');
+      const demoIndex = match ? Number(match[1]) : -1;
+      if (!match || result.demoPlan?.[demoIndex]?.status !== 'passed') {
+        throw new Error(
+          `Claim ${claimIndex} evidence ${evidenceIndex} must use official-readme or a passed executed-demo index.`,
+        );
+      }
+    });
+  });
 }
 
 function toStoryboard(result) {
@@ -62,7 +94,7 @@ function toStoryboard(result) {
   };
 }
 
-export function writeResearchArtifacts(result, outputDirectory) {
+export function validateResearchResult(result, {expectedEditorialContract = null} = {}) {
   if (result.status !== 'completed') {
     throw new Error(`Research is not completed (${result.status ?? 'missing status'}): ${result.blockedReason || 'No verified research result.'}`);
   }
@@ -74,12 +106,13 @@ export function writeResearchArtifacts(result, outputDirectory) {
       inspectedFiles.some((file) => typeof file !== 'string' || !file.trim())) {
     throw new Error('Research must list the files actually inspected.');
   }
-  const hasRepositoryEvidence = result.claims?.some((claim) => claim.evidence?.some((evidence) =>
-    typeof evidence.detail === 'string' && evidence.detail.trim() &&
-    inspectedFiles.some((file) => evidence.source === file || evidence.source?.startsWith(`${file}:`)),
-  ));
-  if (!hasRepositoryEvidence) throw new Error('Research must cite evidence from an inspected repository file.');
   validateDemoability(result);
+  validateResearchEvidence(result);
+  assertEditorialResearch(result, expectedEditorialContract);
+}
+
+export function writeResearchArtifacts(result, outputDirectory, {expectedEditorialContract = null} = {}) {
+  validateResearchResult(result, {expectedEditorialContract});
 
   mkdirSync(outputDirectory, {recursive: true});
 
@@ -96,6 +129,30 @@ export function writeResearchArtifacts(result, outputDirectory) {
     '## 一句话结论',
     '',
     result.executiveSummary,
+    '',
+    '## 视频编辑简报',
+    '',
+    `- 目标观众：${result.editorialBrief.intendedViewer}`,
+    `- 熟悉问题：${result.editorialBrief.familiarProblem}`,
+    `- 一句话答案：${result.editorialBrief.oneSentenceAnswer}`,
+    `- 标题承诺：${result.editorialBrief.titlePromise}`,
+    `- 制作 Skill 摘要：${result.editorialContract.digest}`,
+    '',
+    '### 具体例子',
+    '',
+    ...result.editorialBrief.concreteExamples.flatMap((example, index) => [
+      `${index + 1}. 问题：${example.problem}`,
+      `   - 项目动作：${example.projectAction}`,
+      `   - 有用结果：${example.usefulResult}`,
+      `   - 事实索引：${example.claimIndexes.join(', ')}`,
+    ]),
+    '',
+    '### 视觉 Beat 计划',
+    '',
+    `- 开场：${result.visualEvidencePackage.hookMoment.purpose}；真实性：${result.visualEvidencePackage.hookMoment.truthMode}`,
+    ...result.visualEvidencePackage.visualBeats.map((beat, index) =>
+      `${index + 1}. [${beat.role}] ${beat.purpose}；模式：${beat.visualMode}；真实性：${beat.truthMode}；` +
+      `旁白锚点：${beat.narrationCue}；事实索引：${beat.claimIndexes.join(', ')}`),
     '',
     '## 适合人群',
     '',
@@ -129,6 +186,14 @@ export function writeResearchArtifacts(result, outputDirectory) {
   const script = [
     `# ${result.video.title}`,
     '',
+    ...(result.video.fullNarration ? [
+      '## 连贯口播原稿',
+      '',
+      result.video.fullNarration,
+      '',
+      '## 分镜拆分',
+      '',
+    ] : []),
     `> ${result.video.hook}`,
     '',
     ...result.video.sections.flatMap((section) => [
@@ -154,13 +219,16 @@ export function writeResearchArtifacts(result, outputDirectory) {
     'storyboard.json': toStoryboard(result),
     'media_manifest.json': {
       repository: result.project.url,
-      items: (result.video.visualAssets ?? []).map((item) => ({
+      items: (result.visualEvidencePackage.evidenceAssets ?? []).map((item) => ({
+        id: item.id,
         file: item.path,
         purpose: item.purpose,
+        mediaType: item.mediaType,
         licenseBasis: item.licenseBasis,
-        type: 'official-repository-asset-not-local-demo',
+        truthMode: item.truthMode,
+        claimIndexes: item.claimIndexes,
       })),
-      note: '仓库素材只能作为官方来源画面，不能当作本机运行证据；另行补充的媒体仍需审核授权。',
+      note: '真实性以逐资产 truthMode 为准；repository-media 与 source-derived-animation 不能当作本机运行证据。',
     },
   };
 

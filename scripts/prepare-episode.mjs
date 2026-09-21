@@ -8,7 +8,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import {tmpdir} from 'node:os';
-import {basename, dirname, join, resolve} from 'node:path';
+import {basename, dirname, join, resolve, sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import ffmpeg from '@ffmpeg-installer/ffmpeg';
@@ -29,10 +29,23 @@ import {
 } from '../apps/video-factory/src/tts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const draftPath = resolve(process.argv[2] ?? 'episodes/001-archify/episode.json');
-const output = resolve(process.argv[3] ?? 'output/videos/manual-project/resources/production');
-if (existsSync(join(output, 'storyboard.json'))) {
-  throw new Error('Episode output exists. Choose a new output directory to preserve the previous cut.');
+const [draftArgument, outputArgument] = process.argv.slice(2);
+if (!draftArgument || !outputArgument) {
+  throw new Error('Usage: node scripts/prepare-episode.mjs <episode.json> <production-output-directory>');
+}
+const draftPath = resolve(draftArgument);
+const output = resolve(outputArgument);
+if (!existsSync(draftPath)) throw new Error(`Episode draft does not exist: ${draftPath}`);
+if (!output.toLowerCase().startsWith(`${root}${sep}`.toLowerCase())) {
+  throw new Error('Episode output must stay inside the Zimeiti project directory.');
+}
+for (const directory of ['audio', 'assets', 'qa']) {
+  rmSync(join(output, directory), {recursive: true, force: true});
+}
+for (const file of [
+  'storyboard.json', 'subtitles.srt', 'timing.json', 'episode.source.json', 'narration.wav', 'qa-report.json',
+]) {
+  rmSync(join(output, file), {force: true});
 }
 mkdirSync(join(output, 'audio'), {recursive: true});
 const draft = JSON.parse(readFileSync(draftPath, 'utf8'));
@@ -41,12 +54,15 @@ const editorialConfig = draft.meta?.template === 'editorial'
   : null;
 const narrationConfig = editorialConfig ?? {
   narrationBlocks: {
-    defaultProfile: 'code-analysis',
+    defaultProfile: 'concept-explainer',
     requiredMaxNewTokens: 1024,
     maxRequestCharacters: 1000,
     maxAudioSeconds: 64,
     gapSeconds: 0.24,
     profiles: {
+      'concept-explainer': {
+        minScenes: 2, targetScenes: 3, maxScenes: 3, shortBlockSeconds: 9, topicChange: 'soft',
+      },
       'code-analysis': {
         minScenes: 2, targetScenes: 3, maxScenes: 5, shortBlockSeconds: 10, topicChange: 'hard',
       },
@@ -167,9 +183,33 @@ if (Math.abs(measuredTotal - result.totalFrames / draft.meta.fps) > 1 / draft.me
 }
 result.storyboard.voiceover = 'narration.wav';
 const stagedAssets = new Map();
-for (const scene of result.storyboard.scenes) {
-  if (!scene.src || /^https?:\/\//i.test(scene.src)) continue;
-  const sourcePath = resolve(dirname(draftPath), scene.src);
+async function stageAsset(assetSource) {
+  if (!assetSource) return assetSource;
+  if (/^https?:\/\//i.test(assetSource)) {
+    const existing = stagedAssets.get(assetSource);
+    if (existing) return existing;
+    const url = new URL(assetSource);
+    if (url.protocol !== 'https:' || url.hostname !== 'opengraph.githubassets.com') {
+      throw new Error(`Remote visual asset is not from the approved GitHub preview host: ${url.hostname}`);
+    }
+    const response = await fetch(url, {signal: AbortSignal.timeout(30_000)});
+    if (!response.ok) throw new Error(`GitHub repository preview download failed: HTTP ${response.status}.`);
+    const contentType = response.headers.get('content-type')?.split(';')[0].trim().toLowerCase();
+    const extension = new Map([
+      ['image/png', '.png'], ['image/jpeg', '.jpg'], ['image/webp', '.webp'],
+    ]).get(contentType);
+    if (!extension) throw new Error(`GitHub repository preview returned unsupported content type: ${contentType}.`);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    if (!bytes.length || bytes.length > 12 * 1024 * 1024) {
+      throw new Error(`GitHub repository preview has an invalid size: ${bytes.length} bytes.`);
+    }
+    const stagedPath = join('assets', `${String(stagedAssets.size + 1).padStart(2, '0')}-github-repository${extension}`);
+    mkdirSync(join(output, 'assets'), {recursive: true});
+    writeFileSync(join(output, stagedPath), bytes);
+    stagedAssets.set(assetSource, stagedPath);
+    return stagedPath.replaceAll('\\', '/');
+  }
+  const sourcePath = resolve(dirname(draftPath), assetSource);
   let stagedPath = stagedAssets.get(sourcePath);
   if (!stagedPath) {
     const safeBase = basename(sourcePath).replace(/[^A-Za-z0-9_.-]/g, '-');
@@ -178,7 +218,13 @@ for (const scene of result.storyboard.scenes) {
     copyFileSync(sourcePath, join(output, stagedPath));
     stagedAssets.set(sourcePath, stagedPath);
   }
-  scene.src = stagedPath.replaceAll('\\', '/');
+  return stagedPath.replaceAll('\\', '/');
+}
+for (const scene of result.storyboard.scenes) {
+  if (scene.src) scene.src = await stageAsset(scene.src);
+  for (const beat of scene.visualBeats ?? []) {
+    if (beat.src) beat.src = await stageAsset(beat.src);
+  }
 }
 const errors = validateStoryboard(result.storyboard);
 if (errors.length) throw new Error(errors.join('\n'));

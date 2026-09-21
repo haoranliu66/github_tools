@@ -4,6 +4,8 @@ import {resolve} from 'node:path';
 const SCENE_TYPES = new Set([
   'title', 'text', 'bullets', 'stat', 'code', 'media', 'hero', 'flow', 'contrast', 'audience', 'outro',
 ]);
+const VISUAL_BEAT_ROLES = new Set(['show', 'prove', 'change']);
+const VISUAL_TRUTH_MODES = new Set(['executed-demo', 'repository-media', 'source-derived-animation']);
 
 export function validateStoryboard(storyboard) {
   const errors = [];
@@ -36,6 +38,23 @@ export function validateStoryboard(storyboard) {
     }
     if (scene.type === 'stat' && (scene.value === undefined || !scene.label)) {
       errors.push(`${prefix} requires value and label.`);
+    }
+    if (storyboard.meta?.visualBeatContractVersion === 1) {
+      if (!Array.isArray(scene.visualBeats) || scene.visualBeats.length === 0) {
+        errors.push(`${prefix}.visualBeats must contain at least one beat.`);
+      } else {
+        let previousBeatEnd = 0;
+        scene.visualBeats.forEach((beat, beatIndex) => {
+          if (!VISUAL_BEAT_ROLES.has(beat.role) || !VISUAL_TRUTH_MODES.has(beat.truthMode) ||
+              !Array.isArray(beat.claimIndexes) || beat.claimIndexes.length === 0 ||
+              !Number.isInteger(beat.startFrame) || !Number.isInteger(beat.endFrame) ||
+              beat.startFrame < previousBeatEnd || beat.endFrame <= beat.startFrame ||
+              beat.endFrame > Math.round(scene.duration * storyboard.meta.fps)) {
+            errors.push(`${prefix}.visualBeats[${beatIndex}] has invalid evidence or timing.`);
+          }
+          previousBeatEnd = beat.endFrame;
+        });
+      }
     }
     if (scene.captions !== undefined) {
       let previousEnd = 0;

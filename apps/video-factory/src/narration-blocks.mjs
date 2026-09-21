@@ -97,6 +97,27 @@ function mergeSparseBlocks(blocks, profile, characterLimit) {
   return result;
 }
 
+function rebalanceSparseBlocks(blocks, profile, characterLimit) {
+  const result = [...blocks];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    let current = result[index];
+    let previous = result[index - 1];
+    while (current.sceneCount < profile.minScenes && previous.sceneCount > profile.minScenes) {
+      const movedSceneIndex = previous.sceneIndexes.at(-1);
+      const splitAt = previous.segments.findIndex((segment) => segment.sceneIndex === movedSceneIndex);
+      if (splitAt <= 0) break;
+      const left = blockFromSegments(previous.segments.slice(0, splitAt));
+      const right = blockFromSegments([...previous.segments.slice(splitAt), ...current.segments]);
+      if (left.sceneCount < profile.minScenes || right.sceneCount > profile.maxScenes ||
+          left.text.length > characterLimit || right.text.length > characterLimit) break;
+      result.splice(index - 1, 2, left, right);
+      previous = left;
+      current = right;
+    }
+  }
+  return result;
+}
+
 export function buildNarrationBlocks(draft, config) {
   if (!Array.isArray(draft?.scenes) || draft.scenes.length === 0) {
     throw new Error('Narration block planning requires at least one scene.');
@@ -132,7 +153,11 @@ export function buildNarrationBlocks(draft, config) {
   }
   if (current) blocks.push(current);
 
-  const balanced = mergeSparseBlocks(blocks, profile, characterLimit);
+  const balanced = mergeSparseBlocks(
+    rebalanceSparseBlocks(blocks, profile, characterLimit),
+    profile,
+    characterLimit,
+  );
   return balanced.map((block, index) => ({
     ...block,
     id: `block-${String(index).padStart(3, '0')}`,

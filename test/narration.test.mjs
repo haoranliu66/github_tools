@@ -104,3 +104,37 @@ test('measured block timing redistributes frames to respect the scene maximum', 
   assert.ok(result.storyboard.scenes.every((scene) => scene.duration <= 4));
   assert.equal(result.clips.reduce((sum, clip) => sum + clip.spokenFrames, 0), 90);
 });
+
+test('visual beats align to narration cues with a bounded early lead', () => {
+  const blockDraft = {
+    meta: {fps: 10, visualBeatContractVersion: 1},
+    scenes: [{
+      type: 'flow', steps: ['输入', '处理', '结果'],
+      sentences: [
+        {text: '先显示输入。', sentenceIndex: 0},
+        {text: '然后处理数据。', sentenceIndex: 1},
+        {text: '最后得到结果。', sentenceIndex: 2},
+      ],
+      visualBeats: [
+        {id: 'input', role: 'show', narrationCue: '输入', visualMode: 'progressive-flow', assetIds: [],
+          claimIndexes: [0], truthMode: 'source-derived-animation', durationHint: 3, leadSeconds: 0.3},
+        {id: 'process', role: 'change', narrationCue: '处理数据', visualMode: 'progressive-flow', assetIds: [],
+          claimIndexes: [0], truthMode: 'source-derived-animation', durationHint: 3, leadSeconds: 0.3},
+        {id: 'result', role: 'prove', narrationCue: '结果', visualMode: 'progressive-flow', assetIds: [],
+          claimIndexes: [0], truthMode: 'source-derived-animation', durationHint: 3, leadSeconds: 0.3},
+      ],
+    }],
+  };
+  const segments = blockDraft.scenes[0].sentences.map((sentence, sentenceIndex) => ({
+    sceneIndex: 0, sentenceIndex, text: sentence.text,
+  }));
+  const result = timing.buildNarratedStoryboardFromBlocks(blockDraft, [{
+    id: 'block-000', profile: 'concept-explainer', segments, duration: 9,
+    text: segments.map((segment) => segment.text).join(''), sceneIndexes: [0], topics: ['flow'],
+  }], {gapSeconds: 0.2});
+  const beats = result.storyboard.scenes[0].visualBeats;
+  assert.deepEqual(beats.map((beat) => beat.alignment), ['cue', 'cue', 'cue']);
+  assert.ok(beats.every((beat, index) => beat.startFrame < beat.endFrame &&
+    (index === 0 || beat.startFrame === beats[index - 1].endFrame)));
+  assert.ok(beats[1].startFrame < result.storyboard.scenes[0].captions[1].endFrame);
+});

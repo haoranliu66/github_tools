@@ -32,6 +32,28 @@ function MediaAsset({scene, style}) {
   return <Img src={source(scene.src)} style={mediaStyle} />;
 }
 
+function activeVisualBeat(scene, frame) {
+  const beats = scene.visualBeats ?? [];
+  if (!beats.length) return null;
+  const timed = beats.findLast((beat) => Number.isInteger(beat.startFrame) && frame >= beat.startFrame);
+  if (timed) return timed;
+  const durationFrames = Math.max(1, Math.round((scene.duration ?? 1) * 30));
+  return beats[Math.min(beats.length - 1, Math.floor(frame / durationFrames * beats.length))];
+}
+
+function focalStyle(beat, fallbackScale, progress = 0) {
+  const region = beat?.focalRegion;
+  if (!region) return {transform: `scale(${fallbackScale})`, transformOrigin: 'center'};
+  const centerX = (region.x + region.width / 2) * 100;
+  const centerY = (region.y + region.height / 2) * 100;
+  const scale = Math.min(2.8, Math.max(1.08, 0.82 / Math.max(region.width, region.height)));
+  return {
+    objectPosition: `${centerX}% ${centerY}%`,
+    transformOrigin: `${centerX}% ${centerY}%`,
+    transform: `scale(${scale + progress * 0.025})`,
+  };
+}
+
 function EvidencePill() {
   return null;
 }
@@ -41,14 +63,16 @@ function HeroContent({scene, frame, fps, accent}) {
     extrapolateRight: 'clamp',
   });
   const reveal = spring({frame, fps, config: {damping: 180}});
+  const beat = activeVisualBeat(scene, frame);
   const scale = 1.04 + progress * 0.08;
   const x = (scene.panX ?? -2) * progress;
   const y = (scene.panY ?? -1) * progress;
   return (
     <div style={{position: 'relative', width: '100%', height: '100%', overflow: 'hidden', borderRadius: 28}}>
-      <MediaAsset scene={scene} style={{
+      <MediaAsset scene={{...scene, src: beat?.src ?? scene.src}} style={{
         objectPosition: scene.position ?? 'center',
-        transform: `scale(${scale}) translate(${x}%, ${y}%)`,
+        ...focalStyle(beat, scale, progress),
+        translate: `${x}% ${y}%`,
         filter: 'saturate(.9) contrast(1.05)',
       }} />
       <div style={{
@@ -89,7 +113,12 @@ function HeroContent({scene, frame, fps, accent}) {
 }
 
 function FlowContent({scene, frame, fps, accent}) {
-  const active = Number.isInteger(scene.activeIndex) ? scene.activeIndex : scene.steps.length - 1;
+  const beat = activeVisualBeat(scene, frame);
+  const progressiveIndex = beat
+    ? (Number.isInteger(beat.stepIndex) ? beat.stepIndex : (scene.visualBeats ?? []).indexOf(beat))
+    : scene.steps.length - 1;
+  const active = Math.min(scene.steps.length - 1,
+    Number.isInteger(progressiveIndex) ? progressiveIndex : (scene.activeIndex ?? scene.steps.length - 1));
   const pulse = 0.65 + Math.sin(frame / 7) * 0.2;
   return (
     <div style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -139,7 +168,8 @@ function FlowContent({scene, frame, fps, accent}) {
 
 function CodeContent({scene, frame, fps, accent}) {
   const lines = String(scene.code ?? '').split('\n');
-  const highlighted = new Set(scene.highlightLines ?? []);
+  const beat = activeVisualBeat(scene, frame);
+  const highlighted = new Set(beat?.lineNumbers?.length ? beat.lineNumbers : (scene.highlightLines ?? []));
   const reveal = spring({frame, fps, config: {damping: 180}});
   return (
     <div style={{height: '100%', display: 'grid', gridTemplateColumns: scene.diagram ? '1.28fr .72fr' : '1fr', gap: 34, alignItems: 'center'}}>
@@ -185,25 +215,102 @@ function CodeContent({scene, frame, fps, accent}) {
   );
 }
 
+function BeatFlowVisual({beat, frame, fps, accent}) {
+  const steps = beat?.flowSteps?.length ? beat.flowSteps : [
+    {title: '描述问题', detail: '说清输入和关系'},
+    {title: '项目处理', detail: '把关系整理成图'},
+    {title: '得到结果', detail: '沿着图继续讲解'},
+  ];
+  const active = Math.max(0, Math.min(steps.length - 1,
+    Number.isInteger(beat?.stepIndex) ? beat.stepIndex : steps.length - 1));
+  const localFrame = Math.max(0, frame - (beat?.startFrame ?? 0));
+  return (
+    <div style={{height: '100%', padding: 42, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+      <div style={{fontSize: 22, color: accent, letterSpacing: 3}}>一步一步看</div>
+      <div style={{fontSize: 34, lineHeight: 1.35, marginTop: 16, marginBottom: 38}}>{beat?.purpose}</div>
+      <div style={{display: 'grid', gridTemplateColumns: `repeat(${steps.length}, 1fr)`, gap: 18}}>
+        {steps.map((step, index) => {
+          const entered = spring({frame: localFrame - index * 3, fps, config: {damping: 180}});
+          const enabled = index <= active;
+          const current = index === active;
+          return (
+            <div key={step.id ?? step.title} style={{
+              position: 'relative', minHeight: 220, padding: '26px 22px', borderRadius: 20,
+              border: `2px solid ${current ? accent : panelBorder}`,
+              background: current ? `${accent}18` : '#091721',
+              opacity: entered * (enabled ? 1 : 0.28),
+              transform: `translateY(${(1 - entered) * 20}px)`,
+            }}>
+              <div style={{fontSize: 17, color: current ? accent : muted}}>0{index + 1}</div>
+              <div style={{fontSize: 27, fontWeight: 780, lineHeight: 1.25, marginTop: 22}}>{step.title}</div>
+              <div style={{fontSize: 19, lineHeight: 1.5, color: muted, marginTop: 16}}>{step.detail}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function BeatCompareVisual({beat, frame, fps, accent}) {
+  const localFrame = Math.max(0, frame - (beat?.startFrame ?? 0));
+  const before = beat?.contrast?.before ?? '原来的信息分散在描述里';
+  const after = beat?.contrast?.after ?? beat?.purpose ?? '项目把变化直接摆出来';
+  return (
+    <div style={{height: '100%', padding: 42, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+      <div style={{fontSize: 22, color: accent, letterSpacing: 3, marginBottom: 28}}>前后对照</div>
+      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24}}>
+        <ContrastCard item={{eyebrow: '之前', title: '不容易看懂', body: before}} tone="negative" accent={accent} frame={localFrame} fps={fps} delay={0} />
+        <ContrastCard item={{eyebrow: '之后', title: '变化更清楚', body: after}} tone="positive" accent={accent} frame={localFrame} fps={fps} delay={5} />
+      </div>
+    </div>
+  );
+}
+
+function BeatStatementVisual({beat, frame, fps, accent}) {
+  const localFrame = Math.max(0, frame - (beat?.startFrame ?? 0));
+  const reveal = spring({frame: localFrame, fps, config: {damping: 180}});
+  return (
+    <div style={{height: '100%', padding: 54, display: 'flex', flexDirection: 'column', justifyContent: 'center', opacity: reveal}}>
+      <div style={{fontSize: 22, color: accent, letterSpacing: 3}}>当前重点</div>
+      <div style={{fontSize: 54, lineHeight: 1.22, fontWeight: 820, marginTop: 28}}>{beat?.purpose}</div>
+    </div>
+  );
+}
+
+function MediaBeatVisual({scene, beat, frame, fps, accent, progress, zoom, offsetX, offsetY}) {
+  const mode = beat?.visualMode;
+  if (mode === 'progressive-flow') return <BeatFlowVisual beat={beat} frame={frame} fps={fps} accent={accent} />;
+  if (mode === 'compare') return <BeatCompareVisual beat={beat} frame={frame} fps={fps} accent={accent} />;
+  if (beat?.src || ['media-crop', 'readme-crop', 'screen-recording'].includes(mode) || !mode) {
+    return (
+      <MediaAsset scene={{...scene, src: beat?.src ?? scene.src}} style={{
+        objectFit: scene.fit ?? 'cover',
+        objectPosition: scene.position ?? 'center',
+        ...focalStyle(beat, zoom, progress),
+        translate: `${offsetX}% ${offsetY}%`,
+      }} />
+    );
+  }
+  return <BeatStatementVisual beat={beat} frame={frame} fps={fps} accent={accent} />;
+}
+
 function MediaContent({scene, frame, fps, accent}) {
   const progress = interpolate(frame, [0, Math.max(1, scene.duration * fps)], [0, 1], {extrapolateRight: 'clamp'});
   const zoom = (scene.zoom ?? 1.08) + progress * (scene.zoomTravel ?? 0.06);
   const offsetX = (scene.panX ?? 0) * progress;
   const offsetY = (scene.panY ?? -1.5) * progress;
+  const beat = activeVisualBeat(scene, frame);
   return (
     <div style={{height: '100%', display: 'grid', gridTemplateColumns: '410px 1fr', gap: 34, alignItems: 'center'}}>
       <div>
         <EvidencePill mode={scene.evidenceMode} accent={accent} />
         <h2 style={{fontSize: 54, lineHeight: 1.2, margin: '24px 0', whiteSpace: 'pre-line'}}>{scene.heading}</h2>
-        {scene.body && <div style={{fontSize: 27, lineHeight: 1.62, color: '#c2d0da', whiteSpace: 'pre-line'}}>{scene.body}</div>}
         {scene.callout && <div style={{...panel, borderColor: accent, marginTop: 28, padding: '19px 22px', color: accent, fontSize: 23}}>{scene.callout}</div>}
       </div>
       <div style={{...panel, height: 650, overflow: 'hidden', position: 'relative'}}>
-        <MediaAsset scene={scene} style={{
-          objectFit: scene.fit ?? 'cover',
-          objectPosition: scene.position ?? 'center',
-          transform: `scale(${zoom}) translate(${offsetX}%, ${offsetY}%)`,
-        }} />
+        <MediaBeatVisual scene={scene} beat={beat} frame={frame} fps={fps} accent={accent}
+          progress={progress} zoom={zoom} offsetX={offsetX} offsetY={offsetY} />
         <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(90deg, #06101b44, transparent 22%, transparent 78%, #06101b33)'}} />
         {scene.marker && (
           <div style={{
@@ -218,14 +325,15 @@ function MediaContent({scene, frame, fps, accent}) {
   );
 }
 
-function ContrastCard({item, tone, accent, frame, fps, delay}) {
+function ContrastCard({item, tone, accent, frame, fps, delay, visible = true}) {
   const entered = spring({frame: frame - delay, fps, config: {damping: 170}});
   const positive = tone === 'positive';
   const color = positive ? accent : '#ff6f7d';
   return (
     <div style={{
       ...panel, minHeight: 420, padding: '44px 46px', borderColor: color,
-      opacity: entered, transform: `translateY(${(1 - entered) * 34}px)`,
+      opacity: entered * (visible ? 1 : 0.22),
+      transform: `translateY(${(1 - entered) * 34}px) scale(${visible ? 1 : 0.97})`,
     }}>
       <div style={{fontSize: 21, color, letterSpacing: 4}}>{item.eyebrow}</div>
       <div style={{fontSize: 58, lineHeight: 1.16, fontWeight: 800, marginTop: 26, whiteSpace: 'pre-line'}}>{item.title}</div>
@@ -236,6 +344,8 @@ function ContrastCard({item, tone, accent, frame, fps, delay}) {
 }
 
 function ContrastContent({scene, frame, fps, accent}) {
+  const beat = activeVisualBeat(scene, frame);
+  const beatIndex = beat ? (scene.visualBeats ?? []).indexOf(beat) : 1;
   return (
     <div style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 38}}>
@@ -246,8 +356,8 @@ function ContrastContent({scene, frame, fps, accent}) {
         {scene.note && <div style={{fontSize: 24, color: muted, maxWidth: 560, textAlign: 'right'}}>{scene.note}</div>}
       </div>
       <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 34}}>
-        <ContrastCard item={scene.left} tone={scene.left.tone ?? 'negative'} accent={accent} frame={frame} fps={fps} delay={0} />
-        <ContrastCard item={scene.right} tone={scene.right.tone ?? 'positive'} accent={accent} frame={frame} fps={fps} delay={6} />
+        <ContrastCard item={scene.left} tone={scene.left.tone ?? 'negative'} accent={accent} frame={frame} fps={fps} delay={0} visible />
+        <ContrastCard item={scene.right} tone={scene.right.tone ?? 'positive'} accent={accent} frame={frame} fps={fps} delay={6} visible={beatIndex >= 1} />
       </div>
     </div>
   );

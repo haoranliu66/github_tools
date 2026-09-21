@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   buildCodexArgs,
+  buildResearchRepairPrompt,
   buildWindowsSandboxPlan,
   classifyCodexFailure,
 } from '../apps/repo-researcher/src/cli.mjs';
@@ -18,7 +19,8 @@ test('Windows research retains a sandbox backend when user configuration is igno
   assert.ok(args.includes('--ignore-rules'));
   assert.ok(!args.includes('--approve-for-me'));
   assert.ok(!args.includes('--dangerously-bypass-approvals-and-sandbox'));
-  assert.equal(args.at(-1), 'Inspect repository');
+  assert.equal(args.at(-1), '-');
+  assert.ok(!args.includes('Inspect repository'));
 });
 
 test('non-Windows research does not receive Windows-specific sandbox configuration', () => {
@@ -66,4 +68,17 @@ test('a completed Codex result is recorded as healthy rather than as an executio
     code: 'OK',
     canUseUnelevatedFallback: false,
   });
+});
+
+test('a failed editorial gate gets one bounded correction prompt without trusting the draft', () => {
+  const prompt = buildResearchRepairPrompt(
+    'Original trusted prompt',
+    {status: 'completed', video: {hook: 'bad draft'}},
+    new Error('Editorial brief requires one concrete example.'),
+  );
+  assert.match(prompt, /Original trusted prompt/);
+  assert.match(prompt, /one correction|corrected complete JSON/i);
+  assert.match(prompt, /Editorial brief requires one concrete example/);
+  assert.match(prompt, /untrusted\s+data/i);
+  assert.match(prompt, /BEGIN PREVIOUS DRAFT DATA/);
 });

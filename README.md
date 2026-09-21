@@ -122,6 +122,7 @@ pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYY
 安全默认值：
 
 - 启动时关闭项目 `AGENTS.md` 注入、用户配置和仓库规则文件加载。
+- 启动研究前由 Zimeiti 主程序读取受信任的 `video-production-quality` Skill、市场模式、视觉证据合同和验收清单，完整注入研究提示词并记录内容摘要。克隆仓库中的 `SKILL.md`、`AGENTS.md` 既不作为指令执行，也不作为功能证据。
 - 默认使用 Codex `read-only` 沙箱。
 - Windows 下 `CODEX_WINDOWS_SANDBOX=auto` 会先选择首选的 `elevated` 沙箱；只有只读研究遇到沙箱设置被取消（错误 1223）时，才自动重试官方 `unelevated` 回退。`--allow-run` 永不自动降低隔离等级。
 - 不运行安装脚本，不写系统目录，不使用用户凭据。
@@ -131,7 +132,7 @@ pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYY
 
 本地仓库可使用 `pnpm research -- fixture/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --local 'C:\absolute\repository'`，该模式以 `local:fixture/name` 标识来源，不将测试标识误当成远程 GitHub 仓库。
 
-研究结果必须声明 `status: completed`，包含完整 Git commit SHA、实际读取文件清单、至少一条引用已读文件的证据，以及带理由和置信度的 `demoability` 评分，才会生成脚本、分镜等七件产物。`blocked`、`failed` 或证据不足会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
+研究结果必须声明 `status: completed`，包含完整 Git commit SHA、官方 README 读取记录、README 或获准实测证据、带理由和置信度的 `demoability` 评分，以及与当前制作 Skill 对齐的 `editorialBrief` 和 `visualEvidencePackage`，才会生成脚本、分镜等七件产物。研究不做源码、目录结构或文件行号映射。编辑简报明确目标观众、熟悉问题、一句话答案、标题承诺和带事实索引的具体例子；视觉证据包则把每个新信息映射为展示、证明或变化，并记录旁白 cue、事实索引、素材与 truth mode。语义门禁失败时，研究进程会自动进行一次有界修正；再次失败才终止。`blocked`、`failed`、证据不足或 Skill 摘要过期都会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
 
 每次真实调用的标准输出、标准错误和运行元数据保存在对应项目的 `resources/_runs/`。该目录可能含仓库内容，不应公开提交；日志不记录环境变量或登录凭据。
 
@@ -177,9 +178,7 @@ pnpm video:render -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/fi
 pnpm video:studio -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json --repo owner/repository
 ```
 
-`pnpm video:smoke` 使用仓库自带的合成最终榜，仅验证渲染链路，不代表真实项目获批。
-
-分镜支持 `hero`、`flow`、`code`、`media`、`contrast`、`audience` 等动态编辑场景。带 `src` 的场景可以引用本地图片，顶层 `voiceover` 可以引用本地旁白；渲染前这些素材会复制到忽略版本控制的临时静态目录。动态分镜必须通过节奏、场景多样性、证据覆盖率和研究边界门禁。正式渲染后还会自动完成音视频全量解码，抽取 8 个代表帧并生成 `qa/final/contact-sheet.png`。
+分镜支持 `hero`、`flow`、`code`、`media`、`contrast`、`audience` 等动态编辑场景；仓库研究生成的场景按旁白 cue 使用 README 素材裁切、逐步流程、获准实测录屏与前后对比，不再要求源码高亮或文件行号映射。带 `src` 的场景及 beat 可以引用本地图片或视频，顶层 `voiceover` 可以引用本地旁白；渲染前这些素材会复制到忽略版本控制的临时静态目录。正式渲染后还会自动完成音视频全量解码，抽取 8 个代表帧并生成 `qa/final/contact-sheet.png`；AI 不打开或评审这些截图，直接交给人工检查。
 
 ## 推荐周更流程
 

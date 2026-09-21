@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sceneCount": {
-    "min": 6,
+    "min": 5,
     "max": 12,
     "target": 6
   },
@@ -30,23 +30,26 @@
     "types": ["hero", "media", "flow", "contrast", "code", "stat"],
     "minimumCoverage": 0.6
   },
+  "visualBeats": {
+    "maxLeadSeconds": 1
+  },
   "text": {
     "softSubtitleCharacters": 32,
-    "maxNarrationCharacters": 430,
-    "spokenLatinAllowlist": ["AI", "ADHD", "Mermaid", "Claude", "OpenAI", "GitHub", "OpenCode", "Codex", "Qwen", "Pi", "Star", "Stars", "Node.js"]
+    "softNarrationCharacters": 430,
+    "maxNarrationCharacters": 500
   },
   "narrationBlocks": {
-    "defaultProfile": "code-analysis",
+    "defaultProfile": "concept-explainer",
     "requiredMaxNewTokens": 1024,
     "maxRequestCharacters": 1000,
     "maxAudioSeconds": 64,
     "gapSeconds": 0.24,
     "profiles": {
       "concept-explainer": {
-        "minScenes": 4,
-        "targetScenes": 5,
-        "maxScenes": 6,
-        "shortBlockSeconds": 14,
+        "minScenes": 2,
+        "targetScenes": 3,
+        "maxScenes": 3,
+        "shortBlockSeconds": 9,
         "topicChange": "soft"
       },
       "code-analysis": {
@@ -73,9 +76,10 @@
     }
   },
   "media": {
-    "extensions": [".png", ".jpg", ".jpeg", ".webp"],
+    "extensions": [".png", ".jpg", ".jpeg", ".webp", ".mp4", ".webm", ".mov", ".m4v"],
     "maxBytes": 12582912,
-    "maxAssets": 3
+    "maxVideoBytes": 52428800,
+    "maxAssets": 12
   },
   "qa": {
     "sampleFrames": 8

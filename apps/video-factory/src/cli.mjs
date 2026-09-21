@@ -29,14 +29,18 @@ function invokeRemotion(args) {
   });
 }
 
-function stageAsset(sourcePath, runDirectory) {
+function stageAsset(sourcePath, runDirectory, stagedAssets) {
   const absoluteSource = resolve(sourcePath);
   if (!existsSync(absoluteSource)) throw new Error(`Media asset does not exist: ${absoluteSource}`);
+  const existing = stagedAssets.get(absoluteSource);
+  if (existing) return existing;
   mkdirSync(runDirectory, {recursive: true});
   const safeBase = basename(absoluteSource).replace(/[^A-Za-z0-9_.-]/g, '-');
-  const destination = join(runDirectory, `${Date.now()}-${safeBase}`);
+  const destination = join(runDirectory, `${String(stagedAssets.size + 1).padStart(2, '0')}-${safeBase}`);
   copyFileSync(absoluteSource, destination);
-  return destination.slice(PUBLIC_ROOT.length + 1).replaceAll('\\', '/');
+  const stagedPath = destination.slice(PUBLIC_ROOT.length + 1).replaceAll('\\', '/');
+  stagedAssets.set(absoluteSource, stagedPath);
+  return stagedPath;
 }
 
 function stageStoryboard(storyboard, storyboardPath) {
@@ -44,13 +48,19 @@ function stageStoryboard(storyboard, storyboardPath) {
   const runDirectory = join(PUBLIC_ROOT, 'generated', runId);
   const baseDirectory = dirname(storyboardPath);
   const staged = structuredClone(storyboard);
+  const stagedAssets = new Map();
 
   if (staged.voiceover && !/^https?:\/\//i.test(staged.voiceover)) {
-    staged.voiceover = stageAsset(resolve(baseDirectory, staged.voiceover), runDirectory);
+    staged.voiceover = stageAsset(resolve(baseDirectory, staged.voiceover), runDirectory, stagedAssets);
   }
   for (const scene of staged.scenes) {
     if (scene.src && !/^https?:\/\//i.test(scene.src)) {
-      scene.src = stageAsset(resolve(baseDirectory, scene.src), runDirectory);
+      scene.src = stageAsset(resolve(baseDirectory, scene.src), runDirectory, stagedAssets);
+    }
+    for (const beat of scene.visualBeats ?? []) {
+      if (beat.src && !/^https?:\/\//i.test(beat.src)) {
+        beat.src = stageAsset(resolve(baseDirectory, beat.src), runDirectory, stagedAssets);
+      }
     }
   }
   mkdirSync(runDirectory, {recursive: true});

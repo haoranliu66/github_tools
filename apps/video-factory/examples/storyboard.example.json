@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "title": "视觉 Beat 校验示例",
+    "repo": "zimeiti/system-check",
+    "template": "editorial",
+    "accent": "#b8f76c",
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "researchMode": "static-source-review",
+    "visualBeatContractVersion": 1,
+    "narrationAlignment": "measured-block-weighted-cues",
+    "showEvidenceLabels": false
+  },
+  "scenes": [
+    {
+      "type": "contrast",
+      "duration": 8,
+      "heading": "先看原来的麻烦",
+      "left": {"eyebrow": "以前", "title": "信息散乱", "body": "很难迅速看懂", "tone": "negative"},
+      "right": {"eyebrow": "之后", "title": "重点清楚", "body": "先看到有用结果", "tone": "positive"},
+      "source": "example research claim 0",
+      "evidenceMode": "source",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "先看它要解决的麻烦。"}],
+      "visualBeats": [{
+        "id": "opening-change", "role": "show", "purpose": "展示前后差别", "narrationCue": "先看",
+        "visualMode": "compare", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0.3,
+        "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    },
+    {
+      "type": "flow",
+      "duration": 8,
+      "heading": "项目怎样处理",
+      "steps": [{"title": "输入", "detail": "接收内容"}, {"title": "整理", "detail": "提取重点"}, {"title": "输出", "detail": "给出结果"}],
+      "source": "example research claim 0",
+      "evidenceMode": "source",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "项目把输入整理成清楚的结果。"}],
+      "visualBeats": [{
+        "id": "flow-change", "role": "change", "purpose": "逐步显示处理过程", "narrationCue": "整理",
+        "visualMode": "progressive-flow", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0.3,
+        "stepIndex": 1, "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    },
+    {
+      "type": "flow",
+      "duration": 8,
+      "heading": "关键动作",
+      "steps": [{"title": "读取", "detail": "接收输入"}, {"title": "检查", "detail": "整理内容"}, {"title": "输出", "detail": "给出结果"}],
+      "activeIndex": 1,
+      "source": "example research claim 0",
+      "evidenceMode": "source",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "关键步骤是检查内容。"}],
+      "visualBeats": [{
+        "id": "flow-proof", "role": "prove", "purpose": "逐步显示关键动作", "narrationCue": "检查内容",
+        "visualMode": "progressive-flow", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0.3,
+        "stepIndex": 1, "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    },
+    {
+      "type": "contrast",
+      "duration": 8,
+      "heading": "结果有什么变化",
+      "left": {"eyebrow": "输入", "title": "还没整理", "body": "重点混在一起", "tone": "negative"},
+      "right": {"eyebrow": "输出", "title": "已经整理", "body": "重点一眼可见", "tone": "positive"},
+      "source": "example research claim 0",
+      "evidenceMode": "source",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "整理之后，重点会更容易看见。"}],
+      "visualBeats": [{
+        "id": "result-change", "role": "change", "purpose": "显示整理后的结果", "narrationCue": "整理之后",
+        "visualMode": "compare", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0.3,
+        "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    },
+    {
+      "type": "stat",
+      "duration": 8,
+      "heading": "只保留一个重点",
+      "value": "1",
+      "label": "清楚的结论",
+      "source": "example research claim 0",
+      "evidenceMode": "source",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "这一段只强调一个结论。"}],
+      "visualBeats": [{
+        "id": "stat-focus", "role": "show", "purpose": "短暂强调结论", "narrationCue": "一个结论",
+        "visualMode": "stat-overlay", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0.3,
+        "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    },
+    {
+      "type": "outro",
+      "duration": 8,
+      "title": "交给人工完整检查",
+      "subtitle": "不自动发布",
+      "source": "example editorial conclusion",
+      "evidenceMode": "editorial",
+      "captions": [{"startFrame": 0, "endFrame": 240, "text": "生成后交给人工完整检查。"}],
+      "visualBeats": [{
+        "id": "outro-handoff", "role": "show", "purpose": "显示人工检查结论", "narrationCue": "人工完整检查",
+        "visualMode": "statement", "assetIds": [], "claimIndexes": [0],
+        "truthMode": "source-derived-animation", "durationHint": 3, "leadSeconds": 0,
+        "startFrame": 60, "endFrame": 240, "alignment": "cue"
+      }]
+    }
+  ]
+}

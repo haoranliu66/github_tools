@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import {
   buildNarrationBlocks,
@@ -19,6 +20,9 @@ const config = {
   },
 };
 
+const editorialConfig = JSON.parse(readFileSync(
+  new URL('../config/video-editorial.json', import.meta.url), 'utf8'));
+
 function segment(sceneIndex, text, topic = 'same') {
   return {sceneIndex, sentenceIndex: 0, text, sentenceEnd: true, topic};
 }
@@ -34,6 +38,33 @@ test('block planning groups scenes by project cadence without losing text', () =
   const blocks = buildNarrationBlocks(draft, config);
   assert.deepEqual(blocks.map((block) => block.sceneCount), [4, 4]);
   assert.ok(blocks.every((block) => block.sceneCount >= 2 && block.sceneCount <= 6));
+  assert.equal(blocks.map((block) => block.text).join(''),
+    draft.scenes.flatMap((scene) => scene.sentences).map((item) => item.text).join(''));
+});
+
+test('concept explainers keep ordinary narration blocks to two or three scenes', () => {
+  const draft = {
+    meta: {narrationProfile: 'concept-explainer'},
+    scenes: Array.from({length: 6}, (_, index) => ({
+      narrationTopic: `topic-${Math.floor(index / 2)}`,
+      sentences: [{text: `第${index + 1}个连续句子。`, sentenceEnd: true}],
+    })),
+  };
+  const blocks = buildNarrationBlocks(draft, editorialConfig);
+  assert.deepEqual(blocks.map((block) => block.sceneCount), [3, 3]);
+  assert.ok(blocks.every((block) => block.sceneCount >= 2 && block.sceneCount <= 3));
+});
+
+test('concept explainer rebalances a seven-scene tail instead of leaving one scene alone', () => {
+  const draft = {
+    meta: {narrationProfile: 'concept-explainer'},
+    scenes: Array.from({length: 7}, (_, index) => ({
+      narrationTopic: `topic-${index}`,
+      sentences: [{text: `第${index + 1}个连续句子。`, sentenceEnd: true}],
+    })),
+  };
+  const blocks = buildNarrationBlocks(draft, editorialConfig);
+  assert.deepEqual(blocks.map((block) => block.sceneCount), [3, 2, 2]);
   assert.equal(blocks.map((block) => block.text).join(''),
     draft.scenes.flatMap((scene) => scene.sentences).map((item) => item.text).join(''));
 });

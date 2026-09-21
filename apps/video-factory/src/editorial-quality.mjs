@@ -13,13 +13,21 @@ function narrationText(scene) {
   return '';
 }
 
-function latinTerms(value) {
-  return String(value ?? '').match(/[A-Za-z][A-Za-z0-9]*(?:[.+-][A-Za-z0-9]+)*/gu) ?? [];
-}
-
 function runLimit(scenes, start, config) {
   const type = scenes[start].type;
-  if (['media', 'contrast'].includes(type)) return config.rhythm.maxEvidenceSeriesRun;
+  if (type === 'media') {
+    const run = [];
+    for (let index = start; index < scenes.length && scenes[index].type === type; index += 1) {
+      run.push(scenes[index]);
+    }
+    const semanticallyDynamic = run.every((scene) => {
+      const modes = new Set((scene.visualBeats ?? []).map((beat) => beat.visualMode));
+      return modes.size >= 2 && [...modes].some((mode) => !['media-crop', 'readme-crop', 'screen-recording'].includes(mode));
+    });
+    if (semanticallyDynamic) return config.rhythm.maxProgressiveFlowRun;
+    return config.rhythm.maxEvidenceSeriesRun;
+  }
+  if (type === 'contrast') return config.rhythm.maxEvidenceSeriesRun;
   if (type === 'flow') {
     const signature = JSON.stringify(scenes[start].steps ?? []);
     let progressive = true;
@@ -72,6 +80,65 @@ export function evaluateEditorialQuality(story, config) {
     errors.push('viewer-facing evidence labels must be disabled.');
   }
 
+  const requiresVisualBeats = story?.meta?.visualBeatContractVersion === 1;
+  const visualBeats = scenes.flatMap((scene, sceneIndex) =>
+    (scene.visualBeats ?? []).map((beat) => ({...beat, sceneIndex})));
+  const uniqueEvidenceAssets = new Set(visualBeats.flatMap((beat) => beat.assetIds ?? []));
+  let visualCueCoverage = null;
+  let maxSemanticVisualGapSeconds = null;
+  if (requiresVisualBeats) {
+    const truthModes = new Set(['executed-demo', 'repository-media', 'source-derived-animation']);
+    const roles = new Set(['show', 'prove', 'change']);
+    for (const [sceneIndex, scene] of scenes.entries()) {
+      if (!Array.isArray(scene.visualBeats) || scene.visualBeats.length === 0) {
+        errors.push(`scenes[${sceneIndex}] requires at least one visual beat.`);
+      }
+    }
+    visualBeats.forEach((beat, index) => {
+      if (!roles.has(beat.role) || !truthModes.has(beat.truthMode) ||
+          !Array.isArray(beat.claimIndexes) || beat.claimIndexes.length === 0) {
+        errors.push(`visual beat ${index} must show, prove, or change something with claims and a truth mode.`);
+      }
+      if (story?.meta?.researchMode === 'static-source-review' && beat.truthMode === 'executed-demo') {
+        errors.push(`visual beat ${index} cannot claim executed-demo in static research mode.`);
+      }
+      if (!Number.isFinite(beat.leadSeconds) || beat.leadSeconds < 0 ||
+          beat.leadSeconds > config.visualBeats.maxLeadSeconds) {
+        errors.push(`visual beat ${index} leadSeconds must be 0-${config.visualBeats.maxLeadSeconds}.`);
+      }
+    });
+
+    const aligned = visualBeats.filter((beat) => beat.alignment === 'cue').length;
+    const allScenesHaveBeats = scenes.every((scene) =>
+      Array.isArray(scene.visualBeats) && scene.visualBeats.length > 0);
+    const hasPreparedAlignment = allScenesHaveBeats && visualBeats.length > 0 &&
+      visualBeats.every((beat) => beat.alignment);
+    if (story?.meta?.narrationAlignment && !hasPreparedAlignment) {
+      errors.push('prepared visual beats require an alignment result for every beat.');
+    }
+    if (hasPreparedAlignment) {
+      visualCueCoverage = aligned / visualBeats.length;
+    }
+
+    if (scenes.every((scene) => Number.isFinite(scene.duration)) &&
+        visualBeats.every((beat) => Number.isInteger(beat.startFrame))) {
+      const fps = story.meta?.fps;
+      let maximumGapFrames = 0;
+      scenes.forEach((scene) => {
+        const sceneFrames = Math.max(1, Math.round(scene.duration * fps));
+        const starts = (scene.visualBeats ?? []).map((beat) => beat.startFrame)
+          .sort((left, right) => left - right);
+        let previous = 0;
+        for (const start of starts) {
+          maximumGapFrames = Math.max(maximumGapFrames, start - previous);
+          previous = start;
+        }
+        maximumGapFrames = Math.max(maximumGapFrames, sceneFrames - previous);
+      });
+      maxSemanticVisualGapSeconds = maximumGapFrames / fps;
+    }
+  }
+
   for (let start = 0; start < scenes.length;) {
     let end = start + 1;
     while (end < scenes.length && scenes[end].type === scenes[start].type) end += 1;
@@ -87,9 +154,14 @@ export function evaluateEditorialQuality(story, config) {
   if (evidenceCoverage < config.evidence.minimumCoverage) {
     errors.push(`evidence coverage must be ${config.evidence.minimumCoverage * 100}%; received ${(evidenceCoverage * 100).toFixed(1)}%.`);
   }
+  if (config.text.softNarrationCharacters &&
+      narrationCharacters > config.text.softNarrationCharacters) {
+    warnings.push(`narration exceeds the ${config.text.softNarrationCharacters}-character short-form soft target; received ` +
+      `${narrationCharacters}. Measured audio duration remains the primary acceptance limit.`);
+  }
   if (config.text.maxNarrationCharacters &&
       narrationCharacters > config.text.maxNarrationCharacters) {
-    errors.push(`narration exceeds the ${config.text.maxNarrationCharacters}-character short-form limit; received ` +
+    errors.push(`narration exceeds the ${config.text.maxNarrationCharacters}-character short-form hard limit; received ` +
       `${narrationCharacters}.`);
   }
   for (const [index, scene] of scenes.entries()) {
@@ -103,18 +175,6 @@ export function evaluateEditorialQuality(story, config) {
     if (longCues.length) {
       warnings.push(`scenes[${index}] has ${longCues.length} subtitle cue(s) above the ` +
         `${config.text.softSubtitleCharacters}-character soft target; semantic text was preserved.`);
-    }
-    const allowedLatin = new Set([
-      ...(config.text.spokenLatinAllowlist ?? []),
-      ...(story?.meta?.spokenLatinAllowlist ?? []),
-    ].flatMap(latinTerms).map((term) => term.toLowerCase()));
-    const spoken = Array.isArray(scene.sentences)
-      ? scene.sentences.map((item) => item?.spoken ?? item?.text ?? '').join('')
-      : narration;
-    const unexpectedLatin = [...new Set(latinTerms(spoken)
-      .filter((term) => !allowedLatin.has(term.toLowerCase())))];
-    if (unexpectedLatin.length) {
-      errors.push(`scenes[${index}] spoken narration contains untranslated Latin terms: ${unexpectedLatin.join(', ')}.`);
     }
   }
 
@@ -172,6 +232,11 @@ export function evaluateEditorialQuality(story, config) {
       distinctSceneTypes: Object.keys(typeCounts).length,
       evidenceCoverage: Number(evidenceCoverage.toFixed(3)),
       bRollCoverage: Number(bRollCoverage.toFixed(3)),
+      visualBeatCount: visualBeats.length,
+      visualCueCoverage: visualCueCoverage === null ? null : Number(visualCueCoverage.toFixed(3)),
+      maxSemanticVisualGapSeconds: maxSemanticVisualGapSeconds === null
+        ? null : Number(maxSemanticVisualGapSeconds.toFixed(3)),
+      uniqueEvidenceAssets: uniqueEvidenceAssets.size,
       narrationCharacters,
       narrationBlockCount: narrationBlocks.length || null,
       totalDurationSeconds: totalDurationSeconds === null ? null : Number(totalDurationSeconds.toFixed(3)),

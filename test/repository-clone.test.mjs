@@ -29,6 +29,30 @@ test('a transient clone failure is retried in disposable directories and publish
   assert.equal(readdirSync(root).some((name) => name.includes('.clone-')), false);
 });
 
+test('a Schannel credential failure retries GitHub with per-command OpenSSL', (t) => {
+  const root = mkdtempSync(join(tmpdir(), 'zimeiti-clone-test-'));
+  t.after(() => rmSync(root, {recursive: true, force: true}));
+  const target = join(root, 'fixture--schannel');
+  const backends = [];
+
+  const result = cloneRepository('fixture/schannel', target, {
+    runGit: ({target: temporaryTarget, sslBackend}) => {
+      backends.push(sslBackend);
+      mkdirSync(temporaryTarget, {recursive: true});
+      if (backends.length === 1) {
+        return {status: 128, stderr: 'schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS'};
+      }
+      mkdirSync(join(temporaryTarget, '.git'));
+      return {status: 0, stderr: ''};
+    },
+    maxAttempts: 3,
+    retryDelayMs: 0,
+  });
+
+  assert.deepEqual(result, {reused: false, attempts: 2});
+  assert.deepEqual(backends, [null, 'openssl']);
+});
+
 test('a non-git destination is preserved and rejected', (t) => {
   const root = mkdtempSync(join(tmpdir(), 'zimeiti-clone-test-'));
   t.after(() => rmSync(root, {recursive: true, force: true}));

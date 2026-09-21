@@ -15,8 +15,9 @@ topic selection, factual review, run authorization, voice authorization, and fin
   synthesize both parts; never crop the WAV or discard text.
 - Use the measured WAV duration as the main limit. A final narration block must be no longer than the configured 64-second ceiling.
 - A Qwen request must contain at most 1,000 characters, including punctuation.
-- A narration block normally covers 2-6 visual scenes. Technical duration or request-limit splits may temporarily
-  produce a one-scene block and must be recorded in timing metadata.
+- A concept-explainer narration block normally covers 2-3 visual scenes so approximate scene and subtitle timing stays
+  close to the spoken idea. Other profiles may cover up to their configured maximum. Technical duration or request-
+  limit splits may temporarily produce a one-scene block and must be recorded in timing metadata.
 - Keep explanations predominantly Chinese, but preserve proper product, company, model, and project names such as
   Claude, OpenAI, GitHub, Codex, Qwen, and repository names in their English form. Translate or explain technical
   jargon when an ordinary viewer would not understand it. Do not cluster many unrelated English terms in one request.
@@ -31,8 +32,10 @@ topic selection, factual review, run authorization, voice authorization, and fin
 
 ## Choose cadence from the project
 
-- `concept-explainer`: prefer longer blocks spanning 4-6 related scenes.
-- `code-analysis`: use medium blocks and cut when the source file, mechanism, or flow changes.
+- `concept-explainer`: prefer coherent blocks spanning 2-3 related scenes. Preserve the same voice and sampling
+  parameters across blocks instead of merging most of an episode into one request.
+- `code-analysis`: reserve this for a separately approved source-code deep dive outside the normal repository
+  research flow; cut when the explanation or flow changes.
 - `operation-demo`: cut by complete operation steps, not by character count.
 - `quick-news`: use short blocks and faster visual changes.
 
@@ -65,7 +68,8 @@ selected profile in `timing.json`.
 
 ```powershell
 pnpm video:voice:check
-pnpm video:prepare -- --selection selections/YYYY-Www.json --repo owner/repository
+pnpm video:prepare -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
-Always choose a new output directory through the approved selection mapping. Do not overwrite an earlier cut.
+Use the approved selection mapping. Regeneration may overwrite that project's current narration and production
+resources; archive an earlier cut only when the user explicitly requests it.

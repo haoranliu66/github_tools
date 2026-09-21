@@ -144,6 +144,39 @@ function allocateFramesWithSceneMaximum(totalFrames, segments, maxSceneFrames, t
   return frames;
 }
 
+function alignVisualBeats(scene, fps) {
+  if (!Array.isArray(scene.visualBeats) || scene.visualBeats.length === 0) return;
+  const sceneFrames = Math.max(1, Math.round(scene.duration * fps));
+  const captions = scene.captions ?? [];
+  const fullText = captions.map((cue) => cue.text).join('');
+  let previousStart = -1;
+  scene.visualBeats = scene.visualBeats.map((beat, index) => {
+    const cue = String(beat.narrationCue ?? '');
+    const cueCharacter = cue ? fullText.indexOf(cue) : -1;
+    let startFrame = Math.floor(index * sceneFrames / scene.visualBeats.length);
+    let alignment = 'distributed';
+    if (cueCharacter >= 0 && captions.length) {
+      let characterCursor = 0;
+      const caption = captions.find((item) => {
+        characterCursor += item.text.length;
+        return cueCharacter < characterCursor;
+      }) ?? captions.at(-1);
+      const captionStartCharacter = characterCursor - caption.text.length;
+      const fraction = Math.max(0, Math.min(1,
+        (cueCharacter - captionStartCharacter) / Math.max(1, caption.text.length)));
+      startFrame = caption.startFrame + Math.round((caption.endFrame - caption.startFrame) * fraction) -
+        Math.round(Number(beat.leadSeconds ?? 0) * fps);
+      alignment = 'cue';
+    }
+    startFrame = Math.max(previousStart + 1, Math.min(sceneFrames - 1, startFrame));
+    previousStart = startFrame;
+    return {...beat, startFrame, alignment};
+  }).map((beat, index, beats) => ({
+    ...beat,
+    endFrame: beats[index + 1]?.startFrame ?? sceneFrames,
+  }));
+}
+
 export function buildNarratedStoryboardFromBlocks(draft, blocks, {
   gapSeconds = 0.24,
   minimumTotalSeconds = 0,
@@ -252,6 +285,7 @@ export function buildNarratedStoryboardFromBlocks(draft, blocks, {
       text: cue.text,
     }));
     scene.duration = (bound.end - sceneStart) / fps;
+    alignVisualBeats(scene, fps);
     sceneStart = bound.end;
     delete scene.sentences;
     delete scene.narrationTopic;

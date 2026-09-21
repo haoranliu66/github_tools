@@ -1,12 +1,21 @@
+import {createHash} from 'node:crypto';
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {join, relative, resolve} from 'node:path';
 import {loadSelection, resolveSelectionProjectPath} from './selection.mjs';
+import {validateResearchResult} from '../../repo-researcher/src/artifacts.mjs';
+import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
 import {
   finalRankingWeekDirectory,
   projectLayoutFromSelection,
 } from '../../shared/pipeline-paths.mjs';
 
-export function latestResearch(projectRoot, fullName, selection) {
+function sha256(value) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+export function latestResearch(projectRoot, fullName, selection, {
+  editorialContract = loadEditorialContract(projectRoot),
+} = {}) {
   const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
   const directory = layout.resourcesDirectory;
   const researchPath = join(directory, 'research.json');
@@ -19,18 +28,25 @@ export function latestResearch(projectRoot, fullName, selection) {
         !existsSync(storyboardPath)) {
       return {status: 'incomplete', directory, research, reason: 'Research lacks a valid demoability score or storyboard.'};
     }
+    validateResearchResult(research, {expectedEditorialContract: editorialContract});
     return {status: 'completed', directory, research, storyboardPath, layout};
   } catch (error) {
     return {status: 'incomplete', directory, reason: error.message, layout};
   }
 }
 
-function productionStoryboard(projectRoot, selection, fullName) {
+function productionStoryboard(projectRoot, selection, fullName, research) {
   const storyboardPath = projectLayoutFromSelection(projectRoot, selection, fullName).storyboardPath;
   if (!existsSync(storyboardPath)) {
     throw new Error(`Approved production storyboard does not exist for ${fullName}: ${storyboardPath}`);
   }
-  return storyboardPath;
+  const serialized = readFileSync(storyboardPath, 'utf8');
+  const storyboard = JSON.parse(serialized);
+  if (storyboard.meta?.editorialContractDigest !== research.editorialContract.digest ||
+      storyboard.meta?.researchCommit !== research.project.versionOrCommit) {
+    throw new Error(`Approved production storyboard is stale for ${fullName}; run video:prepare again.`);
+  }
+  return {storyboardPath, storyboardDigest: sha256(serialized)};
 }
 
 function markdownFor(result) {
@@ -50,7 +66,12 @@ function markdownFor(result) {
   ].join('\n');
 }
 
-export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new Date()}) {
+export function writeFinalRanking({
+  projectRoot,
+  selectionPath,
+  generatedAt = new Date(),
+  editorialContract = loadEditorialContract(projectRoot),
+}) {
   const {selection, absolutePath} = loadSelection(selectionPath, {requireApproved: true});
   const reportPath = resolveSelectionProjectPath(projectRoot, selection.sourceReport);
   const baseRows = JSON.parse(readFileSync(reportPath, 'utf8'));
@@ -64,14 +85,15 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
       throw new Error(`Selected repository is not eligible for research this week: ${fullName}`);
     }
     const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
-    const research = latestResearch(projectRoot, fullName, selection);
+    const research = latestResearch(projectRoot, fullName, selection, {editorialContract});
     const completed = research?.status === 'completed';
     const demoabilityScore = completed ? research.research.demoability.score : null;
     const finalScore = completed ? Number((base.trendScore + demoabilityScore).toFixed(2)) : null;
     const videoApproved = completed && selection.videoProjects.includes(fullName);
-    const storyboardPath = completed
-      ? (videoApproved ? productionStoryboard(projectRoot, selection, fullName) : research.storyboardPath)
+    const production = videoApproved
+      ? productionStoryboard(projectRoot, selection, fullName, research.research)
       : null;
+    const storyboardPath = completed ? (production?.storyboardPath ?? research.storyboardPath) : null;
     return {
       finalRank: null,
       weekId: selection.weekId,
@@ -88,11 +110,14 @@ export function writeFinalRanking({projectRoot, selectionPath, generatedAt = new
       researchStatus: completed ? 'completed' : research?.status ?? 'missing',
       researchIssue: completed ? null : research?.reason ?? 'No current-schema research package found.',
       researchPath: research ? relative(projectRoot, research.directory).replaceAll('\\', '/') : null,
+      editorialContractDigest: completed ? research.research.editorialContract.digest : null,
+      researchCommit: completed ? research.research.project.versionOrCommit : null,
       projectPath: relative(projectRoot, layout.projectDirectory).replaceAll('\\', '/'),
       storyboardPath: storyboardPath
         ? relative(projectRoot, storyboardPath).replaceAll('\\', '/')
         : null,
       videoPath: relative(projectRoot, layout.videoPath).replaceAll('\\', '/'),
+      storyboardDigest: production?.storyboardDigest ?? null,
       videoApproved,
     };
   }).sort((a, b) => {
