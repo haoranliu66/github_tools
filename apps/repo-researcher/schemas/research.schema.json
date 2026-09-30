@@ -145,7 +145,7 @@
         "hookMoment": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["purpose", "narrationCue", "visualMode", "canvas", "shot", "stage", "entrance", "assetIds", "claimIndexes", "truthMode", "leadSeconds", "focalRegion"],
+          "required": ["purpose", "narrationCue", "visualMode", "canvas", "shot", "stage", "entrance", "assetIds", "claimIndexes", "leadSeconds", "focalRegion"],
           "properties": {
             "purpose": {"type": "string", "minLength": 1},
             "narrationCue": {"type": "string", "minLength": 1},
@@ -156,7 +156,6 @@
             "entrance": {"$ref": "#/$defs/beatEntrance"},
             "assetIds": {"$ref": "#/$defs/assetIds"},
             "claimIndexes": {"$ref": "#/$defs/claimIndexes"},
-            "truthMode": {"$ref": "#/$defs/truthMode"},
             "leadSeconds": {"type": "number", "minimum": 0, "maximum": 1},
             "focalRegion": {"anyOf": [{"$ref": "#/$defs/focalRegion"}, {"type": "null"}]}
           }
@@ -168,7 +167,7 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "sectionIndex", "role", "purpose", "narrationCue", "visualMode", "canvas", "shot", "stage", "entrance", "assetIds", "claimIndexes", "truthMode", "durationHint", "leadSeconds", "focalRegion", "stepIndex", "lineNumbers"],
+            "required": ["id", "sectionIndex", "role", "purpose", "narrationCue", "visualMode", "canvas", "shot", "stage", "entrance", "assetIds", "claimIndexes", "durationHint", "leadSeconds", "focalRegion", "stepIndex", "lineNumbers"],
             "properties": {
               "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,39}$"},
               "sectionIndex": {"type": "integer", "minimum": 0, "maximum": 3},
@@ -182,7 +181,6 @@
               "entrance": {"$ref": "#/$defs/beatEntrance"},
               "assetIds": {"$ref": "#/$defs/assetIds"},
               "claimIndexes": {"$ref": "#/$defs/claimIndexes"},
-              "truthMode": {"$ref": "#/$defs/truthMode"},
               "durationHint": {"type": "number", "minimum": 0.5, "maximum": 8},
               "leadSeconds": {"type": "number", "minimum": 0, "maximum": 1},
               "focalRegion": {"anyOf": [{"$ref": "#/$defs/focalRegion"}, {"type": "null"}]},
@@ -227,14 +225,13 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "path", "purpose", "mediaType", "licenseBasis", "truthMode", "claimIndexes"],
+            "required": ["id", "path", "purpose", "mediaType", "licenseBasis", "claimIndexes"],
             "properties": {
               "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,39}$"},
               "path": {"type": "string", "minLength": 1},
               "purpose": {"type": "string", "minLength": 1},
               "mediaType": {"type": "string", "enum": ["image", "video"]},
               "licenseBasis": {"type": "string", "minLength": 1},
-              "truthMode": {"$ref": "#/$defs/truthMode"},
               "claimIndexes": {"$ref": "#/$defs/claimIndexes"}
             }
           }
@@ -302,13 +299,12 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "before", "after", "claimIndexes", "truthMode"],
+            "required": ["id", "before", "after", "claimIndexes"],
             "properties": {
               "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,39}$"},
               "before": {"type": "string", "minLength": 1},
               "after": {"type": "string", "minLength": 1},
-              "claimIndexes": {"$ref": "#/$defs/claimIndexes"},
-              "truthMode": {"$ref": "#/$defs/truthMode"}
+              "claimIndexes": {"$ref": "#/$defs/claimIndexes"}
             }
           }
         }
@@ -356,7 +352,6 @@
     }
   },
   "$defs": {
-    "truthMode": {"type": "string", "enum": ["executed-demo", "repository-media", "source-derived-animation"]},
     "visualMode": {"type": "string", "enum": ["media-crop", "readme-crop", "progressive-flow", "code-highlight", "compare", "screen-recording", "stat-overlay", "statement", "illustration", "object-action"]},
     "beatEntrance": {"type": "string", "enum": ["fade", "slide-left", "slide-right", "push-in"]},
     "objectStage": {

@@ -172,9 +172,9 @@ export function writeResearchArtifacts(result, outputDirectory, {
     '',
     '### 视觉 Beat 计划',
     '',
-    `- 开场：${result.visualEvidencePackage.hookMoment.purpose}；真实性：${result.visualEvidencePackage.hookMoment.truthMode}`,
+    `- 开场：${result.visualEvidencePackage.hookMoment.purpose}`,
     ...result.visualEvidencePackage.visualBeats.map((beat, index) =>
-      `${index + 1}. [${beat.role}] ${beat.purpose}；模式：${beat.visualMode}；真实性：${beat.truthMode}；` +
+      `${index + 1}. [${beat.role}] ${beat.purpose}；模式：${beat.visualMode}；` +
       `旁白锚点：${beat.narrationCue}；事实索引：${beat.claimIndexes.join(', ')}`),
     '',
     '### 可拍素材与动画交接',
@@ -268,10 +268,9 @@ export function writeResearchArtifacts(result, outputDirectory, {
         purpose: item.purpose,
         mediaType: item.mediaType,
         licenseBasis: item.licenseBasis,
-        truthMode: item.truthMode,
         claimIndexes: item.claimIndexes,
       })),
-      note: '真实性以逐资产 truthMode 为准；repository-media 与 source-derived-animation 不能当作本机运行证据。',
+      note: '解释动画与运行结果均可作为视频素材；保留路径、许可和事实映射，不按画面依据分类。',
     },
   };
 

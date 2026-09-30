@@ -174,7 +174,7 @@ function writeAtomic(path, text) {
   writeFileSync(temp,text,'utf8'); renameSync(temp,path);
 }
 
-export function buildVisualProgram(storyboard, {resourcesDirectory, requests = {}, catalog = loadShotCatalog()} = {}) {
+export function buildVisualProgram(storyboard, {resourcesDirectory, requests = {}, catalog = loadShotCatalog(), remotionGuidance = null} = {}) {
   const updated=structuredClone(storyboard); const decisions=[]; const sources={}; let previousSpec=null; let previousBeat=null;
   const known = new Set(updated.scenes.flatMap(s=>(s.visualBeats??[]).map(b=>b.id)));
   for(const id of Object.keys(requests)) if(!known.has(id)) throw new Error(`Unknown requested beat: ${id}`);
@@ -183,7 +183,7 @@ export function buildVisualProgram(storyboard, {resourcesDirectory, requests = {
     const request=requests[beat.id] ?? {};
     const decision=chooseShot({beat,scene,request,catalog});
     const key=`s${sceneIndex}_b${beatIndex}_${safeId(beat.id)}`;
-    decisions.push({...decision,designReason:request.reason??null,key,beatId:beat.id,sceneIndex,claimIndexes:beat.claimIndexes,truthMode:beat.truthMode,
+    decisions.push({...decision,designReason:request.reason??null,key,beatId:beat.id,sceneIndex,claimIndexes:beat.claimIndexes,
       narrationCue:beat.narrationCue,startFrame:beat.startFrame,endFrame:beat.endFrame});
     if(decision.templateId==='repository-media') {previousBeat=beat; continue;}
     let spec;
@@ -203,14 +203,19 @@ export function buildVisualProgram(storyboard, {resourcesDirectory, requests = {
   const sourceHashes=Object.fromEntries(Object.entries(sources).map(([name,source])=>[name,digest(source)]));
   const audioPath=join(resourcesDirectory,'production/narration.wav');
   const audioSha256=updated.voiceover==='narration.wav'&&existsSync(audioPath)?digest(readFileSync(audioPath)):null;
-  const program={schemaVersion:1,rendererVersion:'1.0.0',inputDigest,catalogDigest,decisions,sourceHashes,audioSha256,
+  const runtimeSourceFiles=['MotionPrimitives.jsx','RemotionEffects.jsx'];
+  const runtimeSourceHashes=Object.fromEntries(runtimeSourceFiles.map(name=>[name,digest(readFileSync(join(ROOT,'apps/video-factory/remotion',name)))]));
+  const program={schemaVersion:1,rendererVersion:'1.1.0',remotionGuidance,runtimeSourceHashes,inputDigest,catalogDigest,decisions,sourceHashes,audioSha256,
     status:'compiled-pending-render',humanReview:'pending',createdAt:new Date().toISOString()};
   const programDigest=digest(JSON.stringify({...program,createdAt:undefined}));
   const root=join(resourcesDirectory,'shots',programDigest);
   for(const [name,source] of Object.entries(sources)) writeAtomic(join(root,name),source);
   const runtimePath=join(ROOT,'apps/video-factory/remotion/MotionPrimitives.jsx').replaceAll('\\','/');
   writeAtomic(join(root,'shot-runtime.jsx'),`export {ChoreographyScene, CameraStage, VisualObject} from ${JSON.stringify(runtimePath)};\n`);
-  program.runtimeDigest=digest(readFileSync(join(root,'shot-runtime.jsx')));
+  const effectsPath=join(ROOT,'apps/video-factory/remotion/RemotionEffects.jsx').replaceAll('\\','/');
+  const bridge=join(root,'shot-runtime.jsx');
+  writeAtomic(bridge,readFileSync(bridge,'utf8')+`export {FrameReveal, FrameAnnotation} from ${JSON.stringify(effectsPath)};\n`);
+  program.runtimeDigest=digest(readFileSync(bridge));
   program.programDigest=programDigest;
   writeAtomic(join(root,'program.json'),`${JSON.stringify(program,null,2)}\n`);
   updated.meta.visualProgram={schemaVersion:1,directory:relative(resourcesDirectory,root).replaceAll('\\','/'),
@@ -226,6 +231,9 @@ export function verifyVisualProgram(storyboard, resourcesDirectory) {
   if(digest(programText)!==ref.digest||productionIdentity(storyboard)!==program.inputDigest||ref.inputDigest!==program.inputDigest) throw new Error('Visual program is stale or modified. Rebuild shots.');
   if(program.audioSha256&&digest(readFileSync(join(resourcesDirectory,'production/narration.wav')))!==program.audioSha256) throw new Error('Approved narration changed after shot planning.');
   if(digest(readFileSync(join(root,'shot-runtime.jsx')))!==program.runtimeDigest) throw new Error('Shot runtime adapter changed.');
+  for(const [name,hash] of Object.entries(program.runtimeSourceHashes??{})) {
+    if(!['MotionPrimitives.jsx','RemotionEffects.jsx'].includes(name)||digest(readFileSync(join(ROOT,'apps/video-factory/remotion',name)))!==hash) throw new Error(`Shot runtime changed: ${name}. Regenerate visual shots.`);
+  }
   const expected=new Set(program.decisions.filter(d=>d.templateId!=='repository-media').map(d=>d.key));
   const actual=storyboard.scenes.flatMap(s=>(s.visualBeats??[]).filter(b=>b.implementation).map(b=>b.implementation.key));
   if(actual.length!==expected.size||new Set(actual).size!==actual.length||actual.some(k=>!expected.has(k))) throw new Error('Visual shot mapping is incomplete.');

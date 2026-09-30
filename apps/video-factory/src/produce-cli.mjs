@@ -6,6 +6,7 @@ import {loadSelection} from '../../trend-scout/src/selection.mjs';
 import {projectLayoutFromSelection} from '../../shared/pipeline-paths.mjs';
 import {loadEditorialPlan,loadVideoEditingSkill} from './editorial-agent.mjs';
 import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
+import {loadRemotionGuidance} from './remotion-integration.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
 const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const selection=option('--selection'), repo=option('--repo');
@@ -15,6 +16,8 @@ if(!approved.videoProjects.includes(repo)) throw new Error('Video project must b
 const run=(path,args=[])=>{const r=spawnSync(process.execPath,['--use-env-proxy','--env-file-if-exists=.env.local',join(ROOT,path),...args],
   {cwd:ROOT,stdio:'inherit',windowsHide:true});if(r.error||r.status!==0) throw new Error(`Production stage failed: ${path}. ${r.error?.message??'See retained diagnostics; resume this stage.'}`);};
 try {
+  // Fail before narration preparation if the required plugin snapshot is missing or modified.
+  loadRemotionGuidance({stage:'render'});
   if(!process.argv.includes('--reuse-audio')) {
     const layout=projectLayoutFromSelection(ROOT,approved,repo);
     const researchText=readFileSync(join(layout.resourcesDirectory,'research.json'),'utf8');

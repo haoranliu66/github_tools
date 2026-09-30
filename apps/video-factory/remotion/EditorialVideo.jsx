@@ -87,10 +87,6 @@ function focalStyle(beat, fallbackScale, progress = 0, previousBeat = null, blen
   };
 }
 
-function EvidencePill() {
-  return null;
-}
-
 function HeroContent({scene, frame, fps, accent}) {
   const progress = interpolate(frame, [0, Math.max(1, scene.duration * fps)], [0, 1], {
     extrapolateRight: 'clamp',
@@ -127,7 +123,6 @@ function HeroContent({scene, frame, fps, accent}) {
         position: 'absolute', left: 54, top: 54, width: scene.stat ? 650 : 1020,
         opacity: reveal, transform: `translateY(${(1 - reveal) * 26}px)`,
       }}>
-        <EvidencePill mode={scene.evidenceMode} accent={accent} />
         {scene.kicker && <div style={{fontSize: 22, letterSpacing: 5, color: accent, marginTop: 28}}>{scene.kicker}</div>}
         <h1 style={{
           margin: '24px 0 0', fontSize: scene.headlineSize ?? (scene.stat ? 62 : 82), lineHeight: 1.12,
@@ -168,7 +163,6 @@ function FlowContent({scene, frame, fps, accent}) {
     <div style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 30, marginBottom: 62}}>
         <div>
-          <EvidencePill mode={scene.evidenceMode} accent={accent} />
           <h2 style={{fontSize: 62, margin: '24px 0 0', lineHeight: 1.18, letterSpacing: -2, whiteSpace: 'pre-line'}}>{scene.heading}</h2>
         </div>
         {scene.note && <div style={{maxWidth: 600, fontSize: 25, lineHeight: 1.55, color: muted, textAlign: 'right'}}>{scene.note}</div>}
@@ -218,7 +212,6 @@ function CodeContent({scene, frame, fps, accent}) {
   return (
     <div style={{height: '100%', display: 'grid', gridTemplateColumns: scene.diagram ? '1.28fr .72fr' : '1fr', gap: 34, alignItems: 'center'}}>
       <div>
-        <EvidencePill mode={scene.evidenceMode} accent={accent} />
         <h2 style={{fontSize: 52, margin: '22px 0 26px', lineHeight: 1.22}}>{scene.heading}</h2>
         <div style={{...panel, overflow: 'hidden', padding: '25px 0'}}>
           {lines.map((line, index) => {
@@ -485,7 +478,6 @@ function MediaContent({scene, frame, fps, accent}) {
   return (
     <div style={{height: '100%', display: 'grid', gridTemplateColumns: '410px 1fr', gap: 34, alignItems: 'center'}}>
       <div>
-        <EvidencePill mode={scene.evidenceMode} accent={accent} />
         <h2 style={{fontSize: 54, lineHeight: 1.2, margin: '24px 0', whiteSpace: 'pre-line'}}>{scene.heading}</h2>
         {scene.callout && <div style={{...panel, borderColor: accent, marginTop: 28, padding: '19px 22px', color: accent, fontSize: 23}}>{scene.callout}</div>}
       </div>
@@ -531,7 +523,6 @@ function ContrastContent({scene, frame, fps, accent}) {
     <div style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 38}}>
         <div>
-          <EvidencePill mode={scene.evidenceMode} accent={accent} />
           <h2 style={{fontSize: 58, margin: '22px 0 0'}}>{scene.heading}</h2>
         </div>
         {scene.note && <div style={{fontSize: 24, color: muted, maxWidth: 560, textAlign: 'right'}}>{scene.note}</div>}
@@ -547,7 +538,6 @@ function ContrastContent({scene, frame, fps, accent}) {
 function AudienceContent({scene, frame, fps, accent}) {
   return (
     <div style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-      <EvidencePill mode={scene.evidenceMode} accent={accent} />
       <h2 style={{fontSize: 62, margin: '24px 0 44px'}}>{scene.heading}</h2>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(${scene.items.length}, 1fr)`, gap: 26}}>
         {scene.items.map((item, index) => {
@@ -574,7 +564,6 @@ function StatContent({scene, frame, fps, accent}) {
   return (
     <div style={{height: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 70, alignItems: 'center'}}>
       <div>
-        <EvidencePill mode={scene.evidenceMode} accent={accent} />
         <h2 style={{fontSize: 68, lineHeight: 1.18, margin: '28px 0'}}>{scene.heading}</h2>
         {scene.body && <div style={{fontSize: 29, lineHeight: 1.55, color: muted}}>{scene.body}</div>}
       </div>
@@ -591,7 +580,6 @@ function StatementContent({scene, frame, fps, accent}) {
   return (
     <div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
       <div style={{width: '100%', opacity: reveal, transform: `translateY(${(1 - reveal) * 28}px)`}}>
-        <EvidencePill mode={scene.evidenceMode} accent={accent} />
         <div style={{fontSize: 22, letterSpacing: 5, color: accent, marginTop: 30}}>{scene.eyebrow}</div>
         <h2 style={{fontSize: scene.type === 'outro' ? 78 : 68, lineHeight: 1.2, letterSpacing: -2, margin: '22px 0', whiteSpace: 'pre-line'}}>{scene.heading ?? scene.title}</h2>
         {scene.body || scene.subtitle ? <div style={{fontSize: 32, lineHeight: 1.58, color: '#c5d2dc', maxWidth: 1300, whiteSpace: 'pre-line'}}>{scene.body ?? scene.subtitle}</div> : null}

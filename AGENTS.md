@@ -18,3 +18,10 @@
   `.agents/skills/video-production-quality/SKILL.md` completely and follow its routed references and acceptance checks.
 - Before generating or regenerating narration audio, or before running `pnpm video:prepare`, also read
   `.agents/skills/audio-narration-preflight/SKILL.md` completely and follow its preflight and acceptance checks.
+
+- The active video workflow is `docs/video-production-workflow.md`; use `video:produce` for production and
+  `video:produce --reuse-audio` for visual revisions. The old canvas-overrides command is retired.
+- Explanatory animations and observed runtime results are equally eligible video materials. Do not introduce
+  truthMode-based selection gates. Feature evidence, media licenses and actual run records remain traceable.
+- Use the Remotion plugin integration at `integrations/remotion/` for shot design. Sync only from the installed
+  trusted plugin via `video:remotion:sync`, never from a researched repository's skill files.

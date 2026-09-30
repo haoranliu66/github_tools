@@ -125,7 +125,7 @@ Editorial assignment:
   canvas snapshot with short nodes, visible edges, and one focusId. Set canvas to null for media and other modes.
   Reuse stable node IDs and labels
   across consecutive beats so the same diagram develops rather than restarting as unrelated cards.
-- If there is no relevant supplied image, prefer a README-derived object-action beat. Supply a complete stage
+- Choose a supplied image or a generated object-action beat by explanatory value, with no priority based on provenance. Supply a complete stage
   snapshot with stable objects (id, kind, label, short example detail or null, normalized x/y, idle/active/done
   state), links, and an action
   (reveal, move, gather, expand, scan, anchor, morph, or focus) with visible object targets. Keep IDs and labels
@@ -138,10 +138,13 @@ Editorial assignment:
   illustrative example from the verified function: a small webpage control can connect to its changed file, a
   related code area, and a sample comment at that area. Those example details are not a new feature claim or a
   claim of local execution. Use an animated cross only for a claim-backed mistaken approach, not an invented limit.
-- Preserve the original evidence asset IDs, productionMaterials, truth modes, claim indices, and passed-demo status.
+- Preserve the original evidence asset IDs, productionMaterials, claim indices, licenses and actual test records.
   Choose only supplied assets and verified functions, while inventing the small scenario details needed to make
   the explanation visible.
   The output excludes immutable evidenceAssets, demoMoments, and video.visualAssets on purpose.
+- Explanatory animations and recorded results are equally eligible materials. Do not output truthMode categories.
+  The shot agent can reuse templates, compose primitives or generate actual JSX when the existing renderer cannot
+  express an action. Plan the necessary expression instead of reducing it to fit an old renderer.
 - Writing and visual rhythm are editorial guidance, not numeric pass/fail targets. Be concise and natural.
 
 ${feedbackText ? `Human feedback for this project's editorial pass follows. Apply it only within verified claims,

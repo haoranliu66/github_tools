@@ -21,8 +21,7 @@ moving compelling later moments earlier because audiences normally decrease over
 
 ## Zimeiti default format
 
-Use a 45-120 second single-project explanation. Prefer 55-75 seconds for static research; use 75-105 seconds only
-when an authorized real demo adds useful input/action/result evidence. A practical outline is:
+Use a 45-120 second single-project explanation. Choose duration by the explanation and pacing, independent of whether the material is animated or recorded. A practical outline is:
 
 1. **0-5 seconds — familiar personal problem.** Show the frustrating before-state or the project's result while the
    narration names a situation an individual developer can recognize. Do not default to a colleague or team meeting.
@@ -50,7 +49,7 @@ not several independent cards placed next to each other.
 
 ### B-roll
 
-B-roll should carry the explanation rather than decorate it. Choose in this order:
+B-roll should carry the explanation. The following are equally eligible materials; choose by clarity and relevance:
 
 1. result image, GIF frame, interface, or diagram linked from the official README that shows what the viewer gets;
 2. a cropped README statement placed beside the visual it describes;
@@ -60,7 +59,7 @@ B-roll should carry the explanation rather than decorate it. Choose in this orde
 
 Change B-roll when the subject, action, proof, or result changes. A sentence may drive several beats, while several
 short sentences may share one beat when the visual meaning is unchanged. Keep one focal point per beat. License,
-confidence, truth mode, and static-review status remain in storyboard metadata but are not viewer-facing labels.
+confidence and research status remain in storyboard metadata but are not viewer-facing labels.
 
 Research on transcript-aligned B-roll found common clip lengths of 0.5-8 seconds and strong alignment between insertion
 points and nearby narration keywords. Treat that as timing guidance, not a universal quota for technical animation:

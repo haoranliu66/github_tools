@@ -10,6 +10,7 @@ import {resolveApprovedStoryboard} from './approval.mjs';
 import {runAgent} from './plan-cli.mjs';
 import {buildVisualProgram,digest,productionIdentity,writeRenderEntry} from './visual-program.mjs';
 import {buildShotAgentPrompt,shotAgentSchema,shotRequestsFromAgent} from './shot-agent.mjs';
+import {loadRemotionGuidance} from './remotion-integration.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
 const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const load=path=>JSON.parse(readFileSync(path,'utf8'));
@@ -34,6 +35,7 @@ export async function main() {
   const layout=projectLayoutFromSelection(ROOT,selection,fullName); const resources=layout.resourcesDirectory;
   resolveApprovedStoryboard({projectRoot:ROOT,finalRankingPath:join(ROOT,'apps/repo-researcher/final_rank',selection.weekId,'final-ranking.json'),fullName});
   const storyboard=load(layout.storyboardPath);
+  const guidance=loadRemotionGuidance({storyboard});
   const sourcePath=join(dirname(layout.storyboardPath),'episode.source.json');
   const source=load(sourcePath); const audioPath=join(dirname(layout.storyboardPath),'narration.wav');
   const audioDigest=digest(readFileSync(audioPath));
@@ -50,13 +52,13 @@ export async function main() {
       try {
         if(option('--requests')) requests=load(resolve(option('--requests')));
         else if(!process.argv.includes('--auto')) {
-          const prompt=buildShotAgentPrompt(storyboard,feedback,repair);
+          const prompt=buildShotAgentPrompt(storyboard,feedback,repair,guidance);
           writeFileSync(join(logs,`prompt-${attempt}.txt`),prompt);
           const output=runAgent(prompt,schemaPath,work);
           writeFileSync(join(logs,`response-${attempt}.json`),JSON.stringify(output,null,2));
           requests=shotRequestsFromAgent(output,storyboard);
         }
-        built=buildVisualProgram(storyboard,{resourcesDirectory:resources,requests});
+        built=buildVisualProgram(storyboard,{resourcesDirectory:resources,requests,remotionGuidance:guidance.metadata});
         compilation=compileVisualProgram(built.storyboard,resources); break;
       } catch(error) {
         repair=error.message;writeFileSync(join(logs,`error-${attempt}.txt`),repair);
@@ -67,7 +69,7 @@ export async function main() {
     if(productionIdentity(built.storyboard)!==productionIdentity(storyboard)||digest(readFileSync(audioPath))!==audioDigest) throw new Error('Visual revision changed the approved episode or audio.');
     // episode.source retains the exact approved content; only prepared shots carry frame-bound implementation refs.
     delete source.meta.visualProgram;
-    const report={schemaVersion:1,fullName,programDigest:built.program.programDigest,compilation,audioSha256:audioDigest,
+    const report={schemaVersion:1,fullName,remotionGuidance:guidance.metadata,programDigest:built.program.programDigest,compilation,audioSha256:audioDigest,
       designMode:process.argv.includes('--auto')?'deterministic':option('--requests')?'supplied-requests':'visual-agent',
       elapsedSeconds:Number(((Date.now()-startedAt)/1000).toFixed(2)),
       attemptCount,

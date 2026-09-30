@@ -114,11 +114,11 @@ test('research copy style is guided by the skill instead of semantic word gates'
   assert.doesNotThrow(() => assertEditorialResearch(research, contract));
 });
 
-test('static research rejects fake demos and visual cues that are not in narration', () => {
+test('material categories are ignored while narration cues and crop bounds remain validated', () => {
   const contract = loadEditorialContract(projectRoot);
   const fakeDemo = researchFixture(contract);
   fakeDemo.visualEvidencePackage.visualBeats[0].truthMode = 'executed-demo';
-  assert.throws(() => assertEditorialResearch(fakeDemo, contract), /executed-demo/i);
+  assert.doesNotThrow(() => assertEditorialResearch(fakeDemo, contract));
 
   const missingCue = researchFixture(contract);
   missingCue.visualEvidencePackage.visualBeats[0].narrationCue = '不存在的旁白';
@@ -170,7 +170,7 @@ test('README-derived illustration shots are structured and cannot impersonate a 
   assert.throws(() => assertEditorialResearch(research, contract), /shot/i);
 });
 
-test('object-action beats preserve drawable objects and reject fake demo or broken targets', () => {
+test('object-action beats preserve drawable objects and reject broken targets', () => {
   const contract = loadEditorialContract(projectRoot);
   const research = researchFixture(contract);
   const first = research.visualEvidencePackage.visualBeats[0];
@@ -202,5 +202,7 @@ test('object-action beats preserve drawable objects and reject fake demo or brok
   assert.throws(() => assertEditorialResearch(research, contract), /same kind and label/i);
   second.stage.objects[0].label = '改动文件';
   second.truthMode = 'executed-demo';
-  assert.throws(() => assertEditorialResearch(research, contract), /executed-demo|stage/i);
+  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
+  delete second.truthMode;
+  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
 });

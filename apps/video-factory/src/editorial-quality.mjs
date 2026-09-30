@@ -87,7 +87,6 @@ export function evaluateEditorialQuality(story, config) {
   let visualCueCoverage = null;
   let maxSemanticVisualGapSeconds = null;
   if (requiresVisualBeats) {
-    const truthModes = new Set(['executed-demo', 'repository-media', 'source-derived-animation']);
     const roles = new Set(['show', 'prove', 'change']);
     for (const [sceneIndex, scene] of scenes.entries()) {
       if (!Array.isArray(scene.visualBeats) || scene.visualBeats.length === 0) {
@@ -95,12 +94,9 @@ export function evaluateEditorialQuality(story, config) {
       }
     }
     visualBeats.forEach((beat, index) => {
-      if (!roles.has(beat.role) || !truthModes.has(beat.truthMode) ||
+      if (!roles.has(beat.role) ||
           !Array.isArray(beat.claimIndexes) || beat.claimIndexes.length === 0) {
-        errors.push(`visual beat ${index} must show, prove, or change something with claims and a truth mode.`);
-      }
-      if (story?.meta?.researchMode === 'static-source-review' && beat.truthMode === 'executed-demo') {
-        errors.push(`visual beat ${index} cannot claim executed-demo in static research mode.`);
+        errors.push(`visual beat ${index} must show, prove, or change something with valid claim mappings.`);
       }
       if (!Number.isFinite(beat.leadSeconds) || beat.leadSeconds < 0 ||
           beat.leadSeconds > config.visualBeats.maxLeadSeconds) {
@@ -148,7 +144,7 @@ export function evaluateEditorialQuality(story, config) {
     start = end;
   }
 
-  const sourced = scenes.filter((scene) => typeof scene.source === 'string' && scene.source.trim() && scene.evidenceMode).length;
+  const sourced = scenes.filter((scene) => typeof scene.source === 'string' && scene.source.trim()).length;
   const evidenceCoverage = scenes.length ? sourced / scenes.length : 0;
   const narrationCharacters = scenes.reduce((sum, scene) => sum + narrationText(scene).length, 0);
   if (evidenceCoverage < config.evidence.minimumCoverage) {
@@ -165,9 +161,6 @@ export function evaluateEditorialQuality(story, config) {
       `${narrationCharacters}.`);
   }
   for (const [index, scene] of scenes.entries()) {
-    if (story?.meta?.researchMode === 'static-source-review' && scene.evidenceMode === 'demo') {
-      errors.push(`scenes[${index}] cannot claim demo evidence in static research mode.`);
-    }
     const narration = narrationText(scene);
     if (!narration.trim()) errors.push(`scenes[${index}] must contain narration or captions.`);
     const cues = Array.isArray(scene.sentences) ? scene.sentences : (scene.captions ?? []);

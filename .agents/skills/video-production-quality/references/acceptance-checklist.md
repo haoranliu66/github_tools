@@ -36,11 +36,10 @@ rendering automatically.
 - Repeated beats develop the same visible objects through movement, scan, connection, reveal, or state change rather
   than merely highlighting another card. Browser and comparison cards are reserved for genuine comparisons.
 - The example animation gives the viewer a recognizable situation and keeps its webpage, file, code area, and
-  illustrative result spatially connected. Its house illustration style distinguishes it from repository footage;
-  truth mode remains in metadata. Large questions and animated crosses resolve a supported viewer question rather
+  illustrative result spatially connected. Animation and recorded results are equally eligible materials, chosen by explanatory value. Large questions and animated crosses resolve a supported viewer question rather
   than adding a decorative interruption.
 - Each important claim maps to at least one visual beat whose role is show, prove, or change.
-- Every beat records valid claim mappings and one truth mode. Static research contains no executed-demo beats.
+- Every beat records valid claim mappings; material selection does not depend on truthMode or execution status.
 - The prepared cut has no visual-semantic gap longer than six seconds, no consecutive duplicate composition, and no
   two adjacent text-only beats.
 - Each example follows problem -> project action -> result and is understandable without senior technical knowledge.
@@ -52,7 +51,7 @@ rendering automatically.
 
 ## Automated checks
 
-- Storyboard structure, evidence truth modes, approval mapping, and required media paths are valid.
+- Storyboard structure, claim mappings, approval mapping, and required media paths are valid.
 - Narration metadata matches the approved Qwen provider and voice.
 - The prepared timeline respects the 32-second per-scene limit, 64-second narration-block limit, and 1,000-character
   request limit.

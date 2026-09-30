@@ -27,7 +27,7 @@ pnpm video:shots -- --selection PATH --repo owner/name --requests resources/shot
 
 `config/shot-catalog.json` 记录模板版本、可表达的动作、素材前提、参数和渲染方式。模板必须满足全部 requiredActions 和输入条件才可复用。目录目前包括素材焦点、带信息传递的流程、代码审查工作台和结尾。关于保存/检索/更新记忆的镜头超出这些模板，通过组合编排生成项目模块。
 
-组合参数包含 objects、tracks、connections、camera、overlays，采用 1600×680 内容安全区，字幕由共享外壳绘制。动作以 frame 为唯一时间来源，允许错序渲染。生成的 JSX 与镜头目录版本、旁白 cue、claim、truthMode、起止帧、来源哈希一起留在 `resources/shots/<digest>/`。
+组合参数包含 objects、tracks、connections、camera、overlays，采用 1600×680 内容安全区，字幕由共享外壳绘制。动作以 frame 为唯一时间来源，允许错序渲染。生成的 JSX 与镜头目录版本、旁白 cue、claim、起止帧、来源哈希一起留在 `resources/shots/<digest>/`。
 
 当组合原语不足时，agent 可以输出实际 JSX 自绘新形状/布局；仅允许 React、Remotion 和项目镜头原语静态导入，不安装陌生依赖。校验限制导入与副作用，随后使用本项目 Remotion 打包与 composition 求值。该静态筛查不是通用恶意代码沙箱；只有本项目受约束生成流程产出的镜头可以进入此通道，不能借此运行克隆项目的代码。
 
@@ -48,3 +48,11 @@ pnpm video:shots -- --selection PATH --repo owner/name --requests resources/shot
 ## 下一轮能力扩展的依据
 
 先取得三条新片的人工结论，再按确实存在的表达缺口扩展 GitHub 候选。许可未确认、中文不适配、依赖过重或动作表达不匹配的候选不入生产目录。质量评审通过后再参数化、跨项目回归和版本化；人类否决的镜头不会因技术检查通过自动成为优选模板。
+
+## 当前入口与插件能力
+
+完整操作顺序以 [video-production-workflow.md](video-production-workflow.md) 为准。
+解释动画和运行结果均可作素材，不要求 truthMode，也不以运行状态限制镜头选用。
+视觉提示词加载安装的 Remotion 插件参考；版本和文件摘要随每次镜头报告保存。
+专用 JSX 可从镜头 runtime 导入 FrameReveal 和 FrameAnnotation；细节见
+[remotion-integration.md](remotion-integration.md)。旧 canvas-overrides 制作命令已移除。

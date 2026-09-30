@@ -135,7 +135,7 @@ pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYY
 
 本地仓库可使用 `pnpm research -- fixture/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --local 'C:\absolute\repository'`，该模式以 `local:fixture/name` 标识来源，不将测试标识误当成远程 GitHub 仓库。
 
-研究结果必须声明 `status: completed`，包含完整 Git commit SHA、官方 README 读取记录、README 或获准实测证据、带理由和置信度的 `demoability` 评分，以及与当前制作 Skill 对齐的 `editorialBrief` 和 `visualEvidencePackage`，才会生成脚本、分镜等七件产物。主研究代理选定入片功能后，独立只读媒体子代理逐一核查相关 README 链接素材；每个功能都交付 `productionMaterials`，记录可用媒体的裁切/片段和复用依据，并为媒体未讲清的部分交付面向初学者的具体示例动画方案，不能以“图片未检查”结束研究。示例中的网页、文件与意见细节可为说明功能而创作，功能事实仍以 README 或获准实测为准。研究不做源码、目录结构或文件行号映射。编辑简报明确目标观众、熟悉问题、一句话答案、标题承诺和带事实索引的具体例子；视觉证据包则把每个新信息映射为展示、证明或变化，并记录旁白 cue、事实索引、素材与 truth mode。语义门禁失败时，研究进程会自动进行一次有界修正；再次失败才终止。`blocked`、`failed`、证据不足或 Skill 摘要过期都会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
+研究结果必须声明 `status: completed`，包含完整 Git commit SHA、官方 README 读取记录、README 或获准实测证据、带理由和置信度的 `demoability` 评分，以及与当前制作 Skill 对齐的 `editorialBrief` 和 `visualEvidencePackage`，才会生成脚本、分镜等七件产物。主研究代理选定入片功能后，独立只读媒体子代理逐一核查相关 README 链接素材；每个功能都交付 `productionMaterials`，记录可用媒体的裁切/片段和复用依据，并为媒体未讲清的部分交付面向初学者的具体示例动画方案，不能以“图片未检查”结束研究。示例中的网页、文件与意见细节可为说明功能而创作，功能事实仍以 README 或获准实测为准。研究不做源码、目录结构或文件行号映射。编辑简报明确目标观众、熟悉问题、一句话答案、标题承诺和带事实索引的具体例子；视觉证据包则把每个新信息映射为展示、证明或变化，并记录旁白 cue、事实索引、素材与事实映射。语义门禁失败时，研究进程会自动进行一次有界修正；再次失败才终止。`blocked`、`failed`、证据不足或 Skill 摘要过期都会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
 
 每次真实调用的标准输出、标准错误和运行元数据保存在对应项目的 `resources/_runs/`。该目录可能含仓库内容，不应公开提交；日志不记录环境变量或登录凭据。
 
@@ -143,58 +143,29 @@ pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYY
 
 ## 3. video-factory
 
-校验示例分镜：
+研究完成且项目已加入批准选择的 `videoProjects` 后，统一运行：
 
 ```powershell
-pnpm video:validate
+pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
-研究完成后审核事实与可演示性评分，由人工确定制作项目并把仓库加入选择文件的 `videoProjects`。生产目录由周报日期和仓库名自动推导，不再人工填写分镜路径。先由只读编辑 agent 把已核实研究整理成连续旁白与视觉计划，再准备动态场景、旁白、字幕和结构质检报告：
+该入口串联编辑计划、配音与时间轴、最终榜绑定、视觉 agent 镜头设计、编译、渲染和完整解码。
+只修改画面且现有生产仍有效时加 `--reuse-audio`。解释动画、官方素材和运行结果均可作为视频素材，
+按表达效果选择，不再按画面依据分类。技术通过后交给人工完整观看，视频不会自动发布。
 
-```powershell
-pnpm video:plan -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
-pnpm video:prepare -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
-```
+已安装的 Remotion 插件通过技能快照接入视觉 agent；`pnpm video:remotion:check` 查看接入状态，
+`pnpm video:remotion:sync` 从本机插件同步。它提供制作知识与参考，不会自动安装示例中的可选依赖。
 
-编辑 agent 只读取已核实研究，不能修改事实、实测记录或素材清单。它使用独立的 [video-editorial-agent Skill](.agents/skills/video-editorial-agent/SKILL.md)，写入项目 `resources/editorial-plan.json` 和供人工阅读的 `resources/editorial-plan.md`；研究或编辑 Skill 变化后必须重新规划，否则 `video:prepare` 会拒绝过期计划。单独调整编辑风格不会使事实研究合同失效。用 `video:plan ... --dry-run` 可先查看提示词，不生成计划。编辑阶段强调一个初学个人开发者场景串联几个小问题，以及画面内缩放、高亮、渐进呈现；这些节奏与措辞判断仍交给 Skill 和人工，不新增风格硬门禁。
-
-若这一期的计划仍太专业、太慢或画面过密，可在该项目 `resources/editorial-feedback.md` 写人工意见，然后重跑 `video:plan`；不必重新研究仓库。反馈变更会使旧计划失效，准备阶段会要求重新规划。
-
-生产旁白默认使用 `.env.local` 中显式选择的 TTS 提供方。当前推荐 `VIDEO_TTS_PROVIDER=qwen`：`video:prepare` 会复用可用连接，或自动建立免密 SSH 隧道，等待 Qwen 就绪后按项目节奏生成可跨 2～6 个画面的旁白块，再依据实测 WAV 时长生成场景和字幕时间轴。超过 64 秒或请求超时的旁白块只在完整句子处拆分；同主题短块会尝试合并，文案不会被裁掉。任务结束后只关闭本次自行建立的隧道。无需预先手动启动隧道，也无需单独执行音频命令；健康、认证或音色检查失败时直接停止，不会静默退回旧声音。Windows Huihui 仅在显式设置 `VIDEO_TTS_PROVIDER=windows` 时使用。生成前必须阅读 [.agents/skills/audio-narration-preflight/SKILL.md](.agents/skills/audio-narration-preflight/SKILL.md)，配置与安全边界见 [docs/qwen-tts.md](docs/qwen-tts.md)。
-
-新增音色时需同时提供参考录音和准确逐字稿；注册并激活后，之后所有 `video:prepare` 都会自动使用它：
-
-```powershell
-pnpm video:voice:register -- --name narrator-two --audio "C:\path\reference.wav" --ref-text-file "C:\path\reference.txt" --activate
-```
-
-审核 `editorial-plan.md`、`episode.source.json`、`storyboard.json` 和 `qa-report.json` 后生成最终榜。`videoProjects` 非空且对应项目研究完成时，当前实现要求生产分镜和编辑计划已存在，因此不能在 `video:prepare` 之前运行 `scout:final`。生产渲染只接受最终榜中“研究完成 + 人工批准 + 生产分镜存在”的项目，不能直接传入任意分镜：
-
-```powershell
-pnpm scout:final -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
-pnpm video:render -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json --repo owner/repository
-```
-
-打开同一获准项目的 Remotion Studio：
-
-```powershell
-pnpm video:studio -- --final-ranking apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json --repo owner/repository
-```
-
-分镜支持 `hero`、`flow`、`code`、`media`、`contrast`、`audience` 等动态编辑场景；beat 可使用 README 素材裁切、获准实测录屏或 `object-action` 对象动作画布。后者记录持久的文件、窗口、搜索、审查、代码、批注等对象，可在对象内加入简短的示例内容，并通过移动、聚合、扫描、锚定和状态变化讲清一件具体的事；旧对比卡与节点图继续兼容，但不再是无素材时的默认画面。带 `src` 的场景及 beat 可以引用本地图片或视频，顶层 `voiceover` 可以引用本地旁白；渲染前这些素材会复制到忽略版本控制的临时静态目录。正式渲染后还会自动完成音视频全量解码，按场景抽取至多 8 个代表帧并生成 `qa/final/contact-sheet.png`；AI 不打开或评审这些截图，直接交给人工检查。
+完整生产、返修、独立阶段与产物说明见 [现行制作流程](docs/video-production-workflow.md)；
+插件能力与限制见 [Remotion 接入](docs/remotion-integration.md)。生成配音前遵循
+[音频预检 Skill](.agents/skills/audio-narration-preflight/SKILL.md)，音色注册与 Qwen 连接见
+[Qwen TTS](docs/qwen-tts.md)。
 
 ## 推荐周更流程
 
-1. 自动任务每日调用 `pnpm scout:weekly`；本周成功后均无网络副作用，失败则在下次触发重试。
-2. 从基础榜生成草稿，人工确认 7～8 个项目并将选择文件改为 `approved`。
-3. 批量执行默认只读研究，审核事实清单；信任项目后才使用 `--allow-run` 做演示验证。
-4. 人工根据基础榜与研究结果决定视频项目，将获准制作的项目加入 `videoProjects`；生产路径由程序自动推导。
-5. 运行 `pnpm video:plan`，审核连续旁白、个人问题、视觉 beat 与证据映射，再运行 `pnpm video:prepare` 生成动态分镜和结构 QA。
-6. 运行 `pnpm scout:final`，根据趋势分 93 + 可演示性 7 形成独立最终榜，并确认目标行 `videoApproved=true`。
-7. 由 `video-factory` 正式渲染；AI 仅报告自动解码结果，不看联系表或抽帧，整片交由人工检查和批准。
-
-详细编排规范见 [docs/video-editorial-workflow.md](docs/video-editorial-workflow.md)，边界和数据流见 [docs/architecture.md](docs/architecture.md)。
-
-## 自主视觉镜头制作
-
-已加入按镜头的模板选型、组合动画及项目专用 JSX 通道。使用 `pnpm video:produce -- --selection PATH --repo owner/name`；已准备的配音可加 `--reuse-audio`。流程和人工验收说明见 [视觉 agent 文档](docs/visual-agent.md)。
+1. 自动任务每日调用 `pnpm scout:weekly`；本周成功后不再重复联网采集。
+2. 人工批准候选选择，批量执行研究，审核功能事实与评分。
+3. 将制作项目加入批准选择的 `videoProjects`。
+4. 对每个项目运行 `video:produce`，按缺失或失效状态生成编辑计划并完成制作。
+5. 人工完整观看、试听并提出反馈；画面反馈放入项目 `resources/visual-feedback.md`，文案反馈放入 `editorial-feedback.md`。
+6. 人工批准和发布。

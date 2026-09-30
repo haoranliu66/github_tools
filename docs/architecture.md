@@ -41,4 +41,13 @@ The research boundary is the approved `apps/trend-scout/trend_reports/YYYY-Www/s
 
 ## Visual shot program
 
-The prepared episode can carry `meta.visualProgram`. The shot agent chooses an eligible catalog template or emits timed choreography/custom JSX. Project-local sources and mappings are hashed and bundled into a per-render registry. Narration, captions, truth modes and approved research remain upstream inputs; final-ranking checks still apply. See [visual-agent.md](visual-agent.md).
+The prepared episode can carry `meta.visualProgram`. The shot agent chooses an eligible catalog template or emits timed choreography/custom JSX. Project-local sources and mappings are hashed and bundled into a per-render registry. Narration, captions and approved feature claims remain upstream inputs; final-ranking checks still apply. See [visual-agent.md](visual-agent.md).
+
+## Current workflow and plugin integration
+
+Use [video-production-workflow.md](video-production-workflow.md) as the sole operational sequence.
+Production rendering requires the compiled visual program. The retired canvas-overrides CLI is removed.
+Animation and recordings are equally eligible materials; historical truthMode metadata does not control selection.
+The installed Codex Remotion plugin is synced into a versioned, hashed reference snapshot. Shot prompts receive
+relevant complete references, with installed core APIs and the allowed import list. FrameReveal and FrameAnnotation
+are provided by the project runtime. Optional plugin examples do not grant dependency or filesystem permissions.

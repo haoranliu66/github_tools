@@ -22,13 +22,14 @@
     "video:voice:register": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs register",
     "video:voice:use": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs use",
     "video:plan": "node apps/video-factory/src/plan-cli.mjs",
-    "video:revisualize": "node apps/video-factory/src/revisualize-cli.mjs",
     "video:prepare": "node --use-env-proxy --env-file-if-exists=.env.local apps/video-factory/src/prepare-cli.mjs",
     "video:render": "node apps/video-factory/src/cli.mjs render",
     "video:studio": "node apps/video-factory/src/cli.mjs studio",
     "test": "node scripts/run-project-tests.mjs",
     "video:shots": "node apps/video-factory/src/shots-cli.mjs",
-    "video:produce": "node apps/video-factory/src/produce-cli.mjs"
+    "video:produce": "node apps/video-factory/src/produce-cli.mjs",
+    "video:remotion:sync": "node apps/video-factory/src/remotion-cli.mjs sync",
+    "video:remotion:check": "node apps/video-factory/src/remotion-cli.mjs check"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

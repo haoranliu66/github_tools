@@ -131,7 +131,7 @@ function main() {
     try {
       const relativeProps = staged.propsPath.slice(PROJECT_ROOT.length + 1);
       const studioResult = invokeRemotion([
-        'studio', entryPoint, `--props=${relativeProps}`, `--public-dir=${PUBLIC_ROOT}`,
+        'studio', entryPoint, '--no-open', `--props=${relativeProps}`, `--public-dir=${PUBLIC_ROOT}`,
       ]);
       if (studioResult.error) throw studioResult.error;
       if (studioResult.status !== 0) {
@@ -143,6 +143,7 @@ function main() {
     return;
   }
 
+  if (!storyboard.meta.visualProgram) throw new Error('Production shots are missing. Run pnpm video:produce or video:shots before rendering.');
   const outputPath = resolve(optionValue('--output', approved.videoPath));
   if (outputPath.toLowerCase() !== approved.videoPath.toLowerCase()) {
     throw new Error(`Video output must use the approved project path: ${approved.videoPath}.`);

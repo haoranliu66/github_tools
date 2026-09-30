@@ -44,7 +44,7 @@ replace the research evidence contract or authorize a repository run.
    Select only the functions needed to answer the viewer's small questions. Do not enumerate diagram types, export
    formats, or integrations merely because the README lists them.
 
-Prefer a compact short explanation. The established production Skill suggests 55-75 seconds for static research;
+Prefer a compact short explanation. Choose duration by explanatory needs and pacing, independently of material source;
 choose the shorter end when the idea is already clear. Do not pad narration to fill a target. These are editorial
 judgments and must not become new language, scene-count, or duration rejection gates.
 
@@ -59,12 +59,12 @@ judgments and must not become new language, scene-count, or duration rejection g
   Use a README-linked image only when its visible content actually explains that fact; an unrelated project image is
   not filler B-roll. Illustrative example details may be invented to explain a documented function; they are visual
   storytelling, not claims that this exact case was locally run.
-- Read the research `productionMaterials` for each function chosen for the cut. If it supplies inspected usable media,
-  use its asset ID and useful crop or clip. Otherwise turn its concrete animation objects and actions into a spatially
+- Read the research `productionMaterials` for each function chosen for the cut. Choose inspected media or generated animation by explanatory value. For media use the supplied asset ID and crop
+  or clip; for animation turn the concrete objects and actions into a spatially
   continuous `object-action` stage. The research handoff is a material inventory, not a request to display every item.
 - Treat `visualMode` as an instruction to the renderer, not a mood label. For a README or demo image, use the existing
   asset ID and `focalRegion` for a wide view followed by one useful push-in. For an explanatory diagram, use
-  `progressive-flow`, `compare`, or `statement` with `source-derived-animation`, no asset IDs, and supply `canvas`
+  `progressive-flow`, `compare`, or `statement` with no asset IDs, and supply `canvas`
   snapshots: 1-5 short labeled nodes (`id`, `label`,
   `kind`: `input`, `action`, `result`, or `note`), visible `edges` (`from`, `to`), and `focusId`. Keep a node's ID and
   label stable across consecutive beats; repeat it in the next snapshot when it should remain visible. Add only the
@@ -78,9 +78,9 @@ judgments and must not become new language, scene-count, or duration rejection g
   connecting a comment to code must be visible rather than only described in `purpose`. Reserve `illustration`
   browser, comparison, or question shots for genuinely static comparisons or pivotal questions. The browser is a
   stylized explanation, not a screenshot of the product. Use entrance motion only to reveal new meaning.
-- In the handoff, inspect each beat's actual render path: image crop, diagram snapshot, comparison, or supported
-  fallback. If the described action cannot be drawn by the current renderer, revise the beat to a supported visual
-  action. `purpose` is a planning note and does not itself create an animation.
+- In the handoff, describe the actual visible input, action and result. The visual agent may reuse a template,
+  compose primitives or generate an actual JSX shot when a new expression is needed. Do not simplify the required
+  expression to fit the old renderer. `purpose` is a planning note and does not itself create an animation.
 - Prefer one readable base image, README crop, or simple diagram. Direct attention with a gentle push-in, highlight,
   focal crop, progressive reveal, or simple simulated before/after. Reserve full-screen scene transitions for a real
   topic change, not a new sentence.
@@ -88,7 +88,7 @@ judgments and must not become new language, scene-count, or duration rejection g
   stacking a large sentence, multiple cards, and a caption over the same image. Give a README crop enough time to read.
 - First make the input or before-state visible, then the documented project action, then the useful result. A visual
   beat's `narrationCue` must be an exact substring of its own section narration. Every beat maps to verified claims,
-  and any media beat uses an existing evidence asset with the matching truth mode.
+  and any media beat uses an existing licensed asset. Animation and recorded results are equally eligible.
 - The opening personal problem and official GitHub identity shot are separate moments. Show the project name and
   approximate stars briefly, then move to the example. Keep provenance labels and static-run caveats in metadata,
   not in the viewer's frame or voiceover.

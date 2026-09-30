@@ -23,20 +23,12 @@ Every beat has one job:
 Decorative transitions do not count as beats. New information without a mapped beat is incomplete; a beat without a
 claim or explanation is decoration.
 
-## Truth modes
+## Unified video materials
 
-Truth mode belongs to each beat and asset, not to the whole video:
-
-- `executed-demo`: captured from an explicitly authorized run with a passed demo step and retained run record;
-- `repository-media`: an image, video, or interface linked from the official README with a usable license basis;
-- `source-derived-animation`: a legacy schema name for an explanatory animation constructed only from a verified
-  official README claim. The example's webpage, filenames, code fragments, and illustrative comment may be invented
-  to make the documented function understandable; the animation is not a record of a project run. It does not
-  authorize source-code inspection.
-
-Static read-only research must never emit `executed-demo`. A narrated feature claim needs README or authorized-run
-evidence; the small example used to explain that feature does not need to be a historical run. Keep the example's
-illustrative details separate from evidence metadata and describe them in ordinary viewer language.
+Explanatory animation, repository images/video and observed runtime results are equally eligible video materials.
+Choose by clarity, relevance and visual expression; do not require or emit truthMode categories. Existing historical
+truthMode fields are ignored for selection and validation. Retain source paths, licenses and fact mappings. Actual
+test records remain accurate: an animation does not change whether a project was executed.
 
 ## Research evidence boundary
 
@@ -54,7 +46,7 @@ turn them into viewer-facing sections.
 Produce a `visualEvidencePackage` with:
 
 - `hookMoment`: the strongest result or change that can appear immediately;
-- `visualBeats`: ordered beats mapped to exact narration cues, claims, assets, truth modes, and useful focal regions;
+- `visualBeats`: ordered beats mapped to exact narration cues, claims, assets, and useful focal regions;
 - `demoMoments`: passed demo steps and capture assets, or an empty list in read-only research;
 - `mechanismSteps`: the small set of nodes or actions that should appear progressively;
 - `evidenceAssets`: reusable repository or captured media with path, license, provenance, and claim mappings;
@@ -74,11 +66,10 @@ the manifest. Do not collect a statistic or setup screenshot merely because it e
 spoken function. Research proposes shots; final animation is designed after the narration is selected.
 
 An illustrative beat may specify a renderable `shot`: a stylized browser, comparison, or question layout with short
-before/action/result text, a focus state, and an optional cross over the misconception. Use it only with
-`source-derived-animation` and a supporting README claim. Prefer a concrete visual example over a generic card:
+before/action/result text, a focus state, and an optional cross over the misconception. Use a supporting verified claim. Prefer a concrete visual example over a generic card:
 show which webpage element changed, which file carries the change, what related area is inspected, and where a
 sample comment appears when those are the documented functions. Render the example in the house illustration style
-so it is visually distinct from repository media. A beat's `purpose` alone never creates an animation.
+so objects and actions remain readable. A beat's `purpose` alone never creates an animation.
 
 Prefer `object-action` for a function best explained by motion. Each beat's `stage` is a complete snapshot of stable
 object IDs, kinds, short labels, normalized positions, and states; its `action` names what the renderer will animate

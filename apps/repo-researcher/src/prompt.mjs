@@ -99,13 +99,12 @@ Research requirements:
 17. Produce visualEvidencePackage as the production handoff for the functions actually selected for this video, not
     every README feature. Include one hookMoment, 6-30 ordered visualBeats, and
     arrays for demoMoments, mechanismSteps, evidenceAssets, and contrastMoments. A visual beat must show, prove, or
-    change something; reference verified claimIndexes; and use one truthMode: executed-demo, repository-media, or
-    source-derived-animation. In read-only research, executed-demo and screen-recording are forbidden and demoMoments
-    must be empty. In this legacy schema name, source-derived-animation means an illustrative example of a function
-    established by the official README; the example's small webpage, filenames, code area, and sample comment may
-    be invented to help a beginner understand the action. The truth mode does not authorize source-code inspection
-    or imply that the example was run. For a selected function without explanatory media, prefer visualMode
-    "object-action": identify a recognizable personal situation, stable file, folder, window, review, search, code,
+    change something and reference verified claimIndexes. Explanatory animations, repository media and recorded
+    runtime results are equally eligible video materials. Do not classify assets or beats by truthMode, or require
+    a passed run to select a recording. Feature claims still require the supplied README or retained test evidence;
+    an example may invent small scenario details without asserting that it was executed. demoMoments records actual
+    tests only and remains empty when no test was run. Choose the clearest expression for each beat. For visualMode
+    "object-action", identify a recognizable personal situation, stable file, folder, window, review, search, code,
     comment, or result objects, a short detail string for illustrative objects (null when unnecessary), and a visible reveal, move, gather, expand,
     scan, anchor, morph, or focus action. Browser, comparison, and question illustration shots remain available for
     genuinely static comparisons or pivotal questions, not as the default replacement for a missing image.
@@ -117,7 +116,7 @@ Research requirements:
     line mapping is outside this research scope. Set stepIndex only for an authorized executed demo. Avoid consecutive
     beats with the same visualMode, assets, and crop, and
     avoid two text-only beats in a row. Set canvas to null unless a diagram beat uses 1-5 short labeled nodes,
-    visible edges, and a focusId; only source-derived-animation diagram beats without assetIds may use canvas.
+    visible edges, and a focusId; diagram beats without assetIds may use canvas.
     Set hookMoment.canvas to null unless the same diagram conditions apply. Set shot to null except for illustration
     beats. An object-action beat requires stage with 1-12 drawable objects (id, kind, short label, detail string or
     null, normalized x/y, idle/active/done state), visible links, and action (type plus target object IDs).
@@ -129,9 +128,9 @@ Research requirements:
     not decoration. Official media should receive a readable crop or restrained motion; put invented example details
     in the separate house-style animation rather than overlaying them as if they were part of an official screenshot.
 19. evidenceAssets may contain zero to twelve images or videos linked by the official README, or authorized
-    executed-demo captures. Use safe repository-relative paths, unique ids, purpose, mediaType, licenseBasis, truthMode, and
+    recorded results. Use safe repository-relative paths, unique ids, purpose, mediaType, licenseBasis, and
     claimIndexes. Every media-crop, readme-crop, or screen-recording beat must reference a declared asset id. Only a
-    passed demo step may support executed-demo assets or demoMoments. The separate media-inspection subagent will
+    passed demo step may support a demoMoments test record; material selection has no test-status prerequisite. The separate media-inspection subagent will
     replace this provisional list and add productionMaterials for every selected function. In this initial research
     draft, set productionMaterials to an empty array; do not pre-judge media inspection. When there is no suitable
     media, that handoff must specify a familiar example, concrete renderable objects and details, ordered actions,

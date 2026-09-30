@@ -15,7 +15,7 @@ are interested in useful tools but are not necessarily senior engineers.
    A-roll/B-roll division.
 - During repository research and storyboard planning, read
   [references/visual-evidence-and-beats.md](references/visual-evidence-and-beats.md). It defines the visual evidence
-  package, beat truth modes, and the handoff contract between research and production.
+  package, material handoff, and the contract between research and production.
 - Before preparation and final handoff, read
    [references/acceptance-checklist.md](references/acceptance-checklist.md).
 - Before narration work, also read
@@ -68,9 +68,9 @@ Claude, OpenAI, GitHub, Codex, Qwen, and project names in English instead of tra
   along an uninspected image as if it were unsuitable. This is not source-file mapping or a request to pre-render
   every feature in the README.
 - Pair each new spoken claim with a visual beat that shows, proves, or changes something. Every beat must reference
-  verified claims and declare whether it is a real executed demo, repository media, or a source-derived animation.
+  verified claims. Explanatory animation and observed runtime results are equally eligible video materials; do not classify beats or assets by truthMode.
 - Animate README-linked media with a readable crop, focus change, or gentle entrance when it explains the claim.
-  If no suitable media exists, prefer a clearly illustrative object-action sequence derived from that README claim:
+  Choose an object-action sequence whenever it explains the function clearly, whether or not media exists:
   give one familiar example concrete visual objects (such as a webpage element, changed file, related code region,
   and comment at that region), then keep their identity and position continuous as movement, reveal, scan, anchor,
   or state changes carry the explanation. Invent illustrative example details when they help comprehension; do not
@@ -87,8 +87,7 @@ Claude, OpenAI, GitHub, Codex, Qwen, and project names in English instead of tra
   6 万多 stars”。Never speak or display the exact snapshot count, and do not explain trend scores.
 - Do not display “官方素材”“非本机实测”“源码证据”“静态研究” or similar production labels. Keep those facts in
   metadata and avoid unsupported demo language in narration.
-- Default to 6-9 narrative scenes and roughly 45-120 seconds, with 55-75 seconds preferred for static research and
-  75-105 seconds reserved for an authorized real demo. A typical minute should contain about 12-24 meaningful visual
+- Default to 6-9 narrative scenes and roughly 45-120 seconds, with duration chosen by the explanation and pacing rather than the material source. A typical minute should contain about 12-24 meaningful visual
   beats, but clarity and evidence take priority over a fixed count.
 - Close with a useful recommendation for the individual developer, such as saving the project for the next relevant
   task. Do not say “项目地址见画面” or narrate where the URL is displayed.
@@ -105,3 +104,13 @@ them when useful, but do not block preparation or rendering solely because a sty
 
 Stop when a material claim lacks evidence, required authorization is missing, the output cannot be rendered or
 decoded, or the output is missing.
+
+## Current production entry
+
+Use `pnpm video:produce -- --selection PATH --repo owner/name` after approved research. This includes editorial
+planning when needed, preparation, final-rank binding, visual shot design, compilation, rendering and decode.
+For valid existing narration use `--reuse-audio`. Do not use the retired canvas-overrides workflow.
+The visual agent reuses a fitting template, otherwise composes primitives or writes an actual project-local JSX shot.
+Do not downgrade a required expression to fit the old renderer. Use the installed Remotion plugin integration for
+frame timing, sequencing, text, media and transitions; see `docs/remotion-integration.md`.
+The sole workflow reference is `docs/video-production-workflow.md`.

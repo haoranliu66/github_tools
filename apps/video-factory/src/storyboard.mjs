@@ -5,7 +5,6 @@ const SCENE_TYPES = new Set([
   'title', 'text', 'bullets', 'stat', 'code', 'media', 'hero', 'flow', 'contrast', 'audience', 'outro',
 ]);
 const VISUAL_BEAT_ROLES = new Set(['show', 'prove', 'change']);
-const VISUAL_TRUTH_MODES = new Set(['executed-demo', 'repository-media', 'source-derived-animation']);
 
 export function validateStoryboard(storyboard) {
   const errors = [];
@@ -45,7 +44,7 @@ export function validateStoryboard(storyboard) {
       } else {
         let previousBeatEnd = 0;
         scene.visualBeats.forEach((beat, beatIndex) => {
-          if (!VISUAL_BEAT_ROLES.has(beat.role) || !VISUAL_TRUTH_MODES.has(beat.truthMode) ||
+          if (!VISUAL_BEAT_ROLES.has(beat.role) ||
               !Array.isArray(beat.claimIndexes) || beat.claimIndexes.length === 0 ||
               !Number.isInteger(beat.startFrame) || !Number.isInteger(beat.endFrame) ||
               beat.startFrame < previousBeatEnd || beat.endFrame <= beat.startFrame ||

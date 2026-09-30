@@ -9,7 +9,6 @@ export const EDITORIAL_CONTRACT_FILES = [
   '.agents/skills/video-production-quality/references/acceptance-checklist.md',
 ];
 
-const TRUTH_MODES = new Set(['executed-demo', 'repository-media', 'source-derived-animation']);
 const BEAT_ROLES = new Set(['show', 'prove', 'change']);
 const VISUAL_MODES = new Set([
   'media-crop', 'readme-crop', 'progressive-flow', 'code-highlight', 'compare',
@@ -78,13 +77,6 @@ function assertAssetIds(ids, knownIds, label, {required = false} = {}) {
   }
 }
 
-function assertTruthMode(value, label, hasPassedDemo) {
-  if (!TRUTH_MODES.has(value)) throw new Error(`${label} has an unsupported truth mode.`);
-  if (value === 'executed-demo' && !hasPassedDemo) {
-    throw new Error(`${label} cannot claim executed-demo without a passed demo step.`);
-  }
-}
-
 function assertFocalRegion(region, label) {
   if (region == null) return;
   const {x, y, width, height} = region ?? {};
@@ -107,19 +99,19 @@ function assertIllustrationShot(beat, label) {
     return;
   }
   const shot = beat.shot;
-  if (!shot || beat.canvas != null || beat.truthMode !== 'source-derived-animation' ||
+  if (!shot || beat.canvas != null ||
       beat.assetIds?.length || !['browser', 'comparison', 'question'].includes(shot.kind) ||
       !['before', 'action', 'result'].includes(shot.focus) || typeof shot.negateBefore !== 'boolean' ||
       ['title', 'before', 'action', 'result'].some((field) =>
         !String(shot[field] ?? '').trim() || String(shot[field]).length > (field === 'title' ? 48 : 80))) {
-    throw new Error(`${label}.shot must be a short README-derived illustration, not media or a demo.`);
+    throw new Error(`${label}.shot must be a structured illustration.`);
   }
 }
 
 function assertVisualCanvas(canvas, beat, label) {
   if (canvas == null) return;
   if (!['progressive-flow', 'compare', 'statement'].includes(beat.visualMode) ||
-      beat.truthMode !== 'source-derived-animation' || beat.assetIds?.length) {
+      beat.assetIds?.length) {
     throw new Error(`${label}.canvas requires a diagram visual mode.`);
   }
   const nodes = canvas.nodes;
@@ -152,10 +144,9 @@ function assertObjectStage(beat, label) {
   }
   const stage = beat.stage;
   if (!stage || beat.canvas != null || beat.shot != null || beat.assetIds?.length ||
-      beat.truthMode !== 'source-derived-animation' ||
       !Array.isArray(stage.objects) || stage.objects.length < 1 || stage.objects.length > 12 ||
       !Array.isArray(stage.links) || stage.links.length > 12) {
-    throw new Error(`${label}.stage must be a README-derived object-action snapshot, not media or a demo.`);
+    throw new Error(`${label}.stage must be a structured object-action snapshot.`);
   }
   const ids = new Set();
   for (const object of stage.objects) {
@@ -185,7 +176,6 @@ function assertObjectStage(beat, label) {
 function assertVisualEvidencePackage(result, claimCount) {
   const visual = result?.visualEvidencePackage;
   if (!visual || typeof visual !== 'object') throw new Error('Research requires a visual evidence package.');
-  const hasPassedDemo = (result.demoPlan ?? []).some((item) => item?.status === 'passed');
   const assets = Array.isArray(visual.evidenceAssets) ? visual.evidenceAssets : [];
   const assetIds = new Set();
   const assetsById = new Map();
@@ -200,10 +190,6 @@ function assertVisualEvidencePackage(result, claimCount) {
     }
     assertEditorialText(asset.purpose, `evidenceAssets[${index}].purpose`);
     assertClaimIndexes(asset.claimIndexes, claimCount, `evidenceAssets[${index}]`);
-    assertTruthMode(asset.truthMode, `evidenceAssets[${index}]`, hasPassedDemo);
-    if (asset.truthMode === 'executed-demo' && asset.mediaType !== 'video') {
-      throw new Error(`evidenceAssets[${index}] executed-demo evidence must be a video capture.`);
-    }
   });
 
   const sections = result.video?.sections ?? [];
@@ -230,7 +216,6 @@ function assertVisualEvidencePackage(result, claimCount) {
       throw new Error(`${label}.narrationCue must be an exact substring of its video section narration.`);
     }
     assertClaimIndexes(beat.claimIndexes, claimCount, label);
-    assertTruthMode(beat.truthMode, label, hasPassedDemo);
     if (!Number.isFinite(beat.durationHint) || beat.durationHint < 0.5 || beat.durationHint > 8 ||
         !Number.isFinite(beat.leadSeconds) || beat.leadSeconds < 0 || beat.leadSeconds > 1) {
       throw new Error(`${label} has invalid timing guidance.`);
@@ -243,12 +228,6 @@ function assertVisualEvidencePackage(result, claimCount) {
     }
     const needsAsset = ['media-crop', 'readme-crop', 'screen-recording'].includes(beat.visualMode);
     assertAssetIds(beat.assetIds, assetIds, label, {required: needsAsset});
-    if (needsAsset && beat.assetIds.some((id) => assetsById.get(id)?.truthMode !== beat.truthMode)) {
-      throw new Error(`${label} truth mode must match each displayed evidence asset.`);
-    }
-    if (beat.visualMode === 'screen-recording' && beat.truthMode !== 'executed-demo') {
-      throw new Error(`${label} screen recordings must use executed-demo truth mode.`);
-    }
     if (beat.visualMode === 'screen-recording' &&
         beat.assetIds.some((id) => assetsById.get(id)?.mediaType !== 'video')) {
       throw new Error(`${label} screen recordings must reference video evidence assets.`);
@@ -286,7 +265,6 @@ function assertVisualEvidencePackage(result, claimCount) {
     throw new Error('hookMoment.narrationCue must be an exact substring of video.hook.');
   }
   assertClaimIndexes(hook?.claimIndexes, claimCount, 'hookMoment');
-  assertTruthMode(hook?.truthMode, 'hookMoment', hasPassedDemo);
   assertVisualMode(hook?.visualMode, 'hookMoment');
   assertVisualCanvas(hook?.canvas, hook, 'hookMoment');
   assertIllustrationShot(hook, 'hookMoment');
@@ -298,9 +276,8 @@ function assertVisualEvidencePackage(result, claimCount) {
   assertAssetIds(hook?.assetIds, assetIds, 'hookMoment', {
     required: ['media-crop', 'readme-crop', 'screen-recording'].includes(hook?.visualMode),
   });
-  if (['media-crop', 'readme-crop', 'screen-recording'].includes(hook?.visualMode) &&
-      hook.assetIds.some((id) => assetsById.get(id)?.truthMode !== hook.truthMode)) {
-    throw new Error('hookMoment truth mode must match each displayed evidence asset.');
+  if (hook?.visualMode === 'screen-recording' && hook.assetIds.some(id => assetsById.get(id)?.mediaType !== 'video')) {
+    throw new Error('hookMoment screen recordings must reference video assets.');
   }
 
   for (const [collection, label] of [

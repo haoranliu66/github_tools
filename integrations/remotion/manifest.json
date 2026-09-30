@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "provider": "installed-codex-remotion-plugin",
+  "pluginVersion": "1.0.7",
+  "skillVersion": "4.0.506",
+  "files": [
+    {
+      "path": "remotion-best-practices/SKILL.md",
+      "digest": "41119b9934a5c8252f4c8fe9afbfccde40914afe81c0f86924c8ee2897fae77f"
+    },
+    {
+      "path": "remotion-markup/SKILL.md",
+      "digest": "e0cc02bf5075c1c2bc0825bc138a37c5efbd1f981645a18111f64d42797e6c21"
+    },
+    {
+      "path": "remotion-markup/timing.md",
+      "digest": "48047e758b96aea519916479ede62b832bf51f982924978e091c37f569ab4bac"
+    },
+    {
+      "path": "remotion-markup/sequencing.md",
+      "digest": "64784498f40db7b32c032dc648282caf5a02082d4d7a6667d8b7a1465f341dc4"
+    },
+    {
+      "path": "remotion-markup/measuring-text.md",
+      "digest": "4bed81d1ea818db3975f878152dc24ecbc17e163117dcab10761dc8690c33f0c"
+    },
+    {
+      "path": "remotion-markup/transitions.md",
+      "digest": "41d69d0b5c862bcada825a68413064837fd4fcd55f81ad59492931db982a08ad"
+    },
+    {
+      "path": "remotion-markup/images.md",
+      "digest": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b"
+    },
+    {
+      "path": "remotion-markup/cropping.md",
+      "digest": "b862b4a98e412870ab13172e52c7c0d73c7c17ebbf728046168dfd21240dce94"
+    },
+    {
+      "path": "remotion-markup/embedding-videos.md",
+      "digest": "543ddf73e53bd750019b0283506d2cc30e9acb605c8628fa12fc9dd3edbc145c"
+    },
+    {
+      "path": "remotion-markup/text-highlights.md",
+      "digest": "e6210a022785fd6f93a4a1ed75b600da18bc3baff20eef9e656e1f48267bebfe"
+    },
+    {
+      "path": "remotion-render/SKILL.md",
+      "digest": "9c51cee8d71219ad6ed727060c5d4ca83ee7ba88e0fce5cbed6022e87582b1b1"
+    },
+    {
+      "path": "remotion-studio/SKILL.md",
+      "digest": "a2a615fbca1c1fe8809841a405e296f4131b80e88e3d52754b77c8b7d1eeeda4"
+    }
+  ],
+  "digest": "73be8674c4fe2fd0c5558fe9a41e268a118656a97d4fa73e5c6afa98f12e354e"
+}
