@@ -30,10 +30,13 @@ Truth mode belongs to each beat and asset, not to the whole video:
 - `executed-demo`: captured from an explicitly authorized run with a passed demo step and retained run record;
 - `repository-media`: an image, video, or interface linked from the official README with a usable license basis;
 - `source-derived-animation`: a legacy schema name for an explanatory animation constructed only from a verified
-  official README claim, without implying that the project was run. It does not authorize source-code inspection.
+  official README claim. The example's webpage, filenames, code fragments, and illustrative comment may be invented
+  to make the documented function understandable; the animation is not a record of a project run. It does not
+  authorize source-code inspection.
 
-Static read-only research must never emit `executed-demo`. README-linked media and README-derived animation may
-explain documented behavior, but may not use first-person test language or claim a runtime result.
+Static read-only research must never emit `executed-demo`. A narrated feature claim needs README or authorized-run
+evidence; the small example used to explain that feature does not need to be a historical run. Keep the example's
+illustrative details separate from evidence metadata and describe them in ordinary viewer language.
 
 ## Research evidence boundary
 
@@ -55,7 +58,34 @@ Produce a `visualEvidencePackage` with:
 - `demoMoments`: passed demo steps and capture assets, or an empty list in read-only research;
 - `mechanismSteps`: the small set of nodes or actions that should appear progressively;
 - `evidenceAssets`: reusable repository or captured media with path, license, provenance, and claim mappings;
+- `productionMaterials`: one inspected, filmable media or animation plan per selected episode function;
 - `contrastMoments`: verified before/after, right/wrong, promise/limit, or input/output pairs.
+
+Research is the visual-material handoff, not a source-code mapping exercise. After the research agent selects the
+episode's functions, a separate read-only subagent must inspect the README-linked media for those functions. Record
+each candidate's path, useful or unsuitable verdict, reason, reuse basis, and a useful crop or clip when applicable.
+For a function with no suitable media, describe one recognizable user situation and the exact drawable objects,
+example details, and reveal, movement, scan, connection, or state-change actions, with a README-backed claim mapping.
+If media explains only setup or one portion of the function, retain it and also hand off an animation plan for the
+unexplained action or result. Do not write “image not yet inspected” and
+continue into production. Copy eligible README-linked media into
+the project's `resources/visual-assets/` and retain its original repository path, provenance, and license basis in
+the manifest. Do not collect a statistic or setup screenshot merely because it exists when it does not explain the
+spoken function. Research proposes shots; final animation is designed after the narration is selected.
+
+An illustrative beat may specify a renderable `shot`: a stylized browser, comparison, or question layout with short
+before/action/result text, a focus state, and an optional cross over the misconception. Use it only with
+`source-derived-animation` and a supporting README claim. Prefer a concrete visual example over a generic card:
+show which webpage element changed, which file carries the change, what related area is inspected, and where a
+sample comment appears when those are the documented functions. Render the example in the house illustration style
+so it is visually distinct from repository media. A beat's `purpose` alone never creates an animation.
+
+Prefer `object-action` for a function best explained by motion. Each beat's `stage` is a complete snapshot of stable
+object IDs, kinds, short labels, normalized positions, and states; its `action` names what the renderer will animate
+(`reveal`, `move`, `gather`, `expand`, `scan`, `anchor`, `morph`, or `focus`) and which objects it affects. Subsequent
+beats carry unchanged objects forward instead of redrawing a new card. Put short illustrative details inside a
+window, code, or comment object when those details make the function intelligible; labels alone are insufficient.
+A focal change with no visible object or state change is not a new explanatory beat.
 
 Also draft the viewer narration as one continuous paragraph before copying its exact spans into `video.hook`,
 `video.sections[].narration`, and `video.closing`. Let those spans preserve the paragraph's order and transitions.
@@ -90,3 +120,7 @@ Use the smallest sequence that proves the point:
 Progressively reveal only the user-visible steps needed to understand a documented function. For real demos, show
 the input, action, and observed output. Keep provenance in metadata instead of adding production labels to the
 viewer-facing frame.
+
+Use fades or directional entrances to reveal the next meaningful object. Reserve a large sliding question for a
+turning point and an animated cross for a documented wrong premise, not an unsupported project limitation. Keep
+objects spatially continuous across adjacent beats; a new transition without new meaning is not a beat.

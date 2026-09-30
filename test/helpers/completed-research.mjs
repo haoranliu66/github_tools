@@ -111,3 +111,17 @@ export function completedResearchFixture({
     },
   };
 }
+
+export function editorialDraftFixture(research) {
+  const {title, hook, sections, closing} = research.video;
+  const {intendedViewer, familiarProblem, oneSentenceAnswer, titlePromise, concreteExamples} = research.editorialBrief;
+  const {hookMoment, visualBeats, mechanismSteps, contrastMoments} = research.visualEvidencePackage;
+  return {
+    editorialBrief: {intendedViewer, familiarProblem, oneSentenceAnswer, titlePromise, concreteExamples},
+    video: {
+      title, hook, sections, closing,
+      fullNarration: [hook, ...sections.map((section) => section.narration), closing].join(''),
+    },
+    visualEvidencePackage: {hookMoment, visualBeats, mechanismSteps, contrastMoments},
+  };
+}

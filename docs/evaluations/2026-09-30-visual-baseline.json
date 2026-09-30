@@ -1,0 +1,3310 @@
+{
+  "schemaVersion": 1,
+  "rows": [
+    {
+      "repo": "tt-a1i/archify",
+      "projectDirectory": "2026年09月第3周-tt-a1i--archify",
+      "reviewDate": "2026-09-30",
+      "humanDecision": "rejected",
+      "humanReason": "现有画面镜头太过死板，动效以及动画展示能力不足。",
+      "humanSuggestion": "参考 GitHub 高质量视频制作模板。",
+      "videoSha256": "e9ab7016fd85fe639488e14208b110778c4771274bff8252b2d056ee708cc946",
+      "audioSha256": "35abd1bae03c1c867db50e54606eff48b007ada482216fe78ef0ca77bf8726ef",
+      "durationSeconds": 59.866666666666674,
+      "sceneCount": 7,
+      "beatCount": 15,
+      "source": "Direct user feedback in this conversation; no AI visual review.",
+      "storyboard": {
+        "meta": {
+          "title": "缓存没命中后怎么走？用 Archify 把流程画清楚",
+          "repo": "tt-a1i/archify",
+          "template": "editorial",
+          "accent": "#b8f76c",
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "researchMode": "static-source-review",
+          "commit": "1aa1db9f9c32bcdedf6c9e9260d6162820a5d8a3",
+          "dataDate": "2026-09-14",
+          "planner": "editorial",
+          "visualAssetCount": 4,
+          "editorialContractDigest": "6a4a108f3bd7ad071485f5d4b990a9615e70e671e11161c3781666ea45680223",
+          "researchCommit": "1aa1db9f9c32bcdedf6c9e9260d6162820a5d8a3",
+          "visualBeatContractVersion": 1,
+          "narrationProfile": "concept-explainer",
+          "showEvidenceLabels": false,
+          "narrationAlignment": "measured-block-weighted-cues"
+        },
+        "scenes": [
+          {
+            "type": "hero",
+            "src": "assets/01-archify-readme-hero.png",
+            "position": "center",
+            "kicker": "它解决什么问题？",
+            "headline": "Archify",
+            "subhead": "自己写 Web 应用，浏览器、API、缓存都接上了，缓存没命中后怎么走，却还得对着一段文字捋？",
+            "badges": [
+              "Archify"
+            ],
+            "evidenceMode": "official",
+            "keyword": "Archify",
+            "source": "来源：docs/assets/archify-readme-hero.png @ 1aa1db9f · README 内嵌的项目产品图；README 声明项目采用 MIT，未发现该素材的单独许可说明。",
+            "visualBeats": [
+              {
+                "id": "hook-moment",
+                "role": "show",
+                "durationHint": 3,
+                "purpose": "先把个人开发者熟悉的请求流程变成视觉问题。",
+                "narrationCue": "缓存没命中后怎么走",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "beatIndex": 0,
+                "startFrame": 108,
+                "alignment": "cue",
+                "endFrame": 237
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 117,
+                "text": "自己写 Web 应用，浏览器、API、缓存都接上了，"
+              },
+              {
+                "startFrame": 117,
+                "endFrame": 237,
+                "text": "缓存没命中后怎么走，却还得对着一段文字捋？"
+              }
+            ],
+            "duration": 7.9
+          },
+          {
+            "type": "hero",
+            "src": "assets/02-github-repository-preview.png",
+            "position": "center",
+            "panX": -1,
+            "panY": 0,
+            "kicker": "GITHUB REPOSITORY",
+            "headline": "Archify",
+            "subhead": "Archify 把你的系统描述整理成可交互的图，让调用顺序和路径更容易查看。",
+            "badges": [
+              "Open Source"
+            ],
+            "stat": {
+              "eyebrow": "GITHUB",
+              "value": "6 万多",
+              "label": "Stars"
+            },
+            "evidenceMode": "official",
+            "keyword": "Archify",
+            "source": "来源：https://github.com/tt-a1i/archify @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "github-repository",
+                "role": "show",
+                "purpose": "展示官方 GitHub 仓库预览并轻微推近",
+                "narrationCue": "这个开源工具可能会帮到你",
+                "visualMode": "media-crop",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 178
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 102,
+                "text": "这个开源工具可能会帮到你，它叫 Archify，"
+              },
+              {
+                "startFrame": 102,
+                "endFrame": 178,
+                "text": "目前已经收获 6 万多 stars。"
+              }
+            ],
+            "duration": 5.933333333333334
+          },
+          {
+            "type": "media",
+            "heading": "把描述变成图",
+            "evidenceMode": "source",
+            "keyword": "可交互的图",
+            "source": "依据：research.json visualEvidencePackage @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "beat-01",
+                "sectionIndex": 0,
+                "role": "show",
+                "purpose": "展示项目结果外观；本节前先安排约三秒官方 GitHub 页面身份镜头，身份镜头仅供识别，待生产获取。",
+                "narrationCue": "可交互的图",
+                "visualMode": "media-crop",
+                "assetIds": [
+                  "hero"
+                ],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "repository-media",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "src": "assets/01-archify-readme-hero.png",
+                "assetPath": "docs/assets/archify-readme-hero.png",
+                "licenseBasis": "README 内嵌的项目产品图；README 声明项目采用 MIT，未发现该素材的单独许可说明。",
+                "startFrame": 43,
+                "alignment": "cue",
+                "endFrame": 94
+              },
+              {
+                "id": "beat-02",
+                "sectionIndex": 0,
+                "role": "change",
+                "purpose": "将文字描述变成输入对象，连接描述与图示结果。",
+                "narrationCue": "直接描述",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  0,
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 2,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 94,
+                "alignment": "cue",
+                "endFrame": 198
+              }
+            ],
+            "body": "它能把系统描述变成可交互的图，你可以直接描述，不用先准备代码仓库。",
+            "src": "assets/01-archify-readme-hero.png",
+            "fit": "contain",
+            "position": "center",
+            "zoom": 1.02,
+            "zoomTravel": 0.02,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 132,
+                "text": "它能把系统描述变成可交互的图，你可以直接描述，"
+              },
+              {
+                "startFrame": 132,
+                "endFrame": 190,
+                "text": "不用先准备代码仓库。"
+              }
+            ],
+            "duration": 6.6
+          },
+          {
+            "type": "media",
+            "heading": "展开一次缓存回退",
+            "evidenceMode": "source",
+            "keyword": "先查 Redis",
+            "source": "依据：research.json visualEvidencePackage @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "beat-03",
+                "sectionIndex": 1,
+                "role": "show",
+                "purpose": "用组件图标和箭头依次显示浏览器、API、Redis。",
+                "narrationCue": "先查 Redis",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0.75,
+                  "height": 1
+                },
+                "stepIndex": 0,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 64,
+                "alignment": "cue",
+                "endFrame": 105
+              },
+              {
+                "id": "beat-04",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "对照命中缓存和未命中回退的两种示意状态，不展示虚构耗时。",
+                "narrationCue": "没有命中就去 PostgreSQL",
+                "visualMode": "compare",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "contrast": {
+                  "before": "一段描述浏览器、API、缓存与数据库回退的文字。",
+                  "after": "用节点与箭头呈现相同关系，并按调用顺序展开。"
+                },
+                "startFrame": 105,
+                "alignment": "cue",
+                "endFrame": 202
+              },
+              {
+                "id": "beat-05",
+                "sectionIndex": 1,
+                "role": "prove",
+                "purpose": "展示 README 时序图示例，承接选择 Sequence 的说明。",
+                "narrationCue": "选用 Sequence 图",
+                "visualMode": "media-crop",
+                "assetIds": [
+                  "sequence"
+                ],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "repository-media",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "src": "assets/03-archify-sequence.png",
+                "assetPath": "docs/assets/archify-sequence.png",
+                "licenseBasis": "README 内嵌的项目生成图示；复用依据为 README 的项目级 MIT 声明。",
+                "startFrame": 202,
+                "alignment": "cue",
+                "endFrame": 203
+              },
+              {
+                "id": "beat-06",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "回到统一缓存示例，按时间依次点亮请求箭头。",
+                "narrationCue": "谁先调用谁",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 2,
+                "lineNumbers": null,
+                "beatIndex": 3,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 203,
+                "alignment": "cue",
+                "endFrame": 339
+              }
+            ],
+            "body": "比如告诉它：浏览器请求 API，先查 Redis，没有命中就去 PostgreSQL。",
+            "src": "assets/03-archify-sequence.png",
+            "fit": "contain",
+            "position": "center",
+            "zoom": 1.02,
+            "zoomTravel": 0.02,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 114,
+                "text": "比如告诉它：浏览器请求 API，先查 Redis，"
+              },
+              {
+                "startFrame": 114,
+                "endFrame": 170,
+                "text": "没有命中就去 PostgreSQL。"
+              },
+              {
+                "startFrame": 170,
+                "endFrame": 269,
+                "text": "想看清谁先调用谁，就选用 Sequence 图，"
+              },
+              {
+                "startFrame": 269,
+                "endFrame": 339,
+                "text": "把这次请求按顺序展开。"
+              }
+            ],
+            "duration": 11.3
+          },
+          {
+            "type": "media",
+            "heading": "沿着路径继续看",
+            "evidenceMode": "source",
+            "keyword": "沿着图里画好的…",
+            "source": "依据：research.json visualEvidencePackage @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "beat-07",
+                "sectionIndex": 2,
+                "role": "prove",
+                "purpose": "展示 README 的缓存未命中路径图片，不添加模拟点击成功反馈。",
+                "narrationCue": "沿着图里画好的连接",
+                "visualMode": "media-crop",
+                "assetIds": [
+                  "route"
+                ],
+                "claimIndexes": [
+                  3
+                ],
+                "truthMode": "repository-media",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "src": "assets/04-archify-demo-route.png",
+                "assetPath": "docs/assets/archify-demo-route.png",
+                "licenseBasis": "README 将其列为项目生成图示；复用依据为 README 的项目级 MIT 声明。",
+                "startFrame": 28,
+                "alignment": "cue",
+                "endFrame": 133
+              },
+              {
+                "id": "beat-08",
+                "sectionIndex": 2,
+                "role": "change",
+                "purpose": "在示意图中淡化其他连线，只保留请求起点到数据库的连续路径。",
+                "narrationCue": "从请求入口走到数据库",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  3
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 2,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 133,
+                "alignment": "cue",
+                "endFrame": 303
+              },
+              {
+                "id": "beat-09",
+                "sectionIndex": 2,
+                "role": "show",
+                "purpose": "将继续对话的修改请求与组件位置变化并列，用前后图解释迭代。",
+                "narrationCue": "继续在对话里提要求",
+                "visualMode": "compare",
+                "assetIds": [],
+                "claimIndexes": [
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "contrast": {
+                  "before": "一段描述浏览器、API、缓存与数据库回退的文字。",
+                  "after": "用节点与箭头呈现相同关系，并按调用顺序展开。"
+                },
+                "startFrame": 303,
+                "alignment": "cue",
+                "endFrame": 382
+              }
+            ],
+            "body": "接着，你可以沿着图里画好的连接，查看一条路径，从请求入口走到数据库。",
+            "src": "assets/04-archify-demo-route.png",
+            "fit": "contain",
+            "position": "center",
+            "zoom": 1.02,
+            "zoomTravel": 0.02,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 142,
+                "text": "接着，你可以沿着图里画好的连接，查看一条路径，"
+              },
+              {
+                "startFrame": 142,
+                "endFrame": 212,
+                "text": "从请求入口走到数据库。"
+              },
+              {
+                "startFrame": 212,
+                "endFrame": 374,
+                "text": "想调整组件位置、突出某条路径，就继续在对话里提要求。"
+              }
+            ],
+            "duration": 12.733333333333333
+          },
+          {
+            "type": "media",
+            "heading": "保存到开发笔记",
+            "evidenceMode": "source",
+            "keyword": "一个 HTML…",
+            "source": "依据：research.json visualEvidencePackage @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "beat-10",
+                "sectionIndex": 3,
+                "role": "show",
+                "purpose": "将完成的示意图收进单个 HTML 文件图标，再展开到浏览器框。",
+                "narrationCue": "一个 HTML 文件",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 3,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 47,
+                "alignment": "cue",
+                "endFrame": 119
+              },
+              {
+                "id": "beat-11",
+                "sectionIndex": 3,
+                "role": "prove",
+                "purpose": "展示 README 导出菜单图片，支持图片导出说明。",
+                "narrationCue": "导出 PNG 或 SVG",
+                "visualMode": "media-crop",
+                "assetIds": [
+                  "export"
+                ],
+                "claimIndexes": [
+                  4
+                ],
+                "truthMode": "repository-media",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "src": "assets/05-archify-menu.png",
+                "assetPath": "docs/assets/archify-menu.png",
+                "licenseBasis": "README 内嵌的项目界面图；复用依据为 README 的项目级 MIT 声明。",
+                "startFrame": 119,
+                "alignment": "cue",
+                "endFrame": 214
+              },
+              {
+                "id": "beat-12",
+                "sectionIndex": 3,
+                "role": "change",
+                "purpose": "将同一张流程图放入个人开发笔记示意页面，落到保存结果的用途。",
+                "narrationCue": "个人开发笔记里",
+                "visualMode": "progressive-flow",
+                "assetIds": [],
+                "claimIndexes": [
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 3,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "flowSteps": [
+                  {
+                    "id": "describe",
+                    "title": "说清流程",
+                    "detail": "描述浏览器、API、缓存与数据库回退关系。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "draw",
+                    "title": "整理成图",
+                    "detail": "选择适合交互顺序的 Sequence 图。",
+                    "claimIndexes": [
+                      0,
+                      2
+                    ]
+                  },
+                  {
+                    "id": "follow",
+                    "title": "顺着路径看",
+                    "detail": "查看图中已编写的连接，继续对话调整图示。",
+                    "claimIndexes": [
+                      1,
+                      3
+                    ]
+                  },
+                  {
+                    "id": "save",
+                    "title": "保存结果",
+                    "detail": "保存 HTML 或导出图片。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 214,
+                "alignment": "cue",
+                "endFrame": 265
+              }
+            ],
+            "body": "图整理好后，可以保存为一个 HTML 文件，也可以导出 PNG 或 SVG，放进自己的个人…",
+            "src": "assets/05-archify-menu.png",
+            "fit": "contain",
+            "position": "center",
+            "zoom": 1.02,
+            "zoomTravel": 0.02,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 112,
+                "text": "图整理好后，可以保存为一个 HTML 文件，"
+              },
+              {
+                "startFrame": 112,
+                "endFrame": 265,
+                "text": "也可以导出 PNG 或 SVG，放进自己的个人开发笔记里。"
+              }
+            ],
+            "duration": 8.833333333333334
+          },
+          {
+            "type": "outro",
+            "eyebrow": "OPEN SOURCE NOTES",
+            "title": "Archify",
+            "subtitle": "https://github.com/tt-a1i/archify",
+            "evidenceMode": "editorial",
+            "keyword": "Archify",
+            "source": "依据：research.json @ 1aa1db9f",
+            "visualBeats": [
+              {
+                "id": "outro-result",
+                "role": "show",
+                "purpose": "用收藏建议结束",
+                "narrationCue": "下次要把请求流程画清楚，",
+                "visualMode": "statement",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 197
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 126,
+                "text": "下次要把请求流程画清楚，可以先收藏 Archify，"
+              },
+              {
+                "startFrame": 126,
+                "endFrame": 189,
+                "text": "从一段系统描述开始。"
+              }
+            ],
+            "duration": 6.566666666666666
+          }
+        ],
+        "narrationBlocks": [
+          {
+            "id": "block-000",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              0,
+              1,
+              2
+            ],
+            "topics": [
+              "opening",
+              "project-introduction",
+              "example-1"
+            ],
+            "startFrame": 0,
+            "endFrame": 605,
+            "duration": 20.16,
+            "timelineDuration": 20.433,
+            "characters": 122
+          },
+          {
+            "id": "block-001",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              3,
+              4
+            ],
+            "topics": [
+              "example-2",
+              "example-3"
+            ],
+            "startFrame": 613,
+            "endFrame": 1326,
+            "duration": 23.76,
+            "timelineDuration": 24.033,
+            "characters": 138
+          },
+          {
+            "id": "block-002",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              5,
+              6
+            ],
+            "topics": [
+              "example-4",
+              "conclusion"
+            ],
+            "startFrame": 1334,
+            "endFrame": 1788,
+            "duration": 15.12,
+            "timelineDuration": 15.4,
+            "characters": 87
+          }
+        ],
+        "voiceover": "narration.wav"
+      }
+    },
+    {
+      "repo": "alibaba/open-code-review",
+      "projectDirectory": "2026年09月第4周-alibaba--open-code-review",
+      "reviewDate": "2026-09-30",
+      "humanDecision": "rejected",
+      "humanReason": "现有画面镜头太过死板，动效以及动画展示能力不足。",
+      "humanSuggestion": "参考 GitHub 高质量视频制作模板。",
+      "videoSha256": "36c2010baff8bab393404172e6248565cf5cda72035c0c72d40e33dc224a6bc1",
+      "audioSha256": "1dd3721072b08ab6dce234b2dd749a9cbea5c11cb4421d1a13b4c1a3098129ca",
+      "durationSeconds": 46.866666666666674,
+      "sceneCount": 6,
+      "beatCount": 13,
+      "source": "Direct user feedback in this conversation; no AI visual review.",
+      "storyboard": {
+        "meta": {
+          "title": "小网页提交前，让 AI 帮你检查改动",
+          "repo": "alibaba/open-code-review",
+          "template": "editorial",
+          "accent": "#b8f76c",
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "researchMode": "static-source-review",
+          "commit": "486022daaf14f7142275eddb9b3cacc3cc5dadfa",
+          "dataDate": "2026-09-21",
+          "planner": "editorial",
+          "visualAssetCount": 1,
+          "editorialContractDigest": "8829a6a64d98e090099ab9cfe645b557b019a2c086d9ccf3eddfd38d5755301f",
+          "researchCommit": "486022daaf14f7142275eddb9b3cacc3cc5dadfa",
+          "visualBeatContractVersion": 1,
+          "narrationProfile": "concept-explainer",
+          "showEvidenceLabels": false,
+          "editorialPlanDigest": "a4fd1e1c4f9d4fb66ac66f5f28b26c58db0af21eb24a1309cc21a793fc5826a1",
+          "narrationAlignment": "measured-block-weighted-cues"
+        },
+        "scenes": [
+          {
+            "type": "contrast",
+            "heading": "自己做了个小网页，改了几个文件，提交前总怕漏看哪里？",
+            "left": {
+              "eyebrow": "原来的麻烦",
+              "title": "信息太多",
+              "body": "自己做了个小网页，改了几个文件，提交前总怕漏看哪里？",
+              "tone": "negative"
+            },
+            "right": {
+              "eyebrow": "项目的回答",
+              "title": "OpenCodeReview",
+              "body": "OpenCodeReview 是 AI 代码审查命令行工具。",
+              "tone": "positive"
+            },
+            "evidenceMode": "source",
+            "keyword": "OpenCodeReview",
+            "source": "依据：research.json / editorial hook @ 486022da",
+            "visualBeats": [
+              {
+                "id": "hook-moment",
+                "role": "show",
+                "durationHint": 3,
+                "purpose": "从首帧立即呈现小网页改动待检查的情境；使用可直接绘制的示意镜头，不等待外部素材或后续口播关键词。",
+                "narrationCue": "自己做了个小网页",
+                "visualMode": "illustration",
+                "canvas": null,
+                "shot": {
+                  "kind": "browser",
+                  "title": "我的小网页",
+                  "before": "改过与新建的文件",
+                  "action": "ocr review",
+                  "result": "纳入审查",
+                  "focus": "before",
+                  "negateBefore": false
+                },
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "leadSeconds": 0,
+                "focalRegion": null,
+                "beatIndex": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 143
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 143,
+                "text": "自己做了个小网页，改了几个文件，提交前总怕漏看哪里？"
+              }
+            ],
+            "duration": 4.766666666666667
+          },
+          {
+            "type": "hero",
+            "src": "assets/01-github-repository-preview.png",
+            "position": "center",
+            "panX": -1,
+            "panY": 0,
+            "kicker": "GITHUB REPOSITORY",
+            "headline": "OpenCodeReview",
+            "badges": [
+              "Open Source"
+            ],
+            "stat": {
+              "eyebrow": "GITHUB",
+              "value": "3 万多",
+              "label": "Stars"
+            },
+            "evidenceMode": "official",
+            "keyword": "OpenCodeReview",
+            "source": "来源：https://github.com/alibaba/open-code-review @ 486022da",
+            "visualBeats": [
+              {
+                "id": "github-repository",
+                "role": "show",
+                "purpose": "展示官方 GitHub 仓库预览并轻微推近",
+                "narrationCue": "这个开源工具可能会帮到你",
+                "visualMode": "media-crop",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 172
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 99,
+                "text": "这个开源工具可能会帮到你，它叫 OpenCodeReview，"
+              },
+              {
+                "startFrame": 99,
+                "endFrame": 172,
+                "text": "目前已经收获 3 万多 stars。"
+              }
+            ],
+            "duration": 5.733333333333333
+          },
+          {
+            "type": "media",
+            "heading": "把小网页的改动交给审查",
+            "evidenceMode": "source",
+            "keyword": "能用 AI 帮…",
+            "source": "依据：research.json visualEvidencePackage @ 486022da",
+            "visualBeats": [
+              {
+                "id": "web-review-action",
+                "sectionIndex": 0,
+                "role": "show",
+                "purpose": "承接首帧浏览器示意，固定全部文字，将注意力转到审查动作。",
+                "narrationCue": "能用 AI 帮你审查代码改动",
+                "visualMode": "illustration",
+                "canvas": null,
+                "shot": {
+                  "kind": "browser",
+                  "title": "我的小网页",
+                  "before": "改过与新建的文件",
+                  "action": "ocr review",
+                  "result": "纳入审查",
+                  "focus": "action",
+                  "negateBefore": false
+                },
+                "stage": null,
+                "entrance": "push-in",
+                "assetIds": [],
+                "claimIndexes": [
+                  0,
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 159
+              },
+              {
+                "id": "web-review-scope",
+                "sectionIndex": 0,
+                "role": "change",
+                "purpose": "沿用同一浏览器构图与文字，聚焦文件纳入检查的结果。",
+                "narrationCue": "都可以纳入检查",
+                "visualMode": "illustration",
+                "canvas": null,
+                "shot": {
+                  "kind": "browser",
+                  "title": "我的小网页",
+                  "before": "改过与新建的文件",
+                  "action": "ocr review",
+                  "result": "纳入审查",
+                  "focus": "result",
+                  "negateBefore": false
+                },
+                "stage": null,
+                "entrance": "push-in",
+                "assetIds": [],
+                "claimIndexes": [
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 159,
+                "alignment": "cue",
+                "endFrame": 204
+              },
+              {
+                "id": "provider-setup",
+                "sectionIndex": 0,
+                "role": "prove",
+                "purpose": "以已检查的 provider 菜单截图对应模型服务配置这一句。",
+                "narrationCue": "配置好模型后",
+                "visualMode": "media-crop",
+                "canvas": null,
+                "shot": null,
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [
+                  "asset-provider-setup"
+                ],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "repository-media",
+                "durationHint": 3,
+                "leadSeconds": 0.3,
+                "focalRegion": {
+                  "x": 0.015,
+                  "y": 0.02,
+                  "width": 0.965,
+                  "height": 0.94
+                },
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "src": "assets/02-asset-provider-setup.jpg",
+                "assetPath": "imgs/providers.jpg",
+                "licenseBasis": "README 引用的本项目终端截图，受根 LICENSE 的 Apache-2.0 项目版权声明覆盖；未发现该媒体的专属例外或第三方图片署名。画面中的供应商为文字名称，不构成额外品牌授权。分发时附 Apache-2.0、保留项目归属，并标注裁剪修改。",
+                "startFrame": 204,
+                "alignment": "cue",
+                "endFrame": 229
+              },
+              {
+                "id": "files-enter-review",
+                "sectionIndex": 0,
+                "role": "change",
+                "purpose": "把文件汇入审查对象，建立后续上下文检索沿用的空间。",
+                "narrationCue": "运行 ocr review",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "changed",
+                      "kind": "file",
+                      "label": "改过的文件",
+                      "x": 0.25,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "new",
+                      "kind": "file",
+                      "label": "新建的文件",
+                      "x": 0.25,
+                      "y": 0.7,
+                      "state": "active"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "changed",
+                      "to": "agent"
+                    },
+                    {
+                      "from": "new",
+                      "to": "agent"
+                    }
+                  ],
+                  "action": {
+                    "type": "gather",
+                    "targets": [
+                      "changed",
+                      "new",
+                      "agent"
+                    ]
+                  }
+                },
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  0,
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 3,
+                "startFrame": 229,
+                "alignment": "cue",
+                "endFrame": 375
+              }
+            ],
+            "body": "它能用 AI 帮你审查代码改动。",
+            "src": "assets/02-asset-provider-setup.jpg",
+            "fit": "contain",
+            "position": "center",
+            "zoom": 1.02,
+            "zoomTravel": 0.02,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 79,
+                "text": "它能用 AI 帮你审查代码改动。"
+              },
+              {
+                "startFrame": 79,
+                "endFrame": 213,
+                "text": "比如这次改过的文件和新建的文件，都可以纳入检查。"
+              },
+              {
+                "startFrame": 213,
+                "endFrame": 288,
+                "text": "配置好模型后，运行 ocr review，"
+              },
+              {
+                "startFrame": 288,
+                "endFrame": 367,
+                "text": "就能把这些工作区改动交给它。"
+              }
+            ],
+            "duration": 12.5
+          },
+          {
+            "type": "flow",
+            "heading": "连着相关代码一起看",
+            "evidenceMode": "source",
+            "keyword": "相关代码会一起…",
+            "source": "依据：research.json visualEvidencePackage @ 486022da",
+            "visualBeats": [
+              {
+                "id": "context-question",
+                "sectionIndex": 1,
+                "role": "show",
+                "purpose": "短暂提出上下文疑问，随即由文件展开动作回答。",
+                "narrationCue": "相关代码会一起看吗？",
+                "visualMode": "illustration",
+                "canvas": null,
+                "shot": {
+                  "kind": "question",
+                  "title": "相关代码会一起看吗？",
+                  "before": "这次改动",
+                  "action": "查找相关代码",
+                  "result": "结合上下文",
+                  "focus": "action",
+                  "negateBefore": false
+                },
+                "stage": null,
+                "entrance": "slide-left",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 2.5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 82
+              },
+              {
+                "id": "expand-full-file",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "展开完整文件，用抽象代码片段表现读取范围。",
+                "narrationCue": "读取改动所在的完整文件",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "diff",
+                      "kind": "code",
+                      "label": "改动片段",
+                      "x": 0.15,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "full",
+                      "kind": "file",
+                      "label": "完整文件",
+                      "x": 0.4,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "diff",
+                      "to": "full"
+                    },
+                    {
+                      "from": "full",
+                      "to": "agent"
+                    }
+                  ],
+                  "action": {
+                    "type": "expand",
+                    "targets": [
+                      "diff",
+                      "full"
+                    ]
+                  }
+                },
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 82,
+                "alignment": "cue",
+                "endFrame": 145
+              },
+              {
+                "id": "search-codebase",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "在原空间加入搜索对象，表现代码库检索动作。",
+                "narrationCue": "在代码库里搜索",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "diff",
+                      "kind": "code",
+                      "label": "改动片段",
+                      "x": 0.15,
+                      "y": 0.3,
+                      "state": "idle"
+                    },
+                    {
+                      "id": "full",
+                      "kind": "file",
+                      "label": "完整文件",
+                      "x": 0.4,
+                      "y": 0.3,
+                      "state": "idle"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "active"
+                    },
+                    {
+                      "id": "search",
+                      "kind": "search",
+                      "label": "代码库搜索",
+                      "x": 0.2,
+                      "y": 0.7,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "diff",
+                      "to": "full"
+                    },
+                    {
+                      "from": "full",
+                      "to": "agent"
+                    },
+                    {
+                      "from": "search",
+                      "to": "agent"
+                    }
+                  ],
+                  "action": {
+                    "type": "scan",
+                    "targets": [
+                      "search",
+                      "full"
+                    ]
+                  }
+                },
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "startFrame": 145,
+                "alignment": "cue",
+                "endFrame": 187
+              },
+              {
+                "id": "gather-related-files",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "加入其他改动文件，将相关内容汇入同一个审查对象。",
+                "narrationCue": "也能查看其他改动文件",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "diff",
+                      "kind": "code",
+                      "label": "改动片段",
+                      "x": 0.15,
+                      "y": 0.3,
+                      "state": "idle"
+                    },
+                    {
+                      "id": "full",
+                      "kind": "file",
+                      "label": "完整文件",
+                      "x": 0.4,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "active"
+                    },
+                    {
+                      "id": "search",
+                      "kind": "search",
+                      "label": "代码库搜索",
+                      "x": 0.2,
+                      "y": 0.7,
+                      "state": "active"
+                    },
+                    {
+                      "id": "other",
+                      "kind": "file",
+                      "label": "其他改动文件",
+                      "x": 0.45,
+                      "y": 0.7,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "diff",
+                      "to": "full"
+                    },
+                    {
+                      "from": "full",
+                      "to": "agent"
+                    },
+                    {
+                      "from": "search",
+                      "to": "agent"
+                    },
+                    {
+                      "from": "other",
+                      "to": "agent"
+                    }
+                  ],
+                  "action": {
+                    "type": "gather",
+                    "targets": [
+                      "full",
+                      "search",
+                      "other",
+                      "agent"
+                    ]
+                  }
+                },
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 3,
+                "startFrame": 187,
+                "alignment": "cue",
+                "endFrame": 313
+              }
+            ],
+            "steps": [
+              {
+                "title": "交给审查",
+                "detail": "配置模型后，用 ocr review 检查改过…"
+              },
+              {
+                "title": "查找相关代码",
+                "detail": "读取完整文件、搜索代码库，并查看其他改动文件。"
+              },
+              {
+                "title": "沿意见确认",
+                "detail": "审查意见定位到代码行，开发者据此逐条判断是否修…"
+              }
+            ],
+            "activeIndex": 2,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 54,
+                "text": "相关代码会一起看吗？"
+              },
+              {
+                "startFrame": 54,
+                "endFrame": 196,
+                "text": "审查时，它可以读取改动所在的完整文件，在代码库里搜索，"
+              },
+              {
+                "startFrame": 196,
+                "endFrame": 313,
+                "text": "也能查看其他改动文件，把相关内容联系起来看。"
+              }
+            ],
+            "duration": 10.433333333333334
+          },
+          {
+            "type": "flow",
+            "heading": "沿着意见确认代码",
+            "evidenceMode": "source",
+            "keyword": "生成定位到代码…",
+            "source": "依据：research.json visualEvidencePackage @ 486022da",
+            "visualBeats": [
+              {
+                "id": "reveal-comment",
+                "sectionIndex": 2,
+                "role": "show",
+                "purpose": "收束检索对象，显现抽象审查意见，不填写具体问题。",
+                "narrationCue": "生成定位到代码行的审查意见",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "full",
+                      "kind": "file",
+                      "label": "完整文件",
+                      "x": 0.4,
+                      "y": 0.3,
+                      "state": "idle"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "active"
+                    },
+                    {
+                      "id": "comment",
+                      "kind": "comment",
+                      "label": "审查意见",
+                      "x": 0.7,
+                      "y": 0.75,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "full",
+                      "to": "agent"
+                    },
+                    {
+                      "from": "agent",
+                      "to": "comment"
+                    }
+                  ],
+                  "action": {
+                    "type": "reveal",
+                    "targets": [
+                      "comment"
+                    ]
+                  }
+                },
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 17,
+                "alignment": "cue",
+                "endFrame": 107
+              },
+              {
+                "id": "anchor-comment",
+                "sectionIndex": 2,
+                "role": "change",
+                "purpose": "意见连到抽象代码位置，呈现开发者可以据此确认代码的用途。",
+                "narrationCue": "沿着意见找到对应代码",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "full",
+                      "kind": "file",
+                      "label": "完整文件",
+                      "x": 0.4,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "agent",
+                      "kind": "review",
+                      "label": "ocr review",
+                      "x": 0.7,
+                      "y": 0.5,
+                      "state": "idle"
+                    },
+                    {
+                      "id": "comment",
+                      "kind": "comment",
+                      "label": "审查意见",
+                      "x": 0.7,
+                      "y": 0.75,
+                      "state": "active"
+                    },
+                    {
+                      "id": "line",
+                      "kind": "code",
+                      "label": "对应代码",
+                      "x": 0.4,
+                      "y": 0.55,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "full",
+                      "to": "line"
+                    },
+                    {
+                      "from": "agent",
+                      "to": "comment"
+                    },
+                    {
+                      "from": "comment",
+                      "to": "line"
+                    }
+                  ],
+                  "action": {
+                    "type": "anchor",
+                    "targets": [
+                      "comment",
+                      "line"
+                    ]
+                  }
+                },
+                "entrance": "push-in",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 7,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 107,
+                "alignment": "cue",
+                "endFrame": 283
+              }
+            ],
+            "steps": [
+              {
+                "title": "交给审查",
+                "detail": "配置模型后，用 ocr review 检查改过…"
+              },
+              {
+                "title": "查找相关代码",
+                "detail": "读取完整文件、搜索代码库，并查看其他改动文件。"
+              },
+              {
+                "title": "沿意见确认",
+                "detail": "审查意见定位到代码行，开发者据此逐条判断是否修…"
+              }
+            ],
+            "activeIndex": 2,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 100,
+                "text": "接着，它会生成定位到代码行的审查意见。"
+              },
+              {
+                "startFrame": 100,
+                "endFrame": 229,
+                "text": "你可以沿着意见找到对应代码，结合自己的网页功能，"
+              },
+              {
+                "startFrame": 229,
+                "endFrame": 283,
+                "text": "逐条判断要不要修改。"
+              }
+            ],
+            "duration": 9.433333333333334
+          },
+          {
+            "type": "outro",
+            "eyebrow": "OPEN SOURCE NOTES",
+            "title": "OpenCodeReview",
+            "subtitle": "https://github.com/alibaba/open-code-review",
+            "evidenceMode": "editorial",
+            "keyword": "OpenCodeReview",
+            "source": "依据：research.json @ 486022da",
+            "visualBeats": [
+              {
+                "id": "outro-result",
+                "role": "show",
+                "purpose": "用收藏建议结束",
+                "narrationCue": "下次提交前想多做一轮检查",
+                "visualMode": "statement",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 120
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 70,
+                "text": "下次提交前想多做一轮检查，"
+              },
+              {
+                "startFrame": 70,
+                "endFrame": 112,
+                "text": "可以先收藏 OpenCodeReview。"
+              }
+            ],
+            "duration": 4
+          }
+        ],
+        "narrationBlocks": [
+          {
+            "id": "block-000",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              0,
+              1,
+              2
+            ],
+            "topics": [
+              "opening",
+              "project-introduction",
+              "example-1"
+            ],
+            "startFrame": 0,
+            "endFrame": 682,
+            "duration": 22.72,
+            "timelineDuration": 23,
+            "characters": 150
+          },
+          {
+            "id": "block-001",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              3,
+              4,
+              5
+            ],
+            "topics": [
+              "example-2",
+              "example-3",
+              "conclusion"
+            ],
+            "startFrame": 690,
+            "endFrame": 1398,
+            "duration": 23.6,
+            "timelineDuration": 23.867,
+            "characters": 146
+          }
+        ],
+        "voiceover": "narration.wav"
+      }
+    },
+    {
+      "repo": "vectorize-io/hindsight",
+      "projectDirectory": "2026年09月第5周-vectorize-io--hindsight",
+      "reviewDate": "2026-09-30",
+      "humanDecision": "rejected",
+      "humanReason": "现有画面镜头太过死板，动效以及动画展示能力不足。",
+      "humanSuggestion": "参考 GitHub 高质量视频制作模板。",
+      "videoSha256": "9525a8a332e051cb1add4f76d8ee249e0de0174bbd5085c03e394736710f30d5",
+      "audioSha256": "31dedc04dfeb219cf752952646db0cb0206dd6f9133a67209a91ca27be4d2ca3",
+      "durationSeconds": 55.766666666666666,
+      "sceneCount": 6,
+      "beatCount": 15,
+      "source": "Direct user feedback in this conversation; no AI visual review.",
+      "storyboard": {
+        "meta": {
+          "title": "让你做的 AI 助手记住偏好，下次接着聊",
+          "repo": "vectorize-io/hindsight",
+          "template": "editorial",
+          "accent": "#b8f76c",
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "researchMode": "static-source-review",
+          "commit": "eb021da3b2501911e4b57c82b3de1123572a200e",
+          "dataDate": "2026-09-29",
+          "planner": "editorial",
+          "visualAssetCount": 8,
+          "editorialContractDigest": "062da897c3dd05aaddbb6efae508983884be26cf6d20e3c35e90d9951b6001e6",
+          "researchCommit": "eb021da3b2501911e4b57c82b3de1123572a200e",
+          "visualBeatContractVersion": 1,
+          "narrationProfile": "concept-explainer",
+          "showEvidenceLabels": false,
+          "editorialPlanDigest": "ef10208bdb11e13128cfee9d7abc3743140eaab5bfada21376017d9bd6987fee",
+          "narrationAlignment": "measured-block-weighted-cues"
+        },
+        "scenes": [
+          {
+            "type": "contrast",
+            "heading": "你做的聊天助手一换对话，又要把自己的偏好解释一遍吗？",
+            "left": {
+              "eyebrow": "原来的麻烦",
+              "title": "信息太多",
+              "body": "你做的聊天助手一换对话，又要把自己的偏好解释一遍吗？",
+              "tone": "negative"
+            },
+            "right": {
+              "eyebrow": "项目的回答",
+              "title": "Hindsight",
+              "body": "Hindsight 为 AI agent 提供长期记忆：保存信息、按问题找…",
+              "tone": "positive"
+            },
+            "evidenceMode": "source",
+            "keyword": "Hindsight",
+            "source": "依据：research.json / editorial hook @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "hook-moment",
+                "role": "show",
+                "durationHint": 3,
+                "purpose": "让反复说明偏好的个人烦恼立即可见。",
+                "narrationCue": "又要把自己的偏好解释一遍",
+                "visualMode": "illustration",
+                "canvas": null,
+                "shot": {
+                  "kind": "question",
+                  "title": "换个对话，又要解释一遍？",
+                  "before": "昨天：我喜欢徒步",
+                  "action": "今天：周末适合做什么？",
+                  "result": "希望助手记得我的偏好",
+                  "focus": "before",
+                  "negateBefore": false
+                },
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "beatIndex": 0,
+                "startFrame": 56,
+                "alignment": "cue",
+                "endFrame": 140
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 140,
+                "text": "你做的聊天助手一换对话，又要把自己的偏好解释一遍吗？"
+              }
+            ],
+            "duration": 4.666666666666667
+          },
+          {
+            "type": "hero",
+            "src": "assets/01-github-repository-preview.png",
+            "position": "center",
+            "panX": -1,
+            "panY": 0,
+            "kicker": "GITHUB REPOSITORY",
+            "headline": "Hindsight",
+            "badges": [
+              "Open Source"
+            ],
+            "stat": {
+              "eyebrow": "GITHUB",
+              "value": "4 万多",
+              "label": "Stars"
+            },
+            "evidenceMode": "official",
+            "keyword": "Hindsight",
+            "source": "来源：https://github.com/vectorize-io/hindsight @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "github-repository",
+                "role": "show",
+                "purpose": "展示官方 GitHub 仓库预览并轻微推近",
+                "narrationCue": "这个开源工具可能会帮到你",
+                "visualMode": "media-crop",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 163
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 93,
+                "text": "这个开源工具可能会帮到你，它叫 Hindsight，"
+              },
+              {
+                "startFrame": 93,
+                "endFrame": 163,
+                "text": "目前已经收获 4 万多 stars。"
+              }
+            ],
+            "duration": 5.433333333333334
+          },
+          {
+            "type": "flow",
+            "heading": "先把偏好记下来",
+            "evidenceMode": "source",
+            "keyword": "比如你告诉助手",
+            "source": "依据：research.json visualEvidencePackage @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "preference-message",
+                "sectionIndex": 0,
+                "role": "show",
+                "purpose": "显示同一个用户输入和待保存的偏好。",
+                "narrationCue": "比如你告诉助手",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "chat",
+                      "kind": "window",
+                      "label": "聊天助手",
+                      "detail": "我喜欢徒步",
+                      "x": 0.25,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "preference",
+                      "kind": "comment",
+                      "label": "我的偏好",
+                      "detail": "喜欢徒步",
+                      "x": 0.5,
+                      "y": 0.45,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "chat",
+                      "to": "preference"
+                    }
+                  ],
+                  "action": {
+                    "type": "reveal",
+                    "targets": [
+                      "preference"
+                    ]
+                  }
+                },
+                "entrance": "slide-right",
+                "assetIds": [],
+                "claimIndexes": [
+                  0,
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3.5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 175,
+                "alignment": "cue",
+                "endFrame": 216
+              },
+              {
+                "id": "retain-input",
+                "sectionIndex": 0,
+                "role": "show",
+                "purpose": "显示同一个用户输入和待保存的偏好。",
+                "narrationCue": "我喜欢徒步",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "chat",
+                      "kind": "window",
+                      "label": "聊天助手",
+                      "detail": "我喜欢徒步",
+                      "x": 0.25,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "preference",
+                      "kind": "comment",
+                      "label": "我的偏好",
+                      "detail": "喜欢徒步",
+                      "x": 0.5,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": null,
+                      "x": 0.8,
+                      "y": 0.45,
+                      "state": "idle"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "chat",
+                      "to": "preference"
+                    },
+                    {
+                      "from": "preference",
+                      "to": "bank"
+                    }
+                  ],
+                  "action": {
+                    "type": "gather",
+                    "targets": [
+                      "preference",
+                      "bank"
+                    ]
+                  }
+                },
+                "entrance": "slide-right",
+                "assetIds": [],
+                "claimIndexes": [
+                  0,
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 216,
+                "alignment": "cue",
+                "endFrame": 285
+              },
+              {
+                "id": "retain-path",
+                "sectionIndex": 0,
+                "role": "change",
+                "purpose": "把输入、保存动作和可检索记忆连接起来。",
+                "narrationCue": "把这条信息存下来",
+                "visualMode": "progressive-flow",
+                "canvas": {
+                  "nodes": [
+                    {
+                      "id": "input",
+                      "label": "喜欢徒步",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "retain",
+                      "label": "保存信息",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "memory",
+                      "label": "用户记忆",
+                      "kind": "result"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "input",
+                      "to": "retain"
+                    },
+                    {
+                      "from": "retain",
+                      "to": "memory"
+                    }
+                  ],
+                  "focusId": "memory"
+                },
+                "shot": null,
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  1
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 0,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "flowSteps": [
+                  {
+                    "id": "save",
+                    "title": "保存偏好",
+                    "detail": "把用户提供的信息送入 retain。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "retrieve",
+                    "title": "找回相关记忆",
+                    "detail": "收到新问题时，用 recall 检索相关内容。",
+                    "claimIndexes": [
+                      2
+                    ]
+                  },
+                  {
+                    "id": "automatic",
+                    "title": "接入模型调用",
+                    "detail": "Wrapper 在调用前检索、调用后保存。",
+                    "claimIndexes": [
+                      3
+                    ]
+                  },
+                  {
+                    "id": "summary",
+                    "title": "更新偏好摘要",
+                    "detail": "为固定问题维护可读取的长期答案。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 285,
+                "alignment": "cue",
+                "endFrame": 332
+              }
+            ],
+            "steps": [
+              {
+                "title": "保存偏好",
+                "detail": "把用户提供的信息送入 retain。"
+              },
+              {
+                "title": "找回相关记忆",
+                "detail": "收到新问题时，用 recall 检索相关内容。"
+              },
+              {
+                "title": "接入模型调用",
+                "detail": "Wrapper 在调用前检索、调用后保存。"
+              },
+              {
+                "title": "更新偏好摘要",
+                "detail": "为固定问题维护可读取的长期答案。"
+              }
+            ],
+            "activeIndex": 3,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 81,
+                "text": "它给 AI 助手接上一份长期记忆，"
+              },
+              {
+                "startFrame": 81,
+                "endFrame": 184,
+                "text": "让以前说过的信息能在后面的对话里用上。"
+              },
+              {
+                "startFrame": 184,
+                "endFrame": 255,
+                "text": "比如你告诉助手：我喜欢徒步。"
+              },
+              {
+                "startFrame": 255,
+                "endFrame": 324,
+                "text": "Hindsight 可以把这条信息存下来。"
+              }
+            ],
+            "duration": 11.066666666666666
+          },
+          {
+            "type": "flow",
+            "heading": "下次提问时用上",
+            "evidenceMode": "source",
+            "keyword": "下次你问周末适…",
+            "source": "依据：research.json visualEvidencePackage @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "weekend-question",
+                "sectionIndex": 1,
+                "role": "show",
+                "purpose": "新问题进入同一个用户记忆，相关偏好被找回。",
+                "narrationCue": "下次你问周末适合做什么",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "chat",
+                      "kind": "window",
+                      "label": "聊天助手",
+                      "detail": "周末适合做什么？",
+                      "x": 0.25,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "preference",
+                      "kind": "comment",
+                      "label": "我的偏好",
+                      "detail": "喜欢徒步",
+                      "x": 0.65,
+                      "y": 0.45,
+                      "state": "done"
+                    },
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": null,
+                      "x": 0.8,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "query",
+                      "kind": "search",
+                      "label": "查找相关记忆",
+                      "detail": "周末活动偏好",
+                      "x": 0.5,
+                      "y": 0.7,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "chat",
+                      "to": "query"
+                    },
+                    {
+                      "from": "query",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "bank",
+                      "to": "preference"
+                    }
+                  ],
+                  "action": {
+                    "type": "reveal",
+                    "targets": [
+                      "chat",
+                      "query"
+                    ]
+                  }
+                },
+                "entrance": "slide-left",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 68
+              },
+              {
+                "id": "recall-query",
+                "sectionIndex": 1,
+                "role": "show",
+                "purpose": "新问题进入同一个用户记忆，相关偏好被找回。",
+                "narrationCue": "先从记忆里找出相关偏好",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "chat",
+                      "kind": "window",
+                      "label": "聊天助手",
+                      "detail": "周末适合做什么？",
+                      "x": 0.25,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "preference",
+                      "kind": "comment",
+                      "label": "我的偏好",
+                      "detail": "喜欢徒步",
+                      "x": 0.65,
+                      "y": 0.45,
+                      "state": "done"
+                    },
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": null,
+                      "x": 0.8,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "query",
+                      "kind": "search",
+                      "label": "查找相关记忆",
+                      "detail": "周末活动偏好",
+                      "x": 0.5,
+                      "y": 0.7,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "chat",
+                      "to": "query"
+                    },
+                    {
+                      "from": "query",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "bank",
+                      "to": "preference"
+                    }
+                  ],
+                  "action": {
+                    "type": "scan",
+                    "targets": [
+                      "bank",
+                      "preference"
+                    ]
+                  }
+                },
+                "entrance": "slide-left",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 68,
+                "alignment": "cue",
+                "endFrame": 134
+              },
+              {
+                "id": "personalized-reference",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "把找回的徒步偏好带到回答窗口，显示示意性的周末活动建议。",
+                "narrationCue": "交给模型作为回答的参考",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "chat",
+                      "kind": "window",
+                      "label": "聊天助手",
+                      "detail": "结合徒步偏好\n周末可以考虑附近的徒步路线",
+                      "x": 0.25,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "preference",
+                      "kind": "comment",
+                      "label": "我的偏好",
+                      "detail": "喜欢徒步",
+                      "x": 0.42,
+                      "y": 0.45,
+                      "state": "done"
+                    },
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": null,
+                      "x": 0.8,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "query",
+                      "kind": "search",
+                      "label": "查找相关记忆",
+                      "detail": "周末活动偏好",
+                      "x": 0.5,
+                      "y": 0.7,
+                      "state": "active"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "chat",
+                      "to": "query"
+                    },
+                    {
+                      "from": "query",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "bank",
+                      "to": "preference"
+                    }
+                  ],
+                  "action": {
+                    "type": "anchor",
+                    "targets": [
+                      "preference",
+                      "chat"
+                    ]
+                  }
+                },
+                "entrance": "slide-left",
+                "assetIds": [],
+                "claimIndexes": [
+                  2
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "startFrame": 134,
+                "alignment": "cue",
+                "endFrame": 262
+              },
+              {
+                "id": "automatic-recall",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "显示一次模型调用前后自动检索和保存的顺序。",
+                "narrationCue": "回答前自动找记忆",
+                "visualMode": "progressive-flow",
+                "canvas": {
+                  "nodes": [
+                    {
+                      "id": "question",
+                      "label": "周末做什么",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "recall",
+                      "label": "找回徒步偏好",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "model",
+                      "label": "模型回答",
+                      "kind": "action"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "question",
+                      "to": "recall"
+                    },
+                    {
+                      "from": "recall",
+                      "to": "model"
+                    }
+                  ],
+                  "focusId": "recall"
+                },
+                "shot": null,
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2,
+                  3
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3.5,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 2,
+                "lineNumbers": null,
+                "beatIndex": 3,
+                "flowSteps": [
+                  {
+                    "id": "save",
+                    "title": "保存偏好",
+                    "detail": "把用户提供的信息送入 retain。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "retrieve",
+                    "title": "找回相关记忆",
+                    "detail": "收到新问题时，用 recall 检索相关内容。",
+                    "claimIndexes": [
+                      2
+                    ]
+                  },
+                  {
+                    "id": "automatic",
+                    "title": "接入模型调用",
+                    "detail": "Wrapper 在调用前检索、调用后保存。",
+                    "claimIndexes": [
+                      3
+                    ]
+                  },
+                  {
+                    "id": "summary",
+                    "title": "更新偏好摘要",
+                    "detail": "为固定问题维护可读取的长期答案。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 262,
+                "alignment": "cue",
+                "endFrame": 308
+              },
+              {
+                "id": "automatic-save",
+                "sectionIndex": 1,
+                "role": "change",
+                "purpose": "显示一次模型调用前后自动检索和保存的顺序。",
+                "narrationCue": "回答后自动保存新对话",
+                "visualMode": "progressive-flow",
+                "canvas": {
+                  "nodes": [
+                    {
+                      "id": "question",
+                      "label": "周末做什么",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "recall",
+                      "label": "找回徒步偏好",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "model",
+                      "label": "模型回答",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "retain",
+                      "label": "保存新对话",
+                      "kind": "result"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "question",
+                      "to": "recall"
+                    },
+                    {
+                      "from": "recall",
+                      "to": "model"
+                    },
+                    {
+                      "from": "model",
+                      "to": "retain"
+                    }
+                  ],
+                  "focusId": "retain"
+                },
+                "shot": null,
+                "stage": null,
+                "entrance": "fade",
+                "assetIds": [],
+                "claimIndexes": [
+                  2,
+                  3
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 2,
+                "lineNumbers": null,
+                "beatIndex": 4,
+                "flowSteps": [
+                  {
+                    "id": "save",
+                    "title": "保存偏好",
+                    "detail": "把用户提供的信息送入 retain。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "retrieve",
+                    "title": "找回相关记忆",
+                    "detail": "收到新问题时，用 recall 检索相关内容。",
+                    "claimIndexes": [
+                      2
+                    ]
+                  },
+                  {
+                    "id": "automatic",
+                    "title": "接入模型调用",
+                    "detail": "Wrapper 在调用前检索、调用后保存。",
+                    "claimIndexes": [
+                      3
+                    ]
+                  },
+                  {
+                    "id": "summary",
+                    "title": "更新偏好摘要",
+                    "detail": "为固定问题维护可读取的长期答案。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 308,
+                "alignment": "cue",
+                "endFrame": 479
+              }
+            ],
+            "steps": [
+              {
+                "title": "保存偏好",
+                "detail": "把用户提供的信息送入 retain。"
+              },
+              {
+                "title": "找回相关记忆",
+                "detail": "收到新问题时，用 recall 检索相关内容。"
+              },
+              {
+                "title": "接入模型调用",
+                "detail": "Wrapper 在调用前检索、调用后保存。"
+              },
+              {
+                "title": "更新偏好摘要",
+                "detail": "为固定问题维护可读取的长期答案。"
+              }
+            ],
+            "activeIndex": 3,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 138,
+                "text": "下次你问周末适合做什么，它就能先从记忆里找出相关偏好，"
+              },
+              {
+                "startFrame": 138,
+                "endFrame": 205,
+                "text": "再交给模型作为回答的参考。"
+              },
+              {
+                "startFrame": 205,
+                "endFrame": 317,
+                "text": "把它接到模型调用里，还能在回答前自动找记忆，"
+              },
+              {
+                "startFrame": 317,
+                "endFrame": 373,
+                "text": "回答后自动保存新对话。"
+              },
+              {
+                "startFrame": 373,
+                "endFrame": 479,
+                "text": "这样，保存和检索就接进了你原来的聊天流程。"
+              }
+            ],
+            "duration": 15.966666666666667
+          },
+          {
+            "type": "flow",
+            "heading": "把偏好整理成长期答案",
+            "evidenceMode": "source",
+            "keyword": "喜欢短路线、清…",
+            "source": "依据：research.json visualEvidencePackage @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "preferences-grow",
+                "sectionIndex": 2,
+                "role": "show",
+                "purpose": "把新增偏好归入同一个人的记忆。",
+                "narrationCue": "喜欢短路线、清晨出发",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": "喜欢徒步",
+                      "x": 0.3,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "route",
+                      "kind": "comment",
+                      "label": "路线偏好",
+                      "detail": "喜欢短路线",
+                      "x": 0.6,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "time",
+                      "kind": "comment",
+                      "label": "出发时间",
+                      "detail": "喜欢清晨出发",
+                      "x": 0.6,
+                      "y": 0.65,
+                      "state": "active"
+                    },
+                    {
+                      "id": "summary",
+                      "kind": "file",
+                      "label": "偏好摘要",
+                      "detail": "这个用户有哪些偏好？",
+                      "x": 0.85,
+                      "y": 0.45,
+                      "state": "idle"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "route",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "time",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "bank",
+                      "to": "summary"
+                    }
+                  ],
+                  "action": {
+                    "type": "gather",
+                    "targets": [
+                      "route",
+                      "time",
+                      "bank"
+                    ]
+                  }
+                },
+                "entrance": "slide-right",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 0,
+                "startFrame": 26,
+                "alignment": "cue",
+                "endFrame": 147
+              },
+              {
+                "id": "fixed-preference-question",
+                "sectionIndex": 2,
+                "role": "change",
+                "purpose": "把新增偏好归入同一个人的记忆。",
+                "narrationCue": "这个用户有哪些偏好",
+                "visualMode": "object-action",
+                "canvas": null,
+                "shot": null,
+                "stage": {
+                  "objects": [
+                    {
+                      "id": "bank",
+                      "kind": "folder",
+                      "label": "用户记忆",
+                      "detail": "喜欢徒步",
+                      "x": 0.3,
+                      "y": 0.45,
+                      "state": "active"
+                    },
+                    {
+                      "id": "route",
+                      "kind": "comment",
+                      "label": "路线偏好",
+                      "detail": "喜欢短路线",
+                      "x": 0.6,
+                      "y": 0.3,
+                      "state": "active"
+                    },
+                    {
+                      "id": "time",
+                      "kind": "comment",
+                      "label": "出发时间",
+                      "detail": "喜欢清晨出发",
+                      "x": 0.6,
+                      "y": 0.65,
+                      "state": "active"
+                    },
+                    {
+                      "id": "summary",
+                      "kind": "file",
+                      "label": "偏好摘要",
+                      "detail": "这个用户有哪些偏好？",
+                      "x": 0.85,
+                      "y": 0.45,
+                      "state": "idle"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "from": "route",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "time",
+                      "to": "bank"
+                    },
+                    {
+                      "from": "bank",
+                      "to": "summary"
+                    }
+                  ],
+                  "action": {
+                    "type": "reveal",
+                    "targets": [
+                      "summary"
+                    ]
+                  }
+                },
+                "entrance": "slide-right",
+                "assetIds": [],
+                "claimIndexes": [
+                  1,
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": null,
+                "lineNumbers": null,
+                "beatIndex": 1,
+                "startFrame": 147,
+                "alignment": "cue",
+                "endFrame": 270
+              },
+              {
+                "id": "background-update",
+                "sectionIndex": 2,
+                "role": "change",
+                "purpose": "显示固定问题对应的答案随新记忆更新，并可被助手读取。",
+                "narrationCue": "随着新记忆在后台更新",
+                "visualMode": "progressive-flow",
+                "canvas": {
+                  "nodes": [
+                    {
+                      "id": "question",
+                      "label": "用户有哪些偏好",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "memories",
+                      "label": "新增偏好记忆",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "update",
+                      "label": "后台更新答案",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "summary",
+                      "label": "徒步·短路线·清晨",
+                      "kind": "result"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "question",
+                      "to": "update"
+                    },
+                    {
+                      "from": "memories",
+                      "to": "update"
+                    },
+                    {
+                      "from": "update",
+                      "to": "summary"
+                    }
+                  ],
+                  "focusId": "update"
+                },
+                "shot": null,
+                "stage": null,
+                "entrance": "push-in",
+                "assetIds": [],
+                "claimIndexes": [
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 3,
+                "lineNumbers": null,
+                "beatIndex": 2,
+                "flowSteps": [
+                  {
+                    "id": "save",
+                    "title": "保存偏好",
+                    "detail": "把用户提供的信息送入 retain。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "retrieve",
+                    "title": "找回相关记忆",
+                    "detail": "收到新问题时，用 recall 检索相关内容。",
+                    "claimIndexes": [
+                      2
+                    ]
+                  },
+                  {
+                    "id": "automatic",
+                    "title": "接入模型调用",
+                    "detail": "Wrapper 在调用前检索、调用后保存。",
+                    "claimIndexes": [
+                      3
+                    ]
+                  },
+                  {
+                    "id": "summary",
+                    "title": "更新偏好摘要",
+                    "detail": "为固定问题维护可读取的长期答案。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 270,
+                "alignment": "cue",
+                "endFrame": 352
+              },
+              {
+                "id": "standing-answer",
+                "sectionIndex": 2,
+                "role": "change",
+                "purpose": "显示固定问题对应的答案随新记忆更新，并可被助手读取。",
+                "narrationCue": "持续更新的偏好摘要",
+                "visualMode": "progressive-flow",
+                "canvas": {
+                  "nodes": [
+                    {
+                      "id": "question",
+                      "label": "用户有哪些偏好",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "memories",
+                      "label": "新增偏好记忆",
+                      "kind": "input"
+                    },
+                    {
+                      "id": "update",
+                      "label": "后台更新答案",
+                      "kind": "action"
+                    },
+                    {
+                      "id": "summary",
+                      "label": "徒步·短路线·清晨",
+                      "kind": "result"
+                    },
+                    {
+                      "id": "assistant",
+                      "label": "助手读取",
+                      "kind": "action"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "question",
+                      "to": "update"
+                    },
+                    {
+                      "from": "memories",
+                      "to": "update"
+                    },
+                    {
+                      "from": "update",
+                      "to": "summary"
+                    },
+                    {
+                      "from": "summary",
+                      "to": "assistant"
+                    }
+                  ],
+                  "focusId": "summary"
+                },
+                "shot": null,
+                "stage": null,
+                "entrance": "push-in",
+                "assetIds": [],
+                "claimIndexes": [
+                  4
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 4,
+                "leadSeconds": 0.3,
+                "focalRegion": null,
+                "stepIndex": 3,
+                "lineNumbers": null,
+                "beatIndex": 3,
+                "flowSteps": [
+                  {
+                    "id": "save",
+                    "title": "保存偏好",
+                    "detail": "把用户提供的信息送入 retain。",
+                    "claimIndexes": [
+                      1
+                    ]
+                  },
+                  {
+                    "id": "retrieve",
+                    "title": "找回相关记忆",
+                    "detail": "收到新问题时，用 recall 检索相关内容。",
+                    "claimIndexes": [
+                      2
+                    ]
+                  },
+                  {
+                    "id": "automatic",
+                    "title": "接入模型调用",
+                    "detail": "Wrapper 在调用前检索、调用后保存。",
+                    "claimIndexes": [
+                      3
+                    ]
+                  },
+                  {
+                    "id": "summary",
+                    "title": "更新偏好摘要",
+                    "detail": "为固定问题维护可读取的长期答案。",
+                    "claimIndexes": [
+                      4
+                    ]
+                  }
+                ],
+                "startFrame": 352,
+                "alignment": "cue",
+                "endFrame": 412
+              }
+            ],
+            "steps": [
+              {
+                "title": "保存偏好",
+                "detail": "把用户提供的信息送入 retain。"
+              },
+              {
+                "title": "找回相关记忆",
+                "detail": "收到新问题时，用 recall 检索相关内容。"
+              },
+              {
+                "title": "接入模型调用",
+                "detail": "Wrapper 在调用前检索、调用后保存。"
+              },
+              {
+                "title": "更新偏好摘要",
+                "detail": "为固定问题维护可读取的长期答案。"
+              }
+            ],
+            "activeIndex": 3,
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 156,
+                "text": "随着你继续补充喜欢短路线、清晨出发，还可以给它设一个固定问题："
+              },
+              {
+                "startFrame": 156,
+                "endFrame": 207,
+                "text": "这个用户有哪些偏好？"
+              },
+              {
+                "startFrame": 207,
+                "endFrame": 274,
+                "text": "Hindsight 会保存这个问题的答案，"
+              },
+              {
+                "startFrame": 274,
+                "endFrame": 412,
+                "text": "并随着新记忆在后台更新，给助手一份持续更新的偏好摘要。"
+              }
+            ],
+            "duration": 13.733333333333333
+          },
+          {
+            "type": "outro",
+            "eyebrow": "OPEN SOURCE NOTES",
+            "title": "Hindsight",
+            "subtitle": "https://github.com/vectorize-io/hindsight",
+            "evidenceMode": "editorial",
+            "keyword": "Hindsight",
+            "source": "依据：research.json @ eb021da3",
+            "visualBeats": [
+              {
+                "id": "outro-result",
+                "role": "show",
+                "purpose": "用收藏建议结束",
+                "narrationCue": "如果你下一次要做能接着聊",
+                "visualMode": "statement",
+                "assetIds": [],
+                "claimIndexes": [
+                  0
+                ],
+                "truthMode": "source-derived-animation",
+                "durationHint": 3,
+                "leadSeconds": 0,
+                "startFrame": 0,
+                "alignment": "cue",
+                "endFrame": 147
+              }
+            ],
+            "showEvidenceLabels": false,
+            "captions": [
+              {
+                "startFrame": 0,
+                "endFrame": 99,
+                "text": "如果你下一次要做能接着聊的个性化助手，"
+              },
+              {
+                "startFrame": 99,
+                "endFrame": 139,
+                "text": "可以先收藏 Hindsight。"
+              }
+            ],
+            "duration": 4.9
+          }
+        ],
+        "narrationBlocks": [
+          {
+            "id": "block-000",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              0,
+              1,
+              2
+            ],
+            "topics": [
+              "opening",
+              "project-introduction",
+              "example-1"
+            ],
+            "startFrame": 0,
+            "endFrame": 627,
+            "duration": 20.88,
+            "timelineDuration": 21.167,
+            "characters": 141
+          },
+          {
+            "id": "block-001",
+            "profile": "concept-explainer",
+            "sceneIndexes": [
+              3,
+              4,
+              5
+            ],
+            "topics": [
+              "example-2",
+              "example-3",
+              "conclusion"
+            ],
+            "startFrame": 635,
+            "endFrame": 1665,
+            "duration": 34.32,
+            "timelineDuration": 34.6,
+            "characters": 218
+          }
+        ],
+        "voiceover": "narration.wav"
+      }
+    }
+  ]
+}

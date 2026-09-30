@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {existsSync, mkdtempSync, readFileSync, readdirSync, rmSync} from 'node:fs';
+import {existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
@@ -69,6 +69,16 @@ function completedResearch() {
         id: 'example-image', path: 'docs/example.png', purpose: '展示项目提供的输入输出示例',
         mediaType: 'image', licenseBasis: 'MIT', truthMode: 'repository-media', claimIndexes: [0],
       }],
+      productionMaterials: [{
+        id: 'function-1', functionName: 'Trims whitespace.', claimIndexes: [0],
+        mediaInspection: {
+          status: 'usable', selectedAssetIds: ['example-image'],
+          inspected: [{path: 'docs/example.png', mediaType: 'image', verdict: 'usable',
+            reason: 'The README image shows the result.', licenseBasis: 'MIT',
+            crop: {x: 0, y: 0, width: 1, height: 1}, clip: null}],
+        },
+        animationPlan: null,
+      }],
       contrastMoments: [{
         id: 'before-after', before: '文字带着空格', after: '文字变成列表项',
         claimIndexes: [0], truthMode: 'source-derived-animation',
@@ -102,6 +112,21 @@ test('completed static research produces seven artifacts without claiming execut
   assert.match(readFileSync(join(output, 'research_brief.md'), 'utf8'), /视频编辑简报/);
   assert.equal(JSON.parse(readFileSync(join(output, 'storyboard.json'), 'utf8')).scenes[0].title, 'Tiny Notes');
   assert.equal(JSON.parse(readFileSync(join(output, 'media_manifest.json'), 'utf8')).items.length, 1);
+});
+
+test('research copies selected README media into project resources with provenance', (t) => {
+  const root = temporaryOutput(t);
+  const repositoryRoot = join(root, 'clone');
+  const resources = join(root, 'resources');
+  mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
+  writeFileSync(join(repositoryRoot, 'README.md'), '![example](docs/example.png)');
+  writeFileSync(join(repositoryRoot, 'docs', 'example.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  writeResearchArtifacts(completedResearch(), resources, {repositoryRoot});
+  const manifest = JSON.parse(readFileSync(join(resources, 'media_manifest.json'), 'utf8'));
+  assert.equal(manifest.items[0].file, 'docs/example.png');
+  assert.equal(manifest.items[0].resourceFile, 'visual-assets/example-image.png');
+  assert.deepEqual(readFileSync(join(resources, manifest.items[0].resourceFile)),
+    readFileSync(join(repositoryRoot, 'docs', 'example.png')));
 });
 
 for (const score of [-1, 7.5, 8, undefined]) {

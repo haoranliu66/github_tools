@@ -1,4 +1,4 @@
-import {existsSync, lstatSync, realpathSync} from 'node:fs';
+import {existsSync, lstatSync, readFileSync, realpathSync} from 'node:fs';
 import {extname, isAbsolute, resolve, sep} from 'node:path';
 
 function clean(value) {
@@ -26,6 +26,13 @@ function addApproximatePopularity(value, name, starMagnitude) {
   }
   return `${text}${/[。！？.!?]$/u.test(text) ? '' : '。'}这个开源工具可能会帮到你，它叫 ${name}，` +
     `目前已经收获 ${starMagnitude} stars。`;
+}
+
+function removeRepeatedProjectIntroduction(value, name) {
+  const introduction = new RegExp(
+    `^这个开源工具可能会帮到你[，,]\\s*它叫\\s*${escapedPattern(name)}[，,]\\s*`, 'iu',
+  );
+  return spokenNarration(value).replace(introduction, '它');
 }
 
 function splitProjectOpening(hook, name, familiarProblem) {
@@ -217,9 +224,13 @@ function inside(root, target) {
   return resolve(target).toLowerCase().startsWith(base);
 }
 
-function approvedAssets(research, repositoryRoot, config) {
+function approvedAssets(research, repositoryRoot, config, resourcesDirectory = null) {
   const warnings = [];
   const assets = [];
+  const manifestPath = resourcesDirectory ? resolve(resourcesDirectory, 'media_manifest.json') : null;
+  const manifest = manifestPath && existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, 'utf8')) : null;
+  const copiedById = new Map((manifest?.items ?? []).map((item) => [item.id, item]));
   const evidenceAssets = research.visualEvidencePackage?.evidenceAssets ?? [];
   const declared = evidenceAssets.length ? evidenceAssets : (research.video?.visualAssets ?? []).map((item, index) => ({
     id: `legacy-${index + 1}`,
@@ -232,8 +243,22 @@ function approvedAssets(research, repositoryRoot, config) {
     if (!item?.path || isAbsolute(item.path) || item.path.split(/[\\/]/).includes('..')) {
       throw new Error(`Unsafe visual asset path in research package: ${item?.path ?? '(missing)'}`);
     }
-    const candidate = resolve(repositoryRoot, item.path);
-    if (!inside(repositoryRoot, candidate) || !existsSync(candidate)) {
+    const copied = copiedById.get(item.id);
+    if (copied?.resourceFile && copied.file !== item.path) {
+      throw new Error(`Research media manifest disagrees with asset ${item.id}.`);
+    }
+    if (copied?.resourceFile && (isAbsolute(copied.resourceFile) ||
+        copied.resourceFile.split(/[\\/]/).includes('..'))) {
+      throw new Error(`Unsafe materialized visual asset path: ${copied.resourceFile}`);
+    }
+    const root = copied?.resourceFile ? resourcesDirectory : repositoryRoot;
+    if (!root) {
+      warnings.push(`Visual asset is unavailable: ${item.path}`);
+      continue;
+    }
+    const candidate = resolve(root, copied?.resourceFile ?? item.path);
+    if (!inside(root, candidate) || !existsSync(candidate)) {
+      if (copied?.resourceFile) throw new Error(`Materialized visual asset is missing: ${copied.resourceFile}`);
       warnings.push(`Visual asset is unavailable: ${item.path}`);
       continue;
     }
@@ -246,7 +271,7 @@ function approvedAssets(research, repositoryRoot, config) {
       continue;
     }
     const real = realpathSync(candidate);
-    if (!inside(repositoryRoot, real)) throw new Error(`Visual asset resolves outside the repository: ${item.path}`);
+    if (!inside(root, real)) throw new Error(`Visual asset resolves outside its approved directory: ${item.path}`);
     assets.push({...item, absolutePath: real});
   }
   return {assets, warnings};
@@ -453,7 +478,8 @@ function mediaScene(asset, commit, index, subtitleMaximum, topic, narrationText,
 export function buildEditorialEpisode({
   research,
   trendRow = null,
-  repositoryRoot,
+  repositoryRoot = null,
+  resourcesDirectory = null,
   repositoryPreviewPath = null,
   config,
   dataDate = '',
@@ -461,7 +487,7 @@ export function buildEditorialEpisode({
   if (research?.status !== 'completed') throw new Error('Editorial planning requires completed research.');
   const commit = research.project?.versionOrCommit ?? '';
   if (!/^[a-f0-9]{40,64}$/i.test(commit)) throw new Error('Editorial planning requires a fixed Git commit SHA.');
-  const {assets, warnings} = approvedAssets(research, repositoryRoot, config);
+  const {assets, warnings} = approvedAssets(research, repositoryRoot, config, resourcesDirectory);
   const name = clean(research.project.name);
   const hasPassedDemo = research.demoPlan?.some((item) => item.status === 'passed') ?? false;
   const findings = research.findings ?? [];
@@ -493,16 +519,17 @@ export function buildEditorialEpisode({
   });
   const openingBeatDrafts = [hookMoment];
   const openingBeats = hydrateVisualBeats(openingBeatDrafts, assetMap);
-  const openingAsset = openingBeats[0]?.src ? assetMap.get(hookMoment.assetIds?.[0]) : assets[0];
+  const openingAsset = openingBeats[0]?.src ? assetMap.get(hookMoment.assetIds?.[0])
+    : visualPackage ? null : assets[0];
 
   const opening = openingAsset ? {
     type: 'hero',
     src: openingAsset.absolutePath,
     position: 'center',
-    kicker: '它解决什么问题？',
-    headline: name,
-    subhead: clip(openingProblemNarration, 54),
-    badges: [name],
+    kicker: visualPackage ? '一个人做项目时' : '它解决什么问题？',
+    headline: visualPackage ? clip(editorialBrief.familiarProblem, 18) : name,
+    subhead: visualPackage ? undefined : clip(openingProblemNarration, 54),
+    badges: visualPackage ? [] : [name],
     stat: !visualPackage && starValue ? {eyebrow: 'GITHUB', value: starValue, label: 'Stars'} : undefined,
     evidenceMode: 'official',
     keyword: name,
@@ -533,7 +560,7 @@ export function buildEditorialEpisode({
     panY: 0,
     kicker: 'GITHUB REPOSITORY',
     headline: name,
-    subhead: clip(editorialBrief.oneSentenceAnswer || research.executiveSummary, 54),
+    subhead: undefined,
     badges: ['Open Source'],
     stat: starValue ? {eyebrow: 'GITHUB', value: starValue, label: 'Stars'} : undefined,
     evidenceMode: 'official',
@@ -589,7 +616,9 @@ export function buildEditorialEpisode({
       const beats = visualPackage.visualBeats.filter((beat) => beat.sectionIndex === index);
       if (!beats.length) continue;
       const distinctNarration = clean(research.video.fullNarration)
-        ? spokenNarration(section.narration)
+        ? index === 0
+          ? removeRepeatedProjectIntroduction(section.narration, name)
+          : spokenNarration(section.narration)
         : removeRepeatedSentences(section.narration, previousNarration);
       if (!distinctNarration) continue;
       explanations.push(beatScene({

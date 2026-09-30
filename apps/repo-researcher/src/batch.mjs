@@ -15,10 +15,12 @@ function optionValue(name, fallback = null) {
   return index >= 0 ? process.argv[index + 1] : fallback;
 }
 
-export function researchArgs(fullName, {selectionPath, allowRun = false, dryRun = false} = {}) {
+export function researchArgs(fullName, {selectionPath, allowRun = false, dryRun = false,
+  source = 'auto'} = {}) {
   const args = [RESEARCH_CLI, 'research', fullName, '--selection', selectionPath];
   if (allowRun) args.push('--allow-run');
   if (dryRun) args.push('--dry-run');
+  if (source !== 'auto') args.push('--source', source);
   return args;
 }
 
@@ -27,6 +29,7 @@ export function runResearchBatch({
   projectRoot = PROJECT_ROOT,
   allowRun = false,
   dryRun = false,
+  source = 'auto',
   runner = spawnSync,
   now = new Date(),
 } = {}) {
@@ -39,6 +42,7 @@ export function runResearchBatch({
       selectionPath: absolutePath,
       allowRun,
       dryRun,
+      source,
     }), {
       cwd: projectRoot,
       stdio: 'inherit',
@@ -57,6 +61,7 @@ export function runResearchBatch({
       startedOn: localDateString(now),
       allowRun,
       dryRun,
+      source,
       ...item,
     }, null, 2)}\n`, 'utf8');
   }
@@ -67,6 +72,7 @@ export function runResearchBatch({
     startedOn: localDateString(now),
     allowRun,
     dryRun,
+    source,
     results,
   };
   return {manifest, failed: results.filter((item) => item.status === 'failed').length};
@@ -75,11 +81,12 @@ export function runResearchBatch({
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const selectionPath = optionValue('--selection');
-    if (!selectionPath) throw new Error('Usage: batch.mjs --selection PATH [--dry-run] [--allow-run]');
+    if (!selectionPath) throw new Error('Usage: batch.mjs --selection PATH [--dry-run] [--allow-run] [--source auto|online|clone]');
     const output = runResearchBatch({
       selectionPath,
       allowRun: process.argv.includes('--allow-run'),
       dryRun: process.argv.includes('--dry-run'),
+      source: optionValue('--source', 'auto'),
     });
     console.log(`Research batch completed: ${output.manifest.results.length} projects, ` +
       `${output.failed} failed. Per-project status is stored under each resources directory.`);

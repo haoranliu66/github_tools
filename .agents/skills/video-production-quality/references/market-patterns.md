@@ -55,7 +55,8 @@ B-roll should carry the explanation rather than decorate it. Choose in this orde
 1. result image, GIF frame, interface, or diagram linked from the official README that shows what the viewer gets;
 2. a cropped README statement placed beside the visual it describes;
 3. a captured input/action/result sequence from an explicitly authorized local run;
-4. a simple before/action/after example constructed from a feature stated in the official README.
+4. a concrete animated example constructed from a feature stated in the official README. It may invent a small
+   webpage, file change, or illustrative result so the viewer can follow the action without assuming a local run.
 
 Change B-roll when the subject, action, proof, or result changes. A sentence may drive several beats, while several
 short sentences may share one beat when the visual meaning is unchanged. Keep one focal point per beat. License,

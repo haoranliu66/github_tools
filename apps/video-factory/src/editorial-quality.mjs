@@ -199,8 +199,10 @@ export function evaluateEditorialQuality(story, config) {
   }
 
   const visualScenes = scenes.filter((scene) => ['hero', 'media'].includes(scene.type));
-  if (visualScenes.length && (scenes[0]?.type !== 'hero' || !scenes[0]?.src)) {
-    errors.push('when repository visuals are available, the opening scene must show one immediately.');
+  const openingHasVisual = Boolean(scenes[0]?.src ||
+    scenes[0]?.visualBeats?.some((beat) => beat.shot || beat.canvas || beat.stage || beat.implementation));
+  if (visualScenes.length && !openingHasVisual) {
+    errors.push('the opening scene must show an available visual immediately.');
   }
   if (!visualScenes.length) warnings.push('No approved repository visual asset was available; the plan uses diagrams and evidence cards only.');
 

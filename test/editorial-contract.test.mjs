@@ -128,3 +128,79 @@ test('static research rejects fake demos and visual cues that are not in narrati
   invalidCrop.visualEvidencePackage.visualBeats[0].focalRegion = {x: 0.8, y: 0, width: 0.4, height: 1};
   assert.throws(() => assertEditorialResearch(invalidCrop, contract), /normalized image bounds/i);
 });
+
+test('diagram snapshots keep valid connections and stable node labels', () => {
+  const contract = loadEditorialContract(projectRoot);
+  const research = researchFixture(contract);
+  const first = research.visualEvidencePackage.visualBeats[0];
+  const second = research.visualEvidencePackage.visualBeats[4];
+  first.canvas = {
+    nodes: [{id: 'input', label: '零散文字', kind: 'input'}], edges: [], focusId: 'input',
+  };
+  second.canvas = {
+    nodes: [
+      {id: 'input', label: '零散文字', kind: 'input'},
+      {id: 'result', label: '整齐列表', kind: 'result'},
+    ],
+    edges: [{from: 'input', to: 'result'}], focusId: 'result',
+  };
+  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
+  second.canvas.edges[0].to = 'missing';
+  assert.throws(() => assertEditorialResearch(research, contract), /distinct visible nodes/i);
+  second.canvas.edges[0].to = 'result';
+  second.canvas.nodes[0].label = '别的内容';
+  assert.throws(() => assertEditorialResearch(research, contract), /same label/i);
+});
+
+test('README-derived illustration shots are structured and cannot impersonate a demo', () => {
+  const contract = loadEditorialContract(projectRoot);
+  const research = researchFixture(contract);
+  const beat = research.visualEvidencePackage.visualBeats[0];
+  beat.visualMode = 'illustration';
+  beat.entrance = 'slide-left';
+  beat.shot = {
+    kind: 'browser', title: '整理笔记', before: '文字混在一起', action: '清理格式',
+    result: '得到列表', focus: 'action', negateBefore: false,
+  };
+  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
+  beat.assetIds = ['missing-image'];
+  assert.throws(() => assertEditorialResearch(research, contract), /shot/i);
+  beat.assetIds = [];
+  beat.shot.focus = 'unknown';
+  assert.throws(() => assertEditorialResearch(research, contract), /shot/i);
+});
+
+test('object-action beats preserve drawable objects and reject fake demo or broken targets', () => {
+  const contract = loadEditorialContract(projectRoot);
+  const research = researchFixture(contract);
+  const first = research.visualEvidencePackage.visualBeats[0];
+  const second = research.visualEvidencePackage.visualBeats[4];
+  first.visualMode = 'object-action';
+  first.stage = {
+    objects: [
+      {id: 'file-a', kind: 'file', label: '改动文件', detail: '小网页的按钮', x: 0.2, y: 0.5, state: 'idle'},
+      {id: 'review', kind: 'review', label: '审查', detail: null, x: 0.7, y: 0.5, state: 'idle'},
+    ],
+    links: [], action: {type: 'reveal', targets: ['file-a']},
+  };
+  second.visualMode = 'object-action';
+  second.stage = {
+    objects: [
+      {id: 'file-a', kind: 'file', label: '改动文件', detail: '小网页的按钮', x: 0.58, y: 0.5, state: 'active'},
+      {id: 'review', kind: 'review', label: '审查', detail: null, x: 0.7, y: 0.5, state: 'active'},
+    ],
+    links: [{from: 'file-a', to: 'review'}], action: {type: 'gather', targets: ['file-a', 'review']},
+  };
+  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
+  second.stage.objects[0].detail = 'x'.repeat(91);
+  assert.throws(() => assertEditorialResearch(research, contract), /invalid or repeated object/i);
+  second.stage.objects[0].detail = '小网页的按钮';
+  second.stage.action.targets = ['missing'];
+  assert.throws(() => assertEditorialResearch(research, contract), /target visible objects/i);
+  second.stage.action.targets = ['review'];
+  second.stage.objects[0].label = '变了标签';
+  assert.throws(() => assertEditorialResearch(research, contract), /same kind and label/i);
+  second.stage.objects[0].label = '改动文件';
+  second.truthMode = 'executed-demo';
+  assert.throws(() => assertEditorialResearch(research, contract), /executed-demo|stage/i);
+});

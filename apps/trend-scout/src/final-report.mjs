@@ -4,6 +4,7 @@ import {join, relative, resolve} from 'node:path';
 import {loadSelection, resolveSelectionProjectPath} from './selection.mjs';
 import {validateResearchResult} from '../../repo-researcher/src/artifacts.mjs';
 import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
+import {loadEditorialPlan, loadVideoEditingSkill} from '../../video-factory/src/editorial-agent.mjs';
 import {
   finalRankingWeekDirectory,
   projectLayoutFromSelection,
@@ -35,8 +36,9 @@ export function latestResearch(projectRoot, fullName, selection, {
   }
 }
 
-function productionStoryboard(projectRoot, selection, fullName, research) {
-  const storyboardPath = projectLayoutFromSelection(projectRoot, selection, fullName).storyboardPath;
+function productionStoryboard(projectRoot, selection, fullName, research, editorialContract, editingSkill) {
+  const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
+  const storyboardPath = layout.storyboardPath;
   if (!existsSync(storyboardPath)) {
     throw new Error(`Approved production storyboard does not exist for ${fullName}: ${storyboardPath}`);
   }
@@ -46,7 +48,17 @@ function productionStoryboard(projectRoot, selection, fullName, research) {
       storyboard.meta?.researchCommit !== research.project.versionOrCommit) {
     throw new Error(`Approved production storyboard is stale for ${fullName}; run video:prepare again.`);
   }
-  return {storyboardPath, storyboardDigest: sha256(serialized)};
+  const editorialPlan = loadEditorialPlan({
+    resourcesDirectory: layout.resourcesDirectory,
+    fullName,
+    researchText: readFileSync(join(layout.resourcesDirectory, 'research.json'), 'utf8'),
+    contract: editorialContract,
+    editingSkill: editingSkill ?? loadVideoEditingSkill(projectRoot),
+  });
+  if (storyboard.meta?.editorialPlanDigest !== editorialPlan.digest) {
+    throw new Error(`Approved production storyboard has a stale editorial plan for ${fullName}; run video:prepare again.`);
+  }
+  return {storyboardPath, storyboardDigest: sha256(serialized), editorialPlanDigest: editorialPlan.digest};
 }
 
 function markdownFor(result) {
@@ -71,6 +83,7 @@ export function writeFinalRanking({
   selectionPath,
   generatedAt = new Date(),
   editorialContract = loadEditorialContract(projectRoot),
+  editingSkill = null,
 }) {
   const {selection, absolutePath} = loadSelection(selectionPath, {requireApproved: true});
   const reportPath = resolveSelectionProjectPath(projectRoot, selection.sourceReport);
@@ -91,7 +104,7 @@ export function writeFinalRanking({
     const finalScore = completed ? Number((base.trendScore + demoabilityScore).toFixed(2)) : null;
     const videoApproved = completed && selection.videoProjects.includes(fullName);
     const production = videoApproved
-      ? productionStoryboard(projectRoot, selection, fullName, research.research)
+      ? productionStoryboard(projectRoot, selection, fullName, research.research, editorialContract, editingSkill)
       : null;
     const storyboardPath = completed ? (production?.storyboardPath ?? research.storyboardPath) : null;
     return {
@@ -118,6 +131,7 @@ export function writeFinalRanking({
         : null,
       videoPath: relative(projectRoot, layout.videoPath).replaceAll('\\', '/'),
       storyboardDigest: production?.storyboardDigest ?? null,
+      editorialPlanDigest: production?.editorialPlanDigest ?? null,
       videoApproved,
     };
   }).sort((a, b) => {

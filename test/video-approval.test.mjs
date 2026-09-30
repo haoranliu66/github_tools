@@ -7,7 +7,8 @@ import {fileURLToPath} from 'node:url';
 import test from 'node:test';
 import {loadEditorialContract} from '../apps/repo-researcher/src/editorial-contract.mjs';
 import {resolveApprovedStoryboard} from '../apps/video-factory/src/approval.mjs';
-import {completedResearchFixture} from './helpers/completed-research.mjs';
+import {loadVideoEditingSkill, makeEditorialPlan, sha256} from '../apps/video-factory/src/editorial-agent.mjs';
+import {completedResearchFixture, editorialDraftFixture} from './helpers/completed-research.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
@@ -18,15 +19,24 @@ test('video factory resolves only a researched and explicitly approved final-ran
   mkdirSync(join(root, '.agents', 'skills'), {recursive: true});
   cpSync(join(projectRoot, '.agents', 'skills', 'video-production-quality'), skillTarget, {recursive: true});
   const editorialContract = loadEditorialContract(root);
+  const editingSkill = loadVideoEditingSkill(projectRoot);
   const projectPath = join(root, 'output', 'videos', '2026年09月第3周-fixture--approved');
   const storyboardPath = join(projectPath, 'resources', 'production', 'storyboard.json');
   mkdirSync(join(projectPath, 'resources', 'production'), {recursive: true});
   const research = completedResearchFixture({contract: editorialContract});
   const researchPath = join(projectPath, 'resources', 'research.json');
-  writeFileSync(researchPath, JSON.stringify(research));
+  const researchText = JSON.stringify(research);
+  writeFileSync(researchPath, researchText);
+  const plan = makeEditorialPlan({
+    fullName: 'fixture/approved', researchText, contract: editorialContract,
+    editingSkill, draft: editorialDraftFixture(research),
+  });
+  writeFileSync(join(projectPath, 'resources', 'editorial-plan.json'), JSON.stringify(plan));
+  const editorialPlanDigest = sha256(JSON.stringify(plan));
   const serializedStoryboard = JSON.stringify({meta: {
     editorialContractDigest: research.editorialContract.digest,
     researchCommit: research.project.versionOrCommit,
+    editorialPlanDigest,
   }});
   writeFileSync(storyboardPath, serializedStoryboard);
   const storyboardDigest = createHash('sha256').update(serializedStoryboard).digest('hex');
@@ -41,6 +51,7 @@ test('video factory resolves only a researched and explicitly approved final-ran
       videoPath: 'output/videos/2026年09月第3周-fixture--approved/final.mp4',
       editorialContractDigest: research.editorialContract.digest,
       researchCommit: research.project.versionOrCommit,
+      editorialPlanDigest,
       storyboardDigest,
     },
     {
@@ -52,12 +63,13 @@ test('video factory resolves only a researched and explicitly approved final-ran
       videoPath: 'output/videos/2026年09月第3周-fixture--approved/final.mp4',
       editorialContractDigest: research.editorialContract.digest,
       researchCommit: research.project.versionOrCommit,
+      editorialPlanDigest,
       storyboardDigest,
     },
   ]}));
 
   const approved = resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved',
+    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved', editingSkill,
   });
   assert.equal(approved.storyboardPath, storyboardPath);
   assert.equal(approved.videoPath, join(projectPath, 'final.mp4'));
@@ -70,6 +82,6 @@ test('video factory resolves only a researched and explicitly approved final-ran
 
   writeFileSync(storyboardPath, `${serializedStoryboard}\n`);
   assert.throws(() => resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved',
+    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved', editingSkill,
   }), /changed after final ranking/i);
 });

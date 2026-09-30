@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {buildResearchPrompt} from '../apps/repo-researcher/src/prompt.mjs';
+import {canonicalizeResearchIdentity} from '../apps/repo-researcher/src/cli.mjs';
 
 function editorialContract() {
   const paths = [
@@ -71,4 +72,30 @@ test('research prompt refuses to run without the trusted editorial contract', ()
     repositoryUrl: 'https://github.com/acme/rocket',
     allowRun: false,
   }), /editorial contract/i);
+});
+
+test('local read-only research keeps a canonical GitHub identity without visiting the remote', () => {
+  const prompt = buildResearchPrompt({
+    fullName: 'acme/rocket', repositoryUrl: 'local:acme/rocket',
+    localOnly: true, allowRun: false, editorialContract: editorialContract(),
+  });
+  assert.match(prompt, /Inspect only the current local repository/);
+  assert.match(prompt, /set project\.url to https:\/\/github\.com\/acme\/rocket/);
+  assert.match(prompt, /do not visit that URL/);
+  const result = {project: {url: 'local:acme/rocket'}};
+  assert.equal(canonicalizeResearchIdentity(result, 'acme/rocket').project.url,
+    'https://github.com/acme/rocket');
+});
+
+test('online research uses the pinned API snapshot without pretending it is a Git clone', () => {
+  const commit = 'b'.repeat(40);
+  const prompt = buildResearchPrompt({
+    fullName: 'acme/rocket', repositoryUrl: 'https://github.com/acme/rocket',
+    allowRun: false, sourceMode: 'online', sourceCommit: commit,
+    editorialContract: editorialContract(),
+  });
+  assert.match(prompt, /GitHub API snapshot, not a Git clone/);
+  assert.match(prompt, new RegExp(commit));
+  assert.match(prompt, /Do not run Git commands/);
+  assert.doesNotMatch(prompt, /determine the full Git HEAD commit SHA/);
 });

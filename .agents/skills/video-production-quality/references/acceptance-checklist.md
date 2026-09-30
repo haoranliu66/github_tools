@@ -27,6 +27,18 @@ rendering automatically.
 - Stars appear at most once, use an approximate magnitude instead of an exact count, and are not proof of quality.
 - B-roll carries most of the explanation through README-linked visuals, README content, an authorized local demo, or
   a README-backed example.
+- Every function actually mentioned in the cut has a readable visual explanation: inspected relevant README media or
+  a drawable example animation with visible input, action, and result, not merely a before/action/result text card.
+  The research manifest retains any
+  copied source asset, reuse basis, and useful crop or clip.
+- The research media-inspection subagent has recorded a verdict for README-linked candidates relevant to selected
+  functions; no function is handed off with its media still uninspected.
+- Repeated beats develop the same visible objects through movement, scan, connection, reveal, or state change rather
+  than merely highlighting another card. Browser and comparison cards are reserved for genuine comparisons.
+- The example animation gives the viewer a recognizable situation and keeps its webpage, file, code area, and
+  illustrative result spatially connected. Its house illustration style distinguishes it from repository footage;
+  truth mode remains in metadata. Large questions and animated crosses resolve a supported viewer question rather
+  than adding a decorative interruption.
 - Each important claim maps to at least one visual beat whose role is show, prove, or change.
 - Every beat records valid claim mappings and one truth mode. Static research contains no executed-demo beats.
 - The prepared cut has no visual-semantic gap longer than six seconds, no consecutive duplicate composition, and no

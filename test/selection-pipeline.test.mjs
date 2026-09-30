@@ -9,7 +9,8 @@ import {loadEditorialContract} from '../apps/repo-researcher/src/editorial-contr
 import {writeFinalRanking} from '../apps/trend-scout/src/final-report.mjs';
 import {createSelectionTemplate, validateSelection} from '../apps/trend-scout/src/selection.mjs';
 import {projectLayout} from '../apps/shared/pipeline-paths.mjs';
-import {completedResearchFixture} from './helpers/completed-research.mjs';
+import {loadVideoEditingSkill, makeEditorialPlan, sha256} from '../apps/video-factory/src/editorial-agent.mjs';
+import {completedResearchFixture, editorialDraftFixture} from './helpers/completed-research.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
@@ -61,6 +62,7 @@ test('selection requires exactly seven or eight unique repositories', () => {
 test('draft selection, batch research, and research-backed final ranking preserve human gates', (t) => {
   const {root, reportPath} = projectFixture(t);
   const editorialContract = loadEditorialContract(projectRoot);
+  const editingSkill = loadVideoEditingSkill(projectRoot);
   const selectionPath = join(root, 'apps', 'trend-scout', 'trend_reports', '2026-W38', 'selection.json');
   const draft = createSelectionTemplate({projectRoot: root, reportPath, outputPath: selectionPath, count: 7});
   assert.equal(draft.selection.status, 'draft');
@@ -93,10 +95,20 @@ test('draft selection, batch research, and research-backed final ranking preserv
 
   const approvedResearch = writeResearch(root, 'fixture/repo-1', 2, editorialContract);
   writeResearch(root, 'fixture/repo-2', 7, editorialContract);
+  const plan = makeEditorialPlan({
+    fullName: 'fixture/repo-1',
+    researchText: readFileSync(join(batchResult, 'research.json'), 'utf8'),
+    contract: editorialContract,
+    editingSkill,
+    draft: editorialDraftFixture(approvedResearch),
+  });
+  writeFileSync(join(batchResult, 'editorial-plan.json'), JSON.stringify(plan));
+  const editorialPlanDigest = sha256(JSON.stringify(plan));
   const productionStoryboard = {
     meta: {
       editorialContractDigest: approvedResearch.editorialContract.digest,
       researchCommit: approvedResearch.project.versionOrCommit,
+      editorialPlanDigest,
     },
     production: true,
   };
@@ -107,6 +119,7 @@ test('draft selection, batch research, and research-backed final ranking preserv
     selectionPath,
     generatedAt: new Date('2026-09-14T12:00:00Z'),
     editorialContract,
+    editingSkill,
   });
   assert.equal(final.result.rows[0].fullName, 'fixture/repo-2');
   assert.equal(final.result.rows[0].finalScore, 26);
@@ -119,6 +132,7 @@ test('draft selection, batch research, and research-backed final ranking preserv
   assert.equal(final.result.rows[1].videoPath,
     'output/videos/2026年09月第3周-fixture--repo-1/final.mp4');
   assert.equal(final.result.rows[1].editorialContractDigest, editorialContract.digest);
+  assert.equal(final.result.rows[1].editorialPlanDigest, editorialPlanDigest);
   assert.match(final.result.rows[1].storyboardDigest, /^[a-f0-9]{64}$/u);
   assert.equal(final.jsonPath,
     join(root, 'apps', 'repo-researcher', 'final_rank', '2026-W38', 'final-ranking.json'));
@@ -128,14 +142,21 @@ test('draft selection, batch research, and research-backed final ranking preserv
     ...productionStoryboard,
     meta: {...productionStoryboard.meta, researchCommit: 'f'.repeat(40)},
   }));
-  assert.throws(() => writeFinalRanking({projectRoot: root, selectionPath, editorialContract}), /stale/i);
+  assert.throws(() => writeFinalRanking({projectRoot: root, selectionPath, editorialContract, editingSkill}), /stale/i);
+  writeFileSync(productionStoryboardPath, JSON.stringify(productionStoryboard));
+
+  const staleStoryboard = {...productionStoryboard,
+    meta: {...productionStoryboard.meta, editorialPlanDigest: 'f'.repeat(64)}};
+  writeFileSync(productionStoryboardPath, JSON.stringify(staleStoryboard));
+  assert.throws(() => writeFinalRanking({projectRoot: root, selectionPath, editorialContract, editingSkill}),
+    /stale editorial plan/i);
   writeFileSync(productionStoryboardPath, JSON.stringify(productionStoryboard));
 
   const staleResearchPath = join(batchResult, 'research.json');
   const staleResearch = JSON.parse(readFileSync(staleResearchPath, 'utf8'));
   staleResearch.editorialContract.digest = 'f'.repeat(64);
   writeFileSync(staleResearchPath, JSON.stringify(staleResearch));
-  const refreshed = writeFinalRanking({projectRoot: root, selectionPath, editorialContract});
+  const refreshed = writeFinalRanking({projectRoot: root, selectionPath, editorialContract, editingSkill});
   const staleRow = refreshed.result.rows.find((row) => row.fullName === 'fixture/repo-1');
   assert.equal(staleRow.researchStatus, 'incomplete');
   assert.equal(staleRow.videoApproved, false);

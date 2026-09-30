@@ -8,6 +8,7 @@ import {latestResearch} from '../../trend-scout/src/final-report.mjs';
 import {loadSelection, resolveSelectionProjectPath} from '../../trend-scout/src/selection.mjs';
 import {projectLayoutFromSelection, safeRepositoryName} from '../../shared/pipeline-paths.mjs';
 import {buildEditorialEpisode} from './editorial-planner.mjs';
+import {loadEditorialPlan, loadVideoEditingSkill} from './editorial-agent.mjs';
 import {assertEditorialQuality, loadEditorialConfig} from './editorial-quality.mjs';
 import {loadStoryboard} from './storyboard.mjs';
 import {
@@ -114,20 +115,30 @@ function main() {
   if (research?.status !== 'completed') throw new Error(`Completed research is required for ${fullName}.`);
   const editorialContract = loadEditorialContract(PROJECT_ROOT);
   assertEditorialResearch(research.research, editorialContract);
+  const editorialPlan = loadEditorialPlan({
+    resourcesDirectory: layout.resourcesDirectory,
+    fullName,
+    researchText: readFileSync(join(layout.resourcesDirectory, 'research.json'), 'utf8'),
+    contract: editorialContract,
+    editingSkill: loadVideoEditingSkill(PROJECT_ROOT),
+  });
   const reportPath = resolveSelectionProjectPath(PROJECT_ROOT, selection.sourceReport);
   const trendRows = JSON.parse(readFileSync(reportPath, 'utf8'));
   const trendRow = trendRows.find((row) => row.fullName === fullName) ?? null;
   const repositoryRoot = join(PROJECT_ROOT, 'workspaces/repos', safeRepositoryName(fullName));
-  if (!existsSync(repositoryRoot)) throw new Error(`Cloned repository is unavailable: ${repositoryRoot}`);
   const dataDate = basename(reportPath).match(/^(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? '';
   const config = loadEditorialConfig(CONFIG_PATH);
   const repositoryPreviewPath = captureGithubRepositoryPreview(
-    research.research.project.url,
+    editorialPlan.research.project.url,
     join(layout.resourcesDirectory, 'github-repository-preview.png'),
   );
   const planned = buildEditorialEpisode({
-    research: research.research, trendRow, repositoryRoot, repositoryPreviewPath, config, dataDate,
+    research: editorialPlan.research, trendRow,
+    repositoryRoot: existsSync(repositoryRoot) ? repositoryRoot : null,
+    resourcesDirectory: layout.resourcesDirectory,
+    repositoryPreviewPath, config, dataDate,
   });
+  planned.episode.meta.editorialPlanDigest = editorialPlan.digest;
   const planningReport = assertEditorialQuality(planned.episode, config);
   const temporaryDirectory = mkdtempSync(join(tmpdir(), 'zimeiti-video-plan-'));
   const stagingDirectory = join(layout.resourcesDirectory,
@@ -148,6 +159,8 @@ function main() {
       schemaVersion: 1,
       repository: fullName,
       researchPath: research.directory,
+      editorialPlanPath: editorialPlan.path,
+      editorialPlanDigest: editorialPlan.digest,
       storyboardPath,
       plannerWarnings: planned.warnings,
       planning: planningReport,

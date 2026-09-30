@@ -167,6 +167,90 @@ test('editorial planner consumes every researched visual beat instead of repeati
   assert.deepEqual(evaluateEditorialQuality(episode, config).errors, []);
 });
 
+test('editorial planner preserves renderable diagram snapshots across beats', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
+  writeFileSync(join(repositoryRoot, 'docs', 'hero.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  const research = addVisualEvidencePackage(researchFixture());
+  research.visualEvidencePackage.visualBeats[2].canvas = {
+    nodes: [{id: 'input', label: '输入', kind: 'input'}], edges: [], focusId: 'input',
+  };
+  research.visualEvidencePackage.visualBeats[3].canvas = {
+    nodes: [
+      {id: 'input', label: '输入', kind: 'input'},
+      {id: 'result', label: '结果', kind: 'result'},
+    ],
+    edges: [{from: 'input', to: 'result'}], focusId: 'result',
+  };
+  const {episode} = buildEditorialEpisode({research, repositoryRoot, config});
+  const scene = episode.scenes.find((item) => item.visualBeats?.some((beat) => beat.id === 'flow-input'));
+  assert.equal(scene.visualBeats[0].canvas.focusId, 'input');
+  assert.deepEqual(scene.visualBeats[1].canvas.edges, [{from: 'input', to: 'result'}]);
+});
+
+test('editorial planner carries spatial object actions across consecutive beats', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
+  writeFileSync(join(repositoryRoot, 'docs', 'hero.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  const research = addVisualEvidencePackage(researchFixture());
+  const beats = research.visualEvidencePackage.visualBeats;
+  beats[2].visualMode = 'object-action';
+  beats[2].stage = {objects: [
+    {id: 'file', kind: 'file', label: '改动文件', x: 0.2, y: 0.5, state: 'idle'},
+    {id: 'review', kind: 'review', label: '审查', x: 0.7, y: 0.5, state: 'idle'},
+  ], links: [], action: {type: 'reveal', targets: ['file']}};
+  beats[3].visualMode = 'object-action';
+  beats[3].stage = {objects: [
+    {id: 'file', kind: 'file', label: '改动文件', x: 0.57, y: 0.5, state: 'active'},
+    {id: 'review', kind: 'review', label: '审查', x: 0.7, y: 0.5, state: 'active'},
+  ], links: [{from: 'file', to: 'review'}], action: {type: 'gather', targets: ['file', 'review']}};
+  const {episode} = buildEditorialEpisode({research, repositoryRoot, config});
+  const scene = episode.scenes.find((item) => item.visualBeats?.some((beat) => beat.id === 'flow-input'));
+  assert.equal(scene.type, 'flow');
+  assert.equal(scene.visualBeats[0].stage.action.type, 'reveal');
+  assert.equal(scene.visualBeats[1].stage.action.type, 'gather');
+  assert.equal(scene.visualBeats[1].stage.objects[0].id, scene.visualBeats[0].stage.objects[0].id);
+});
+
+test('editorial planner uses copied research media without the clone', (t) => {
+  const resourcesDirectory = mkdtempSync(join(tmpdir(), 'zimeiti-materials-'));
+  t.after(() => rmSync(resourcesDirectory, {recursive: true, force: true}));
+  mkdirSync(join(resourcesDirectory, 'visual-assets'), {recursive: true});
+  writeFileSync(join(resourcesDirectory, 'visual-assets', 'hero-image.png'),
+    Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  writeFileSync(join(resourcesDirectory, 'media_manifest.json'), JSON.stringify({items: [{
+    id: 'hero-image', file: 'docs/hero.png', resourceFile: 'visual-assets/hero-image.png',
+  }]}));
+  const {episode, warnings} = buildEditorialEpisode({
+    research: addVisualEvidencePackage(researchFixture()), resourcesDirectory, config,
+  });
+  assert.deepEqual(warnings, []);
+  assert.equal(episode.scenes[0].src,
+    join(resourcesDirectory, 'visual-assets', 'hero-image.png'));
+});
+
+test('editorial planner carries a renderable illustrative browser shot', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
+  writeFileSync(join(repositoryRoot, 'docs', 'hero.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  const research = addVisualEvidencePackage(researchFixture());
+  const beat = research.visualEvidencePackage.visualBeats[2];
+  beat.visualMode = 'illustration';
+  beat.entrance = 'slide-left';
+  beat.shot = {
+    kind: 'browser', title: '个人网页', before: '改动分散', action: '检查改动',
+    result: '看到可核对的意见', focus: 'action', negateBefore: false,
+  };
+  const {episode} = buildEditorialEpisode({research, repositoryRoot, config});
+  const planned = episode.scenes.flatMap((scene) => scene.visualBeats ?? [])
+    .find((item) => item.id === beat.id);
+  assert.deepEqual(planned.shot, beat.shot);
+  assert.equal(planned.entrance, 'slide-left');
+});
+
 test('visual production removes a repeated hook sentence instead of adding problem and fit scenes', (t) => {
   const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
   t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
@@ -211,6 +295,31 @@ test('authored continuous narration keeps section transitions and uses approxima
   assert.match(spoken, /同一个例子展开。接着沿着这份结果/u);
   assert.match(spoken, /先收藏 Signal Map/u);
   assert.doesNotMatch(spoken, /61[,.]?476/u);
+});
+
+test('project introduction is not repeated when the first section also names the project', (t) => {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-'));
+  t.after(() => rmSync(repositoryRoot, {recursive: true, force: true}));
+  mkdirSync(join(repositoryRoot, 'docs'), {recursive: true});
+  writeFileSync(join(repositoryRoot, 'docs', 'hero.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  const research = addVisualEvidencePackage(researchFixture());
+  research.video.hook = '一个人做项目，提交前怕漏看改动？';
+  research.video.sections[0].narration =
+    '这个开源工具可能会帮到你，它叫 Signal Map，能用 AI 整理依赖。先看改过的文件。';
+  research.video.fullNarration = research.video.hook +
+    research.video.sections.map((section) => section.narration).join('') + research.video.closing;
+  research.visualEvidencePackage.hookMoment.narrationCue = '提交前怕漏看改动';
+  research.visualEvidencePackage.visualBeats.slice(0, 2).forEach((beat) => {
+    beat.narrationCue = '能用 AI 整理依赖';
+  });
+  const {episode} = buildEditorialEpisode({
+    research, repositoryRoot, config, trendRow: {stars: 31_200},
+  });
+  const spoken = episode.scenes.flatMap((scene) => scene.sentences ?? [])
+    .map((item) => item.text).join('');
+  assert.equal((spoken.match(/这个开源工具可能会帮到你/gu) ?? []).length, 1);
+  assert.match(spoken, /它叫 Signal Map，目前已经收获 3 万多 stars/u);
+  assert.match(spoken, /它能用 AI 整理依赖/u);
 });
 
 test('visual beat cues preserve intentional English terms from the research copy', (t) => {

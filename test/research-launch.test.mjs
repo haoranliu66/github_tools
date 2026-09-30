@@ -29,6 +29,15 @@ test('non-Windows research does not receive Windows-specific sandbox configurati
   assert.equal(args[args.indexOf('--sandbox') + 1], 'read-only');
 });
 
+test('a pinned online snapshot can run read-only Codex without a Git directory', () => {
+  const args = buildCodexArgs('Read fixed snapshot', false, 'win32', 'elevated',
+    'research.schema.json', true);
+  assert.ok(args.includes('--skip-git-repo-check'));
+  assert.equal(args[args.indexOf('--sandbox') + 1], 'read-only');
+  assert.ok(!args.includes('--approve-for-me'));
+  assert.ok(!buildCodexArgs('Read clone', false, 'win32').includes('--skip-git-repo-check'));
+});
+
 test('explicit run permission keeps workspace boundaries and automatic approval review', () => {
   const args = buildCodexArgs('Inspect repository', true, 'win32');
   assert.ok(configOverrides(args).includes('windows.sandbox="elevated"'));

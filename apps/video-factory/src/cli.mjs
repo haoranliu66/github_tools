@@ -9,6 +9,7 @@ import {buildRenderArgs} from './render-command.mjs';
 import {resolveApprovedStoryboard} from './approval.mjs';
 import {assertEditorialQuality, loadEditorialConfig} from './editorial-quality.mjs';
 import {writeVideoQa} from './video-qa.mjs';
+import {writeRenderEntry} from './visual-program.mjs';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const ENTRY_POINT = join(PROJECT_ROOT, 'apps/video-factory/remotion/index.jsx');
@@ -125,10 +126,12 @@ function main() {
 
   if (command === 'studio') {
     const staged = stageStoryboard(storyboard, absolutePath);
+    const shotEntry = join(staged.runDirectory, 'shot-entry.jsx');
+    const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry) ?? ENTRY_POINT;
     try {
       const relativeProps = staged.propsPath.slice(PROJECT_ROOT.length + 1);
       const studioResult = invokeRemotion([
-        'studio', ENTRY_POINT, `--props=${relativeProps}`, `--public-dir=${PUBLIC_ROOT}`,
+        'studio', entryPoint, `--props=${relativeProps}`, `--public-dir=${PUBLIC_ROOT}`,
       ]);
       if (studioResult.error) throw studioResult.error;
       if (studioResult.status !== 0) {
@@ -149,11 +152,13 @@ function main() {
     : join(dirname(outputPath), `${basename(outputPath, extname(outputPath))}.remotion${extname(outputPath) || '.mp4'}`);
   mkdirSync(dirname(outputPath), {recursive: true});
   const staged = stageStoryboard(storyboard, absolutePath);
+  const shotEntry = join(staged.runDirectory, 'shot-entry.jsx');
+  const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry) ?? ENTRY_POINT;
 
   try {
     const relativeProps = staged.propsPath.slice(PROJECT_ROOT.length + 1);
     const renderResult = invokeRemotion(buildRenderArgs({
-      entry: ENTRY_POINT, output: rawOutput, props: relativeProps, publicRoot: PUBLIC_ROOT,
+      entry: entryPoint, output: rawOutput, props: relativeProps, publicRoot: PUBLIC_ROOT,
     }));
     if (renderResult.error) throw renderResult.error;
     if (renderResult.status !== 0) throw new Error(`Remotion render failed with exit code ${renderResult.status}`);

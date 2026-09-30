@@ -1,6 +1,8 @@
 import {mkdirSync, writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {assertEditorialResearch} from './editorial-contract.mjs';
+import {materializeResearchMedia} from './media-materials.mjs';
+import {assertProductionMaterials, readResearchReadme, readmeMediaCandidates} from './media-inspection.mjs';
 
 function markdownList(items) {
   return items.length ? items.map((item) => `- ${item}`).join('\n') : '- 暂无';
@@ -94,7 +96,12 @@ function toStoryboard(result) {
   };
 }
 
-export function validateResearchResult(result, {expectedEditorialContract = null} = {}) {
+export function validateResearchResult(result, {
+  expectedEditorialContract = null,
+  requireProductionMaterials = false,
+  mediaCandidates = null,
+  repositoryRoot = null,
+} = {}) {
   if (result.status !== 'completed') {
     throw new Error(`Research is not completed (${result.status ?? 'missing status'}): ${result.blockedReason || 'No verified research result.'}`);
   }
@@ -109,12 +116,28 @@ export function validateResearchResult(result, {expectedEditorialContract = null
   validateDemoability(result);
   validateResearchEvidence(result);
   assertEditorialResearch(result, expectedEditorialContract);
+  if (requireProductionMaterials) {
+    if (!Array.isArray(mediaCandidates)) throw new Error('Production materials require README media inventory.');
+    assertProductionMaterials(result, mediaCandidates, {repositoryRoot});
+  }
 }
 
-export function writeResearchArtifacts(result, outputDirectory, {expectedEditorialContract = null} = {}) {
-  validateResearchResult(result, {expectedEditorialContract});
+export function writeResearchArtifacts(result, outputDirectory, {
+  expectedEditorialContract = null, repositoryRoot = null,
+} = {}) {
+  const mediaCandidates = repositoryRoot
+    ? readmeMediaCandidates(readResearchReadme(repositoryRoot, result.inspectedFiles)) : null;
+  validateResearchResult(result, {
+    expectedEditorialContract,
+    requireProductionMaterials: Boolean(repositoryRoot),
+    mediaCandidates,
+    repositoryRoot,
+  });
 
   mkdirSync(outputDirectory, {recursive: true});
+  const copiedMedia = materializeResearchMedia(
+    result.visualEvidencePackage.evidenceAssets ?? [], repositoryRoot, outputDirectory,
+  );
 
   const brief = [
     `# ${result.project.name} 研究简报`,
@@ -153,6 +176,22 @@ export function writeResearchArtifacts(result, outputDirectory, {expectedEditori
     ...result.visualEvidencePackage.visualBeats.map((beat, index) =>
       `${index + 1}. [${beat.role}] ${beat.purpose}；模式：${beat.visualMode}；真实性：${beat.truthMode}；` +
       `旁白锚点：${beat.narrationCue}；事实索引：${beat.claimIndexes.join(', ')}`),
+    '',
+    '### 可拍素材与动画交接',
+    '',
+    ...(result.visualEvidencePackage.productionMaterials ?? []).flatMap((material) => [
+      `- ${material.functionName}（事实索引：${material.claimIndexes.join(', ')}）`,
+      `  - README 媒体核查：${material.mediaInspection.status}；已检查 ${material.mediaInspection.inspected.length} 项`,
+      ...material.mediaInspection.inspected.map((item) =>
+        `  - ${item.path}：${item.verdict}；${item.reason}；复用依据：${item.licenseBasis}`),
+      ...(material.animationPlan ? [
+        `  - 示例动画对象：${material.animationPlan.objects.map((item) =>
+          `${item.kind}:${item.label}${item.detail ? `（${item.detail}）` : ''}`).join('、')}`,
+        `  - 对象动作：${material.animationPlan.actions.map((item) =>
+          `${item.type}(${item.targets.join(',')})`).join(' → ')}`,
+        `  - README 依据：${material.animationPlan.readmeBasis}`,
+      ] : []),
+    ]),
     '',
     '## 适合人群',
     '',
@@ -219,9 +258,13 @@ export function writeResearchArtifacts(result, outputDirectory, {expectedEditori
     'storyboard.json': toStoryboard(result),
     'media_manifest.json': {
       repository: result.project.url,
+      commit: result.project.versionOrCommit,
+      productionMaterials: result.visualEvidencePackage.productionMaterials ?? [],
+      readmeMediaCandidates: mediaCandidates ?? [],
       items: (result.visualEvidencePackage.evidenceAssets ?? []).map((item) => ({
         id: item.id,
         file: item.path,
+        resourceFile: copiedMedia.get(item.id) ?? null,
         purpose: item.purpose,
         mediaType: item.mediaType,
         licenseBasis: item.licenseBasis,

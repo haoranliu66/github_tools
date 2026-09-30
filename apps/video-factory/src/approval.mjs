@@ -3,6 +3,7 @@ import {existsSync, readFileSync} from 'node:fs';
 import {dirname, isAbsolute, join, resolve, sep} from 'node:path';
 import {validateResearchResult} from '../../repo-researcher/src/artifacts.mjs';
 import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
+import {loadEditorialPlan, loadVideoEditingSkill} from './editorial-agent.mjs';
 
 function resolveInside(root, value) {
   const target = isAbsolute(value) ? resolve(value) : resolve(root, value);
@@ -16,7 +17,10 @@ function isInside(root, target) {
   return resolve(target).toLowerCase().startsWith(normalizedRoot);
 }
 
-export function resolveApprovedStoryboard({projectRoot, finalRankingPath, fullName}) {
+export function resolveApprovedStoryboard({
+  projectRoot, finalRankingPath, fullName,
+  editingSkill = null,
+}) {
   if (!finalRankingPath || !fullName) {
     throw new Error('Rendering requires --final-ranking PATH and --repo owner/name.');
   }
@@ -60,7 +64,8 @@ export function resolveApprovedStoryboard({projectRoot, finalRankingPath, fullNa
   if (!existsSync(researchPath)) throw new Error(`Approved research package does not exist: ${researchPath}`);
 
   const editorialContract = loadEditorialContract(projectRoot);
-  const research = JSON.parse(readFileSync(researchPath, 'utf8'));
+  const researchText = readFileSync(researchPath, 'utf8');
+  const research = JSON.parse(researchText);
   validateResearchResult(research, {expectedEditorialContract: editorialContract});
   if (row.editorialContractDigest !== research.editorialContract.digest ||
       row.researchCommit !== research.project.versionOrCommit) {
@@ -72,6 +77,17 @@ export function resolveApprovedStoryboard({projectRoot, finalRankingPath, fullNa
   if (storyboard.meta?.editorialContractDigest !== research.editorialContract.digest ||
       storyboard.meta?.researchCommit !== research.project.versionOrCommit) {
     throw new Error(`Production storyboard is stale for ${fullName}; run video:prepare again.`);
+  }
+  const editorialPlan = loadEditorialPlan({
+    resourcesDirectory: researchDirectory,
+    fullName,
+    researchText,
+    contract: editorialContract,
+    editingSkill: editingSkill ?? loadVideoEditingSkill(projectRoot),
+  });
+  if (row.editorialPlanDigest !== editorialPlan.digest ||
+      storyboard.meta?.editorialPlanDigest !== editorialPlan.digest) {
+    throw new Error(`Video editorial plan changed for ${fullName}; prepare again and regenerate the final ranking.`);
   }
   const storyboardDigest = createHash('sha256').update(serializedStoryboard).digest('hex');
   if (row.storyboardDigest !== storyboardDigest) {

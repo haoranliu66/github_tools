@@ -30,6 +30,9 @@ are interested in useful tools but are not necessarily senior engineers.
   to source files or line numbers. Keep the inspected Git commit only as version context.
 - Keep provenance, licenses, static-review limits, and test status in production metadata. Do not turn them into
   viewer-facing badges, footers, narration, or project-boundary segments.
+- Separate factual claims from illustrative details: README or an authorized run establishes what the project can do;
+  the video may invent a small, recognizable example to make that documented function visible. An illustrative
+  webpage, file change, code location, or sample comment is an explanation, not a claim that this exact case was run.
 - Regenerating an approved project may overwrite that project's mapped production resources and final video. Preserve
   an earlier cut only when the user explicitly asks for an archive. Never publish automatically.
 
@@ -58,8 +61,23 @@ Claude, OpenAI, GitHub, Codex, Qwen, and project names in English instead of tra
   a long presenter monologue or research report.
 - B-roll carries most of the meaning: show an image or diagram linked by the official README, a README explanation,
   an authorized local demo, or a README-derived example that demonstrates the same problem and response.
+- Repository research uses a separate read-only media-inspection subagent after selecting the episode's functions.
+  For each selected function it hands production a filmable material plan: inspected README-linked media with a
+  useful crop or clip and reuse basis, concrete objects and actions for a README-derived example animation, or both
+  when official media explains only part of the function. Never pass
+  along an uninspected image as if it were unsuitable. This is not source-file mapping or a request to pre-render
+  every feature in the README.
 - Pair each new spoken claim with a visual beat that shows, proves, or changes something. Every beat must reference
   verified claims and declare whether it is a real executed demo, repository media, or a source-derived animation.
+- Animate README-linked media with a readable crop, focus change, or gentle entrance when it explains the claim.
+  If no suitable media exists, prefer a clearly illustrative object-action sequence derived from that README claim:
+  give one familiar example concrete visual objects (such as a webpage element, changed file, related code region,
+  and comment at that region), then keep their identity and position continuous as movement, reveal, scan, anchor,
+  or state changes carry the explanation. Invent illustrative example details when they help comprehension; do not
+  retreat to generic icons solely because the exact example was not locally run. Use browser or comparison cards
+  only when the viewer truly needs a static comparison.
+- Use fades, directional entrances, large question text, and an animated cross only when they clarify an input,
+  decision, misconception, or result. Motion and transitions are editorial tools, not substitute visual beats.
 - Prefer problem -> project action -> useful result. Keep narration continuous while several visual beats develop
   underneath it; do not force a new narration block for every visual change.
 - After the personal problem, explicitly name the project in the opening: “这个开源工具可能会帮到你，它叫
