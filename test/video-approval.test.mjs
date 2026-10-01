@@ -1,87 +1,17 @@
-import assert from 'node:assert/strict';
-import {createHash} from 'node:crypto';
-import {cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync} from 'node:fs';
-import {tmpdir} from 'node:os';
-import {join} from 'node:path';
-import {fileURLToPath} from 'node:url';
 import test from 'node:test';
-import {loadEditorialContract} from '../apps/repo-researcher/src/editorial-contract.mjs';
+import assert from 'node:assert/strict';
+import {mkdtempSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
+import {join,relative} from 'node:path';
+import {tmpdir} from 'node:os';
 import {resolveApprovedStoryboard} from '../apps/video-factory/src/approval.mjs';
-import {loadVideoEditingSkill, makeEditorialPlan, sha256} from '../apps/video-factory/src/editorial-agent.mjs';
-import {completedResearchFixture, editorialDraftFixture} from './helpers/completed-research.mjs';
-
-const projectRoot = fileURLToPath(new URL('../', import.meta.url));
-
-test('video factory resolves only a researched and explicitly approved final-ranking project', (t) => {
-  const root = mkdtempSync(join(tmpdir(), 'zimeiti-video-approval-'));
-  t.after(() => rmSync(root, {recursive: true, force: true}));
-  const skillTarget = join(root, '.agents', 'skills', 'video-production-quality');
-  mkdirSync(join(root, '.agents', 'skills'), {recursive: true});
-  cpSync(join(projectRoot, '.agents', 'skills', 'video-production-quality'), skillTarget, {recursive: true});
-  const editorialContract = loadEditorialContract(root);
-  const editingSkill = loadVideoEditingSkill(projectRoot);
-  const projectPath = join(root, 'output', 'videos', '2026年09月第3周-fixture--approved');
-  const storyboardPath = join(projectPath, 'resources', 'production', 'storyboard.json');
-  mkdirSync(join(projectPath, 'resources', 'production'), {recursive: true});
-  const research = completedResearchFixture({contract: editorialContract});
-  const researchPath = join(projectPath, 'resources', 'research.json');
-  const researchText = JSON.stringify(research);
-  writeFileSync(researchPath, researchText);
-  const plan = makeEditorialPlan({
-    fullName: 'fixture/approved', researchText, contract: editorialContract,
-    editingSkill, draft: editorialDraftFixture(research),
-  });
-  writeFileSync(join(projectPath, 'resources', 'editorial-plan.json'), JSON.stringify(plan));
-  const editorialPlanDigest = sha256(JSON.stringify(plan));
-  const serializedStoryboard = JSON.stringify({meta: {
-    editorialContractDigest: research.editorialContract.digest,
-    researchCommit: research.project.versionOrCommit,
-    editorialPlanDigest,
-  }});
-  writeFileSync(storyboardPath, serializedStoryboard);
-  const storyboardDigest = createHash('sha256').update(serializedStoryboard).digest('hex');
-  const rankingPath = join(root, 'final.json');
-  writeFileSync(rankingPath, JSON.stringify({rows: [
-    {
-      fullName: 'fixture/approved', researchStatus: 'completed', finalScore: 88,
-      videoApproved: true,
-      projectPath: 'output/videos/2026年09月第3周-fixture--approved',
-      researchPath: 'output/videos/2026年09月第3周-fixture--approved/resources',
-      storyboardPath: 'output/videos/2026年09月第3周-fixture--approved/resources/production/storyboard.json',
-      videoPath: 'output/videos/2026年09月第3周-fixture--approved/final.mp4',
-      editorialContractDigest: research.editorialContract.digest,
-      researchCommit: research.project.versionOrCommit,
-      editorialPlanDigest,
-      storyboardDigest,
-    },
-    {
-      fullName: 'fixture/not-approved', researchStatus: 'completed', finalScore: 90,
-      videoApproved: false,
-      projectPath: 'output/videos/2026年09月第3周-fixture--approved',
-      researchPath: 'output/videos/2026年09月第3周-fixture--approved/resources',
-      storyboardPath: 'output/videos/2026年09月第3周-fixture--approved/resources/production/storyboard.json',
-      videoPath: 'output/videos/2026年09月第3周-fixture--approved/final.mp4',
-      editorialContractDigest: research.editorialContract.digest,
-      researchCommit: research.project.versionOrCommit,
-      editorialPlanDigest,
-      storyboardDigest,
-    },
-  ]}));
-
-  const approved = resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved', editingSkill,
-  });
-  assert.equal(approved.storyboardPath, storyboardPath);
-  assert.equal(approved.videoPath, join(projectPath, 'final.mp4'));
-  assert.throws(() => resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/not-approved',
-  }), /not approved/);
-  assert.throws(() => resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/missing',
-  }), /absent/);
-
-  writeFileSync(storyboardPath, `${serializedStoryboard}\n`);
-  assert.throws(() => resolveApprovedStoryboard({
-    projectRoot: root, finalRankingPath: rankingPath, fullName: 'fixture/approved', editingSkill,
-  }), /changed after final ranking/i);
+import {hash} from '../apps/video-factory/src/creative-plan.mjs';
+import {writeCurrentProductionFixture} from './helpers/current-production-fixture.mjs';
+test('current approval binds project paths, actual current plan, code, audio and visual evidence',t=>{
+  const root=mkdtempSync(join(tmpdir(),'current-approval-'));t.after(()=>rmSync(root,{recursive:true,force:true}));const f=writeCurrentProductionFixture(root),path=join(root,'final.json'),p=x=>relative(root,x).replaceAll('\\','/');
+  const row={fullName:'fixture/approved',researchStatus:'completed',finalScore:20,videoApproved:true,projectPath:p(f.layout.projectDirectory),researchPath:p(f.layout.resourcesDirectory),storyboardPath:p(f.layout.storyboardPath),videoPath:p(f.layout.videoPath),editorialContractDigest:f.contract.digest,researchCommit:f.research.project.versionOrCommit,editorialPlanDigest:hash(JSON.stringify(f.plan)),storyboardDigest:hash(readFileSync(f.layout.storyboardPath))};
+  const save=r=>writeFileSync(path,JSON.stringify({schemaVersion:1,rows:[r]}));save(row);const options={projectRoot:root,finalRankingPath:path,fullName:row.fullName,editingSkill:f.editingSkill};assert.equal(resolveApprovedStoryboard(options).videoPath,f.layout.videoPath);
+  save({...row,videoApproved:false});assert.throws(()=>resolveApprovedStoryboard(options),/not approved/);save(row);assert.throws(()=>resolveApprovedStoryboard({...options,fullName:'fixture/missing'}),/absent/);
+  save({...row,storyboardPath:'../outside.json'});assert.throws(()=>resolveApprovedStoryboard(options),/escapes/);save(row);
+  writeFileSync(f.layout.storyboardPath,JSON.stringify(f.storyboard)+'\n');assert.throws(()=>resolveApprovedStoryboard(options),/changed after final ranking/);writeFileSync(f.layout.storyboardPath,JSON.stringify(f.storyboard));
+  const reviewPath=f.storyboard.meta.visualPreflight.reportPath,review=JSON.parse(readFileSync(reviewPath,'utf8'));review.status='pending';writeFileSync(reviewPath,JSON.stringify(review));assert.throws(()=>resolveApprovedStoryboard(options),/Visual preflight is pending/);
 });

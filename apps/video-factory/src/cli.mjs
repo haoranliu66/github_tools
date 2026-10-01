@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+import {validateCliOptions} from '../../shared/cli-options.mjs';
 import {spawnSync} from 'node:child_process';
-import {copyFileSync, existsSync, mkdirSync, rmSync, writeFileSync} from 'node:fs';
+import {existsSync, readFileSync, mkdirSync, rmSync, writeFileSync} from 'node:fs';
 import {basename, dirname, extname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
@@ -9,10 +10,10 @@ import {buildRenderArgs} from './render-command.mjs';
 import {resolveApprovedStoryboard} from './approval.mjs';
 import {assertEditorialQuality, loadEditorialConfig} from './editorial-quality.mjs';
 import {writeVideoQa} from './video-qa.mjs';
-import {writeRenderEntry} from './visual-program.mjs';
+import {requireVisualPreflight} from './visual-preflight.mjs';
+import {writeRenderEntry} from './render-entry.mjs';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
-const ENTRY_POINT = join(PROJECT_ROOT, 'apps/video-factory/remotion/index.jsx');
 const PUBLIC_ROOT = join(PROJECT_ROOT, 'apps/video-factory/public');
 const REMOTION_CLI = join(PROJECT_ROOT, 'node_modules/@remotion/cli/remotion-cli.js');
 const EDITORIAL_CONFIG = join(PROJECT_ROOT, 'config/video-editorial.json');
@@ -30,44 +31,10 @@ function invokeRemotion(args) {
   });
 }
 
-function stageAsset(sourcePath, runDirectory, stagedAssets) {
-  const absoluteSource = resolve(sourcePath);
-  if (!existsSync(absoluteSource)) throw new Error(`Media asset does not exist: ${absoluteSource}`);
-  const existing = stagedAssets.get(absoluteSource);
-  if (existing) return existing;
-  mkdirSync(runDirectory, {recursive: true});
-  const safeBase = basename(absoluteSource).replace(/[^A-Za-z0-9_.-]/g, '-');
-  const destination = join(runDirectory, `${String(stagedAssets.size + 1).padStart(2, '0')}-${safeBase}`);
-  copyFileSync(absoluteSource, destination);
-  const stagedPath = destination.slice(PUBLIC_ROOT.length + 1).replaceAll('\\', '/');
-  stagedAssets.set(absoluteSource, stagedPath);
-  return stagedPath;
-}
-
-function stageStoryboard(storyboard, storyboardPath) {
-  const runId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  const runDirectory = join(PUBLIC_ROOT, 'generated', runId);
-  const baseDirectory = dirname(storyboardPath);
-  const staged = structuredClone(storyboard);
-  const stagedAssets = new Map();
-
-  if (staged.voiceover && !/^https?:\/\//i.test(staged.voiceover)) {
-    staged.voiceover = stageAsset(resolve(baseDirectory, staged.voiceover), runDirectory, stagedAssets);
-  }
-  for (const scene of staged.scenes) {
-    if (scene.src && !/^https?:\/\//i.test(scene.src)) {
-      scene.src = stageAsset(resolve(baseDirectory, scene.src), runDirectory, stagedAssets);
-    }
-    for (const beat of scene.visualBeats ?? []) {
-      if (beat.src && !/^https?:\/\//i.test(beat.src)) {
-        beat.src = stageAsset(resolve(baseDirectory, beat.src), runDirectory, stagedAssets);
-      }
-    }
-  }
-  mkdirSync(runDirectory, {recursive: true});
-  const propsPath = join(runDirectory, 'storyboard.json');
-  writeFileSync(propsPath, `${JSON.stringify(staged, null, 2)}\n`, 'utf8');
-  return {staged, runDirectory, propsPath};
+function stageStoryboard(storyboard,storyboardPath){
+  const runDirectory=join(PUBLIC_ROOT,'generated',String(Date.now())+'-'+process.pid);mkdirSync(runDirectory,{recursive:true});
+  const propsPath=join(runDirectory,'storyboard.json');writeFileSync(propsPath,JSON.stringify(storyboard));
+  return {runDirectory,propsPath,publicRoot:dirname(storyboardPath)};
 }
 
 function postprocess(inputPath, outputPath) {
@@ -90,6 +57,7 @@ function postprocess(inputPath, outputPath) {
 }
 
 function main() {
+  validateCliOptions(process.argv.slice(3),{values:['--storyboard','--final-ranking','--repo','--output'],booleans:['--skip-ffmpeg']});
   const command = process.argv[2] ?? 'validate';
   let storyboardArg;
   let approved = null;
@@ -104,17 +72,17 @@ function main() {
     });
     storyboardArg = approved.storyboardPath;
   } else {
-    storyboardArg = optionValue(
-      '--storyboard',
-      join(PROJECT_ROOT, 'apps/video-factory/examples/storyboard.example.json'),
-    );
+    storyboardArg=optionValue('--storyboard');if(!storyboardArg)throw new Error('Validation requires the current --storyboard PATH.');
   }
   const {storyboard, absolutePath} = loadStoryboard(storyboardArg);
   const frames = durationInFrames(storyboard);
-  const editorialConfig = storyboard.meta.template === 'editorial'
-    ? loadEditorialConfig(EDITORIAL_CONFIG)
-    : null;
-  if (editorialConfig) assertEditorialQuality(storyboard, editorialConfig);
+  const editorialConfig=loadEditorialConfig(EDITORIAL_CONFIG);
+  if(storyboard.meta.productionStage==='visual-ready')assertEditorialQuality(storyboard,editorialConfig);
+  if(command==='render') {
+    const path=storyboard.meta.visualPreflight?.reportPath;
+    if(!path)throw new Error('Visual preflight is required before rendering final output.');
+    requireVisualPreflight({...JSON.parse(readFileSync(path,'utf8')),reportPath:path},storyboard);
+  }
 
   if (command === 'validate') {
     console.log(`Storyboard is valid: ${storyboard.scenes.length} scenes, ${frames} frames.`);
@@ -127,11 +95,11 @@ function main() {
   if (command === 'studio') {
     const staged = stageStoryboard(storyboard, absolutePath);
     const shotEntry = join(staged.runDirectory, 'shot-entry.jsx');
-    const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry) ?? ENTRY_POINT;
+    const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry);
     try {
       const relativeProps = staged.propsPath.slice(PROJECT_ROOT.length + 1);
       const studioResult = invokeRemotion([
-        'studio', entryPoint, '--no-open', `--props=${relativeProps}`, `--public-dir=${PUBLIC_ROOT}`,
+        'studio', entryPoint, '--no-open', `--props=${relativeProps}`, `--public-dir=${staged.publicRoot}`,
       ]);
       if (studioResult.error) throw studioResult.error;
       if (studioResult.status !== 0) {
@@ -143,7 +111,7 @@ function main() {
     return;
   }
 
-  if (!storyboard.meta.visualProgram) throw new Error('Production shots are missing. Run pnpm video:produce or video:shots before rendering.');
+  if(storyboard.meta.directorVersion!==1||storyboard.meta.visualProgram?.schemaVersion!==3)throw new Error('Production rendering requires the current post-audio director program. Generate content, new audio and final visuals first.');
   const outputPath = resolve(optionValue('--output', approved.videoPath));
   if (outputPath.toLowerCase() !== approved.videoPath.toLowerCase()) {
     throw new Error(`Video output must use the approved project path: ${approved.videoPath}.`);
@@ -154,12 +122,12 @@ function main() {
   mkdirSync(dirname(outputPath), {recursive: true});
   const staged = stageStoryboard(storyboard, absolutePath);
   const shotEntry = join(staged.runDirectory, 'shot-entry.jsx');
-  const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry) ?? ENTRY_POINT;
+  const entryPoint = writeRenderEntry(storyboard, dirname(dirname(absolutePath)), shotEntry);
 
   try {
     const relativeProps = staged.propsPath.slice(PROJECT_ROOT.length + 1);
     const renderResult = invokeRemotion(buildRenderArgs({
-      entry: entryPoint, output: rawOutput, props: relativeProps, publicRoot: PUBLIC_ROOT,
+      entry: entryPoint, output: rawOutput, props: relativeProps, publicRoot: staged.publicRoot,
     }));
     if (renderResult.error) throw renderResult.error;
     if (renderResult.status !== 0) throw new Error(`Remotion render failed with exit code ${renderResult.status}`);
@@ -168,11 +136,12 @@ function main() {
       postprocess(rawOutput, outputPath);
       rmSync(rawOutput, {force: true});
     }
-    if (editorialConfig) {
+    {
       const qa = writeVideoQa({
         ffmpegPath: ffmpegInstaller.path,
         videoPath: outputPath,
         storyboard,
+        visualPreflight:storyboard.meta.visualPreflight?.reportPath?{...JSON.parse(readFileSync(storyboard.meta.visualPreflight.reportPath,'utf8')),reportPath:storyboard.meta.visualPreflight.reportPath}:null,
         sampleCount: editorialConfig.qa.sampleFrames,
         qaDirectory: join(dirname(approved.storyboardPath), 'qa', 'final'),
       });

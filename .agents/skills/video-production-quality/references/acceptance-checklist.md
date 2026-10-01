@@ -1,66 +1,29 @@
-# Zimeiti short-video acceptance checklist
+# 制作检查参考
 
-Use this checklist before rendering and for the human handoff. 
+按需用于预检和交付，不作为额外常驻提示词。总规范见 ../SKILL.md。
 
-## Before preparation
+## 进入画面制作前
 
-- The approved project, completed research revision, final-ranking row, and production storyboard mapping agree.
-- Every viewer-facing feature claim is supported by the official README or an explicitly authorized, retained local
-  test result. The trend snapshot may supply the one stars value but is not feature evidence.
-- The script answers “what problem does it solve?” in one plain sentence and includes at least one concrete example.
-- The familiar problem and example are written for an individual developer unless collaboration is the product's
-  documented purpose.
-- One continuous narration was written and read through before it was divided into hook, sections, and closing.
-- The script does not read like a research report. Remove methodology, evidence recaps, architecture tours,
-  project-boundary sections, limitations, and repeated conclusions.
-- Proper names such as Claude, OpenAI, GitHub, Codex, Qwen, and the project name keep their English form.
+- 当前策划案、研究版本和事实引用一致；合同变更后显式重新生成受影响状态。
+- 旁白完整连贯，选定风格和分镜具体，每项交付材料有使用位置。
+- 素材实际存在且已查看；素材包不包含未采用候选、研究日志、许可证或评审结论。
+- 配音信息为实测；语句时间的实测或估计来源明确，不以图片切换强迫增加配音请求。
 
-## Editorial review prompts
+## 技术检查
 
-Use this section while planning and during human review. These preferences must not reject research, preparation, or
-rendering automatically.
+- 代码可以运行，所需依赖和素材可用，时间轴完整覆盖配音。
+- 内容依据与事实映射有效，音频供应商及声音符合当前授权。
+- 最终音视频完整解码，报告保存分辨率、帧率、时长和校验值。
 
-- The first five seconds show or state the familiar problem.
-- The opening explicitly says the project name after the problem and shows the official GitHub repository preview with
-  a restrained 2-4 second push-in.
-- The project answer is clear within 15 seconds.
-- Stars appear at most once, use an approximate magnitude instead of an exact count, and are not proof of quality.
-- B-roll carries most of the explanation through README-linked visuals, README content, an authorized local demo, or
-  a README-backed example.
-- Every function actually mentioned in the cut has a readable visual explanation: inspected relevant README media or
-  a drawable example animation with visible input, action, and result, not merely a before/action/result text card.
-  The research manifest retains any
-  copied source asset, reuse basis, and useful crop or clip.
-- The research media-inspection subagent has recorded a verdict for README-linked candidates relevant to selected
-  functions; no function is handed off with its media still uninspected.
-- Repeated beats develop the same visible objects through movement, scan, connection, reveal, or state change rather
-  than merely highlighting another card. Browser and comparison cards are reserved for genuine comparisons.
-- The example animation gives the viewer a recognizable situation and keeps its webpage, file, code area, and
-  illustrative result spatially connected. Animation and recorded results are equally eligible materials, chosen by explanatory value. Large questions and animated crosses resolve a supported viewer question rather
-  than adding a decorative interruption.
-- Each important claim maps to at least one visual beat whose role is show, prove, or change.
-- Every beat records valid claim mappings; material selection does not depend on truthMode or execution status.
-- The prepared cut has no visual-semantic gap longer than six seconds, no consecutive duplicate composition, and no
-  two adjacent text-only beats.
-- Each example follows problem -> project action -> result and is understandable without senior technical knowledge.
-- Section joins continue one thought without restarting the pitch, and the closing recommends saving the project for a
-  relevant future task instead of saying where its URL appears.
-- Viewer-facing visuals and narration do not contain production labels such as “官方素材”“非本机实测”“源码证据”
-  or “静态研究”. Provenance remains available in the storyboard and research package.
-- The cut stays within the configured 45-120 second range unless the user explicitly requested another format.
+## 视觉预检
 
-## Automated checks
+- 查看局部连续画面及整片，确认观众能理解当前内容；静态帧仅辅助定位。
+- 主体、字幕和关键细节易读，标注准确，无意外溢出或遮挡。
+- 动作表达具体变化，结果有清楚落点，节奏适合实际语音。
+- 前后对象、状态和注意力关系连续；有意重构、重复、遮挡或停顿按语义判断。
+- 不统计动效种类、数量、覆盖率、相邻类型或节拍配额作为通过依据。
+- 问题附时间和画面证据，导演修复后检查受影响片段及衔接。
 
-- Storyboard structure, claim mappings, approval mapping, and required media paths are valid.
-- Narration metadata matches the approved Qwen provider and voice.
-- The prepared timeline respects the 32-second per-scene limit, 64-second narration-block limit, and 1,000-character
-  request limit.
-- A normal concept-explainer narration block covers 2-3 scenes; a one-scene block is reserved for a technical split.
-- Full audio/video decode passes and the render report records resolution, frame rate, duration, and checksum.
+## 最终交付
 
-## Human handoff
-
-After the checks above, report `ready-for-human-review` and provide the final MP4 plus the automated QA report. The AI
-must not inspect generated screenshots, samples, or contact sheets after rendering. The human reviewer watches the
-complete video, listens to the narration, checks captions and visuals, and decides whether to approve or request a new
-cut. Publishing remains a separate human action.
+报告真实技术与视觉状态，提供视频和检查结果。AI 可进行视觉预检；人工完整观看与试听决定最终批准。未做试听或精确语句对齐应如实说明，发布另行授权。

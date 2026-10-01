@@ -1,0 +1,21 @@
+{
+  "licenseFiles": [
+    "LICENSE.md"
+  ],
+  "candidateCodePaths": [
+    "src/Phone.tsx",
+    "src/Root.tsx",
+    "src/RoundedBox.tsx",
+    "src/Scene.tsx"
+  ],
+  "status": "downloaded-for-source-review",
+  "executed": false,
+  "commit": "aa9cd28f063959547bb5fa5fd83208538cb5831b",
+  "inspectedCode": [
+    "src/Scene.tsx",
+    "src/Phone.tsx",
+    "src/RoundedBox.tsx"
+  ],
+  "repository": "remotion-dev/template-three",
+  "url": "https://github.com/remotion-dev/template-three"
+}

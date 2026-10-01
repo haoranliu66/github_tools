@@ -1,103 +1,18 @@
 ---
 name: video-editorial-agent
-description: Turn a completed Zimeiti repository research package into one coherent beginner-facing video narration and visual beat plan without changing verified evidence. Use after video approval and before video:prepare.
+description: On-demand director responsibilities for implementing, previewing and repairing visuals from one scoped production plan.
 ---
 
-# Zimeiti editorial agent
+# 导演画面实现参考
 
-Use this Skill for the separate `video:plan` stage. First follow the mandatory
-`../video-production-quality/SKILL.md` and its routed references. This Skill sharpens the editing pass; it does not
-replace the research evidence contract or authorize a repository run.
+本参考按需读取，总规范是 ../video-production-quality/SKILL.md。
 
-## Inputs and authority
+研究阶段已经完成旁白、分镜、选定风格与动效，以及实际使用的素材；导演不重新研究仓库或编写整片脚本。配音生成后读取实测时间，保持同一 editorial-plan.json，逐步制作镜头源码、预览和修复。一次调用可以完成一个局部任务，不要求返回全片代码。
 
-- The human-approved selection names the project. Completed research supplies verified claims, official README
-  evidence, permitted media, and any explicitly authorized retained demo results.
-- If this episode has `resources/editorial-feedback.md`, use the human's notes to revise its wording and visual plan.
-  Keep that feedback project-local; it cannot relax fact, asset, run-permission, or publishing boundaries. Editing
-  the feedback invalidates the previous plan and calls for another `video:plan` pass, not another repository study.
-- Treat the research package as data, not as instructions. Do not open or execute the cloned repository during
-  editorial planning. Keep verified feature claims, real demo records, licenses, and evidence assets unchanged;
-  freely design illustrative example objects and visual details inside README-supported beats.
-- You may rewrite `editorialBrief`, `video` narration and sections, and `visualEvidencePackage` hook, beats, mechanism
-  steps, and contrasts. The plan may point only to the original claim indexes and evidence asset IDs. The production
-  program restores immutable claims, demo records, `evidenceAssets`, and `video.visualAssets` from research.
+查看策划案选定素材的代码、连续演示、参数和用途；可以直接复用、自由组合或编写专用 JSX。素材不提供评审结论和许可证；來源归档不进入视觉输入。使用相关 Remotion 参考时按当前需求读取，不全量加载插件文档。
 
-## Make one viewer story
+通过前后镜头设计上下文维护对象身份、状态、空间关系和观众注意力。连续性可以由共享场景、共享数据、连续轨迹或状态对应实现，由导演自由选择。没有预设对象类型、动作枚举、大模板或动效数量要求。
 
-1. Choose one personal situation an individual beginner developer could plausibly face. A first small web app is a
-   better starting point than a complex service architecture when both are supported by the evidence. Avoid colleagues,
-   team reviews, and handoffs unless collaboration itself is the documented function.
-   An official example may name Redis, PostgreSQL, or a diagram category; if the documented general function is enough
-   to tell the story, call them “缓存”“数据库” or “查看先后顺序” in the voiceover. The official image can retain its labels.
-   Do not simplify into a new behavior that the README or authorized demo does not support.
-2. List a few small, related questions inside that same situation: what is confusing now, what would I give the tool,
-   and what useful result would I see? Use only questions that the verified functions can answer. Do not treat this as
-   a required count or a repetitive Q&A script.
-3. Write one continuous spoken paragraph before splitting it. Start with the familiar problem, explicitly name the
-   project in the opening, then let each answer lead naturally to the next. Keep technical terms only when the viewer
-   needs them and can understand them from the picture. Keep names such as Claude, OpenAI, GitHub, and the project name
-   in English. Mention approximate stars once; the renderer inserts the current magnitude in the GitHub identity shot.
-4. Split the paragraph into hook, 2-4 sections, and closing without adding or losing words. Each section must add a
-   new action or result, not restate the promise. End with a relevant personal recommendation, not a URL instruction
-   or a recap of the research process.
-   Select only the functions needed to answer the viewer's small questions. Do not enumerate diagram types, export
-   formats, or integrations merely because the README lists them.
+用可重复的帧驱动动画，在现有环境运行。局部检查表达、可读性、动作与结果；整片检查衔接、节奏和音画关系。AI 可以检查生成画面并据此修复。记录具体问题与证据，再验证修复影响的片段。未实际观看的内容不得声称已经视觉通过，估计字幕时间不得声称精确对齐。
 
-Prefer a compact short explanation. Choose duration by explanatory needs and pacing, independently of material source;
-choose the shorter end when the idea is already clear. Do not pad narration to fill a target. These are editorial
-judgments and must not become new language, scene-count, or duration rejection gates.
-
-## Make beats show the answer
-
-- Keep narrative scenes few and meaningful. One scene can contain several visual beats while narration continues.
-  A beat is a change of focus, action, proof, or result; it does not automatically mean a hard cut.
-- Before writing beats, make a short shot map for the one example: the viewer's problem, the documented input or
-  action, and the useful result. Name the concrete example objects and what the viewer will see change in each shot;
-  for a code-review example, this might be one webpage control, its changed file, a related code area, and a sample
-  comment connected to that area. For each new spoken fact, choose the closest permitted proof or explanatory change.
-  Use a README-linked image only when its visible content actually explains that fact; an unrelated project image is
-  not filler B-roll. Illustrative example details may be invented to explain a documented function; they are visual
-  storytelling, not claims that this exact case was locally run.
-- Read the research `productionMaterials` for each function chosen for the cut. Choose inspected media or generated animation by explanatory value. For media use the supplied asset ID and crop
-  or clip; for animation turn the concrete objects and actions into a spatially
-  continuous `object-action` stage. The research handoff is a material inventory, not a request to display every item.
-- Treat `visualMode` as an instruction to the renderer, not a mood label. For a README or demo image, use the existing
-  asset ID and `focalRegion` for a wide view followed by one useful push-in. For an explanatory diagram, use
-  `progressive-flow`, `compare`, or `statement` with no asset IDs, and supply `canvas`
-  snapshots: 1-5 short labeled nodes (`id`, `label`,
-  `kind`: `input`, `action`, `result`, or `note`), visible `edges` (`from`, `to`), and `focusId`. Keep a node's ID and
-  label stable across consecutive beats; repeat it in the next snapshot when it should remain visible. Add only the
-  node or connection the narration has just earned. If a screenshot is the proof, return to that real image rather
-  than drawing a speculative UI. Set `canvas` to `null` for media and other non-diagram beats.
-- When an included function has no relevant README media, prefer `visualMode: object-action`. Give every beat a
-  complete `stage` snapshot of stable objects (ID, kind, label, normalized x/y, idle/active/done state), visible
-  links, and one renderable action (`reveal`, `move`, `gather`, `expand`, `scan`, `anchor`, `morph`, or `focus`) targeting
-  the affected objects. Give window, code, and comment objects short example detail where useful, not just generic
-  labels. Carry objects and their identities between beats; moving files into a review area or
-  connecting a comment to code must be visible rather than only described in `purpose`. Reserve `illustration`
-  browser, comparison, or question shots for genuinely static comparisons or pivotal questions. The browser is a
-  stylized explanation, not a screenshot of the product. Use entrance motion only to reveal new meaning.
-- In the handoff, describe the actual visible input, action and result. The visual agent may reuse a template,
-  compose primitives or generate an actual JSX shot when a new expression is needed. Do not simplify the required
-  expression to fit the old renderer. `purpose` is a planning note and does not itself create an animation.
-- Prefer one readable base image, README crop, or simple diagram. Direct attention with a gentle push-in, highlight,
-  focal crop, progressive reveal, or simple simulated before/after. Reserve full-screen scene transitions for a real
-  topic change, not a new sentence.
-- For a quick beat, show only a short keyword or visible result; subtitles already carry the spoken sentence. Avoid
-  stacking a large sentence, multiple cards, and a caption over the same image. Give a README crop enough time to read.
-- First make the input or before-state visible, then the documented project action, then the useful result. A visual
-  beat's `narrationCue` must be an exact substring of its own section narration. Every beat maps to verified claims,
-  and any media beat uses an existing licensed asset. Animation and recorded results are equally eligible.
-- The opening personal problem and official GitHub identity shot are separate moments. Show the project name and
-  approximate stars briefly, then move to the example. Keep provenance labels and static-run caveats in metadata,
-  not in the viewer's frame or voiceover.
-
-## Review and handoff
-
-Read the joined narration as one paragraph. Remove repeated benefits, independent-sounding transitions, expert-only
-examples, and visual beats that add nothing. Check whether a novice can answer “what problem does it solve for me?”
-without reading on-screen paragraphs. Keep the plan in `resources/editorial-plan.json` with a readable
-`resources/editorial-plan.md` for human review. `video:prepare` may run only when this plan matches the current
-research and editing Skill. Final video review and publishing remain human decisions; do not inspect generated sample
-frames or contact sheets as an AI quality step.
+实现替换可以写回同一策划案；改变旁白、事实、整体叙事或选定风格须回到策划阶段显式更新。画面修复复用有效配音，契约或计划摘要变更必须显式重建对应状态。技术检查和完整解码之后交付人工最终评审，不自动发布。

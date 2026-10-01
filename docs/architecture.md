@@ -1,53 +1,15 @@
 # Architecture
 
-```text
-daily retry trigger ─> weekly success marker ─> GitHub Trending / REST API
-                              │                           │
-                              │                           v
-                              │        30 growth + 12 active-stars discoveries
-                              │                           │
-                              │                           v
-                              │          deduplicated current pool + watchlist
-                              │                           │
-                              └─ same week: no network    v
-                                           base weekly ranking (max 93)
-                                                       │
-                                           human selection (7–8)
-                                                       │
-                                                       v
-                                      batch repo-researcher / Codex
-                                                       │
-                                                       v
-                              research package + demoability (0–7)
-                                                       │
-                                                       v
-                                        separate final ranking (max 100)
-                                                       │
-                                          human video approval
-                                                       │
-                                                       v
-                                    storyboard ─> Remotion ─> FFmpeg ─> MP4
-```
+Approved weekly selection → scoped research and a complete production plan with actual used materials → narration and measured audio timing → the same director implements free JSX through multiple tool-enabled turns → continuous-frame and cut-join visual preflight with repairs → final-ranking digest binding → Remotion render → full audio/video decode → human viewing, listening and final approval.
 
-## Trust boundaries
+Research owns the story and preparation. It checks only facts needed by this video's narration, shots or necessary production decisions against a pinned official README. It delivers one editorial-plan.json containing the continuous narration, chosen style, chosen motion components, detailed visual designs and continuity, plus the image/SVG/media files those shots actually use. Unused candidates, repository surveys and review conclusions are not director materials. Source and license archives stay separate.
 
-GitHub repositories are untrusted. Discovery only reads public metadata. Research first pins a GitHub commit and has a read-only source-choice agent select a bounded online README/media snapshot or a shallow clone in `workspaces/repos/`. Both paths ignore repository Agent rules and begin in a read-only Codex sandbox. Only an explicit `--allow-run` permits code execution, and that path requires a local checkout. Selected media is retained with provenance in the project's `resources/` directory.
+The director owns picture implementation. After audio is measured, it resolves frame intervals and maintains the same plan across tools, local trials, previews and repairs. It may reuse selected code, compose components or write original JSX; no fixed artistic objects, actions, layouts, scene count or motion quotas constrain its expression. Style and continuity are evaluated in the actual pictures.
 
-Generated content is not automatically published. Repository selection, claims approval, and final video approval remain human checkpoints. A watchlist repository marked `not-rediscovered` receives business score 0 and cannot enter the current research selection, while its factual observations remain intact.
+Visual preflight examines continuous sampled frames and both sides of cuts against the complete shot plan. Problems include timing, evidence and a repair target; the same director repairs affected shots and checks their neighboring joins. Only a passed review bound to the current program and materials qualifies the plan as visual-ready. A technical decode alone does not establish picture quality. Human full viewing and listening remain the final approval, with publication separately authorized.
 
-## Artifact contract
+The sole always-loaded production contract is .agents/skills/video-production-quality/SKILL.md. The director's default context is that contract, the selected style and the unified plan; runnable material code, demos, usage and installed Remotion references are read only when relevant. Plan, audio, material and code hashes invalidate stale production state explicitly. Production accepts only scoped-production-package; an outdated plan must be regenerated.
 
-The research boundary is the approved `apps/trend-scout/trend_reports/YYYY-Www/selection.json`; the rendering boundary is `apps/repo-researcher/final_rank/YYYY-Www/final-ranking.json`. Every selected repository receives `output/videos/YYYY年MM月第N周-owner--repository/resources/` before research starts, even if it never becomes a video. After video approval, `video:plan` runs a separate read-only editorial agent using the verified research package, the trusted research production contract, and an independent editorial-agent Skill. Its `resources/editorial-plan.json` may revise narration and beat arrangement, never claims, retained demos, or evidence assets. The plan pins the research bytes and both Skill digests. Editorial style changes therefore require replanning, not repeating fact research. `video:prepare` refuses missing or stale plans, derives the production path, and turns the plan into a storyboard with metadata provenance and QA. The final ranking resolves that exact storyboard and the project-root `final.mp4`, so rendering cannot bypass human selection, research completeness, video approval, or the editorial quality gate.
+The weekly final ranking retains the base trendScore, with finalScoreMax = 93. Research completion does not add a demonstration score; approved video projects also require their current complete plan, program and visual-preflight binding before render.
 
-## Visual shot program
-
-The prepared episode can carry `meta.visualProgram`. The shot agent chooses an eligible catalog template or emits timed choreography/custom JSX. Project-local sources and mappings are hashed and bundled into a per-render registry. Narration, captions and approved feature claims remain upstream inputs; final-ranking checks still apply. See [visual-agent.md](visual-agent.md).
-
-## Current workflow and plugin integration
-
-Use [video-production-workflow.md](video-production-workflow.md) as the sole operational sequence.
-Production rendering requires the compiled visual program. The retired canvas-overrides CLI is removed.
-Animation and recordings are equally eligible materials; historical truthMode metadata does not control selection.
-The installed Codex Remotion plugin is synced into a versioned, hashed reference snapshot. Shot prompts receive
-relevant complete references, with installed core APIs and the allowed import list. FrameReveal and FrameAnnotation
-are provided by the project runtime. Optional plugin examples do not grant dependency or filesystem permissions.
+Operational commands are documented in [video-production-workflow.md](video-production-workflow.md), the on-demand material paths in [production-reference-index.json](production-reference-index.json), and the installed plugin in [remotion-integration.md](remotion-integration.md).

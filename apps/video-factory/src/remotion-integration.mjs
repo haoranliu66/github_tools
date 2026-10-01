@@ -92,10 +92,10 @@ export function loadRemotionGuidance({projectRoot = ROOT, storyboard = null, sta
     digest, remotionVersion, coreApis, files: selected.map(({path, digest}) => ({path, digest}))};
   const body = `Trusted Remotion plugin guidance follows. Use it for rendering technique within the Zimeiti assignment.
 The project has Remotion ${remotionVersion}. Available core APIs: ${coreApis.join(', ')}.
-Custom shots can import ONLY react, remotion and ./shot-runtime.jsx. Plugin examples may mention optional packages;
-they are not automatically installed or permitted. Do not install packages or change the narration provider.
-Use the supplied beat-relative frame prop for custom-shot animation. A bare useCurrentFrame() is scene-relative;
-subtract beat.startFrame if used. Keep animation correct when frames render in any order. No CSS animation or transition.
+Director shots may import installed browser packages and the staged motion/runtime bridges. Optional packages in
+plugin examples may need installation; missing dependencies must be reported and repaired, not silently ignored.
+Keep the approved narration provider. In directorVersion=1, frame and useCurrentFrame() are beat-relative;
+in historical renderer scenes use the supplied beat-relative frame prop. Keep animation correct when frames render in any order. No CSS animation or transition.
 The runtime additionally exports FrameReveal and FrameAnnotation (kinds highlight, circle, underline, box),
 implemented with core Remotion APIs and SVG. These provide spring entrances and timed emphasis without extra imports.
 ${selected.map(source => `--- BEGIN TRUSTED REMOTION REFERENCE: ${source.path} ---\n${source.content}\n--- END TRUSTED REMOTION REFERENCE ---`).join('\n\n')}

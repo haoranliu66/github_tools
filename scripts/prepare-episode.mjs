@@ -49,26 +49,8 @@ for (const file of [
 }
 mkdirSync(join(output, 'audio'), {recursive: true});
 const draft = JSON.parse(readFileSync(draftPath, 'utf8'));
-const editorialConfig = draft.meta?.template === 'editorial'
-  ? JSON.parse(readFileSync(join(root, 'config/video-editorial.json'), 'utf8'))
-  : null;
-const narrationConfig = editorialConfig ?? {
-  narrationBlocks: {
-    defaultProfile: 'concept-explainer',
-    requiredMaxNewTokens: 1024,
-    maxRequestCharacters: 1000,
-    maxAudioSeconds: 64,
-    gapSeconds: 0.24,
-    profiles: {
-      'concept-explainer': {
-        minScenes: 2, targetScenes: 3, maxScenes: 3, shortBlockSeconds: 9, topicChange: 'soft',
-      },
-      'code-analysis': {
-        minScenes: 2, targetScenes: 3, maxScenes: 5, shortBlockSeconds: 10, topicChange: 'hard',
-      },
-    },
-  },
-};
+if(draft.meta?.productionStage!=='audio-ready'||draft.meta.planner!=='audio-first-director')throw new Error('Only current planned narration drafts can be prepared.');
+const narrationConfig=JSON.parse(readFileSync(join(root,'config/video-editorial.json'),'utf8'));
 const blockSettings = narrationConfig.narrationBlocks;
 const profileName = draft.meta?.narrationProfile ?? blockSettings.defaultProfile;
 const profile = blockSettings.profiles[profileName];
@@ -164,8 +146,6 @@ try {
 const measuredSeconds = synthesis.blocks.map((block) => block.duration);
 const result = buildNarratedStoryboardFromBlocks(draft, synthesis.blocks, {
   gapSeconds: blockSettings.gapSeconds,
-  minimumTotalSeconds: editorialConfig ? editorialConfig.durationSeconds.min : 0,
-  maxSceneSeconds: editorialConfig ? editorialConfig.durationSeconds.maxScene : 0,
 });
 for (const [index, clip] of result.audioClips.entries()) {
   run(ffmpeg.path, [
@@ -185,30 +165,7 @@ result.storyboard.voiceover = 'narration.wav';
 const stagedAssets = new Map();
 async function stageAsset(assetSource) {
   if (!assetSource) return assetSource;
-  if (/^https?:\/\//i.test(assetSource)) {
-    const existing = stagedAssets.get(assetSource);
-    if (existing) return existing;
-    const url = new URL(assetSource);
-    if (url.protocol !== 'https:' || url.hostname !== 'opengraph.githubassets.com') {
-      throw new Error(`Remote visual asset is not from the approved GitHub preview host: ${url.hostname}`);
-    }
-    const response = await fetch(url, {signal: AbortSignal.timeout(30_000)});
-    if (!response.ok) throw new Error(`GitHub repository preview download failed: HTTP ${response.status}.`);
-    const contentType = response.headers.get('content-type')?.split(';')[0].trim().toLowerCase();
-    const extension = new Map([
-      ['image/png', '.png'], ['image/jpeg', '.jpg'], ['image/webp', '.webp'],
-    ]).get(contentType);
-    if (!extension) throw new Error(`GitHub repository preview returned unsupported content type: ${contentType}.`);
-    const bytes = Buffer.from(await response.arrayBuffer());
-    if (!bytes.length || bytes.length > 12 * 1024 * 1024) {
-      throw new Error(`GitHub repository preview has an invalid size: ${bytes.length} bytes.`);
-    }
-    const stagedPath = join('assets', `${String(stagedAssets.size + 1).padStart(2, '0')}-github-repository${extension}`);
-    mkdirSync(join(output, 'assets'), {recursive: true});
-    writeFileSync(join(output, stagedPath), bytes);
-    stagedAssets.set(assetSource, stagedPath);
-    return stagedPath.replaceAll('\\', '/');
-  }
+  if(/^(?:https?:|data:)/iu.test(assetSource))throw new Error('Research must materialize assets before audio preparation.');
   const sourcePath = resolve(dirname(draftPath), assetSource);
   let stagedPath = stagedAssets.get(sourcePath);
   if (!stagedPath) {
@@ -220,12 +177,7 @@ async function stageAsset(assetSource) {
   }
   return stagedPath.replaceAll('\\', '/');
 }
-for (const scene of result.storyboard.scenes) {
-  if (scene.src) scene.src = await stageAsset(scene.src);
-  for (const beat of scene.visualBeats ?? []) {
-    if (beat.src) beat.src = await stageAsset(beat.src);
-  }
-}
+for(const material of result.storyboard.meta.materials??[]) material.src=await stageAsset(material.src);
 const errors = validateStoryboard(result.storyboard);
 if (errors.length) throw new Error(errors.join('\n'));
 writeFileSync(join(output, 'storyboard.json'), JSON.stringify(result.storyboard, null, 2));

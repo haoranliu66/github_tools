@@ -1,85 +1,72 @@
 import assert from 'node:assert/strict';
-import {mkdtempSync, rmSync, writeFileSync} from 'node:fs';
-import {tmpdir} from 'node:os';
+import {mkdirSync, mkdtempSync, rmSync, writeFileSync} from 'node:fs';
 import {join, resolve} from 'node:path';
+import {tmpdir} from 'node:os';
 import test from 'node:test';
 import {loadEditorialContract} from '../apps/repo-researcher/src/editorial-contract.mjs';
-import {completedResearchFixture, editorialDraftFixture} from './helpers/completed-research.mjs';
-import {
-  applyEditorialDraft, buildEditorialAgentPrompt, editorialPlanSchema,
-  loadEditorialPlan, loadVideoEditingSkill, makeEditorialPlan,
-} from '../apps/video-factory/src/editorial-agent.mjs';
-import {readFileSync} from 'node:fs';
-
+import {loadEditorialFeedback, loadEditorialPlan, loadVideoEditingSkill, sha256} from '../apps/video-factory/src/editorial-agent.mjs';
+import {loadLibraries} from '../apps/video-factory/src/creative-plan.mjs';
+import {createProductionPackage} from '../apps/video-factory/src/production-package.mjs';
 const projectRoot = resolve(import.meta.dirname, '..');
-const contract = loadEditorialContract(projectRoot);
-const editingSkill = loadVideoEditingSkill(projectRoot);
-const researchSchema = JSON.parse(readFileSync(join(projectRoot,
-  'apps/repo-researcher/schemas/research.schema.json'), 'utf8'));
 
-function fixture() {
-  const research = completedResearchFixture({contract});
-  return {research, draft: editorialDraftFixture(research)};
+function fixture(t) {
+  const directory = mkdtempSync(join(tmpdir(), 'zimeiti-current-plan-'));
+  t.after(() => rmSync(directory, {recursive: true, force: true}));
+  const contract = loadEditorialContract(projectRoot), editingSkill = loadVideoEditingSkill(projectRoot);
+  const libraries = loadLibraries(projectRoot, {fullName: 'fixture/current'});
+  const value = {claims: [{claim: '工具整理文字', quote: 'Formats text.'}],
+    content: {title: '整理文字', fullNarration: '工具整理文字。', styleId: libraries.styles[0].id,
+      visualIntent: '呈现输入变为整理结果', units: [{id: 'input', heading: '整理', narration: '工具整理文字。', visualIntent: '输入整理为结果', claimIndexes: [0]}]},
+    designContext: '文字输入在连续画面中变为整齐输出',
+    shots: [{id: 'shot', unitId: 'input', narrationCue: '工具整理文字', purpose: '说明整理过程',
+      visualDesign: '文字在同一画面里重新排列', continuity: '保留原输入对象，落在整理结果', route: 'custom', libraryIds: [], assetIds: []}], assets: []};
+  const {plan, researchText} = createProductionPackage(value, {fullName: 'fixture/current',
+    preview: {readmeText: 'Formats text.', readmeName: 'README.md', sha: 'a'.repeat(40)}, contract, editingSkill, libraries});
+  const path = join(directory, 'editorial-plan.json');
+  const save = () => writeFileSync(path, JSON.stringify(plan)); save();
+  return {plan, path, save, directory, args: {resourcesDirectory: directory, fullName: 'fixture/current', researchText, contract, editingSkill}};
 }
 
-test('editorial agent output schema excludes immutable research evidence', () => {
-  const schema = editorialPlanSchema(researchSchema);
-  assert.deepEqual(schema.required, ['editorialBrief', 'video', 'visualEvidencePackage']);
-  assert.ok(!schema.properties.video.properties.visualAssets);
-  assert.ok(!schema.properties.visualEvidencePackage.properties.evidenceAssets);
-  assert.ok(!schema.properties.visualEvidencePackage.properties.demoMoments);
-  assert.equal(schema.properties.visualEvidencePackage.properties.visualBeats.items.properties.narrationCue.type, 'string');
-  assert.ok(schema.properties.visualEvidencePackage.properties.hookMoment.required.includes('canvas'));
-  assert.ok(schema.properties.visualEvidencePackage.properties.visualBeats.items.required.includes('canvas'));
-  assert.ok(schema.$defs.visualMode.enum.includes('object-action'));
-  assert.ok(schema.properties.visualEvidencePackage.properties.visualBeats.items.properties.stage);
-  assert.ok(!schema.properties.visualEvidencePackage.properties.productionMaterials);
+test('current scoped production plans load without constructing an alternate editorial draft', (t) => {
+  const f = fixture(t), loaded = loadEditorialPlan(f.args);
+  assert.equal(loaded.plan.workflow, 'scoped-production-package');
+  assert.equal(loaded.content.fullNarration, '工具整理文字。');
+  assert.equal(loaded.digest, sha256(JSON.stringify(f.plan)));
+  assert.equal(loadEditorialFeedback(f.directory).text, '');
 });
 
-test('editorial draft preserves claims, demo status and evidence assets', () => {
-  const {research, draft} = fixture();
-  const revised = applyEditorialDraft(research, draft, contract);
-  assert.deepEqual(revised.claims, research.claims);
-  assert.deepEqual(revised.demoPlan, research.demoPlan);
-  assert.deepEqual(revised.visualEvidencePackage.evidenceAssets, research.visualEvidencePackage.evidenceAssets);
-  assert.deepEqual(revised.video.visualAssets, research.video.visualAssets);
-  assert.match(buildEditorialAgentPrompt(research, contract, editingSkill), /read-only|read.only/iu);
+test('research, identity, contract, editing skill and real feedback changes invalidate the plan', (t) => {
+  const f = fixture(t);
+  assert.throws(() => loadEditorialPlan({...f.args, researchText: f.args.researchText + ' '}), /stale/u);
+  assert.throws(() => loadEditorialPlan({...f.args, fullName: 'other/project'}), /stale/u);
+  assert.throws(() => loadEditorialPlan({...f.args, contract: {...f.args.contract, digest: 'f'.repeat(64)}}), /stale/u);
+  assert.throws(() => loadEditorialPlan({...f.args, editingSkill: {...f.args.editingSkill, digest: 'f'.repeat(64)}}), /stale/u);
+  writeFileSync(join(f.directory, 'editorial-feedback.md'), '增加清楚的输出状态。');
+  assert.throws(() => loadEditorialPlan(f.args), /stale/u);
 });
 
-test('editorial plan becomes stale when research or the production skill changes', (t) => {
-  const directory = mkdtempSync(join(tmpdir(), 'zimeiti-editorial-plan-test-'));
-  t.after(() => rmSync(directory, {recursive: true, force: true}));
-  const {research, draft} = fixture();
-  const researchText = `${JSON.stringify(research, null, 2)}\n`;
-  const fullName = 'fixture/approved';
-  const plan = makeEditorialPlan({fullName, researchText, contract, editingSkill, draft});
-  writeFileSync(join(directory, 'editorial-plan.json'), JSON.stringify(plan), 'utf8');
-  const loaded = loadEditorialPlan({resourcesDirectory: directory, fullName, researchText, contract, editingSkill});
-  assert.equal(loaded.research.video.fullNarration, draft.video.fullNarration);
-  assert.equal(loaded.plan.researchDigest, plan.researchDigest);
-  assert.throws(() => loadEditorialPlan({
-    resourcesDirectory: directory, fullName, researchText: `${researchText} `, contract, editingSkill,
-  }), /stale/u);
-  assert.throws(() => loadEditorialPlan({
-    resourcesDirectory: directory, fullName, researchText,
-    contract: {...contract, digest: '0'.repeat(64)}, editingSkill,
-  }), /stale/u);
-  assert.throws(() => loadEditorialPlan({
-    resourcesDirectory: directory, fullName, researchText, contract,
-    editingSkill: {...editingSkill, digest: '0'.repeat(64)},
-  }), /stale/u);
-  writeFileSync(join(directory, 'editorial-feedback.md'), '请改成更简单的个人网站例子。', 'utf8');
-  assert.throws(() => loadEditorialPlan({
-    resourcesDirectory: directory, fullName, researchText, contract, editingSkill,
-  }), /stale/u);
+test('altered content and preproduction cannot retain stale hashes', (t) => {
+  const f = fixture(t);
+  f.plan.preproduction.shots[0].visualDesign = '另一个过程'; f.save();
+  assert.throws(() => loadEditorialPlan(f.args), /Preproduction design changed/u);
+  f.plan.preproductionDigest = sha256(JSON.stringify(f.plan.preproduction));
+  f.plan.content.title = '修改后的标题'; f.save();
+  assert.throws(() => loadEditorialPlan(f.args), /Content plan digest mismatch/u);
 });
 
-test('editorial agent rejects broken narration joins and invented visual evidence', () => {
-  const {research, draft} = fixture();
-  draft.video.fullNarration = '不是各段旁白的连接';
-  assert.throws(() => applyEditorialDraft(research, draft, contract), /exactly join/u);
-  draft.video.fullNarration = [draft.video.hook, ...draft.video.sections.map((section) => section.narration),
-    draft.video.closing].join('');
-  draft.visualEvidencePackage.visualBeats[0].assetIds = ['fabricated-image'];
-  assert.throws(() => applyEditorialDraft(research, draft, contract), /known evidence asset ids/u);
+test('only the complete current production package is accepted', (t) => {
+  const f = fixture(t);
+  f.plan.workflow = 'other-workflow'; f.save();
+  assert.throws(() => loadEditorialPlan(f.args), /Only the current scoped-production-package/u);
+  f.plan.workflow = 'scoped-production-package'; f.plan.preproduction.shots = []; f.save();
+  assert.throws(() => loadEditorialPlan(f.args), /complete preproduction/u);
+});
+
+test('missing plans and malformed editing skills report actionable errors', (t) => {
+  const f = fixture(t); rmSync(f.path);
+  assert.throws(() => loadEditorialPlan(f.args), /missing or unreadable/u);
+  const root = join(f.directory, 'invalid-skill');
+  mkdirSync(join(root, '.agents/skills/video-editorial-agent'), {recursive: true});
+  writeFileSync(join(root, '.agents/skills/video-editorial-agent/SKILL.md'), '# wrong skill');
+  assert.throws(() => loadVideoEditingSkill(root), /invalid frontmatter/u);
 });

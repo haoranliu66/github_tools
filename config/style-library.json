@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "styles": [
+    {
+      "id": "editorial-paper",
+      "name": "纸面编辑风",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#23252b",
+        "muted": "#72747c",
+        "accent": "#6557e8",
+        "panel": "#ffffff",
+        "line": "#d9d6cf"
+      },
+      "background": "radial-gradient(circle at 15% 20%,#f3edff,#f5f2eb 55%)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 22,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "asymmetric editorial hierarchy",
+        "contentMargin": 90,
+        "captionSafeBottom": 128,
+        "titleSize": 82
+      },
+      "illustration": {
+        "texture": "paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "measured with crisp semantic changes",
+        "easing": "cubic out",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "dip-to-color",
+          "defocus"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "dip-to-color",
+        "defocus"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#23252b",
+        "background": "#ffffffed",
+        "radius": 14,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "dark-cinematic",
+      "name": "深色产品演示",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f2f4ff",
+        "muted": "#929ab4",
+        "accent": "#65dcfb",
+        "panel": "#171e32",
+        "line": "#344567"
+      },
+      "background": "radial-gradient(ellipse at 70% 15%,#16344e,#0b1020 65%)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 24,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "wide focal stage and layered depth",
+        "contentMargin": 70,
+        "captionSafeBottom": 132,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "camera continuity and deliberate payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 20,
+          "stiffness": 110
+        },
+        "transitions": [
+          "camera-match",
+          "defocus",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "camera-match",
+        "defocus",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#fff",
+        "background": "#10131fe6",
+        "radius": 14,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "ink-notebook",
+      "name": "手绘讲解",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#242329",
+        "muted": "#77716a",
+        "accent": "#f08143",
+        "panel": "#fffdf8",
+        "line": "#242329"
+      },
+      "background": "repeating-linear-gradient(0deg,#fffaf0,#fffaf0 39px,#e6e0d4 40px)",
+      "typography": {
+        "heading": "KaiTi, Microsoft YaHei, sans-serif",
+        "body": "KaiTi, Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 6,
+        "borderWidth": 3,
+        "shadow": "6px 6px 0 #222"
+      },
+      "layout": {
+        "composition": "spatial diagrams and hand annotations",
+        "contentMargin": 82,
+        "captionSafeBottom": 140,
+        "titleSize": 80
+      },
+      "illustration": {
+        "texture": "ruled-paper",
+        "strokeWidth": 3,
+        "iconTreatment": "hand drawn SVG"
+      },
+      "motion": {
+        "cadence": "draw paths, move examples, resolve highlights",
+        "easing": "quad out",
+        "spring": {
+          "damping": 24,
+          "stiffness": 170
+        },
+        "transitions": [
+          "draw-wipe",
+          "match-cut",
+          "dip-to-color"
+        ]
+      },
+      "transitions": [
+        "draw-wipe",
+        "match-cut",
+        "dip-to-color"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#242329",
+        "background": "#fffdf0",
+        "radius": 4,
+        "shadow": "4px 4px 0 #222"
+      }
+    },
+    {
+      "id": "bold-geometric",
+      "name": "明亮几何风",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#172725",
+        "muted": "#52736a",
+        "accent": "#ff6c42",
+        "panel": "#ffffff",
+        "line": "#abd4c8"
+      },
+      "background": "linear-gradient(125deg,#d7f8e7,#c9eff5)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 32,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "large graphic objects and playful dimensional hierarchy",
+        "contentMargin": 76,
+        "captionSafeBottom": 130,
+        "titleSize": 96
+      },
+      "illustration": {
+        "texture": "flat-geometric",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "elastic builds and shape continuity",
+        "easing": "spring",
+        "spring": {
+          "damping": 15,
+          "stiffness": 150
+        },
+        "transitions": [
+          "shape-match",
+          "directional-wipe",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "shape-match",
+        "directional-wipe",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#172725",
+        "background": "#ffffffed",
+        "radius": 32,
+        "shadow": "0 3px 12px #0004"
+      }
+    }
+  ]
+}

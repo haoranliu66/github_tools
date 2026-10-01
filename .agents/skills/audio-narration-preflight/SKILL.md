@@ -15,7 +15,7 @@ topic selection, factual review, run authorization, voice authorization, and fin
   synthesize both parts; never crop the WAV or discard text.
 - Use the measured WAV duration as the main limit. A final narration block must be no longer than the configured 64-second ceiling.
 - A Qwen request must contain at most 1,000 characters, including punctuation.
-- A concept-explainer narration block normally covers 2-3 visual scenes so approximate scene and subtitle timing stays
+- A concept-explainer narration block normally covers 2-3 semantic narration units (not final visual scenes) so approximate scene and subtitle timing stays
   close to the spoken idea. Other profiles may cover up to their configured maximum. Technical duration or request-
   limit splits may temporarily produce a one-scene block and must be recorded in timing metadata.
 - Keep explanations predominantly Chinese, but preserve proper product, company, model, and project names such as
@@ -27,7 +27,7 @@ topic selection, factual review, run authorization, voice authorization, and fin
   preflight without printing the API key.
 - Automated checks may mark narration ready for listening, but never accepted. A human must listen to the complete
   narration in the final rendered MP4 at normal speed before final video approval.
-- Prepared scene timing may be up to the configured 32 seconds. This is separate from the 64-second hard ceiling for
+- Historical prepared scene timing may be up to the configured 32 seconds. Audio-first semantic containers do not freeze final shot boundaries. This is separate from the 64-second hard ceiling for
   one synthesized narration block.
 
 ## Choose cadence from the project
@@ -53,7 +53,7 @@ selected profile in `timing.json`.
    complete parts. If no sentence boundary exists, fail for editorial correction instead of cutting content.
 5. If adjacent blocks share a topic and either is shorter than the profile's short-block threshold, try one merged
    synthesis. Keep the original valid blocks if the merged request fails or exceeds any hard limit.
-6. Build subtitle cues and scene boundaries inside the continuous block from the measured duration. Visual scenes may
+6. Build approximate subtitle cues and semantic audio-unit boundaries from the measured duration. The director then designs final scenes against this retained timeline. Visual scenes may
    change while the same WAV continues; do not insert a new TTS request merely because the picture changes. The
    current Qwen endpoint returns WAV without word timestamps, so `measured-block-weighted-cues` is an approximate
    semantic allocation and must not be described as forced alignment.

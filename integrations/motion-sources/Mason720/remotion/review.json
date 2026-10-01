@@ -1,0 +1,42 @@
+{
+  "licenseFiles": [
+    "LICENSE"
+  ],
+  "candidateCodePaths": [
+    "src/Root.tsx",
+    "src/components/AsciiPlayer.tsx",
+    "src/components/BRollVideo.tsx",
+    "src/components/Caption.tsx",
+    "src/components/Code.tsx",
+    "src/components/CodeSlide.tsx",
+    "src/components/ContentSlide.tsx",
+    "src/components/Diagram.tsx",
+    "src/components/DiagramSlide.tsx",
+    "src/components/Logo.tsx",
+    "src/components/Music.tsx",
+    "src/components/Screenshot.tsx",
+    "src/components/TitleSlide.tsx",
+    "src/components/VideoSlide.tsx",
+    "src/components/ZoomableVideo.tsx",
+    "src/compositions/example1/Composition.tsx",
+    "src/compositions/example1/segments/InfoSegment.tsx",
+    "src/compositions/example1/segments/IntroSegment.tsx",
+    "src/compositions/example2/Composition.tsx",
+    "src/compositions/example2/segments/Feature1Segment.tsx",
+    "src/compositions/example2/segments/Feature2Segment.tsx",
+    "src/compositions/example2/segments/TitleSegment.tsx",
+    "src/compositions/my-video/Composition.tsx",
+    "src/compositions/my-video/segments/IntroSegment.tsx",
+    "src/utils/createComposition.tsx"
+  ],
+  "status": "downloaded-for-source-review",
+  "executed": false,
+  "commit": "e527a9d3a7f97ae03695438a36aa0be02d72e362",
+  "inspectedCode": [
+    "src/components/Code.tsx",
+    "src/components/Logo.tsx",
+    "src/components/Music.tsx"
+  ],
+  "repository": "Mason720/remotion",
+  "url": "https://github.com/Mason720/remotion"
+}

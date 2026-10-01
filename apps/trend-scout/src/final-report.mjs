@@ -1,9 +1,11 @@
+import {requireVisualPreflight} from '../../video-factory/src/visual-preflight.mjs';
+import {validateFactResearch,loadFactReadme} from '../../repo-researcher/src/fact-research.mjs';
 import {createHash} from 'node:crypto';
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {join, relative, resolve} from 'node:path';
 import {loadSelection, resolveSelectionProjectPath} from './selection.mjs';
-import {validateResearchResult} from '../../repo-researcher/src/artifacts.mjs';
 import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
+import {verifyCreativeProgram} from '../../video-factory/src/creative-program.mjs';
 import {loadEditorialPlan, loadVideoEditingSkill} from '../../video-factory/src/editorial-agent.mjs';
 import {
   finalRankingWeekDirectory,
@@ -20,16 +22,12 @@ export function latestResearch(projectRoot, fullName, selection, {
   const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
   const directory = layout.resourcesDirectory;
   const researchPath = join(directory, 'research.json');
-  const storyboardPath = join(directory, 'storyboard.json');
+  const storyboardPath=layout.storyboardPath;
   if (!existsSync(researchPath)) return null;
   try {
     const research = JSON.parse(readFileSync(researchPath, 'utf8'));
-    const score = research?.demoability?.score;
-    if (research.status !== 'completed' || !Number.isInteger(score) || score < 0 || score > 7 ||
-        !existsSync(storyboardPath)) {
-      return {status: 'incomplete', directory, research, reason: 'Research lacks a valid demoability score or storyboard.'};
-    }
-    validateResearchResult(research, {expectedEditorialContract: editorialContract});
+    validateFactResearch(research,{contract:editorialContract,readmeText:loadFactReadme(directory)});
+    if(!existsSync(join(directory,'editorial-plan.json'))||!existsSync(join(directory,'media_manifest.json')))throw new Error('Current complete scoped plan and used-material manifest are required.');
     return {status: 'completed', directory, research, storyboardPath, layout};
   } catch (error) {
     return {status: 'incomplete', directory, reason: error.message, layout};
@@ -58,6 +56,12 @@ function productionStoryboard(projectRoot, selection, fullName, research, editor
   if (storyboard.meta?.editorialPlanDigest !== editorialPlan.digest) {
     throw new Error(`Approved production storyboard has a stale editorial plan for ${fullName}; run video:prepare again.`);
   }
+  if(storyboard.meta.productionStage!=='visual-ready') throw new Error('Audio is ready but final visual direction is missing. Run video:direct.');
+  const preflightPath=storyboard.meta?.visualPreflight?.reportPath;if(!preflightPath)throw new Error('Current visual preflight is required.');
+  verifyCreativeProgram(storyboard,layout.resourcesDirectory);
+  requireVisualPreflight({...JSON.parse(readFileSync(preflightPath,'utf8')),reportPath:preflightPath},storyboard);
+
+  
   return {storyboardPath, storyboardDigest: sha256(serialized), editorialPlanDigest: editorialPlan.digest};
 }
 
@@ -67,12 +71,12 @@ function markdownFor(result) {
     '',
     `> 基础榜：${result.sourceReport}`,
     '',
-    '> 最终分 = 基础趋势分（最高 93）+ 可演示性（最高 7）。只有人工批准且研究完整的项目可以进入视频制作。',
+    '> 沿用基础趋势分（最高 93）；研究只交付本片策划和素材，不额外评估可演示性。只有人工批准且当前制作完整的项目可进入视频渲染。',
     '',
-    '| # | 项目 | 趋势分 / 93 | 可演示性 / 7 | 最终分 / 100 | 研究状态 | 视频批准 |',
-    '|---:|---|---:|---:|---:|---|---|',
+    '| # | 项目 | 趋势分 / 93 | 最终分 / 93 | 研究状态 | 视频批准 |',
+    '|---:|---|---:|---:|---|---|',
     ...result.rows.map((row) =>
-      `| ${row.finalRank ?? '-'} | ${row.fullName} | ${row.trendScore} | ${row.demoabilityScore ?? '-'} | ${row.finalScore ?? '-'} | ${row.researchStatus} | ${row.videoApproved ? '是' : '否'} |`,
+      `| ${row.finalRank ?? '-'} | ${row.fullName} | ${row.trendScore} | ${row.finalScore ?? '-'} | ${row.researchStatus} | ${row.videoApproved ? '是' : '否'} |`,
     ),
     '',
   ].join('\n');
@@ -100,8 +104,7 @@ export function writeFinalRanking({
     const layout = projectLayoutFromSelection(projectRoot, selection, fullName);
     const research = latestResearch(projectRoot, fullName, selection, {editorialContract});
     const completed = research?.status === 'completed';
-    const demoabilityScore = completed ? research.research.demoability.score : null;
-    const finalScore = completed ? Number((base.trendScore + demoabilityScore).toFixed(2)) : null;
+    const finalScore=completed?Number(base.trendScore.toFixed(2)):null;
     const videoApproved = completed && selection.videoProjects.includes(fullName);
     const production = videoApproved
       ? productionStoryboard(projectRoot, selection, fullName, research.research, editorialContract, editingSkill)
@@ -114,12 +117,8 @@ export function writeFinalRanking({
       baseRank: base.rank,
       trendScore: base.trendScore,
       trendScoreMax: 93,
-      demoabilityScore,
-      demoabilityScoreMax: 7,
-      demoabilityConfidence: completed ? research.research.demoability.confidence : null,
-      demoabilityReason: completed ? research.research.demoability.reason : null,
       finalScore,
-      finalScoreMax: 100,
+      finalScoreMax: 93,
       researchStatus: completed ? 'completed' : research?.status ?? 'missing',
       researchIssue: completed ? null : research?.reason ?? 'No current-schema research package found.',
       researchPath: research ? relative(projectRoot, research.directory).replaceAll('\\', '/') : null,

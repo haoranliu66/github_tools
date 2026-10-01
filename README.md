@@ -3,17 +3,17 @@
 面向 GitHub 开源项目知识分享视频的内容生产流水线。项目包含三个可以独立运行、也可以串联的模块：
 
 - **trend-scout**：每周幂等采集 GitHub Trending 和 GitHub API 数据，维护发现池与短期观察池，输出基础候选榜。
-- **repo-researcher**：按视频素材需求选择固定提交的 GitHub 在线快照或安全浅克隆，通过本机 Codex CLI 生成带证据的研究包。
-- **video-factory**：校验分镜 JSON，通过 Remotion 渲染，再用随项目安装的 FFmpeg 标准化输出。
+- **repo-researcher**：只研究当前视频需要的事实，交付完整策划案、选定风格与动效，以及实际使用的图片/SVG/媒体。
+- **video-factory**：实测配音后，由同一个导演多轮生成自由 JSX、预览并修复画面；连续帧与切镜视觉预检通过后渲染和完整解码。
 
 ## 运行要求
 
 - Node.js 22.5+
 - pnpm 10+
 - Git
-- Codex CLI（仅 `repo-researcher` 的正式研究需要）
+- Codex CLI（研究策划、导演画面制作和视觉预检使用当前登录态）
 
-`repo-researcher` 使用 Codex CLI 当前登录态，不调用 OpenAI API，不需要在项目里保存 `OPENAI_API_KEY`。
+研究、导演和视觉预检使用 Codex CLI 当前登录态，不需要在项目里保存 `OPENAI_API_KEY`。配音供应商连接单独配置。
 
 ## 安装
 
@@ -44,25 +44,22 @@ pnpm scout:collect
 pnpm scout:report
 ```
 
-`scout:refresh` 保留为 `scout:weekly` 的兼容别名。
-
 第一次运行还没有七天历史，评分会使用 GitHub Trending 页面显示的日/周增长作为冷启动信号。后续周采集会优先使用本地边界快照。JSON 中的 `growthMeasurementStatus`、`canClaimSevenDayGrowth` 和 `growthLabel` 是后续脚本必须遵循的发布口径：只有 `canClaimSevenDayGrowth=true` 才能写成“过去七日本地增长”。
 
 每周搜索命中的仓库分为两个独立配额：30 个 GitHub Trending 高增长项目，以及 12 个最近 84 天有推送、总 Stars 最高且没有占用增长配额的项目。两池合并去重后最多形成 42 个“当前发现池”项目，再统一进入 93 分正式评分。最近四周曾出现、但本周没有重新发现的仓库保留在“短期观察池”，状态写为 `not-rediscovered`，本周业务趋势分为 0，且不能进入研究选择；数据库仍保留其真实 Star 观测和原始趋势分，绝不把事实增长改写成 0。流程不提供人工补录项目入口。
 
 ### 候选评分
 
-候选阶段的基础趋势分最高 93 分，人工选出 7～8 个项目研究后，再在独立最终榜补可演示性 0–7 分。受众匹配不参与机器评分，最终选题由人工决定。
+基础趋势分最高 93 分。人工选择研究项目后，最终榜沿用该项目的 `trendScore`，`finalScoreMax=93`，不增加可演示性分。最终选题由人工决定。
 
 - 七日绝对增长（30 分）：5000 Stars 为 0 分，超过后按 `3 × (增长 - 5000) / 5000` 连续计分，最高 30 分。
 - 七日相对增长（15 分）：`七日增长 / max(周初 Stars, 5000)`，每 10% 得 1 分，最高 15 分。
 - 七日增长加速度（10 分）：本周相对增长率减去上周相对增长率，只计正值；两个周期的分母都至少为 5000，每增加 10 个百分点得 1 分，最高 10 分。没有十四天有效快照时该项为 `null`，不伪造为 0。
 - 七日维护活跃度（8 分）：最近推送为当天得 8 分，随后七天线性降至 0 分。
 - 总 Stars（30 分）：使用周初 Stars 计算 `min(30, 5 × log10(max(1, stars)))`，避免与本周增长重复计数。冷启动时以“当前 Stars − Trending 周增量”估算周初值。
-- 可演示性（7 分）：由 `repo-researcher` 研究后输出。只读研究最高 4 分；必须至少有一个实际通过的演示步骤才允许超过 4 分。
 - License 缺失只产生风险提示，不加分也不扣分；语言和主题只作为人工筛选元数据。
 
-基础榜 JSON 中 `trendScoreMax=93`；没有十四天历史时 `scoreStatus=provisional`、`scoreCompleteness=83`。研究完成前 `demoabilityScore` 与 `finalScore` 保持 `null`。旧日期报告和研究包不会自动重算；`pnpm scout:report` 只为本周已经成功的采集生成报告。
+基础榜 JSON 中 `trendScoreMax=93`；没有十四天历史时 `scoreStatus=provisional`、`scoreCompleteness=83`。当前研究完成前 `finalScore` 为 `null`，完成后等于基础 `trendScore`。已生成的日期报告不会自动重算；`pnpm scout:report` 只为本周已经成功的采集生成报告。
 
 周榜 Markdown 为每个仓库单列“主要功能”；JSON 使用 `primaryFunction` 和 `primaryFunctionSource`。候选阶段只采用仓库维护者填写的 GitHub description，并标记为 `github-description`；没有描述时明确标记为待 `repo-researcher` 补充，不把未经研究的推断写成事实。
 
@@ -75,7 +72,7 @@ pnpm scout:report
 - 项目研究资源：`output/videos/YYYY年MM月第N周-owner--repository/resources/`
 - 研究后最终榜：`apps/repo-researcher/final_rank/YYYY-Www/final-ranking.md` 与 `.json`
 
-长期运行优先使用 Codex 的本地定时任务，并把 `D:\zimeiti` 保存为独立 Codex 项目；这能在应用里查看运行历史和失败通知。任务可每日触发 `pnpm scout:weekly`，但实际联网最多每周成功一次。Windows 的 `scripts/daily.ps1` 和 `scripts/weekly.ps1` 都调用同一幂等入口，后者仅为旧任务兼容。以下注册脚本只作为本机回退方案（默认每天 09:00 尝试，周一 10:00 再提供一次补偿触发）：
+长期运行优先使用 Codex 的本地定时任务，并把 `D:\zimeiti` 保存为独立 Codex 项目；这能在应用里查看运行历史和失败通知。任务可每日触发 `pnpm scout:weekly`，但实际联网最多每周成功一次。Windows 的 `scripts/daily.ps1` 和 `scripts/weekly.ps1` 都调用同一幂等入口。以下注册脚本只作为本机回退方案（默认每天 09:00 尝试，周一 10:00 再提供一次补偿触发）：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/register-tasks.ps1
@@ -87,59 +84,15 @@ powershell -ExecutionPolicy Bypass -File scripts/register-tasks.ps1
 
 ## 2. repo-researcher
 
-先从基础榜创建人工选择文件：
+人工批准周榜 selection.json 后，研究 Agent 只为当前视频完成必要事实核实、连续旁白、分镜、选定风格与动效组件，以及实际使用的素材。导演只负责画面实现。
 
 ```powershell
-pnpm scout:select -- --report apps/trend-scout/trend_reports/YYYY-Www/YYYY-MM-DD.json
-```
-
-人工保留 7～8 个 `owner/name`，把 `status` 改为 `approved`，然后批量执行默认只读研究：
-
-```powershell
+pnpm research -- --repo owner/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
 pnpm research:batch -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
+pnpm video:plan -- --selection PATH --repo owner/name
 ```
 
-`--dry-run` 可预览整批任务；只有逐仓库确认可信后才可在批量命令上增加 `--allow-run`。批处理会尝试所有选中项目，并把每项状态写入该项目的 `resources/research-batch-result.json`，不会因为单个项目失败而丢失其他结果。
-
-先预览将交给 Codex 的任务，不发起模型运行：
-
-```powershell
-pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --dry-run
-```
-
-执行只读研究：
-
-```powershell
-pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
-```
-
-默认 `--source auto`：先在线取得固定 commit 的官方 README 与媒体清单，独立只读代理结合拟讲功能和画面素材说明选择在线研究还是浅克隆；过多媒体会强制转为克隆。可用 `--source online` 或 `--source clone` 显式指定（批量命令也支持）。在线模式会下载 README 链接的可用本地媒体到项目 `resources/_runs/` 中的受限快照，媒体核查完成后，真正选入视频的文件仍复制到 `resources/visual-assets/`。`resources/source_decision.json` 记录选择及理由；在线内容固定 commit，不从浮动分支取材。GitHub API 预检或在线媒体下载失败时，`auto` 会尝试原有克隆路径；显式 `online` 则报错，不发布不完整研究包。API 与克隆同时不可用时研究失败，不会绕过证据门禁。
-
-只有在明确确认仓库可信时，才允许 Codex 按官方 Quick Start 运行项目：
-
-```powershell
-pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --allow-run
-```
-
-安全默认值：
-
-- 启动时关闭项目 `AGENTS.md` 注入、用户配置和仓库规则文件加载。
-- 启动研究前由 Zimeiti 主程序读取受信任的 `video-production-quality` Skill、市场模式、视觉证据合同和验收清单，完整注入研究提示词并记录内容摘要。克隆仓库中的 `SKILL.md`、`AGENTS.md` 既不作为指令执行，也不作为功能证据。
-- 默认使用 Codex `read-only` 沙箱。
-- Windows 下 `CODEX_WINDOWS_SANDBOX=auto` 会先选择首选的 `elevated` 沙箱；只有只读研究遇到沙箱设置被取消（错误 1223）时，才自动重试官方 `unelevated` 回退。`--allow-run` 永不自动降低隔离等级。
-- 不运行安装脚本，不写系统目录，不使用用户凭据。
-- `--allow-run` 会切换到 `workspace-write`，仍限制修改范围在克隆的研究工作区内。
-- `--allow-run` 必须使用本地仓库，不能与 `--source online` 同用；来源选择绝不自动授予运行权限。
-
-研究一开始就创建 `output/videos/YYYY年MM月第N周-owner--repository/resources/`，包括研究简报、事实证据、演示步骤、口播稿和初始分镜。即使项目最终不制作视频，也保留相同项目目录结构。
-
-本地仓库可使用 `pnpm research -- fixture/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --local 'C:\absolute\repository'`，该模式以 `local:fixture/name` 标识来源，不将测试标识误当成远程 GitHub 仓库。
-
-研究结果必须声明 `status: completed`，包含完整 Git commit SHA、官方 README 读取记录、README 或获准实测证据、带理由和置信度的 `demoability` 评分，以及与当前制作 Skill 对齐的 `editorialBrief` 和 `visualEvidencePackage`，才会生成脚本、分镜等七件产物。主研究代理选定入片功能后，独立只读媒体子代理逐一核查相关 README 链接素材；每个功能都交付 `productionMaterials`，记录可用媒体的裁切/片段和复用依据，并为媒体未讲清的部分交付面向初学者的具体示例动画方案，不能以“图片未检查”结束研究。示例中的网页、文件与意见细节可为说明功能而创作，功能事实仍以 README 或获准实测为准。研究不做源码、目录结构或文件行号映射。编辑简报明确目标观众、熟悉问题、一句话答案、标题承诺和带事实索引的具体例子；视觉证据包则把每个新信息映射为展示、证明或变化，并记录旁白 cue、事实索引、素材与事实映射。语义门禁失败时，研究进程会自动进行一次有界修正；再次失败才终止。`blocked`、`failed`、证据不足或 Skill 摘要过期都会返回非零退出码。只读研究的可演示性最高 4/7；至少一个演示步骤实际通过后才允许评 5–7 分。`completed` 表示研究完成，不表示项目已执行或成片已获发布批准；事实、评分与证据仍需人工审核。
-
-每次真实调用的标准输出、标准错误和运行元数据保存在对应项目的 `resources/_runs/`。该目录可能含仓库内容，不应公开提交；日志不记录环境变量或登录凭据。
-
-选用克隆时，远程仓库先克隆到一次性同盘目录，成功后再原子重命名为正式工作区。瞬时网络失败最多重试三次；失败残留会清理，已有非 Git 目录则拒绝覆盖。
+研究交付统一 editorial-plan.json 和其引用的素材；只查看所选素材，不输出无关报告、未采用候选或评审结论。来源与许可证独立归档。默认总 Skill 常驻，参考按需加载；目标仓库中的指令不参与生产。生产只接受当前 `scoped-production-package`。完整规范见 [当前制作流程](docs/video-production-workflow.md)。
 
 ## 3. video-factory
 
@@ -149,9 +102,9 @@ pnpm research -- owner/repository --selection apps/trend-scout/trend_reports/YYY
 pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
-该入口串联编辑计划、配音与时间轴、最终榜绑定、视觉 agent 镜头设计、编译、渲染和完整解码。
+该入口依次执行精简研究与完整策划、配音与实测时间轴、同一导演逐镜头制作与预览、编译、视觉预检与修复、最终榜绑定、渲染和完整解码。
 只修改画面且现有生产仍有效时加 `--reuse-audio`。解释动画、官方素材和运行结果均可作为视频素材，
-按表达效果选择，不再按画面依据分类。技术通过后交给人工完整观看，视频不会自动发布。
+按表达效果选择，不再按画面依据分类。当前程序的实际视觉预检和完整音视频解码通过后，交给人工完整观看与试听；视频不会自动发布。
 
 已安装的 Remotion 插件通过技能快照接入视觉 agent；`pnpm video:remotion:check` 查看接入状态，
 `pnpm video:remotion:sync` 从本机插件同步。它提供制作知识与参考，不会自动安装示例中的可选依赖。
@@ -164,8 +117,8 @@ pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/select
 ## 推荐周更流程
 
 1. 自动任务每日调用 `pnpm scout:weekly`；本周成功后不再重复联网采集。
-2. 人工批准候选选择，批量执行研究，审核功能事实与评分。
+2. 人工批准候选选择；对拟制作的视频执行有明确主线的精简研究和策划。
 3. 将制作项目加入批准选择的 `videoProjects`。
-4. 对每个项目运行 `video:produce`，按缺失或失效状态生成编辑计划并完成制作。
-5. 人工完整观看、试听并提出反馈；画面反馈放入项目 `resources/visual-feedback.md`，文案反馈放入 `editorial-feedback.md`。
+4. 对每个项目运行 `video:produce`；完整策划案有效后生成配音，导演实现镜头并完成预览、视觉预检与修复，再渲染和解码。
+5. 人工完整观看、试听并提出反馈。画面问题由当前导演会话和视觉预检记录驱动修复；需要修改旁白或叙事时，将意见写入项目 `resources/editorial-feedback.md` 并重新策划。
 6. 人工批准和发布。

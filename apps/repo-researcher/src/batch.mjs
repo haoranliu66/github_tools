@@ -3,6 +3,7 @@ import {mkdirSync, writeFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {validateCliOptions} from '../../shared/cli-options.mjs';
 import {loadSelection} from '../../trend-scout/src/selection.mjs';
 import {localDateString} from '../../trend-scout/src/week.mjs';
 import {projectLayoutFromSelection} from '../../shared/pipeline-paths.mjs';
@@ -15,21 +16,16 @@ function optionValue(name, fallback = null) {
   return index >= 0 ? process.argv[index + 1] : fallback;
 }
 
-export function researchArgs(fullName, {selectionPath, allowRun = false, dryRun = false,
-  source = 'auto'} = {}) {
-  const args = [RESEARCH_CLI, 'research', fullName, '--selection', selectionPath];
-  if (allowRun) args.push('--allow-run');
+export function researchArgs(fullName,{selectionPath,dryRun=false}={}) {
+  const args = [RESEARCH_CLI, '--repo', fullName, '--selection', selectionPath];
   if (dryRun) args.push('--dry-run');
-  if (source !== 'auto') args.push('--source', source);
   return args;
 }
 
 export function runResearchBatch({
   selectionPath,
   projectRoot = PROJECT_ROOT,
-  allowRun = false,
   dryRun = false,
-  source = 'auto',
   runner = spawnSync,
   now = new Date(),
 } = {}) {
@@ -40,9 +36,7 @@ export function runResearchBatch({
     mkdirSync(layout.resourcesDirectory, {recursive: true});
     const processResult = runner(process.execPath, researchArgs(fullName, {
       selectionPath: absolutePath,
-      allowRun,
       dryRun,
-      source,
     }), {
       cwd: projectRoot,
       stdio: 'inherit',
@@ -59,9 +53,7 @@ export function runResearchBatch({
       weekId: selection.weekId,
       selectionFile: absolutePath,
       startedOn: localDateString(now),
-      allowRun,
       dryRun,
-      source,
       ...item,
     }, null, 2)}\n`, 'utf8');
   }
@@ -70,9 +62,7 @@ export function runResearchBatch({
     weekId: selection.weekId,
     selectionFile: absolutePath,
     startedOn: localDateString(now),
-    allowRun,
     dryRun,
-    source,
     results,
   };
   return {manifest, failed: results.filter((item) => item.status === 'failed').length};
@@ -81,12 +71,11 @@ export function runResearchBatch({
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const selectionPath = optionValue('--selection');
-    if (!selectionPath) throw new Error('Usage: batch.mjs --selection PATH [--dry-run] [--allow-run] [--source auto|online|clone]');
+    if (!selectionPath) throw new Error('Usage: batch.mjs --selection PATH [--dry-run]');
+    validateCliOptions(process.argv.slice(2),{values:['--selection'],booleans:['--dry-run']});
     const output = runResearchBatch({
       selectionPath,
-      allowRun: process.argv.includes('--allow-run'),
       dryRun: process.argv.includes('--dry-run'),
-      source: optionValue('--source', 'auto'),
     });
     console.log(`Research batch completed: ${output.manifest.results.length} projects, ` +
       `${output.failed} failed. Per-project status is stored under each resources directory.`);

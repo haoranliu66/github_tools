@@ -1,0 +1,41 @@
+{
+  "licenseFiles": [
+    "LICENSE"
+  ],
+  "candidateCodePaths": [
+    "src/_upstream/Cursor3D.tsx",
+    "src/_upstream/Grainient.tsx",
+    "src/_upstream/LogoMark.tsx",
+    "src/_upstream/SceneGlowSkia.tsx",
+    "src/_upstream/animations/prompt-input.tsx",
+    "src/_upstream/curvable-launch/MiniDashboard.tsx",
+    "src/_upstream/curvable-launch/icons.tsx",
+    "src/_upstream/floating-stack/core.tsx",
+    "src/_upstream/stats-cards/core.tsx",
+    "src/components/bulb-bg.tsx",
+    "src/components/cascading-text.tsx",
+    "src/components/curvable-types.tsx",
+    "src/components/ellipse-bloom.tsx",
+    "src/components/floating-stack.tsx",
+    "src/components/grainient-bg.tsx",
+    "src/components/paste-pill.tsx",
+    "src/components/prompt-input.tsx",
+    "src/components/slide-reveal.tsx",
+    "src/components/stats-grid.tsx",
+    "src/components/text-hover.tsx",
+    "src/components/text-swap.tsx",
+    "src/components/two-drops-bg.tsx",
+    "src/components/typewriter.tsx"
+  ],
+  "status": "downloaded-for-source-review",
+  "executed": false,
+  "commit": "48aa412b5f4a15d5a31fe02f6e7e43e654ca091a",
+  "inspectedCode": [
+    "src/components/bulb-bg.tsx",
+    "src/components/text-swap.tsx",
+    "src/components/typewriter.tsx",
+    "src/components/floating-stack.tsx"
+  ],
+  "repository": "Curvable/motion",
+  "url": "https://github.com/Curvable/motion"
+}

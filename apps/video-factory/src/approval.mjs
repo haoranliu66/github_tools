@@ -1,7 +1,9 @@
+import {verifyCreativeProgram} from './creative-program.mjs';
+import {requireVisualPreflight} from './visual-preflight.mjs';
 import {createHash} from 'node:crypto';
 import {existsSync, readFileSync} from 'node:fs';
 import {dirname, isAbsolute, join, resolve, sep} from 'node:path';
-import {validateResearchResult} from '../../repo-researcher/src/artifacts.mjs';
+import {validateFactResearch,loadFactReadme} from '../../repo-researcher/src/fact-research.mjs';
 import {loadEditorialContract} from '../../repo-researcher/src/editorial-contract.mjs';
 import {loadEditorialPlan, loadVideoEditingSkill} from './editorial-agent.mjs';
 
@@ -26,7 +28,7 @@ export function resolveApprovedStoryboard({
   }
   const rankingPath = resolveInside(projectRoot, finalRankingPath);
   const ranking = JSON.parse(readFileSync(rankingPath, 'utf8'));
-  const rows = Array.isArray(ranking) ? ranking : ranking.rows;
+  const rows=ranking.rows;
   if (!Array.isArray(rows)) throw new Error('Final ranking must contain a rows array.');
   const row = rows.find((item) => item.fullName === fullName);
   if (!row) throw new Error(`Repository is absent from the final ranking: ${fullName}`);
@@ -66,7 +68,7 @@ export function resolveApprovedStoryboard({
   const editorialContract = loadEditorialContract(projectRoot);
   const researchText = readFileSync(researchPath, 'utf8');
   const research = JSON.parse(researchText);
-  validateResearchResult(research, {expectedEditorialContract: editorialContract});
+  validateFactResearch(research,{contract:editorialContract,readmeText:loadFactReadme(researchDirectory)});
   if (row.editorialContractDigest !== research.editorialContract.digest ||
       row.researchCommit !== research.project.versionOrCommit) {
     throw new Error(`Final ranking is stale for ${fullName}; regenerate it from the current research package.`);
@@ -93,5 +95,8 @@ export function resolveApprovedStoryboard({
   if (row.storyboardDigest !== storyboardDigest) {
     throw new Error(`Production storyboard changed after final ranking for ${fullName}; regenerate the final ranking.`);
   }
+  const preflightPath=storyboard.meta?.visualPreflight?.reportPath;if(!preflightPath)throw new Error('Current visual preflight is required.');
+  verifyCreativeProgram(storyboard,researchDirectory);
+  requireVisualPreflight({...JSON.parse(readFileSync(preflightPath,'utf8')),reportPath:preflightPath},storyboard);
   return {row, storyboardPath, researchPath, projectDirectory, videoPath};
 }

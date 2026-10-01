@@ -1,208 +1,40 @@
 import assert from 'node:assert/strict';
-import {fileURLToPath} from 'node:url';
+import {mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {join, resolve} from 'node:path';
+import {tmpdir} from 'node:os';
 import test from 'node:test';
-import {
-  assertEditorialResearch,
-  contractMetadata,
-  EDITORIAL_CONTRACT_FILES,
-  loadEditorialContract,
-} from '../apps/repo-researcher/src/editorial-contract.mjs';
+import {assertEditorialContractMetadata, contractMetadata, EDITORIAL_CONTRACT_FILES,
+  loadEditorialContract, trustedContractPrompt} from '../apps/repo-researcher/src/editorial-contract.mjs';
+const projectRoot = resolve(import.meta.dirname, '..');
 
-const projectRoot = fileURLToPath(new URL('../', import.meta.url));
-
-function researchFixture(contract = loadEditorialContract(projectRoot)) {
-  return {
-    claims: [{claim: 'The tool formats input.', confidence: 'high', evidence: []}],
-    editorialContract: contractMetadata(contract),
-    editorialBrief: {
-      intendedViewer: '想快速整理文字的人',
-      familiarProblem: '复制来的文字需要反复清理格式',
-      oneSentenceAnswer: '这个项目自动清理文字并输出整齐列表',
-      titlePromise: '几秒钟整理一段零散文字',
-      concreteExamples: [{
-        problem: '一段文字前后带着多余空格',
-        projectAction: '项目清理空格并补上列表符号',
-        usefulResult: '整理后的内容可以直接复制',
-        claimIndexes: [0],
-      }],
-      bRollPlan: [{
-        purpose: '展示整理前后的差别',
-        visual: '并排显示原始文字与整理后的列表',
-        claimIndexes: [0],
-      }],
-    },
-    visualEvidencePackage: {
-      hookMoment: {
-        purpose: '先展示整理前后的明显差别', narrationCue: '复制来的文字', visualMode: 'compare',
-        assetIds: [], claimIndexes: [0], truthMode: 'source-derived-animation', leadSeconds: 0.3,
-      },
-      visualBeats: Array.from({length: 6}, (_, index) => ({
-        id: `beat-${index + 1}`,
-        sectionIndex: index % 2,
-        role: ['show', 'prove', 'change'][index % 3],
-        purpose: `展示第 ${index + 1} 个整理变化`,
-        narrationCue: index % 2 === 0 ? '文字' : '项目',
-        visualMode: ['progressive-flow', 'compare', 'code-highlight'][index % 3],
-        assetIds: [], claimIndexes: [0], truthMode: 'source-derived-animation',
-        durationHint: 3, leadSeconds: 0.3,
-      })),
-      demoMoments: [],
-      mechanismSteps: [{id: 'trim', label: '清理空格', detail: '移除文字前后的空格', claimIndexes: [0]}],
-      evidenceAssets: [],
-      contrastMoments: [{
-        id: 'before-after', before: '文字带着多余空格', after: '文字已经整理完成',
-        claimIndexes: [0], truthMode: 'source-derived-animation',
-      }],
-    },
-    video: {
-      title: '快速整理零散文字',
-      hook: '复制来的文字总要重新排版',
-      sections: [
-        {heading: '原来的麻烦', narration: '文字前后带着空格。', visual: '展示杂乱输入。'},
-        {heading: '项目的处理', narration: '项目清理格式并输出列表。', visual: '展示整理结果。'},
-      ],
-      closing: '适合经常整理短笔记的人。',
-    },
-  };
-}
-
-test('trusted editorial contract loads every routed file with a stable digest', () => {
-  const first = loadEditorialContract(projectRoot);
-  const second = loadEditorialContract(projectRoot);
+test('the production contract consists only of the main skill with stable normalized digests', () => {
+  const first = loadEditorialContract(projectRoot), second = loadEditorialContract(projectRoot);
   assert.equal(first.digest, second.digest);
-  assert.equal(first.sources.length, EDITORIAL_CONTRACT_FILES.length);
-  assert.deepEqual(first.sources.map((source) => source.path), EDITORIAL_CONTRACT_FILES);
-  assert.ok(first.sources.every((source) => source.content.length > 100 && /^[a-f0-9]{64}$/u.test(source.digest)));
+  assert.deepEqual(first.sources.map(s => s.path), EDITORIAL_CONTRACT_FILES);
+  assert.equal(first.sources.length, 1);
+  assert.doesNotThrow(() => assertEditorialContractMetadata(contractMetadata(first), second));
+  const prompt = trustedContractPrompt(first);
+  assert.deepEqual(prompt.metadata, contractMetadata(first));
+  assert.match(prompt.body, /BEGIN TRUSTED FILE/u);
 });
 
-test('research editorial brief accepts the current trusted contract and claim mappings', () => {
-  const contract = loadEditorialContract(projectRoot);
-  assert.doesNotThrow(() => assertEditorialResearch(researchFixture(contract), contract));
+test('optional references do not become mandatory contract inputs', (t) => {
+  const root = mkdtempSync(join(tmpdir(), 'zimeiti-current-contract-'));
+  t.after(() => rmSync(root, {recursive: true, force: true}));
+  const file = EDITORIAL_CONTRACT_FILES[0];
+  mkdirSync(join(root, '.agents/skills/video-production-quality'), {recursive: true});
+  writeFileSync(join(root, file), readFileSync(join(projectRoot, file)));
+  assert.equal(loadEditorialContract(root).digest, loadEditorialContract(projectRoot).digest);
 });
 
-test('research editorial wording is guided by the skill instead of sentence-count gating', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  research.editorialBrief.familiarProblem = '复制来的文字很乱。整理它又很费时间。';
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-});
-
-test('research editorial brief rejects a stale skill digest', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  research.editorialContract.digest = 'f'.repeat(64);
-  assert.throws(() => assertEditorialResearch(research, contract), /stale/i);
-});
-
-test('research editorial brief rejects invalid evidence mappings', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const invalidIndex = researchFixture(contract);
-  invalidIndex.editorialBrief.concreteExamples[0].claimIndexes = [9];
-  assert.throws(() => assertEditorialResearch(invalidIndex, contract), /claim index/i);
-
-  const duplicateIndex = researchFixture(contract);
-  duplicateIndex.editorialBrief.concreteExamples[0].claimIndexes = [0, 0];
-  assert.throws(() => assertEditorialResearch(duplicateIndex, contract), /claim index/i);
-
-});
-
-test('research copy style is guided by the skill instead of semantic word gates', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  research.video.hook += ' 这是官方素材，项目已有 10,000 stars。';
-  research.visualEvidencePackage.mechanismSteps[0].detail = '静态研究得到的处理步骤';
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-});
-
-test('material categories are ignored while narration cues and crop bounds remain validated', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const fakeDemo = researchFixture(contract);
-  fakeDemo.visualEvidencePackage.visualBeats[0].truthMode = 'executed-demo';
-  assert.doesNotThrow(() => assertEditorialResearch(fakeDemo, contract));
-
-  const missingCue = researchFixture(contract);
-  missingCue.visualEvidencePackage.visualBeats[0].narrationCue = '不存在的旁白';
-  assert.throws(() => assertEditorialResearch(missingCue, contract), /exact substring/i);
-
-  const invalidCrop = researchFixture(contract);
-  invalidCrop.visualEvidencePackage.visualBeats[0].focalRegion = {x: 0.8, y: 0, width: 0.4, height: 1};
-  assert.throws(() => assertEditorialResearch(invalidCrop, contract), /normalized image bounds/i);
-});
-
-test('diagram snapshots keep valid connections and stable node labels', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  const first = research.visualEvidencePackage.visualBeats[0];
-  const second = research.visualEvidencePackage.visualBeats[4];
-  first.canvas = {
-    nodes: [{id: 'input', label: '零散文字', kind: 'input'}], edges: [], focusId: 'input',
-  };
-  second.canvas = {
-    nodes: [
-      {id: 'input', label: '零散文字', kind: 'input'},
-      {id: 'result', label: '整齐列表', kind: 'result'},
-    ],
-    edges: [{from: 'input', to: 'result'}], focusId: 'result',
-  };
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-  second.canvas.edges[0].to = 'missing';
-  assert.throws(() => assertEditorialResearch(research, contract), /distinct visible nodes/i);
-  second.canvas.edges[0].to = 'result';
-  second.canvas.nodes[0].label = '别的内容';
-  assert.throws(() => assertEditorialResearch(research, contract), /same label/i);
-});
-
-test('README-derived illustration shots are structured and cannot impersonate a demo', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  const beat = research.visualEvidencePackage.visualBeats[0];
-  beat.visualMode = 'illustration';
-  beat.entrance = 'slide-left';
-  beat.shot = {
-    kind: 'browser', title: '整理笔记', before: '文字混在一起', action: '清理格式',
-    result: '得到列表', focus: 'action', negateBefore: false,
-  };
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-  beat.assetIds = ['missing-image'];
-  assert.throws(() => assertEditorialResearch(research, contract), /shot/i);
-  beat.assetIds = [];
-  beat.shot.focus = 'unknown';
-  assert.throws(() => assertEditorialResearch(research, contract), /shot/i);
-});
-
-test('object-action beats preserve drawable objects and reject broken targets', () => {
-  const contract = loadEditorialContract(projectRoot);
-  const research = researchFixture(contract);
-  const first = research.visualEvidencePackage.visualBeats[0];
-  const second = research.visualEvidencePackage.visualBeats[4];
-  first.visualMode = 'object-action';
-  first.stage = {
-    objects: [
-      {id: 'file-a', kind: 'file', label: '改动文件', detail: '小网页的按钮', x: 0.2, y: 0.5, state: 'idle'},
-      {id: 'review', kind: 'review', label: '审查', detail: null, x: 0.7, y: 0.5, state: 'idle'},
-    ],
-    links: [], action: {type: 'reveal', targets: ['file-a']},
-  };
-  second.visualMode = 'object-action';
-  second.stage = {
-    objects: [
-      {id: 'file-a', kind: 'file', label: '改动文件', detail: '小网页的按钮', x: 0.58, y: 0.5, state: 'active'},
-      {id: 'review', kind: 'review', label: '审查', detail: null, x: 0.7, y: 0.5, state: 'active'},
-    ],
-    links: [{from: 'file-a', to: 'review'}], action: {type: 'gather', targets: ['file-a', 'review']},
-  };
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-  second.stage.objects[0].detail = 'x'.repeat(91);
-  assert.throws(() => assertEditorialResearch(research, contract), /invalid or repeated object/i);
-  second.stage.objects[0].detail = '小网页的按钮';
-  second.stage.action.targets = ['missing'];
-  assert.throws(() => assertEditorialResearch(research, contract), /target visible objects/i);
-  second.stage.action.targets = ['review'];
-  second.stage.objects[0].label = '变了标签';
-  assert.throws(() => assertEditorialResearch(research, contract), /same kind and label/i);
-  second.stage.objects[0].label = '改动文件';
-  second.truthMode = 'executed-demo';
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
-  delete second.truthMode;
-  assert.doesNotThrow(() => assertEditorialResearch(research, contract));
+test('contract drift and substituted or malformed source identities are rejected', () => {
+  const contract = loadEditorialContract(projectRoot), metadata = contractMetadata(contract);
+  const stale = structuredClone(metadata); stale.digest = 'f'.repeat(64);
+  assert.throws(() => assertEditorialContractMetadata(stale, contract), /stale/u);
+  const substituted = structuredClone(metadata); substituted.files[0].path = 'other.md';
+  assert.throws(() => assertEditorialContractMetadata(substituted), /single trusted/u);
+  const expanded = structuredClone(metadata); expanded.files.push({...expanded.files[0]});
+  assert.throws(() => assertEditorialContractMetadata(expanded), /single trusted/u);
+  const malformed = structuredClone(metadata); malformed.files[0].digest = 'invalid';
+  assert.throws(() => assertEditorialContractMetadata(malformed), /single trusted/u);
 });

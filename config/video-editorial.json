@@ -1,42 +1,8 @@
 {
   "schemaVersion": 1,
-  "sceneCount": {
-    "min": 5,
-    "max": 12,
-    "target": 6
-  },
   "durationSeconds": {
     "min": 45,
-    "max": 120,
-    "maxAverage": 20,
-    "maxScene": 32
-  },
-  "rhythm": {
-    "maxSameTypeRun": 2,
-    "maxEvidenceSeriesRun": 3,
-    "maxProgressiveFlowRun": 4,
-    "maxProgressiveCodeRun": 3,
-    "minDistinctTypes": 3
-  },
-  "requiredSceneTypes": {
-    "outro": 1
-  },
-  "openingTypes": ["hero", "contrast"],
-  "evidence": {
-    "minimumCoverage": 1,
-    "viewerLabels": false
-  },
-  "bRoll": {
-    "types": ["hero", "media", "flow", "contrast", "code", "stat"],
-    "minimumCoverage": 0.6
-  },
-  "visualBeats": {
-    "maxLeadSeconds": 1
-  },
-  "text": {
-    "softSubtitleCharacters": 32,
-    "softNarrationCharacters": 430,
-    "maxNarrationCharacters": 500
+    "max": 120
   },
   "narrationBlocks": {
     "defaultProfile": "concept-explainer",
@@ -75,13 +41,14 @@
       }
     }
   },
-  "media": {
-    "extensions": [".png", ".jpg", ".jpeg", ".webp", ".mp4", ".webm", ".mov", ".m4v"],
-    "maxBytes": 12582912,
-    "maxVideoBytes": 52428800,
-    "maxAssets": 12
-  },
   "qa": {
-    "sampleFrames": 8
+    "sampleFrames": 8,
+    "visualPreflight": {
+      "required": true,
+      "evidenceFps": 3,
+      "framesPerPage": 8,
+      "pagesPerReview": 8,
+      "reviewConcurrency": 2
+    }
   }
 }

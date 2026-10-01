@@ -1,57 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {durationInFrames, validateStoryboard} from '../apps/video-factory/src/storyboard.mjs';
-
-const storyboard = {
-  meta: {title: 'Test', repo: 'acme/rocket', accent: '#fff', width: 1280, height: 720, fps: 30},
-  scenes: [
-    {type: 'title', duration: 2, title: 'Hello'},
-    {type: 'stat', duration: 3, value: '+100', label: 'Stars'},
-  ],
-};
-
-test('valid storyboard has a deterministic frame count', () => {
-  assert.deepEqual(validateStoryboard(storyboard), []);
-  assert.equal(durationInFrames(storyboard), 150);
-});
-
-test('media scene requires a source', () => {
-  const invalid = structuredClone(storyboard);
-  invalid.scenes.push({type: 'media', duration: 2});
-  assert.ok(validateStoryboard(invalid).some((error) => error.includes('.src')));
-});
-
-test('dynamic editorial scenes validate their required visual data', () => {
-  const valid = structuredClone(storyboard);
-  valid.scenes.push(
-    {type: 'hero', duration: 2, src: 'hero.png'},
-    {type: 'flow', duration: 2, steps: ['Input', 'Check', 'Output']},
-    {type: 'contrast', duration: 2, left: {title: 'Format'}, right: {title: 'Truth'}},
-    {type: 'audience', duration: 2, items: [{title: 'New hire'}, {title: 'Reviewer'}]},
-  );
-  assert.deepEqual(validateStoryboard(valid), []);
-
-  for (const scene of [
-    {type: 'hero', duration: 2},
-    {type: 'flow', duration: 2, steps: ['Only one']},
-    {type: 'contrast', duration: 2, left: {title: 'Only left'}},
-    {type: 'audience', duration: 2, items: [{title: 'Only one'}]},
-  ]) {
-    const invalid = structuredClone(storyboard);
-    invalid.scenes.push(scene);
-    assert.ok(validateStoryboard(invalid).length > 0);
-  }
-});
-
-test('subtitle cues cannot overlap, exceed a scene, or contain empty text', () => {
-  for (const captions of [
-    [{startFrame: 0, endFrame: 61, text: 'too long'}],
-    [{startFrame: -1, endFrame: 10, text: 'negative'}],
-    [{startFrame: 0, endFrame: 10, text: ''}],
-    [{startFrame: 0, endFrame: 20, text: 'one'}, {startFrame: 19, endFrame: 40, text: 'two'}],
-  ]) {
-    const invalid = structuredClone(storyboard);
-    invalid.scenes[0].captions = captions;
-    assert.ok(validateStoryboard(invalid).some(e => e.includes('captions')));
-  }
-});
+import {durationInFrames,validateStoryboard} from '../apps/video-factory/src/storyboard.mjs';
+const draft={meta:{title:'实测旁白',productionStage:'audio-ready',width:1920,height:1080,fps:30},scenes:[{id:'unit1',duration:2,captions:[{startFrame:0,endFrame:60,text:'第一句'}]},{id:'unit2',duration:3,captions:[{startFrame:0,endFrame:90,text:'第二句'}]}]};
+test('measured narration has a deterministic frame count',()=>{assert.deepEqual(validateStoryboard(draft),[]);assert.equal(durationInFrames(draft),150);});
+test('caption timing and unique IDs must remain valid',()=>{for(const captions of [[{startFrame:0,endFrame:61,text:'超时'}],[{startFrame:-1,endFrame:10,text:'负值'}],[{startFrame:0,endFrame:10,text:''}],[{startFrame:0,endFrame:20,text:'一'},{startFrame:19,endFrame:40,text:'二'}]]){const s=structuredClone(draft);s.scenes[0].captions=captions;assert.ok(validateStoryboard(s).some(e=>e.includes('caption')));}const s=structuredClone(draft);s.scenes[1].id='unit1';assert.ok(validateStoryboard(s).some(e=>e.includes('unique')));});
+test('compiled visuals require complete shot coverage and measured narration',()=>{const s=structuredClone(draft);s.meta={...s.meta,productionStage:'visual-ready',directorVersion:1,totalFrames:150,style:{id:'chosen'},globalCaptions:[{startFrame:0,endFrame:150,text:'旁白'}]};s.voiceover='narration.wav';for(const scene of s.scenes)scene.visualBeats=[{id:scene.id,startFrame:0,endFrame:Math.round(scene.duration*30),purpose:'表达语义',claimIndexes:[0],implementation:{key:scene.id}}];assert.deepEqual(validateStoryboard(s),[]);s.scenes[0].visualBeats[0].endFrame=59;assert.ok(validateStoryboard(s).some(e=>e.includes('cover')));});

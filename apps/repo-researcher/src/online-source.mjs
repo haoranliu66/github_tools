@@ -1,7 +1,7 @@
 import {mkdirSync, mkdtempSync, writeFileSync} from 'node:fs';
 import {dirname, join, resolve, sep} from 'node:path';
 import {request} from '../../trend-scout/src/github.mjs';
-import {readmeMediaCandidates} from './media-inspection.mjs';
+import {readmeMediaCandidates} from './readme-media.mjs';
 
 const API = 'https://api.github.com';
 const SHA = /^[a-f0-9]{40}$/iu;
@@ -36,7 +36,7 @@ function decodeContent(file, label) {
   return Buffer.from(file.content.replace(/\s+/gu, ''), 'base64');
 }
 
-export async function getOnlineSourcePreview(fullName, {token = '', requestOptions = {}} = {}) {
+export async function getOnlineSourcePreview(fullName, {token = '', requestOptions = {}, includeLicense = false} = {}) {
   const options = {token, ...requestOptions};
   const repo = await json(apiPath(fullName, ''), options);
   if (!repo?.default_branch) throw new Error('GitHub repository has no default branch.');
@@ -50,7 +50,7 @@ export async function getOnlineSourcePreview(fullName, {token = '', requestOptio
   const candidates = readmeMediaCandidates(readmeText);
   let licenseName = null;
   let licenseText = null;
-  try {
+  if(includeLicense) try {
     const root = await json(apiPath(fullName, `contents?ref=${sha}`), options);
     const license = Array.isArray(root) ? root.find((item) =>
       item.type === 'file' && LICENSE.test(item.name) && item.size <= 1024 * 1024) : null;
@@ -61,7 +61,7 @@ export async function getOnlineSourcePreview(fullName, {token = '', requestOptio
       licenseText = decodeContent(file, 'Repository license').toString('utf8');
     }
   } catch {
-    // License inspection is optional; the media subagent must mark unclear reuse rights when absent.
+    // Selected-source notices remain separate from the director package.
   }
   return {
     fullName, sha, readmeName: readme.path, readmeText, candidates,

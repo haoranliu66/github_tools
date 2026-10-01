@@ -14,9 +14,9 @@
     "scout:refresh": "node --use-env-proxy --env-file-if-exists=.env.local apps/trend-scout/src/cli.mjs all",
     "scout:select": "node apps/trend-scout/src/cli.mjs selection",
     "scout:final": "node apps/trend-scout/src/cli.mjs finalize",
-    "research": "node --use-env-proxy --env-file-if-exists=.env.local apps/repo-researcher/src/cli.mjs research",
+    "research": "node --use-env-proxy --env-file-if-exists=.env.local apps/repo-researcher/src/cli.mjs",
     "research:batch": "node --use-env-proxy --env-file-if-exists=.env.local apps/repo-researcher/src/batch.mjs",
-    "video:validate": "node apps/video-factory/src/cli.mjs validate --storyboard apps/video-factory/examples/storyboard.example.json",
+    "video:validate": "node apps/video-factory/src/cli.mjs validate",
     "video:voice:check": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs check",
     "video:voice:list": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs list",
     "video:voice:register": "node --env-file-if-exists=.env.local apps/video-factory/src/voice-cli.mjs register",
@@ -26,10 +26,12 @@
     "video:render": "node apps/video-factory/src/cli.mjs render",
     "video:studio": "node apps/video-factory/src/cli.mjs studio",
     "test": "node scripts/run-project-tests.mjs",
-    "video:shots": "node apps/video-factory/src/shots-cli.mjs",
     "video:produce": "node apps/video-factory/src/produce-cli.mjs",
     "video:remotion:sync": "node apps/video-factory/src/remotion-cli.mjs sync",
-    "video:remotion:check": "node apps/video-factory/src/remotion-cli.mjs check"
+    "video:remotion:check": "node apps/video-factory/src/remotion-cli.mjs check",
+    "video:direct": "node apps/video-factory/src/director-cli.mjs",
+    "video:library": "node apps/video-factory/src/library-cli.mjs",
+    "video:preflight": "node apps/video-factory/src/visual-preflight-cli.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

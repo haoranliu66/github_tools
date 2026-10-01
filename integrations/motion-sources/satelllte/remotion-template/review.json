@@ -1,0 +1,17 @@
+{
+  "licenseFiles": [
+    "LICENSE"
+  ],
+  "candidateCodePaths": [
+    "src/Root.tsx",
+    "src/videos/VideoHello.tsx"
+  ],
+  "status": "downloaded-for-source-review",
+  "executed": false,
+  "commit": "adba6d7d51964e787f2caaa421dc280b21055c38",
+  "inspectedCode": [
+    "src/videos/VideoHello.tsx"
+  ],
+  "repository": "satelllte/remotion-template",
+  "url": "https://github.com/satelllte/remotion-template"
+}

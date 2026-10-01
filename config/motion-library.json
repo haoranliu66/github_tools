@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 3,
+  "motions": [
+    {
+      "id": "gradient-text",
+      "exportName": "GradientText",
+      "version": "1.0.0",
+      "supports": [
+        "gradient typography"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/gradient-text/usage.md",
+      "demo": "assets/motion-library/gradient-text/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "kinetic-headline",
+      "exportName": "KineticHeadline",
+      "version": "1.0.0",
+      "supports": [
+        "staggered spring word reveal"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/kinetic-headline/usage.md",
+      "demo": "assets/motion-library/kinetic-headline/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "draw-underline",
+      "exportName": "DrawOnUnderline",
+      "version": "1.0.0",
+      "supports": [
+        "draw emphasis"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/draw-underline/usage.md",
+      "demo": "assets/motion-library/draw-underline/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "ghost-ahead",
+      "exportName": "GhostAhead",
+      "version": "1.0.0",
+      "supports": [
+        "anticipate then commit words"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/ghost-ahead/usage.md",
+      "demo": "assets/motion-library/ghost-ahead/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "defocus-reveal",
+      "exportName": "DefocusReveal",
+      "version": "1.0.0",
+      "supports": [
+        "rack focus reveal"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/defocus-reveal/usage.md",
+      "demo": "assets/motion-library/defocus-reveal/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "dip-to-color",
+      "exportName": "DipToColor",
+      "version": "1.0.0",
+      "supports": [
+        "section handoff"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/dip-to-color/usage.md",
+      "demo": "assets/motion-library/dip-to-color/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "match-cut",
+      "exportName": "MatchCut",
+      "version": "1.0.0",
+      "supports": [
+        "stable anchor with changed surrounding state"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/match-cut/usage.md",
+      "demo": "assets/motion-library/match-cut/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "perspective-panel",
+      "exportName": "PerspectivePanel",
+      "version": "1.0.0",
+      "supports": [
+        "panel perspective rise"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/perspective-panel/usage.md",
+      "demo": "assets/motion-library/perspective-panel/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "cascade-grid",
+      "exportName": "CascadeGrid",
+      "version": "1.0.0",
+      "supports": [
+        "results waterfall population"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/cascade-grid/usage.md",
+      "demo": "assets/motion-library/cascade-grid/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "count-up",
+      "exportName": "CountUp",
+      "version": "1.0.0",
+      "supports": [
+        "land a documented numeric value"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/count-up/usage.md",
+      "demo": "assets/motion-library/count-up/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "draw-path",
+      "exportName": "DrawPath",
+      "version": "1.0.0",
+      "supports": [
+        "draw relationships or measured trend"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/draw-path/usage.md",
+      "demo": "assets/motion-library/draw-path/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "camera-move",
+      "exportName": "CameraMove",
+      "version": "1.0.0",
+      "supports": [
+        "follow focus with keyframed pan and scale"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/camera-move/usage.md",
+      "demo": "assets/motion-library/camera-move/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "flow-packet",
+      "exportName": "FlowPacket",
+      "version": "1.0.0",
+      "supports": [
+        "transfer actual labeled information along a drawn path"
+      ],
+      "codePath": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/flow-packet/usage.md",
+      "demo": "assets/motion-library/flow-packet/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "card-flip",
+      "exportName": "CardFlip",
+      "version": "1.0.0",
+      "supports": [
+        "before/after scenes connected by perspective rotation"
+      ],
+      "codePath": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/card-flip/usage.md",
+      "demo": "assets/motion-library/card-flip/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "brush-reveal",
+      "exportName": "BrushReveal",
+      "version": "1.0.0",
+      "supports": [
+        "paint arbitrary content in staggered bands"
+      ],
+      "codePath": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/brush-reveal/usage.md",
+      "demo": "assets/motion-library/brush-reveal/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "browser-frame",
+      "exportName": "BrowserFrame",
+      "version": "1.0.0",
+      "supports": [
+        "browser context wrapping arbitrary interactive illustrative content"
+      ],
+      "codePath": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/browser-frame/usage.md",
+      "demo": "assets/motion-library/browser-frame/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "code-diff",
+      "exportName": "CodeDiff",
+      "version": "1.0.0",
+      "supports": [
+        "line-by-line actual illustrative additions/removals"
+      ],
+      "codePath": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/code-diff/usage.md",
+      "demo": "assets/motion-library/code-diff/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    },
+    {
+      "id": "accent-typewriter",
+      "exportName": "AccentTypewriter",
+      "version": "1.0.0",
+      "supports": [
+        "typed user input with accent caret and color resolution"
+      ],
+      "codePath": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/accent-typewriter/usage.md",
+      "demo": "assets/motion-library/accent-typewriter/demo.mp4",
+      "demoEntry": "apps/video-factory/remotion/MaterialDemo.jsx",
+      "dependencies": [
+        "react",
+        "remotion"
+      ],
+      "reuseScope": "universal"
+    }
+  ]
+}

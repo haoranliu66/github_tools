@@ -1,0 +1,210 @@
+[
+  {
+    "id": "gradient-text",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "src/components/text.tsx",
+      "sha256": "b1d6ac874e1cd7a006babbb7fecb5a6619117c3406e70dc23d4f6483a77078fc"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "kinetic-headline",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "src/components/text.tsx",
+      "sha256": "b1d6ac874e1cd7a006babbb7fecb5a6619117c3406e70dc23d4f6483a77078fc"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "draw-underline",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "src/components/text.tsx",
+      "sha256": "b1d6ac874e1cd7a006babbb7fecb5a6619117c3406e70dc23d4f6483a77078fc"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "ghost-ahead",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/01-kinetic-typography.md",
+      "sha256": "b47c31d46025dc9561bfd7ae2d4847e9557e96075f0db537521ee6206f5dd5b7"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "defocus-reveal",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/03-scene-transitions.md",
+      "sha256": "635ac545f744e0d3e71aa3d278369c4c2dff6a4effd2240c8e5a5f302445ac27"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "dip-to-color",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/03-scene-transitions.md",
+      "sha256": "635ac545f744e0d3e71aa3d278369c4c2dff6a4effd2240c8e5a5f302445ac27"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "match-cut",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/03-scene-transitions.md",
+      "sha256": "635ac545f744e0d3e71aa3d278369c4c2dff6a4effd2240c8e5a5f302445ac27"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "perspective-panel",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/05-devices-and-ui-motion.md",
+      "sha256": "c3c95c1756b7c02105b7ca621b60006e0d7578c7671a281ac958f055411b2f0e"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "cascade-grid",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/05-devices-and-ui-motion.md",
+      "sha256": "c3c95c1756b7c02105b7ca621b60006e0d7578c7671a281ac958f055411b2f0e"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "count-up",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/09-dataviz-annotations.md",
+      "sha256": "cab10d6594357ba7020f9f009b78ac736dc4297f4c002e04af4bf4651b280d78"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "draw-path",
+    "source": {
+      "repository": "platan821/animation-techniques-kit",
+      "commit": "b42a95a2a5894e68659df5f72d27517deb9108e6",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/platan821/animation-techniques-kit/LICENSE",
+      "file": "docs/techniques/09-dataviz-annotations.md",
+      "sha256": "cab10d6594357ba7020f9f009b78ac736dc4297f4c002e04af4bf4651b280d78"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "camera-move",
+    "source": {
+      "repository": "codeverbojan/remotion-cinematic",
+      "commit": "18dbb50ce797b778f0867a5dd7bac82b5ce105ac",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/codeverbojan/remotion-cinematic/LICENSE",
+      "file": "src/engine/camera/interpolate.ts",
+      "sha256": "5c7b82df4193ce705528ab8b43659a136508f4c656298217bf1a81c6259c92f2"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "flow-packet",
+    "origin": "project-authored"
+  },
+  {
+    "id": "card-flip",
+    "source": {
+      "repository": "RenderComp/free-remotion-templates",
+      "commit": "f648980e528defb7594e24c6447055f0540f340b",
+      "file": "src/components/card-flip-transition/CardFlipTransition.tsx",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/RenderComp/free-remotion-templates/LICENSE",
+      "sha256": "2e7b4c8f10c2d67f9bfef8ccf2146468c1e0f440cb617645ab3dc3245ae4ee67"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "brush-reveal",
+    "source": {
+      "repository": "RenderComp/free-remotion-templates",
+      "commit": "f648980e528defb7594e24c6447055f0540f340b",
+      "file": "src/components/brush-stroke-reveal/BrushStrokeReveal.tsx",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/RenderComp/free-remotion-templates/LICENSE",
+      "sha256": "5b32bd6217c549b55fdf799d1db285cdf3e9e475d6d463ed5825612930d950d6"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "browser-frame",
+    "source": {
+      "repository": "degueba/onda",
+      "commit": "3c814051269597b31fee1603bef7ccfb93d091b6",
+      "file": "registry/components/browser-frame/BrowserFrame.tsx",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/degueba/onda/LICENSE",
+      "sha256": "80a3a29a2d543fcc1007c86618c48af76904aa45b29a1bbfa6d626a350a87553"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "code-diff",
+    "source": {
+      "repository": "degueba/onda",
+      "commit": "3c814051269597b31fee1603bef7ccfb93d091b6",
+      "file": "registry/components/code-diff/CodeDiff.tsx",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/degueba/onda/LICENSE",
+      "sha256": "826e32c3b190eb3f9bfac7d1a53ff9b386663db27e998ea511085ef2191ea98d"
+    },
+    "origin": "github-adapted"
+  },
+  {
+    "id": "accent-typewriter",
+    "source": {
+      "repository": "Curvable/motion",
+      "commit": "48aa412b5f4a15d5a31fe02f6e7e43e654ca091a",
+      "file": "src/components/typewriter.tsx",
+      "license": "MIT",
+      "licenseFile": "integrations/motion-sources/Curvable/motion/LICENSE",
+      "sha256": "f50f50fcd396060e84f24cf97cc77b2a202cda1cbde76ea55f5cff5c0b4e21d9"
+    },
+    "origin": "github-adapted"
+  }
+]

@@ -2,6 +2,7 @@ import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {dirname, join, relative} from 'node:path';
+import {requireVisualPreflight} from './visual-preflight.mjs';
 
 function runFfmpeg(ffmpegPath, args, label) {
   const result = spawnSync(ffmpegPath, args, {encoding: 'utf8', maxBuffer: 20 * 1024 * 1024});
@@ -36,7 +37,9 @@ export function writeVideoQa({
   storyboard,
   sampleCount = 8,
   qaDirectory = null,
+  visualPreflight = null,
 }) {
+  requireVisualPreflight(visualPreflight,storyboard);
   runFfmpeg(ffmpegPath, [
     '-v', 'error', '-xerror', '-i', videoPath,
     '-map', '0:v:0', '-map', '0:a:0', '-f', 'null', '-',
@@ -69,6 +72,11 @@ export function writeVideoQa({
   const report = {
     schemaVersion: 1,
     status: 'passed',
+    visualPreflight: visualPreflight ? {status:visualPreflight.status,reportPath:visualPreflight.reportPath,storyboardDigest:visualPreflight.storyboardDigest} : {status:'pending'},
+    technicalStatus: 'passed',
+    humanReview: 'pending',
+    visualProgramDigest:storyboard.meta.visualProgram?.digest??null,
+    editorialPlanDigest:storyboard.meta.editorialPlanDigest??null,
     videoPath,
     bytes: videoBytes.length,
     sha256: createHash('sha256').update(videoBytes).digest('hex'),

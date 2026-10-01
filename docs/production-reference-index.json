@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "loading": "on-demand",
+  "styles": [
+    {
+      "id": "editorial-paper",
+      "name": "纸面编辑风",
+      "file": "config/style-library.json"
+    },
+    {
+      "id": "dark-cinematic",
+      "name": "深色产品演示",
+      "file": "config/style-library.json"
+    },
+    {
+      "id": "ink-notebook",
+      "name": "手绘讲解",
+      "file": "config/style-library.json"
+    },
+    {
+      "id": "bold-geometric",
+      "name": "明亮几何风",
+      "file": "config/style-library.json"
+    }
+  ],
+  "motions": [
+    {
+      "id": "gradient-text",
+      "supports": [
+        "gradient typography"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/gradient-text/usage.md",
+      "demo": "assets/motion-library/gradient-text/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "kinetic-headline",
+      "supports": [
+        "staggered spring word reveal"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/kinetic-headline/usage.md",
+      "demo": "assets/motion-library/kinetic-headline/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "draw-underline",
+      "supports": [
+        "draw emphasis"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/draw-underline/usage.md",
+      "demo": "assets/motion-library/draw-underline/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "ghost-ahead",
+      "supports": [
+        "anticipate then commit words"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/ghost-ahead/usage.md",
+      "demo": "assets/motion-library/ghost-ahead/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "defocus-reveal",
+      "supports": [
+        "rack focus reveal"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/defocus-reveal/usage.md",
+      "demo": "assets/motion-library/defocus-reveal/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "dip-to-color",
+      "supports": [
+        "section handoff"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/dip-to-color/usage.md",
+      "demo": "assets/motion-library/dip-to-color/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "match-cut",
+      "supports": [
+        "stable anchor with changed surrounding state"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/match-cut/usage.md",
+      "demo": "assets/motion-library/match-cut/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "perspective-panel",
+      "supports": [
+        "panel perspective rise"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/perspective-panel/usage.md",
+      "demo": "assets/motion-library/perspective-panel/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "cascade-grid",
+      "supports": [
+        "results waterfall population"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/cascade-grid/usage.md",
+      "demo": "assets/motion-library/cascade-grid/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "count-up",
+      "supports": [
+        "land a documented numeric value"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/count-up/usage.md",
+      "demo": "assets/motion-library/count-up/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "draw-path",
+      "supports": [
+        "draw relationships or measured trend"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/draw-path/usage.md",
+      "demo": "assets/motion-library/draw-path/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "camera-move",
+      "supports": [
+        "follow focus with keyframed pan and scale"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/camera-move/usage.md",
+      "demo": "assets/motion-library/camera-move/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "flow-packet",
+      "supports": [
+        "transfer actual labeled information along a drawn path"
+      ],
+      "code": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "usage": "assets/motion-library/flow-packet/usage.md",
+      "demo": "assets/motion-library/flow-packet/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "card-flip",
+      "supports": [
+        "before/after scenes connected by perspective rotation"
+      ],
+      "code": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/card-flip/usage.md",
+      "demo": "assets/motion-library/card-flip/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "brush-reveal",
+      "supports": [
+        "paint arbitrary content in staggered bands"
+      ],
+      "code": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/brush-reveal/usage.md",
+      "demo": "assets/motion-library/brush-reveal/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "browser-frame",
+      "supports": [
+        "browser context wrapping arbitrary interactive illustrative content"
+      ],
+      "code": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/browser-frame/usage.md",
+      "demo": "assets/motion-library/browser-frame/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "code-diff",
+      "supports": [
+        "line-by-line actual illustrative additions/removals"
+      ],
+      "code": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/code-diff/usage.md",
+      "demo": "assets/motion-library/code-diff/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    },
+    {
+      "id": "accent-typewriter",
+      "supports": [
+        "typed user input with accent caret and color resolution"
+      ],
+      "code": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "usage": "assets/motion-library/accent-typewriter/usage.md",
+      "demo": "assets/motion-library/accent-typewriter/demo.mp4",
+      "example": "apps/video-factory/remotion/MaterialDemo.jsx"
+    }
+  ],
+  "remotion": [
+    {
+      "id": "remotion-best-practices/SKILL.md",
+      "file": "integrations/remotion/skills/remotion-best-practices/SKILL.md",
+      "digest": "41119b9934a5c8252f4c8fe9afbfccde40914afe81c0f86924c8ee2897fae77f"
+    },
+    {
+      "id": "remotion-markup/SKILL.md",
+      "file": "integrations/remotion/skills/remotion-markup/SKILL.md",
+      "digest": "e0cc02bf5075c1c2bc0825bc138a37c5efbd1f981645a18111f64d42797e6c21"
+    },
+    {
+      "id": "remotion-markup/timing.md",
+      "file": "integrations/remotion/skills/remotion-markup/timing.md",
+      "digest": "48047e758b96aea519916479ede62b832bf51f982924978e091c37f569ab4bac"
+    },
+    {
+      "id": "remotion-markup/sequencing.md",
+      "file": "integrations/remotion/skills/remotion-markup/sequencing.md",
+      "digest": "64784498f40db7b32c032dc648282caf5a02082d4d7a6667d8b7a1465f341dc4"
+    },
+    {
+      "id": "remotion-markup/measuring-text.md",
+      "file": "integrations/remotion/skills/remotion-markup/measuring-text.md",
+      "digest": "4bed81d1ea818db3975f878152dc24ecbc17e163117dcab10761dc8690c33f0c"
+    },
+    {
+      "id": "remotion-markup/transitions.md",
+      "file": "integrations/remotion/skills/remotion-markup/transitions.md",
+      "digest": "41d69d0b5c862bcada825a68413064837fd4fcd55f81ad59492931db982a08ad"
+    },
+    {
+      "id": "remotion-markup/images.md",
+      "file": "integrations/remotion/skills/remotion-markup/images.md",
+      "digest": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b"
+    },
+    {
+      "id": "remotion-markup/cropping.md",
+      "file": "integrations/remotion/skills/remotion-markup/cropping.md",
+      "digest": "b862b4a98e412870ab13172e52c7c0d73c7c17ebbf728046168dfd21240dce94"
+    },
+    {
+      "id": "remotion-markup/embedding-videos.md",
+      "file": "integrations/remotion/skills/remotion-markup/embedding-videos.md",
+      "digest": "543ddf73e53bd750019b0283506d2cc30e9acb605c8628fa12fc9dd3edbc145c"
+    },
+    {
+      "id": "remotion-markup/text-highlights.md",
+      "file": "integrations/remotion/skills/remotion-markup/text-highlights.md",
+      "digest": "e6210a022785fd6f93a4a1ed75b600da18bc3baff20eef9e656e1f48267bebfe"
+    },
+    {
+      "id": "remotion-render/SKILL.md",
+      "file": "integrations/remotion/skills/remotion-render/SKILL.md",
+      "digest": "9c51cee8d71219ad6ed727060c5d4ca83ee7ba88e0fce5cbed6022e87582b1b1"
+    },
+    {
+      "id": "remotion-studio/SKILL.md",
+      "file": "integrations/remotion/skills/remotion-studio/SKILL.md",
+      "digest": "a2a615fbca1c1fe8809841a405e296f4131b80e88e3d52754b77c8b7d1eeeda4"
+    }
+  ],
+  "previewCommand": "node apps/video-factory/src/shot-preview.mjs <assignment.json>"
+}

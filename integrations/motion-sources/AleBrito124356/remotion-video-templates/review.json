@@ -1,0 +1,27 @@
+{
+  "licenseFiles": [
+    "LICENSE"
+  ],
+  "candidateCodePaths": [
+    "src/Root.tsx",
+    "src/lib/layout.tsx",
+    "src/templates/CaptionedShort/CaptionedShort.tsx",
+    "src/templates/ChartVideo/BarChartRace.tsx",
+    "src/templates/ChartVideo/LineChart.tsx",
+    "src/templates/KineticText/KineticText.tsx",
+    "src/templates/LogoIntro/LogoIntro.tsx",
+    "src/templates/LowerThirds/LowerThirds.tsx",
+    "src/templates/LowerThirds/styles.tsx",
+    "src/templates/PromoTemplate/PromoTemplate.tsx"
+  ],
+  "status": "downloaded-for-source-review",
+  "executed": false,
+  "commit": "90149464d51a43fcb90e15491bf0d681c1b0fa49",
+  "inspectedCode": [
+    "src/templates/LowerThirds/styles.tsx",
+    "src/templates/LogoIntro/LogoIntro.tsx",
+    "src/templates/ChartVideo/LineChart.tsx"
+  ],
+  "repository": "AleBrito124356/remotion-video-templates",
+  "url": "https://github.com/AleBrito124356/remotion-video-templates"
+}
