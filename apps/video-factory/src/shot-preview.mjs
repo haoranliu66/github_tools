@@ -3,12 +3,14 @@ import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {join,resolve,dirname} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {loadLibraries,safeResourcePath} from './creative-plan.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
-export function writeShotPreviewHarness(directory,{sourceFile,durationInFrames,fps,style,assets=[],scene={},beat={}}) {
+export function writeShotPreviewHarness(directory,{sourceFile,durationInFrames,fps,style,assets=[],scene={},beat={},fullName=null}) {
   mkdirSync(directory,{recursive:true});
   const path=p=>JSON.stringify(resolve(p).replaceAll('\\','/'));
   const bridge=`export * from ${path(join(ROOT,'apps/video-factory/remotion/MotionLibrary.jsx'))};\nexport {FrameReveal,FrameAnnotation} from ${path(join(ROOT,'apps/video-factory/remotion/RemotionEffects.jsx'))};\n`;
-  writeFileSync(join(dirname(sourceFile),'motion-library.jsx'),bridge);writeFileSync(join(dirname(sourceFile),'shot-runtime.jsx'),bridge);
+  const extra=loadLibraries(ROOT,{fullName}).motions.filter(m=>m.module&&(m.reuseScope!=='project'||m.sourceProject===fullName)).map(m=>`export {default as ${m.exportName}} from ${path(safeResourcePath(ROOT,m.module))};`).join('\n');
+  writeFileSync(join(dirname(sourceFile),'motion-library.jsx'),bridge+extra);writeFileSync(join(dirname(sourceFile),'shot-runtime.jsx'),bridge+extra);
   const props={durationInFrames,fps,style,assets,scene,beat,accent:style.palette.accent};
   const entry=join(directory,'entry.jsx');
   writeFileSync(entry,`import React from 'react';import {AbsoluteFill,Composition,registerRoot,useCurrentFrame} from 'remotion';import Shot from ${path(sourceFile)};\nconst View=props=><AbsoluteFill style={{background:props.style.background,color:props.style.palette.ink,fontFamily:props.style.typography.body}}><Shot {...props} frame={useCurrentFrame()}/></AbsoluteFill>;\nregisterRoot(()=> <Composition id="ShotPreview" component={View} durationInFrames={${durationInFrames}} fps={${fps}} width={1920} height={1080} defaultProps={${JSON.stringify(props)}}/>);`);

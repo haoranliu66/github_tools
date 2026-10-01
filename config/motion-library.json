@@ -16,7 +16,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "文字内部呈现渐变色，适合突出项目名称、标题和关键短语。承载任意文字子内容，可作为排版的一部分组合；它本身不负责文字入场或信息关系变化。"
     },
     {
       "id": "kinetic-headline",
@@ -33,7 +34,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "标题中的词组依次以弹簧节奏出现，适合开场问题、主张或阶段标题。可调整时间、词组间隔及样式；文字按空格分组，中文可按语义短语插入空格，避免把整段说明都当作标题。"
     },
     {
       "id": "draw-underline",
@@ -50,7 +52,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "一条强调线从无到有绘出，适合指出关键词、结论或关注区域。宽度、颜色和开始时间可配置，可叠在其他内容下方；位置由外部布局控制，不会自动定位文字。"
     },
     {
       "id": "ghost-ahead",
@@ -67,7 +70,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "文字短语先以淡淡的预示形态出现，再逐步落实为清晰正文，适合表现思路形成、提问或逐步确认。接收短语数组，可与文本、图解并置；它只改变文字显现，不改变叙事内容。"
     },
     {
       "id": "defocus-reveal",
@@ -84,7 +88,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "内容由模糊过渡为清晰，适合揭示结果、把注意力移向重点或柔和进入新内容。可以包裹任意 JSX 并组合在局部布局中；内部存在清晰与模糊两层，不适合重复渲染有副作用的内容。"
     },
     {
       "id": "dip-to-color",
@@ -101,7 +106,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "画面在切换点前后短暂经过纯色覆盖，适合阶段交接、较大场景变化或留出视觉呼吸。颜色和时间可配置，作为覆盖层与实际内容切换组合；它本身不提供前后场景。"
     },
     {
       "id": "match-cut",
@@ -118,7 +124,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "同一画面位置切换前后两组内容，并保留共享锚点，适合对象延续而问题、环境或周围状态改变。前后内容及锚点接收任意 JSX；作用于整幅画面，默认缩放也影响锚点，可调 zoomPeak，锚点无需在两侧重复。"
     },
     {
       "id": "perspective-panel",
@@ -135,7 +142,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "面板以透视抬升、缩放和显现进入，然后展平，适合界面、结果面板或新信息进入视野。包裹任意 JSX，开始时间及局部样式可调，可与字段变化和镜头移动组合。"
     },
     {
       "id": "cascade-grid",
@@ -152,7 +160,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "列表或网格中的项目按顺序级联出现，适合检索结果、多项输出、选项或信息逐步汇集。接收数据与自定义渲染函数，列数、间隔及时间可调；去重、排序和后续状态变化由外部实现。"
     },
     {
       "id": "count-up",
@@ -169,7 +178,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "数值从零逐步增长并落定在目标整数，适合呈现已有数据、计数或统计结果。时间和样式可调，可嵌入图表、标题和面板；它不提供数据来源，也不表示真实测量过程。"
     },
     {
       "id": "draw-path",
@@ -186,7 +196,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "SVG 路径逐步绘出，适合表现关系建立、连接、流程、轨迹或已有数据的趋势线。路径、视口、颜色和时间可配置，可叠加文字、节点或图表；它本身不沿路径搬运信息。"
     },
     {
       "id": "camera-move",
@@ -203,7 +214,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "对包裹内容按关键帧平移和缩放，适合从整体进入局部、追随关注点或在同一空间中解释结构。可包裹任意 JSX，与关系线、字段变化和状态转换组合；作用于容器整体，不自动选择焦点。"
     },
     {
       "id": "flow-packet",
@@ -220,7 +232,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "带文字标签的信息包沿两点之间的弧线路径移动，适合信息传递、数据进入存储、消息流转或结果交付。起终点、标签、颜色和时间可配置，可用多个实例表现并行传递；容器和结果合并由外部 JSX 实现，路径与标签需要预留空间。"
     },
     {
       "id": "card-flip",
@@ -237,7 +250,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "前后两组内容通过双面透视旋转翻转连接，适合揭示背面信息、前后状态对比或场景交接。两侧接收任意 JSX，时间、背景和样式可调；默认填充画面，局部使用需安排容器尺寸与层级。"
     },
     {
       "id": "brush-reveal",
@@ -254,7 +268,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "内容以多段分带的画笔效果逐步展现，适合手绘图解、插画、强调内容或柔和揭示。可包裹任意 JSX，并调整笔触数量、方向和时间；各带会重复渲染子内容，需保持内容确定。"
     },
     {
       "id": "browser-frame",
@@ -271,7 +286,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "浏览器外观容器以弹簧节奏进入，适合网站界面、操作过程或交互示意。可传入任意 JSX、地址文字、尺寸和风格，与输入、结果和局部标注组合；它提供外框，不提供实际应用功能。"
     },
     {
       "id": "code-diff",
@@ -288,7 +304,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "代码或文字行以新增、删除和上下文的不同色彩与边栏依次显示，适合版本变化、修改解释或前后差异。行内容、标题、字号、时间和风格可配置，可与代码定位或讲解组合；仅呈现传入内容。"
     },
     {
       "id": "accent-typewriter",
@@ -305,7 +322,8 @@
         "react",
         "remotion"
       ],
-      "reuseScope": "universal"
+      "reuseScope": "universal",
+      "description": "文字逐字输入，并以强调色光标及短暂颜色变化突出当前位置，适合用户提问、命令、搜索或输入形成。文本、速度、时间和颜色可调，可与界面、检索过程和结果组合；不负责执行输入。"
     }
   ]
 }

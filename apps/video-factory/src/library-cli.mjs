@@ -2,6 +2,7 @@
 import {copyFileSync,mkdirSync,readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {join,resolve,extname} from 'node:path';
 import {refreshProductionReferenceIndex} from './reference-index.mjs';
+import {searchMaterials} from './material-search.mjs';
 import {spawnSync} from 'node:child_process';
 import {hash,loadLibraries,safeResourcePath,validateCreativeSource} from './creative-plan.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
@@ -9,6 +10,16 @@ const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv
 const command=process.argv[2]??'list';
 try {
   if(command==='list')console.log(JSON.stringify(loadLibraries(ROOT),null,2));
+  else if(command==='search') {
+    const queriesFile=arg('--queries'),queries=queriesFile?JSON.parse(readFileSync(resolve(queriesFile),'utf8')):[];
+    if(!Array.isArray(queries)||queries.some(q=>typeof q!=='string'))throw new Error('--queries must contain a JSON array of visual needs.');
+    const fullName=arg('--repo'),catalog=loadLibraries(ROOT,{fullName});
+    console.log(JSON.stringify({retrieval:'keyword + local concept expansion + expression queries; reciprocal-rank fusion',matches:searchMaterials(catalog.motions,{query:arg('--query')??'',queries,limit:Number(arg('--limit')??5),fullName})},null,2));
+  } else if(command==='show') {
+    const m=loadLibraries(ROOT,{fullName:arg('--repo')}).motions.find(m=>m.id===arg('--id'));
+    if(!m)throw new Error('Unknown material in this project scope.');
+    console.log(JSON.stringify(m,null,2));
+  }
   else if(command==='demo') {
     const catalog=loadLibraries(ROOT),id=arg('--id'),selected=id?catalog.motions.filter(m=>m.id===id):catalog.motions;
     if(!selected.length)throw new Error('Unknown motion.');
@@ -22,9 +33,9 @@ try {
       console.log('demo: '+m.id);
     }
   } else if(command==='add') {
-    const file=arg('--request');if(!file)throw new Error('Usage: video:library add --request FILE (id, module, demo, example, supports)');
+    const file=arg('--request');if(!file)throw new Error('Usage: video:library add --request FILE (id, description, module, demo, example, supports)');
     const a=JSON.parse(readFileSync(resolve(file),'utf8'));
-    if(!/^[a-z][a-z0-9-]+$/u.test(a.id)||!a.supports?.length||!a.example?.trim()||!a.module||!a.demo)throw new Error('A material needs runnable code, actual effect demo, usage example and expression scenarios.');
+    if(!/^[a-z][a-z0-9-]+$/u.test(a.id)||!a.description?.trim()||!a.supports?.length||!a.example?.trim()||!a.module||!a.demo)throw new Error('A material needs runnable code, actual effect demo, usage example and expression scenarios.');
     let source=readFileSync(resolve(a.module),'utf8');validateCreativeSource(source);
     source=source.replace(/(['"])\.\/(?:motion-library|shot-runtime)\.jsx\1/gu,"'../../../apps/video-factory/remotion/MaterialRuntime.jsx'");
     if(!existsSync(resolve(a.demo))||!['.mp4','.webm','.gif'].includes(extname(a.demo)))throw new Error('Retained playable effect demo is required.');
@@ -34,7 +45,7 @@ try {
     const directory=join(ROOT,'assets/motion-library',a.id);mkdirSync(directory,{recursive:true});
     writeFileSync(join(directory,'component.jsx'),source);copyFileSync(resolve(a.demo),join(directory,'demo'+extname(a.demo)));writeFileSync(join(directory,'usage.md'),a.example);
     catalog.motions.push({id:a.id,exportName:'Material_'+a.id.replaceAll('-','_'),module:`assets/motion-library/${a.id}/component.jsx`,codePath:`assets/motion-library/${a.id}/component.jsx`,sha256:hash(source),
-      demo:`assets/motion-library/${a.id}/demo${extname(a.demo)}`,usage:`assets/motion-library/${a.id}/usage.md`,supports:a.supports,dependencies:a.dependencies??['react','remotion'],reuseScope:a.reuseScope??'universal',...(a.reuseScope==='project'?{sourceProject:a.sourceProject}:{})});
+      demo:`assets/motion-library/${a.id}/demo${extname(a.demo)}`,usage:`assets/motion-library/${a.id}/usage.md`,description:a.description.trim(),supports:a.supports,dependencies:a.dependencies??['react','remotion'],reuseScope:a.reuseScope??'universal',...(a.reuseScope==='project'?{sourceProject:a.sourceProject}:{})});
     writeFileSync(filePath,JSON.stringify(catalog,null,2)+'\n');refreshProductionReferenceIndex(ROOT);console.log('Added production material '+a.id);
-  }else throw new Error('Usage: video:library list|demo|add. Review judgments belong outside the material library.');
+  }else throw new Error('Usage: video:library list|search|show|demo|add. Review judgments belong outside the material library.');
 }catch(e){console.error(e.message);process.exitCode=1;}

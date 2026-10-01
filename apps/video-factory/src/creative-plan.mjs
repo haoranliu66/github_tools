@@ -139,6 +139,7 @@ export function loadLibraries(root,{fullName=null}={}) {
   const styles=styleCatalog.styles;
   const motions=catalog.motions.filter(m=>!fullName||m.reuseScope!=='project'||m.sourceProject===fullName);
   for(const m of motions.filter(m=>m.module)) if(hash(readFileSync(safeResourcePath(root,m.module)))!==m.sha256) throw new Error(`Approved library source changed: ${m.id}`);
+  if(motions.some(m=>!m.description?.trim()))throw new Error('Every material needs a visual retrieval description.');
   const forbidden=['origin','quality','review','reviewer'];
   if([...styles,...motions].some(value=>forbidden.some(key=>key in value)))throw new Error('Production catalogs cannot contain archived reviews.');
   const snapshot={styles,motions};return {...snapshot,digest:hash(JSON.stringify(snapshot))};

@@ -41,7 +41,19 @@ export function assertEditorialContractMetadata(actual, expectedContract = null)
   }
 }
 
-export function trustedContractPrompt(contract) {
+const STAGE_SECTIONS = {
+  research:['共通原则','研究与策划交付'],
+  director:['共通原则','导演实现画面'],
+  audio:['共通原则','配音后落实时间'],
+  review:['共通原则','视觉预检与修复'],
+  render:['共通原则','最终交付'],
+};
+export function stageContractBody(content,stage) {
+  const names=STAGE_SECTIONS[stage];if(!names)throw new Error('Unknown production stage: '+stage);
+  const sections=new Map([...content.matchAll(/^## ([^\n]+)\n([\s\S]*?)(?=^## |$(?![\s\S]))/gmu)].map(m=>[m[1].trim(),m[2].trim()]));
+  return names.map(name=>{if(!sections.has(name))throw new Error('Missing production section: '+name);return '## '+name+'\n'+sections.get(name);}).join('\n\n');
+}
+export function trustedContractPrompt(contract,{stage}={}) {
   return {metadata: contractMetadata(contract), body: contract.sources.map(({path, content}) =>
-    '--- BEGIN TRUSTED FILE: ' + path + ' ---\n' + content + '\n--- END TRUSTED FILE: ' + path + ' ---').join('\n\n')};
+    '--- BEGIN TRUSTED FILE: ' + path + ' ---\n' + (stage?stageContractBody(content,stage):content) + '\n--- END TRUSTED FILE: ' + path + ' ---').join('\n\n')};
 }

@@ -87,15 +87,13 @@ export function bindProductionShots(plan,timing,fps) {
     const unit=plan.content.units.find(u=>u.id===s.unitId);
     return {...s,title:unit.heading,claimIndexes:unit.claimIndexes,startFrame,endFrame,durationInFrames:endFrame-startFrame};});
 }
-export function directorContextPrompt({contractBody,plan,style,references}) {
-  return `${contractBody}\nYou are the visual director of this ONE fixed unified plan. Narration is already measured; implement its visuals only. Maintain this same plan across tool-enabled turns. You may inspect, try, render and repair shots.\nChosen style: ${JSON.stringify(style)}\nUnified plan: ${JSON.stringify({content:plan.content,preproduction:plan.preproduction})}\nReferences are loaded only when needed. Index file: ${references}\nDo not browse unrelated repositories, rewrite narration, or manufacture product execution. Use free JSX to make the planned meaning visible. Preserve design continuity, content hierarchy, subtitle-safe space and deterministic frame animation.`;
-}
+export {directorContextPrompt} from './director-context.mjs';
 
 export function validatePlannedRealization(plan,shots,visual) {
   if(visual.styleId!==plan.content.styleId||visual.scenes?.length!==shots.length)throw new Error('Realization differs from the unified shot plan.');
   for(const [i,scene] of visual.scenes.entries()) {
     const shot=shots[i],beat=scene.beats?.[0];
-    if(scene.id!==shot.id||scene.startFrame!==shot.startFrame||scene.endFrame!==shot.endFrame||scene.purpose!==shot.purpose||scene.beats?.length!==1||beat?.id!==shot.id||beat.narrationCue!==shot.narrationCue||beat.purpose!==shot.purpose||beat.route!==shot.route||JSON.stringify(scene.claimIndexes)!==JSON.stringify(shot.claimIndexes)||JSON.stringify(beat.claimIndexes)!==JSON.stringify(shot.claimIndexes)||JSON.stringify([...beat.libraryIds].sort())!==JSON.stringify([...shot.libraryIds].sort()))throw new Error('Realization changed planned shot '+shot.id+'. Return to planning for semantic changes.');
+    if(scene.id!==shot.id||scene.startFrame!==shot.startFrame||scene.endFrame!==shot.endFrame||scene.purpose!==shot.purpose||scene.beats?.length!==1||beat?.id!==shot.id||beat.narrationCue!==shot.narrationCue||beat.purpose!==shot.purpose||JSON.stringify(scene.claimIndexes)!==JSON.stringify(shot.claimIndexes)||JSON.stringify(beat.claimIndexes)!==JSON.stringify(shot.claimIndexes))throw new Error('Realization changed planned shot '+shot.id+'. Return to planning for semantic changes.');
   }
   return visual;
 }

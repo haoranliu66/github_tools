@@ -2,7 +2,7 @@
 
 从 `./motion-library.jsx` 导入。所有组件使用 Remotion 帧时间；生成镜头在独立 Sequence 内，
 `frame` 与 `useCurrentFrame()` 均从本 beat 的 0 开始。不要用全片 duration 当作 beat 时长。
-组件接受任意 React 子内容，因此可以嵌套实际素材、SVG、界面、代码、图表和自绘对象。
+容器组件可接收任意 React 子内容；路径、计数、文字等组件通过各自参数组合。具体作用范围见检索描述和下表。
 以下 API 是工具，不是必须套用的画面或固定动作词表。生成器可以自由编写其他 Remotion 表达。
 
 | 导出 | 参数与用途 |
@@ -29,11 +29,7 @@
 图片可用 `<Img src={staticFile(assets.find(a=>a.id==='id').src)}/>`，也可使用策划案列出的已暂存相对路径。
 禁止虚构图片文件路径。没有合适素材时，可以直接绘制 SVG/HTML/Canvas。
 
-经人工评审入库的专用组件另有 exportName、module、sourceProject、reuseScope 和 mediaBindings。
-默认先按项目复用；通用性由实际适用范围与人工评审记录描述。不得把原项目图片冒充另一项目素材。
-
-上游固定提交与 MIT 版权全文保存在 `integrations/motion-sources/`。
-GitHub 适配组件仍待人工视觉评审；源码检查、编译和解码只确认技术可用性。
+专用组件通过 exportName、module 和实际演示按需读取；项目素材仅在对应项目可用。
 
 ## 本轮扩展接口
 

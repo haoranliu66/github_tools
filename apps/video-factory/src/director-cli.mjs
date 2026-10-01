@@ -17,6 +17,7 @@ import {runVisualPreflight} from './visual-preflight.mjs';
 import {loadDirectorRun} from './director-state.mjs';
 import {wavDuration} from './narration.mjs';
 import {writeShotPreviewHarness} from './shot-preview.mjs';
+import {shotTaskPrompt,realizeShot,realizationState} from './director-context.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const json=path=>JSON.parse(readFileSync(path,'utf8'));
@@ -46,13 +47,15 @@ export async function directMain() {
   const shots=bindProductionShots(plan,timing,audio.fps),materials=audioStoryboard.meta.materials??[];
   const style=libraries.styles.find(s=>s.id===plan.content.styleId);
   const referenceIndex=join(ROOT,'docs/production-reference-index.json');
-  const prompt=directorContextPrompt({contractBody:trustedContractPrompt(contract).body,plan,style,references:referenceIndex});
+  const prompt=directorContextPrompt({contractBody:trustedContractPrompt(contract,{stage:'director'}).body,plan,style,references:referenceIndex,planPath:join(resources,'editorial-plan.json'),statePath:join(resources,'director-state.json'),searchCommand:`node ${join(ROOT,'apps/video-factory/src/library-cli.mjs')} search --repo ${fullName} --query "画面需要"`});
   writeFileSync(join(resources,'director-agent-prompt.txt'),prompt);
   if(process.argv.includes('--dry-run'))return console.log(JSON.stringify({promptCharacters:prompt.length,shots:shots.map(s=>({id:s.id,startFrame:s.startFrame,endFrame:s.endFrame})),references:'on-demand'}));
-  const runInputs={contentDigest:plan.contentDigest,preproductionDigest:plan.preproductionDigest,audioSha256:hash(audioBytes),timingSha256:hash(readFileSync(timingPath)),libraryDigest:libraries.digest};
+  const runInputs={editorialContractDigest:contract.digest,contentDigest:plan.contentDigest,preproductionDigest:plan.preproductionDigest,audioSha256:hash(audioBytes),timingSha256:hash(readFileSync(timingPath)),libraryDigest:libraries.digest};
   const resumed=arg('--resume-run')?loadDirectorRun(resources,resolve(arg('--resume-run')),runInputs):null;
   const runDirectory=resumed?.directory??join(resources,'shots/runs',new Date().toISOString().replace(/[:.]/gu,'-'));mkdirSync(runDirectory,{recursive:true});atomic(join(runDirectory,'inputs.json'),runInputs);
   let sessionId=resumed?.sessionId,visual;
+  const statePath=join(resources,'director-state.json');
+  atomic(statePath,realizationState([]));
   if(arg('--request'))visual=json(resolve(arg('--request')));
   else {
     const scenes=[];
@@ -60,21 +63,28 @@ export async function directMain() {
       const directory=join(runDirectory,shot.id);mkdirSync(directory,{recursive:true});
       const sourceFile=join(directory,'shot.jsx'),assignmentFile=join(directory,'assignment.json');
       const captions=audio.clips.filter(c=>c.startFrame<shot.endFrame&&c.endFrame>shot.startFrame).map(c=>({...c,startFrame:Math.max(c.startFrame,shot.startFrame)-shot.startFrame,endFrame:Math.min(c.endFrame,shot.endFrame)-shot.startFrame}));
-      const assignment={sourceFile,durationInFrames:shot.durationInFrames,fps:audio.fps,style,assets:materials,captions,publicDirectory:production,scene:shot,beat:{id:shot.id}};
+      const assignment={fullName,sourceFile,durationInFrames:shot.durationInFrames,fps:audio.fps,style,assets:materials,captions,publicDirectory:production,scene:shot,beat:{id:shot.id}};
       if(!resumed?.completed.includes(shot.id)){atomic(assignmentFile,assignment);}writeShotPreviewHarness(join(directory,'preview'),assignment);
-      const task=`${i===0?prompt+'\n':''}Implement planned shot ${shot.id} only. Assignment: ${JSON.stringify(shot)}\nCaption timing for this shot (measured blocks with weighted cue estimates): ${JSON.stringify(captions)}\nPrevious and next design: ${JSON.stringify({previous:shots[i-1]??null,next:shots[i+1]??null})}\nWrite the full default-export React component to ${sourceFile}. Props: {frame,durationInFrames,fps,style,accent,assets,scene,beat}. frame/useCurrentFrame are shot-relative. Use durationInFrames prop rather than whole-video duration. Implement style geometry, typography, spatial continuity and planned content. Assets are staged src values in assignment.json and used with staticFile.\nRead only selected library code/demos and needed Remotion references from the index. Local motion imports use './motion-library.jsx' or './shot-runtime.jsx'. Installed browser packages are available. Deterministic offline frames, no timers or CSS animation. There are no object/action/layout enums or motion quotas.\nTry the shot by running node ${join(ROOT,'apps/video-factory/src/shot-preview.mjs')} ${assignmentFile}, inspect the generated middle.png and preview frames, and repair visible problems. Caption region is the selected style's bottom safe area.\nReturn JSON only: {sourceFile:"${sourceFile.replaceAll('\\','/')}",summary:"implementation and continuity",libraryIds:[actual used IDs]}. Do not rewrite narration, timing or other shots.`;
+      const task=(i===0||!sessionId?prompt+'\n':'')+shotTaskPrompt({shot,previous:shots[i-1],next:shots[i+1],captions,sourceFile,assignmentFile,statePath,previewCommand:`node ${join(ROOT,'apps/video-factory/src/shot-preview.mjs')} ${assignmentFile}`});
       const result=resumed?.completed.includes(shot.id)?{value:json(join(directory,'result.json')),sessionId}:await runToolAgent(task,{workingDirectory:ROOT,outputPath:join(directory,'result.json'),sessionId,sandbox:'workspace-write'});sessionId=result.sessionId;
       if(resolve(result.value.sourceFile)!==resolve(sourceFile)||!existsSync(sourceFile))throw new Error('Director did not produce the assigned local shot.');
       const source=readFileSync(sourceFile,'utf8');validateCreativeSource(source);
-      const actualIds=result.value.libraryIds;
-      if(!Array.isArray(actualIds)||actualIds.some(id=>!shot.libraryIds.includes(id)))throw new Error('Director changed the planned component selection. Repair realization or explicitly replan.');
-      scenes.push({id:shot.id,title:shot.title,startFrame:shot.startFrame,endFrame:shot.endFrame,purpose:shot.purpose,claimIndexes:shot.claimIndexes,
-        beats:[{id:shot.id,startFrame:0,endFrame:shot.durationInFrames,narrationCue:shot.narrationCue,purpose:shot.purpose,claimIndexes:shot.claimIndexes,
-          route:shot.route,libraryIds:actualIds,candidates:[],reason:result.value.summary,sourceFile,source}]});
+      scenes.push(realizeShot(shot,result.value,source,libraries));
+      atomic(statePath,realizationState(scenes));
       atomic(join(runDirectory,'director-session.json'),{sessionId,contentDigest:plan.contentDigest,preproductionDigest:plan.preproductionDigest,completed:scenes.map(s=>s.id)});
     }
     visual={styleId:plan.content.styleId,designSummary:plan.preproduction.designContext,scenes};
   }
+  const applyRepairs=value=>{
+    if(!Array.isArray(value.shots)||!value.shots.length)throw new Error('Repair must identify actual shot implementations.');
+    for(const r of value.shots){const index=visual.scenes.findIndex(s=>s.id===r.id);if(index<0)throw new Error('Repair refers to an unknown shot.');
+      const sourceFile=join(runDirectory,r.id,'shot.jsx'),result={sourceFile,libraryIds:r.libraryIds,summary:r.summary};
+      visual.scenes[index]=realizeShot(shots[index],result,readFileSync(sourceFile,'utf8'),libraries);
+      atomic(join(runDirectory,r.id,'result.json'),result);
+    }
+    atomic(statePath,realizationState(visual.scenes));
+    atomic(join(runDirectory,'director-session.json'),{sessionId,contentDigest:plan.contentDigest,preproductionDigest:plan.preproductionDigest,completed:visual.scenes.map(s=>s.id)});
+  };
   let built,compilation,preflight,finalPlan;
   for(let attempt=0;attempt<4;attempt++) {
     try {
@@ -82,7 +92,7 @@ export async function directMain() {
       const compiled=compileTimeline({audioStoryboard,timing,visual,research,libraries,contentDigest:plan.contentDigest});
       // Carry the design context through to the reviewer, including joins between neighboring shots.
       compiled.storyboard.meta.designContext=plan.preproduction.designContext;
-      for(const s of compiled.storyboard.scenes) {const p=shots.find(x=>x.id===s.id);s.continuity=p?.continuity??null;s.visualDesign=p?.visualDesign??null;s.assetIds=p?.assetIds??[];}
+      for(const s of compiled.storyboard.scenes) {const p=shots.find(x=>x.id===s.id);s.continuity=p?.continuity??null;s.visualDesign=p?'Implementation suggestion: '+p.visualDesign:null;s.assetIds=p?.assetIds??[];}
       finalPlan={...plan,phase:'visual-ready',visual,audio:{sha256:hash(audioBytes),timingSha256:hash(readFileSync(timingPath)),totalFrames:audio.totalFrames,fps:audio.fps,precision:audio.precision},libraryDigest:libraries.digest};
       compiled.storyboard.meta.editorialPlanDigest=hash(JSON.stringify(finalPlan));
       built=buildCreativeProgram(compiled,{resourcesDirectory:resources,remotionGuidance:{provider:'installed-codex-remotion-plugin',loading:'on-demand',referenceIndex}});
@@ -93,14 +103,14 @@ export async function directMain() {
       if(preflight.status==='passed')break;
       if(attempt===3||arg('--request'))throw new Error('Visual preflight needs repair: '+preflight.reportPath);
       const manifest=json(preflight.manifestPath),images=manifest.pages.filter(p=>preflight.issues.some(issue=>issue.evidence.includes(p.id))).map(p=>p.file);
-      const repair=`Actual visual preflight found these issues: ${JSON.stringify(preflight.issues)}. Read images at full size. Repair ONLY affected shot.jsx files in ${runDirectory}, preserving the unified plan, audio, cue timing and style. Resolve continuity at joins. Return JSON {repairedShots:[shot IDs]}.`;
+      const repair=`Actual visual preflight found these issues: ${JSON.stringify(preflight.issues)}. Read images at full size. Repair ONLY affected shot.jsx files in ${runDirectory}, preserving the unified plan, audio, cue timing and style. Resolve continuity at joins. Return JSON {shots:[{id,libraryIds:[actual used IDs],summary:"actual implementation"}]}.`;
       const result=await runToolAgent(repair,{workingDirectory:ROOT,outputPath:join(runDirectory,`repair-${attempt}.json`),sessionId,images,sandbox:'workspace-write'});sessionId=result.sessionId;
-      for(const id of result.value.repairedShots??[]){const scene=visual.scenes.find(s=>s.id===id);if(!scene)throw new Error('Repair refers to an unknown shot.');scene.beats[0].source=readFileSync(join(runDirectory,id,'shot.jsx'),'utf8');}
+      applyRepairs(result.value);
     }catch(e) {
       writeFileSync(join(runDirectory,`error-${attempt}.txt`),e.message);
       if(attempt===3||arg('--request')||e.visualPreflightStatus==='error'||e.toolAgentStatus==='error')throw e;
-      const result=await runToolAgent(`Technical compile repair: ${e.message}. Repair only shot.jsx files within ${runDirectory}. Keep the complete plan and audio unchanged. Return JSON {repairedShots:[IDs]}.`,{workingDirectory:ROOT,outputPath:join(runDirectory,`technical-repair-${attempt}.json`),sessionId,sandbox:'workspace-write'});sessionId=result.sessionId;
-      for(const id of result.value.repairedShots??[]){const scene=visual.scenes.find(s=>s.id===id);if(scene)scene.beats[0].source=readFileSync(join(runDirectory,id,'shot.jsx'),'utf8');}
+      const result=await runToolAgent(`Technical compile repair: ${e.message}. Repair only shot.jsx files within ${runDirectory}. Keep the complete plan and audio unchanged. Return JSON {shots:[{id,libraryIds:[actual used IDs],summary:"actual implementation"}]}.`,{workingDirectory:ROOT,outputPath:join(runDirectory,`technical-repair-${attempt}.json`),sessionId,sandbox:'workspace-write'});sessionId=result.sessionId;
+      applyRepairs(result.value);
     }
   }
   if(preflight?.status!=='passed')throw new Error('Visual preflight did not pass. Retained diagnostics: '+runDirectory);
