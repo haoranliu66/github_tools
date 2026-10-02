@@ -110,7 +110,8 @@ pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/select
 `pnpm video:remotion:sync` 从本机插件同步。它提供制作知识与参考，不会自动安装示例中的可选依赖。
 
 完整生产、返修、独立阶段与产物说明见 [现行制作流程](docs/video-production-workflow.md)；
-插件能力与限制见 [Remotion 接入](docs/remotion-integration.md)。生成配音前遵循
+插件能力与限制见 [Remotion 接入](docs/remotion-integration.md)。动效按“描述检索 → 选中项用法 → 必要专项说明”读取，新增也遵循相同规范；说明见
+[动效库手册](docs/motion-library.md)。生成配音前遵循
 [音频预检 Skill](.agents/skills/audio-narration-preflight/SKILL.md)，音色注册与 Qwen 连接见
 [Qwen TTS](docs/qwen-tts.md)。
 

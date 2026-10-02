@@ -2516,7 +2516,9 @@
   "uncertainties": [
     {
       "asset": "original SFX/BGM",
-      "resolution": "No original stock audio adopted; local audio inputs preserve cue positions; default silent."
+      "resolution": "Superseded on 2026-10-02 by explicit user admission: 11 original sound-effect files and 32 cues are optional for nine films; default silent; see optional-audio-validation.json. Unrelated BGM is not automatically enabled.",
+      "previousResolution": "Superseded on 2026-10-02 by explicit user admission: 11 original sound-effect files and 32 cues are optional for nine films; default silent; see optional-audio-validation.json. Unrelated BGM is not automatically enabled.",
+      "status": "original referenced sound effects admitted"
     },
     {
       "asset": "agent-stream.jpg",

@@ -47,7 +47,7 @@ export async function directMain() {
   const shots=bindProductionShots(plan,timing,audio.fps),materials=audioStoryboard.meta.materials??[];
   const style=libraries.styles.find(s=>s.id===plan.content.styleId);
   const referenceIndex=join(ROOT,'docs/production-reference-index.json');
-  const prompt=directorContextPrompt({contractBody:trustedContractPrompt(contract,{stage:'director'}).body,plan,style,references:referenceIndex,planPath:join(resources,'editorial-plan.json'),statePath:join(resources,'director-state.json'),searchCommand:`node ${join(ROOT,'apps/video-factory/src/library-cli.mjs')} search --repo ${fullName} --query "画面需要"`});
+  const prompt=directorContextPrompt({contractBody:trustedContractPrompt(contract,{stage:'director'}).body,plan,style,references:referenceIndex,planPath:join(resources,'editorial-plan.json'),statePath:join(resources,'director-state.json'),searchCommand:`node ${join(ROOT,'apps/video-factory/src/library-cli.mjs')} search --repo ${fullName} --query "画面需要"`,fullName});
   writeFileSync(join(resources,'director-agent-prompt.txt'),prompt);
   if(process.argv.includes('--dry-run'))return console.log(JSON.stringify({promptCharacters:prompt.length,shots:shots.map(s=>({id:s.id,startFrame:s.startFrame,endFrame:s.endFrame})),references:'on-demand'}));
   const runInputs={editorialContractDigest:contract.digest,contentDigest:plan.contentDigest,preproductionDigest:plan.preproductionDigest,audioSha256:hash(audioBytes),timingSha256:hash(readFileSync(timingPath)),libraryDigest:libraries.digest};

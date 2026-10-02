@@ -1,0 +1,3027 @@
+{
+  "schemaVersion": 1,
+  "change": "Description-first motion reuse and standardized per-material usage",
+  "beforeLibraryDigest": "54efbbd64fc7c5e20446c080e034a8b531483322f5c825f82addf83468cccd22",
+  "afterLibraryDigest": "8c90b7f0d874a854ec35977aaffe83498e931a6426ef2251d2af49d6b613ae04",
+  "beforeProductionContractFileDigest": "93bd4542b09c503df27961cb25e99c802e9b733f9d4afa36a7e36023479de20a",
+  "afterProductionContractFileDigest": "789eecda570ede839873169f14ec3332b0895d8711ada4a13be05c455fc807ae",
+  "sourceCodeUnchanged": true,
+  "sourceDigests": [
+    {
+      "id": "gradient-text",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "kinetic-headline",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "draw-underline",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "ghost-ahead",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "defocus-reveal",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "dip-to-color",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "match-cut",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "perspective-panel",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "cascade-grid",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "count-up",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "draw-path",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "camera-move",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "flow-packet",
+      "path": "apps/video-factory/remotion/MotionLibrary.jsx",
+      "sha256": "4ec2b90e8b4eb5837468bb2ac4187bb8ab87584d76d09344d1283102195f45b6"
+    },
+    {
+      "id": "card-flip",
+      "path": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "sha256": "3004906ce3235f5cbe3f5f198e4e8b9b1dbe319e0056d1e03f311881c1a8c9cd"
+    },
+    {
+      "id": "brush-reveal",
+      "path": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "sha256": "3004906ce3235f5cbe3f5f198e4e8b9b1dbe319e0056d1e03f311881c1a8c9cd"
+    },
+    {
+      "id": "browser-frame",
+      "path": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "sha256": "3004906ce3235f5cbe3f5f198e4e8b9b1dbe319e0056d1e03f311881c1a8c9cd"
+    },
+    {
+      "id": "code-diff",
+      "path": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "sha256": "3004906ce3235f5cbe3f5f198e4e8b9b1dbe319e0056d1e03f311881c1a8c9cd"
+    },
+    {
+      "id": "accent-typewriter",
+      "path": "apps/video-factory/remotion/ExpandedMotion.jsx",
+      "sha256": "3004906ce3235f5cbe3f5f198e4e8b9b1dbe319e0056d1e03f311881c1a8c9cd"
+    },
+    {
+      "id": "shotcraft-page-camera",
+      "path": "assets/motion-library/shotcraft-page-camera/component.jsx",
+      "sha256": "5750a89f8bb99d6d87eb12528ef886bfa51f08b7dbe9bc7bbe65ee8885d9332a"
+    },
+    {
+      "id": "shotcraft-digit-roll",
+      "path": "assets/motion-library/shotcraft-digit-roll/component.jsx",
+      "sha256": "f579859bdbb17bfceb82923d381b4a6536de5b79d05df6aac8a98a053ff77921"
+    },
+    {
+      "id": "shotcraft-flash-cut",
+      "path": "assets/motion-library/shotcraft-flash-cut/component.jsx",
+      "sha256": "17890aaf093e410e24d70557453b8a6eb02d28e140842ed38edaf7f120058ad2"
+    },
+    {
+      "id": "shotcraft-clock-wipe",
+      "path": "assets/motion-library/shotcraft-clock-wipe/component.jsx",
+      "sha256": "b978499aeb4a329f37e37368d05175e03f409365a63f55121d583ec277fab1ad"
+    },
+    {
+      "id": "shotcraft-blinds-slice",
+      "path": "assets/motion-library/shotcraft-blinds-slice/component.jsx",
+      "sha256": "0f9b6812a315b8b60e9242e1b5dbabc8323c90e0a7b0366434c6ea9bfe6e45ec"
+    },
+    {
+      "id": "shotcraft-grid-wave-flip",
+      "path": "assets/motion-library/shotcraft-grid-wave-flip/component.jsx",
+      "sha256": "f6650065d2f5da7d0816f4b1949fd64807dd362554c69f38c2876e0c6e6f63bc"
+    },
+    {
+      "id": "shotcraft-wireframe-reveal",
+      "path": "assets/motion-library/shotcraft-wireframe-reveal/component.jsx",
+      "sha256": "2a07478e9288dfc5d189054812c99011aca7d7a18047f419c8f58000293ead1d"
+    },
+    {
+      "id": "shotcraft-word-roll",
+      "path": "assets/motion-library/shotcraft-word-roll/component.jsx",
+      "sha256": "70a66e24754a78c1ede73235eab98a07a38048c015d3d9c2dc7de21f830e6042"
+    },
+    {
+      "id": "shotcraft-bezier-merge",
+      "path": "assets/motion-library/shotcraft-bezier-merge/component.jsx",
+      "sha256": "10fe4042a69be13d056ca0601b7e82dfffae927e5c515ddfa5ec81e15b220aca"
+    },
+    {
+      "id": "shotcraft-timeline-travel",
+      "path": "assets/motion-library/shotcraft-timeline-travel/component.jsx",
+      "sha256": "b32a171adfcc039aacd7b2a5d4d54cefaebdeaf8c3d9d1f61f5ec1a3e71dde27"
+    },
+    {
+      "id": "shotcraft-spotlight-hero",
+      "path": "assets/motion-library/shotcraft-spotlight-hero/component.jsx",
+      "sha256": "9c6d140f85b8c5b80ace5dbd5d8e70a0e2ab7a82d6c6ba3d9420734503931e2b"
+    },
+    {
+      "id": "shotcraft-row-embed",
+      "path": "assets/motion-library/shotcraft-row-embed/component.jsx",
+      "sha256": "d18dacf1afdb534997e4555c9775227b04fae3a133753612a58c09a8fc979467"
+    },
+    {
+      "id": "shotcraft-template-basic3-d-scene",
+      "path": "assets/motion-library/shotcraft-template-basic3-d-scene/component.jsx",
+      "sha256": "cd05eef5f098aecdad8ffc00577f5f13a388752a2052dc39f1957a634a5fa477"
+    },
+    {
+      "id": "shotcraft-template-cursor-flyover",
+      "path": "assets/motion-library/shotcraft-template-cursor-flyover/component.jsx",
+      "sha256": "769fc76f9dd16f65cbe50b3976a2cab3d4a3a53cfebdbae0fe67c293204a9f75"
+    },
+    {
+      "id": "shotcraft-template-graze-face-tour",
+      "path": "assets/motion-library/shotcraft-template-graze-face-tour/component.jsx",
+      "sha256": "8cf0bacedf521a2971e6f880be618ac36006a62d251233d255eccec32fd5acdc"
+    },
+    {
+      "id": "shotcraft-template-terminal3-d",
+      "path": "assets/motion-library/shotcraft-template-terminal3-d/component.jsx",
+      "sha256": "c968720eaba44745ebf331e02e74764b693e0c20e027fd56be178df8d7f4e6ef"
+    },
+    {
+      "id": "shotcraft-template-avatar-grid-radial-build-colorize",
+      "path": "assets/motion-library/shotcraft-template-avatar-grid-radial-build-colorize/component.jsx",
+      "sha256": "4e7a93a2ad4bb2016717e4c6f75bf0f1fa7c826640e09245a8667d30184414b5"
+    },
+    {
+      "id": "shotcraft-template-before-after-slider-scrub",
+      "path": "assets/motion-library/shotcraft-template-before-after-slider-scrub/component.jsx",
+      "sha256": "5297e4a39135fdaa566f6dae828dde188c208ab7f48a1edf7c61c724b2489f43"
+    },
+    {
+      "id": "shotcraft-template-axis-rescale-shock-v2",
+      "path": "assets/motion-library/shotcraft-template-axis-rescale-shock-v2/component.jsx",
+      "sha256": "12195a52890a7d429a09c5e440498b3f34d84aa0f9352a528346e6df04f3aca9"
+    },
+    {
+      "id": "shotcraft-template-oscilloscope-stream-v2",
+      "path": "assets/motion-library/shotcraft-template-oscilloscope-stream-v2/component.jsx",
+      "sha256": "f829247c44103b5be76b41fbb523f4bd2b367604740b68a061757428e1c58d64"
+    },
+    {
+      "id": "shotcraft-template-unit-dot-swarm-regroup-v2",
+      "path": "assets/motion-library/shotcraft-template-unit-dot-swarm-regroup-v2/component.jsx",
+      "sha256": "7049b9aaa45923904214bf1d3b8103d629717569f310a2cb2ee22fd019e14179"
+    },
+    {
+      "id": "shotcraft-template-counter-confetti",
+      "path": "assets/motion-library/shotcraft-template-counter-confetti/component.jsx",
+      "sha256": "6970fc57c5bc746de316b3f6dec68f126be1d69a09db7c4640081cf95baa6792"
+    },
+    {
+      "id": "shotcraft-template-cycle-glass-node-morph",
+      "path": "assets/motion-library/shotcraft-template-cycle-glass-node-morph/component.jsx",
+      "sha256": "8a19c14ecdd81130d3c816d71511560a89340e049f8e0d627acb0e707a2bdfc7"
+    },
+    {
+      "id": "shotcraft-template-needle-sweep-selftest",
+      "path": "assets/motion-library/shotcraft-template-needle-sweep-selftest/component.jsx",
+      "sha256": "702c31cfe866f59cd7640e155f635c2f3fdfebc7a3c6134bd79186e85d011774"
+    },
+    {
+      "id": "shotcraft-template-tape-scroll-fixed-pointer",
+      "path": "assets/motion-library/shotcraft-template-tape-scroll-fixed-pointer/component.jsx",
+      "sha256": "92a6acce1a4824f0ead03309b3adc953e2c1275a0514eb437ecdf799ec413ff4"
+    },
+    {
+      "id": "shotcraft-template-hatch-depth",
+      "path": "assets/motion-library/shotcraft-template-hatch-depth/component.jsx",
+      "sha256": "e2ab3537e9d20442d52c9d73818ce470242b10cd28775995e46c21740ebdd7c1"
+    },
+    {
+      "id": "shotcraft-template-particle-sand-fill",
+      "path": "assets/motion-library/shotcraft-template-particle-sand-fill/component.jsx",
+      "sha256": "3fd5a33218b32cf5a11bbf17e38e5015313048d6f6c72d084b947ded7e0dd7c9"
+    },
+    {
+      "id": "shotcraft-template-ring-diagram-annotation-reveal",
+      "path": "assets/motion-library/shotcraft-template-ring-diagram-annotation-reveal/component.jsx",
+      "sha256": "e0feadccc2ec3a7f30969b2460332ac0f65b39cc1d74ab976d4d724bed9d7a5e"
+    },
+    {
+      "id": "shotcraft-template-brake-reticle-lock",
+      "path": "assets/motion-library/shotcraft-template-brake-reticle-lock/component.jsx",
+      "sha256": "b8072463fd4207b2ef0cc0f2296880b728e312b8d751fd8e5ac856663375e897"
+    },
+    {
+      "id": "shotcraft-template-changelog-scroll-brake",
+      "path": "assets/motion-library/shotcraft-template-changelog-scroll-brake/component.jsx",
+      "sha256": "b6a96b0eb26035526f13e04ba121d2859804c4e7a8f3b50695b9862d95f5e671"
+    },
+    {
+      "id": "shotcraft-template-timeline-travel",
+      "path": "assets/motion-library/shotcraft-template-timeline-travel/component.jsx",
+      "sha256": "33c07689ece5e8d9eb1b1586031a09f43afd31219a1dbb8dd7f89ebdaa5e483f"
+    },
+    {
+      "id": "shotcraft-template-assemble-then-type-flyin",
+      "path": "assets/motion-library/shotcraft-template-assemble-then-type-flyin/component.jsx",
+      "sha256": "5ae8a857b29936ee9779f042a09ecdb680dbcc2ecdda6f92a05bf74bb15f639b"
+    },
+    {
+      "id": "shotcraft-template-aurora-bloom-bg-flip",
+      "path": "assets/motion-library/shotcraft-template-aurora-bloom-bg-flip/component.jsx",
+      "sha256": "1d2d445ffe8fb1781d318cd9a8995e714c1f2985fb63759fd2859e303286d69a"
+    },
+    {
+      "id": "shotcraft-template-dashboard-glow-highlight-pill",
+      "path": "assets/motion-library/shotcraft-template-dashboard-glow-highlight-pill/component.jsx",
+      "sha256": "bcfe531523fcfddca4148c4921b7c22f5639c17be18bfc74d7065b839d110b0e"
+    },
+    {
+      "id": "shotcraft-template-crash-impact-real",
+      "path": "assets/motion-library/shotcraft-template-crash-impact-real/component.jsx",
+      "sha256": "e6de0e2ce4037752bcb07d5ec965fd966eea3b90255bce0cf295326086390b29"
+    },
+    {
+      "id": "shotcraft-template-crash-zoom-real",
+      "path": "assets/motion-library/shotcraft-template-crash-zoom-real/component.jsx",
+      "sha256": "1bdbb3efbfef5072a06d616b64aa540f3f3ecea50015a04a3486dec8f09ba4c8"
+    },
+    {
+      "id": "shotcraft-template-dolly-zoom-real",
+      "path": "assets/motion-library/shotcraft-template-dolly-zoom-real/component.jsx",
+      "sha256": "1136c85c6b43ab47cae9570d092ef9c8e3101cdda2c0658d3fe01e738a50ffee"
+    },
+    {
+      "id": "shotcraft-template-multiplane-real",
+      "path": "assets/motion-library/shotcraft-template-multiplane-real/component.jsx",
+      "sha256": "e8ea60f571d83980338f7aa0e0ce4c047c1dfe7ece6a1c76d0dc7eee74cefdfc"
+    },
+    {
+      "id": "shotcraft-template-overhead-tabletop-drop",
+      "path": "assets/motion-library/shotcraft-template-overhead-tabletop-drop/component.jsx",
+      "sha256": "45406844824802c22eeb9dd6c3b958e3c85633110298e6d0d9724727ddf2199d"
+    },
+    {
+      "id": "shotcraft-template-tilt-reveal",
+      "path": "assets/motion-library/shotcraft-template-tilt-reveal/component.jsx",
+      "sha256": "1c1b996a8ee4a4853b3cdf986d6f04786d0b53c33866e3817b6e161f59d0fa5a"
+    },
+    {
+      "id": "shotcraft-template-drone-dive-landing",
+      "path": "assets/motion-library/shotcraft-template-drone-dive-landing/component.jsx",
+      "sha256": "6109eddba41d17cb6ad5d1594fa9703170ee84aec781b885166c48886d22e58e"
+    },
+    {
+      "id": "shotcraft-template-exploded-view",
+      "path": "assets/motion-library/shotcraft-template-exploded-view/component.jsx",
+      "sha256": "576dacb3c60cad9d86592bdef0cae852103b1fd74a9d1011b081b5006a4ffc71"
+    },
+    {
+      "id": "shotcraft-template-steep-tilt-glide",
+      "path": "assets/motion-library/shotcraft-template-steep-tilt-glide/component.jsx",
+      "sha256": "91b14f327f5f64eb8162cc594730bc547528e9214b46ab4a0ca4cb537a183db5"
+    },
+    {
+      "id": "shotcraft-template-bullet-time-freeze-orbit",
+      "path": "assets/motion-library/shotcraft-template-bullet-time-freeze-orbit/component.jsx",
+      "sha256": "c00dc1c064df80c2ba24b8f970b4ecc848b36b146ae5644cad811c334f32ac89"
+    },
+    {
+      "id": "shotcraft-template-dutch-roll-to-level",
+      "path": "assets/motion-library/shotcraft-template-dutch-roll-to-level/component.jsx",
+      "sha256": "90128c15786e651da16a3487a76f76d2a58cb03022fbe4083b314c66453fe5f8"
+    },
+    {
+      "id": "shotcraft-template-pull-back-isolation",
+      "path": "assets/motion-library/shotcraft-template-pull-back-isolation/component.jsx",
+      "sha256": "d439612b59e6334b8652fada9086b99c6760e7c89480014f45bc0eee6dc2bcf6"
+    },
+    {
+      "id": "shotcraft-template-slow-push-in",
+      "path": "assets/motion-library/shotcraft-template-slow-push-in/component.jsx",
+      "sha256": "284b2f587c3ff206d05c082f29a4b9cb145c0e3616154e7fb7071ef8b7dabd8d"
+    },
+    {
+      "id": "shotcraft-template-odometer-digit-roll",
+      "path": "assets/motion-library/shotcraft-template-odometer-digit-roll/component.jsx",
+      "sha256": "4edf9ad565e6c92e4eaad8f3a9e2b7c6f7eb8ab16694d4f0e2496088b53a6ecd"
+    },
+    {
+      "id": "shotcraft-template-confetti-crossfire",
+      "path": "assets/motion-library/shotcraft-template-confetti-crossfire/component.jsx",
+      "sha256": "20010b0b9beb95060098bc472e8389ed1def42293e8adf4d446b7ee855cfe0c8"
+    },
+    {
+      "id": "shotcraft-template-counter-tick-sparks",
+      "path": "assets/motion-library/shotcraft-template-counter-tick-sparks/component.jsx",
+      "sha256": "18197ea258e854d187fbd6a6de116790dc782abfcb02f6c39f27180313d2d01c"
+    },
+    {
+      "id": "shotcraft-template-brand-frame-snap",
+      "path": "assets/motion-library/shotcraft-template-brand-frame-snap/component.jsx",
+      "sha256": "8940f9008d83cbc6b85925a1e6a7df9e8979e9a325b79dcda4ddda99693d6a7e"
+    },
+    {
+      "id": "shotcraft-template-line-unfold-panel",
+      "path": "assets/motion-library/shotcraft-template-line-unfold-panel/component.jsx",
+      "sha256": "4874988ee2fcad508ba83cbd6ed832046fa43affef1159abde2250095379f53c"
+    },
+    {
+      "id": "shotcraft-template-reticle-lock-on",
+      "path": "assets/motion-library/shotcraft-template-reticle-lock-on/component.jsx",
+      "sha256": "3157d4efe9ebb081a4799d315a24c63a38025ecb3853e4a8502d4c22b42e0616"
+    },
+    {
+      "id": "shotcraft-template-flyline-arc",
+      "path": "assets/motion-library/shotcraft-template-flyline-arc/component.jsx",
+      "sha256": "6a64328ea9ad97d2cc30067d5c9d4f61e72dc96c1a159de86269de7d9d220178"
+    },
+    {
+      "id": "shotcraft-template-glow-orb-ambient",
+      "path": "assets/motion-library/shotcraft-template-glow-orb-ambient/component.jsx",
+      "sha256": "90d7fff86dda9dffa58454e71ea0ce83e95ff1e13741bf07e09fd0f5effd0327"
+    },
+    {
+      "id": "shotcraft-template-orb-flyline-relay",
+      "path": "assets/motion-library/shotcraft-template-orb-flyline-relay/component.jsx",
+      "sha256": "4273bb779a2beb264c928b4436c152aa0cc636797b7fe169d021232aa779c1d0"
+    },
+    {
+      "id": "shotcraft-template-attention-bounce",
+      "path": "assets/motion-library/shotcraft-template-attention-bounce/component.jsx",
+      "sha256": "24791d7842036d145d3f3070758d63f7243a70c0cae54d600c73f067fc29f852"
+    },
+    {
+      "id": "shotcraft-template-pop-burst-confirm",
+      "path": "assets/motion-library/shotcraft-template-pop-burst-confirm/component.jsx",
+      "sha256": "8d913fa83ff6ff7b4001035188777f4f6c650d14640be1f06997fda443dbe782"
+    },
+    {
+      "id": "shotcraft-template-anime-impact",
+      "path": "assets/motion-library/shotcraft-template-anime-impact/component.jsx",
+      "sha256": "c26c663958844b7ac043d2cd6fa9fb18a9ba4bf1d471fb8c756d295457985f78"
+    },
+    {
+      "id": "shotcraft-template-hit-counter",
+      "path": "assets/motion-library/shotcraft-template-hit-counter/component.jsx",
+      "sha256": "21c2c55df799b616a9f91811d0483dbea1f2ead03211fa3ade3226424cb7c579"
+    },
+    {
+      "id": "shotcraft-template-halation-bloom",
+      "path": "assets/motion-library/shotcraft-template-halation-bloom/component.jsx",
+      "sha256": "ef68981743f6c7fae09a56c040b1fb63e6f92ac172ebcc41b29143ee89a6c994"
+    },
+    {
+      "id": "shotcraft-template-sheen-sweep-retry",
+      "path": "assets/motion-library/shotcraft-template-sheen-sweep-retry/component.jsx",
+      "sha256": "44dda2cb8d1531e847bab4f407ecd1588c8a44a690eda57d0c51efad822c8651"
+    },
+    {
+      "id": "shotcraft-template-spotlight-sweep-reveal",
+      "path": "assets/motion-library/shotcraft-template-spotlight-sweep-reveal/component.jsx",
+      "sha256": "c921584fa8c3d7cb94ff3b6ed422338de7a8025d1488264661b3835442bac029"
+    },
+    {
+      "id": "shotcraft-template-line-boil",
+      "path": "assets/motion-library/shotcraft-template-line-boil/component.jsx",
+      "sha256": "fdeabe65810f5f563f9dd3bdeac54169d1ac53e8c595bc4b94d710324efdc006"
+    },
+    {
+      "id": "shotcraft-template-radial-ripple-phone-chips",
+      "path": "assets/motion-library/shotcraft-template-radial-ripple-phone-chips/component.jsx",
+      "sha256": "ab9f756b75679ce6416c53838907d5cd8f00a36c3b524d5769c1efe2f34b14f8"
+    },
+    {
+      "id": "shotcraft-template-riso-beat-pump",
+      "path": "assets/motion-library/shotcraft-template-riso-beat-pump/component.jsx",
+      "sha256": "e714c2abf2f5ff91d8b05d083a30f4f7e4c485663a0168b5dd260b3f8b017f3c"
+    },
+    {
+      "id": "shotcraft-template-riso-misregistration-hit",
+      "path": "assets/motion-library/shotcraft-template-riso-misregistration-hit/component.jsx",
+      "sha256": "7df0c5d09769f3e19b9ee947e41b0a9747139321049265ea13052957fcbf493f"
+    },
+    {
+      "id": "shotcraft-template-scan-bracket-sweep",
+      "path": "assets/motion-library/shotcraft-template-scan-bracket-sweep/component.jsx",
+      "sha256": "109fc4a9dd8a2949cd1cec25ad9445ec253f85bb19cae25f494537aaa3aca93f"
+    },
+    {
+      "id": "shotcraft-template-scanline-annotate-focus",
+      "path": "assets/motion-library/shotcraft-template-scanline-annotate-focus/component.jsx",
+      "sha256": "8c11f7b239644594bddbab93bf0bfe6fc21386dd88204abf961142c4efe83ebf"
+    },
+    {
+      "id": "shotcraft-template-scanline-assemble-flyin",
+      "path": "assets/motion-library/shotcraft-template-scanline-assemble-flyin/component.jsx",
+      "sha256": "090162fd9d16ebe4f9444c5db11c7584dd1fb3dbf38bfc2d5c00032617191814"
+    },
+    {
+      "id": "shotcraft-template-impact-burst-kit",
+      "path": "assets/motion-library/shotcraft-template-impact-burst-kit/component.jsx",
+      "sha256": "d852c454a7ba837c8331b3588df6be901541114398645db1aea6216f47ff6c0b"
+    },
+    {
+      "id": "shotcraft-template-kanada-perspective-snap",
+      "path": "assets/motion-library/shotcraft-template-kanada-perspective-snap/component.jsx",
+      "sha256": "ff90b239a3f2f927ab22b7badfad3ab18e79b8653efa86cce34d122e2655ea66"
+    },
+    {
+      "id": "shotcraft-template-score-slam",
+      "path": "assets/motion-library/shotcraft-template-score-slam/component.jsx",
+      "sha256": "1f30f38ce92a1c56b9d35e8373b0c36c28b92ba364752f9b7b7d8f4f86bcd815"
+    },
+    {
+      "id": "shotcraft-template-corner-spotlight-reveal",
+      "path": "assets/motion-library/shotcraft-template-corner-spotlight-reveal/component.jsx",
+      "sha256": "0cc7cd3724d4f3e828ef644e4a8917e42fc9d037362200d1c2a27f91d30f5789"
+    },
+    {
+      "id": "shotcraft-template-glow-wake-sleep-panel",
+      "path": "assets/motion-library/shotcraft-template-glow-wake-sleep-panel/component.jsx",
+      "sha256": "fa9c07a17e2c8cca73e2323a0c75131ad62b1ffbe9dee1719ec54419c9496ea2"
+    },
+    {
+      "id": "shotcraft-template-slide-spotlight-pan",
+      "path": "assets/motion-library/shotcraft-template-slide-spotlight-pan/component.jsx",
+      "sha256": "1a31685074bcbce36e8397c3bcca16fdf8d4f5fa98511c90ff1a6a521ef772c5"
+    },
+    {
+      "id": "shotcraft-template-stream-response",
+      "path": "assets/motion-library/shotcraft-template-stream-response/component.jsx",
+      "sha256": "aea725a0475fab4b2525b8d59100345138c3f21733054337eaac957e6b573039"
+    },
+    {
+      "id": "shotcraft-template-autolayout-gap-dial",
+      "path": "assets/motion-library/shotcraft-template-autolayout-gap-dial/component.jsx",
+      "sha256": "3bd1d32c811346e85a77fa853726e0e647084c215953eb66b2ef13570160d4fd"
+    },
+    {
+      "id": "shotcraft-template-diagram-cascade-build",
+      "path": "assets/motion-library/shotcraft-template-diagram-cascade-build/component.jsx",
+      "sha256": "34f18d8dfdaf6d054d46c2354d25680348eb525b3ff94939de24f9075f2ce17e"
+    },
+    {
+      "id": "shotcraft-template-panel-to-canvas-materialize",
+      "path": "assets/motion-library/shotcraft-template-panel-to-canvas-materialize/component.jsx",
+      "sha256": "d1107dc7515fd8a5487552c3dfe6b811d63edc18ac3f25eb60037e0491383c8d"
+    },
+    {
+      "id": "shotcraft-template-chip-grid-single-select-blackout",
+      "path": "assets/motion-library/shotcraft-template-chip-grid-single-select-blackout/component.jsx",
+      "sha256": "affeb1e7884ae91674781b9283218214da5d1912ab138c93cf51e8cfb3bebc2d"
+    },
+    {
+      "id": "shotcraft-template-chip-lift-to-user-pill",
+      "path": "assets/motion-library/shotcraft-template-chip-lift-to-user-pill/component.jsx",
+      "sha256": "7cdf25af972a16f4ff3fd987a038fc5be9f52df3e8bd64a687cf3961b6acb4c6"
+    },
+    {
+      "id": "shotcraft-template-cursor-cast-ensemble",
+      "path": "assets/motion-library/shotcraft-template-cursor-cast-ensemble/component.jsx",
+      "sha256": "ac5491c0cc47c5c2f8de60ece50bfc06a921a6b8ee0d9450193bd1347cfc335e"
+    },
+    {
+      "id": "shotcraft-template-cursor-dialogue-duet",
+      "path": "assets/motion-library/shotcraft-template-cursor-dialogue-duet/component.jsx",
+      "sha256": "2a9cc9b8eb64f64542ae4445493223c8da6009838554359ba5693776a20ec94e"
+    },
+    {
+      "id": "shotcraft-template-command-palette-summon",
+      "path": "assets/motion-library/shotcraft-template-command-palette-summon/component.jsx",
+      "sha256": "2f4bd69217c82c094beb5f5db99c744cd4d5057dd03ee2e2155714cc8c6e7d8e"
+    },
+    {
+      "id": "shotcraft-template-glass-pill-dictation-typing",
+      "path": "assets/motion-library/shotcraft-template-glass-pill-dictation-typing/component.jsx",
+      "sha256": "9d976335d9b7bf206aac1ec57fbf821acc1d87371ab9712fccd721987353c0f7"
+    },
+    {
+      "id": "shotcraft-template-hashtag-to-pill-materialize",
+      "path": "assets/motion-library/shotcraft-template-hashtag-to-pill-materialize/component.jsx",
+      "sha256": "e1e2a1b82716a29efbaf64c4b53502f72ee1d9ada706d7f5ca51c869801386a5"
+    },
+    {
+      "id": "shotcraft-template-cursor-performance-punch-in",
+      "path": "assets/motion-library/shotcraft-template-cursor-performance-punch-in/component.jsx",
+      "sha256": "4244f3b2cdae6e89c4a625e57d0e8dde80d713e7bca939ab9574e43cd268ae2d"
+    },
+    {
+      "id": "shotcraft-template-keycap-smash-cut",
+      "path": "assets/motion-library/shotcraft-template-keycap-smash-cut/component.jsx",
+      "sha256": "c1f030c35ce124c0559a34f6f40c45bf9eaf7e9dc860a826dd9f81400026b54b"
+    },
+    {
+      "id": "shotcraft-template-picker-carousel-feature-cycle",
+      "path": "assets/motion-library/shotcraft-template-picker-carousel-feature-cycle/component.jsx",
+      "sha256": "a0d9b36cbbac7a6553146dc28f04b0be0b68be24c2ac70fddb4986ed8380006f"
+    },
+    {
+      "id": "shotcraft-template-segmented-thumb-hero",
+      "path": "assets/motion-library/shotcraft-template-segmented-thumb-hero/component.jsx",
+      "sha256": "c67eb2fcd82e1c7ede06145af4af53bd92aa782b23d5b803c311e26228064440"
+    },
+    {
+      "id": "shotcraft-template-palette-theme-ripple",
+      "path": "assets/motion-library/shotcraft-template-palette-theme-ripple/component.jsx",
+      "sha256": "dac8dd7d10da9621e8b46b11b7fce9c4cc8561fe6c3ef54467e7b5ef4bdffa5d"
+    },
+    {
+      "id": "shotcraft-template-theme-sweep-toggle",
+      "path": "assets/motion-library/shotcraft-template-theme-sweep-toggle/component.jsx",
+      "sha256": "6fd3af2a607dfec42f9a3aa014e514328c42f6035c9c8507abb7bfc06b161dcf"
+    },
+    {
+      "id": "shotcraft-template-type-and-filter",
+      "path": "assets/motion-library/shotcraft-template-type-and-filter/component.jsx",
+      "sha256": "403a6954cb962db990021a1309b0402cba0ec3eba41631edc6b311f607d27c86"
+    },
+    {
+      "id": "shotcraft-template-voice-waveform-live",
+      "path": "assets/motion-library/shotcraft-template-voice-waveform-live/component.jsx",
+      "sha256": "79d96b23f05a3f1f8962a2487c8a3d20aa4e2da1dbf6e475f109d9054dfe8f15"
+    },
+    {
+      "id": "shotcraft-template-crane-rise-reveal",
+      "path": "assets/motion-library/shotcraft-template-crane-rise-reveal/component.jsx",
+      "sha256": "03263f1f43ff6b05c8bbf2c82589510e75626605acb86427dcd061be22e37e8c"
+    },
+    {
+      "id": "shotcraft-template-dataviz-landscape-open",
+      "path": "assets/motion-library/shotcraft-template-dataviz-landscape-open/component.jsx",
+      "sha256": "5ddd7dc461ef794954dba4d4158fe7119054964e53397248d85863e6bb8bb2ec"
+    },
+    {
+      "id": "shotcraft-template-fracture",
+      "path": "assets/motion-library/shotcraft-template-fracture/component.jsx",
+      "sha256": "903c4f4deaaae726e1548f7183a88ab4f064519d500a3e3b78b3a645d22e46dc"
+    },
+    {
+      "id": "shotcraft-template-icon-field-colorize",
+      "path": "assets/motion-library/shotcraft-template-icon-field-colorize/component.jsx",
+      "sha256": "26c16bd2277cad46afdc781510e4cf115207a8636f989ba096aacca85c5abdc9"
+    },
+    {
+      "id": "shotcraft-template-letterspace-materialize",
+      "path": "assets/motion-library/shotcraft-template-letterspace-materialize/component.jsx",
+      "sha256": "39c502aea2de232b94977ddb75825efd2ab42b28a8de3bba08004a8946405dad"
+    },
+    {
+      "id": "shotcraft-template-magician-card-flourish",
+      "path": "assets/motion-library/shotcraft-template-magician-card-flourish/component.jsx",
+      "sha256": "7bc8ff219755e9c818b60264b73cf8257a3b618b8d361eb0ac39505554e05423"
+    },
+    {
+      "id": "shotcraft-template-orbit-ring-title-open",
+      "path": "assets/motion-library/shotcraft-template-orbit-ring-title-open/component.jsx",
+      "sha256": "600c64859592ac665667bad91c199e77cca94cbdf8457187b085650520fbf71b"
+    },
+    {
+      "id": "shotcraft-template-spotlight-hero-card",
+      "path": "assets/motion-library/shotcraft-template-spotlight-hero-card/component.jsx",
+      "sha256": "20ecd3acca4334668b2903021a3d32f2521b2b1f4f36331cbdb6413d192d277b"
+    },
+    {
+      "id": "shotcraft-template-stroke-segment-build",
+      "path": "assets/motion-library/shotcraft-template-stroke-segment-build/component.jsx",
+      "sha256": "92c6f2451095b4376050becb2b9963567f2424b51288f5155314d1a6cde80e8f"
+    },
+    {
+      "id": "shotcraft-template-text-as-mask",
+      "path": "assets/motion-library/shotcraft-template-text-as-mask/component.jsx",
+      "sha256": "90c4da127a17e05d5bbec88fa1469d7d5bb75b377b73696091088a6bb677ea73"
+    },
+    {
+      "id": "shotcraft-template-logo-sting-button",
+      "path": "assets/motion-library/shotcraft-template-logo-sting-button/component.jsx",
+      "sha256": "afbfc642a953eb8e1f25d4a6d8a8b4c431f79a812ccbfb152dfb1f1cf21223a8"
+    },
+    {
+      "id": "shotcraft-template-grain-dissolve",
+      "path": "assets/motion-library/shotcraft-template-grain-dissolve/component.jsx",
+      "sha256": "946423c42831b59165281a78422411bf8b8b709ff0b5bcf6a4138bb75b44b6f3"
+    },
+    {
+      "id": "shotcraft-template-logo-shrink-wordmark-lockup",
+      "path": "assets/motion-library/shotcraft-template-logo-shrink-wordmark-lockup/component.jsx",
+      "sha256": "67087358c63551820ba878f058c1bdd6da75b88f49e515170f35147498d2c2e9"
+    },
+    {
+      "id": "shotcraft-template-neon-triple-marquee",
+      "path": "assets/motion-library/shotcraft-template-neon-triple-marquee/component.jsx",
+      "sha256": "49ea6712550107ceed775c13380f30d5d2901b1f61a14bfb1e092e12165063c8"
+    },
+    {
+      "id": "shotcraft-template-outro-group-photo-launch",
+      "path": "assets/motion-library/shotcraft-template-outro-group-photo-launch/component.jsx",
+      "sha256": "8afbc4a3e4f4de6b57680407c7a12072a58e959a0aef94bfced6f3ba79b91ee7"
+    },
+    {
+      "id": "shotcraft-template-ui-strip-away-outro",
+      "path": "assets/motion-library/shotcraft-template-ui-strip-away-outro/component.jsx",
+      "sha256": "8f2d81fab8bfcc7406a4f56c9403c42f10112e47fd498169e1e60d2261791a26"
+    },
+    {
+      "id": "shotcraft-template-icon-flip-bloom-logo",
+      "path": "assets/motion-library/shotcraft-template-icon-flip-bloom-logo/component.jsx",
+      "sha256": "5f32a45de82b3b0dea449deeef904a75f15e97f349bf3ddaacc1a8a50bdb701a"
+    },
+    {
+      "id": "shotcraft-template-input-morphs-into-logo",
+      "path": "assets/motion-library/shotcraft-template-input-morphs-into-logo/component.jsx",
+      "sha256": "12fdd5f41fbce35b0235169245ebba47459cba429e084f7d6a2fabb8bb684879"
+    },
+    {
+      "id": "shotcraft-template-beat-cut-accelerando",
+      "path": "assets/motion-library/shotcraft-template-beat-cut-accelerando/component.jsx",
+      "sha256": "521d39fa108645072252d0013b96574e870d92f5c79fd24e181563731d339d15"
+    },
+    {
+      "id": "shotcraft-template-paparazzi-flash",
+      "path": "assets/motion-library/shotcraft-template-paparazzi-flash/component.jsx",
+      "sha256": "13ab5470918a8bf4e4c4893aef9d954b5fb75090ef2e7b2d1ceb6075b0bf17c5"
+    },
+    {
+      "id": "shotcraft-template-beat-step-list-theme-cycle",
+      "path": "assets/motion-library/shotcraft-template-beat-step-list-theme-cycle/component.jsx",
+      "sha256": "5e4a90a23fc3136535ca84dea67786a3dff34cf58c24c05380a3fc3208199589"
+    },
+    {
+      "id": "shotcraft-template-domino-cascade",
+      "path": "assets/motion-library/shotcraft-template-domino-cascade/component.jsx",
+      "sha256": "7149c2bd5a3360d9dcbc6474fa75b5b61ccd57f6e03e43260e4c0cd54e19a63d"
+    },
+    {
+      "id": "shotcraft-template-drop-blackout-slam",
+      "path": "assets/motion-library/shotcraft-template-drop-blackout-slam/component.jsx",
+      "sha256": "3522f19f51073229b2bb7d9ce602a7cefbafedeb45f91ff157391496442e09bc"
+    },
+    {
+      "id": "shotcraft-template-wright-triple-cut",
+      "path": "assets/motion-library/shotcraft-template-wright-triple-cut/component.jsx",
+      "sha256": "bf77ccd415797832ca2f8490d726c0d1a6d2880470c5acbd0d2026de70055d59"
+    },
+    {
+      "id": "shotcraft-template-comic-panel-split",
+      "path": "assets/motion-library/shotcraft-template-comic-panel-split/component.jsx",
+      "sha256": "c314e93148a3bec9ca4951521b9302bfcbb953e7895ab16f3d39d70495f033ac"
+    },
+    {
+      "id": "shotcraft-template-flip-grid-reflow",
+      "path": "assets/motion-library/shotcraft-template-flip-grid-reflow/component.jsx",
+      "sha256": "af3827dabd29d585f33c84d4c304468f64e65a3399350b1f4fe1e04addbcc376"
+    },
+    {
+      "id": "shotcraft-template-grid-flash-mosaic",
+      "path": "assets/motion-library/shotcraft-template-grid-flash-mosaic/component.jsx",
+      "sha256": "b7723cf0f6a31afba2404af41f46078aa279e863334d5918cf65f461a0ac47ae"
+    },
+    {
+      "id": "shotcraft-template-quad-split-parallel-scenes",
+      "path": "assets/motion-library/shotcraft-template-quad-split-parallel-scenes/component.jsx",
+      "sha256": "94ddbc326de91e2bb4c7f99a2934cea3f93a7a03a1cb66fddd9ad977b05a9d5a"
+    },
+    {
+      "id": "shotcraft-template-jump-cut-punch-in",
+      "path": "assets/motion-library/shotcraft-template-jump-cut-punch-in/component.jsx",
+      "sha256": "9224290a3814b9cc5cd5567a67c6ced30e36dfe089786480ff2ba2cc26c056a8"
+    },
+    {
+      "id": "shotcraft-template-strobe-black-frames",
+      "path": "assets/motion-library/shotcraft-template-strobe-black-frames/component.jsx",
+      "sha256": "0437aff669528cea3adfc891a091bf8351f27a79fcafc50889fa31c87a392470"
+    },
+    {
+      "id": "shotcraft-template-sakuga-timing-shift",
+      "path": "assets/motion-library/shotcraft-template-sakuga-timing-shift/component.jsx",
+      "sha256": "cfdb0fe9d5f4726adcd1b120406caf559e8e51acb8c22841c46b5dce76717801"
+    },
+    {
+      "id": "shotcraft-template-smear-multiples",
+      "path": "assets/motion-library/shotcraft-template-smear-multiples/component.jsx",
+      "sha256": "f50d247fdcf9c2646e1b46cbd4a6de187b654ae7d75f271d7792f65f2471bf7e"
+    },
+    {
+      "id": "shotcraft-template-spectrum-morph-ui",
+      "path": "assets/motion-library/shotcraft-template-spectrum-morph-ui/component.jsx",
+      "sha256": "668b88db03622061bcf097081275da0a78e54500b21298f7a6e7a63cacd4e193"
+    },
+    {
+      "id": "shotcraft-template-freeze-annotate-real",
+      "path": "assets/motion-library/shotcraft-template-freeze-annotate-real/component.jsx",
+      "sha256": "62195967aabb552e3a0dba980360d794753d46120e9b7910830baffcf48b3bac"
+    },
+    {
+      "id": "shotcraft-template-speed-ramp-real",
+      "path": "assets/motion-library/shotcraft-template-speed-ramp-real/component.jsx",
+      "sha256": "2b5715a887c79053804840f8a49589b1a2a8408d4693ce73ba4a385d4e7afd4e"
+    },
+    {
+      "id": "shotcraft-template-card-footage-cadence",
+      "path": "assets/motion-library/shotcraft-template-card-footage-cadence/component.jsx",
+      "sha256": "c1c58f643115026775d2ba26458ea0573a6c76f6f0ea55ffd340510da698f614"
+    },
+    {
+      "id": "shotcraft-template-smash-cut",
+      "path": "assets/motion-library/shotcraft-template-smash-cut/component.jsx",
+      "sha256": "0553c5373766fae1e44f243dd67db2369e06bfe0601cfecdc7d7e2ad6e73739e"
+    },
+    {
+      "id": "shotcraft-template-trailer-bumper",
+      "path": "assets/motion-library/shotcraft-template-trailer-bumper/component.jsx",
+      "sha256": "e42255e70e556403208d8ac5989fbd565680a6c4337ee87344cc959751da1cbf"
+    },
+    {
+      "id": "shotcraft-template-bottom-push-stack-wipe",
+      "path": "assets/motion-library/shotcraft-template-bottom-push-stack-wipe/component.jsx",
+      "sha256": "62d8afb7b359f40db67641e027cd7be7a3fe21af50c86a0f1e3eec46b25164c2"
+    },
+    {
+      "id": "shotcraft-template-bubble-swarm-takeover",
+      "path": "assets/motion-library/shotcraft-template-bubble-swarm-takeover/component.jsx",
+      "sha256": "c719d4bf42abc605323372fd3d67373bc560f903eff46eae4b97d0ab1f0ba44a"
+    },
+    {
+      "id": "shotcraft-template-card-flip-reveal",
+      "path": "assets/motion-library/shotcraft-template-card-flip-reveal/component.jsx",
+      "sha256": "e19d83698c82a30a62deddb579f7ff68283a62913e5ddc27132c74c7037e04ac"
+    },
+    {
+      "id": "shotcraft-template-card-flock-tumble",
+      "path": "assets/motion-library/shotcraft-template-card-flock-tumble/component.jsx",
+      "sha256": "06d1722eadde48727cf75a95ac19ed6412b9815ed740efcecb137c652aaf8d5f"
+    },
+    {
+      "id": "shotcraft-template-circle-match-iris",
+      "path": "assets/motion-library/shotcraft-template-circle-match-iris/component.jsx",
+      "sha256": "a84fb8da7d8a4dc6ebb102f5446ba99c50d43454318a021827ac6d245317fb19"
+    },
+    {
+      "id": "shotcraft-template-color-block-step-wipe",
+      "path": "assets/motion-library/shotcraft-template-color-block-step-wipe/component.jsx",
+      "sha256": "2b87dd1d06198bf681a61d0c12756ea3431954bf7692840bb61d8ccad58029c6"
+    },
+    {
+      "id": "shotcraft-template-cube-navigation",
+      "path": "assets/motion-library/shotcraft-template-cube-navigation/component.jsx",
+      "sha256": "39594f1732d36deb4af065634aa7a268d9d02434c1ba5d4af1f478623e6ee001"
+    },
+    {
+      "id": "shotcraft-template-gradient-transition",
+      "path": "assets/motion-library/shotcraft-template-gradient-transition/component.jsx",
+      "sha256": "2b1923ac28737b21b144819a8770af9f1b2c0fce448128a937536f649f7d5283"
+    },
+    {
+      "id": "shotcraft-template-line-carry-transition",
+      "path": "assets/motion-library/shotcraft-template-line-carry-transition/component.jsx",
+      "sha256": "a8f966fde6832e14bcc2409a9b13f9514ea035f6af54d0d5b8aae203032a077a"
+    },
+    {
+      "id": "shotcraft-template-mosaic-reframe",
+      "path": "assets/motion-library/shotcraft-template-mosaic-reframe/component.jsx",
+      "sha256": "0bfa676e8438190fd4370f7658b40514ca49cae075ca5d42ba413f86690f62fa"
+    },
+    {
+      "id": "shotcraft-template-barn-door-split",
+      "path": "assets/motion-library/shotcraft-template-barn-door-split/component.jsx",
+      "sha256": "5bef22021f62b14c36bee0f61fbd1411ab17438d09a5b1f30518ddcffa0ebda1"
+    },
+    {
+      "id": "shotcraft-template-cube-rotate",
+      "path": "assets/motion-library/shotcraft-template-cube-rotate/component.jsx",
+      "sha256": "76efe53a74a85e918495d12f953360365be6278270ef7a4ad9fa85574fe77c08"
+    },
+    {
+      "id": "shotcraft-template-paper-plane-messenger",
+      "path": "assets/motion-library/shotcraft-template-paper-plane-messenger/component.jsx",
+      "sha256": "cda91a58c4b122a79a21232c43b9d7bdc7ab57cc88459e924296b1a2af70a66f"
+    },
+    {
+      "id": "shotcraft-template-ink-bleed-reveal",
+      "path": "assets/motion-library/shotcraft-template-ink-bleed-reveal/component.jsx",
+      "sha256": "849e20e19b7dda64762f44f3e092f12f5864dfce3014a58bc0408c03a024e92c"
+    },
+    {
+      "id": "shotcraft-template-black-card-transition",
+      "path": "assets/motion-library/shotcraft-template-black-card-transition/component.jsx",
+      "sha256": "ced0b0a384c714e704ee999c86c4df89bbb3317eda076f8de15d15d9bd75f5ad"
+    },
+    {
+      "id": "shotcraft-template-dark-tunnel-transition",
+      "path": "assets/motion-library/shotcraft-template-dark-tunnel-transition/component.jsx",
+      "sha256": "b56d2a632decea38f987d4a21a829487602f1cc5f4e7ad2f2844a605c451534a"
+    },
+    {
+      "id": "shotcraft-template-focus-handoff-transition",
+      "path": "assets/motion-library/shotcraft-template-focus-handoff-transition/component.jsx",
+      "sha256": "46716312478837e7fa3bbffc7b5020918b8080e15f6228519a9248a27afe9628"
+    },
+    {
+      "id": "shotcraft-template-mask-wipe-real",
+      "path": "assets/motion-library/shotcraft-template-mask-wipe-real/component.jsx",
+      "sha256": "571e21dbf9409ce703644f5afe0c86eed2aab1369de447708746f5a8c2bbad5c"
+    },
+    {
+      "id": "shotcraft-template-portal-wipe-v2",
+      "path": "assets/motion-library/shotcraft-template-portal-wipe-v2/component.jsx",
+      "sha256": "5cbce8b54c230182fd9ba45a98629cb91054f4a285012cbda929ce74b4a6dd48"
+    },
+    {
+      "id": "shotcraft-template-whip-brake-real",
+      "path": "assets/motion-library/shotcraft-template-whip-brake-real/component.jsx",
+      "sha256": "8ef2743eb2dd462c19eba29d987c4305ca846610757e6217a2c640f92ac9ebc6"
+    },
+    {
+      "id": "shotcraft-template-whip-pan-real",
+      "path": "assets/motion-library/shotcraft-template-whip-pan-real/component.jsx",
+      "sha256": "2ded1fc81269482dfb574165415cb0dd41a75eb07a7f10464368c37a59d86414"
+    },
+    {
+      "id": "shotcraft-template-glitch-displace",
+      "path": "assets/motion-library/shotcraft-template-glitch-displace/component.jsx",
+      "sha256": "e6dbcf1c30f81e7456d4f896c235d0de12602ce02cf2891298aa8bfc8252b58c"
+    },
+    {
+      "id": "shotcraft-template-invisible-cut",
+      "path": "assets/motion-library/shotcraft-template-invisible-cut/component.jsx",
+      "sha256": "cb253bfabfc6ddb682f1cfcb5bce49e90291635a3c45ab0cd31aea2d7f626c9d"
+    },
+    {
+      "id": "shotcraft-template-light-leak-burn",
+      "path": "assets/motion-library/shotcraft-template-light-leak-burn/component.jsx",
+      "sha256": "fcffc417f12e1436b1451abb5dfe00c3941eb137ac9207b2002335e57839e32e"
+    },
+    {
+      "id": "shotcraft-template-versus-slam",
+      "path": "assets/motion-library/shotcraft-template-versus-slam/component.jsx",
+      "sha256": "24d0fe257ae8b08b4ae6ccb214e5214453695a07f7385f736606f82e139b2aa7"
+    },
+    {
+      "id": "shotcraft-template-letterform-zoom",
+      "path": "assets/motion-library/shotcraft-template-letterform-zoom/component.jsx",
+      "sha256": "eaf56f03bd5926e04f747a744ba960f3f6d1af5f63918059468ffd1225afe34a"
+    },
+    {
+      "id": "shotcraft-template-shared-element-morph",
+      "path": "assets/motion-library/shotcraft-template-shared-element-morph/component.jsx",
+      "sha256": "27016df70c2f620dc454edfa15bd9fbc3432c2f20a8de1238cd30413c14b0a97"
+    },
+    {
+      "id": "shotcraft-template-white-flash-logo-simplify-cut",
+      "path": "assets/motion-library/shotcraft-template-white-flash-logo-simplify-cut/component.jsx",
+      "sha256": "244a93adab5db089ee89fe2dbb0634240bef6f20311ec76ed2a8792c32edaa81"
+    },
+    {
+      "id": "shotcraft-template-blinds-slice",
+      "path": "assets/motion-library/shotcraft-template-blinds-slice/component.jsx",
+      "sha256": "639ae4efa065eb0a40cd53ce1578eb34ac908fd1d9545b1bc69101729dd91c8d"
+    },
+    {
+      "id": "shotcraft-template-clock-wipe",
+      "path": "assets/motion-library/shotcraft-template-clock-wipe/component.jsx",
+      "sha256": "b18097bcf2bc22a1b48ccfdf454261d8ecb37adbc85cbda4b1d66247e36e8e22"
+    },
+    {
+      "id": "shotcraft-template-blur-slide",
+      "path": "assets/motion-library/shotcraft-template-blur-slide/component.jsx",
+      "sha256": "324b863061e8d514749dc393be38ea2d9ee4adbaa7ba296e727af974530a225b"
+    },
+    {
+      "id": "shotcraft-template-brace-expand",
+      "path": "assets/motion-library/shotcraft-template-brace-expand/component.jsx",
+      "sha256": "db8051b66698be3f10005a6fd6a4dd965f0906869081324b06ac3ebf421bc4c9"
+    },
+    {
+      "id": "shotcraft-template-brand-ink-open",
+      "path": "assets/motion-library/shotcraft-template-brand-ink-open/component.jsx",
+      "sha256": "83c8b82ab3322cfa51cd44fde112885e8fa957d818f887da24207266a392455b"
+    },
+    {
+      "id": "shotcraft-template-cel-flash-stomp",
+      "path": "assets/motion-library/shotcraft-template-cel-flash-stomp/component.jsx",
+      "sha256": "982575f35c1c06f842eeae4679a70e5c42bb4ad3f798927f0584ab171b993205"
+    },
+    {
+      "id": "shotcraft-template-countdown-arc-scatter",
+      "path": "assets/motion-library/shotcraft-template-countdown-arc-scatter/component.jsx",
+      "sha256": "c59ec96e536c27d43e795ad5c09af488247c37ab5c33f650194657a4dcf63f69"
+    },
+    {
+      "id": "shotcraft-template-flying-words",
+      "path": "assets/motion-library/shotcraft-template-flying-words/component.jsx",
+      "sha256": "66b20eefac8fef6f60ef86f2736a11e353b61d44aa82b771bcbf291cda1b811e"
+    },
+    {
+      "id": "shotcraft-template-glitch-cycle",
+      "path": "assets/motion-library/shotcraft-template-glitch-cycle/component.jsx",
+      "sha256": "335a1db0af6e79945f3f7e7bf34ebb5a4e8e01db767b7fd340078c9098c16a72"
+    },
+    {
+      "id": "shotcraft-template-gradient-word-sweep",
+      "path": "assets/motion-library/shotcraft-template-gradient-word-sweep/component.jsx",
+      "sha256": "f7fd6da22d63fa68a0377fc7084502e27f10f09a6b44139f2e1cbc2e9b0eb87f"
+    },
+    {
+      "id": "shotcraft-template-lead-word-zoom-assemble",
+      "path": "assets/motion-library/shotcraft-template-lead-word-zoom-assemble/component.jsx",
+      "sha256": "5a9d89eb74a7a1b365ad0ec4fee3a86296af86636ae9f7e67c1156383f2fc67e"
+    },
+    {
+      "id": "shotcraft-template-marker-underline-title",
+      "path": "assets/motion-library/shotcraft-template-marker-underline-title/component.jsx",
+      "sha256": "dc71c12ffe40c1c10a4d652ffd9ca01952e542f0da90ef56a90533543f214274"
+    },
+    {
+      "id": "shotcraft-template-outline-word-fill",
+      "path": "assets/motion-library/shotcraft-template-outline-word-fill/component.jsx",
+      "sha256": "0c2787a367b7440995994b9a6269203ce6faeef1ffed9c8ff8b669f0d23def4b"
+    },
+    {
+      "id": "shotcraft-template-paper-title-card",
+      "path": "assets/motion-library/shotcraft-template-paper-title-card/component.jsx",
+      "sha256": "a92cff3020f6206dae34dfb65a1a37ce36fa6c807426b9f6dcb67080c3b9017f"
+    },
+    {
+      "id": "shotcraft-template-pill-chip-slot-cycle-handled",
+      "path": "assets/motion-library/shotcraft-template-pill-chip-slot-cycle-handled/component.jsx",
+      "sha256": "4b97b74f47adf28189efdf4a09eee1473d56862620ba9d5c8d8bbd38f6cb1804"
+    },
+    {
+      "id": "shotcraft-template-pill-slot-cycle",
+      "path": "assets/motion-library/shotcraft-template-pill-slot-cycle/component.jsx",
+      "sha256": "499e47899061b7d2b866c33cfdd4b36c91780570bbc7fc8aaf777c7d4e039643"
+    },
+    {
+      "id": "shotcraft-template-scramble",
+      "path": "assets/motion-library/shotcraft-template-scramble/component.jsx",
+      "sha256": "290e4b6afceba2b243194dfb916af25bafab10a43f7e9b2547c45372f5d0e2b4"
+    },
+    {
+      "id": "shotcraft-template-split-flap-flip",
+      "path": "assets/motion-library/shotcraft-template-split-flap-flip/component.jsx",
+      "sha256": "955797910650c8fab0fe68d5652977d247f6db807ee0f24b453b12b89dd277fa"
+    },
+    {
+      "id": "shotcraft-template-text-column-converge",
+      "path": "assets/motion-library/shotcraft-template-text-column-converge/component.jsx",
+      "sha256": "b48252bb5b4b7d1e5872c7717108a44eb86b5a8bd328b00e27a1d5a1db0396f1"
+    },
+    {
+      "id": "shotcraft-template-title-demote-to-label",
+      "path": "assets/motion-library/shotcraft-template-title-demote-to-label/component.jsx",
+      "sha256": "6e2b47b39a82c21b307455038fad0da18795be6560cd7d7cb5b162625a56ca1c"
+    },
+    {
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "path": "assets/motion-library/shotcraft-template-letterform-drift-assembly/component.jsx",
+      "sha256": "e2e9dd78fcef7afadaef0a2c8152a1e278d40e054a1e706403667fe7833b063f"
+    },
+    {
+      "id": "shotcraft-template-split-text-stagger",
+      "path": "assets/motion-library/shotcraft-template-split-text-stagger/component.jsx",
+      "sha256": "b13ef8c5e2f93edeacfebe76b90fbba0bf6ceadfe16611ce9edf95772186fba4"
+    },
+    {
+      "id": "shotcraft-template-text-on-path",
+      "path": "assets/motion-library/shotcraft-template-text-on-path/component.jsx",
+      "sha256": "9cdd657b46fa511cd3275d362e7550a01667fc7b6a722c6112aa6814bf81ff9d"
+    },
+    {
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "path": "assets/motion-library/shotcraft-template-tracking-expand-reveal/component.jsx",
+      "sha256": "64d34d9e829b884782973acddf36597bc5f4faf6d4db493466013ba74e7815ec"
+    },
+    {
+      "id": "shotcraft-template-letter-drop-physics",
+      "path": "assets/motion-library/shotcraft-template-letter-drop-physics/component.jsx",
+      "sha256": "dabf2ea4c4b97b7b4dabbb618422d45570a99bb63e19bae15abfac2b80603ae4"
+    },
+    {
+      "id": "shotcraft-template-scramble-decode",
+      "path": "assets/motion-library/shotcraft-template-scramble-decode/component.jsx",
+      "sha256": "70edb7e6bcec309717232c14e2eb575b0b9421e25076198436bcd686e7e69959"
+    },
+    {
+      "id": "shotcraft-template-font-weight-pump",
+      "path": "assets/motion-library/shotcraft-template-font-weight-pump/component.jsx",
+      "sha256": "d19e9d58d9f8c69799f28c49deaf3398755c51237dc73f0130b094f29cb8737b"
+    },
+    {
+      "id": "shotcraft-template-karaoke-fill-sync",
+      "path": "assets/motion-library/shotcraft-template-karaoke-fill-sync/component.jsx",
+      "sha256": "10e58fbddbf20e548fe959514baea78df76db4f6542a0ccebff14e74ededf53f"
+    },
+    {
+      "id": "shotcraft-template-terminal-typewriter",
+      "path": "assets/motion-library/shotcraft-template-terminal-typewriter/component.jsx",
+      "sha256": "f6dbd6e3092a10b58905ddb9ac80bf7d6c984c182f4b69432f94e8cce58041d1"
+    },
+    {
+      "id": "shotcraft-template-typewriter-error-retype",
+      "path": "assets/motion-library/shotcraft-template-typewriter-error-retype/component.jsx",
+      "sha256": "674226bead412e1b82f6dd5af5bab022cdffcf356548a2717c577bae3659bdee"
+    },
+    {
+      "id": "shotcraft-template-typing-code-block",
+      "path": "assets/motion-library/shotcraft-template-typing-code-block/component.jsx",
+      "sha256": "1f1a4d651864a28b60467de46079fdea004473ef1653ef35430d03a14215f0d3"
+    },
+    {
+      "id": "shotcraft-template-vertical-word-roll-blur-cycle",
+      "path": "assets/motion-library/shotcraft-template-vertical-word-roll-blur-cycle/component.jsx",
+      "sha256": "3e11bf1b8da863aa7e937f4fbd4c9f9f00bec01bd30279a477ccec8fcf7e989c"
+    },
+    {
+      "id": "shotcraft-template-word-relay-filmstrip",
+      "path": "assets/motion-library/shotcraft-template-word-relay-filmstrip/component.jsx",
+      "sha256": "487bdd7499c85fb476b73e30e4afa174fa8d4ee98c96a087f2dd4354c257104a"
+    },
+    {
+      "id": "shotcraft-template-word-relay-geometry",
+      "path": "assets/motion-library/shotcraft-template-word-relay-geometry/component.jsx",
+      "sha256": "81ac43c6f501cc1080828fb4d36c57710eeabbe1bb60bd1ba6b7c9866d4bd0c8"
+    },
+    {
+      "id": "shotcraft-template-avatar-bracket-carousel",
+      "path": "assets/motion-library/shotcraft-template-avatar-bracket-carousel/component.jsx",
+      "sha256": "2ef2943f172a16527ee9f436757cacd1dc46cdcaf4ce54888f9ca7eb40f2e1dd"
+    },
+    {
+      "id": "shotcraft-template-bezier-source-converge-merge",
+      "path": "assets/motion-library/shotcraft-template-bezier-source-converge-merge/component.jsx",
+      "sha256": "925eb73887691e96d837ca579e76278d9f58694771509858d96847864a1ad234"
+    },
+    {
+      "id": "shotcraft-template-card-stack",
+      "path": "assets/motion-library/shotcraft-template-card-stack/component.jsx",
+      "sha256": "aa3f31395b1f2692b9a054031c8dcff7550e77d56aa2301926db9832356784d7"
+    },
+    {
+      "id": "shotcraft-template-carousel3-d",
+      "path": "assets/motion-library/shotcraft-template-carousel3-d/component.jsx",
+      "sha256": "c5d07d8dd56f3403f85e2b5c2f619e28452278e646479322bd8825b3c036c244"
+    },
+    {
+      "id": "shotcraft-template-clip-card-looping",
+      "path": "assets/motion-library/shotcraft-template-clip-card-looping/component.jsx",
+      "sha256": "248de0411a636b8aae744b8bfea61e52c267a1abbbc7c4b2749e46d4dda872be"
+    },
+    {
+      "id": "shotcraft-template-cloner-depth-echo",
+      "path": "assets/motion-library/shotcraft-template-cloner-depth-echo/component.jsx",
+      "sha256": "986cea75c3989fd33e695acd2d827d785a8b6e3a69363bc7a5f0bb68a2218354"
+    },
+    {
+      "id": "shotcraft-template-deck-deal-flyin",
+      "path": "assets/motion-library/shotcraft-template-deck-deal-flyin/component.jsx",
+      "sha256": "d5ff7d8b22f20027d6e665d79149da3f6bdd80b63e1b24f44d236cb066b5ca16"
+    },
+    {
+      "id": "shotcraft-template-doc-park-left-pill-deal",
+      "path": "assets/motion-library/shotcraft-template-doc-park-left-pill-deal/component.jsx",
+      "sha256": "bce029bf3cf47bf6b40a2e5576ab4a5ffb532250b3e64d231d187f41179835b6"
+    },
+    {
+      "id": "shotcraft-template-document-typewriter-reveal",
+      "path": "assets/motion-library/shotcraft-template-document-typewriter-reveal/component.jsx",
+      "sha256": "442db32c281c661633df7b195550634c89ca5f1551575d19db39d52fcd1c346a"
+    },
+    {
+      "id": "shotcraft-template-draw-svg-trace",
+      "path": "assets/motion-library/shotcraft-template-draw-svg-trace/component.jsx",
+      "sha256": "4831019f4fb6749682ea0ca9a5c0c3baa1a16b77c206f88801b6884ef5f542f7"
+    },
+    {
+      "id": "shotcraft-template-axial-stretch",
+      "path": "assets/motion-library/shotcraft-template-axial-stretch/component.jsx",
+      "sha256": "8233d377a69f94b51ec8f277f8c556bbf1b21b9a3f539acf10bafc4b5d710326"
+    },
+    {
+      "id": "shotcraft-template-contact-shadow-lift",
+      "path": "assets/motion-library/shotcraft-template-contact-shadow-lift/component.jsx",
+      "sha256": "9a9e15c241e1df0db320977e3607788a5b768a4f874d657c996fde995fc28b2d"
+    },
+    {
+      "id": "shotcraft-template-floating-glossy-label-pills",
+      "path": "assets/motion-library/shotcraft-template-floating-glossy-label-pills/component.jsx",
+      "sha256": "db93a48920b876d11280fd993ac0ba4b6d4cac500686dac1fbf013a5ba1b8be7"
+    },
+    {
+      "id": "shotcraft-template-integration-hub-map",
+      "path": "assets/motion-library/shotcraft-template-integration-hub-map/component.jsx",
+      "sha256": "be97434c059a671f9f1f0960c2748bff89619d54e082e019911bebeb3d71cd23"
+    },
+    {
+      "id": "shotcraft-template-list-reveal",
+      "path": "assets/motion-library/shotcraft-template-list-reveal/component.jsx",
+      "sha256": "e290e24f63bbd29e0b19a74adf334469df1c97e15a805dcabcb1ce8cd33f3fa9"
+    },
+    {
+      "id": "shotcraft-template-list-stack-press",
+      "path": "assets/motion-library/shotcraft-template-list-stack-press/component.jsx",
+      "sha256": "6afde335431229dbff152fb0c9bce6841714ee0750d3ae754f4df998e7f0dbde"
+    },
+    {
+      "id": "shotcraft-template-morph-from-primitive",
+      "path": "assets/motion-library/shotcraft-template-morph-from-primitive/component.jsx",
+      "sha256": "7f61080aa6314965daf6d7dc670e78ce3b42880135f8feb2ff5d044aa658eea0"
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun",
+      "path": "assets/motion-library/shotcraft-template-neon-frame-forerun/component.jsx",
+      "sha256": "8d2988ffcc12f38dd9b9628f4b9326b43dd6e6bfae4eec658c73b7e1a52e48fe"
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun-orbit",
+      "path": "assets/motion-library/shotcraft-template-neon-frame-forerun-orbit/component.jsx",
+      "sha256": "b8789007e8b2961888d51ce64c3825dcaee8342533450cf73d58100de0bee230"
+    },
+    {
+      "id": "shotcraft-template-page-waterfall-wall",
+      "path": "assets/motion-library/shotcraft-template-page-waterfall-wall/component.jsx",
+      "sha256": "3c45bcc9b4d272fa6dcadf43240cba65bcd3bf5de4ed286f85da665105a570c8"
+    },
+    {
+      "id": "shotcraft-template-masking-tape-slap",
+      "path": "assets/motion-library/shotcraft-template-masking-tape-slap/component.jsx",
+      "sha256": "fab4c2acce583ef6582cb7c857e368d48b792d4ebde5d8b2b04eb8522f7f952d"
+    },
+    {
+      "id": "shotcraft-template-popup-book-rise",
+      "path": "assets/motion-library/shotcraft-template-popup-book-rise/component.jsx",
+      "sha256": "37ff9f9d10e7c8a244f6ea20d7f3d32f263d18b89cdda95f7adef32df85a6ea3"
+    },
+    {
+      "id": "shotcraft-template-platform-hinge-rise",
+      "path": "assets/motion-library/shotcraft-template-platform-hinge-rise/component.jsx",
+      "sha256": "e80305113d357fb2882d0f11fc6cb0c50d7ca3eb9e0434ede2fe96a6c9885633"
+    },
+    {
+      "id": "shotcraft-template-product-card-progressive-assemble",
+      "path": "assets/motion-library/shotcraft-template-product-card-progressive-assemble/component.jsx",
+      "sha256": "dc93d1cbeb4d67569b064cd1b9834bc6ce8ce0d20a89c3169487776d4b5e20e9"
+    },
+    {
+      "id": "shotcraft-template-radial-wave",
+      "path": "assets/motion-library/shotcraft-template-radial-wave/component.jsx",
+      "sha256": "68b11147d3314e46ab2d9643bb7b2d6c0578e0baa26c07c3f323d627f0a592be"
+    },
+    {
+      "id": "shotcraft-template-research-card-stack-scroll",
+      "path": "assets/motion-library/shotcraft-template-research-card-stack-scroll/component.jsx",
+      "sha256": "48249fa04fb25ec6e5c7b398e2d587f85927914a268e1003595662bab1744201"
+    },
+    {
+      "id": "shotcraft-template-row-embed",
+      "path": "assets/motion-library/shotcraft-template-row-embed/component.jsx",
+      "sha256": "fc4c9b83f1649f3db0409ac04ffbbe4d8c486370c62e75ecbab9cae34faff747"
+    },
+    {
+      "id": "shotcraft-template-runway-ground-skim",
+      "path": "assets/motion-library/shotcraft-template-runway-ground-skim/component.jsx",
+      "sha256": "07f3be4d02a808e7130346dfe636b32bc899689afe0cf47c53f3bfd9a693b7c6"
+    },
+    {
+      "id": "shotcraft-template-skeleton-reveal",
+      "path": "assets/motion-library/shotcraft-template-skeleton-reveal/component.jsx",
+      "sha256": "4f607a3200ed97a18cd0b2be18732962469f782b30c90e54b7a1e98f822d6f1c"
+    },
+    {
+      "id": "shotcraft-template-svg-shape-morph",
+      "path": "assets/motion-library/shotcraft-template-svg-shape-morph/component.jsx",
+      "sha256": "7512cad39d5219f67f28a5df7fc9ea65a4fcc3b4e66526098116bbf992f26a52"
+    },
+    {
+      "id": "shotcraft-template-value-stagger-gradient",
+      "path": "assets/motion-library/shotcraft-template-value-stagger-gradient/component.jsx",
+      "sha256": "bb74486c35c70bdbb79019403f48db2a617de563c120b9cd742cedf49920936e"
+    },
+    {
+      "id": "shotcraft-template-bento-light-up",
+      "path": "assets/motion-library/shotcraft-template-bento-light-up/component.jsx",
+      "sha256": "74c9912eb2b824a5e8bae0938e61247a6dbb8b231a6e94669201a2ab455e0e90"
+    },
+    {
+      "id": "shotcraft-template-grid-wave-flip",
+      "path": "assets/motion-library/shotcraft-template-grid-wave-flip/component.jsx",
+      "sha256": "1843311d09979679cec117220697dc0006593955d6971353694cf750f3369410"
+    },
+    {
+      "id": "shotcraft-template-wireframe-draw-on",
+      "path": "assets/motion-library/shotcraft-template-wireframe-draw-on/component.jsx",
+      "sha256": "fef966df82831a970bcd97eb436da42a57223089c16dc8231de8d3d7bf930077"
+    },
+    {
+      "id": "shotcraft-template-scene-open",
+      "path": "assets/motion-library/shotcraft-template-scene-open/component.jsx",
+      "sha256": "bb2301f97bc265123550d816bbf885a27e79d79bb3475881fff2388d5d3cde13"
+    },
+    {
+      "id": "shotcraft-template-scene-fly-in",
+      "path": "assets/motion-library/shotcraft-template-scene-fly-in/component.jsx",
+      "sha256": "697c2a880c3311bcb4035db4f299b8026d07d1c1db4f7ee5f98a7420522d8105"
+    },
+    {
+      "id": "shotcraft-template-scene-detail",
+      "path": "assets/motion-library/shotcraft-template-scene-detail/component.jsx",
+      "sha256": "77aca9fd77798d63f8481dcda5a481acca46defae4b5e9b91ca5c7b5536f5d47"
+    },
+    {
+      "id": "shotcraft-template-scene-papers",
+      "path": "assets/motion-library/shotcraft-template-scene-papers/component.jsx",
+      "sha256": "55c27ccfc648fe151f7130d1c5ba72f422b6c056c4c86d64d42aba631730cd4c"
+    },
+    {
+      "id": "shotcraft-template-scene-wbr",
+      "path": "assets/motion-library/shotcraft-template-scene-wbr/component.jsx",
+      "sha256": "73afb30aebca235561c8efcc3c93bd711281872c03ae20dc0d6ce72874e88c02"
+    },
+    {
+      "id": "shotcraft-template-scene-outro-live",
+      "path": "assets/motion-library/shotcraft-template-scene-outro-live/component.jsx",
+      "sha256": "5ef45dde09ce81e2684533dc9317bbd02bf7420c0d368b4551604f5905d14735"
+    },
+    {
+      "id": "shotcraft-template-film-ink-press",
+      "path": "assets/motion-library/shotcraft-template-film-ink-press/component.jsx",
+      "sha256": "c83c47b8507b35af9e411d0b8cd2f313df39ce905d5b5d5b7fc1f8ffcc0b31f2"
+    },
+    {
+      "id": "shotcraft-template-film-vintage-kraft",
+      "path": "assets/motion-library/shotcraft-template-film-vintage-kraft/component.jsx",
+      "sha256": "7947bb72d17f6ee4246dd4f20fd3ba555b5399c2b3f883edf81ce217f6f0e06e"
+    },
+    {
+      "id": "shotcraft-template-film-deep-ocean",
+      "path": "assets/motion-library/shotcraft-template-film-deep-ocean/component.jsx",
+      "sha256": "79373934f3e4155d419967f5f3d2cf950ddd583b3c862ecd84929f2c16e286ec"
+    },
+    {
+      "id": "shotcraft-template-film-obsidian-violet",
+      "path": "assets/motion-library/shotcraft-template-film-obsidian-violet/component.jsx",
+      "sha256": "85bd1476bac525d3c18f9af88ffda7431ccbd35b76d7ee027a135732f4b9d07d"
+    },
+    {
+      "id": "shotcraft-template-film-modern-light",
+      "path": "assets/motion-library/shotcraft-template-film-modern-light/component.jsx",
+      "sha256": "da9ab808bc09c444f03439a71aff21cbd539bade042ac62e99c090b9d075495e"
+    },
+    {
+      "id": "shotcraft-template-film-midnight",
+      "path": "assets/motion-library/shotcraft-template-film-midnight/component.jsx",
+      "sha256": "290f3beff651388a5c7314a48c826c1e30ad69d106cdf56e605790e29df1842d"
+    },
+    {
+      "id": "shotcraft-template-film-solar-pop",
+      "path": "assets/motion-library/shotcraft-template-film-solar-pop/component.jsx",
+      "sha256": "57a764dac018426c4253e5c7f066083812b06c8396cc952374d7da9ed6521010"
+    },
+    {
+      "id": "shotcraft-template-film-coral-burst",
+      "path": "assets/motion-library/shotcraft-template-film-coral-burst/component.jsx",
+      "sha256": "5ff29e58d28cf19bbfbd51619a2ea2f36dbf8fad18cd6dfde4b31f6ea546a73f"
+    },
+    {
+      "id": "shotcraft-template-film-color-play",
+      "path": "assets/motion-library/shotcraft-template-film-color-play/component.jsx",
+      "sha256": "e7706bb52d4811b942ad9980125fd1d5dd412dea41c82be4c62deb1d243416ba"
+    },
+    {
+      "id": "shotcraft-template-lib-caption",
+      "path": "assets/motion-library/shotcraft-template-lib-caption/component.jsx",
+      "sha256": "8b4a7163fd881530853d93d3f1babd57925ac80df612355ebf4aa480a0c94bbb"
+    },
+    {
+      "id": "shotcraft-template-lib-clip-card",
+      "path": "assets/motion-library/shotcraft-template-lib-clip-card/component.jsx",
+      "sha256": "8ec0fb69448ff547311ab9bf8aab81371d3560d8351a2239e3b76644f83b2280"
+    },
+    {
+      "id": "shotcraft-template-lib-digit-roll",
+      "path": "assets/motion-library/shotcraft-template-lib-digit-roll/component.jsx",
+      "sha256": "58dfb684ca8d8b78187743f76d64aef08eac0a1cc4b67917c201eb5a4722fdd3"
+    },
+    {
+      "id": "shotcraft-template-lib-flash-cut",
+      "path": "assets/motion-library/shotcraft-template-lib-flash-cut/component.jsx",
+      "sha256": "9ebaf08d2c990f6a8ec5a791b807ec15b0c438dcca8eccce52b6aa42761bacb2"
+    },
+    {
+      "id": "shotcraft-template-lib-page-cam",
+      "path": "assets/motion-library/shotcraft-template-lib-page-cam/component.jsx",
+      "sha256": "1d32ebf51d02f7b30585c3292183f66e665e7060aaf2081b64c0f59b7dd7f347"
+    },
+    {
+      "id": "shotcraft-template-three-flat-panel",
+      "path": "assets/motion-library/shotcraft-template-three-flat-panel/component.jsx",
+      "sha256": "0df79a43201c081fadff2ac00308b811adf1e4533a623e6ef3c5b1e020ba2019"
+    },
+    {
+      "id": "shotcraft-template-vertical-ticker",
+      "path": "assets/motion-library/shotcraft-template-vertical-ticker/component.jsx",
+      "sha256": "46f639948cbdf13af19c3b71f055deb529ae26544ac2b93e3fa0014a23766241"
+    },
+    {
+      "id": "shotcraft-template-production-paper-title-card",
+      "path": "assets/motion-library/shotcraft-template-production-paper-title-card/component.jsx",
+      "sha256": "41b8515231d3a2fc4ad5b23d0138466817bd655032e97b1edc3cdd353db65864"
+    },
+    {
+      "id": "shotcraft-template-production-caption",
+      "path": "assets/motion-library/shotcraft-template-production-caption/component.jsx",
+      "sha256": "a70791bfd4dc9d89abcc62a145b3f15be18660a1d08a4eae8172766ae65869f8"
+    },
+    {
+      "id": "shotcraft-template-flash-cut-shot",
+      "path": "assets/motion-library/shotcraft-template-flash-cut-shot/component.jsx",
+      "sha256": "a572973a1c8694beefb12400bdf9f691277451ef2fec19eba938d24ddc9ba2df"
+    }
+  ],
+  "usageStats": [
+    {
+      "id": "gradient-text",
+      "beforeCharacters": 260,
+      "afterCharacters": 801
+    },
+    {
+      "id": "kinetic-headline",
+      "beforeCharacters": 278,
+      "afterCharacters": 808
+    },
+    {
+      "id": "draw-underline",
+      "beforeCharacters": 261,
+      "afterCharacters": 803
+    },
+    {
+      "id": "ghost-ahead",
+      "beforeCharacters": 263,
+      "afterCharacters": 791
+    },
+    {
+      "id": "defocus-reveal",
+      "beforeCharacters": 261,
+      "afterCharacters": 826
+    },
+    {
+      "id": "dip-to-color",
+      "beforeCharacters": 251,
+      "afterCharacters": 788
+    },
+    {
+      "id": "match-cut",
+      "beforeCharacters": 273,
+      "afterCharacters": 861
+    },
+    {
+      "id": "perspective-panel",
+      "beforeCharacters": 275,
+      "afterCharacters": 796
+    },
+    {
+      "id": "cascade-grid",
+      "beforeCharacters": 266,
+      "afterCharacters": 878
+    },
+    {
+      "id": "count-up",
+      "beforeCharacters": 257,
+      "afterCharacters": 760
+    },
+    {
+      "id": "draw-path",
+      "beforeCharacters": 265,
+      "afterCharacters": 789
+    },
+    {
+      "id": "camera-move",
+      "beforeCharacters": 276,
+      "afterCharacters": 919
+    },
+    {
+      "id": "flow-packet",
+      "beforeCharacters": 289,
+      "afterCharacters": 831
+    },
+    {
+      "id": "card-flip",
+      "beforeCharacters": 283,
+      "afterCharacters": 811
+    },
+    {
+      "id": "brush-reveal",
+      "beforeCharacters": 281,
+      "afterCharacters": 819
+    },
+    {
+      "id": "browser-frame",
+      "beforeCharacters": 309,
+      "afterCharacters": 851
+    },
+    {
+      "id": "code-diff",
+      "beforeCharacters": 281,
+      "afterCharacters": 888
+    },
+    {
+      "id": "accent-typewriter",
+      "beforeCharacters": 309,
+      "afterCharacters": 838
+    },
+    {
+      "id": "shotcraft-page-camera",
+      "beforeCharacters": 690,
+      "afterCharacters": 985
+    },
+    {
+      "id": "shotcraft-digit-roll",
+      "beforeCharacters": 487,
+      "afterCharacters": 761
+    },
+    {
+      "id": "shotcraft-flash-cut",
+      "beforeCharacters": 435,
+      "afterCharacters": 714
+    },
+    {
+      "id": "shotcraft-clock-wipe",
+      "beforeCharacters": 496,
+      "afterCharacters": 781
+    },
+    {
+      "id": "shotcraft-blinds-slice",
+      "beforeCharacters": 531,
+      "afterCharacters": 809
+    },
+    {
+      "id": "shotcraft-grid-wave-flip",
+      "beforeCharacters": 563,
+      "afterCharacters": 833
+    },
+    {
+      "id": "shotcraft-wireframe-reveal",
+      "beforeCharacters": 633,
+      "afterCharacters": 897
+    },
+    {
+      "id": "shotcraft-word-roll",
+      "beforeCharacters": 515,
+      "afterCharacters": 805
+    },
+    {
+      "id": "shotcraft-bezier-merge",
+      "beforeCharacters": 520,
+      "afterCharacters": 788
+    },
+    {
+      "id": "shotcraft-timeline-travel",
+      "beforeCharacters": 581,
+      "afterCharacters": 853
+    },
+    {
+      "id": "shotcraft-spotlight-hero",
+      "beforeCharacters": 569,
+      "afterCharacters": 845
+    },
+    {
+      "id": "shotcraft-row-embed",
+      "beforeCharacters": 522,
+      "afterCharacters": 802
+    },
+    {
+      "id": "shotcraft-template-basic3-d-scene",
+      "beforeCharacters": 1297,
+      "afterCharacters": 1028
+    },
+    {
+      "id": "shotcraft-template-cursor-flyover",
+      "beforeCharacters": 1361,
+      "afterCharacters": 1001
+    },
+    {
+      "id": "shotcraft-template-graze-face-tour",
+      "beforeCharacters": 2094,
+      "afterCharacters": 1066
+    },
+    {
+      "id": "shotcraft-template-terminal3-d",
+      "beforeCharacters": 1307,
+      "afterCharacters": 1002
+    },
+    {
+      "id": "shotcraft-template-avatar-grid-radial-build-colorize",
+      "beforeCharacters": 1423,
+      "afterCharacters": 1170
+    },
+    {
+      "id": "shotcraft-template-before-after-slider-scrub",
+      "beforeCharacters": 1195,
+      "afterCharacters": 1045
+    },
+    {
+      "id": "shotcraft-template-axis-rescale-shock-v2",
+      "beforeCharacters": 1529,
+      "afterCharacters": 1145
+    },
+    {
+      "id": "shotcraft-template-oscilloscope-stream-v2",
+      "beforeCharacters": 1465,
+      "afterCharacters": 1154
+    },
+    {
+      "id": "shotcraft-template-unit-dot-swarm-regroup-v2",
+      "beforeCharacters": 1443,
+      "afterCharacters": 1176
+    },
+    {
+      "id": "shotcraft-template-counter-confetti",
+      "beforeCharacters": 1169,
+      "afterCharacters": 970
+    },
+    {
+      "id": "shotcraft-template-cycle-glass-node-morph",
+      "beforeCharacters": 1352,
+      "afterCharacters": 1063
+    },
+    {
+      "id": "shotcraft-template-needle-sweep-selftest",
+      "beforeCharacters": 1230,
+      "afterCharacters": 1043
+    },
+    {
+      "id": "shotcraft-template-tape-scroll-fixed-pointer",
+      "beforeCharacters": 1219,
+      "afterCharacters": 1020
+    },
+    {
+      "id": "shotcraft-template-hatch-depth",
+      "beforeCharacters": 1257,
+      "afterCharacters": 1047
+    },
+    {
+      "id": "shotcraft-template-particle-sand-fill",
+      "beforeCharacters": 1216,
+      "afterCharacters": 1078
+    },
+    {
+      "id": "shotcraft-template-ring-diagram-annotation-reveal",
+      "beforeCharacters": 1327,
+      "afterCharacters": 1070
+    },
+    {
+      "id": "shotcraft-template-brake-reticle-lock",
+      "beforeCharacters": 1334,
+      "afterCharacters": 1058
+    },
+    {
+      "id": "shotcraft-template-changelog-scroll-brake",
+      "beforeCharacters": 1287,
+      "afterCharacters": 1078
+    },
+    {
+      "id": "shotcraft-template-timeline-travel",
+      "beforeCharacters": 1274,
+      "afterCharacters": 1055
+    },
+    {
+      "id": "shotcraft-template-assemble-then-type-flyin",
+      "beforeCharacters": 1418,
+      "afterCharacters": 1074
+    },
+    {
+      "id": "shotcraft-template-aurora-bloom-bg-flip",
+      "beforeCharacters": 1259,
+      "afterCharacters": 1098
+    },
+    {
+      "id": "shotcraft-template-dashboard-glow-highlight-pill",
+      "beforeCharacters": 2581,
+      "afterCharacters": 1142
+    },
+    {
+      "id": "shotcraft-template-crash-impact-real",
+      "beforeCharacters": 1118,
+      "afterCharacters": 1087
+    },
+    {
+      "id": "shotcraft-template-crash-zoom-real",
+      "beforeCharacters": 1111,
+      "afterCharacters": 1084
+    },
+    {
+      "id": "shotcraft-template-dolly-zoom-real",
+      "beforeCharacters": 1109,
+      "afterCharacters": 1096
+    },
+    {
+      "id": "shotcraft-template-multiplane-real",
+      "beforeCharacters": 1091,
+      "afterCharacters": 1036
+    },
+    {
+      "id": "shotcraft-template-overhead-tabletop-drop",
+      "beforeCharacters": 1201,
+      "afterCharacters": 981
+    },
+    {
+      "id": "shotcraft-template-tilt-reveal",
+      "beforeCharacters": 1152,
+      "afterCharacters": 890
+    },
+    {
+      "id": "shotcraft-template-drone-dive-landing",
+      "beforeCharacters": 1140,
+      "afterCharacters": 1012
+    },
+    {
+      "id": "shotcraft-template-exploded-view",
+      "beforeCharacters": 1192,
+      "afterCharacters": 1063
+    },
+    {
+      "id": "shotcraft-template-steep-tilt-glide",
+      "beforeCharacters": 1980,
+      "afterCharacters": 1026
+    },
+    {
+      "id": "shotcraft-template-bullet-time-freeze-orbit",
+      "beforeCharacters": 1260,
+      "afterCharacters": 1015
+    },
+    {
+      "id": "shotcraft-template-dutch-roll-to-level",
+      "beforeCharacters": 1185,
+      "afterCharacters": 985
+    },
+    {
+      "id": "shotcraft-template-pull-back-isolation",
+      "beforeCharacters": 1182,
+      "afterCharacters": 994
+    },
+    {
+      "id": "shotcraft-template-slow-push-in",
+      "beforeCharacters": 1152,
+      "afterCharacters": 938
+    },
+    {
+      "id": "shotcraft-template-odometer-digit-roll",
+      "beforeCharacters": 1228,
+      "afterCharacters": 1023
+    },
+    {
+      "id": "shotcraft-template-confetti-crossfire",
+      "beforeCharacters": 1252,
+      "afterCharacters": 1025
+    },
+    {
+      "id": "shotcraft-template-counter-tick-sparks",
+      "beforeCharacters": 1236,
+      "afterCharacters": 1013
+    },
+    {
+      "id": "shotcraft-template-brand-frame-snap",
+      "beforeCharacters": 1262,
+      "afterCharacters": 1005
+    },
+    {
+      "id": "shotcraft-template-line-unfold-panel",
+      "beforeCharacters": 1253,
+      "afterCharacters": 1071
+    },
+    {
+      "id": "shotcraft-template-reticle-lock-on",
+      "beforeCharacters": 1258,
+      "afterCharacters": 1059
+    },
+    {
+      "id": "shotcraft-template-flyline-arc",
+      "beforeCharacters": 1159,
+      "afterCharacters": 918
+    },
+    {
+      "id": "shotcraft-template-glow-orb-ambient",
+      "beforeCharacters": 1176,
+      "afterCharacters": 930
+    },
+    {
+      "id": "shotcraft-template-orb-flyline-relay",
+      "beforeCharacters": 1163,
+      "afterCharacters": 945
+    },
+    {
+      "id": "shotcraft-template-attention-bounce",
+      "beforeCharacters": 1320,
+      "afterCharacters": 986
+    },
+    {
+      "id": "shotcraft-template-pop-burst-confirm",
+      "beforeCharacters": 1208,
+      "afterCharacters": 972
+    },
+    {
+      "id": "shotcraft-template-anime-impact",
+      "beforeCharacters": 1165,
+      "afterCharacters": 1010
+    },
+    {
+      "id": "shotcraft-template-hit-counter",
+      "beforeCharacters": 1260,
+      "afterCharacters": 1041
+    },
+    {
+      "id": "shotcraft-template-halation-bloom",
+      "beforeCharacters": 1219,
+      "afterCharacters": 1027
+    },
+    {
+      "id": "shotcraft-template-sheen-sweep-retry",
+      "beforeCharacters": 1151,
+      "afterCharacters": 964
+    },
+    {
+      "id": "shotcraft-template-spotlight-sweep-reveal",
+      "beforeCharacters": 1198,
+      "afterCharacters": 1022
+    },
+    {
+      "id": "shotcraft-template-line-boil",
+      "beforeCharacters": 1203,
+      "afterCharacters": 1011
+    },
+    {
+      "id": "shotcraft-template-radial-ripple-phone-chips",
+      "beforeCharacters": 1276,
+      "afterCharacters": 1049
+    },
+    {
+      "id": "shotcraft-template-riso-beat-pump",
+      "beforeCharacters": 1162,
+      "afterCharacters": 965
+    },
+    {
+      "id": "shotcraft-template-riso-misregistration-hit",
+      "beforeCharacters": 1180,
+      "afterCharacters": 1007
+    },
+    {
+      "id": "shotcraft-template-scan-bracket-sweep",
+      "beforeCharacters": 1222,
+      "afterCharacters": 1109
+    },
+    {
+      "id": "shotcraft-template-scanline-annotate-focus",
+      "beforeCharacters": 1703,
+      "afterCharacters": 1150
+    },
+    {
+      "id": "shotcraft-template-scanline-assemble-flyin",
+      "beforeCharacters": 1589,
+      "afterCharacters": 1112
+    },
+    {
+      "id": "shotcraft-template-impact-burst-kit",
+      "beforeCharacters": 1196,
+      "afterCharacters": 1054
+    },
+    {
+      "id": "shotcraft-template-kanada-perspective-snap",
+      "beforeCharacters": 1225,
+      "afterCharacters": 1042
+    },
+    {
+      "id": "shotcraft-template-score-slam",
+      "beforeCharacters": 1186,
+      "afterCharacters": 996
+    },
+    {
+      "id": "shotcraft-template-corner-spotlight-reveal",
+      "beforeCharacters": 1262,
+      "afterCharacters": 1019
+    },
+    {
+      "id": "shotcraft-template-glow-wake-sleep-panel",
+      "beforeCharacters": 1208,
+      "afterCharacters": 1038
+    },
+    {
+      "id": "shotcraft-template-slide-spotlight-pan",
+      "beforeCharacters": 1224,
+      "afterCharacters": 1035
+    },
+    {
+      "id": "shotcraft-template-stream-response",
+      "beforeCharacters": 1845,
+      "afterCharacters": 1144
+    },
+    {
+      "id": "shotcraft-template-autolayout-gap-dial",
+      "beforeCharacters": 1254,
+      "afterCharacters": 1101
+    },
+    {
+      "id": "shotcraft-template-diagram-cascade-build",
+      "beforeCharacters": 1342,
+      "afterCharacters": 1104
+    },
+    {
+      "id": "shotcraft-template-panel-to-canvas-materialize",
+      "beforeCharacters": 1398,
+      "afterCharacters": 1124
+    },
+    {
+      "id": "shotcraft-template-chip-grid-single-select-blackout",
+      "beforeCharacters": 1510,
+      "afterCharacters": 1210
+    },
+    {
+      "id": "shotcraft-template-chip-lift-to-user-pill",
+      "beforeCharacters": 1565,
+      "afterCharacters": 1269
+    },
+    {
+      "id": "shotcraft-template-cursor-cast-ensemble",
+      "beforeCharacters": 1328,
+      "afterCharacters": 981
+    },
+    {
+      "id": "shotcraft-template-cursor-dialogue-duet",
+      "beforeCharacters": 1273,
+      "afterCharacters": 1020
+    },
+    {
+      "id": "shotcraft-template-command-palette-summon",
+      "beforeCharacters": 1251,
+      "afterCharacters": 1128
+    },
+    {
+      "id": "shotcraft-template-glass-pill-dictation-typing",
+      "beforeCharacters": 1245,
+      "afterCharacters": 1096
+    },
+    {
+      "id": "shotcraft-template-hashtag-to-pill-materialize",
+      "beforeCharacters": 1479,
+      "afterCharacters": 1218
+    },
+    {
+      "id": "shotcraft-template-cursor-performance-punch-in",
+      "beforeCharacters": 1226,
+      "afterCharacters": 1047
+    },
+    {
+      "id": "shotcraft-template-keycap-smash-cut",
+      "beforeCharacters": 1129,
+      "afterCharacters": 955
+    },
+    {
+      "id": "shotcraft-template-picker-carousel-feature-cycle",
+      "beforeCharacters": 1395,
+      "afterCharacters": 1080
+    },
+    {
+      "id": "shotcraft-template-segmented-thumb-hero",
+      "beforeCharacters": 1406,
+      "afterCharacters": 1020
+    },
+    {
+      "id": "shotcraft-template-palette-theme-ripple",
+      "beforeCharacters": 1329,
+      "afterCharacters": 1133
+    },
+    {
+      "id": "shotcraft-template-theme-sweep-toggle",
+      "beforeCharacters": 1245,
+      "afterCharacters": 1036
+    },
+    {
+      "id": "shotcraft-template-type-and-filter",
+      "beforeCharacters": 1204,
+      "afterCharacters": 1290
+    },
+    {
+      "id": "shotcraft-template-voice-waveform-live",
+      "beforeCharacters": 1204,
+      "afterCharacters": 1026
+    },
+    {
+      "id": "shotcraft-template-crane-rise-reveal",
+      "beforeCharacters": 1176,
+      "afterCharacters": 980
+    },
+    {
+      "id": "shotcraft-template-dataviz-landscape-open",
+      "beforeCharacters": 1419,
+      "afterCharacters": 1075
+    },
+    {
+      "id": "shotcraft-template-fracture",
+      "beforeCharacters": 1143,
+      "afterCharacters": 993
+    },
+    {
+      "id": "shotcraft-template-icon-field-colorize",
+      "beforeCharacters": 2314,
+      "afterCharacters": 1077
+    },
+    {
+      "id": "shotcraft-template-letterspace-materialize",
+      "beforeCharacters": 1677,
+      "afterCharacters": 1060
+    },
+    {
+      "id": "shotcraft-template-magician-card-flourish",
+      "beforeCharacters": 1264,
+      "afterCharacters": 1148
+    },
+    {
+      "id": "shotcraft-template-orbit-ring-title-open",
+      "beforeCharacters": 1923,
+      "afterCharacters": 1439
+    },
+    {
+      "id": "shotcraft-template-spotlight-hero-card",
+      "beforeCharacters": 1281,
+      "afterCharacters": 1263
+    },
+    {
+      "id": "shotcraft-template-stroke-segment-build",
+      "beforeCharacters": 1253,
+      "afterCharacters": 1083
+    },
+    {
+      "id": "shotcraft-template-text-as-mask",
+      "beforeCharacters": 1162,
+      "afterCharacters": 998
+    },
+    {
+      "id": "shotcraft-template-logo-sting-button",
+      "beforeCharacters": 1101,
+      "afterCharacters": 973
+    },
+    {
+      "id": "shotcraft-template-grain-dissolve",
+      "beforeCharacters": 1144,
+      "afterCharacters": 1006
+    },
+    {
+      "id": "shotcraft-template-logo-shrink-wordmark-lockup",
+      "beforeCharacters": 1208,
+      "afterCharacters": 1097
+    },
+    {
+      "id": "shotcraft-template-neon-triple-marquee",
+      "beforeCharacters": 1215,
+      "afterCharacters": 1061
+    },
+    {
+      "id": "shotcraft-template-outro-group-photo-launch",
+      "beforeCharacters": 1366,
+      "afterCharacters": 1205
+    },
+    {
+      "id": "shotcraft-template-ui-strip-away-outro",
+      "beforeCharacters": 1301,
+      "afterCharacters": 1049
+    },
+    {
+      "id": "shotcraft-template-icon-flip-bloom-logo",
+      "beforeCharacters": 1268,
+      "afterCharacters": 1010
+    },
+    {
+      "id": "shotcraft-template-input-morphs-into-logo",
+      "beforeCharacters": 1277,
+      "afterCharacters": 1021
+    },
+    {
+      "id": "shotcraft-template-beat-cut-accelerando",
+      "beforeCharacters": 1146,
+      "afterCharacters": 955
+    },
+    {
+      "id": "shotcraft-template-paparazzi-flash",
+      "beforeCharacters": 1233,
+      "afterCharacters": 1043
+    },
+    {
+      "id": "shotcraft-template-beat-step-list-theme-cycle",
+      "beforeCharacters": 1300,
+      "afterCharacters": 1128
+    },
+    {
+      "id": "shotcraft-template-domino-cascade",
+      "beforeCharacters": 1259,
+      "afterCharacters": 1076
+    },
+    {
+      "id": "shotcraft-template-drop-blackout-slam",
+      "beforeCharacters": 1154,
+      "afterCharacters": 974
+    },
+    {
+      "id": "shotcraft-template-wright-triple-cut",
+      "beforeCharacters": 1202,
+      "afterCharacters": 1008
+    },
+    {
+      "id": "shotcraft-template-comic-panel-split",
+      "beforeCharacters": 1248,
+      "afterCharacters": 1014
+    },
+    {
+      "id": "shotcraft-template-flip-grid-reflow",
+      "beforeCharacters": 1339,
+      "afterCharacters": 1130
+    },
+    {
+      "id": "shotcraft-template-grid-flash-mosaic",
+      "beforeCharacters": 1316,
+      "afterCharacters": 1100
+    },
+    {
+      "id": "shotcraft-template-quad-split-parallel-scenes",
+      "beforeCharacters": 1590,
+      "afterCharacters": 1128
+    },
+    {
+      "id": "shotcraft-template-jump-cut-punch-in",
+      "beforeCharacters": 1224,
+      "afterCharacters": 1013
+    },
+    {
+      "id": "shotcraft-template-strobe-black-frames",
+      "beforeCharacters": 1225,
+      "afterCharacters": 1039
+    },
+    {
+      "id": "shotcraft-template-sakuga-timing-shift",
+      "beforeCharacters": 1243,
+      "afterCharacters": 1100
+    },
+    {
+      "id": "shotcraft-template-smear-multiples",
+      "beforeCharacters": 1157,
+      "afterCharacters": 1001
+    },
+    {
+      "id": "shotcraft-template-spectrum-morph-ui",
+      "beforeCharacters": 1226,
+      "afterCharacters": 1111
+    },
+    {
+      "id": "shotcraft-template-freeze-annotate-real",
+      "beforeCharacters": 1128,
+      "afterCharacters": 1093
+    },
+    {
+      "id": "shotcraft-template-speed-ramp-real",
+      "beforeCharacters": 1115,
+      "afterCharacters": 1118
+    },
+    {
+      "id": "shotcraft-template-card-footage-cadence",
+      "beforeCharacters": 1187,
+      "afterCharacters": 976
+    },
+    {
+      "id": "shotcraft-template-smash-cut",
+      "beforeCharacters": 1153,
+      "afterCharacters": 898
+    },
+    {
+      "id": "shotcraft-template-trailer-bumper",
+      "beforeCharacters": 1210,
+      "afterCharacters": 998
+    },
+    {
+      "id": "shotcraft-template-bottom-push-stack-wipe",
+      "beforeCharacters": 1214,
+      "afterCharacters": 1052
+    },
+    {
+      "id": "shotcraft-template-bubble-swarm-takeover",
+      "beforeCharacters": 1244,
+      "afterCharacters": 1093
+    },
+    {
+      "id": "shotcraft-template-card-flip-reveal",
+      "beforeCharacters": 1209,
+      "afterCharacters": 1087
+    },
+    {
+      "id": "shotcraft-template-card-flock-tumble",
+      "beforeCharacters": 1291,
+      "afterCharacters": 1110
+    },
+    {
+      "id": "shotcraft-template-circle-match-iris",
+      "beforeCharacters": 1137,
+      "afterCharacters": 1014
+    },
+    {
+      "id": "shotcraft-template-color-block-step-wipe",
+      "beforeCharacters": 1244,
+      "afterCharacters": 1040
+    },
+    {
+      "id": "shotcraft-template-cube-navigation",
+      "beforeCharacters": 1248,
+      "afterCharacters": 1056
+    },
+    {
+      "id": "shotcraft-template-gradient-transition",
+      "beforeCharacters": 1194,
+      "afterCharacters": 964
+    },
+    {
+      "id": "shotcraft-template-line-carry-transition",
+      "beforeCharacters": 1264,
+      "afterCharacters": 1056
+    },
+    {
+      "id": "shotcraft-template-mosaic-reframe",
+      "beforeCharacters": 1139,
+      "afterCharacters": 1020
+    },
+    {
+      "id": "shotcraft-template-barn-door-split",
+      "beforeCharacters": 1220,
+      "afterCharacters": 909
+    },
+    {
+      "id": "shotcraft-template-cube-rotate",
+      "beforeCharacters": 1179,
+      "afterCharacters": 948
+    },
+    {
+      "id": "shotcraft-template-paper-plane-messenger",
+      "beforeCharacters": 1281,
+      "afterCharacters": 1141
+    },
+    {
+      "id": "shotcraft-template-ink-bleed-reveal",
+      "beforeCharacters": 1138,
+      "afterCharacters": 914
+    },
+    {
+      "id": "shotcraft-template-black-card-transition",
+      "beforeCharacters": 1271,
+      "afterCharacters": 1145
+    },
+    {
+      "id": "shotcraft-template-dark-tunnel-transition",
+      "beforeCharacters": 1110,
+      "afterCharacters": 1069
+    },
+    {
+      "id": "shotcraft-template-focus-handoff-transition",
+      "beforeCharacters": 1116,
+      "afterCharacters": 1077
+    },
+    {
+      "id": "shotcraft-template-mask-wipe-real",
+      "beforeCharacters": 1085,
+      "afterCharacters": 1044
+    },
+    {
+      "id": "shotcraft-template-portal-wipe-v2",
+      "beforeCharacters": 1159,
+      "afterCharacters": 946
+    },
+    {
+      "id": "shotcraft-template-whip-brake-real",
+      "beforeCharacters": 1151,
+      "afterCharacters": 1158
+    },
+    {
+      "id": "shotcraft-template-whip-pan-real",
+      "beforeCharacters": 1085,
+      "afterCharacters": 1084
+    },
+    {
+      "id": "shotcraft-template-glitch-displace",
+      "beforeCharacters": 1129,
+      "afterCharacters": 959
+    },
+    {
+      "id": "shotcraft-template-invisible-cut",
+      "beforeCharacters": 1147,
+      "afterCharacters": 1015
+    },
+    {
+      "id": "shotcraft-template-light-leak-burn",
+      "beforeCharacters": 1131,
+      "afterCharacters": 998
+    },
+    {
+      "id": "shotcraft-template-versus-slam",
+      "beforeCharacters": 1163,
+      "afterCharacters": 1029
+    },
+    {
+      "id": "shotcraft-template-letterform-zoom",
+      "beforeCharacters": 1157,
+      "afterCharacters": 1009
+    },
+    {
+      "id": "shotcraft-template-shared-element-morph",
+      "beforeCharacters": 1194,
+      "afterCharacters": 1043
+    },
+    {
+      "id": "shotcraft-template-white-flash-logo-simplify-cut",
+      "beforeCharacters": 1199,
+      "afterCharacters": 1055
+    },
+    {
+      "id": "shotcraft-template-blinds-slice",
+      "beforeCharacters": 1203,
+      "afterCharacters": 972
+    },
+    {
+      "id": "shotcraft-template-clock-wipe",
+      "beforeCharacters": 1126,
+      "afterCharacters": 956
+    },
+    {
+      "id": "shotcraft-template-blur-slide",
+      "beforeCharacters": 1256,
+      "afterCharacters": 993
+    },
+    {
+      "id": "shotcraft-template-brace-expand",
+      "beforeCharacters": 1147,
+      "afterCharacters": 1015
+    },
+    {
+      "id": "shotcraft-template-brand-ink-open",
+      "beforeCharacters": 1253,
+      "afterCharacters": 1000
+    },
+    {
+      "id": "shotcraft-template-cel-flash-stomp",
+      "beforeCharacters": 1231,
+      "afterCharacters": 994
+    },
+    {
+      "id": "shotcraft-template-countdown-arc-scatter",
+      "beforeCharacters": 1259,
+      "afterCharacters": 1116
+    },
+    {
+      "id": "shotcraft-template-flying-words",
+      "beforeCharacters": 1431,
+      "afterCharacters": 1053
+    },
+    {
+      "id": "shotcraft-template-glitch-cycle",
+      "beforeCharacters": 1262,
+      "afterCharacters": 1064
+    },
+    {
+      "id": "shotcraft-template-gradient-word-sweep",
+      "beforeCharacters": 1278,
+      "afterCharacters": 1108
+    },
+    {
+      "id": "shotcraft-template-lead-word-zoom-assemble",
+      "beforeCharacters": 1639,
+      "afterCharacters": 1446
+    },
+    {
+      "id": "shotcraft-template-marker-underline-title",
+      "beforeCharacters": 1206,
+      "afterCharacters": 972
+    },
+    {
+      "id": "shotcraft-template-outline-word-fill",
+      "beforeCharacters": 1174,
+      "afterCharacters": 1044
+    },
+    {
+      "id": "shotcraft-template-paper-title-card",
+      "beforeCharacters": 1270,
+      "afterCharacters": 1001
+    },
+    {
+      "id": "shotcraft-template-pill-chip-slot-cycle-handled",
+      "beforeCharacters": 1300,
+      "afterCharacters": 1110
+    },
+    {
+      "id": "shotcraft-template-pill-slot-cycle",
+      "beforeCharacters": 1370,
+      "afterCharacters": 1064
+    },
+    {
+      "id": "shotcraft-template-scramble",
+      "beforeCharacters": 1139,
+      "afterCharacters": 988
+    },
+    {
+      "id": "shotcraft-template-split-flap-flip",
+      "beforeCharacters": 1222,
+      "afterCharacters": 1069
+    },
+    {
+      "id": "shotcraft-template-text-column-converge",
+      "beforeCharacters": 1470,
+      "afterCharacters": 1195
+    },
+    {
+      "id": "shotcraft-template-title-demote-to-label",
+      "beforeCharacters": 1251,
+      "afterCharacters": 993
+    },
+    {
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "beforeCharacters": 1244,
+      "afterCharacters": 1007
+    },
+    {
+      "id": "shotcraft-template-split-text-stagger",
+      "beforeCharacters": 1283,
+      "afterCharacters": 998
+    },
+    {
+      "id": "shotcraft-template-text-on-path",
+      "beforeCharacters": 1215,
+      "afterCharacters": 993
+    },
+    {
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "beforeCharacters": 1271,
+      "afterCharacters": 985
+    },
+    {
+      "id": "shotcraft-template-letter-drop-physics",
+      "beforeCharacters": 1244,
+      "afterCharacters": 1058
+    },
+    {
+      "id": "shotcraft-template-scramble-decode",
+      "beforeCharacters": 1224,
+      "afterCharacters": 1014
+    },
+    {
+      "id": "shotcraft-template-font-weight-pump",
+      "beforeCharacters": 1156,
+      "afterCharacters": 967
+    },
+    {
+      "id": "shotcraft-template-karaoke-fill-sync",
+      "beforeCharacters": 1143,
+      "afterCharacters": 961
+    },
+    {
+      "id": "shotcraft-template-terminal-typewriter",
+      "beforeCharacters": 1334,
+      "afterCharacters": 1029
+    },
+    {
+      "id": "shotcraft-template-typewriter-error-retype",
+      "beforeCharacters": 1242,
+      "afterCharacters": 1050
+    },
+    {
+      "id": "shotcraft-template-typing-code-block",
+      "beforeCharacters": 1301,
+      "afterCharacters": 1077
+    },
+    {
+      "id": "shotcraft-template-vertical-word-roll-blur-cycle",
+      "beforeCharacters": 1286,
+      "afterCharacters": 1157
+    },
+    {
+      "id": "shotcraft-template-word-relay-filmstrip",
+      "beforeCharacters": 1436,
+      "afterCharacters": 1113
+    },
+    {
+      "id": "shotcraft-template-word-relay-geometry",
+      "beforeCharacters": 1217,
+      "afterCharacters": 1067
+    },
+    {
+      "id": "shotcraft-template-avatar-bracket-carousel",
+      "beforeCharacters": 1374,
+      "afterCharacters": 1084
+    },
+    {
+      "id": "shotcraft-template-bezier-source-converge-merge",
+      "beforeCharacters": 1484,
+      "afterCharacters": 1274
+    },
+    {
+      "id": "shotcraft-template-card-stack",
+      "beforeCharacters": 1169,
+      "afterCharacters": 982
+    },
+    {
+      "id": "shotcraft-template-carousel3-d",
+      "beforeCharacters": 1206,
+      "afterCharacters": 1070
+    },
+    {
+      "id": "shotcraft-template-clip-card-looping",
+      "beforeCharacters": 1237,
+      "afterCharacters": 1057
+    },
+    {
+      "id": "shotcraft-template-cloner-depth-echo",
+      "beforeCharacters": 1161,
+      "afterCharacters": 1028
+    },
+    {
+      "id": "shotcraft-template-deck-deal-flyin",
+      "beforeCharacters": 1281,
+      "afterCharacters": 1311
+    },
+    {
+      "id": "shotcraft-template-doc-park-left-pill-deal",
+      "beforeCharacters": 1644,
+      "afterCharacters": 1183
+    },
+    {
+      "id": "shotcraft-template-document-typewriter-reveal",
+      "beforeCharacters": 1831,
+      "afterCharacters": 1246
+    },
+    {
+      "id": "shotcraft-template-draw-svg-trace",
+      "beforeCharacters": 1159,
+      "afterCharacters": 1029
+    },
+    {
+      "id": "shotcraft-template-axial-stretch",
+      "beforeCharacters": 1264,
+      "afterCharacters": 1087
+    },
+    {
+      "id": "shotcraft-template-contact-shadow-lift",
+      "beforeCharacters": 1264,
+      "afterCharacters": 1013
+    },
+    {
+      "id": "shotcraft-template-floating-glossy-label-pills",
+      "beforeCharacters": 1631,
+      "afterCharacters": 1309
+    },
+    {
+      "id": "shotcraft-template-integration-hub-map",
+      "beforeCharacters": 2468,
+      "afterCharacters": 1080
+    },
+    {
+      "id": "shotcraft-template-list-reveal",
+      "beforeCharacters": 1241,
+      "afterCharacters": 975
+    },
+    {
+      "id": "shotcraft-template-list-stack-press",
+      "beforeCharacters": 1287,
+      "afterCharacters": 1216
+    },
+    {
+      "id": "shotcraft-template-morph-from-primitive",
+      "beforeCharacters": 1160,
+      "afterCharacters": 1046
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun",
+      "beforeCharacters": 1257,
+      "afterCharacters": 1079
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun-orbit",
+      "beforeCharacters": 1277,
+      "afterCharacters": 1101
+    },
+    {
+      "id": "shotcraft-template-page-waterfall-wall",
+      "beforeCharacters": 1146,
+      "afterCharacters": 1103
+    },
+    {
+      "id": "shotcraft-template-masking-tape-slap",
+      "beforeCharacters": 1303,
+      "afterCharacters": 1045
+    },
+    {
+      "id": "shotcraft-template-popup-book-rise",
+      "beforeCharacters": 1316,
+      "afterCharacters": 1060
+    },
+    {
+      "id": "shotcraft-template-platform-hinge-rise",
+      "beforeCharacters": 1209,
+      "afterCharacters": 1037
+    },
+    {
+      "id": "shotcraft-template-product-card-progressive-assemble",
+      "beforeCharacters": 1571,
+      "afterCharacters": 1105
+    },
+    {
+      "id": "shotcraft-template-radial-wave",
+      "beforeCharacters": 1149,
+      "afterCharacters": 948
+    },
+    {
+      "id": "shotcraft-template-research-card-stack-scroll",
+      "beforeCharacters": 1929,
+      "afterCharacters": 1163
+    },
+    {
+      "id": "shotcraft-template-row-embed",
+      "beforeCharacters": 1100,
+      "afterCharacters": 1056
+    },
+    {
+      "id": "shotcraft-template-runway-ground-skim",
+      "beforeCharacters": 2014,
+      "afterCharacters": 1112
+    },
+    {
+      "id": "shotcraft-template-skeleton-reveal",
+      "beforeCharacters": 1397,
+      "afterCharacters": 1034
+    },
+    {
+      "id": "shotcraft-template-svg-shape-morph",
+      "beforeCharacters": 1196,
+      "afterCharacters": 1012
+    },
+    {
+      "id": "shotcraft-template-value-stagger-gradient",
+      "beforeCharacters": 1171,
+      "afterCharacters": 1046
+    },
+    {
+      "id": "shotcraft-template-bento-light-up",
+      "beforeCharacters": 1180,
+      "afterCharacters": 1020
+    },
+    {
+      "id": "shotcraft-template-grid-wave-flip",
+      "beforeCharacters": 1157,
+      "afterCharacters": 961
+    },
+    {
+      "id": "shotcraft-template-wireframe-draw-on",
+      "beforeCharacters": 1148,
+      "afterCharacters": 978
+    },
+    {
+      "id": "shotcraft-template-scene-open",
+      "beforeCharacters": 1382,
+      "afterCharacters": 1188
+    },
+    {
+      "id": "shotcraft-template-scene-fly-in",
+      "beforeCharacters": 1341,
+      "afterCharacters": 1388
+    },
+    {
+      "id": "shotcraft-template-scene-detail",
+      "beforeCharacters": 1136,
+      "afterCharacters": 1135
+    },
+    {
+      "id": "shotcraft-template-scene-papers",
+      "beforeCharacters": 1248,
+      "afterCharacters": 1149
+    },
+    {
+      "id": "shotcraft-template-scene-wbr",
+      "beforeCharacters": 1861,
+      "afterCharacters": 1174
+    },
+    {
+      "id": "shotcraft-template-scene-outro-live",
+      "beforeCharacters": 1360,
+      "afterCharacters": 1153
+    },
+    {
+      "id": "shotcraft-template-film-ink-press",
+      "beforeCharacters": 4846,
+      "afterCharacters": 1823
+    },
+    {
+      "id": "shotcraft-template-film-vintage-kraft",
+      "beforeCharacters": 4874,
+      "afterCharacters": 1848
+    },
+    {
+      "id": "shotcraft-template-film-deep-ocean",
+      "beforeCharacters": 4853,
+      "afterCharacters": 1823
+    },
+    {
+      "id": "shotcraft-template-film-obsidian-violet",
+      "beforeCharacters": 4888,
+      "afterCharacters": 1856
+    },
+    {
+      "id": "shotcraft-template-film-modern-light",
+      "beforeCharacters": 4867,
+      "afterCharacters": 1835
+    },
+    {
+      "id": "shotcraft-template-film-midnight",
+      "beforeCharacters": 4839,
+      "afterCharacters": 1809
+    },
+    {
+      "id": "shotcraft-template-film-solar-pop",
+      "beforeCharacters": 4846,
+      "afterCharacters": 1816
+    },
+    {
+      "id": "shotcraft-template-film-coral-burst",
+      "beforeCharacters": 4860,
+      "afterCharacters": 1828
+    },
+    {
+      "id": "shotcraft-template-film-color-play",
+      "beforeCharacters": 4853,
+      "afterCharacters": 1822
+    },
+    {
+      "id": "shotcraft-template-lib-caption",
+      "beforeCharacters": 1136,
+      "afterCharacters": 981
+    },
+    {
+      "id": "shotcraft-template-lib-clip-card",
+      "beforeCharacters": 1207,
+      "afterCharacters": 1286
+    },
+    {
+      "id": "shotcraft-template-lib-digit-roll",
+      "beforeCharacters": 1121,
+      "afterCharacters": 914
+    },
+    {
+      "id": "shotcraft-template-lib-flash-cut",
+      "beforeCharacters": 1112,
+      "afterCharacters": 843
+    },
+    {
+      "id": "shotcraft-template-lib-page-cam",
+      "beforeCharacters": 1362,
+      "afterCharacters": 1257
+    },
+    {
+      "id": "shotcraft-template-three-flat-panel",
+      "beforeCharacters": 1225,
+      "afterCharacters": 1075
+    },
+    {
+      "id": "shotcraft-template-vertical-ticker",
+      "beforeCharacters": 1107,
+      "afterCharacters": 979
+    },
+    {
+      "id": "shotcraft-template-production-paper-title-card",
+      "beforeCharacters": 1385,
+      "afterCharacters": 1070
+    },
+    {
+      "id": "shotcraft-template-production-caption",
+      "beforeCharacters": 1230,
+      "afterCharacters": 1004
+    },
+    {
+      "id": "shotcraft-template-flash-cut-shot",
+      "beforeCharacters": 1097,
+      "afterCharacters": 990
+    }
+  ],
+  "totalMotions": 272,
+  "descriptionCorrectionIds": [
+    "gradient-text",
+    "kinetic-headline",
+    "draw-underline",
+    "ghost-ahead",
+    "defocus-reveal",
+    "dip-to-color",
+    "match-cut",
+    "perspective-panel",
+    "cascade-grid",
+    "count-up",
+    "draw-path",
+    "camera-move",
+    "flow-packet",
+    "card-flip",
+    "brush-reveal",
+    "browser-frame",
+    "code-diff",
+    "accent-typewriter",
+    "shotcraft-page-camera",
+    "shotcraft-digit-roll",
+    "shotcraft-flash-cut",
+    "shotcraft-clock-wipe",
+    "shotcraft-blinds-slice",
+    "shotcraft-grid-wave-flip",
+    "shotcraft-wireframe-reveal",
+    "shotcraft-word-roll",
+    "shotcraft-bezier-merge",
+    "shotcraft-timeline-travel",
+    "shotcraft-spotlight-hero",
+    "shotcraft-row-embed",
+    "shotcraft-template-basic3-d-scene",
+    "shotcraft-template-cursor-flyover",
+    "shotcraft-template-graze-face-tour",
+    "shotcraft-template-terminal3-d",
+    "shotcraft-template-avatar-grid-radial-build-colorize",
+    "shotcraft-template-before-after-slider-scrub",
+    "shotcraft-template-axis-rescale-shock-v2",
+    "shotcraft-template-oscilloscope-stream-v2",
+    "shotcraft-template-unit-dot-swarm-regroup-v2",
+    "shotcraft-template-counter-confetti",
+    "shotcraft-template-cycle-glass-node-morph",
+    "shotcraft-template-needle-sweep-selftest",
+    "shotcraft-template-tape-scroll-fixed-pointer",
+    "shotcraft-template-hatch-depth",
+    "shotcraft-template-particle-sand-fill",
+    "shotcraft-template-ring-diagram-annotation-reveal",
+    "shotcraft-template-brake-reticle-lock",
+    "shotcraft-template-changelog-scroll-brake",
+    "shotcraft-template-timeline-travel",
+    "shotcraft-template-assemble-then-type-flyin",
+    "shotcraft-template-aurora-bloom-bg-flip",
+    "shotcraft-template-dashboard-glow-highlight-pill",
+    "shotcraft-template-crash-impact-real",
+    "shotcraft-template-crash-zoom-real",
+    "shotcraft-template-dolly-zoom-real",
+    "shotcraft-template-multiplane-real",
+    "shotcraft-template-overhead-tabletop-drop",
+    "shotcraft-template-tilt-reveal",
+    "shotcraft-template-drone-dive-landing",
+    "shotcraft-template-exploded-view",
+    "shotcraft-template-steep-tilt-glide",
+    "shotcraft-template-bullet-time-freeze-orbit",
+    "shotcraft-template-dutch-roll-to-level",
+    "shotcraft-template-pull-back-isolation",
+    "shotcraft-template-slow-push-in",
+    "shotcraft-template-odometer-digit-roll",
+    "shotcraft-template-confetti-crossfire",
+    "shotcraft-template-counter-tick-sparks",
+    "shotcraft-template-brand-frame-snap",
+    "shotcraft-template-line-unfold-panel",
+    "shotcraft-template-reticle-lock-on",
+    "shotcraft-template-flyline-arc",
+    "shotcraft-template-glow-orb-ambient",
+    "shotcraft-template-orb-flyline-relay",
+    "shotcraft-template-attention-bounce",
+    "shotcraft-template-pop-burst-confirm",
+    "shotcraft-template-anime-impact",
+    "shotcraft-template-hit-counter",
+    "shotcraft-template-halation-bloom",
+    "shotcraft-template-sheen-sweep-retry",
+    "shotcraft-template-spotlight-sweep-reveal",
+    "shotcraft-template-line-boil",
+    "shotcraft-template-radial-ripple-phone-chips",
+    "shotcraft-template-riso-beat-pump",
+    "shotcraft-template-riso-misregistration-hit",
+    "shotcraft-template-scan-bracket-sweep",
+    "shotcraft-template-scanline-annotate-focus",
+    "shotcraft-template-scanline-assemble-flyin",
+    "shotcraft-template-impact-burst-kit",
+    "shotcraft-template-kanada-perspective-snap",
+    "shotcraft-template-score-slam",
+    "shotcraft-template-corner-spotlight-reveal",
+    "shotcraft-template-glow-wake-sleep-panel",
+    "shotcraft-template-slide-spotlight-pan",
+    "shotcraft-template-stream-response",
+    "shotcraft-template-autolayout-gap-dial",
+    "shotcraft-template-diagram-cascade-build",
+    "shotcraft-template-panel-to-canvas-materialize",
+    "shotcraft-template-chip-grid-single-select-blackout",
+    "shotcraft-template-chip-lift-to-user-pill",
+    "shotcraft-template-cursor-cast-ensemble",
+    "shotcraft-template-cursor-dialogue-duet",
+    "shotcraft-template-command-palette-summon",
+    "shotcraft-template-glass-pill-dictation-typing",
+    "shotcraft-template-hashtag-to-pill-materialize",
+    "shotcraft-template-cursor-performance-punch-in",
+    "shotcraft-template-keycap-smash-cut",
+    "shotcraft-template-picker-carousel-feature-cycle",
+    "shotcraft-template-segmented-thumb-hero",
+    "shotcraft-template-palette-theme-ripple",
+    "shotcraft-template-theme-sweep-toggle",
+    "shotcraft-template-type-and-filter",
+    "shotcraft-template-voice-waveform-live",
+    "shotcraft-template-crane-rise-reveal",
+    "shotcraft-template-dataviz-landscape-open",
+    "shotcraft-template-fracture",
+    "shotcraft-template-icon-field-colorize",
+    "shotcraft-template-letterspace-materialize",
+    "shotcraft-template-magician-card-flourish",
+    "shotcraft-template-orbit-ring-title-open",
+    "shotcraft-template-spotlight-hero-card",
+    "shotcraft-template-stroke-segment-build",
+    "shotcraft-template-text-as-mask",
+    "shotcraft-template-logo-sting-button",
+    "shotcraft-template-grain-dissolve",
+    "shotcraft-template-logo-shrink-wordmark-lockup",
+    "shotcraft-template-neon-triple-marquee",
+    "shotcraft-template-outro-group-photo-launch",
+    "shotcraft-template-ui-strip-away-outro",
+    "shotcraft-template-icon-flip-bloom-logo",
+    "shotcraft-template-input-morphs-into-logo",
+    "shotcraft-template-beat-cut-accelerando",
+    "shotcraft-template-paparazzi-flash",
+    "shotcraft-template-beat-step-list-theme-cycle",
+    "shotcraft-template-domino-cascade",
+    "shotcraft-template-drop-blackout-slam",
+    "shotcraft-template-wright-triple-cut",
+    "shotcraft-template-comic-panel-split",
+    "shotcraft-template-flip-grid-reflow",
+    "shotcraft-template-grid-flash-mosaic",
+    "shotcraft-template-quad-split-parallel-scenes",
+    "shotcraft-template-jump-cut-punch-in",
+    "shotcraft-template-strobe-black-frames",
+    "shotcraft-template-sakuga-timing-shift",
+    "shotcraft-template-smear-multiples",
+    "shotcraft-template-spectrum-morph-ui",
+    "shotcraft-template-freeze-annotate-real",
+    "shotcraft-template-speed-ramp-real",
+    "shotcraft-template-card-footage-cadence",
+    "shotcraft-template-smash-cut",
+    "shotcraft-template-trailer-bumper",
+    "shotcraft-template-bottom-push-stack-wipe",
+    "shotcraft-template-bubble-swarm-takeover",
+    "shotcraft-template-card-flip-reveal",
+    "shotcraft-template-card-flock-tumble",
+    "shotcraft-template-circle-match-iris",
+    "shotcraft-template-color-block-step-wipe",
+    "shotcraft-template-cube-navigation",
+    "shotcraft-template-gradient-transition",
+    "shotcraft-template-line-carry-transition",
+    "shotcraft-template-mosaic-reframe",
+    "shotcraft-template-barn-door-split",
+    "shotcraft-template-cube-rotate",
+    "shotcraft-template-paper-plane-messenger",
+    "shotcraft-template-ink-bleed-reveal",
+    "shotcraft-template-black-card-transition",
+    "shotcraft-template-dark-tunnel-transition",
+    "shotcraft-template-focus-handoff-transition",
+    "shotcraft-template-mask-wipe-real",
+    "shotcraft-template-portal-wipe-v2",
+    "shotcraft-template-whip-brake-real",
+    "shotcraft-template-whip-pan-real",
+    "shotcraft-template-glitch-displace",
+    "shotcraft-template-invisible-cut",
+    "shotcraft-template-light-leak-burn",
+    "shotcraft-template-versus-slam",
+    "shotcraft-template-letterform-zoom",
+    "shotcraft-template-shared-element-morph",
+    "shotcraft-template-white-flash-logo-simplify-cut",
+    "shotcraft-template-blinds-slice",
+    "shotcraft-template-clock-wipe",
+    "shotcraft-template-blur-slide",
+    "shotcraft-template-brace-expand",
+    "shotcraft-template-brand-ink-open",
+    "shotcraft-template-cel-flash-stomp",
+    "shotcraft-template-countdown-arc-scatter",
+    "shotcraft-template-flying-words",
+    "shotcraft-template-glitch-cycle",
+    "shotcraft-template-gradient-word-sweep",
+    "shotcraft-template-lead-word-zoom-assemble",
+    "shotcraft-template-marker-underline-title",
+    "shotcraft-template-outline-word-fill",
+    "shotcraft-template-paper-title-card",
+    "shotcraft-template-pill-chip-slot-cycle-handled",
+    "shotcraft-template-pill-slot-cycle",
+    "shotcraft-template-scramble",
+    "shotcraft-template-split-flap-flip",
+    "shotcraft-template-text-column-converge",
+    "shotcraft-template-title-demote-to-label",
+    "shotcraft-template-letterform-drift-assembly",
+    "shotcraft-template-split-text-stagger",
+    "shotcraft-template-text-on-path",
+    "shotcraft-template-tracking-expand-reveal",
+    "shotcraft-template-letter-drop-physics",
+    "shotcraft-template-scramble-decode",
+    "shotcraft-template-font-weight-pump",
+    "shotcraft-template-karaoke-fill-sync",
+    "shotcraft-template-terminal-typewriter",
+    "shotcraft-template-typewriter-error-retype",
+    "shotcraft-template-typing-code-block",
+    "shotcraft-template-vertical-word-roll-blur-cycle",
+    "shotcraft-template-word-relay-filmstrip",
+    "shotcraft-template-word-relay-geometry",
+    "shotcraft-template-avatar-bracket-carousel",
+    "shotcraft-template-bezier-source-converge-merge",
+    "shotcraft-template-card-stack",
+    "shotcraft-template-carousel3-d",
+    "shotcraft-template-clip-card-looping",
+    "shotcraft-template-cloner-depth-echo",
+    "shotcraft-template-deck-deal-flyin",
+    "shotcraft-template-doc-park-left-pill-deal",
+    "shotcraft-template-document-typewriter-reveal",
+    "shotcraft-template-draw-svg-trace",
+    "shotcraft-template-axial-stretch",
+    "shotcraft-template-contact-shadow-lift",
+    "shotcraft-template-floating-glossy-label-pills",
+    "shotcraft-template-integration-hub-map",
+    "shotcraft-template-list-reveal",
+    "shotcraft-template-list-stack-press",
+    "shotcraft-template-morph-from-primitive",
+    "shotcraft-template-neon-frame-forerun",
+    "shotcraft-template-neon-frame-forerun-orbit",
+    "shotcraft-template-page-waterfall-wall",
+    "shotcraft-template-masking-tape-slap",
+    "shotcraft-template-popup-book-rise",
+    "shotcraft-template-platform-hinge-rise",
+    "shotcraft-template-product-card-progressive-assemble",
+    "shotcraft-template-radial-wave",
+    "shotcraft-template-research-card-stack-scroll",
+    "shotcraft-template-row-embed",
+    "shotcraft-template-runway-ground-skim",
+    "shotcraft-template-skeleton-reveal",
+    "shotcraft-template-svg-shape-morph",
+    "shotcraft-template-value-stagger-gradient",
+    "shotcraft-template-bento-light-up",
+    "shotcraft-template-grid-wave-flip",
+    "shotcraft-template-wireframe-draw-on",
+    "shotcraft-template-scene-open",
+    "shotcraft-template-scene-fly-in",
+    "shotcraft-template-scene-detail",
+    "shotcraft-template-scene-papers",
+    "shotcraft-template-scene-wbr",
+    "shotcraft-template-scene-outro-live",
+    "shotcraft-template-film-ink-press",
+    "shotcraft-template-film-vintage-kraft",
+    "shotcraft-template-film-deep-ocean",
+    "shotcraft-template-film-obsidian-violet",
+    "shotcraft-template-film-modern-light",
+    "shotcraft-template-film-midnight",
+    "shotcraft-template-film-solar-pop",
+    "shotcraft-template-film-coral-burst",
+    "shotcraft-template-film-color-play",
+    "shotcraft-template-lib-caption",
+    "shotcraft-template-lib-clip-card",
+    "shotcraft-template-lib-digit-roll",
+    "shotcraft-template-lib-flash-cut",
+    "shotcraft-template-lib-page-cam",
+    "shotcraft-template-three-flat-panel",
+    "shotcraft-template-vertical-ticker",
+    "shotcraft-template-production-paper-title-card",
+    "shotcraft-template-production-caption",
+    "shotcraft-template-flash-cut-shot"
+  ],
+  "historicalRenderReports": "Retain original digests; this documentation/metadata migration does not create a new visual or human approval.",
+  "technicalValidation": {
+    "projectTests": {
+      "total": 129,
+      "passed": 129,
+      "failed": 0
+    },
+    "usageExamples": {
+      "total": 272,
+      "syntax": "passed",
+      "materialImportAndCall": "passed"
+    },
+    "localLinks": {
+      "documents": 275,
+      "links": 590,
+      "broken": 0
+    },
+    "visualEvidence": "Existing render evidence remains tied to its original source fingerprints and digests; this migration changes descriptions and usage instructions."
+  }
+}

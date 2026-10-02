@@ -1,14 +1,36 @@
 # 暖光闪切
 
-暖白光从中心短暂扩亮后消失，适合一次强调拍或跨段落的硬切遮盖。它是无交互覆盖层，需与前后内容切换组合；不会改变镜头或旁白时长。
+## 画面与用途
 
-接口：startFrame=20, durationFrames=10, color=暖白 CSS 颜色, peak=.85。
+暖白光从中心短暂扩亮后消失，适合一次强调拍或跨段落的硬切遮盖。
 
-从当前镜头的 ./motion-library.jsx 导入 Material_shotcraft_flash_cut。
-所有时间参数都是镜头局部帧，使用当前 Composition 的 fps；theme 传完整项目 style。
-素材只引用已暂存本地资源；示例数据是表达演示，不是项目运行结果。
+## 最小调用
 
 ```jsx
+import React from 'react';
 import {Material_shotcraft_flash_cut} from './motion-library.jsx';
-<Material_shotcraft_flash_cut startFrame={30} durationFrames={12}/>
+
+export default function Shot({style}) {
+  return (
+    <Material_shotcraft_flash_cut startFrame={30} durationFrames={12}/>
+  );
+}
 ```
+
+## 参数
+
+startFrame=20, durationFrames=10, color=暖白 CSS 颜色, peak=.85。
+
+## 输入资源
+
+不依赖额外截图或音频；内容、标签和 JSX 由调用方提供。已安装 react/remotion。
+
+## 时间与组合
+
+所有时间参数为镜头局部帧，使用当前 Composition 的 fps；完整动作区间由该项 durationFrames、travelFrames 或分段时间决定。theme 传完整项目 style；不把全片时长当作局部动作时长。
+
+## 按需深入
+
+- [当前源码](component.jsx)：只有需要确认具体接口或实现时读取。
+- [实际演示](demo.mp4)：用于解决效果疑问；制作中检查当前镜头的实际预览。
+- 专项 Remotion 问题用 video:library references --query 主题，只读命中的当前问题参考。

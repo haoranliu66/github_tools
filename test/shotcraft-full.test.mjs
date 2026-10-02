@@ -37,7 +37,7 @@ test('Shotcraft dependencies align with the installed renderer and native projec
   const remotionVersion=json(join(root,'node_modules/remotion/package.json')).version;
   for(const name of ['@remotion/three','@remotion/motion-blur']){assert.equal(manifest.dependencies[name],remotionVersion);assert.equal(json(join(root,'node_modules',name,'package.json')).version,remotionVersion);}
   for(const name of ['@react-three/fiber','three'])assert.equal(json(join(root,'node_modules',name,'package.json')).version,manifest.dependencies[name]);
-  const integration=json(join(archive,'integration-validation.json'));assert.equal(integration.passed,true);assert.equal(integration.libraryDigest,libraries.digest);assert.equal(integration.visualReview,'sampled frames inspected');
+  const integration=json(join(archive,'integration-validation.json'));assert.equal(integration.passed,true);const audioValidationPath=join(archive,'optional-audio-validation.json');if(existsSync(audioValidationPath)){const audioValidation=json(audioValidationPath);assert.equal(integration.libraryDigest,audioValidation.beforeLibraryDigest);const migration=json(join(root,'integrations/motion-sources/motion-usage-standardization.json'));assert.equal(audioValidation.afterLibraryDigest,migration.beforeLibraryDigest);assert.equal(migration.afterLibraryDigest,libraries.digest);}else assert.equal(integration.libraryDigest,libraries.digest);assert.equal(integration.visualReview,'sampled frames inspected');
   assert.ok(integration.checks.some(s=>s.includes('Confidence')));
   assert.ok(integration.checks.some(s=>s.includes('Three')));
   assert.ok(integration.checks.some(s=>s.includes('video')));

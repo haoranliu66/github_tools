@@ -1,0 +1,376 @@
+{
+  "passed": true,
+  "commit": "5ddbf521038b0a7accfb6dc1e0a9eb29c67277ab",
+  "admissionBasis": "User explicitly requested admission of the upstream open usable media; original attribution retained independently.",
+  "files": [
+    {
+      "key": "transition-soft.mp3",
+      "path": "assets/motion-library/shotcraft-audio/transition-soft.mp3",
+      "sha256": "0e25921648c66e30924892ee17110ae621243de770b2944496526845a15a9998",
+      "bytes": 41082
+    },
+    {
+      "key": "whoosh-fast.mp3",
+      "path": "assets/motion-library/shotcraft-audio/whoosh-fast.mp3",
+      "sha256": "b88fd5d484251930efd6eca78c4340339908ea29d1e69bd24fb5191a10da4f78",
+      "bytes": 57624
+    },
+    {
+      "key": "whoosh-big.mp3",
+      "path": "assets/motion-library/shotcraft-audio/whoosh-big.mp3",
+      "sha256": "8af9843a636d3b4961f0c8b3545a21e674bd43d59f97d5c38d3f9a3f04674fd2",
+      "bytes": 71724
+    },
+    {
+      "key": "sparkle.mp3",
+      "path": "assets/motion-library/shotcraft-audio/sparkle.mp3",
+      "sha256": "c4ee1a64554bd413082173cd2045aacd5a65189a43c9d8f309530744e86098ad",
+      "bytes": 143743
+    },
+    {
+      "key": "transition-snap.mp3",
+      "path": "assets/motion-library/shotcraft-audio/transition-snap.mp3",
+      "sha256": "9f7e4edb094569f9cb40e8dbb987a5fc20926b30326a1a9d827236960980f070",
+      "bytes": 19051
+    },
+    {
+      "key": "swoosh-quick.mp3",
+      "path": "assets/motion-library/shotcraft-audio/swoosh-quick.mp3",
+      "sha256": "5d8153579cfbd4ec23738494dff8dec95b3737981578222b793eff9e3fdd4ca8",
+      "bytes": 27247
+    },
+    {
+      "key": "keyboard.mp3",
+      "path": "assets/motion-library/shotcraft-audio/keyboard.mp3",
+      "sha256": "152f78c3bff50cf018654a66e5de0260bdbad45d87af6051725fa479c517bdf9",
+      "bytes": 513831
+    },
+    {
+      "key": "click-camera.mp3",
+      "path": "assets/motion-library/shotcraft-audio/click-camera.mp3",
+      "sha256": "042d01db7a4a0c492c580c0d3d64460c0ceb8638f0c6419d0e4b7a9ba2ac8eed",
+      "bytes": 14406
+    },
+    {
+      "key": "pop.mp3",
+      "path": "assets/motion-library/shotcraft-audio/pop.mp3",
+      "sha256": "14aad47518786ea2556b45f050fed2a301d521ff9dedd46b73701b3cc3d54a2e",
+      "bytes": 15239
+    },
+    {
+      "key": "riser-cine.mp3",
+      "path": "assets/motion-library/shotcraft-audio/riser-cine.mp3",
+      "sha256": "385340df21a87da878c23fa6ba1fdbe4059a4fd15d160bd45d20c9ecf7faecfc",
+      "bytes": 145112
+    },
+    {
+      "key": "impact-cine.mp3",
+      "path": "assets/motion-library/shotcraft-audio/impact-cine.mp3",
+      "sha256": "9854bff8a78fcebef95350ff0ec72a41ba449ab372bbd601b55d84de13bd626d",
+      "bytes": 115904
+    }
+  ],
+  "templates": [
+    {
+      "id": "shotcraft-template-film-ink-press",
+      "sourceSha256": "c83c47b8507b35af9e411d0b8cd2f313df39ce905d5b5d5b7fc1f8ffcc0b31f2",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "ddb60c40c38b3f18a23c0b7c64dc42dcb1a34d256bf262f9640e87e3ad2236c0"
+    },
+    {
+      "id": "shotcraft-template-film-vintage-kraft",
+      "sourceSha256": "7947bb72d17f6ee4246dd4f20fd3ba555b5399c2b3f883edf81ce217f6f0e06e",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "9ceeefacbc9e3ab9e93723ac8778f0669efc293225b1316ec315e2b69e9e3dae"
+    },
+    {
+      "id": "shotcraft-template-film-deep-ocean",
+      "sourceSha256": "79373934f3e4155d419967f5f3d2cf950ddd583b3c862ecd84929f2c16e286ec",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "345fb9eb937000b5df421ad32408bed2d66009b547e27ff336819a987b0c2b9f"
+    },
+    {
+      "id": "shotcraft-template-film-obsidian-violet",
+      "sourceSha256": "85bd1476bac525d3c18f9af88ffda7431ccbd35b76d7ee027a135732f4b9d07d",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "c45e931b0217dce6849460dbcc74ae0995b2e8dfbbf3110c03c061e2cf1f625a"
+    },
+    {
+      "id": "shotcraft-template-film-modern-light",
+      "sourceSha256": "da9ab808bc09c444f03439a71aff21cbd539bade042ac62e99c090b9d075495e",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "6aae6d0a2b8b4fde8411aa32825dc9b753ad40ce64ca4334bccf538e44949578"
+    },
+    {
+      "id": "shotcraft-template-film-midnight",
+      "sourceSha256": "290f3beff651388a5c7314a48c826c1e30ad69d106cdf56e605790e29df1842d",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "da48f311310d3aa80485e786c507a3b3d4c76b7eec44a5c2af86d0ecd72396c9"
+    },
+    {
+      "id": "shotcraft-template-film-solar-pop",
+      "sourceSha256": "57a764dac018426c4253e5c7f066083812b06c8396cc952374d7da9ed6521010",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "c9081f1c52bde19503a66ff7922026be59e42d7594709aac99bf113fc2019711"
+    },
+    {
+      "id": "shotcraft-template-film-coral-burst",
+      "sourceSha256": "5ff29e58d28cf19bbfbd51619a2ea2f36dbf8fad18cd6dfde4b31f6ea546a73f",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "ef5be6fde7128a65ef230eab060f734074ded48d31c8b8e28c86114914fd53f9"
+    },
+    {
+      "id": "shotcraft-template-film-color-play",
+      "sourceSha256": "e7706bb52d4811b942ad9980125fd1d5dd412dea41c82be4c62deb1d243416ba",
+      "manifestSha256": "26ed1b4704f19707f3a9020efa0c9c2ace1feb62709e420f35be52cfdbaf7648",
+      "audioRendering": "passed using actual project bridge",
+      "fullDecode": "passed",
+      "cues": 32,
+      "meanVolumeDb": -25.1,
+      "wavSha256": "0fb98462a582d54285aaac3683f957f4e042d5eb49f11f4f510be1f6efca337b",
+      "demoSha256": "488fc802b55060026aa4efa7f018584702a79f50cf7c10a3de53b85d39ab1c63"
+    }
+  ],
+  "defaultAudio": "disabled and verified silent",
+  "frames": 1085,
+  "fps": 30,
+  "cues": [
+    {
+      "from": 12,
+      "src": "transition-soft.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 78,
+      "src": "whoosh-fast.mp3",
+      "volume": 0.45,
+      "durationInFrames": 90
+    },
+    {
+      "from": 127,
+      "src": "whoosh-big.mp3",
+      "volume": 0.5,
+      "durationInFrames": 90
+    },
+    {
+      "from": 141,
+      "src": "sparkle.mp3",
+      "volume": 0.35,
+      "durationInFrames": 90
+    },
+    {
+      "from": 204,
+      "src": "transition-snap.mp3",
+      "volume": 0.5,
+      "durationInFrames": 90
+    },
+    {
+      "from": 220,
+      "src": "swoosh-quick.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 277,
+      "src": "transition-soft.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 308,
+      "src": "whoosh-big.mp3",
+      "volume": 0.5,
+      "durationInFrames": 90
+    },
+    {
+      "from": 340,
+      "src": "whoosh-fast.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 356,
+      "src": "whoosh-fast.mp3",
+      "volume": 0.32,
+      "durationInFrames": 90
+    },
+    {
+      "from": 388,
+      "src": "whoosh-big.mp3",
+      "volume": 0.5,
+      "durationInFrames": 90
+    },
+    {
+      "from": 401,
+      "src": "keyboard.mp3",
+      "volume": 0.4,
+      "durationInFrames": 24
+    },
+    {
+      "from": 435,
+      "src": "whoosh-fast.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 451,
+      "src": "click-camera.mp3",
+      "volume": 0.6,
+      "durationInFrames": 90
+    },
+    {
+      "from": 455,
+      "src": "swoosh-quick.mp3",
+      "volume": 0.35,
+      "durationInFrames": 90
+    },
+    {
+      "from": 475,
+      "src": "transition-soft.mp3",
+      "volume": 0.45,
+      "durationInFrames": 90
+    },
+    {
+      "from": 565,
+      "src": "swoosh-quick.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 623,
+      "src": "transition-soft.mp3",
+      "volume": 0.45,
+      "durationInFrames": 90
+    },
+    {
+      "from": 648,
+      "src": "click-camera.mp3",
+      "volume": 0.45,
+      "durationInFrames": 90
+    },
+    {
+      "from": 725,
+      "src": "swoosh-quick.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 779,
+      "src": "transition-soft.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 781,
+      "src": "keyboard.mp3",
+      "volume": 0.34,
+      "durationInFrames": 44
+    },
+    {
+      "from": 840,
+      "src": "pop.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 845,
+      "src": "pop.mp3",
+      "volume": 0.37,
+      "durationInFrames": 90
+    },
+    {
+      "from": 850,
+      "src": "pop.mp3",
+      "volume": 0.34,
+      "durationInFrames": 90
+    },
+    {
+      "from": 855,
+      "src": "pop.mp3",
+      "volume": 0.31,
+      "durationInFrames": 90
+    },
+    {
+      "from": 860,
+      "src": "pop.mp3",
+      "volume": 0.28,
+      "durationInFrames": 90
+    },
+    {
+      "from": 865,
+      "src": "pop.mp3",
+      "volume": 0.25,
+      "durationInFrames": 90
+    },
+    {
+      "from": 885,
+      "src": "swoosh-quick.mp3",
+      "volume": 0.4,
+      "durationInFrames": 90
+    },
+    {
+      "from": 945,
+      "src": "riser-cine.mp3",
+      "volume": 0.5,
+      "durationInFrames": 90
+    },
+    {
+      "from": 980,
+      "src": "impact-cine.mp3",
+      "volume": 0.55,
+      "durationInFrames": 90
+    },
+    {
+      "from": 1005,
+      "src": "sparkle.mp3",
+      "volume": 0.3,
+      "durationInFrames": 90
+    }
+  ],
+  "beforeLibraryDigest": "f6443b3da74ef99e4bb7209a078baba770ce2408ead82590db180873a8bbb48d",
+  "afterLibraryDigest": "54efbbd64fc7c5e20446c080e034a8b531483322f5c825f82addf83468cccd22",
+  "productionContractDigest": "93bd4542b09c503df27961cb25e99c802e9b733f9d4afa36a7e36023479de20a",
+  "renderedLibraryDigest": "b7d3dbd1fa7b6ee2ddb2c38fca2e81da703a67634630509d3461acc0ba2faf99",
+  "metadataFollowup": "Updated the nine film descriptions to expose admitted optional audio; component code and original silent demos unchanged."
+}

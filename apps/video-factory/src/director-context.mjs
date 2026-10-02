@@ -1,11 +1,12 @@
+import {materialDiscoveryPrompt} from './material-usage.mjs';
 import {hash,validateCreativeSource} from './creative-plan.mjs';
 
-export function directorContextPrompt({contractBody,plan,style,references,planPath='editorial-plan.json',statePath='director-state.json',searchCommand='pnpm video:library search --query "画面需要"'}) {
+export function directorContextPrompt({contractBody,plan,style,references,planPath='editorial-plan.json',statePath='director-state.json',searchCommand='pnpm video:library search --query "画面需要"',fullName=null}) {
   const {version,transitions,captions,...visualStyle}=style;
   if(!visualStyle.motion?.transitions&&transitions)visualStyle.transitions=transitions;
   const overview={title:plan.content.title,story:plan.content.visualIntent,designContext:plan.preproduction.designContext,
     shots:plan.preproduction.shots.map(s=>({id:s.id,purpose:s.purpose}))};
-  return `${contractBody}\nStyle: ${JSON.stringify(visualStyle)}\nStory and shared design: ${JSON.stringify(overview)}\nComplete plan: ${planPath}\nDirector state: ${statePath}\nReferences: ${references}\nComponent search: ${searchCommand}`;
+  return `${contractBody}\nStyle: ${JSON.stringify(visualStyle)}\nStory and shared design: ${JSON.stringify(overview)}\nComplete plan: ${planPath}\nDirector state: ${statePath}\nReference index (lookup only; do not preload): ${references}\n${materialDiscoveryPrompt({command:searchCommand.replace(/ search\b[\s\S]*$/u,''),fullName})}`;
 }
 
 export function shotTaskPrompt({shot,previous,next,captions,sourceFile,assignmentFile,previewCommand,statePath}) {
@@ -13,7 +14,7 @@ export function shotTaskPrompt({shot,previous,next,captions,sourceFile,assignmen
     assetIds:shot.assetIds,startFrame:shot.startFrame,endFrame:shot.endFrame,
     captions:captions.map(({text,startFrame,endFrame})=>({text,startFrame,endFrame})),
     continuity:{incoming:previous?.continuity??'Opening',outgoing:shot.continuity,nextPurpose:next?.purpose??'Ending'}};
-  return `Implement ${JSON.stringify(task)}\nCaption cue positions are weighted estimates within measured audio blocks.\nWrite default-export React JSX to ${sourceFile}. Props {frame,durationInFrames,fps,style,accent,assets,scene,beat}; frame/useCurrentFrame are shot-relative. Preview props and staged assets: ${assignmentFile}. Local imports: './motion-library.jsx' or './shot-runtime.jsx'.\nComposition, motion and preferred components are implementation suggestions. Preserve meaning, narration, style and continuity. Read ${statePath} for completed shot state, and code/demos only as needed.\nTry ${previewCommand}; inspect actual preview frames and repair. Return JSON {sourceFile,summary,libraryIds:[actual used IDs]}.`;
+  return `Implement ${JSON.stringify(task)}\nCaption cue positions are weighted estimates within measured audio blocks.\nWrite default-export React JSX to ${sourceFile}. Props {frame,durationInFrames,fps,style,accent,assets,scene,beat}; frame/useCurrentFrame are shot-relative. Preview props and staged assets: ${assignmentFile}. Local imports: './motion-library.jsx' or './shot-runtime.jsx'.\nComposition, motion and preferred components are implementation suggestions. Preserve meaning, narration, style and continuity. Read ${statePath} for completed shot state, and read usage --id for each selected material before reuse; inspect code/demos only for specific unresolved questions.\nTry ${previewCommand}; inspect actual preview frames and repair. Return JSON {sourceFile,summary,libraryIds:[actual used IDs]}.`;
 }
 
 export function realizeShot(shot,result,source,libraries) {

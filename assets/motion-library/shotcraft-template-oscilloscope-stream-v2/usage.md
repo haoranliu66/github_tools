@@ -1,55 +1,41 @@
 # oscilloscope-stream
 
-采样窗平移 8px/f + 余弦包络尖峰 + 刹停真静止
+## 画面与用途
 
-适用：数据叙事段落；分别讲"实时性"、"每个数字是一个人"、"增长装不下"
+示波器式采样波形持续横向流动，尖峰不断出现，末尾急刹后完全静止。适合：实时监控、信号流、数据持续更新后锁定一刻。
 
-这是完整镜头/结构模板，原始运动、布局、几何和通用文案保持。默认素材及数值是演示内容；制作具体影片时按叙事提供实际内容。
-
-默认：1920×1080、30fps、180 帧（准确导出时长见 SHOTCRAFT_DURATION）。按原始时长包在 Sequence 中使用；不要仅延长整个影片而意外改变 useT 的归一化时间。
-
-接口：
-- copy：以原文为键的文字替换字典；通用固定文案默认原样。
-- config：按本文件大写常量名覆盖；跨模块同名时使用 完整源码路径#常量名。可覆盖原始数组、尺寸、颜色和时序。
-- screenshots：以 textures/live/文件名.png（或原始 textures/文件名.png）为键，值为影片 public 下实际截图的相对路径。截图仍是图片输入；默认嵌入本地生成的去品牌页面截图。
-- layout：完整 live-layout 数据，包含页面尺寸、卡片/记录位置、裁切矩形与 file 名；截图尺寸/结构变化时同步更新。默认保持原几何。
-- originalProps：透传原始组件接口，优先于默认 props。
-- theme：可传项目 style；只有原本提供 ACCENT 的模板使用项目强调色，其他默认原始设计。完整片预设可用 originalProps.theme 指定。
-- audio：完整片按音效文件名提供已暂存的本地音频路径；默认静音，保留音效时点，不使用授权来源不完整的上游音频。
+## 最小调用
 
 ```jsx
+import React from 'react';
+import {Sequence} from 'remotion';
 import {Material_shotcraft_template_oscilloscope_stream_v2} from './motion-library.jsx';
-<Sequence durationInFrames={180}>
-  <Material_shotcraft_template_oscilloscope_stream_v2 />
-</Sequence>
+
+export default function Shot({style}) {
+  return (
+    <Sequence durationInFrames={180}>
+      <Material_shotcraft_template_oscilloscope_stream_v2 />
+    </Sequence>
+  );
+}
 ```
 
-原始默认 props：
-```json
-{}
-```
+## 参数
 
-可替换文案键：
-- "2.0k"
-- "1.5k"
-- "1.0k"
-- "0.5k"
-- "-60s"
-- "-50s"
-- "-40s"
-- "-30s"
-- "-20s"
-- "-10s"
-- "now"
-- "OSCILLOSCOPE STREAM V2"
-- "Requests per second"
-- "api-gateway · production · last 60 s"
-- "right top"
-- "req/s · live"
+- copy：需要替换的可见文字原文 → 新文案字典；默认通用文字可直接保留，截图文字另行替换图片。
+- config：按原始常量名覆盖；同名歧义时用完整源码路径#常量名。该项键：`AMBER`、`CARD_W`、`CARD_H`、`CX`、`CY`、`PAD`、`AXIS_W`、`PLOT_X`、`PLOT_W`、`PLOT_H`、`PLOT_Y`、`HOLD`、`FREEZE_START`、`FREEZE_END`、`SPEED`、`AMP`、`SPIKE_X0`、`SPIKE_W`、`SPIKE_GAIN`、`Y_TICKS`、`X_TICKS`。
+- originalProps：透传原组件输入，优先于默认输入；默认数据形状：`{}`。
 
-已适配的非通用文案：
-未发现需替换的非通用文字
+## 输入资源
 
-可覆盖常量：AMBER、CARD_W、CARD_H、CX、CY、PAD、AXIS_W、PLOT_X、PLOT_W、PLOT_H、PLOT_Y、HOLD、FREEZE_START、FREEZE_END、SPEED、AMP、SPIKE_X0、SPIKE_W、SPIKE_GAIN、Y_TICKS、X_TICKS。
+默认组件自包含，不需要上游工作台或远程素材。示例内容可以保留结构；制作具体影片时提供实际文字/数据。
 
-可播放演示：同目录 demo.mp4。
+## 时间与组合
+
+设计尺寸 1920×1080，30fps，180 帧（6.00 秒）。保持本模板局部时间和设计时长；Sequence 负责在实测旁白时间轴中的位置。不能只延长全片而改变 useT 的归一化动画。固定模板超出当前镜头时长时，调整镜头选择/编排并检查接缝；输入文案、字形或页面几何变化后检查实际预览。
+
+## 按需深入
+
+- [当前源码](component.jsx)：只有需要确认具体接口或实现时读取。
+- [实际演示](demo.mp4)：用于解决效果疑问；制作中检查当前镜头的实际预览。
+- 专项 Remotion 问题用 video:library references --query 主题，只读命中的当前问题参考。

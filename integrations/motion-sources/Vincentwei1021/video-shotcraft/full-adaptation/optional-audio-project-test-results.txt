@@ -1,0 +1,732 @@
+TAP version 13
+# Subtest: audio concatenation resolves clips relative to the list, even outside cwd
+ok 1 - audio concatenation resolves clips relative to the list, even outside cwd
+  ---
+  duration_ms: 814.7481
+  type: 'test'
+  ...
+# Subtest: pre-audio content schema has no frozen scenes, frames, beat or action vocabulary
+ok 2 - pre-audio content schema has no frozen scenes, frames, beat or action vocabulary
+  ---
+  duration_ms: 17.9683
+  type: 'test'
+  ...
+# Subtest: post-audio direction reorganizes scenes while preserving every audio frame and caption
+ok 3 - post-audio direction reorganizes scenes while preserving every audio frame and caption
+  ---
+  duration_ms: 2.4579
+  type: 'test'
+  ...
+# Subtest: visual gaps, overlaps, nonexistent cues and unused selected exports fail before publishing
+ok 4 - visual gaps, overlaps, nonexistent cues and unused selected exports fail before publishing
+  ---
+  duration_ms: 1.2558
+  type: 'test'
+  ...
+# Subtest: split visual scenes keep global captions continuous without duplicating narration
+ok 5 - split visual scenes keep global captions continuous without duplicating narration
+  ---
+  duration_ms: 0.4842
+  type: 'test'
+  ...
+# Subtest: free JSX permits installed browser package imports and arbitrary visual semantics
+ok 6 - free JSX permits installed browser package imports and arbitrary visual semantics
+  ---
+  duration_ms: 0.2527
+  type: 'test'
+  ...
+# Subtest: GitHub adaptations retain exact pinned source digests and MIT notices; styles vary beyond colors
+ok 7 - GitHub adaptations retain exact pinned source digests and MIT notices; styles vary beyond colors
+  ---
+  duration_ms: 27.3707
+  type: 'test'
+  ...
+# Subtest: compiled creative program detects edits to audio, timing, code and shot mapping
+ok 8 - compiled creative program detects edits to audio, timing, code and shot mapping
+  ---
+  duration_ms: 861.1938
+  type: 'test'
+  ...
+# Subtest: Shotcraft retained source, adapters, licenses and playable demos agree with the admission archive
+ok 9 - Shotcraft retained source, adapters, licenses and playable demos agree with the admission archive
+  ---
+  duration_ms: 43.8856
+  type: 'test'
+  ...
+# Subtest: discovery reserves 30 growth and 12 non-duplicate active-stars slots
+ok 10 - discovery reserves 30 growth and 12 non-duplicate active-stars slots
+  ---
+  duration_ms: 63.5376
+  type: 'test'
+  ...
+# Subtest: discovery rejects quota totals that do not match maxCandidates
+ok 11 - discovery rejects quota totals that do not match maxCandidates
+  ---
+  duration_ms: 0.7122
+  type: 'test'
+  ...
+# Subtest: stage context excludes other responsibilities while keeping one full contract identity
+ok 12 - stage context excludes other responsibilities while keeping one full contract identity
+  ---
+  duration_ms: 2.3812
+  type: 'test'
+  ...
+# Subtest: focused director inputs retain current timing and joins without repeating the complete narration or neighbors
+ok 13 - focused director inputs retain current timing and joins without repeating the complete narration or neighbors
+  ---
+  duration_ms: 6.2293
+  type: 'test'
+  ...
+# Subtest: retrieval tokenizes Chinese and fuses expression routes without reading executable code or media
+ok 14 - retrieval tokenizes Chinese and fuses expression routes without reading executable code or media
+  ---
+  duration_ms: 54.544
+  type: 'test'
+  ...
+# Subtest: retrieval selects complementary components for multiple needs and isolates project materials
+ok 15 - retrieval selects complementary components for multiple needs and isolates project materials
+  ---
+  duration_ms: 15.793
+  type: 'test'
+  ...
+# Subtest: director may replace or combine preferred components but cannot change semantic identity or audio coverage
+ok 16 - director may replace or combine preferred components but cannot change semantic identity or audio coverage
+  ---
+  duration_ms: 1.6589
+  type: 'test'
+  ...
+# Subtest: free implementation can compile without using the preferred component; undeclared code use remains checked
+ok 17 - free implementation can compile without using the preferred component; undeclared code use remains checked
+  ---
+  duration_ms: 1.8856
+  type: 'test'
+  ...
+# Subtest: expanded components are accessible in previews and compiled output, with current audio and source hashes
+ok 18 - expanded components are accessible in previews and compiled output, with current audio and source hashes
+  ---
+  duration_ms: 512.9739
+  type: 'test'
+  ...
+# Subtest: current scoped production plans load without constructing an alternate editorial draft
+ok 19 - current scoped production plans load without constructing an alternate editorial draft
+  ---
+  duration_ms: 528.7047
+  type: 'test'
+  ...
+# Subtest: research, identity, contract, editing skill and real feedback changes invalidate the plan
+ok 20 - research, identity, contract, editing skill and real feedback changes invalidate the plan
+  ---
+  duration_ms: 157.0773
+  type: 'test'
+  ...
+# Subtest: altered content and preproduction cannot retain stale hashes
+ok 21 - altered content and preproduction cannot retain stale hashes
+  ---
+  duration_ms: 347.5572
+  type: 'test'
+  ...
+# Subtest: only the complete current production package is accepted
+ok 22 - only the complete current production package is accepted
+  ---
+  duration_ms: 108.1725
+  type: 'test'
+  ...
+# Subtest: missing plans and malformed editing skills report actionable errors
+ok 23 - missing plans and malformed editing skills report actionable errors
+  ---
+  duration_ms: 128.3829
+  type: 'test'
+  ...
+# Subtest: the production contract consists only of the main skill with stable normalized digests
+ok 24 - the production contract consists only of the main skill with stable normalized digests
+  ---
+  duration_ms: 14.3271
+  type: 'test'
+  ...
+# Subtest: optional references do not become mandatory contract inputs
+ok 25 - optional references do not become mandatory contract inputs
+  ---
+  duration_ms: 245.9903
+  type: 'test'
+  ...
+# Subtest: contract drift and substituted or malformed source identities are rejected
+ok 26 - contract drift and substituted or malformed source identities are rejected
+  ---
+  duration_ms: 1.1674
+  type: 'test'
+  ...
+# Subtest: GitHub requests recover from transient network and server failures
+ok 27 - GitHub requests recover from transient network and server failures
+  ---
+  duration_ms: 43.0905
+  type: 'test'
+  ...
+# Subtest: GitHub requests do not retry authentication failures
+ok 28 - GitHub requests do not retry authentication failures
+  ---
+  duration_ms: 1.292
+  type: 'test'
+  ...
+# Subtest: exhausted GitHub retries expose a stable diagnostic code
+ok 29 - exhausted GitHub retries expose a stable diagnostic code
+  ---
+  duration_ms: 0.4427
+  type: 'test'
+  ...
+# Subtest: block planning groups scenes by project cadence without losing text
+ok 30 - block planning groups scenes by project cadence without losing text
+  ---
+  duration_ms: 3.7668
+  type: 'test'
+  ...
+# Subtest: concept explainers keep ordinary narration blocks to two or three scenes
+ok 31 - concept explainers keep ordinary narration blocks to two or three scenes
+  ---
+  duration_ms: 0.536
+  type: 'test'
+  ...
+# Subtest: concept explainer rebalances a seven-scene tail instead of leaving one scene alone
+ok 32 - concept explainer rebalances a seven-scene tail instead of leaving one scene alone
+  ---
+  duration_ms: 0.4229
+  type: 'test'
+  ...
+# Subtest: measured overlong audio is split at a complete sentence without truncation
+ok 33 - measured overlong audio is split at a complete sentence without truncation
+  ---
+  duration_ms: 0.8248
+  type: 'test'
+  ...
+# Subtest: request timeout splits complete sentences and a short same-topic pair can merge
+ok 34 - request timeout splits complete sentences and a short same-topic pair can merge
+  ---
+  duration_ms: 0.6843
+  type: 'test'
+  ...
+# Subtest: the 1000-character service limit splits requests instead of dropping text
+ok 35 - the 1000-character service limit splits requests instead of dropping text
+  ---
+  duration_ms: 0.5587
+  type: 'test'
+  ...
+# Subtest: WAV duration is measured from PCM bytes rather than estimated narration length
+ok 36 - WAV duration is measured from PCM bytes rather than estimated narration length
+  ---
+  duration_ms: 1.3479
+  type: 'test'
+  ...
+# Subtest: one measured narration block can drive several visual scenes
+ok 37 - one measured narration block can drive several visual scenes
+  ---
+  duration_ms: 1.3931
+  type: 'test'
+  ...
+# Subtest: measured timing rejects missing durations and invalid scene order
+ok 38 - measured timing rejects missing durations and invalid scene order
+  ---
+  duration_ms: 1.2472
+  type: 'test'
+  ...
+# Subtest: SRT timestamps use absolute cue positions
+ok 39 - SRT timestamps use absolute cue positions
+  ---
+  duration_ms: 0.2598
+  type: 'test'
+  ...
+# Subtest: online research stages a pinned README and copies only checked README media
+ok 40 - online research stages a pinned README and copies only checked README media
+  ---
+  duration_ms: 159.1727
+  type: 'test'
+  ...
+# Subtest: online source rejects unverified root README and does not silently ignore missing local media
+ok 41 - online source rejects unverified root README and does not silently ignore missing local media
+  ---
+  duration_ms: 8.5597
+  type: 'test'
+  ...
+# Subtest: monthly project names use Monday-based calendar weeks and retain the year
+ok 42 - monthly project names use Monday-based calendar weeks and retain the year
+  ---
+  duration_ms: 2.6045
+  type: 'test'
+  ...
+# Subtest: all durable artifacts resolve to the unified weekly and project directories
+ok 43 - all durable artifacts resolve to the unified weekly and project directories
+  ---
+  duration_ms: 0.7775
+  type: 'test'
+  ...
+# Subtest: successful preparation replaces the mapped production directory
+ok 44 - successful preparation replaces the mapped production directory
+  ---
+  duration_ms: 48.6451
+  type: 'test'
+  ...
+# Subtest: automatic tunnel configuration is explicit and constrained to loopback
+ok 45 - automatic tunnel configuration is explicit and constrained to loopback
+  ---
+  duration_ms: 25.857
+  type: 'test'
+  ...
+# Subtest: an already healthy Qwen connection is reused and never stopped
+ok 46 - an already healthy Qwen connection is reused and never stopped
+  ---
+  duration_ms: 29.0084
+  type: 'test'
+  ...
+# Subtest: an unavailable Qwen service starts a batch SSH tunnel and owns its cleanup
+ok 47 - an unavailable Qwen service starts a batch SSH tunnel and owns its cleanup
+  ---
+  duration_ms: 6.5857
+  type: 'test'
+  ...
+# Subtest: an unreachable service fails clearly when automatic tunneling is disabled
+ok 48 - an unreachable service fails clearly when automatic tunneling is disabled
+  ---
+  duration_ms: 0.7149
+  type: 'test'
+  ...
+# Subtest: Remotion serves the same public directory used to stage local audio and images
+ok 49 - Remotion serves the same public directory used to stage local audio and images
+  ---
+  duration_ms: 2.3367
+  type: 'test'
+  ...
+# Subtest: scoped research delivers complete creative planning without premature frame timing or unrelated reports
+ok 50 - scoped research delivers complete creative planning without premature frame timing or unrelated reports
+  ---
+  duration_ms: 7.1513
+  type: 'test'
+  ...
+# Subtest: planning rejects irrelevant materials, unused claims and invented feature evidence
+ok 51 - planning rejects irrelevant materials, unused claims and invented feature evidence
+  ---
+  duration_ms: 0.9066
+  type: 'test'
+  ...
+# Subtest: required SVG assets are materialized and provenance hashes detect subsequent replacement
+ok 52 - required SVG assets are materialized and provenance hashes detect subsequent replacement
+  ---
+  duration_ms: 12.4104
+  type: 'test'
+  ...
+# Subtest: visual timing is bound to measured audio after planning and detects narration mutation
+ok 53 - visual timing is bound to measured audio after planning and detects narration mutation
+  ---
+  duration_ms: 3.1134
+  type: 'test'
+  ...
+# Subtest: director baseline uses only total skill, selected style and unified plan with on-demand reference index
+ok 54 - director baseline uses only total skill, selected style and unified plan with on-demand reference index
+  ---
+  duration_ms: 2.3396
+  type: 'test'
+  ...
+# Subtest: tool-enabled turns retain images and same director session while constraining filesystem scope
+ok 55 - tool-enabled turns retain images and same director session while constraining filesystem scope
+  ---
+  duration_ms: 0.6886
+  type: 'test'
+  ...
+# Subtest: external realizations must preserve original shot identity, timing and semantic decisions
+ok 56 - external realizations must preserve original shot identity, timing and semantic decisions
+  ---
+  duration_ms: 1.5512
+  type: 'test'
+  ...
+# Subtest: director recovery reuses only the same fixed plan/audio and the retained local session
+ok 57 - director recovery reuses only the same fixed plan/audio and the retained local session
+  ---
+  duration_ms: 12.1838
+  type: 'test'
+  ...
+# Subtest: existing local recordings are eligible without a source-category quality preference
+ok 58 - existing local recordings are eligible without a source-category quality preference
+  ---
+  duration_ms: 7.9648
+  type: 'test'
+  ...
+# Subtest: weekly selection preserves explicit human approval and unique project identities
+ok 59 - weekly selection preserves explicit human approval and unique project identities
+  ---
+  duration_ms: 1.9758
+  type: 'test'
+  ...
+# Subtest: batch and final ranking use complete current packages without repository-run branches or demo scores
+ok 60 - batch and final ranking use complete current packages without repository-run branches or demo scores
+  ---
+  duration_ms: 927.7177
+  type: 'test'
+  ...
+# Subtest: Every pinned Shotcraft gallery variant resolves to an admitted executable full template and retained demo
+ok 61 - Every pinned Shotcraft gallery variant resolves to an admitted executable full template and retained demo
+  ---
+  duration_ms: 2316.4016
+  type: 'test'
+  ...
+# Subtest: Full Shotcraft source archive retains pinned digests and screenshot dimensions match the local asset manifest
+ok 62 - Full Shotcraft source archive retains pinned digests and screenshot dimensions match the local asset manifest
+  ---
+  duration_ms: 313.3678
+  type: 'test'
+  ...
+# Subtest: Shotcraft dependencies align with the installed renderer and native project import bridge uses custom screenshot and video inputs
+ok 63 - Shotcraft dependencies align with the installed renderer and native project import bridge uses custom screenshot and video inputs
+  ---
+  duration_ms: 4.1836
+  type: 'test'
+  ...
+# Subtest: Optional original sound effects remain byte-identical, self-contained and restore every pinned sound cue
+ok 64 - Optional original sound effects remain byte-identical, self-contained and restore every pinned sound cue
+  ---
+  duration_ms: 101.6494
+  type: 'test'
+  ...
+# Subtest: Optional sound demos have native renderer evidence while original visual evidence and silent defaults stay valid
+ok 65 - Optional sound demos have native renderer evidence while original visual evidence and silent defaults stay valid
+  ---
+  duration_ms: 132.5067
+  type: 'test'
+  ...
+# Subtest: measured narration has a deterministic frame count
+ok 66 - measured narration has a deterministic frame count
+  ---
+  duration_ms: 2.1383
+  type: 'test'
+  ...
+# Subtest: caption timing and unique IDs must remain valid
+ok 67 - caption timing and unique IDs must remain valid
+  ---
+  duration_ms: 0.762
+  type: 'test'
+  ...
+# Subtest: compiled visuals require complete shot coverage and measured narration
+ok 68 - compiled visuals require complete shot coverage and measured narration
+  ---
+  duration_ms: 1.5839
+  type: 'test'
+  ...
+# Subtest: project test discovery never descends into cloned repositories
+ok 69 - project test discovery never descends into cloned repositories
+  ---
+  duration_ms: 21.9556
+  type: 'test'
+  ...
+# Subtest: candidate reports expose the 93-point trend score and pending demo score
+ok 70 - candidate reports expose the 93-point trend score and pending demo score
+  ---
+  duration_ms: 16.3686
+  type: 'test'
+  ...
+# Subtest: empty candidate reports remain valid under the new scoring contract
+ok 71 - empty candidate reports remain valid under the new scoring contract
+  ---
+  duration_ms: 6.8965
+  type: 'test'
+  ...
+# Subtest: report summary excludes not-rediscovered rows from ready and cold-start counts
+ok 72 - report summary excludes not-rediscovered rows from ready and cold-start counts
+  ---
+  duration_ms: 1.1337
+  type: 'test'
+  ...
+# Subtest: the complete score follows the agreed 30/15/10/8/30 trend formula
+ok 73 - the complete score follows the agreed 30/15/10/8/30 trend formula
+  ---
+  duration_ms: 19.0274
+  type: 'test'
+  ...
+# Subtest: absolute seven-day growth 5000 earns 0 points
+ok 74 - absolute seven-day growth 5000 earns 0 points
+  ---
+  duration_ms: 0.5693
+  type: 'test'
+  ...
+# Subtest: absolute seven-day growth 10000 earns 3 points
+ok 75 - absolute seven-day growth 10000 earns 3 points
+  ---
+  duration_ms: 0.2321
+  type: 'test'
+  ...
+# Subtest: absolute seven-day growth 30000 earns 15 points
+ok 76 - absolute seven-day growth 30000 earns 15 points
+  ---
+  duration_ms: 0.19
+  type: 'test'
+  ...
+# Subtest: absolute seven-day growth 55000 earns 30 points
+ok 77 - absolute seven-day growth 55000 earns 30 points
+  ---
+  duration_ms: 0.3631
+  type: 'test'
+  ...
+# Subtest: absolute seven-day growth 100000 earns 30 points
+ok 78 - absolute seven-day growth 100000 earns 30 points
+  ---
+  duration_ms: 0.2009
+  type: 'test'
+  ...
+# Subtest: relative growth uses the agreed 5000-star denominator floor
+ok 79 - relative growth uses the agreed 5000-star denominator floor
+  ---
+  duration_ms: 0.3841
+  type: 'test'
+  ...
+# Subtest: week-start total stars 1 contribute 0 points
+ok 80 - week-start total stars 1 contribute 0 points
+  ---
+  duration_ms: 0.3584
+  type: 'test'
+  ...
+# Subtest: week-start total stars 10 contribute 5 points
+ok 81 - week-start total stars 10 contribute 5 points
+  ---
+  duration_ms: 0.816
+  type: 'test'
+  ...
+# Subtest: week-start total stars 100 contribute 10 points
+ok 82 - week-start total stars 100 contribute 10 points
+  ---
+  duration_ms: 0.7918
+  type: 'test'
+  ...
+# Subtest: week-start total stars 1000 contribute 15 points
+ok 83 - week-start total stars 1000 contribute 15 points
+  ---
+  duration_ms: 0.2863
+  type: 'test'
+  ...
+# Subtest: week-start total stars 10000 contribute 20 points
+ok 84 - week-start total stars 10000 contribute 20 points
+  ---
+  duration_ms: 0.1415
+  type: 'test'
+  ...
+# Subtest: week-start total stars 100000 contribute 25 points
+ok 85 - week-start total stars 100000 contribute 25 points
+  ---
+  duration_ms: 0.1948
+  type: 'test'
+  ...
+# Subtest: week-start total stars 1000000 contribute 30 points
+ok 86 - week-start total stars 1000000 contribute 30 points
+  ---
+  duration_ms: 0.1553
+  type: 'test'
+  ...
+# Subtest: cold-start scoring estimates the week-start base but leaves acceleration unavailable
+ok 87 - cold-start scoring estimates the week-start base but leaves acceleration unavailable
+  ---
+  duration_ms: 1.3664
+  type: 'test'
+  ...
+# Subtest: seven days of data cannot fabricate acceleration without the prior week
+ok 88 - seven days of data cannot fabricate acceleration without the prior week
+  ---
+  duration_ms: 0.2902
+  type: 'test'
+  ...
+# Subtest: stale baselines remain cold-start instead of becoming seven-day measurements
+ok 89 - stale baselines remain cold-start instead of becoming seven-day measurements
+  ---
+  duration_ms: 0.2709
+  type: 'test'
+  ...
+# Subtest: maintenance activity is an eight-point seven-day freshness score
+ok 90 - maintenance activity is an eight-point seven-day freshness score
+  ---
+  duration_ms: 0.3471
+  type: 'test'
+  ...
+# Subtest: language and topics remain metadata and cannot change the score
+ok 91 - language and topics remain metadata and cannot change the score
+  ---
+  duration_ms: 0.2483
+  type: 'test'
+  ...
+# Subtest: all recently observed growing projects are ranked without report-size truncation
+ok 92 - all recently observed growing projects are ranked without report-size truncation
+  ---
+  duration_ms: 1.8122
+  type: 'test'
+  ...
+# Subtest: invalid scoring boundaries fail explicitly
+ok 93 - invalid scoring boundaries fail explicitly
+  ---
+  duration_ms: 1.0153
+  type: 'test'
+  ...
+# Subtest: parses a GitHub Trending repository and period gain
+ok 94 - parses a GitHub Trending repository and period gain
+  ---
+  duration_ms: 3.4939
+  type: 'test'
+  ...
+# Subtest: ignores a sponsor link that appears before the repository heading
+ok 95 - ignores a sponsor link that appears before the repository heading
+  ---
+  duration_ms: 0.9417
+  type: 'test'
+  ...
+# Subtest: Qwen TTS configuration is explicit and never exposes the API key in metadata
+ok 96 - Qwen TTS configuration is explicit and never exposes the API key in metadata
+  ---
+  duration_ms: 3.6668
+  type: 'test'
+  ...
+# Subtest: Qwen preflight verifies health, authentication, and the registered voice
+ok 97 - Qwen preflight verifies health, authentication, and the registered voice
+  ---
+  duration_ms: 39.0896
+  type: 'test'
+  ...
+# Subtest: Qwen synthesis posts serial jobs and writes validated WAV files
+ok 98 - Qwen synthesis posts serial jobs and writes validated WAV files
+  ---
+  duration_ms: 10.0871
+  type: 'test'
+  ...
+# Subtest: fixed episode sampling is sent unchanged with every narration request
+ok 99 - fixed episode sampling is sent unchanged with every narration request
+  ---
+  duration_ms: 6.3872
+  type: 'test'
+  ...
+# Subtest: Qwen synthesis retries overlong clips before writing narration
+ok 100 - Qwen synthesis retries overlong clips before writing narration
+  ---
+  duration_ms: 6.3405
+  type: 'test'
+  ...
+# Subtest: adaptive Qwen blocks split measured overlong audio and write only final blocks
+ok 101 - adaptive Qwen blocks split measured overlong audio and write only final blocks
+  ---
+  duration_ms: 17.8706
+  type: 'test'
+  ...
+# Subtest: Windows narration remains available only when explicitly selected
+ok 102 - Windows narration remains available only when explicitly selected
+  ---
+  duration_ms: 0.2846
+  type: 'test'
+  ...
+# Subtest: voice registration works before a default voice is selected
+ok 103 - voice registration works before a default voice is selected
+  ---
+  duration_ms: 3.3237
+  type: 'test'
+  ...
+# Subtest: current approval binds project paths, actual current plan, code, audio and visual evidence
+ok 104 - current approval binds project paths, actual current plan, code, audio and visual evidence
+  ---
+  duration_ms: 805.8896
+  type: 'test'
+  ...
+# Subtest: timeline records global beat time and seams without motion/type quotas
+ok 105 - timeline records global beat time and seams without motion/type quotas
+  ---
+  duration_ms: 3.9299
+  type: 'test'
+  ...
+# Subtest: current director technical checks do not impose shot counts or composition diversity
+ok 106 - current director technical checks do not impose shot counts or composition diversity
+  ---
+  duration_ms: 2.2469
+  type: 'test'
+  ...
+# Subtest: review cannot pass without all image inspections and actual observations
+ok 107 - review cannot pass without all image inspections and actual observations
+  ---
+  duration_ms: 10.8882
+  type: 'test'
+  ...
+# Subtest: review binds issues to a valid time and actual evidence
+ok 108 - review binds issues to a valid time and actual evidence
+  ---
+  duration_ms: 6.893
+  type: 'test'
+  ...
+# Subtest: visual repair issues remain needs-repair and block final acceptance
+ok 109 - visual repair issues remain needs-repair and block final acceptance
+  ---
+  duration_ms: 12.7544
+  type: 'test'
+  ...
+# Subtest: pending and reviewer failures never become a pass
+ok 110 - pending and reviewer failures never become a pass
+  ---
+  duration_ms: 12.22
+  type: 'test'
+  ...
+# Subtest: bounded parallel reviews retain temporal order and inspect every evidence image
+ok 111 - bounded parallel reviews retain temporal order and inspect every evidence image
+  ---
+  duration_ms: 49.82
+  type: 'test'
+  ...
+# Subtest: parallel failure drains in-flight reviews, stops scheduling and cannot become passed
+ok 112 - parallel failure drains in-flight reviews, stops scheduling and cannot become passed
+  ---
+  duration_ms: 45.7943
+  type: 'test'
+  ...
+# Subtest: parallel malformed review blocks acceptance even if another batch passes
+ok 113 - parallel malformed review blocks acceptance even if another batch passes
+  ---
+  duration_ms: 31.6359
+  type: 'test'
+  ...
+# Subtest: passed protocol is invalidated by storyboard or evidence changes
+ok 114 - passed protocol is invalidated by storyboard or evidence changes
+  ---
+  duration_ms: 12.8889
+  type: 'test'
+  ...
+# Subtest: externally supplied video diagnostics cannot approve production JSX
+ok 115 - externally supplied video diagnostics cannot approve production JSX
+  ---
+  duration_ms: 9.3329
+  type: 'test'
+  ...
+# Subtest: preflight actually retains FFmpeg preview, sequence frames and exact join frames
+ok 116 - preflight actually retains FFmpeg preview, sequence frames and exact join frames
+  ---
+  duration_ms: 795.5969
+  type: 'test'
+  ...
+# (node:52636) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: week identifiers use the configured Asia/Shanghai calendar date
+ok 117 - week identifiers use the configured Asia/Shanghai calendar date
+  ---
+  duration_ms: 24.7648
+  type: 'test'
+  ...
+# Subtest: a successful weekly collection is idempotent and makes no second discovery request
+ok 118 - a successful weekly collection is idempotent and makes no second discovery request
+  ---
+  duration_ms: 37.7059
+  type: 'test'
+  ...
+# Subtest: a failed week is retried and receives a durable success marker after recovery
+ok 119 - a failed week is retried and receives a durable success marker after recovery
+  ---
+  duration_ms: 35.606
+  type: 'test'
+  ...
+# Subtest: short-term watchlist projects are observed but receive business score zero when absent
+ok 120 - short-term watchlist projects are observed but receive business score zero when absent
+  ---
+  duration_ms: 39.6858
+  type: 'test'
+  ...
+1..120
+# tests 120
+# suites 0
+# pass 120
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3453.4142

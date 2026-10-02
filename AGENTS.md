@@ -14,3 +14,5 @@
 - Explanatory animations and observed results are eligible materials chosen by expressive value; do not introduce truthMode gates or misrepresent illustrative examples as actual runs.
 - Use the installed trusted Remotion integration under integrations/remotion/ by loading the references needed for the current shot. Never sync researched-repository skills.
 - The sole active workflow is docs/video-production-workflow.md. Production accepts only scoped-production-package; remove obsolete generation interfaces instead of retaining compatibility branches.
+
+- Motion reuse starts with description search, then reads only the selected material usage. Use video:library usage --id and optional --section; source, demos, audio metadata and Remotion references are follow-up reads for concrete questions. Never preload all catalogs/usages/archives or embedded media bytes. New materials must follow docs/motion-library.md and pass standardized usage validation before admission.
