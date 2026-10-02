@@ -1,0 +1,70 @@
+{
+  "reason": "Project contract has no fixed motion-count or type quota; upstream descriptive examples stay in source inspection archive.",
+  "changes": [
+    {
+      "id": "shotcraft-template-dolly-zoom-real",
+      "before": "平面截图要\"有厚度\"的段落；戏剧性蓄力时刻用 dolly-zoom（一支片 ≤1 次）",
+      "after": "平面截图要\"有厚度\"的段落；戏剧性蓄力时刻用 dolly-zoom"
+    },
+    {
+      "id": "shotcraft-template-multiplane-real",
+      "before": "平面截图要\"有厚度\"的段落；戏剧性蓄力时刻用 dolly-zoom（一支片 ≤1 次）",
+      "after": "平面截图要\"有厚度\"的段落；戏剧性蓄力时刻用 dolly-zoom"
+    },
+    {
+      "id": "shotcraft-template-drone-dive-landing",
+      "before": "把平面页面当 3D 实体拍的高光段落；两式都是\"大动作\"，一支片合计 ≤2 次",
+      "after": "把平面页面当 3D 实体拍的高光段落；适合需要较强空间运动的段落"
+    },
+    {
+      "id": "shotcraft-template-exploded-view",
+      "before": "把平面页面当 3D 实体拍的高光段落；两式都是\"大动作\"，一支片合计 ≤2 次",
+      "after": "把平面页面当 3D 实体拍的高光段落；适合需要较强空间运动的段落"
+    },
+    {
+      "id": "shotcraft-template-flyline-arc",
+      "before": "全片唯一暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味",
+      "after": "暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味"
+    },
+    {
+      "id": "shotcraft-template-glow-orb-ambient",
+      "before": "全片唯一暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味",
+      "after": "暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味"
+    },
+    {
+      "id": "shotcraft-template-orb-flyline-relay",
+      "before": "全片唯一暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味",
+      "after": "暗场段落的氛围与数据叙事：铺底噪用 A、讲数据流向用 B、要背景给前景搭腔用 C；Linear 官网味"
+    },
+    {
+      "id": "shotcraft-template-stroke-segment-build",
+      "before": "开场吊悬念的产品名/大数字揭晓；一支片 ≤1 次；与 type-assembly/draw-svg-trace 分工：那些是\"看着字被组装/描画\"，本卡是\"意义延迟揭晓\"",
+      "after": "开场吊悬念的产品名/大数字揭晓；与 type-assembly/draw-svg-trace 分工：那些是\"看着字被组装/描画\"，本卡是\"意义延迟揭晓\""
+    },
+    {
+      "id": "shotcraft-template-logo-sting-button",
+      "before": "片尾收束（全片 ≤1 次）",
+      "after": "片尾收束"
+    },
+    {
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "before": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类，全片 ≤2 种",
+      "after": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类"
+    },
+    {
+      "id": "shotcraft-template-split-text-stagger",
+      "before": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类，全片 ≤2 种",
+      "after": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类"
+    },
+    {
+      "id": "shotcraft-template-text-on-path",
+      "before": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类，全片 ≤2 种",
+      "after": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类"
+    },
+    {
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "before": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类，全片 ≤2 种",
+      "after": "大标题/标语的入场；与 type-entrance-moves 两式、split-flap-title、document-typewriter-reveal 同属标题入场大品类"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "installedAt": "2026-10-01T17:25:19.231Z",
+  "repository": "Vincentwei1021/video-shotcraft",
+  "commit": "5ddbf521038b0a7accfb6dc1e0a9eb29c67277ab",
+  "before": {
+    "styles": 4,
+    "motions": 18,
+    "digest": "c85a72395c8ca0b23cdd17e235fbe562b9a152a33d97b11fe3a1a75b906f5d48"
+  },
+  "after": {
+    "styles": 13,
+    "motions": 30,
+    "digest": "646f125892ac382da43f239113aeb049af6dbb4ac4397641fa61e065f6008147"
+  },
+  "motions": [
+    "shotcraft-page-camera",
+    "shotcraft-digit-roll",
+    "shotcraft-flash-cut",
+    "shotcraft-clock-wipe",
+    "shotcraft-blinds-slice",
+    "shotcraft-grid-wave-flip",
+    "shotcraft-wireframe-reveal",
+    "shotcraft-word-roll",
+    "shotcraft-bezier-merge",
+    "shotcraft-timeline-travel",
+    "shotcraft-spotlight-hero",
+    "shotcraft-row-embed"
+  ],
+  "styles": [
+    "shotcraft-vintage-kraft",
+    "shotcraft-deep-ocean",
+    "shotcraft-obsidian-violet",
+    "shotcraft-modern-light",
+    "shotcraft-midnight",
+    "shotcraft-solar-pop",
+    "shotcraft-coral-burst",
+    "shotcraft-color-play",
+    "shotcraft-ink-press"
+  ],
+  "existingPlans": "No plan or narration rewritten. Catalog digests changed; existing plans and approvals must follow the current project digest gates and be explicitly replanned when required.",
+  "upstreamExecuted": false
+}

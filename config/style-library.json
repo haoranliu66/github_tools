@@ -252,6 +252,573 @@
         "radius": 32,
         "shadow": "0 3px 12px #0004"
       }
+    },
+    {
+      "id": "shotcraft-vintage-kraft",
+      "name": "复古牛皮纸",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#382a20",
+        "muted": "#6b513b",
+        "accent": "#8b4937",
+        "panel": "#dfc69e",
+        "line": "#ac895e"
+      },
+      "background": "radial-gradient(ellipse at 50% 40%,#dfc69e,#c8aa7d 75%)",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 8,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #382a2026"
+      },
+      "layout": {
+        "composition": "editorial hierarchy with warm paper, ink and accent",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "kraft-paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#382a20",
+        "background": "#dfc69eed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-deep-ocean",
+      "name": "深海",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#e8f1f5",
+        "muted": "#9fb6c3",
+        "accent": "#7cc8b4",
+        "panel": "#142735",
+        "line": "#304957"
+      },
+      "background": "#0b1620",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #e8f1f526"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#e8f1f5",
+        "background": "#142735ed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-obsidian-violet",
+      "name": "黑曜紫",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f0edf7",
+        "muted": "#b3a9c5",
+        "accent": "#bca0e8",
+        "panel": "#211d2c",
+        "line": "#41364f"
+      },
+      "background": "#14121b",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #f0edf726"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f0edf7",
+        "background": "#211d2ced",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-modern-light",
+      "name": "现代浅色",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#142238",
+        "muted": "#5c6b82",
+        "accent": "#2563eb",
+        "panel": "#ffffff",
+        "line": "#d8e2ef"
+      },
+      "background": "#f4f7fb",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #14223826"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#142238",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-midnight",
+      "name": "午夜深色",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f0f5ff",
+        "muted": "#9babbe",
+        "accent": "#61d9ef",
+        "panel": "#111c2c",
+        "line": "#293b52"
+      },
+      "background": "#090f1a",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #f0f5ff26"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f0f5ff",
+        "background": "#111c2ced",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-solar-pop",
+      "name": "鼠尾草",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#26342b",
+        "muted": "#637067",
+        "accent": "#527434",
+        "panel": "#ffffff",
+        "line": "#dde4d5"
+      },
+      "background": "#f9faf6",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #26342b26"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#26342b",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-coral-burst",
+      "name": "珊瑚",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#1f1235",
+        "muted": "#716579",
+        "accent": "#d94e59",
+        "panel": "#ffffff",
+        "line": "#e9dfe6"
+      },
+      "background": "#fffffe",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #1f123526"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#1f1235",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-color-play",
+      "name": "鸢尾",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#282039",
+        "muted": "#726781",
+        "accent": "#7354b5",
+        "panel": "#ffffff",
+        "line": "#e2dbea"
+      },
+      "background": "#f7f5fb",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #28203926"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#282039",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-ink-press",
+      "name": "纸墨印刷",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#13110f",
+        "muted": "#65635f",
+        "accent": "#955905",
+        "panel": "#fdfcfa",
+        "line": "#d9cbb4"
+      },
+      "background": "radial-gradient(ellipse at 50% 40%,#fdfcfa,#f9f6f1 75%)",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 600
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #13110f26"
+      },
+      "layout": {
+        "composition": "editorial hierarchy with warm paper, ink and accent",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#13110f",
+        "background": "#fdfcfaed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
     }
   ]
 }

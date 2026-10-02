@@ -1,0 +1,611 @@
+{
+  "checkedAt": "2026-10-01T17:30:19.295Z",
+  "scope": "AI inspected retained sample-frame contact sheets and the actual production-bridge frame. Not a formal video production preflight or human full-film approval.",
+  "status": "sampled-images-checked",
+  "repairs": [
+    "演示页面只在运镜样例中保留长页面内容；普通转场页面删除进入字幕区域的下方字段。",
+    "演示抬头增加底色、内边距与圆角；受影响演示全部重渲染和完整解码。"
+  ],
+  "inspections": [
+    {
+      "id": "shotcraft-page-camera",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\0.png",
+          "sha256": "142f024ee9a403578e8a42bf219fc16b4597ab22eb62e020411a1af01fe0ac5f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\24.png",
+          "sha256": "99c50f8a26cb06ac4bee44adfb70ec562e32c8e7014f8ae69f559d0dda97d33b"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\48.png",
+          "sha256": "b1c2c99f4042ad1d7cd35e1dffb78c129318b3f9e6f7f5510f0fcda211e640fb"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\80.png",
+          "sha256": "51d0c8b1c06d835983340b79c4f90d5a414ca696ef0971ed102c2caa60d9d880"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\120.png",
+          "sha256": "c7d7938ec5d40df1da1a06a729be368da0abfb75d54986c10ddd0777bf8683f4"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-page-camera\\159.png",
+          "sha256": "db2acc963e0ab7de247fba67e596820a8ffa382a8fca1f604092a69417f00c92"
+        }
+      ],
+      "observation": "焦点从页面整体连续移向下方字段；透视随关键帧变化，结束后稳定；演示抬头以独立底色保证可读。"
+    },
+    {
+      "id": "shotcraft-digit-roll",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\0.png",
+          "sha256": "0a2316c606240444beee810ebc014b224804c0c5127dc742d193fb14c2f65f8e"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\24.png",
+          "sha256": "7c75122e8846a31ea6c7546dfead3f1ff123d3fe920687e923e511cda00075d1"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\48.png",
+          "sha256": "5cf9ad2aacf70245cd8232558d1b06d64c9959c5751e3d9e96e3c8a4da9da113"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\80.png",
+          "sha256": "5cf9ad2aacf70245cd8232558d1b06d64c9959c5751e3d9e96e3c8a4da9da113"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\120.png",
+          "sha256": "5cf9ad2aacf70245cd8232558d1b06d64c9959c5751e3d9e96e3c8a4da9da113"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-digit-roll\\159.png",
+          "sha256": "6d375f3f48269253339b87e62d9a8306e4da8dd77b61aa11e09ab9073d4b39a3"
+        }
+      ],
+      "observation": "数字逐列滚动；最终字符串保留逗号、小数点并落定为 1,280.6。"
+    },
+    {
+      "id": "shotcraft-flash-cut",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\0.png",
+          "sha256": "a3c306787d98d619ea8fb0bb6d2233dde0707c46a62b0fa70e7056500528464f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\24.png",
+          "sha256": "6e83803ad656c99da00b4e2152695dca4a4a49a98f24a9b21f0f730087e686ad"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\48.png",
+          "sha256": "b37bae297230f08217891d55412e3e6f4b1359470e4e939e8c15bd780e723a80"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\80.png",
+          "sha256": "9c842a13a32585a3882614db684d07a66f01920d458f0778e8f70829e711ab92"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\120.png",
+          "sha256": "9c842a13a32585a3882614db684d07a66f01920d458f0778e8f70829e711ab92"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\159.png",
+          "sha256": "cb2f7482e11085a9715c90b70fa01654fd2985e2318e1df2cfeeb480f353cb02"
+        }
+      ],
+      "observation": "f38 的暖光覆盖达到峰值，结束后退出覆盖层，前后页面状态切换仍可见。"
+    },
+    {
+      "id": "shotcraft-clock-wipe",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\0.png",
+          "sha256": "70ec3d3b8833670e7f40ea0833693df0f28b262ef034be09f3ba7b0e79621761"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\24.png",
+          "sha256": "32613253249e9b604cd551f86815939faeee953aec027b0c59e37933fed12f16"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\48.png",
+          "sha256": "3110a6198f296eabe91bd2ea307ed1fd4703ca947bc061e06c431ca8c4c0e4c3"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\80.png",
+          "sha256": "921bd41b1ee74b3a9d22d9b26a1c30b997c70b8f042f0d2c3f27c1a66416650f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\120.png",
+          "sha256": "3817895d146230d41202f05ecef9f8e2e39ba021778a89af749e1232e1e04d66"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-clock-wipe\\159.png",
+          "sha256": "43f376d97bafae9879fefe8619417fa1d961ed73d14fb287870b1d134d924a9c"
+        }
+      ],
+      "observation": "扫描边界连续揭示新状态；结束后新页面完整，扫描线与遮罩撤销。"
+    },
+    {
+      "id": "shotcraft-blinds-slice",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\0.png",
+          "sha256": "53c66b4af51fba6aa33a4fb88ed03b5abc02212d0cff1bb00c122eaf959f05ff"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\24.png",
+          "sha256": "7beb2a4684ef8b0d2af0f0610f7cb5242a6f4e0723fcc0eaeeea84b475912a8e"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\48.png",
+          "sha256": "aa8da08b1f55373a7ab04b266e406620c56cc729d12a9fd641475c32b345eb3f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\80.png",
+          "sha256": "6e2cb99fdf7740b9c41c5bbe521f5333b6fb877ee73f8f8d51097af2ff52efd4"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\120.png",
+          "sha256": "ce1a5ee60c0055a5cd5b2294d40c26e44aa4611e271e8dc2cb6c79c3e423838f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-blinds-slice\\159.png",
+          "sha256": "9dca5946f98c94bef40cc20360b71cafbb793ce78dfbafa5c7a06a475319ab77"
+        }
+      ],
+      "observation": "竖条错峰切换，无持续露底；结束后恢复单层新页面，条缝退出。"
+    },
+    {
+      "id": "shotcraft-grid-wave-flip",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\0.png",
+          "sha256": "b70a1df520a585cfe63a8acac5ab47d43e88981c555e3a7f28e2ea2026f0835a"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\24.png",
+          "sha256": "26adc8dcf605372eb2f4478cb53587c2b0797d4542e31644d2ca6c9b556e8f22"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\48.png",
+          "sha256": "c234a66e8181d4654795fadc983925d66bb3fb0321d0cbca41e34349550d2182"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\80.png",
+          "sha256": "d554e03fc1311af690d9b52690b4368c4bd83a3d1e2789096f58fa036275d8a9"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\120.png",
+          "sha256": "d554e03fc1311af690d9b52690b4368c4bd83a3d1e2789096f58fa036275d8a9"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-grid-wave-flip\\159.png",
+          "sha256": "5f697e0c84d9ad455658150e844085ffcf73d9b0813f5c98dcc487aad717bd47"
+        }
+      ],
+      "observation": "灰背沿对角波前翻为内容；最终六项正向可读，未出现背面倒字。"
+    },
+    {
+      "id": "shotcraft-wireframe-reveal",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\0.png",
+          "sha256": "3137ebd705ff94b88465f318fa8b4ef21180c093e0bb430755128804213df4e4"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\24.png",
+          "sha256": "37450b14bb826aab130cb3e8f590b6b9b70853cf2fff4da93f0fb7db0cac3c0e"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\48.png",
+          "sha256": "f6a0e59e0c36ffaa5cbb910513045460b7aec855c4b1bfb6dbc1a5b89ffc06c6"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\80.png",
+          "sha256": "80a373740566bf15d1ca695f478a7416389800ab65d1538c496fd709e1aeaf4d"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\120.png",
+          "sha256": "459625d1935ff522544ae4d052617577acde81f5c6dea8df937d81c160957167"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-wireframe-reveal\\159.png",
+          "sha256": "d509cfd960d6446532367709e5c548220fad3ad9c1ebfa405febeeb95452c742"
+        }
+      ],
+      "observation": "先显现线稿，再扫描成为内容；终态线稿及扫描光退出，内容保持。"
+    },
+    {
+      "id": "shotcraft-word-roll",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\0.png",
+          "sha256": "b392c625dcc5f6f07419b251be173e6023a99305d6c8d924c45557629c748753"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\24.png",
+          "sha256": "8f0ab29b8bd8ad7652c54724205fb6f73274ed4a03fd00165c36f448c0708256"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\48.png",
+          "sha256": "33e864b4f94436dfe19f26202fadcf9acd825034e3cdf4c47dedfd4576ef6e13"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\80.png",
+          "sha256": "31c36a0ef6ff227ea39b3d56d8dadefcc6c525cc4bb382a31252cba67f2a27c4"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\120.png",
+          "sha256": "3bda4bd83d861be9d27012a1ffb736913f75766831fe0d6872599775ea597853"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-word-roll\\159.png",
+          "sha256": "439f4c34d0a0d75305d0c5dccc9216e2ed80747f36d9617c006682d76a67f151"
+        }
+      ],
+      "observation": "句干保持，词条逐次换位；邻词模糊用于层级，末词停在中心强调位置。"
+    },
+    {
+      "id": "shotcraft-bezier-merge",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\0.png",
+          "sha256": "b58cf34c496ac3c34c8e544b4fb8761f62f1d685d1905963d21300d81fbb57b1"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\24.png",
+          "sha256": "ed21ba1639e3421926a8c8712686a444ff24dc2643fe70f0c7d87f72c9a4b4eb"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\48.png",
+          "sha256": "5854d52be2a2b6bbf53fb44f477f515d1eb99cecf7bfacc6590ed6d5844c383c"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\80.png",
+          "sha256": "aec17fe319bf32ce0e2297b65b2862c4185d3adc2cd4eee63f8d2534547d8fbf"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\120.png",
+          "sha256": "3d91e3b5b36a8169db53a0de195723b7f7a962022ea63c4973eab5db6b36e2ac"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-bezier-merge\\159.png",
+          "sha256": "3779d26fc3de7247d58987433380a60786235c21b96f5ccf2603b8aa05db773a"
+        }
+      ],
+      "observation": "来源沿对应曲线汇入同一目标；来源缩小退出，曲线撤回后只保留目标。"
+    },
+    {
+      "id": "shotcraft-timeline-travel",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\0.png",
+          "sha256": "31a6589b4814f7cac70980c8bdca1c0eab55b277de0332ee0088a06775c7fd3f"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\24.png",
+          "sha256": "d1ae1392fc5dc84bdeeb22e551b631e2105bbc2df227a10981489e5626da6524"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\48.png",
+          "sha256": "63fb151eaa6378a4d8c1e61dc3e1b97fd36ee50bd61c9654456d1b6c23145c48"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\80.png",
+          "sha256": "58b23571661ae3bde25dd03a216b9e9fd16cdb5facab016f964bb565600fb7cf"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\120.png",
+          "sha256": "5e94e900900270605173e8398313b4937ac66e6aa1b44db47b2b058e9331be09"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-timeline-travel\\159.png",
+          "sha256": "dee593dfde22524f43b5aadb2a2dbc6fe78561953a0540c088c33a029aa24311"
+        }
+      ],
+      "observation": "轴线持续横移，节点在相机经过时弹立；镜头最终停在末节点并轻推近。"
+    },
+    {
+      "id": "shotcraft-spotlight-hero",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\0.png",
+          "sha256": "375123713d3f60d6604927688d3874496d723bbbb12a673b423974694b0a0381"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\24.png",
+          "sha256": "a89438fb0eea927ba47ec04517653c564870d10768bb04629dea0208f71b3156"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\48.png",
+          "sha256": "4fa9a027a65db7824e568cc47db154bd4cd76df530d380ef47a2c27ea2a5e4ba"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\80.png",
+          "sha256": "5bbd33fae24cd64a902e12627344e2d26b5fbeb2e52c93c4b0faf11fd3131056"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\120.png",
+          "sha256": "649fe550678f3508a8f52059501778e1550b035e4d258f5d015dae344ae15d5b"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-spotlight-hero\\159.png",
+          "sha256": "8088bccc5aa9c0559d78490e936bc4f10689cc21f01c0141a0af3d682dfa609b"
+        }
+      ],
+      "observation": "聚光游走后锁定，主角透视抬升，轮廓光沿边绕行，最后回落。"
+    },
+    {
+      "id": "shotcraft-row-embed",
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\0.png",
+          "sha256": "4d149f11c8e253f77652c0b0cc2375bc84aed1361afa64bd1ead4d587455e71b"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\24.png",
+          "sha256": "66c123848c4f7cbd0e3ad1bdc446e934e3322d4ee79ea363259ee2671c49ede3"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\48.png",
+          "sha256": "e5de90d851481744a254167b645e13d6ffcdc8c0b7ee76deceb25c0d3645bcc8"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\80.png",
+          "sha256": "bf80a99f8bfab27c79a6c2a361086cc6c7313607b64120dcac9809c9e2916b05"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\120.png",
+          "sha256": "bf80a99f8bfab27c79a6c2a361086cc6c7313607b64120dcac9809c9e2916b05"
+        },
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-row-embed\\159.png",
+          "sha256": "66731b50a9e27595f060468f9f56a4c5de3aea8fa99902cb8d783b35d07a9aa7"
+        }
+      ],
+      "observation": "行逐条飞入并展平，落地时出现短暂底缝；结束后四行保持阅读状态。"
+    },
+    {
+      "id": "shotcraft-vintage-kraft",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-vintage-kraft\\30.png",
+          "sha256": "a3c77c1b59d44956542562e6a335515666157c026e005b57631fcb8d1569dfc4"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-deep-ocean",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-deep-ocean\\30.png",
+          "sha256": "035b7ed293e12d4fd60d35950824b115a3e3cc53ac09cd5a307b1b17ea0f91d9"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-obsidian-violet",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-obsidian-violet\\30.png",
+          "sha256": "b112336a3356710b37628e1f10719522661a3dc8663ce826494a21967e9e7b0f"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-modern-light",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-modern-light\\30.png",
+          "sha256": "154da8e3bc209289347295c32858fd1c645a0f071103283151b8bbb7b863111e"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-midnight",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-midnight\\30.png",
+          "sha256": "7931e45e82ed99c0e09cac251753ab8ead5750075423c532f2d71b682ad70279"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-solar-pop",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-solar-pop\\30.png",
+          "sha256": "b826b7ea57d023b7d37d1ecc01501798b86a50646b07a659bb125856aa35172a"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-coral-burst",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-coral-burst\\30.png",
+          "sha256": "28b8bc22d621d23b7deabbb77448ac2e50c4bdf9c6e0c947a7244b5e3859fe2c"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-color-play",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-color-play\\30.png",
+          "sha256": "780b5288669010ba2fe543efdbd6fc9783bf4a77172e9677695dceea58b2ac86"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "shotcraft-ink-press",
+      "frames": [
+        30
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-ink-press\\30.png",
+          "sha256": "e48bb3a25109dc3f9fb5e62485c442ef4cc06c9cfa5281dd301fbc26e1c1599a"
+        }
+      ],
+      "observation": "已查看主题总览的背景、文字、内容层、强调色和字幕。"
+    },
+    {
+      "id": "flash-peak",
+      "frames": [
+        38
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\validation\\shotcraft-flash-cut\\38.png",
+          "sha256": "1d7c84ee72b13d8729e80c236a4fa0b7e18038b81341d2e17f0d7664c11e446c"
+        }
+      ],
+      "observation": "暖光在 f38 扩亮，结束后撤销。"
+    },
+    {
+      "id": "actual-production-bridge",
+      "frames": [
+        75
+      ],
+      "evidence": [
+        {
+          "path": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\validation\\production-bridge\\preview\\75.png",
+          "sha256": "e5138b1ba0ee3edb36924ddd62a9ef8f069f8f96b407feb21937fd295c6716a8"
+        }
+      ],
+      "observation": "实际 shot-preview 桥接导出的组件在现代浅色主题下成功呈现三路汇流。"
+    }
+  ],
+  "humanFullFilmApproval": "not applicable to material admission; required for future production films"
+}

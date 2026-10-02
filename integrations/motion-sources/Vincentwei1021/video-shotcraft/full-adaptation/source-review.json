@@ -1,0 +1,2531 @@
+{
+  "productionContract": {
+    "path": ".agents/skills/video-production-quality/SKILL.md",
+    "sha256": "93bd4542b09c503df27961cb25e99c802e9b733f9d4afa36a7e36023479de20a"
+  },
+  "commit": "5ddbf521038b0a7accfb6dc1e0a9eb29c67277ab",
+  "license": "Apache-2.0",
+  "executedOriginalScripts": false,
+  "executedAdaptedTemplates": true,
+  "admitted": [
+    {
+      "id": "shotcraft-template-basic3-d-scene",
+      "path": "demos/camera/basic-3d-scene/Basic3DScene.tsx",
+      "sha256": "cd05eef5f098aecdad8ffc00577f5f13a388752a2052dc39f1957a634a5fa477",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-crash-impact-real",
+      "path": "demos/camera/crash-zoom-punch/CrashImpactReal.tsx",
+      "sha256": "e6de0e2ce4037752bcb07d5ec965fd966eea3b90255bce0cf295326086390b29",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-crash-zoom-real",
+      "path": "demos/camera/crash-zoom-punch/CrashZoomReal.tsx",
+      "sha256": "1bdbb3efbfef5072a06d616b64aa540f3f3ecea50015a04a3486dec8f09ba4c8",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cursor-flyover",
+      "path": "demos/camera/cursor-flyover/CursorFlyover.tsx",
+      "sha256": "769fc76f9dd16f65cbe50b3976a2cab3d4a3a53cfebdbae0fe67c293204a9f75",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-dolly-zoom-real",
+      "path": "demos/camera/depth-layer-moves/DollyZoomReal.tsx",
+      "sha256": "1136c85c6b43ab47cae9570d092ef9c8e3101cdda2c0658d3fe01e738a50ffee",
+      "duration": 135,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-multiplane-real",
+      "path": "demos/camera/depth-layer-moves/MultiplaneReal.tsx",
+      "sha256": "e8ea60f571d83980338f7aa0e0ce4c047c1dfe7ece6a1c76d0dc7eee74cefdfc",
+      "duration": 135,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-graze-face-tour",
+      "path": "demos/camera/graze-face-tour/GrazeFaceTour.tsx",
+      "sha256": "8cf0bacedf521a2971e6f880be618ac36006a62d251233d255eccec32fd5acdc",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Split.io Access for Oleg",
+          "default": "Example access request"
+        },
+        {
+          "original": "ClickUp 3.0",
+          "default": "Workspace 3.0"
+        },
+        {
+          "original": "ClickUp",
+          "default": "Workspace"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-overhead-tabletop-drop",
+      "path": "demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx",
+      "sha256": "45406844824802c22eeb9dd6c3b958e3c85633110298e6d0d9724727ddf2199d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-tilt-reveal",
+      "path": "demos/camera/overhead-camera-moves/TiltReveal.tsx",
+      "sha256": "1c1b996a8ee4a4853b3cdf986d6f04786d0b53c33866e3817b6e161f59d0fa5a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-drone-dive-landing",
+      "path": "demos/camera/space-camera-moves/DroneDiveLanding.tsx",
+      "sha256": "6109eddba41d17cb6ad5d1594fa9703170ee84aec781b885166c48886d22e58e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-exploded-view",
+      "path": "demos/camera/space-camera-moves/ExplodedView.tsx",
+      "sha256": "576dacb3c60cad9d86592bdef0cae852103b1fd74a9d1011b081b5006a4ffc71",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-steep-tilt-glide",
+      "path": "demos/camera/steep-tilt-glide/SteepTiltGlide.tsx",
+      "sha256": "91b14f327f5f64eb8162cc594730bc547528e9214b46ab4a0ca4cb537a183db5",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "ClickUp 3.0",
+          "default": "Workspace 3.0"
+        },
+        {
+          "original": "ClickUp",
+          "default": "Workspace"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-bullet-time-freeze-orbit",
+      "path": "demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx",
+      "sha256": "c00dc1c064df80c2ba24b8f970b4ecc848b36b146ae5644cad811c334f32ac89",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-dutch-roll-to-level",
+      "path": "demos/camera/tension-camera-moves/DutchRollToLevel.tsx",
+      "sha256": "90128c15786e651da16a3487a76f76d2a58cb03022fbe4083b314c66453fe5f8",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-pull-back-isolation",
+      "path": "demos/camera/tension-camera-moves/PullBackIsolation.tsx",
+      "sha256": "d439612b59e6334b8652fada9086b99c6760e7c89480014f45bc0eee6dc2bcf6",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-slow-push-in",
+      "path": "demos/camera/tension-camera-moves/SlowPushIn.tsx",
+      "sha256": "284b2f587c3ff206d05c082f29a4b9cb145c0e3616154e7fb7071ef8b7dabd8d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-terminal3-d",
+      "path": "demos/camera/terminal-3d/Terminal3D.tsx",
+      "sha256": "c968720eaba44745ebf331e02e74764b693e0c20e027fd56be178df8d7f4e6ef",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-avatar-grid-radial-build-colorize",
+      "path": "demos/data/avatar-grid-radial-build-colorize/AvatarGridRadialBuildColorize.tsx",
+      "sha256": "4e7a93a2ad4bb2016717e4c6f75bf0f1fa7c826640e09245a8667d30184414b5",
+      "duration": 168,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-before-after-slider-scrub",
+      "path": "demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx",
+      "sha256": "5297e4a39135fdaa566f6dae828dde188c208ab7f48a1edf7c61c724b2489f43",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-axis-rescale-shock-v2",
+      "path": "demos/data/chart-live-moves/AxisRescaleShockV2.tsx",
+      "sha256": "12195a52890a7d429a09c5e440498b3f34d84aa0f9352a528346e6df04f3aca9",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-oscilloscope-stream-v2",
+      "path": "demos/data/chart-live-moves/OscilloscopeStreamV2.tsx",
+      "sha256": "f829247c44103b5be76b41fbb523f4bd2b367604740b68a061757428e1c58d64",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-unit-dot-swarm-regroup-v2",
+      "path": "demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx",
+      "sha256": "7049b9aaa45923904214bf1d3b8103d629717569f310a2cb2ee22fd019e14179",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-counter-confetti",
+      "path": "demos/data/counter-confetti/CounterConfetti.tsx",
+      "sha256": "6970fc57c5bc746de316b3f6dec68f126be1d69a09db7c4640081cf95baa6792",
+      "duration": 138,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cycle-glass-node-morph",
+      "path": "demos/data/cycle-glass-node-morph/CycleGlassNodeMorph.tsx",
+      "sha256": "8a19c14ecdd81130d3c816d71511560a89340e049f8e0d627acb0e707a2bdfc7",
+      "duration": 257,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-needle-sweep-selftest",
+      "path": "demos/data/gauge-readout-moves/NeedleSweepSelftest.tsx",
+      "sha256": "702c31cfe866f59cd7640e155f635c2f3fdfebc7a3c6134bd79186e85d011774",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-tape-scroll-fixed-pointer",
+      "path": "demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx",
+      "sha256": "92a6acce1a4824f0ead03309b3adc953e2c1275a0514eb437ecdf799ec413ff4",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-hatch-depth",
+      "path": "demos/data/hatch-depth/HatchDepth.tsx",
+      "sha256": "e2ab3537e9d20442d52c9d73818ce470242b10cd28775995e46c21740ebdd7c1",
+      "duration": 132,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-odometer-digit-roll",
+      "path": "demos/data/odometer-digit-roll/OdometerDigitRoll.tsx",
+      "sha256": "4edf9ad565e6c92e4eaad8f3a9e2b7c6f7eb8ab16694d4f0e2496088b53a6ecd",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-confetti-crossfire",
+      "path": "demos/data/particle-celebrate-hits/ConfettiCrossfire.tsx",
+      "sha256": "20010b0b9beb95060098bc472e8389ed1def42293e8adf4d446b7ee855cfe0c8",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-counter-tick-sparks",
+      "path": "demos/data/particle-celebrate-hits/CounterTickSparks.tsx",
+      "sha256": "18197ea258e854d187fbd6a6de116790dc782abfcb02f6c39f27180313d2d01c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-particle-sand-fill",
+      "path": "demos/data/particle-sand-fill/ParticleSandFill.tsx",
+      "sha256": "3fd5a33218b32cf5a11bbf17e38e5015313048d6f6c72d084b947ded7e0dd7c9",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-ring-diagram-annotation-reveal",
+      "path": "demos/data/ring-diagram-annotation-reveal/RingDiagramAnnotationReveal.tsx",
+      "sha256": "e0feadccc2ec3a7f30969b2460332ac0f65b39cc1d74ab976d4d724bed9d7a5e",
+      "duration": 190,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-brake-reticle-lock",
+      "path": "demos/data/scroll-brake-moves/BrakeReticleLock.tsx",
+      "sha256": "b8072463fd4207b2ef0cc0f2296880b728e312b8d751fd8e5ac856663375e897",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-changelog-scroll-brake",
+      "path": "demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx",
+      "sha256": "b6a96b0eb26035526f13e04ba121d2859804c4e7a8f3b50695b9862d95f5e671",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-timeline-travel",
+      "path": "demos/data/timeline-travel/TimelineTravel.tsx",
+      "sha256": "33c07689ece5e8d9eb1b1586031a09f43afd31219a1dbb8dd7f89ebdaa5e483f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-assemble-then-type-flyin",
+      "path": "demos/effects/assemble-then-type-flyin/AssembleThenTypeFlyin.tsx",
+      "sha256": "5ae8a857b29936ee9779f042a09ecdb680dbcc2ecdda6f92a05bf74bb15f639b",
+      "duration": 156,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-aurora-bloom-bg-flip",
+      "path": "demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx",
+      "sha256": "1d2d445ffe8fb1781d318cd9a8995e714c1f2985fb63759fd2859e303286d69a",
+      "duration": 156,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-brand-frame-snap",
+      "path": "demos/effects/brand-frame-snap/BrandFrameSnap.tsx",
+      "sha256": "8940f9008d83cbc6b85925a1e6a7df9e8979e9a325b79dcda4ddda99693d6a7e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-dashboard-glow-highlight-pill",
+      "path": "demos/effects/dashboard-glow-highlight-pill/DashboardGlowHighlightPill.tsx",
+      "sha256": "bcfe531523fcfddca4148c4921b7c22f5639c17be18bfc74d7065b839d110b0e",
+      "duration": 60,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-line-unfold-panel",
+      "path": "demos/effects/fui-hud-moves/LineUnfoldPanel.tsx",
+      "sha256": "4874988ee2fcad508ba83cbd6ed832046fa43affef1159abde2250095379f53c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-reticle-lock-on",
+      "path": "demos/effects/fui-hud-moves/ReticleLockOn.tsx",
+      "sha256": "3157d4efe9ebb081a4799d315a24c63a38025ecb3853e4a8502d4c22b42e0616",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-flyline-arc",
+      "path": "demos/effects/glow-flyline-moves/FlylineArc.tsx",
+      "sha256": "6a64328ea9ad97d2cc30067d5c9d4f61e72dc96c1a159de86269de7d9d220178",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-glow-orb-ambient",
+      "path": "demos/effects/glow-flyline-moves/GlowOrbAmbient.tsx",
+      "sha256": "90d7fff86dda9dffa58454e71ea0ce83e95ff1e13741bf07e09fd0f5effd0327",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-orb-flyline-relay",
+      "path": "demos/effects/glow-flyline-moves/OrbFlylineRelay.tsx",
+      "sha256": "4273bb779a2beb264c928b4436c152aa0cc636797b7fe169d021232aa779c1d0",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-attention-bounce",
+      "path": "demos/effects/icon-performance-moves/AttentionBounce.tsx",
+      "sha256": "24791d7842036d145d3f3070758d63f7243a70c0cae54d600c73f067fc29f852",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-pop-burst-confirm",
+      "path": "demos/effects/icon-performance-moves/PopBurstConfirm.tsx",
+      "sha256": "8d913fa83ff6ff7b4001035188777f4f6c650d14640be1f06997fda443dbe782",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-anime-impact",
+      "path": "demos/effects/impact-feedback/AnimeImpact.tsx",
+      "sha256": "c26c663958844b7ac043d2cd6fa9fb18a9ba4bf1d471fb8c756d295457985f78",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-hit-counter",
+      "path": "demos/effects/impact-feedback/HitCounter.tsx",
+      "sha256": "21c2c55df799b616a9f91811d0483dbea1f2ead03211fa3ade3226424cb7c579",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-halation-bloom",
+      "path": "demos/effects/light-play-moves/HalationBloom.tsx",
+      "sha256": "ef68981743f6c7fae09a56c040b1fb63e6f92ac172ebcc41b29143ee89a6c994",
+      "duration": 159,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-sheen-sweep-retry",
+      "path": "demos/effects/light-play-moves/SheenSweepRetry.tsx",
+      "sha256": "44dda2cb8d1531e847bab4f407ecd1588c8a44a690eda57d0c51efad822c8651",
+      "duration": 159,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-spotlight-sweep-reveal",
+      "path": "demos/effects/light-play-moves/SpotlightSweepReveal.tsx",
+      "sha256": "c921584fa8c3d7cb94ff3b6ed422338de7a8025d1488264661b3835442bac029",
+      "duration": 159,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-line-boil",
+      "path": "demos/effects/line-boil/LineBoil.tsx",
+      "sha256": "fdeabe65810f5f563f9dd3bdeac54169d1ac53e8c595bc4b94d710324efdc006",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-radial-ripple-phone-chips",
+      "path": "demos/effects/radial-ripple-phone-chips/RadialRipplePhoneChips.tsx",
+      "sha256": "ab9f756b75679ce6416c53838907d5cd8f00a36c3b524d5769c1efe2f34b14f8",
+      "duration": 168,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-riso-beat-pump",
+      "path": "demos/effects/riso-print-hits/RisoBeatPump.tsx",
+      "sha256": "e714c2abf2f5ff91d8b05d083a30f4f7e4c485663a0168b5dd260b3f8b017f3c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-riso-misregistration-hit",
+      "path": "demos/effects/riso-print-hits/RisoMisregistrationHit.tsx",
+      "sha256": "7df0c5d09769f3e19b9ee947e41b0a9747139321049265ea13052957fcbf493f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scan-bracket-sweep",
+      "path": "demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx",
+      "sha256": "109fc4a9dd8a2949cd1cec25ad9445ec253f85bb19cae25f494537aaa3aca93f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scanline-annotate-focus",
+      "path": "demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx",
+      "sha256": "8c11f7b239644594bddbab93bf0bfe6fc21386dd88204abf961142c4efe83ebf",
+      "duration": 138,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scanline-assemble-flyin",
+      "path": "demos/effects/scanline-assemble-flyin/ScanlineAssembleFlyin.tsx",
+      "sha256": "090162fd9d16ebe4f9444c5db11c7584dd1fb3dbf38bfc2d5c00032617191814",
+      "duration": 138,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-impact-burst-kit",
+      "path": "demos/effects/slam-entrance-moves/ImpactBurstKit.tsx",
+      "sha256": "d852c454a7ba837c8331b3588df6be901541114398645db1aea6216f47ff6c0b",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-kanada-perspective-snap",
+      "path": "demos/effects/slam-entrance-moves/KanadaPerspectiveSnap.tsx",
+      "sha256": "ff90b239a3f2f927ab22b7badfad3ab18e79b8653efa86cce34d122e2655ea66",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-score-slam",
+      "path": "demos/effects/slam-entrance-moves/ScoreSlam.tsx",
+      "sha256": "1f30f38ce92a1c56b9d35e8373b0c36c28b92ba364752f9b7b7d8f4f86bcd815",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-corner-spotlight-reveal",
+      "path": "demos/effects/spotlight-sweep-moves/CornerSpotlightReveal.tsx",
+      "sha256": "0cc7cd3724d4f3e828ef644e4a8917e42fc9d037362200d1c2a27f91d30f5789",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-glow-wake-sleep-panel",
+      "path": "demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx",
+      "sha256": "fa9c07a17e2c8cca73e2323a0c75131ad62b1ffbe9dee1719ec54419c9496ea2",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-slide-spotlight-pan",
+      "path": "demos/effects/spotlight-sweep-moves/SlideSpotlightPan.tsx",
+      "sha256": "1a31685074bcbce36e8397c3bcca16fdf8d4f5fa98511c90ff1a6a521ef772c5",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-stream-response",
+      "path": "demos/interaction/ai-stream-response/StreamResponse.tsx",
+      "sha256": "aea725a0475fab4b2525b8d59100345138c3f21733054337eaac957e6b573039",
+      "duration": 150,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "Ask Atlas",
+          "default": "Ask Assistant"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-autolayout-gap-dial",
+      "path": "demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx",
+      "sha256": "3bd1d32c811346e85a77fa853726e0e647084c215953eb66b2ef13570160d4fd",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-diagram-cascade-build",
+      "path": "demos/interaction/canvas-materialize-moves/DiagramCascadeBuild.tsx",
+      "sha256": "34f18d8dfdaf6d054d46c2354d25680348eb525b3ff94939de24f9075f2ce17e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-panel-to-canvas-materialize",
+      "path": "demos/interaction/canvas-materialize-moves/PanelToCanvasMaterialize.tsx",
+      "sha256": "d1107dc7515fd8a5487552c3dfe6b811d63edc18ac3f25eb60037e0491383c8d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-chip-grid-single-select-blackout",
+      "path": "demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx",
+      "sha256": "affeb1e7884ae91674781b9283218214da5d1912ab138c93cf51e8cfb3bebc2d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-chip-lift-to-user-pill",
+      "path": "demos/interaction/chip-lift-to-user-pill/ChipLiftToUserPill.tsx",
+      "sha256": "7cdf25af972a16f4ff3fd987a038fc5be9f52df3e8bd64a687cf3961b6acb4c6",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cursor-cast-ensemble",
+      "path": "demos/interaction/collab-cursor-moves/CursorCastEnsemble.tsx",
+      "sha256": "ac5491c0cc47c5c2f8de60ece50bfc06a921a6b8ee0d9450193bd1347cfc335e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cursor-dialogue-duet",
+      "path": "demos/interaction/collab-cursor-moves/CursorDialogueDuet.tsx",
+      "sha256": "2a9cc9b8eb64f64542ae4445493223c8da6009838554359ba5693776a20ec94e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-command-palette-summon",
+      "path": "demos/interaction/command-palette-summon/CommandPaletteSummon.tsx",
+      "sha256": "2f4bd69217c82c094beb5f5db99c744cd4d5057dd03ee2e2155714cc8c6e7d8e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-glass-pill-dictation-typing",
+      "path": "demos/interaction/glass-pill-dictation-typing/GlassPillDictationTyping.tsx",
+      "sha256": "9d976335d9b7bf206aac1ec57fbf821acc1d87371ab9712fccd721987353c0f7",
+      "duration": 50,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-hashtag-to-pill-materialize",
+      "path": "demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx",
+      "sha256": "e1e2a1b82716a29efbaf64c4b53502f72ee1d9ada706d7f5ca51c869801386a5",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cursor-performance-punch-in",
+      "path": "demos/interaction/input-trigger-moves/CursorPerformancePunchIn.tsx",
+      "sha256": "4244f3b2cdae6e89c4a625e57d0e8dde80d713e7bca939ab9574e43cd268ae2d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-keycap-smash-cut",
+      "path": "demos/interaction/input-trigger-moves/KeycapSmashCut.tsx",
+      "sha256": "c1f030c35ce124c0559a34f6f40c45bf9eaf7e9dc860a826dd9f81400026b54b",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-picker-carousel-feature-cycle",
+      "path": "demos/interaction/picker-carousel-feature-cycle/PickerCarouselFeatureCycle.tsx",
+      "sha256": "a0d9b36cbbac7a6553146dc28f04b0be0b68be24c2ac70fddb4986ed8380006f",
+      "duration": 108,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-segmented-thumb-hero",
+      "path": "demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx",
+      "sha256": "c67eb2fcd82e1c7ede06145af4af53bd92aa782b23d5b803c311e26228064440",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-palette-theme-ripple",
+      "path": "demos/interaction/theme-switch-moves/PaletteThemeRipple.tsx",
+      "sha256": "dac8dd7d10da9621e8b46b11b7fce9c4cc8561fe6c3ef54467e7b5ef4bdffa5d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-theme-sweep-toggle",
+      "path": "demos/interaction/theme-switch-moves/ThemeSweepToggle.tsx",
+      "sha256": "6fd3af2a607dfec42f9a3aa014e514328c42f6035c9c8507abb7bfc06b161dcf",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-type-and-filter",
+      "path": "demos/interaction/type-and-filter/TypeAndFilter.tsx",
+      "sha256": "403a6954cb962db990021a1309b0402cba0ec3eba41631edc6b311f607d27c86",
+      "duration": 73,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-voice-waveform-live",
+      "path": "demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx",
+      "sha256": "79d96b23f05a3f1f8962a2487c8a3d20aa4e2da1dbf6e475f109d9054dfe8f15",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-crane-rise-reveal",
+      "path": "demos/opening/crane-rise-reveal/CraneRiseReveal.tsx",
+      "sha256": "03263f1f43ff6b05c8bbf2c82589510e75626605acb86427dcd061be22e37e8c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-dataviz-landscape-open",
+      "path": "demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx",
+      "sha256": "5ddd7dc461ef794954dba4d4158fe7119054964e53397248d85863e6bb8bb2ec",
+      "duration": 240,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-fracture",
+      "path": "demos/opening/fracture/Fracture.tsx",
+      "sha256": "903c4f4deaaae726e1548f7183a88ab4f064519d500a3e3b78b3a645d22e46dc",
+      "duration": 156,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-icon-field-colorize",
+      "path": "demos/opening/icon-field-colorize/IconFieldColorize.tsx",
+      "sha256": "26c16bd2277cad46afdc781510e4cf115207a8636f989ba096aacca85c5abdc9",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-letterspace-materialize",
+      "path": "demos/opening/letterspace-materialize/LetterspaceMaterialize.tsx",
+      "sha256": "39c502aea2de232b94977ddb75825efd2ab42b28a8de3bba08004a8946405dad",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "SUPERHUMAN",
+          "default": "WORKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-magician-card-flourish",
+      "path": "demos/opening/magician-card-flourish/MagicianCardFlourish.tsx",
+      "sha256": "7bc8ff219755e9c818b60264b73cf8257a3b618b8d361eb0ac39505554e05423",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-orbit-ring-title-open",
+      "path": "demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx",
+      "sha256": "600c64859592ac665667bad91c199e77cca94cbdf8457187b085650520fbf71b",
+      "duration": 130,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "让镜头卡替你想好每一个动效",
+          "default": "让每一个想法清晰呈现"
+        },
+        {
+          "original": "VIDEO-SHOTCRAFT",
+          "default": "YOUR PRODUCT"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-spotlight-hero-card",
+      "path": "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+      "sha256": "20ecd3acca4334668b2903021a3d32f2521b2b1f4f36331cbdb6413d192d277b",
+      "duration": 139,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-stroke-segment-build",
+      "path": "demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx",
+      "sha256": "92c6f2451095b4376050becb2b9963567f2424b51288f5155314d1a6cde80e8f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-text-as-mask",
+      "path": "demos/opening/text-as-mask/TextAsMask.tsx",
+      "sha256": "90c4da127a17e05d5bbec88fa1469d7d5bb75b377b73696091088a6bb677ea73",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-logo-sting-button",
+      "path": "demos/outro/edit-hook-moves/LogoStingButton.tsx",
+      "sha256": "afbfc642a953eb8e1f25d4a6d8a8b4c431f79a812ccbfb152dfb1f1cf21223a8",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-grain-dissolve",
+      "path": "demos/outro/grain-dissolve/GrainDissolve.tsx",
+      "sha256": "946423c42831b59165281a78422411bf8b8b709ff0b5bcf6a4138bb75b44b6f3",
+      "duration": 60,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-logo-shrink-wordmark-lockup",
+      "path": "demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx",
+      "sha256": "67087358c63551820ba878f058c1bdd6da75b88f49e515170f35147498d2c2e9",
+      "duration": 132,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-neon-triple-marquee",
+      "path": "demos/outro/neon-triple-marquee/NeonTripleMarquee.tsx",
+      "sha256": "49ea6712550107ceed775c13380f30d5d2901b1f61a14bfb1e092e12165063c8",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-outro-group-photo-launch",
+      "path": "demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx",
+      "sha256": "8afbc4a3e4f4de6b57680407c7a12072a58e959a0aef94bfced6f3ba79b91ee7",
+      "duration": 145,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-ui-strip-away-outro",
+      "path": "demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx",
+      "sha256": "8f2d81fab8bfcc7406a4f56c9403c42f10112e47fd498169e1e60d2261791a26",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-icon-flip-bloom-logo",
+      "path": "demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx",
+      "sha256": "5f32a45de82b3b0dea449deeef904a75f15e97f349bf3ddaacc1a8a50bdb701a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "perplexity",
+          "default": "assistant"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-input-morphs-into-logo",
+      "path": "demos/outro/ui-to-brand-morph/InputMorphsIntoLogo.tsx",
+      "sha256": "12fdd5f41fbce35b0235169245ebba47459cba429e084f7d6a2fabb8bb684879",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-beat-cut-accelerando",
+      "path": "demos/rhythm/beat-cut-moves/BeatCutAccelerando.tsx",
+      "sha256": "521d39fa108645072252d0013b96574e870d92f5c79fd24e181563731d339d15",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-paparazzi-flash",
+      "path": "demos/rhythm/beat-cut-moves/PaparazziFlash.tsx",
+      "sha256": "13ab5470918a8bf4e4c4893aef9d954b5fb75090ef2e7b2d1ceb6075b0bf17c5",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-beat-step-list-theme-cycle",
+      "path": "demos/rhythm/beat-step-list-theme-cycle/BeatStepListThemeCycle.tsx",
+      "sha256": "5e4a90a23fc3136535ca84dea67786a3dff34cf58c24c05380a3fc3208199589",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-domino-cascade",
+      "path": "demos/rhythm/montage-rhythm-moves/DominoCascade.tsx",
+      "sha256": "7149c2bd5a3360d9dcbc6474fa75b5b61ccd57f6e03e43260e4c0cd54e19a63d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-drop-blackout-slam",
+      "path": "demos/rhythm/montage-rhythm-moves/DropBlackoutSlam.tsx",
+      "sha256": "3522f19f51073229b2bb7d9ce602a7cefbafedeb45f91ff157391496442e09bc",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-wright-triple-cut",
+      "path": "demos/rhythm/montage-rhythm-moves/WrightTripleCut.tsx",
+      "sha256": "bf77ccd415797832ca2f8490d726c0d1a6d2880470c5acbd0d2026de70055d59",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-comic-panel-split",
+      "path": "demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx",
+      "sha256": "c314e93148a3bec9ca4951521b9302bfcbb953e7895ab16f3d39d70495f033ac",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-flip-grid-reflow",
+      "path": "demos/rhythm/panel-grid-moves/FlipGridReflow.tsx",
+      "sha256": "af3827dabd29d585f33c84d4c304468f64e65a3399350b1f4fe1e04addbcc376",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-grid-flash-mosaic",
+      "path": "demos/rhythm/panel-grid-moves/GridFlashMosaic.tsx",
+      "sha256": "b7723cf0f6a31afba2404af41f46078aa279e863334d5918cf65f461a0ac47ae",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-quad-split-parallel-scenes",
+      "path": "demos/rhythm/quad-split-parallel-scenes/QuadSplitParallelScenes.tsx",
+      "sha256": "94ddbc326de91e2bb4c7f99a2934cea3f93a7a03a1cb66fddd9ad977b05a9d5a",
+      "duration": 63,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-jump-cut-punch-in",
+      "path": "demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx",
+      "sha256": "9224290a3814b9cc5cd5567a67c6ced30e36dfe089786480ff2ba2cc26c056a8",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-strobe-black-frames",
+      "path": "demos/rhythm/rhythm-interrupt-moves/StrobeBlackFrames.tsx",
+      "sha256": "0437aff669528cea3adfc891a091bf8351f27a79fcafc50889fa31c87a392470",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-sakuga-timing-shift",
+      "path": "demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx",
+      "sha256": "cfdb0fe9d5f4726adcd1b120406caf559e8e51acb8c22841c46b5dce76717801",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-smear-multiples",
+      "path": "demos/rhythm/smear-multiples/SmearMultiples.tsx",
+      "sha256": "f50d247fdcf9c2646e1b46cbd4a6de187b654ae7d75f271d7792f65f2471bf7e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-spectrum-morph-ui",
+      "path": "demos/rhythm/spectrum-morph-ui/SpectrumMorphUi.tsx",
+      "sha256": "668b88db03622061bcf097081275da0a78e54500b21298f7a6e7a63cacd4e193",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-freeze-annotate-real",
+      "path": "demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx",
+      "sha256": "62195967aabb552e3a0dba980360d794753d46120e9b7910830baffcf48b3bac",
+      "duration": 135,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-speed-ramp-real",
+      "path": "demos/rhythm/speed-ramp-freeze/SpeedRampReal.tsx",
+      "sha256": "2b5715a887c79053804840f8a49589b1a2a8408d4693ce73ba4a385d4e7afd4e",
+      "duration": 135,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-card-footage-cadence",
+      "path": "demos/rhythm/trailer-grammar-moves/CardFootageCadence.tsx",
+      "sha256": "c1c58f643115026775d2ba26458ea0573a6c76f6f0ea55ffd340510da698f614",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-smash-cut",
+      "path": "demos/rhythm/trailer-grammar-moves/SmashCut.tsx",
+      "sha256": "0553c5373766fae1e44f243dd67db2369e06bfe0601cfecdc7d7e2ad6e73739e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-trailer-bumper",
+      "path": "demos/rhythm/trailer-grammar-moves/TrailerBumper.tsx",
+      "sha256": "e42255e70e556403208d8ac5989fbd565680a6c4337ee87344cc959751da1cbf",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-bottom-push-stack-wipe",
+      "path": "demos/transition/bottom-push-stack-wipe/BottomPushStackWipe.tsx",
+      "sha256": "62d8afb7b359f40db67641e027cd7be7a3fe21af50c86a0f1e3eec46b25164c2",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-bubble-swarm-takeover",
+      "path": "demos/transition/bubble-swarm-takeover/BubbleSwarmTakeover.tsx",
+      "sha256": "c719d4bf42abc605323372fd3d67373bc560f903eff46eae4b97d0ab1f0ba44a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-card-flip-reveal",
+      "path": "demos/transition/card-flip-reveal/CardFlipReveal.tsx",
+      "sha256": "e19d83698c82a30a62deddb579f7ff68283a62913e5ddc27132c74c7037e04ac",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-card-flock-tumble",
+      "path": "demos/transition/card-flock-tumble/CardFlockTumble.tsx",
+      "sha256": "06d1722eadde48727cf75a95ac19ed6412b9815ed740efcecb137c652aaf8d5f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-circle-match-iris",
+      "path": "demos/transition/circle-match-iris/CircleMatchIris.tsx",
+      "sha256": "a84fb8da7d8a4dc6ebb102f5446ba99c50d43454318a021827ac6d245317fb19",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-color-block-step-wipe",
+      "path": "demos/transition/color-block-step-wipe/ColorBlockStepWipe.tsx",
+      "sha256": "2b87dd1d06198bf681a61d0c12756ea3431954bf7692840bb61d8ccad58029c6",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cube-navigation",
+      "path": "demos/transition/cube-navigation/CubeNavigation.tsx",
+      "sha256": "39594f1732d36deb4af065634aa7a268d9d02434c1ba5d4af1f478623e6ee001",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-gradient-transition",
+      "path": "demos/transition/gradient-transition/GradientTransition.tsx",
+      "sha256": "2b1923ac28737b21b144819a8770af9f1b2c0fce448128a937536f649f7d5283",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-line-carry-transition",
+      "path": "demos/transition/line-carry-transition/LineCarryTransition.tsx",
+      "sha256": "a8f966fde6832e14bcc2409a9b13f9514ea035f6af54d0d5b8aae203032a077a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-mosaic-reframe",
+      "path": "demos/transition/mosaic-reframe/MosaicReframe.tsx",
+      "sha256": "0bfa676e8438190fd4370f7658b40514ca49cae075ca5d42ba413f86690f62fa",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-barn-door-split",
+      "path": "demos/transition/page-turn-transitions/BarnDoorSplit.tsx",
+      "sha256": "5bef22021f62b14c36bee0f61fbd1411ab17438d09a5b1f30518ddcffa0ebda1",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cube-rotate",
+      "path": "demos/transition/page-turn-transitions/CubeRotate.tsx",
+      "sha256": "76efe53a74a85e918495d12f953360365be6278270ef7a4ad9fa85574fe77c08",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-paper-plane-messenger",
+      "path": "demos/transition/paper-plane-messenger/PaperPlaneMessenger.tsx",
+      "sha256": "cda91a58c4b122a79a21232c43b9d7bdc7ab57cc88459e924296b1a2af70a66f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-ink-bleed-reveal",
+      "path": "demos/transition/print-texture-transitions/InkBleedReveal.tsx",
+      "sha256": "849e20e19b7dda64762f44f3e092f12f5864dfce3014a58bc0408c03a024e92c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-black-card-transition",
+      "path": "demos/transition/shot-transitions/BlackCardTransition.tsx",
+      "sha256": "ced0b0a384c714e704ee999c86c4df89bbb3317eda076f8de15d15d9bd75f5ad",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-dark-tunnel-transition",
+      "path": "demos/transition/shot-transitions/DarkTunnelTransition.tsx",
+      "sha256": "b56d2a632decea38f987d4a21a829487602f1cc5f4e7ad2f2844a605c451534a",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-focus-handoff-transition",
+      "path": "demos/transition/shot-transitions/FocusHandoffTransition.tsx",
+      "sha256": "46716312478837e7fa3bbffc7b5020918b8080e15f6228519a9248a27afe9628",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-mask-wipe-real",
+      "path": "demos/transition/shot-transitions/MaskWipeReal.tsx",
+      "sha256": "571e21dbf9409ce703644f5afe0c86eed2aab1369de447708746f5a8c2bbad5c",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-portal-wipe-v2",
+      "path": "demos/transition/shot-transitions/PortalWipeV2.tsx",
+      "sha256": "5cbce8b54c230182fd9ba45a98629cb91054f4a285012cbda929ce74b4a6dd48",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-whip-brake-real",
+      "path": "demos/transition/shot-transitions/WhipBrakeReal.tsx",
+      "sha256": "8ef2743eb2dd462c19eba29d987c4305ca846610757e6217a2c640f92ac9ebc6",
+      "duration": 130,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-whip-pan-real",
+      "path": "demos/transition/shot-transitions/WhipPanReal.tsx",
+      "sha256": "2ded1fc81269482dfb574165415cb0dd41a75eb07a7f10464368c37a59d86414",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-glitch-displace",
+      "path": "demos/transition/tear-streak-transitions/GlitchDisplace.tsx",
+      "sha256": "e6dbcf1c30f81e7456d4f896c235d0de12602ce02cf2891298aa8bfc8252b58c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-invisible-cut",
+      "path": "demos/transition/transition-hidden-cut/InvisibleCut.tsx",
+      "sha256": "cb253bfabfc6ddb682f1cfcb5bce49e90291635a3c45ab0cd31aea2d7f626c9d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-light-leak-burn",
+      "path": "demos/transition/transition-hidden-cut/LightLeakBurn.tsx",
+      "sha256": "fcffc417f12e1436b1451abb5dfe00c3941eb137ac9207b2002335e57839e32e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-versus-slam",
+      "path": "demos/transition/transition-hidden-cut/VersusSlam.tsx",
+      "sha256": "24d0fe257ae8b08b4ae6ccb214e5214453695a07f7385f736606f82e139b2aa7",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-letterform-zoom",
+      "path": "demos/transition/transition-travel/LetterformZoom.tsx",
+      "sha256": "eaf56f03bd5926e04f747a744ba960f3f6d1af5f63918059468ffd1225afe34a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-shared-element-morph",
+      "path": "demos/transition/transition-travel/SharedElementMorph.tsx",
+      "sha256": "27016df70c2f620dc454edfa15bd9fbc3432c2f20a8de1238cd30413c14b0a97",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-white-flash-logo-simplify-cut",
+      "path": "demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx",
+      "sha256": "244a93adab5db089ee89fe2dbb0634240bef6f20311ec76ed2a8792c32edaa81",
+      "duration": 108,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-blinds-slice",
+      "path": "demos/transition/wipe-transitions/BlindsSlice.tsx",
+      "sha256": "639ae4efa065eb0a40cd53ce1578eb34ac908fd1d9545b1bc69101729dd91c8d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-clock-wipe",
+      "path": "demos/transition/wipe-transitions/ClockWipe.tsx",
+      "sha256": "b18097bcf2bc22a1b48ccfdf454261d8ecb37adbc85cbda4b1d66247e36e8e22",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-blur-slide",
+      "path": "demos/typography/blur-slide/BlurSlide.tsx",
+      "sha256": "324b863061e8d514749dc393be38ea2d9ee4adbaa7ba296e727af974530a225b",
+      "duration": 114,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-brace-expand",
+      "path": "demos/typography/brace-expand/BraceExpand.tsx",
+      "sha256": "db8051b66698be3f10005a6fd6a4dd965f0906869081324b06ac3ebf421bc4c9",
+      "duration": 114,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-brand-ink-open",
+      "path": "demos/typography/brand-ink-open/BrandInkOpen.tsx",
+      "sha256": "83c8b82ab3322cfa51cd44fde112885e8fa957d818f887da24207266a392455b",
+      "duration": 104,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-cel-flash-stomp",
+      "path": "demos/typography/cel-flash-stomp/CelFlashStomp.tsx",
+      "sha256": "982575f35c1c06f842eeae4679a70e5c42bb4ad3f798927f0584ab171b993205",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-countdown-arc-scatter",
+      "path": "demos/typography/countdown-arc-scatter/CountdownArcScatter.tsx",
+      "sha256": "c59ec96e536c27d43e795ad5c09af488247c37ab5c33f650194657a4dcf63f69",
+      "duration": 33,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-flying-words",
+      "path": "demos/typography/flying-words/FlyingWords.tsx",
+      "sha256": "66b20eefac8fef6f60ef86f2736a11e353b61d44aa82b771bcbf291cda1b811e",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-glitch-cycle",
+      "path": "demos/typography/glitch-cycle/GlitchCycle.tsx",
+      "sha256": "335a1db0af6e79945f3f7e7bf34ebb5a4e8e01db767b7fd340078c9098c16a72",
+      "duration": 168,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-gradient-word-sweep",
+      "path": "demos/typography/gradient-word-sweep/GradientWordSweep.tsx",
+      "sha256": "f7fd6da22d63fa68a0377fc7084502e27f10f09a6b44139f2e1cbc2e9b0eb87f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-lead-word-zoom-assemble",
+      "path": "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx",
+      "sha256": "5a9d89eb74a7a1b365ad0ec4fee3a86296af86636ae9f7e67c1156383f2fc67e",
+      "duration": 84,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Introducing Lumen Deck",
+          "default": "Introducing Your Product"
+        },
+        {
+          "original": "Lumen",
+          "default": "Your"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-marker-underline-title",
+      "path": "demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx",
+      "sha256": "dc71c12ffe40c1c10a4d652ffd9ca01952e542f0da90ef56a90533543f214274",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Notion AI",
+          "default": "Product AI"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-outline-word-fill",
+      "path": "demos/typography/outline-word-fill/OutlineWordFill.tsx",
+      "sha256": "0c2787a367b7440995994b9a6269203ce6faeef1ffed9c8ff8b669f0d23def4b",
+      "duration": 75,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-paper-title-card",
+      "path": "demos/typography/paper-title-card/PaperTitleCard.tsx",
+      "sha256": "a92cff3020f6206dae34dfb65a1a37ce36fa6c807426b9f6dcb67080c3b9017f",
+      "duration": 55,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-pill-chip-slot-cycle-handled",
+      "path": "demos/typography/pill-chip-slot-cycle-handled/PillChipSlotCycleHandled.tsx",
+      "sha256": "4b97b74f47adf28189efdf4a09eee1473d56862620ba9d5c8d8bbd38f6cb1804",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-pill-slot-cycle",
+      "path": "demos/typography/pill-slot-cycle/PillSlotCycle.tsx",
+      "sha256": "499e47899061b7d2b866c33cfdd4b36c91780570bbc7fc8aaf777c7d4e039643",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Find in Drive",
+          "default": "Find in storage"
+        },
+        {
+          "original": "Find in Slack",
+          "default": "Find in messages"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-scramble",
+      "path": "demos/typography/scramble/Scramble.tsx",
+      "sha256": "290e4b6afceba2b243194dfb916af25bafab10a43f7e9b2547c45372f5d0e2b4",
+      "duration": 96,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-split-flap-flip",
+      "path": "demos/typography/split-flap-title/SplitFlapFlip.tsx",
+      "sha256": "955797910650c8fab0fe68d5652977d247f6db807ee0f24b453b12b89dd277fa",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-text-column-converge",
+      "path": "demos/typography/text-column-converge/TextColumnConverge.tsx",
+      "sha256": "b48252bb5b4b7d1e5872c7717108a44eb86b5a8bd328b00e27a1d5a1db0396f1",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "RAYCAST",
+          "default": "WORKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-title-demote-to-label",
+      "path": "demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx",
+      "sha256": "6e2b47b39a82c21b307455038fad0da18795be6560cd7d7cb5b162625a56ca1c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "path": "demos/typography/type-assembly-moves/LetterformDriftAssembly.tsx",
+      "sha256": "e2e9dd78fcef7afadaef0a2c8152a1e278d40e054a1e706403667fe7833b063f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-split-text-stagger",
+      "path": "demos/typography/type-assembly-moves/SplitTextStagger.tsx",
+      "sha256": "b13ef8c5e2f93edeacfebe76b90fbba0bf6ceadfe16611ce9edf95772186fba4",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-text-on-path",
+      "path": "demos/typography/type-assembly-moves/TextOnPath.tsx",
+      "sha256": "9cdd657b46fa511cd3275d362e7550a01667fc7b6a722c6112aa6814bf81ff9d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "path": "demos/typography/type-assembly-moves/TrackingExpandReveal.tsx",
+      "sha256": "64d34d9e829b884782973acddf36597bc5f4faf6d4db493466013ba74e7815ec",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-letter-drop-physics",
+      "path": "demos/typography/type-entrance-moves/LetterDropPhysics.tsx",
+      "sha256": "dabf2ea4c4b97b7b4dabbb618422d45570a99bb63e19bae15abfac2b80603ae4",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scramble-decode",
+      "path": "demos/typography/type-entrance-moves/ScrambleDecode.tsx",
+      "sha256": "70edb7e6bcec309717232c14e2eb575b0b9421e25076198436bcd686e7e69959",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-font-weight-pump",
+      "path": "demos/typography/type-rhythm-sync/FontWeightPump.tsx",
+      "sha256": "d19e9d58d9f8c69799f28c49deaf3398755c51237dc73f0130b094f29cb8737b",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-karaoke-fill-sync",
+      "path": "demos/typography/type-rhythm-sync/KaraokeFillSync.tsx",
+      "sha256": "10e58fbddbf20e548fe959514baea78df76db4f6542a0ccebff14e74ededf53f",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-terminal-typewriter",
+      "path": "demos/typography/typewriter-moves/TerminalTypewriter.tsx",
+      "sha256": "f6dbd6e3092a10b58905ddb9ac80bf7d6c984c182f4b69432f94e8cce58041d1",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "acme deploy --prod",
+          "default": "workspace deploy --prod"
+        },
+        {
+          "original": "~/acme-app (main)",
+          "default": "~/workspace (main)"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-typewriter-error-retype",
+      "path": "demos/typography/typewriter-moves/TypewriterErrorRetype.tsx",
+      "sha256": "674226bead412e1b82f6dd5af5bab022cdffcf356548a2717c577bae3659bdee",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-typing-code-block",
+      "path": "demos/typography/typing-code-block/TypingCodeBlock.tsx",
+      "sha256": "1f1a4d651864a28b60467de46079fdea004473ef1653ef35430d03a14215f0d3",
+      "duration": 138,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-vertical-word-roll-blur-cycle",
+      "path": "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx",
+      "sha256": "3e11bf1b8da863aa7e937f4fbd4c9f9f00bec01bd30279a477ccec8fcf7e989c",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-word-relay-filmstrip",
+      "path": "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx",
+      "sha256": "487bdd7499c85fb476b73e30e4afa174fa8d4ee98c96a087f2dd4354c257104a",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-word-relay-geometry",
+      "path": "demos/typography/word-relay-geometry/WordRelayGeometry.tsx",
+      "sha256": "81ac43c6f501cc1080828fb4d36c57710eeabbe1bb60bd1ba6b7c9866d4bd0c8",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-avatar-bracket-carousel",
+      "path": "demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx",
+      "sha256": "2ef2943f172a16527ee9f436757cacd1dc46cdcaf4ce54888f9ca7eb40f2e1dd",
+      "duration": 156,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-bezier-source-converge-merge",
+      "path": "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx",
+      "sha256": "925eb73887691e96d837ca579e76278d9f58694771509858d96847864a1ad234",
+      "duration": 168,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-card-stack",
+      "path": "demos/ui-entrance/card-stack/CardStack.tsx",
+      "sha256": "aa3f31395b1f2692b9a054031c8dcff7550e77d56aa2301926db9832356784d7",
+      "duration": 126,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-carousel3-d",
+      "path": "demos/ui-entrance/carousel-3d/Carousel3D.tsx",
+      "sha256": "c5d07d8dd56f3403f85e2b5c2f619e28452278e646479322bd8825b3c036c244",
+      "duration": 168,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-clip-card-looping",
+      "path": "demos/ui-entrance/clipcard-looping/ClipCardLooping.tsx",
+      "sha256": "248de0411a636b8aae744b8bfea61e52c267a1abbbc7c4b2749e46d4dda872be",
+      "duration": 120,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-cloner-depth-echo",
+      "path": "demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx",
+      "sha256": "986cea75c3989fd33e695acd2d827d785a8b6e3a69363bc7a5f0bb68a2218354",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-deck-deal-flyin",
+      "path": "demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx",
+      "sha256": "d5ff7d8b22f20027d6e665d79149da3f6bdd80b63e1b24f44d236cb066b5ca16",
+      "duration": 113,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-doc-park-left-pill-deal",
+      "path": "demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx",
+      "sha256": "bce029bf3cf47bf6b40a2e5576ab4a5ffb532250b3e64d231d187f41179835b6",
+      "duration": 174,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-document-typewriter-reveal",
+      "path": "demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx",
+      "sha256": "442db32c281c661633df7b195550634c89ca5f1551575d19db39d52fcd1c346a",
+      "duration": 110,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "2026-W27 · Foundation Lab Weekly",
+          "default": "2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026-W26 · Foundation Lab Weekly",
+          "default": "2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026-W25 · Foundation Lab Weekly",
+          "default": "2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026-W24 · Foundation Lab Weekly",
+          "default": "2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026-W23 · Foundation Lab Weekly",
+          "default": "2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026-W22 · Foundation Lab Weekly",
+          "default": "2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-draw-svg-trace",
+      "path": "demos/ui-entrance/draw-svg-trace/DrawSvgTrace.tsx",
+      "sha256": "4831019f4fb6749682ea0ca9a5c0c3baa1a16b77c206f88801b6884ef5f542f7",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-axial-stretch",
+      "path": "demos/ui-entrance/element-body-moves/AxialStretch.tsx",
+      "sha256": "8233d377a69f94b51ec8f277f8c556bbf1b21b9a3f539acf10bafc4b5d710326",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-contact-shadow-lift",
+      "path": "demos/ui-entrance/element-body-moves/ContactShadowLift.tsx",
+      "sha256": "9a9e15c241e1df0db320977e3607788a5b768a4f874d657c996fde995fc28b2d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-floating-glossy-label-pills",
+      "path": "demos/ui-entrance/floating-glossy-label-pills/FloatingGlossyLabelPills.tsx",
+      "sha256": "db93a48920b876d11280fd993ac0ba4b6d4cac500686dac1fbf013a5ba1b8be7",
+      "duration": 120,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-integration-hub-map",
+      "path": "demos/ui-entrance/integration-hub-map/IntegrationHubMap.tsx",
+      "sha256": "be97434c059a671f9f1f0960c2748bff89619d54e082e019911bebeb3d71cd23",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Open in GDrive",
+          "default": "Open in Drive"
+        },
+        {
+          "original": "ClickUp Space",
+          "default": "Workspace Space"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-list-reveal",
+      "path": "demos/ui-entrance/list-reveal/ListReveal.tsx",
+      "sha256": "e290e24f63bbd29e0b19a74adf334469df1c97e15a805dcabcb1ce8cd33f3fa9",
+      "duration": 108,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-list-stack-press",
+      "path": "demos/ui-entrance/list-stack-press/ListStackPress.tsx",
+      "sha256": "6afde335431229dbff152fb0c9bce6841714ee0750d3ae754f4df998e7f0dbde",
+      "duration": 88,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-morph-from-primitive",
+      "path": "demos/ui-entrance/morph-from-primitive/MorphFromPrimitive.tsx",
+      "sha256": "7f61080aa6314965daf6d7dc670e78ce3b42880135f8feb2ff5d044aa658eea0",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun",
+      "path": "demos/ui-entrance/neon-frame-forerun/NeonFrameForerun.tsx",
+      "sha256": "8d2988ffcc12f38dd9b9628f4b9326b43dd6e6bfae4eec658c73b7e1a52e48fe",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun-orbit",
+      "path": "demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx",
+      "sha256": "b8789007e8b2961888d51ce64c3825dcaee8342533450cf73d58100de0bee230",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-page-waterfall-wall",
+      "path": "demos/ui-entrance/page-waterfall-wall/PageWaterfallWall.tsx",
+      "sha256": "3c45bcc9b4d272fa6dcadf43240cba65bcd3bf5de4ed286f85da665105a570c8",
+      "duration": 180,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-masking-tape-slap",
+      "path": "demos/ui-entrance/paper-craft-moves/MaskingTapeSlap.tsx",
+      "sha256": "fab4c2acce583ef6582cb7c857e368d48b792d4ebde5d8b2b04eb8522f7f952d",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-popup-book-rise",
+      "path": "demos/ui-entrance/paper-craft-moves/PopupBookRise.tsx",
+      "sha256": "37ff9f9d10e7c8a244f6ea20d7f3d32f263d18b89cdda95f7adef32df85a6ea3",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-platform-hinge-rise",
+      "path": "demos/ui-entrance/platform-hinge-rise/PlatformHingeRise.tsx",
+      "sha256": "e80305113d357fb2882d0f11fc6cb0c50d7ca3eb9e0434ede2fe96a6c9885633",
+      "duration": 104,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-product-card-progressive-assemble",
+      "path": "demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx",
+      "sha256": "dc93d1cbeb4d67569b064cd1b9834bc6ce8ce0d20a89c3169487776d4b5e20e9",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-radial-wave",
+      "path": "demos/ui-entrance/radial-wave/RadialWave.tsx",
+      "sha256": "68b11147d3314e46ab2d9643bb7b2d6c0578e0baa26c07c3f323d627f0a592be",
+      "duration": 114,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-research-card-stack-scroll",
+      "path": "demos/ui-entrance/research-card-stack-scroll/ResearchCardStackScroll.tsx",
+      "sha256": "48249fa04fb25ec6e5c7b398e2d587f85927914a268e1003595662bab1744201",
+      "duration": 144,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "Latent Caching Reduces Tool-Call Latency by 41%",
+          "default": "Example Study: Tool-Call Latency Evaluation"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-row-embed",
+      "path": "demos/ui-entrance/row-embed/RowEmbed.tsx",
+      "sha256": "fc4c9b83f1649f3db0409ac04ffbbe4d8c486370c62e75ecbab9cae34faff747",
+      "duration": 68,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-runway-ground-skim",
+      "path": "demos/ui-entrance/runway-ground-skim/RunwayGroundSkim.tsx",
+      "sha256": "07f3be4d02a808e7130346dfe636b32bc899689afe0cf47c53f3bfd9a693b7c6",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": [
+        {
+          "original": "ClickUp",
+          "default": "Workspace"
+        },
+        {
+          "original": "ClickUp 3.0",
+          "default": "Workspace 3.0"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-skeleton-reveal",
+      "path": "demos/ui-entrance/skeleton-reveal/SkeletonReveal.tsx",
+      "sha256": "4f607a3200ed97a18cd0b2be18732962469f782b30c90e54b7a1e98f822d6f1c",
+      "duration": 172,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-svg-shape-morph",
+      "path": "demos/ui-entrance/svg-shape-morph/SvgShapeMorph.tsx",
+      "sha256": "7512cad39d5219f67f28a5df7fc9ea65a4fcc3b4e66526098116bbf992f26a52",
+      "duration": 156,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-value-stagger-gradient",
+      "path": "demos/ui-entrance/value-stagger-gradient/ValueStaggerGradient.tsx",
+      "sha256": "bb74486c35c70bdbb79019403f48db2a617de563c120b9cd742cedf49920936e",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-bento-light-up",
+      "path": "demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx",
+      "sha256": "74c9912eb2b824a5e8bae0938e61247a6dbb8b231a6e94669201a2ab455e0e90",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-grid-wave-flip",
+      "path": "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx",
+      "sha256": "1843311d09979679cec117220697dc0006593955d6971353694cf750f3369410",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-wireframe-draw-on",
+      "path": "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx",
+      "sha256": "fef966df82831a970bcd97eb436da42a57223089c16dc8231de8d3d7bf930077",
+      "duration": 150,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scene-open",
+      "path": "template/src/aifl/live/SceneOpen.tsx",
+      "sha256": "bb2301f97bc265123550d816bbf885a27e79d79bb3475881fff2388d5d3cde13",
+      "duration": 220,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-scene-fly-in",
+      "path": "template/src/aifl/live/SceneFlyIn.tsx",
+      "sha256": "697c2a880c3311bcb4035db4f299b8026d07d1c1db4f7ee5f98a7420522d8105",
+      "duration": 190,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-scene-detail",
+      "path": "template/src/aifl/live/SceneDetail.tsx",
+      "sha256": "77aca9fd77798d63f8481dcda5a481acca46defae4b5e9b91ca5c7b5536f5d47",
+      "duration": 100,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scene-papers",
+      "path": "template/src/aifl/live/ScenePapers.tsx",
+      "sha256": "55c27ccfc648fe151f7130d1c5ba72f422b6c056c4c86d64d42aba631730cd4c",
+      "duration": 105,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-scene-wbr",
+      "path": "template/src/aifl/live/SceneWbr.tsx",
+      "sha256": "73afb30aebca235561c8efcc3c93bd711281872c03ae20dc0d6ce72874e88c02",
+      "duration": 110,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-scene-outro-live",
+      "path": "template/src/aifl/live/SceneOutroLive.tsx",
+      "sha256": "5ef45dde09ce81e2684533dc9317bbd02bf7420c0d368b4551604f5905d14735",
+      "duration": 145,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-ink-press",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "c83c47b8507b35af9e411d0b8cd2f313df39ce905d5b5d5b7fc1f8ffcc0b31f2",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-vintage-kraft",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "7947bb72d17f6ee4246dd4f20fd3ba555b5399c2b3f883edf81ce217f6f0e06e",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-deep-ocean",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "79373934f3e4155d419967f5f3d2cf950ddd583b3c862ecd84929f2c16e286ec",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-obsidian-violet",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "85bd1476bac525d3c18f9af88ffda7431ccbd35b76d7ee027a135732f4b9d07d",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-modern-light",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "da9ab808bc09c444f03439a71aff21cbd539bade042ac62e99c090b9d075495e",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-midnight",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "290f3beff651388a5c7314a48c826c1e30ad69d106cdf56e605790e29df1842d",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-solar-pop",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "57a764dac018426c4253e5c7f066083812b06c8396cc952374d7da9ed6521010",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-coral-burst",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "5ff29e58d28cf19bbfbd51619a2ea2f36dbf8fad18cd6dfde4b31f6ea546a73f",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-film-color-play",
+      "path": "template/src/themes/ThemedFilm.tsx",
+      "sha256": "e7706bb52d4811b942ad9980125fd1d5dd412dea41c82be4c62deb1d243416ba",
+      "duration": 1085,
+      "screenshots": true,
+      "changedCopy": [
+        {
+          "original": "nano-lab",
+          "default": "demo-lab"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "TEAM RESEARCH CONSOLE",
+          "default": "TEAM WORKSPACE"
+        },
+        {
+          "original": "AI Foundation Lab",
+          "default": "Example Workspace"
+        },
+        {
+          "original": "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+          "default": "2026 第 27 周|7月3日|2026-W27 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+          "default": "2026 第 26 周|6月26日|2026-W26 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+          "default": "2026 第 25 周|6月19日|2026-W25 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+          "default": "2026 第 24 周|6月12日|2026-W24 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+          "default": "2026 第 23 周|6月5日|2026-W23 · Workspace Weekly"
+        },
+        {
+          "original": "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+          "default": "2026 第 22 周|5月29日|2026-W22 · Workspace Weekly"
+        }
+      ]
+    },
+    {
+      "id": "shotcraft-template-lib-caption",
+      "path": "assets/lib/Caption.tsx",
+      "sha256": "8b4a7163fd881530853d93d3f1babd57925ac80df612355ebf4aa480a0c94bbb",
+      "duration": 90,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-lib-clip-card",
+      "path": "assets/lib/ClipCard.tsx",
+      "sha256": "8ec0fb69448ff547311ab9bf8aab81371d3560d8351a2239e3b76644f83b2280",
+      "duration": 120,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-lib-digit-roll",
+      "path": "assets/lib/DigitRoll.tsx",
+      "sha256": "58dfb684ca8d8b78187743f76d64aef08eac0a1cc4b67917c201eb5a4722fdd3",
+      "duration": 90,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-lib-flash-cut",
+      "path": "assets/lib/FlashCut.tsx",
+      "sha256": "9ebaf08d2c990f6a8ec5a791b807ec15b0c438dcca8eccce52b6aa42761bacb2",
+      "duration": 30,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-lib-page-cam",
+      "path": "assets/lib/PageCam.tsx",
+      "sha256": "1d32ebf51d02f7b30585c3292183f66e665e7060aaf2081b64c0f59b7dd7f347",
+      "duration": 150,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-three-flat-panel",
+      "path": "local-three-panel.tsx",
+      "sha256": "0df79a43201c081fadff2ac00308b811adf1e4533a623e6ef3c5b1e020ba2019",
+      "duration": 180,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-vertical-ticker",
+      "path": "local-ticker.tsx",
+      "sha256": "46f639948cbdf13af19c3b71f055deb529ae26544ac2b93e3fa0014a23766241",
+      "duration": 180,
+      "screenshots": true,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-production-paper-title-card",
+      "path": "template/src/aifl/PaperTitleCard.tsx",
+      "sha256": "41b8515231d3a2fc4ad5b23d0138466817bd655032e97b1edc3cdd353db65864",
+      "duration": 55,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-production-caption",
+      "path": "template/src/aifl/Caption.tsx",
+      "sha256": "a70791bfd4dc9d89abcc62a145b3f15be18660a1d08a4eae8172766ae65869f8",
+      "duration": 90,
+      "screenshots": false,
+      "changedCopy": []
+    },
+    {
+      "id": "shotcraft-template-flash-cut-shot",
+      "path": "recipes/FlashCutShot.tsx",
+      "sha256": "a572973a1c8694beefb12400bdf9f691277451ef2fec19eba938d24ddc9ba2df",
+      "duration": 120,
+      "screenshots": true,
+      "changedCopy": []
+    }
+  ],
+  "scope": {
+    "cards": 157,
+    "variants": 214,
+    "templates": 242
+  },
+  "uncertainties": [
+    {
+      "asset": "original SFX/BGM",
+      "resolution": "No original stock audio adopted; local audio inputs preserve cue positions; default silent."
+    },
+    {
+      "asset": "agent-stream.jpg",
+      "resolution": "Locally generated neutral screenshot replacement; screenshot input retained."
+    },
+    {
+      "asset": "VerticalTicker from vibe-motion/skills",
+      "resolution": "Local compatible implementation, externally originated implementation excluded from executable adapters; original file retained only for source inspection."
+    }
+  ],
+  "visualReview": "Five sampled frames per template; full target-film human review remains pending."
+}

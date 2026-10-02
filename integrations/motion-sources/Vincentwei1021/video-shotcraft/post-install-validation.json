@@ -1,0 +1,139 @@
+{
+  "checkedAt": "2026-10-01T17:25:48.661Z",
+  "catalogDigest": "646f125892ac382da43f239113aeb049af6dbb4ac4397641fa61e065f6008147",
+  "styles": 13,
+  "motions": 30,
+  "sourceHashes": "passed",
+  "materialFiles": "passed",
+  "stylePreviews": "passed",
+  "descriptionQueries": [
+    {
+      "query": "长页面运镜，透视焦点，从整体到局部",
+      "expected": "shotcraft-page-camera",
+      "returned": [
+        "shotcraft-page-camera",
+        "camera-move",
+        "perspective-panel",
+        "card-flip",
+        "shotcraft-spotlight-hero"
+      ]
+    },
+    {
+      "query": "每个数字列滚过一整轮，机械数字滚轮",
+      "expected": "shotcraft-digit-roll",
+      "returned": [
+        "shotcraft-digit-roll",
+        "shotcraft-word-roll",
+        "count-up"
+      ]
+    },
+    {
+      "query": "十二点顺时针时钟扫描，状态刷新",
+      "expected": "shotcraft-clock-wipe",
+      "returned": [
+        "shotcraft-clock-wipe",
+        "shotcraft-page-camera",
+        "cascade-grid",
+        "shotcraft-wireframe-reveal",
+        "card-flip"
+      ]
+    },
+    {
+      "query": "百叶窗竖条错峰转场",
+      "expected": "shotcraft-blinds-slice",
+      "returned": [
+        "shotcraft-blinds-slice",
+        "shotcraft-digit-roll",
+        "shotcraft-wireframe-reveal"
+      ]
+    },
+    {
+      "query": "网格功能墙沿对角波前翻面",
+      "expected": "shotcraft-grid-wave-flip",
+      "returned": [
+        "cascade-grid",
+        "shotcraft-grid-wave-flip",
+        "browser-frame",
+        "shotcraft-bezier-merge",
+        "flow-packet"
+      ]
+    },
+    {
+      "query": "蓝图路径描绘，扫描光实体化",
+      "expected": "shotcraft-wireframe-reveal",
+      "returned": [
+        "shotcraft-wireframe-reveal",
+        "draw-path",
+        "flow-packet",
+        "shotcraft-clock-wipe",
+        "shotcraft-page-camera"
+      ]
+    },
+    {
+      "query": "句干保持位置，竖向滚轮替换词",
+      "expected": "shotcraft-word-roll",
+      "returned": [
+        "shotcraft-word-roll",
+        "shotcraft-grid-wave-flip",
+        "brush-reveal",
+        "match-cut",
+        "accent-typewriter"
+      ]
+    },
+    {
+      "query": "多路来源曲线汇流，缩小汇入统一目标",
+      "expected": "shotcraft-bezier-merge",
+      "returned": [
+        "shotcraft-bezier-merge",
+        "count-up",
+        "shotcraft-digit-roll",
+        "cascade-grid",
+        "shotcraft-grid-wave-flip"
+      ]
+    },
+    {
+      "query": "镜头沿水平时间轴连续移动，版本演进",
+      "expected": "shotcraft-timeline-travel",
+      "returned": [
+        "shotcraft-timeline-travel",
+        "code-diff",
+        "shotcraft-spotlight-hero",
+        "perspective-panel",
+        "shotcraft-word-roll"
+      ]
+    },
+    {
+      "query": "聚光主角抬升悬浮，轮廓光绕行",
+      "expected": "shotcraft-spotlight-hero",
+      "returned": [
+        "shotcraft-spotlight-hero",
+        "perspective-panel"
+      ]
+    },
+    {
+      "query": "结构化结果逐行嵌入，落地强调色细缝",
+      "expected": "shotcraft-row-embed",
+      "returned": [
+        "shotcraft-row-embed",
+        "brush-reveal",
+        "accent-typewriter",
+        "count-up",
+        "shotcraft-word-roll"
+      ]
+    },
+    {
+      "query": "暖白光从中心短暂扩亮，光晕闪切",
+      "expected": "shotcraft-flash-cut",
+      "returned": [
+        "shotcraft-flash-cut",
+        "shotcraft-word-roll",
+        "shotcraft-spotlight-hero",
+        "accent-typewriter",
+        "dip-to-color"
+      ]
+    }
+  ],
+  "productionBridge": "bundled and rendered at frame 75 using the actual shot-preview harness",
+  "portableDemoEntry": "bundled using production paths",
+  "snapshot": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\validation\\production-bridge\\preview\\75.png"
+}

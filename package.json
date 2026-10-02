@@ -35,9 +35,13 @@
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@react-three/fiber": "9.2.0",
     "@remotion/cli": "^4.0.0",
+    "@remotion/motion-blur": "4.0.520",
+    "@remotion/three": "4.0.520",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "remotion": "^4.0.0"
+    "remotion": "^4.0.0",
+    "three": "0.178.0"
   }
 }

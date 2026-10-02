@@ -1,0 +1,1753 @@
+{
+  "commit": "5ddbf521038b0a7accfb6dc1e0a9eb29c67277ab",
+  "cards": 157,
+  "variants": 214,
+  "templates": 241,
+  "styles": [
+    {
+      "card": "ai-stream-response",
+      "key": "ai-stream-response",
+      "label": "ai-stream-response",
+      "description": "AI 响应面板先落一句可读摘要，再让带状态图标的证据行逐条汇入，最后统一收束成完成态",
+      "id": "shotcraft-template-stream-response",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "assemble-then-type-flyin",
+      "key": "assemble-then-type-flyin",
+      "label": "assemble-then-type-flyin",
+      "description": "空的暗底网格上，无文字的组件骨架先从四面八方飞入贴合；随后各处文字逐字从 3D 空间旋转着飞来落位，先大标题后小标注，全部落位后页面成形",
+      "id": "shotcraft-template-assemble-then-type-flyin",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "aurora-bloom-bg-flip",
+      "key": "aurora-bloom-bg-flip",
+      "label": "aurora-bloom-bg-flip",
+      "description": "浅灰底从底部升起紫橙柔焦 blob，随后整个底色在约 0.36s 内压暗到近黑、blob 压成余晖；文案同步 blur-out 换句 blur-in，换句间留空档不 cross-fade",
+      "id": "shotcraft-template-aurora-bloom-bg-flip",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "autolayout-gap-dial",
+      "key": "autolayout-gap-dial",
+      "label": "autolayout-gap-dial",
+      "description": "间距拨盘驱动布局——一排链接块带框选描边+缝隙间距标注，徽章数字逐格跳动、块被参数实时推开再弹簧回弹归位；\"参数驱动布局\"的可视化",
+      "id": "shotcraft-template-autolayout-gap-dial",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "avatar-bracket-carousel",
+      "key": "avatar-bracket-carousel",
+      "label": "avatar-bracket-carousel",
+      "description": "\"Your ___ teammates\" 填空排版，四角对焦框钉在句中不动，头像队列在框内垂直 spring 轮换三次，入框放大清晰、出框按距离缩小淡化模糊，角色标签同步更换，切换瞬间对焦框呼吸 7%",
+      "id": "shotcraft-template-avatar-bracket-carousel",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "avatar-grid-radial-build-colorize",
+      "key": "avatar-grid-radial-build-colorize",
+      "label": "avatar-grid-radial-build-colorize",
+      "description": "8×7 小卡片网格由中心分环生长铺满（内容混合首字母/图标/图片占位），随后约 15% 的卡片随机时刻染红标异常，标题图例常驻中央",
+      "id": "shotcraft-template-avatar-grid-radial-build-colorize",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "basic-3d-scene",
+      "key": "basic-3d-scene",
+      "label": "basic-3d-scene",
+      "description": "impress.js 式空间演示：卡片以不同位置/旋转/缩放散布 3D 空间，相机取各步姿态之逆依次飞行对齐，末步拉到 OVERVIEW 总览",
+      "id": "shotcraft-template-basic3-d-scene",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "beat-cut-moves",
+      "key": "beat-cut-accelerando",
+      "label": "beat-cut-accelerando 递进硬切串",
+      "description": "六视图按 16→12→8→6→4f 间隔减半全屏硬切，加速逼近，末刀戛然定格回主画面轻推收住",
+      "id": "shotcraft-template-beat-cut-accelerando",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "beat-cut-moves",
+      "key": "paparazzi-flash",
+      "label": "paparazzi-flash 连闪定格",
+      "description": "三次白闪各硬切同素材不同裁切（全景→卡片特写→数字特写），快门余韵沉降，第三闪停在数字收束",
+      "id": "shotcraft-template-paparazzi-flash",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "beat-step-list-theme-cycle",
+      "key": "beat-step-list-theme-cycle",
+      "label": "beat-step-list-theme-cycle",
+      "description": "三通道节拍器——深色场形容词列表逐拍上移一行，视口中央固定胶囊\"接住\"下一个词并换色，整场底色同拍跟换；行、色、场三通道锁死同一拍点",
+      "id": "shotcraft-template-beat-step-list-theme-cycle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "before-after-slider-scrub",
+      "key": "before-after-slider-scrub",
+      "label": "before-after-slider-scrub",
+      "description": "前后对比拉杆——\"处理前/后\"两版叠放，分割杆先猛甩后慢扫，杆过处新版\"显影\"揭出",
+      "id": "shotcraft-template-before-after-slider-scrub",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "bezier-source-converge-merge",
+      "key": "bezier-source-converge-merge",
+      "label": "bezier-source-converge-merge",
+      "description": "左侧四个来源节点各有一条细贝塞尔曲线连向右侧同一汇聚点，曲线先错峰由左向右 draw-on，节点沿自己的曲线滑向汇聚点并三段式加速缩小到消失，强调色数据包全程沿路径滑行，吞并完成后曲线从左端反向擦除只留圆形徽标",
+      "id": "shotcraft-template-bezier-source-converge-merge",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "blur-slide",
+      "key": "blur-slide",
+      "label": "blur-slide",
+      "description": "标题逐词入场，y 40→0 + blur 10→0 + opacity 0→1 三通道走同一条 outCubic 同步收敛，词间隔约 3.5f；副标题在标题收完前就错峰跟进",
+      "id": "shotcraft-template-blur-slide",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "bottom-push-stack-wipe",
+      "key": "bottom-push-stack-wipe",
+      "label": "bottom-push-stack-wipe",
+      "description": "底边上推换章——新场景连底色整屏从底边向上推入，把旧场景物理顶出画外，连推数章各配一种饱和底色，内容钉死在各自色底坐标系里随底色走",
+      "id": "shotcraft-template-bottom-push-stack-wipe",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "brace-expand",
+      "key": "brace-expand",
+      "label": "brace-expand",
+      "description": "一对花括号先小字号出现在正中，随即带过冲向左右滑到 ±148px 并放大到标题级，文字 clip 宽度严格绑括号间距、像被拉开幕布般揭示，落定后字距再细微松弛",
+      "id": "shotcraft-template-brace-expand",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "brand-frame-snap",
+      "key": "brand-frame-snap",
+      "label": "brand-frame-snap",
+      "description": "品牌色画框语法——一圈粗纯色画框先于内容长出包住全屏，录屏窗口落进框内；模式切换时整圈画框同帧硬翻色+窗内布局同帧换，一个 borderColor 干完章节导航/状态提示/品牌露出三件事",
+      "id": "shotcraft-template-brand-frame-snap",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "brand-ink-open",
+      "key": "brand-ink-open",
+      "label": "brand-ink-open",
+      "description": "墨线十字准星描画→字标逐字压印→打字机副标→满一秒静止再上浮消散",
+      "id": "shotcraft-template-brand-ink-open",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "bubble-swarm-takeover",
+      "key": "bubble-swarm-takeover",
+      "label": "bubble-swarm-takeover",
+      "description": "珠光气泡群幕布转场——大小不一的气泡从画外飘入越涨越大遮满整屏，页面同步\"洗白\"，遮蔽峰值处藏切换，气泡向外散开后已是新场景；可混入 i18n 文字胶囊变体",
+      "id": "shotcraft-template-bubble-swarm-takeover",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "canvas-materialize-moves",
+      "key": "panel-to-canvas",
+      "label": "panel-to-canvas 行倒卡",
+      "description": "复选框逐个自动打勾→按钮按下→三行沿上抛弧线错峰飞出，途中行形态与卡形态交叉淡化，落位带随机倾角；面板行槽塌陷成虚线留白",
+      "id": "shotcraft-template-panel-to-canvas-materialize",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "canvas-materialize-moves",
+      "key": "diagram-cascade",
+      "label": "diagram-cascade 级联生成树",
+      "description": "prompt 逐字敲出（敲完描边变深确认）→根（深色）→2 子→4 孙逐层弹出，折角连线描线先行 8f，成树后整棵呼吸一拍",
+      "id": "shotcraft-template-diagram-cascade-build",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "card-flip-reveal",
+      "key": "card-flip-reveal",
+      "label": "card-flip-reveal",
+      "description": "功能卡 3D 翻面揭示——卡片沿 Y 轴翻 180°，正面 UI 翻到侧棱最薄处闪过一道随角度移动的高光带，背面揭出大号结论数字，逐张错峰扫过整排",
+      "id": "shotcraft-template-card-flip-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "card-flock-tumble",
+      "key": "card-flock-tumble",
+      "label": "card-flock-tumble",
+      "description": "三张 UI 页卡从侧棱薄边 3D 翻飞成阶梯站定（全程清晰、样条连续丝滑），站定后保持慢转不停，快速收束吸入中心，炸出单个湍流烟雾环扩散，巨字横贯收场",
+      "id": "shotcraft-template-card-flock-tumble",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "card-stack",
+      "key": "card-stack",
+      "label": "card-stack",
+      "description": "8 张卡从屏幕下方逐张 spring 弹入叠成一摞，全员落位后整摞一次性展成 3D 扇面——每张按序号偏转 8°、横移 34px、向后退一层 z",
+      "id": "shotcraft-template-card-stack",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "carousel-3d",
+      "key": "carousel-3d",
+      "label": "carousel-3d",
+      "description": "8 张卡按 sin/cos 排成半径 190px 的圆环并匀速整环自转一圈，每卡只绕 Y 公转、自身 billboard 朝外，正反两层同向贴图配 backface-visibility:hidden 保证任何时刻都正立不倒置，相机全程钉在浅俯角近景",
+      "id": "shotcraft-template-carousel3-d",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "cel-flash-stomp",
+      "key": "cel-flash-stomp",
+      "label": "cel-flash-stomp",
+      "description": "底色闪砸字——大词逐拍像图章歪着砸满屏，每词落定瞬间背景层在两个纯色间频闪数帧而文字纹丝不动；动漫必杀技字卡的 UI 翻译",
+      "id": "shotcraft-template-cel-flash-stomp",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "chart-live-moves",
+      "key": "oscilloscope-stream",
+      "label": "oscilloscope-stream",
+      "description": "采样窗平移 8px/f + 余弦包络尖峰 + 刹停真静止",
+      "id": "shotcraft-template-oscilloscope-stream-v2",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "chart-live-moves",
+      "key": "unit-dot-swarm-regroup",
+      "label": "unit-dot-swarm-regroup",
+      "description": "三幕 spring 错峰迁徙（stiffness 150、错峰 8f），终幕点阵拼数字",
+      "id": "shotcraft-template-unit-dot-swarm-regroup-v2",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "chart-live-moves",
+      "key": "axis-rescale-shock",
+      "label": "axis-rescale-shock",
+      "description": "冲出框 220px + 重标三联动（刻度换/网格密/旧线压扁）+ 震 8px",
+      "id": "shotcraft-template-axis-rescale-shock-v2",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "chip-grid-single-select-blackout",
+      "key": "chip-grid-single-select-blackout",
+      "label": "chip-grid-single-select-blackout",
+      "description": "五个选项 chip 以 3+2 居中排布逐个淡入；选中帧先插一帧灰色按压块，紧接数帧内底色变纯黑、文字变白并做 1→1.04→1 极轻回弹，其余 chip 淡到 18% 但位置锁死；随后余项归零，黑 chip 上移收窄，下方浮现算式行",
+      "id": "shotcraft-template-chip-grid-single-select-blackout",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "chip-lift-to-user-pill",
+      "key": "chip-lift-to-user-pill",
+      "label": "chip-lift-to-user-pill",
+      "description": "网格里的目标 chip 先 3 帧硬切反色成黑底白字，其余 chip 按到它的曼哈顿距离交错淡出缩小；黑 chip 左缘锚定向右生长成药丸，内部逐字打出人名并点亮绿点，再拉一条 1px 连接线接到圆形徽标",
+      "id": "shotcraft-template-chip-lift-to-user-pill",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "circle-match-iris",
+      "key": "circle-match-iris",
+      "label": "circle-match-iris",
+      "description": "圆心匹配光圈切——光圈从页面上圆形元素的圆心炸开，圈内新页的圆形图表接在同一个圆上；匹配剪辑给光圈一个语义锚点",
+      "id": "shotcraft-template-circle-match-iris",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "cloner-depth-echo",
+      "key": "cloner-depth-echo",
+      "label": "cloner-depth-echo",
+      "description": "克隆纵队——主卡瞬间\"复印\"出 7 个半透明分身沿斜向纵深排开成队，停一拍后全体加速吸回本体合一+弹跳",
+      "id": "shotcraft-template-cloner-depth-echo",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "collab-cursor-moves",
+      "key": "dialogue-duet",
+      "label": "dialogue-duet",
+      "description": "蓝/绿两枚具名光标：贝塞尔入场→相互靠近对话（脉冲呼吸）→上下弧线绕位交换→名牌一亮一暗灯光交接→绿光标 easeIn 放大数十倍成巨箭头当转场遮挡",
+      "id": "shotcraft-template-cursor-dialogue-duet",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "collab-cursor-moves",
+      "key": "cast-ensemble",
+      "label": "cast-ensemble",
+      "description": "5 枚具名彩色光标错峰 spring 飞入灰阶画布→双频正弦漂移驻场→一枚在便签上打字机补全一行→结尾全员 easeInOut 聚拢围观",
+      "id": "shotcraft-template-cursor-cast-ensemble",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "color-block-step-wipe",
+      "key": "color-block-step-wipe",
+      "label": "color-block-step-wipe",
+      "description": "离散阶跃色块吞屏两式——A 中央小条按 3–5 步硬跳阶跃扩成全屏（接管后徽章两跳弹出），B 色块从角落斜向 3 步吃屏并携带一张页面卡逐跳前进",
+      "id": "shotcraft-template-color-block-step-wipe",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "command-palette-summon",
+      "key": "command-palette-summon",
+      "label": "command-palette-summon",
+      "description": "命令面板降临——整屏压暗加模糊，⌘K 面板带过冲弹落，候选行错峰浮现，敲字列表实时收窄",
+      "id": "shotcraft-template-command-palette-summon",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "countdown-arc-scatter",
+      "key": "countdown-arc-scatter",
+      "label": "countdown-arc-scatter",
+      "description": "白底表盘 9 个等大数字沿大弧切向排布，整盘扫过 96° 后减速急停，\"5\" 停在弧顶随即平移落位成标题首字符，其余数字带 blur 原地散去，标题逐词模糊淡入、末词转强调色",
+      "id": "shotcraft-template-countdown-arc-scatter",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "counter-confetti",
+      "key": "counter-confetti",
+      "label": "counter-confetti",
+      "description": "大数字 easeOutQuart 冲刺计数并带 scale 过冲，到位前一拍 52 片彩纸从两侧抛物线炸入，冲击环扩散、标签字距收紧收尾",
+      "id": "shotcraft-template-counter-confetti",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "crane-rise-reveal",
+      "key": "crane-rise-reveal",
+      "label": "crane-rise-reveal",
+      "description": "升降臂拉升揭示——开场怼在一行数据特写，相机沿 Y 轴减速升起后拉，行行涌入直到整面 dashboard 铺满全幅",
+      "id": "shotcraft-template-crane-rise-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "crash-zoom-punch",
+      "key": "crash-zoom-punch",
+      "label": "crash-zoom-punch",
+      "description": "全景一拍急推到目标特写（6f），落位二选一——过冲回弹（弹性）或撞停震屏（重量）",
+      "id": "shotcraft-template-crash-zoom-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "cube-navigation",
+      "key": "cube-navigation",
+      "label": "cube-navigation",
+      "description": "内容贴满 3D 立方体六面，相机正面特写→拉远等轴看棱角→转面推近交替步进，每面按法线朝向实时算明暗",
+      "id": "shotcraft-template-cube-navigation",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "cursor-flyover",
+      "key": "cursor-flyover",
+      "label": "cursor-flyover",
+      "description": "整页俯瞰淡入后，相机依次飞到四个角落 zoom-in 特写，SVG 光标同步跟到位指点并留下点击涟漪",
+      "id": "shotcraft-template-cursor-flyover",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "cycle-glass-node-morph",
+      "key": "cycle-glass-node-morph",
+      "label": "cycle-glass-node-morph",
+      "description": "单一主体在对角擦除中缩入机制图，三段循环标签沿弧线依次建立，连续推近时三枚玻璃节点从下方托起并接管原标签，最后诊断标记错峰钉住系统状态",
+      "id": "shotcraft-template-cycle-glass-node-morph",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "dashboard-glow-highlight-pill",
+      "key": "dashboard-glow-highlight-pill",
+      "label": "dashboard-glow-highlight-pill",
+      "description": "金字悬于黑场，数据仪表盘自底带透视升入并持续 3D 漂移；金色光斑从右侧巡游到底部拉成胶囊，再由它起笔描出弹窗的辉光轮廓",
+      "id": "shotcraft-template-dashboard-glow-highlight-pill",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "dataviz-landscape-open",
+      "key": "dataviz-landscape-open",
+      "label": "dataviz-landscape-open",
+      "description": "暗场支流线束地景开场——多条流线汇入主干、虚构 ID 标签浮在线上、相机重景深低速飞越",
+      "id": "shotcraft-template-dataviz-landscape-open",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "deck-deal-flyin",
+      "key": "deck-deal-flyin",
+      "label": "deck-deal-flyin",
+      "description": "暗场金属背景里的实体牌堆特写环绕开局，拉远交给页面后一摞卡像发牌一样硬加速甩进网格，相机追着滚动、满板停半秒",
+      "id": "shotcraft-template-deck-deal-flyin",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "depth-layer-moves",
+      "key": "multiplane",
+      "label": "multiplane",
+      "description": "多层视差滑轨——3 层素材按速度梯度横移（近快远慢），平面截图滑出纵深",
+      "id": "shotcraft-template-multiplane-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "depth-layer-moves",
+      "key": "dolly-zoom",
+      "label": "dolly-zoom",
+      "description": "伪 dolly-zoom——主体钉死不动、背景层持续膨胀压来，戏剧性蓄力的压迫感",
+      "id": "shotcraft-template-dolly-zoom-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "doc-park-left-pill-deal",
+      "key": "doc-park-left-pill-deal",
+      "label": "doc-park-left-pill-deal",
+      "description": "文档不淡出而是向左滑出只露约 35% 宽并微缩到 0.92，右侧按旁白节奏慢速发牌三张白底描边药丸（outBack 弹入），每张落定后其下方字幕逐词加深、下一张到来前整句淡出，左侧文档全程极缓慢自动滚动保持\"正在被读\"",
+      "id": "shotcraft-template-doc-park-left-pill-deal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "document-typewriter-reveal",
+      "key": "document-typewriter-reveal",
+      "label": "document-typewriter-reveal",
+      "description": "整页真排版文档在光标后自己\"写\"出来、侧栏跟进、历史条目逐个落入轨道",
+      "id": "shotcraft-template-document-typewriter-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "draw-svg-trace",
+      "key": "draw-svg-trace",
+      "label": "draw-svg-trace",
+      "description": "描边生长圈注——一条带笔头的墨线沿元素轮廓跑一圈把它\"画\"出来，闭合瞬间闪黑交棒、内容淡入；同套路可给标题画下划线",
+      "id": "shotcraft-template-draw-svg-trace",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "edit-hook-moves",
+      "key": "logo-sting-button",
+      "label": "logo-sting-button",
+      "description": "logo-sting-button 片尾钩子——片尾 logo 定住后突插 12f 彩蛋再收，预告片 button ending",
+      "id": "shotcraft-template-logo-sting-button",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "element-body-moves",
+      "key": "axial-stretch",
+      "label": "axial-stretch",
+      "description": "速度差分驱动轴向拉伸——飞得越快拉得越长（满拉伸 scaleX 2.2/scaleY 0.72），落点 8f 压扁回弹",
+      "id": "shotcraft-template-axial-stretch",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "element-body-moves",
+      "key": "contact-shadow-lift",
+      "label": "contact-shadow-lift",
+      "description": "抬起 10f out-cubic：卡 translateY(−28px)+scale(1.08)，独立椭圆阴影 scale 1→1.72 / opacity 0.55→0.18 同进度反向；落回 8f in-cubic + 2f 微压卡壳",
+      "id": "shotcraft-template-contact-shadow-lift",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "floating-glossy-label-pills",
+      "key": "floating-glossy-label-pills",
+      "label": "floating-glossy-label-pills",
+      "description": "四块浅灰 dashboard wireframe 面板各顶一枚高光胶囊标签横向排队，轨道三拍向右换位（缓起→中段冲→缓收，首拍更慢带长尾），居中者放大清晰、两侧缩到 0.62 并下沉变淡微模糊形成走廊感，末段黑色描白边光标从右上斜滑到末位胶囊右端静止",
+      "id": "shotcraft-template-floating-glossy-label-pills",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "flying-words",
+      "key": "flying-words",
+      "label": "flying-words",
+      "description": "22 个关键词按黄金角铺在扁椭圆截面上，沿 z 轴从 -1750px 飞到相机前 800px 擦身而过，透明度走 [0,1,0.5,0.2,0] 生命曲线，跑满 2 整圈首尾无缝",
+      "id": "shotcraft-template-flying-words",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "fracture",
+      "key": "fracture",
+      "label": "fracture",
+      "description": "5×5 瓦片从 3D 碎片态按中心波纹逐圈聚合成整面海报，停一拍亮字，随后全部碎片背离中心加速旋转飞出画面",
+      "id": "shotcraft-template-fracture",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "fui-hud-moves",
+      "key": "line-unfold-panel",
+      "label": "line-unfold-panel",
+      "description": "scaleX 0→1（out poly4 急抽 5f）接 scaleY 3px→满高（out cubic 9f），内容提前一拍淡入；退场镜像反序",
+      "id": "shotcraft-template-line-unfold-panel",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "fui-hud-moves",
+      "key": "reticle-lock-on",
+      "label": "reticle-lock-on",
+      "description": "四 L 角=同一对矩形四份镜像，飞入（10f out cubic）与收缩（2.2×→0.94×→1 超调回弹）解耦；咬合帧目标微亮+标签 back 弹出",
+      "id": "shotcraft-template-reticle-lock-on",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "gauge-readout-moves",
+      "key": "needle-sweep-selftest",
+      "label": "needle-sweep-selftest",
+      "description": "指针去程 ~12f ease-out 甩满弧，回程 ~20f 带 5-8° 过冲回摆落真值；多表错峰 3-5f；落定同帧盘下数值弹出",
+      "id": "shotcraft-template-needle-sweep-selftest",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "gauge-readout-moves",
+      "key": "tape-scroll-fixed-pointer",
+      "label": "tape-scroll-fixed-pointer",
+      "description": "长刻度带 translate：慢爬段→45px/f 冲刺 ~25f→spring 刹车过冲回摆停位；窗内读数同步刷新",
+      "id": "shotcraft-template-tape-scroll-fixed-pointer",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "glass-pill-dictation-typing",
+      "key": "glass-pill-dictation-typing",
+      "label": "glass-pill-dictation-typing",
+      "description": "纯黑底上一条定宽玻璃胶囊以约 1.25 倍略大弹出后缓落到位，内部自左暗到右亮铺一层强调色光；光标先行、随后打字出现占位句，光随打字进度渐渐熄灭，收尾成中性深色玻璃条",
+      "id": "shotcraft-template-glass-pill-dictation-typing",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "glitch-cycle",
+      "key": "glitch-cycle",
+      "label": "glitch-cycle",
+      "description": "同一行等宽槽位循环轮播 4 条状态短语，每条头尾按概率关键帧 [1,0,0,0.1,0,0,1] 全乱码、中段偶发单字抖动，切换瞬间叠 RGB 分离与整行位移；末条概率收 0 保证收尾干净",
+      "id": "shotcraft-template-glitch-cycle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "glow-flyline-moves",
+      "key": "glow-orb-ambient",
+      "label": "glow-orb-ambient",
+      "description": "三团 500-700px radial 光斑 + blur(100px)，双正弦漂移；卡缘辉光按光斑距离 [180,720]px→[1,0] 加权取 max 驱动",
+      "id": "shotcraft-template-glow-orb-ambient",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "glow-flyline-moves",
+      "key": "flyline-arc",
+      "label": "flyline-arc",
+      "description": "手写 bezier 100 段采样，22f out-cubic 生长；光头条件挂载领跑，段 opacity 按离头距离渐隐；落点描边脉冲，可接力",
+      "id": "shotcraft-template-flyline-arc",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "glow-flyline-moves",
+      "key": "orb-flyline-relay",
+      "label": "orb-flyline-relay",
+      "description": "A+B 焊接：光斑 surge 与卡脉冲共用落点帧，涨亮 1+1.6×surge、5f 起升 15f 消散",
+      "id": "shotcraft-template-orb-flyline-relay",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "gradient-transition",
+      "key": "gradient-transition",
+      "label": "gradient-transition",
+      "description": "背景在 linear、radial、conic 三类 CSS 渐变间平滑过渡——角度、色标、中心、半径逐参数插值，段间交叉淡化换类型",
+      "id": "shotcraft-template-gradient-transition",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "gradient-word-sweep",
+      "key": "gradient-word-sweep",
+      "label": "gradient-word-sweep",
+      "description": "黑底标语里关键词被渐变彩光从左到右快速扫过\"充能\"——波前字符辉光最强向后衰减，填满后字符间勾连细紫红闪电、整词稳态泛光呼吸",
+      "id": "shotcraft-template-gradient-word-sweep",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "grain-dissolve",
+      "key": "grain-dissolve",
+      "label": "grain-dissolve",
+      "description": "整行字爆裂成沸腾颗粒噪点并浮现斜纹选区框，噪点云急速凝聚成更大号发光短字标，位移衰减归零定格",
+      "id": "shotcraft-template-grain-dissolve",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "graze-face-tour",
+      "key": "graze-face-tour",
+      "label": "graze-face-tour",
+      "description": "大倾角贴面游走特写——镜头贴着 UI 表面低飞掠过（侧栏树/顶栏/列表当地形），页面文字初始悬浮在界面上空带同形软影，随镜头行进先后加速贴落回界面",
+      "id": "shotcraft-template-graze-face-tour",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "hashtag-to-pill-materialize",
+      "key": "hashtag-to-pill-materialize",
+      "label": "hashtag-to-pill-materialize",
+      "description": "话题词打字实体化——居中打出 \"#word\"（红实心光标恒亮），1 帧硬切变成宽大胶囊标签，hold 后缩小左移落到页面标签位，再 1 帧硬切揭示成品页；\"两次硬切一次滑动\"的节奏骨架",
+      "id": "shotcraft-template-hashtag-to-pill-materialize",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "hatch-depth",
+      "key": "hatch-depth",
+      "label": "hatch-depth",
+      "description": "斜纹占位条逐条 wipe 伸长后，斜纹淡出、强调色实心层淡入并弹出数值，占位图蜕变为真数据条形图",
+      "id": "shotcraft-template-hatch-depth",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "icon-field-colorize",
+      "key": "icon-field-colorize",
+      "label": "icon-field-colorize",
+      "description": "灰阶小图标点阵错峰浮现铺满全屏，停一拍后多道品牌色横带波纹极快向下扫翻全场——\"功能全景先摆满，品牌一瞬间点亮\"的开场/收束卡",
+      "id": "shotcraft-template-icon-field-colorize",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "icon-performance-moves",
+      "key": "pop-burst-confirm",
+      "label": "pop-burst-confirm",
+      "description": "scale 蓄力-过冲-落回 spring + N 条径向 line translate + 圆环 scale/opacity，全程 ~20f，随后标签弹出",
+      "id": "shotcraft-template-pop-burst-confirm",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "icon-performance-moves",
+      "key": "attention-bounce",
+      "label": "attention-bounce",
+      "description": "translateY 弹跳缓动递增 + 落地帧 scaleX/Y 挤压 + 尘点，峰值帧镜头 scale 1.08 推近，落定触发面板卡弹出",
+      "id": "shotcraft-template-attention-bounce",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "impact-feedback",
+      "key": "hit-counter",
+      "label": "hit-counter 连招计数",
+      "description": "三卡接连砸入，每命中 = 顿帧 2f + 伤害数字上浮 + ×N 计数跳字逐次加码",
+      "id": "shotcraft-template-hit-counter",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "impact-feedback",
+      "key": "anime-impact",
+      "label": "anime-impact 打击帧",
+      "description": "crash-zoom 撞停的 3f 整幅负片反色 + 放射集中线 + 红青色散，第 4f 全撤",
+      "id": "shotcraft-template-anime-impact",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "input-trigger-moves",
+      "key": "cursor-performance",
+      "label": "cursor-performance",
+      "description": "光标三次贝塞尔弧线滑入+末端甩腕过冲，悬停提亮，点击帧按钮下陷+涟漪+推近 1.4x 停两拍缓退",
+      "id": "shotcraft-template-cursor-performance-punch-in",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "input-trigger-moves",
+      "key": "keycap-smash-cut",
+      "label": "keycap-smash-cut",
+      "description": "键帽呼吸悬浮→3f 压扁+亮环引信 + 30f 卡片四面冲镜持续加速轰鸣 + 动势最猛一帧硬切静止全景、键帽嵌顶栏",
+      "id": "shotcraft-template-keycap-smash-cut",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "integration-hub-map",
+      "key": "integration-hub-map",
+      "label": "integration-hub-map",
+      "description": "旧页面一次性快翻 180°（侧棱瞬间亮闪）落成新中枢页，五个集成 app 图标同帧弹现、随即五条彩虹光管同帧齐连，光管内输送脉冲持续流动——\"翻开新一页，生态一齐接入\"",
+      "id": "shotcraft-template-integration-hub-map",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "lead-word-zoom-assemble",
+      "key": "lead-word-zoom-assemble",
+      "label": "lead-word-zoom-assemble",
+      "description": "首词以 2.3 倍字号占据画面中央、hold 期间继续推近 6%，随后一条曲线同时完成「缩回终字号」与「整行左滑归位」，后续词各自从槽位右侧 0.5em 被推进来；支点横向钉首词中心、纵向钉基线（挂载时实测），整行上移的同一时窗副行浮出，停一拍后整幕 crash-zoom 推近失焦交棒",
+      "id": "shotcraft-template-lead-word-zoom-assemble",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "letterspace-materialize",
+      "key": "letterspace-materialize",
+      "label": "letterspace-materialize",
+      "description": "大字距字标全字符并行连续描画结晶——所有字母同帧起笔、笔画像手写一样连续生长、同帧齐收成词；氛围底景上的品牌字标显影",
+      "id": "shotcraft-template-letterspace-materialize",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "light-play-moves",
+      "key": "spotlight-sweep",
+      "label": "spotlight-sweep",
+      "description": "双层同文本：暗版 0.07 常驻，亮版 radial mask 随光斑走，锥形光摆两个来回后全亮定格",
+      "id": "shotcraft-template-spotlight-sweep-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "light-play-moves",
+      "key": "sheen-sweep",
+      "label": "sheen-sweep",
+      "description": "深墨卡上 45° 高光带 translateX 扫一次，overflow hidden 圆角裁剪",
+      "id": "shotcraft-template-sheen-sweep-retry",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "light-play-moves",
+      "key": "halation-bloom",
+      "label": "halation-bloom",
+      "description": "文字复制底层 blur+brightness 当晕层，撞停帧起猛涨一圈回落成稳态柔光",
+      "id": "shotcraft-template-halation-bloom",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "line-boil",
+      "key": "line-boil",
+      "label": "line-boil",
+      "description": "线条沸腾——hold 期间文字/描边轮廓每 3 帧轻微扭动一次，像手绘逐帧重描，静止画面保持\"活着\"的呼吸感",
+      "id": "shotcraft-template-line-boil",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "line-carry-transition",
+      "key": "line-carry-transition",
+      "label": "line-carry-transition",
+      "description": "线条接力横移转场——场景 A 的进度条延伸出画，镜头跟线横移，线在移动中拐角围出场景 B 的卡框，全程无剪切",
+      "id": "shotcraft-template-line-carry-transition",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "list-reveal",
+      "key": "list-reveal",
+      "label": "list-reveal",
+      "description": "垂直菜单 6 项按 0.09 的间隔依次 scale 找位、outBack 轻微过冲落定，同时整个列表容器全程线性上移 32px——逐项入场与整体漂移是两层不相干的运动",
+      "id": "shotcraft-template-list-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "list-stack-press",
+      "key": "list-stack-press",
+      "label": "list-stack-press",
+      "description": "列表卡从画面底部逐张飞上摞起，每张落地压弹整摞、计数器同步跳一格",
+      "id": "shotcraft-template-list-stack-press",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "logo-shrink-wordmark-lockup",
+      "key": "logo-shrink-wordmark-lockup",
+      "label": "logo-shrink-wordmark-lockup",
+      "description": "霓虹切口大环快速收束成中央实心小白 O 并带过冲刹车，图标左移让位，字母逐个滑入完成 lockup，强调色标语收尾",
+      "id": "shotcraft-template-logo-shrink-wordmark-lockup",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "magician-card-flourish",
+      "key": "magician-card-flourish",
+      "label": "magician-card-flourish",
+      "description": "纯黑场上蓝色星芒闪现 0.3s（X 形针状光束旋转 90°+中心辉光放射小光芒），卡片从闪光点弹射而出——极速自旋弧线飞向镜头、自旋随靠近衰减、瞬间硬定格近满幅、定格后 sheen 扫光",
+      "id": "shotcraft-template-magician-card-flourish",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "marker-underline-title",
+      "key": "marker-underline-title",
+      "label": "marker-underline-title",
+      "description": "大标题落定后，关键词下方马克笔下划线从左到右快速描画——变宽笔形、毛糙边缘、微上斜跟随斜体字势，贴着字底",
+      "id": "shotcraft-template-marker-underline-title",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "montage-rhythm-moves",
+      "key": "drop-blackout-slam",
+      "label": "drop-blackout-slam 黑场蓄爆",
+      "description": "正常播放中一帧切纯黑死寂 12f，然后主视觉带震屏+亮环砸入",
+      "id": "shotcraft-template-drop-blackout-slam",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "montage-rhythm-moves",
+      "key": "wright-triple-cut",
+      "label": "wright-triple-cut 三连特写",
+      "description": "三个 10f 超近特写硬切连打（各\"静4-动3-静3\"），第三声甩回全景亮结果",
+      "id": "shotcraft-template-wright-triple-cut",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "montage-rhythm-moves",
+      "key": "domino-cascade",
+      "label": "domino-cascade 连锁入场",
+      "description": "标题砸落→震波弹起卡片列→末卡撞滑侧边栏进场，动量方向逐级传递",
+      "id": "shotcraft-template-domino-cascade",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "morph-from-primitive",
+      "key": "morph-from-primitive",
+      "label": "morph-from-primitive",
+      "description": "原型变形——正圆呼吸一拍（anticipation）后 SVG path 插值 24f 长成圆角卡轮廓，内容淡入",
+      "id": "shotcraft-template-morph-from-primitive",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "mosaic-reframe",
+      "key": "mosaic-reframe",
+      "label": "mosaic-reframe",
+      "description": "12 张瓦片在规则网格、feature mosaic、对角瀑布串三种排版间连续变形，位置宽高各自插值、逐片微错峰，段间留 hold",
+      "id": "shotcraft-template-mosaic-reframe",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "neon-frame-forerun",
+      "key": "neon-frame-forerun",
+      "label": "neon-frame-forerun",
+      "description": "强透视直角霓虹框自左缘两头奔画先行成型，页面在框内由暗转亮，同时框内组件/文字从 3D 上空带同形软影错峰贴落、随页面点亮同步完成贴合，背景霓虹管群终段熄灭让位",
+      "id": "shotcraft-template-neon-frame-forerun",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "neon-frame-orbit-drop",
+      "key": "neon-frame-orbit-drop",
+      "label": "neon-frame-orbit-drop",
+      "description": "霓虹框先行描框后，镜头绕页面左→右弧线旋转，页面全部组件/文字**同帧**从空中往下贴合（同形软影同步收敛）——整体登场式的框内安放",
+      "id": "shotcraft-template-neon-frame-forerun-orbit",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "neon-triple-marquee",
+      "key": "neon-triple-marquee",
+      "label": "neon-triple-marquee",
+      "description": "三行对向霓虹跑马灯 recap——BETTER/FASTER/STRONGER 空心描边巨字上中下排满全屏，奇偶行反向匀速无限横滚，三行按 1/3 相位轮流亮起，结尾整组淡出",
+      "id": "shotcraft-template-neon-triple-marquee",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "odometer-digit-roll",
+      "key": "odometer-digit-roll",
+      "label": "odometer-digit-roll",
+      "description": "里程表数字滚动大字报——全屏巨号指标每个数位像老虎机滚轮独立纵向滚动带残影，从左到右逐位过冲停稳，全部锁定瞬间整体加深脉冲",
+      "id": "shotcraft-template-odometer-digit-roll",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "orbit-ring-title-open",
+      "key": "orbit-ring-title-open",
+      "label": "orbit-ring-title-open",
+      "description": "八张 16:9 内容卡按 45° 均布在 700×375 椭圆上匀速公转（卡身永不倾斜，纵深只由 sin θ 给出 ±9% 缩放与 z 序），环撑开期间卡内容冻结首帧、f24 之后八张一起开播；居中标题逐字解糊下沉落定，关键词到位那一刻黄色马克块自左横扫铺满，mono 副行随后浮出，末段整行失焦淡出、环继续转着交棒下一镜",
+      "id": "shotcraft-template-orbit-ring-title-open",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "outline-word-fill",
+      "key": "outline-word-fill",
+      "label": "outline-word-fill",
+      "description": "空心词（1px 灰描边、500 字重）从 3.2 倍急缓收缩落位，虚线大圆随后从 2.8 倍收到字周围并缓慢自转，左右水平虚线从画框边缘内伸；描边先微微增亮，实心白在 0.6 帧内瞬间点亮，一闪辉光即定格",
+      "id": "shotcraft-template-outline-word-fill",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "outro-group-photo-launch",
+      "key": "outro-group-photo-launch",
+      "label": "outro-group-photo-launch",
+      "description": "全片元素从四面八方飞来围住字标合影，crane 落机位+舞台光+金尘做成发布会收场",
+      "id": "shotcraft-template-outro-group-photo-launch",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "overhead-camera-moves",
+      "key": "tilt-reveal",
+      "label": "tilt-reveal",
+      "description": "perspective 容器内整页 rotateX -80° 平躺，~43f 抬正，rotateX/scale/translateY 共用 out-cubic，末端轻过冲",
+      "id": "shotcraft-template-tilt-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "overhead-camera-moves",
+      "key": "overhead-tabletop-drop",
+      "label": "overhead-tabletop-drop",
+      "description": "卡阵平躺 rotateX 62°，pan 段只动 translateX 横滑掠过，drop 段角度/缩放/位移三通道同跑扎入落版",
+      "id": "shotcraft-template-overhead-tabletop-drop",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "page-turn-transitions",
+      "key": "cube-rotate",
+      "label": "cube-rotate",
+      "description": "两页贴立方体相邻面（rotateY 0/90° + translateZ W/2），场景层转 -90°；旧面转出压暗、新面转进变亮，45° 时两面夹一条暗棱",
+      "id": "shotcraft-template-cube-rotate",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "page-turn-transitions",
+      "key": "barn-door-split",
+      "label": "barn-door-split",
+      "description": "旧页两个 960px overflow 容器对位拼合，同时向外 Easing.in(cubic) 滑出画外；裂缝内边缘亮线+投影，新页底层 scale 1.06→1 迎上",
+      "id": "shotcraft-template-barn-door-split",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "page-waterfall-wall",
+      "key": "page-waterfall-wall",
+      "label": "page-waterfall-wall",
+      "description": "页面瀑布墙——真实页面截图切成 3–4 列在 3D 后仰墙面上差速反向无限滚动，视差 + 镜头缓推做\"内容多到流不完\"的一览",
+      "id": "shotcraft-template-page-waterfall-wall",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "panel-grid-moves",
+      "key": "grid-flash-mosaic",
+      "label": "grid-flash-mosaic",
+      "description": "3×3 格每 2f 一格按 h(i) 乱序条件挂载硬入（入格 3f scale 1.18→1 + 2f 加深脉冲），满墙呼吸一拍，中心格 14f Easing.in(cubic) 放大 3.28x 吞屏",
+      "id": "shotcraft-template-grid-flash-mosaic",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "panel-grid-moves",
+      "key": "flip-grid-reflow",
+      "label": "flip-grid-reflow",
+      "description": "预写两套坐标表（横排/3×2 网格），每卡 delay=i×1.5f、16f inOut cubic 直线飞行 + scale 1→1.28 带 1.02 过冲；落定后 6f brightness 0.78 全画面脉冲",
+      "id": "shotcraft-template-flip-grid-reflow",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "panel-grid-moves",
+      "key": "comic-panel-split",
+      "label": "comic-panel-split",
+      "description": "三格各一份整页 clip-path 12° 斜边裁切 + translate/scale 摆机位（1x/1.9x/2.6x），逐格 2f 间隔弹入；定格 18f 各格缓推保活，末格斜边 12f out-cubic 扩张吃屏",
+      "id": "shotcraft-template-comic-panel-split",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "paper-craft-moves",
+      "key": "masking-tape-slap",
+      "label": "masking-tape-slap",
+      "description": "晃动=幅度包络×正弦（rot ±1.5°/bob ±5px）；胶带扑入 6f：scale 1.45→1 + rotate 欠 16°→过冲 7°→回正 + 落帧 scaleY 0.72 一帧压扁；撕边 14 点 clipPath 锯齿",
+      "id": "shotcraft-template-masking-tape-slap",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "paper-craft-moves",
+      "key": "popup-book-rise",
+      "label": "popup-book-rise",
+      "description": "双层 3D：场景 rotateX 75° 俯视（persp 2600），每卡 rotateX 0→-90° spring（damping 11 过冲 -95°），origin 底边，preserve-3d 贯通；远排先近排后错峰 7f",
+      "id": "shotcraft-template-popup-book-rise",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "paper-plane-messenger",
+      "key": "paper-plane-messenger",
+      "label": "paper-plane-messenger",
+      "description": "纸飞机信使转场——点击\"发送\"后镜头拉远脱离窗口 A，折纸飞机沿贝塞尔弧线飞出（俯仰跟随切线），镜头伴飞穿过多层视差道具，飞抵窗口 B 门前落定，B 放大接管全屏",
+      "id": "shotcraft-template-paper-plane-messenger",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "paper-title-card",
+      "key": "paper-title-card",
+      "label": "paper-title-card",
+      "description": "一句话逐词压印上纸、一个词标强调色斜体、短划线收束",
+      "id": "shotcraft-template-paper-title-card",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "particle-celebrate-hits",
+      "key": "confetti-crossfire",
+      "label": "confetti-crossfire",
+      "description": "双炮各 50 颗矩形彩屑：初速 90-150px/f（decay 0.9 下总程 ~900-1500px 才能交叉过中线）、spread 55°、每帧翻转 8-15°；~90f 全部落出画外后条件卸载",
+      "id": "shotcraft-template-confetti-crossfire",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "particle-celebrate-hits",
+      "key": "counter-tick-sparks",
+      "label": "counter-tick-sparks",
+      "description": "tick 帧由计数器同一 interpolate 派生；每 tick 6-10 颗 2px 火星（初速向上 4-6px/f、重力 12-18f 坠灭），终值跳翻倍 20 颗+数字弹 1.1x",
+      "id": "shotcraft-template-counter-tick-sparks",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "particle-sand-fill",
+      "key": "particle-sand-fill",
+      "label": "particle-sand-fill",
+      "description": "粒子落斗成柱——柱状图不长高而是\"下雨下出来\"：方点粒子逐颗坠落堆积成柱，堆满凝成实体+数值弹出",
+      "id": "shotcraft-template-particle-sand-fill",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "picker-carousel-feature-cycle",
+      "key": "picker-carousel-feature-cycle",
+      "label": "picker-carousel-feature-cycle",
+      "description": "移动端风竖向选择器——焦点药丸不动、内容穿过它，每项带明显 outQuint 减速吸附后完全静止，按到中心距离分层控制透明度/字号/灰度，落定时药丸做 scaleY 极轻呼吸",
+      "id": "shotcraft-template-picker-carousel-feature-cycle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "pill-chip-slot-cycle-handled",
+      "key": "pill-chip-slot-cycle-handled",
+      "label": "pill-chip-slot-cycle-handled",
+      "description": "白底句式 \"Your `chip` Handled\" 里深色胶囊内词竖向滚轮轮换，胶囊宽度按预量文本宽插值平滑伸缩、两侧文字被自然挤开收拢，胶囊上下露出 13% 透明度的灰色幽灵项",
+      "id": "shotcraft-template-pill-chip-slot-cycle-handled",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "pill-slot-cycle",
+      "key": "pill-slot-cycle",
+      "label": "pill-slot-cycle",
+      "description": "句中词槽轮换——固定句干钉死不动，句尾 pill 徽章每 ~0.7s 老虎机滚一格（旧的上飞加速淡出、新的从下带模糊滑入），连换 N 个功能词后落成完整句子收束",
+      "id": "shotcraft-template-pill-slot-cycle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "platform-hinge-rise",
+      "key": "platform-hinge-rise",
+      "label": "platform-hinge-rise",
+      "description": "承托平台先横向建立，两块主体从相邻底部铰点反向翻起并做一次克制阻尼回摆，最后结论台从画外升入，形成“舞台→证据→结论”的三段式揭示",
+      "id": "shotcraft-template-platform-hinge-rise",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "print-texture-transitions",
+      "key": "ink-bleed-reveal",
+      "label": "ink-bleed-reveal 墨渗揭示",
+      "description": "印刷质感转场——ink-bleed-reveal 墨渗揭示（须状渗边洇开吃掉旧景）",
+      "id": "shotcraft-template-ink-bleed-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "product-card-progressive-assemble",
+      "key": "product-card-progressive-assemble",
+      "label": "product-card-progressive-assemble",
+      "description": "详情卡像被逐字段抓取般自建——图→标题→breadcrumb pill 依次 pop→原价出现后被划线降级、强调色新价 spring 跳出→正文逐行揭示且高亮块由左向右刷过→色卡点亮，整卡全程极慢 scale 前推",
+      "id": "shotcraft-template-product-card-progressive-assemble",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "quad-split-parallel-scenes",
+      "key": "quad-split-parallel-scenes",
+      "label": "quad-split-parallel-scenes",
+      "description": "画面硬切 2×2 四宫格，四个象限并行跑各自的微场景（打字、急推、逐词、交互链），关键节拍错开 3–6 帧制造信息轰炸",
+      "id": "shotcraft-template-quad-split-parallel-scenes",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "radial-ripple-phone-chips",
+      "key": "radial-ripple-phone-chips",
+      "label": "radial-ripple-phone-chips",
+      "description": "浅灰底四层同心圆错相呼吸如水波，中央手机 mockup 屏内 feed 自动缓滚，两侧白色 chip 先后 spring pop 入场并悬浮",
+      "id": "shotcraft-template-radial-ripple-phone-chips",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "radial-wave",
+      "key": "radial-wave",
+      "label": "radial-wave",
+      "description": "17×9 圆点阵列按到波源的欧氏距离错峰点亮，每点 scale 过冲到 1.5 再落回常亮，第一道波扫完后第二道亮蓝脉冲从外圈反向收拢回中心",
+      "id": "shotcraft-template-radial-wave",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "research-card-stack-scroll",
+      "key": "research-card-stack-scroll",
+      "label": "research-card-stack-scroll",
+      "description": "深色论文卡每 12 帧一张沿右下轴线飞入中心叠压，落位带 1 帧压缩，只有最上一张全清晰渲染标题+作者+摘要，下方卡按堆积深度递增模糊变暗只露标题条，背景横向 grid 同步下移做速度参照",
+      "id": "shotcraft-template-research-card-stack-scroll",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "rhythm-interrupt-moves",
+      "key": "jump-cut-punch-in",
+      "label": "jump-cut-punch-in",
+      "description": "transform-origin 钉目标中心，三档 scale 阶梯跳变（零补间），每跳 2f 加深脉冲当 tick",
+      "id": "shotcraft-template-jump-cut-punch-in",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "rhythm-interrupt-moves",
+      "key": "strobe-black-frames",
+      "label": "strobe-black-frames",
+      "description": "全屏黑帧按写死帧号表闪现（每次 2f，间隔 8f→3f 收敛），末闪掀开即硬切放大落定",
+      "id": "shotcraft-template-strobe-black-frames",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "ring-diagram-annotation-reveal",
+      "key": "ring-diagram-annotation-reveal",
+      "label": "ring-diagram-annotation-reveal",
+      "description": "全屏主体被圆形窗口收束成同心环图解，分段外环与 12 支向心箭头建立机制，整组随后左移缩小并为四块标题和两级注释让出右栏",
+      "id": "shotcraft-template-ring-diagram-annotation-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "riso-print-hits",
+      "key": "misregistration-hit",
+      "label": "misregistration-hit 单发",
+      "description": "标题 8f 撞入撞停，裂两版反向错 ~32px，44f 衰减震荡后硬切套准 + scale 脉冲",
+      "id": "shotcraft-template-riso-misregistration-hit",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "riso-print-hits",
+      "key": "beat-pump",
+      "label": "beat-pump 节拍泵",
+      "description": "每 24f 一拍：整画面瞬跳 1.08 指数回落 + 标题错版逐拍 8/14/22/32px 加码套准",
+      "id": "shotcraft-template-riso-beat-pump",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "row-embed",
+      "key": "row-embed",
+      "label": "row-embed",
+      "description": "内容行像卡片一样从空中降下、rotateX 收平、嵌入瞬间底边亮一道强调色的缝",
+      "id": "shotcraft-template-row-embed",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "runway-ground-skim",
+      "key": "runway-ground-skim",
+      "label": "runway-ground-skim",
+      "description": "低角度掠地机位下 UI 卡片群从空中一阵急雨式快速贴落（起点微错、下落大量重叠并行、着地即停零回弹），落齐后整页立起、视角转正收尾",
+      "id": "shotcraft-template-runway-ground-skim",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "sakuga-timing-shift",
+      "key": "sakuga-timing-shift",
+      "label": "sakuga-timing-shift",
+      "description": "一拍三转一拍一——元素先以每 3 帧一步的手翻书顿挫移动，高潮瞬间切成逐帧丝滑冲刺，帧率量化的突变本身就是看点",
+      "id": "shotcraft-template-sakuga-timing-shift",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scan-bracket-sweep",
+      "key": "scan-bracket-sweep",
+      "label": "scan-bracket-sweep",
+      "description": "骨架文档弹到中央，四角落下 L 形取景括号，一条 2.5px 实线带渐变拖尾在文档上往复扫 5 趟——文档全程静止，只有光在读它",
+      "id": "shotcraft-template-scan-bracket-sweep",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scanline-annotate-focus",
+      "key": "scanline-annotate-focus",
+      "label": "scanline-annotate-focus",
+      "description": "一条亮扫描线自上而下掠过页面，扫过之处按先后顺序弹出相机取景框（1.75 倍收拢对准 + 轻微过冲），随后旁侧打出等宽小字标注，顶部状态行同步计数 00/06→06/06",
+      "id": "shotcraft-template-scanline-annotate-focus",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scanline-assemble-flyin",
+      "key": "scanline-assemble-flyin",
+      "label": "scanline-assemble-flyin",
+      "description": "页面开场是空的暗底网格，一条亮扫描线自上而下掠过；扫到每个区块的落点，该处组件就从画外飞入贴合，带残影模糊与落位闪边——扫完整页恰好装配完成",
+      "id": "shotcraft-template-scanline-assemble-flyin",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scramble",
+      "key": "scramble",
+      "label": "scramble",
+      "description": "等宽整行字符先每 2 帧高速跳乱码，再从左到右逐个锁定为真字，锁定瞬间蓝白高光闪一下——种子驱动可复现的解密感",
+      "id": "shotcraft-template-scramble",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scroll-brake-moves",
+      "key": "changelog-scroll-brake",
+      "label": "changelog-scroll-brake",
+      "description": "translateY 扫 ~2400px（out exp 指数减速 ~50f），blur 由帧间位移差分驱动（0-6px 自动清零）；停点行 scale 1.03 抬升+阴影+3px 描边，其余 opacity 退 0.38",
+      "id": "shotcraft-template-changelog-scroll-brake",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "scroll-brake-moves",
+      "key": "brake-reticle-lock",
+      "label": "brake-reticle-lock",
+      "description": "滚动三段：sin-in 加速→cubic-out 猛减速冲过头 +30px→回弹落定；blur=v×0.12 封顶 24px；角标从 ±620/±320 画外 Easing.back(2.4) 飞入咬合，高亮 6f 内完成、标签 back(2.6) 弹出",
+      "id": "shotcraft-template-brake-reticle-lock",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "segmented-thumb-hero",
+      "key": "segmented-thumb-hero",
+      "label": "segmented-thumb-hero",
+      "description": "分段控件 thumb 位移当主角特写——超大胶囊 segmented control 弹簧浮入，描边箭头光标画外滑入按下，白 thumb 8f ease-out 滑到另一段，到位瞬间新图标 spring 弹出、旧图标收起",
+      "id": "shotcraft-template-segmented-thumb-hero",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "flash-cut",
+      "label": "推进流白 flash-cut",
+      "description": "前镜相机推进，切点跨骑一层白闪盖住换页",
+      "id": "shotcraft-template-flash-cut-shot",
+      "method": "upstream PageCam2D + FlashCut recipe"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "shot-transitions-4",
+      "label": "穿暗场直航",
+      "description": "相机顺运动方向推出前景→纯暗场滑行几帧→后景从景深迎面放大而来，一条 take 不切",
+      "id": "shotcraft-template-dark-tunnel-transition",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "shot-transitions-5",
+      "label": "虚焦接力",
+      "description": "前景滑出焦平面（blur 渐深）同时后景反向收焦入场，焦点当剪辑点",
+      "id": "shotcraft-template-focus-handoff-transition",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "shot-transitions-6",
+      "label": "黑场字卡",
+      "description": "前镜收尾淡入黑场，字卡打字机/压印出现，再交棒后镜",
+      "id": "shotcraft-template-black-card-transition",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "whip-pan",
+      "label": "whip-pan 甩镜",
+      "description": "机位一拍横甩到下一场景，中段运动模糊糊到不可辨，借糊帧换景",
+      "id": "shotcraft-template-whip-pan-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "shot-transitions",
+      "key": "mask-wipe",
+      "label": "mask-wipe 穿窗",
+      "description": "页面内真实元素（卡片）放大成全屏窗口，新场景从窗内长出接管",
+      "id": "shotcraft-template-mask-wipe-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "skeleton-reveal",
+      "key": "skeleton-reveal",
+      "label": "skeleton-reveal",
+      "description": "草稿→骨架→内容三级显影——手绘涂鸦占位（煮沸抖动）一拍被灰条骨架窗口替换，骨架列表滚入后镜头推近、灰条逐行显影成头像+逐词文字，末词晚半拍落地",
+      "id": "shotcraft-template-skeleton-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "slam-entrance-moves",
+      "key": "kanada-perspective-snap",
+      "label": "kanada-perspective-snap",
+      "description": "perspective 300→1500px + rotate3d 58°→0 + scale 1.7→1 甩入 18f，末 4f 过冲 +5° 弹平，长斜影收正",
+      "id": "shotcraft-template-kanada-perspective-snap",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "slam-entrance-moves",
+      "key": "score-slam",
+      "label": "score-slam",
+      "description": "卡从 scale 2.5/rotate 5° 六帧 Easing.in(quad) 砸落，落点帧圆环扩散+尘点飞散+震屏同帧",
+      "id": "shotcraft-template-score-slam",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "slam-entrance-moves",
+      "key": "impact-burst-kit",
+      "label": "impact-burst-kit",
+      "description": "B 三件套 + 冲击波前沿按半径-距离精算扫过邻卡帧，邻卡外推 30px + rotate ±3° 阻尼弹回",
+      "id": "shotcraft-template-impact-burst-kit",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "smear-multiples",
+      "key": "smear-multiples",
+      "label": "smear-multiples",
+      "description": "残像分身——卡片高速横移时拖 4 个清晰可数的半透明分身副本，落位瞬间收拢合一；motion blur 的动画式平替",
+      "id": "shotcraft-template-smear-multiples",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "space-camera-moves",
+      "key": "exploded-view",
+      "label": "exploded-view",
+      "description": "整页 3D 倾斜后构件沿 Z 轴错峰炸开悬停，一拍后逆序合体震屏收口",
+      "id": "shotcraft-template-exploded-view",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "space-camera-moves",
+      "key": "drone-dive-landing",
+      "label": "drone-dive-landing",
+      "description": "近垂直俯角悬停 → 猛扎俯冲 → 气垫减速停在 hero 卡特写",
+      "id": "shotcraft-template-drone-dive-landing",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "spectrum-morph-ui",
+      "key": "spectrum-morph-ui",
+      "label": "spectrum-morph-ui",
+      "description": "频谱化 UI——标题下划线裂成一排竖条按频谱跳动两小节，再收拢还原成直线；音乐可视化长在 UI 上",
+      "id": "shotcraft-template-spectrum-morph-ui",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "speed-ramp-freeze",
+      "key": "speed-ramp",
+      "label": "speed-ramp",
+      "description": "帧号非线性 remap 变速——高速掠过突降 0.2x 凝视重点，再加速离开",
+      "id": "shotcraft-template-speed-ramp-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "speed-ramp-freeze",
+      "key": "freeze-annotate",
+      "label": "freeze-annotate",
+      "description": "卡片流中途全画面定格，圈注标记弹出点名重点，随后解冻继续流动",
+      "id": "shotcraft-template-freeze-annotate-real",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "split-flap-title",
+      "key": "split-flap-title",
+      "label": "split-flap-title",
+      "description": "机场翻牌屏字标题——每字符上下两半机械翻牌格，翻过 2 个乱码咔哒停在目标字，左→右级联成波",
+      "id": "shotcraft-template-split-flap-flip",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "spotlight-hero-card",
+      "key": "spotlight-hero-card",
+      "label": "spotlight-hero-card",
+      "description": "聚光灯扫过页面锁定一张卡，斜 45° 推进后卡片弹起悬浮、光束沿轮廓两圈、贴回原位",
+      "id": "shotcraft-template-spotlight-hero-card",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "key": "glow-wake-sleep-panel",
+      "label": "glow-wake-sleep-panel",
+      "description": "醒睡扫过：radial 显影罩跟随光头从左向右匀速移动，贴顶边紫色光线三层辉光同行，经过 logo 描光、到右缘点亮竖直残光，尾段面板沉回黑暗",
+      "id": "shotcraft-template-glow-wake-sleep-panel",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "key": "slide-spotlight-pan",
+      "label": "slide-spotlight-pan",
+      "description": "贴边泛光横摇：光线先绕左上角竖缘、转角后沿顶边横走，紫光晕染渗入 UI 顶部内侧；聚光头匀速右移显影 + 面板匀速左滑＝相机右摇感",
+      "id": "shotcraft-template-slide-spotlight-pan",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "spotlight-sweep-moves",
+      "key": "corner-spotlight-reveal",
+      "label": "corner-spotlight-reveal",
+      "description": "角落匀速显影：左上角径向聚光半径严格 linear 扩张，照到显影照不到沉黑，最终全屏亮起——光即转场",
+      "id": "shotcraft-template-corner-spotlight-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "steep-tilt-glide",
+      "key": "steep-tilt-glide",
+      "label": "steep-tilt-glide",
+      "description": "固定镜头下直立页面以 60° 强透视侧立（右近左远），页面自身沿其 3D 横面方向滑移掠过镜头（物动镜不动），滑移带速度重影、文字组件悬空贴落、由暗揭亮",
+      "id": "shotcraft-template-steep-tilt-glide",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "stroke-segment-build",
+      "key": "stroke-segment-build",
+      "label": "stroke-segment-build",
+      "description": "断笔成字——标题拆成十几段互不相连的笔画乱序逐段点亮，前 70% 不可读，末段落位瞬间语义\"啪\"地成立",
+      "id": "shotcraft-template-stroke-segment-build",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "svg-shape-morph",
+      "key": "svg-shape-morph",
+      "label": "svg-shape-morph",
+      "description": "一条 140 点闭合轮廓平滑变形为另一条再变回，两形状先在极坐标下重采样到相同点数、逐点半径插值 + inOutCubic，变形中段叠轻微 scale 呼吸、缓慢自转与色相从 185° 漂到 305°",
+      "id": "shotcraft-template-svg-shape-morph",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "tear-streak-transitions",
+      "key": "glitch-displace",
+      "label": "glitch-displace",
+      "description": "撕裂转场——glitch-displace 噪声撕裂（16 横条错位抖动中硬切），数字故障语义的条带级撕裂",
+      "id": "shotcraft-template-glitch-displace",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "tension-camera-moves",
+      "key": "bullet-time-freeze-orbit",
+      "label": "bullet-time-freeze-orbit 冻结环绕",
+      "description": "图表生长到一半全冻住，相机绕悬停的 UI 平面 rotateY 扫 55° 再回，时间恢复接着长完",
+      "id": "shotcraft-template-bullet-time-freeze-orbit",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "tension-camera-moves",
+      "key": "dutch-roll-to-level",
+      "label": "dutch-roll-to-level 斜角滚正",
+      "description": "痛点段整帧 -10° 斜角悬着（叠微漂移），解决方案一拍带单次过冲滚回水平",
+      "id": "shotcraft-template-dutch-roll-to-level",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "tension-camera-moves",
+      "key": "slow-push-in",
+      "label": "slow-push-in 慢推压迫",
+      "description": "4s 匀加速推近 1.00→1.14 + 暗角渐深，张力顶点无过渡硬切亮场",
+      "id": "shotcraft-template-slow-push-in",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "tension-camera-moves",
+      "key": "pull-back-isolation",
+      "label": "pull-back-isolation 拉远孤立",
+      "description": "从发光主卡特写后拉，兄弟卡按距离错峰熄灭、背景沉黑，孤卡悬在暗场中央",
+      "id": "shotcraft-template-pull-back-isolation",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "terminal-3d",
+      "key": "terminal-3d",
+      "label": "terminal-3d",
+      "description": "三个终端窗散布 3D 空间，相机窗间飞行、途中正弦拉远，每到一窗打字机敲命令、结果逐行滑出——命令执行的空间叙事流",
+      "id": "shotcraft-template-terminal3-d",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "text-as-mask",
+      "key": "text-as-mask",
+      "label": "text-as-mask",
+      "description": "文字视频遮罩——超粗大标题字内部透出缓慢平移的产品画面，结尾字形放大 26 倍溢出、内部画面接管全屏",
+      "id": "shotcraft-template-text-as-mask",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "text-column-converge",
+      "key": "text-column-converge",
+      "label": "text-column-converge",
+      "description": "双词对峙合拢——左\"NEW\"右特性词钉死在等屏边距两侧硬切轮换、全程零收缩，换到最后一词才唯一一次 ease-in-out 滑到居中咬合成短语，下方小字近乎硬切浮现；收尾揭晓型文字卡",
+      "id": "shotcraft-template-text-column-converge",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "theme-switch-moves",
+      "key": "theme-sweep-toggle",
+      "label": "theme-sweep-toggle",
+      "description": "深色版 clip-path polygon 15° 斜边扫场（out poly3 先快后缓 ~38f），边界 4px 白亮线+18px 辉光，扫完 2f 淡出；深版 scale 1→0.995→1 坐实",
+      "id": "shotcraft-template-theme-sweep-toggle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "theme-switch-moves",
+      "key": "palette-theme-ripple",
+      "label": "palette-theme-ripple",
+      "description": "面板 back(1.9) 弹落→逐字输入→回车面板 ease-in 收缩到 0 + 白色高光核钉住位置→圆形 clip 半径 12→1250px cubic-out 荡开，边缘 5px 白环双向辉光",
+      "id": "shotcraft-template-palette-theme-ripple",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "timeline-travel",
+      "key": "timeline-travel",
+      "label": "timeline-travel",
+      "description": "时间轴横移——镜头沿水平刻度轴加速掠过版本刻度，每过一格卡片弹立短停，末刻度急停推近",
+      "id": "shotcraft-template-timeline-travel",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "title-demote-to-label",
+      "key": "title-demote-to-label",
+      "label": "title-demote-to-label",
+      "description": "大标题降格为节标签两式——A 大标题居中显影站稳一拍后连续缩小 0.3x 平移到左上角落成小节标签、内容区在其下生长；B 同套路但登场时带文本选中态高亮块扫入再撤掉",
+      "id": "shotcraft-template-title-demote-to-label",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "trailer-grammar-moves",
+      "key": "trailer-bumper",
+      "label": "trailer-bumper",
+      "description": "三镜头各 9f 等长硬切（0/9/18），每镜内部 scale 1→1.04 微推保活；27-33f 纯黑静默，33f 起标题 16f 淡入 + 44px out-cubic 微升",
+      "id": "shotcraft-template-trailer-bumper",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "trailer-grammar-moves",
+      "key": "card-footage-cadence",
+      "label": "card-footage-cadence",
+      "description": "七段条件挂载分段（14/22/34/42/52/62 切点）：UI 段带微动（缓推/裁切横移），字卡段黑底白字 1.05→1 落定微缩",
+      "id": "shotcraft-template-card-footage-cadence",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "trailer-grammar-moves",
+      "key": "smash-cut",
+      "label": "smash-cut",
+      "description": "轰鸣段全 Easing.in(quad)：背景推近 1→1.55 + rotate 1.8°、5 张飞卡错峰加速冲脸 + 速度门控模糊；42f 一帧硬切无动画属性的静止全景",
+      "id": "shotcraft-template-smash-cut",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "transition-hidden-cut",
+      "key": "invisible-cut",
+      "label": "invisible-cut 前景遮挡隐形切",
+      "description": "一张超画幅卡片带重运动模糊贴脸横扫，糊满全屏的遮挡帧内背景 A→B 硬切，卡片飞出观众以为还是同一镜",
+      "id": "shotcraft-template-invisible-cut",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "transition-hidden-cut",
+      "key": "versus-slam",
+      "label": "versus-slam 对撞开屏",
+      "description": "左右两半屏带斜切边从画外加速对冲撞合，撞击帧白闪+震屏+VS 盖章，切点就是撞击本身",
+      "id": "shotcraft-template-versus-slam",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "transition-hidden-cut",
+      "key": "light-leak-burn",
+      "label": "light-leak-burn 琥珀漏光",
+      "description": "三团琥珀柔光沿对角线斜扫，光峰帧吞掉旧页约七成时硬切新页，光退散时新页已就位",
+      "id": "shotcraft-template-light-leak-burn",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "transition-travel",
+      "key": "shared-element-morph",
+      "label": "共享元素归位 shared-element-morph",
+      "description": "全屏特写卡收缩+位移+长出圆角，严丝合缝飞落进 dashboard 网格所属槽位，3% 过冲落座",
+      "id": "shotcraft-template-shared-element-morph",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "transition-travel",
+      "key": "letterform-zoom",
+      "label": "字腔穿越 letterform-zoom",
+      "description": "巨型标题字腔（SVG mask 挖洞）透出新页，指数推进穿洞，洞撑满瞬间接管、残余笔画甩出画外",
+      "id": "shotcraft-template-letterform-zoom",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-and-filter",
+      "key": "type-and-filter",
+      "label": "type-and-filter",
+      "description": "真实 UI 上打字搜索、网格自己收敛成一张卡、点击穿透进详情页",
+      "id": "shotcraft-template-type-and-filter",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-assembly-moves",
+      "key": "split-text-stagger",
+      "label": "split-text-stagger 裂升",
+      "description": "每字 overflow 盒内 translateY(115%→0) 带 10% 过冲，delay i×2f，基线同步生长",
+      "id": "shotcraft-template-split-text-stagger",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-assembly-moves",
+      "key": "drift-assembly",
+      "label": "drift-assembly 漂移合拢",
+      "description": "字符 seed 方向 ±300px + blur 8px 漂入错峰归位，锁定帧加深脉冲，合体后整词呼吸 1.04",
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-assembly-moves",
+      "key": "tracking-expand",
+      "label": "tracking-expand 字距呼吸",
+      "description": "字母从 −0.42em 叠压展开到 0.14em，blur 10→0 同曲线",
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-assembly-moves",
+      "key": "text-on-path",
+      "label": "text-on-path 沿线流入",
+      "description": "字符沿贝塞尔曲线鱼贯滑入（切线角旋转），到达后 12f 摆正水平",
+      "id": "shotcraft-template-text-on-path",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-entrance-moves",
+      "key": "scramble-decode",
+      "label": "scramble-decode 乱码解码",
+      "description": "全员字符高速跳乱码 hold，随后从左到右逐个锁定真字符，锁定瞬间反色闪 2f，底部进度条同步推进",
+      "id": "shotcraft-template-scramble-decode",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-entrance-moves",
+      "key": "letter-drop-physics",
+      "label": "letter-drop-physics 字符坠落",
+      "description": "字符错峰从顶砸落，重力加速+两次衰减弹跳+落地歪斜站定，最后一拍全体齐整回正",
+      "id": "shotcraft-template-letter-drop-physics",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-rhythm-sync",
+      "key": "font-weight-pump",
+      "label": "font-weight-pump 字重脉冲",
+      "description": "命中帧笔画瞬间变粗（stroke+字重跳变），~10f 衰减弹回；重音拍额外撑宽 8%",
+      "id": "shotcraft-template-font-weight-pump",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "type-rhythm-sync",
+      "key": "karaoke-fill-sync",
+      "label": "karaoke-fill-sync 填色随读",
+      "description": "每词深色从左到右填亮，进度跟语速，读完保持；活跃词下带读指下划线",
+      "id": "shotcraft-template-karaoke-fill-sync",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "typewriter-moves",
+      "key": "terminal-typewriter",
+      "label": "terminal-typewriter",
+      "description": "2f/字符敲出命令，光标 f%12<6 方波闪；回车帧整场景 6f 急推 scale 1→3.2（origin 锁命令行中心）+ 末 2f blur 10px，硬切 dashboard 1.06→1 回稳",
+      "id": "shotcraft-template-terminal-typewriter",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "typewriter-moves",
+      "key": "error-retype",
+      "label": "error-retype",
+      "description": "打 2f/字符 → 停顿 16f 光标闪两下 → 退 1.5f/字符 → 重打 1.5f/字符无犹豫；光标打删常亮、停顿才闪",
+      "id": "shotcraft-template-typewriter-error-retype",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "typing-code-block",
+      "key": "typing-code-block",
+      "label": "typing-code-block",
+      "description": "同一段语法高亮代码左右并置两种 reveal——左侧行级 stagger 4f 淡入上浮 8px，右侧逐字符打字但字符保持原 token 色，当前字符垫一块 #3a4468 方块光标",
+      "id": "shotcraft-template-typing-code-block",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "ui-strip-away-outro",
+      "key": "ui-strip-away-outro",
+      "label": "ui-strip-away-outro",
+      "description": "减法式收尾——点击 Publish 后整个编辑器 UI 从外围到中心层层错峰蒸发，黑场上只剩那颗按钮滑到屏心放大，按钮再淡出交棒字标定版",
+      "id": "shotcraft-template-ui-strip-away-outro",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "ui-to-brand-morph",
+      "key": "icon-flip-bloom",
+      "label": "icon-flip-bloom",
+      "description": "图标 anticipation 晃两下→Y 轴 scaleX 压扁成竖线（双层拖影+blur）→最薄处实体交换、spring 绽放成 5 瓣花形 mark→mark 左移让位、wordmark 逐字落定",
+      "id": "shotcraft-template-icon-flip-bloom-logo",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "ui-to-brand-morph",
+      "key": "input-morph-assemble",
+      "label": "input-morph-assemble",
+      "description": "光标点发送→文字飞走→输入框 x/y/w/h/r 五量 spring 插值成圆角胶囊→三粒图元错峰从画外落下拼成抽象单瓣→整组呼吸",
+      "id": "shotcraft-template-input-morphs-into-logo",
+      "method": "source/card mapping"
+    },
+    {
+      "card": "value-stagger-gradient",
+      "key": "value-stagger-gradient",
+      "label": "value-stagger-gradient",
+      "description": "16 根柱入场时 delay 是时间错峰，同时高度/色相/位移/模糊四个属性各自铺成从首到末的数值梯度；第二拍把错峰原点换成中心，脉冲幅度以中心为最大重新铺开",
+      "id": "shotcraft-template-value-stagger-gradient",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "vertical-word-roll-blur-cycle",
+      "key": "vertical-word-roll-blur-cycle",
+      "label": "vertical-word-roll-blur-cycle",
+      "description": "句尾词换成竖向滚轮，3 次换词各 0.55s（outQuint 七成 + outBack 三成，前快后极慢带微过冲），相邻行按距离上垂直 blur 与灰度，中心词落定瞬间从灰染成强调色",
+      "id": "shotcraft-template-vertical-word-roll-blur-cycle",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "voice-waveform-live",
+      "key": "voice-waveform-live",
+      "label": "voice-waveform-live",
+      "description": "录音胶囊实时声纹——64 根细竖条随\"说话\"起伏，说话时中部高耸、停顿缩成点线，波形从右往左滚动；说→停→说→提交塌缩的完整表演",
+      "id": "shotcraft-template-voice-waveform-live",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "wall-reveal-moves",
+      "key": "bento-light-up",
+      "label": "bento-light-up 逐格点亮",
+      "description": "暗场 3×2 bento 墙压暗待命，琥珀流光逐格描边一圈、内容随即提亮上浮，全亮后镜头缓推收住",
+      "id": "shotcraft-template-bento-light-up",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "wall-reveal-moves",
+      "key": "grid-wave-flip",
+      "label": "grid-wave-flip 波浪翻面",
+      "description": "3×3 灰背卡墙沿对角线波前依次 rotateX 原位翻转 180°，翻出正面内容，尾张过冲回弹",
+      "id": "shotcraft-template-grid-wave-flip",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "wall-reveal-moves",
+      "key": "wireframe-draw-on",
+      "label": "wireframe-draw-on 蓝图描线成形",
+      "description": "界面先以 SVG 细线蓝图分组描画，再一条琥珀发光竖线左→右扫过，扫过处线框实体化成真实界面",
+      "id": "shotcraft-template-wireframe-draw-on",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "white-flash-logo-simplify-cut",
+      "key": "white-flash-logo-simplify-cut",
+      "label": "white-flash-logo-simplify-cut",
+      "description": "彩色液态渐变字标静置流光，画面一拍冲白过曝，白底上扁平版字标淡入定格——一次闪白完成质感降维",
+      "id": "shotcraft-template-white-flash-logo-simplify-cut",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "wipe-transitions",
+      "key": "clock-wipe",
+      "label": "clock-wipe",
+      "description": "B 页上层套扇形 clip-path polygon，指针从屏心 12 点顺时针匀速扫 360°，扫过处露 B；扫描沿带多层亮线",
+      "id": "shotcraft-template-clock-wipe",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "wipe-transitions",
+      "key": "blinds-slice",
+      "label": "blinds-slice",
+      "description": "12 根 160px 竖条 overflow hidden + 内层整页负 margin 对位；条内 A scaleX(1-p) 左缘收缩、B scaleX(p) 右缘展开，错峰 delay 成波，缝上亮线随波扫",
+      "id": "shotcraft-template-blinds-slice",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "word-relay-filmstrip",
+      "key": "word-relay-filmstrip",
+      "label": "word-relay-filmstrip",
+      "description": "左列黑白相间等高页面卡步进滚动、右侧衬线大词原位接力（名词恒定+动词轮换）——切词瞬间才滚动一格，词块垂直中心与当前页面卡中点精确对齐",
+      "id": "shotcraft-template-word-relay-filmstrip",
+      "method": "component-name/explicit correspondence"
+    },
+    {
+      "card": "word-relay-geometry",
+      "key": "word-relay-geometry",
+      "label": "word-relay-geometry",
+      "description": "三个利益词各带一套专属几何接力——虚线大圆自转收缩 → 三实线圆 trim 依次生长（相位差 0.06）→ 金属 sheen 扫过后一拍收成纯白；旧词缩到 0.86 淡出，新词描边→填充揭示",
+      "id": "shotcraft-template-word-relay-geometry",
+      "method": "component-name/explicit correspondence"
+    }
+  ],
+  "unmapped": [],
+  "fallbackMappings": [
+    {
+      "key": "neon-frame-orbit-drop",
+      "label": "neon-frame-orbit-drop",
+      "id": "shotcraft-template-neon-frame-forerun-orbit"
+    },
+    {
+      "key": "shot-transitions-4",
+      "label": "穿暗场直航",
+      "id": "shotcraft-template-dark-tunnel-transition"
+    },
+    {
+      "key": "shot-transitions-5",
+      "label": "虚焦接力",
+      "id": "shotcraft-template-focus-handoff-transition"
+    },
+    {
+      "key": "shot-transitions-6",
+      "label": "黑场字卡",
+      "id": "shotcraft-template-black-card-transition"
+    },
+    {
+      "key": "split-flap-title",
+      "label": "split-flap-title",
+      "id": "shotcraft-template-split-flap-flip"
+    },
+    {
+      "key": "input-morph-assemble",
+      "label": "input-morph-assemble",
+      "id": "shotcraft-template-input-morphs-into-logo"
+    }
+  ]
+}

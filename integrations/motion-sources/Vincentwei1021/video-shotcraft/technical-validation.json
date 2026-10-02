@@ -1,0 +1,403 @@
+{
+  "checkedAt": "2026-10-01T17:23:41.992Z",
+  "upstreamExecuted": false,
+  "adaptersBundled": true,
+  "results": [
+    {
+      "id": "shotcraft-page-camera",
+      "composition": "shotcraft-page-camera",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-page-camera\\demo.mp4",
+      "sha256": "2ea814cd2f3d7fd3f40c6233b87849514750b9785abe1f178ebe0671c7a01291"
+    },
+    {
+      "id": "shotcraft-digit-roll",
+      "composition": "shotcraft-digit-roll",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-digit-roll\\demo.mp4",
+      "sha256": "37d78292e2d60b1b3ab5ce6931038a226a7473e5a5aff4c95d234e0b7c1624c0"
+    },
+    {
+      "id": "shotcraft-flash-cut",
+      "composition": "shotcraft-flash-cut",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-flash-cut\\demo.mp4",
+      "sha256": "8faddebf32927bd6b7525876fc1754976b49c26a832f8b1ce2be9c27018ba064"
+    },
+    {
+      "id": "shotcraft-clock-wipe",
+      "composition": "shotcraft-clock-wipe",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-clock-wipe\\demo.mp4",
+      "sha256": "685b8c36a7ce8d4cd7079ae969db95c2e06c09508130df62cbdea08677446760"
+    },
+    {
+      "id": "shotcraft-blinds-slice",
+      "composition": "shotcraft-blinds-slice",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-blinds-slice\\demo.mp4",
+      "sha256": "80016792bcc6126d999dc8b3ac019c0f61444985036719bf3dffb01fa52f3ccf"
+    },
+    {
+      "id": "shotcraft-grid-wave-flip",
+      "composition": "shotcraft-grid-wave-flip",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-grid-wave-flip\\demo.mp4",
+      "sha256": "7a6df8a2a52c6a5747ba51783e38563dbbd991d9e9921046b0e848307efa6251"
+    },
+    {
+      "id": "shotcraft-wireframe-reveal",
+      "composition": "shotcraft-wireframe-reveal",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-wireframe-reveal\\demo.mp4",
+      "sha256": "9dd6525a28bc99e0cd3c4c07bef3e9e1aa48a0865f283542f0277471e7784e01"
+    },
+    {
+      "id": "shotcraft-word-roll",
+      "composition": "shotcraft-word-roll",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-word-roll\\demo.mp4",
+      "sha256": "034bcb1013d16ed8283791931150531b345c7213afdf5f18a756a3837bed50fd"
+    },
+    {
+      "id": "shotcraft-bezier-merge",
+      "composition": "shotcraft-bezier-merge",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-bezier-merge\\demo.mp4",
+      "sha256": "945f69587d88b82ecf6d54881a66d07a57f412695e5b2293fa0edf1f2f219b03"
+    },
+    {
+      "id": "shotcraft-timeline-travel",
+      "composition": "shotcraft-timeline-travel",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-timeline-travel\\demo.mp4",
+      "sha256": "7dc18ed8356ab6c90743362810b5b90c7db5c9cecf75c6f5c0051cf66cb059e4"
+    },
+    {
+      "id": "shotcraft-spotlight-hero",
+      "composition": "shotcraft-spotlight-hero",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-spotlight-hero\\demo.mp4",
+      "sha256": "0ba0171aca63c2277a7a02da5af2a106fb338674d181afe515f3378a3b9d2b94"
+    },
+    {
+      "id": "shotcraft-row-embed",
+      "composition": "shotcraft-row-embed",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 160,
+      "frames": [
+        0,
+        24,
+        48,
+        80,
+        120,
+        159
+      ],
+      "decode": "passed",
+      "video": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\prepared\\assets\\motion-library\\shotcraft-row-embed\\demo.mp4",
+      "sha256": "b37a01d9458533a363e7b573ce81be94f51a42510a129476f80a01a5efcb6de5"
+    },
+    {
+      "id": "shotcraft-vintage-kraft",
+      "composition": "shotcraft-vintage-kraft-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-deep-ocean",
+      "composition": "shotcraft-deep-ocean-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-obsidian-violet",
+      "composition": "shotcraft-obsidian-violet-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-modern-light",
+      "composition": "shotcraft-modern-light-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-midnight",
+      "composition": "shotcraft-midnight-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-solar-pop",
+      "composition": "shotcraft-solar-pop-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-coral-burst",
+      "composition": "shotcraft-coral-burst-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-color-play",
+      "composition": "shotcraft-color-play-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    },
+    {
+      "id": "shotcraft-ink-press",
+      "composition": "shotcraft-ink-press-style",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "durationInFrames": 60,
+      "frames": [
+        30
+      ],
+      "decode": null,
+      "video": null,
+      "sha256": null
+    }
+  ]
+}

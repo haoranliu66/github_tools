@@ -1,0 +1,2590 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02",
+  "repository": "Vincentwei1021/video-shotcraft",
+  "url": "https://github.com/Vincentwei1021/video-shotcraft",
+  "commit": "5ddbf521038b0a7accfb6dc1e0a9eb29c67277ab",
+  "license": "Apache-2.0",
+  "executedUpstream": false,
+  "inspectedFiles": [
+    {
+      "path": "LICENSE",
+      "sha256": "b2ce9877a55547ada9b870150664d1468ff777e67cc9888806a73927d31c5771"
+    },
+    {
+      "path": "README.md",
+      "sha256": "348e6326d81e340909aefd14d6735f1b5e755c08926fd4f2554b3352751663bc"
+    },
+    {
+      "path": "template/THEMES.md",
+      "sha256": "bcb052c40b964af578f8764faf7404aeaed7cd19364882afb2aac485b49ea06d"
+    },
+    {
+      "path": "template/package.json",
+      "sha256": "4291a904d7575ec0b1fc536fd3f5e6d1841b36d49a0b39f5a4546a43a8d28a26"
+    },
+    {
+      "path": "template/src/themes/palettes.json",
+      "sha256": "c70f6ddbda81f404a794de72ae32b71e23ebd22f5dd30b3eddc1e09c9a2152a7"
+    },
+    {
+      "path": "template/src/themes/visual-theme.tsx",
+      "sha256": "7fe8ed2925ae2b03a88a681e8cf219d129f45bfcd96592c77e7da6e3a41eb8cd"
+    },
+    {
+      "path": "template/src/aifl/PaperTitleCard.tsx",
+      "sha256": "6d7c020fa93e1948ccdb7f744dc210c21346ceff8c35e6c8ba8fdf5a7abcdee0"
+    },
+    {
+      "path": "assets/audio/ATTRIBUTION.md",
+      "sha256": "7fdc7fdc9bee66fee43e045f799202b08a45455b480ebbf751a1faf59ffe66d2"
+    },
+    {
+      "path": "references/shots/ATTRIBUTION.md",
+      "sha256": "3853b1a686e1ce3ad52884af392167c1e659a48da5b0d435f031386c738f1f0c"
+    },
+    {
+      "path": "assets/lib/PageCam.tsx",
+      "sha256": "1679bfc0c15973d5a51f6b600ae17d4d8c06c2fa3f8513e5110f9d0b9b3271de"
+    },
+    {
+      "path": "assets/lib/DigitRoll.tsx",
+      "sha256": "aeb03c74d481a238dcd413af3054c264f9b4f91d5c745620e10a361fa4cbc20b"
+    },
+    {
+      "path": "assets/lib/FlashCut.tsx",
+      "sha256": "2e8d9e6319f99970be839f05bc869467b3d580aaa40809efb04b5dc02dd84c7f"
+    },
+    {
+      "path": "demos/transition/wipe-transitions/ClockWipe.tsx",
+      "sha256": "44a9acb719879eb491d20aa52119cda5d0517e9799d2d0c8ac996c6fd3689ad7"
+    },
+    {
+      "path": "demos/transition/wipe-transitions/BlindsSlice.tsx",
+      "sha256": "9b650fc5e84c438a016f16f14afb2509f73ccf33eb3ec5b3d2d49cc9a637dd0e"
+    },
+    {
+      "path": "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx",
+      "sha256": "c39a5cabdca00167d3354667442b4de477b76a36576815abc483609f1198f481"
+    },
+    {
+      "path": "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx",
+      "sha256": "18d2fc4192a67dbfdcfca390d753eb52f6bcb50be316b71480e54ed32208558f"
+    },
+    {
+      "path": "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx",
+      "sha256": "b5f5adb87fdd07730759926e765bc4ce81ee97e47cc4379bd98b4c7a5e14b634"
+    },
+    {
+      "path": "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx",
+      "sha256": "a58bdab4308a4f6d92282b969c494359547445b4f8ac92d3742798d31a6adf07"
+    },
+    {
+      "path": "demos/data/timeline-travel/TimelineTravel.tsx",
+      "sha256": "be4399cdbf8ea9b4e27d61471328d508c725158b75ad75124f194e3d83b4a8fc"
+    },
+    {
+      "path": "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+      "sha256": "9dcc839d8953ff930ade91c82a7da178a31afdaa1e81b1b7ff59820e4b6cb04c"
+    },
+    {
+      "path": "demos/ui-entrance/row-embed/RowEmbed.tsx",
+      "sha256": "e1fc03102ca9164a3d6fc81133996f10fc1e075820d7800f7554745a68b37b37"
+    }
+  ],
+  "inventory": {
+    "tsxFiles": 221,
+    "galleryKeys": [
+      "generatedAt",
+      "revision",
+      "stats",
+      "cards",
+      "staticExport",
+      "categories"
+    ],
+    "cards": 157,
+    "previewVariants": 214,
+    "files": [
+      {
+        "path": "demos/camera/basic-3d-scene/Basic3DScene.tsx",
+        "sha256": "9e853848e3db1dd1415c49f42a243c916c750ff6058367edd98826a8e5f67705",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/crash-zoom-punch/CrashImpactReal.tsx",
+        "sha256": "6150253befeb22cff49492dcf3a5b56c01d667e3df6136466e480d7b3b92789d",
+        "imports": [
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/crash-zoom-punch/CrashZoomReal.tsx",
+        "sha256": "495a5afc91a4c93424d15edf35c8767d1ff90f4d9515bb9194f68d7f355a181f",
+        "imports": [
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/cursor-flyover/CursorFlyover.tsx",
+        "sha256": "911e6f6a541c6aed41eb311fbc25af1f0d096591283f2bcf70e1f907ae87e78f",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/depth-layer-moves/DollyZoomReal.tsx",
+        "sha256": "47d44cad258e8a3c7b7bfd7c5e5b3535360b486f21621e6fb25d210c7e4797b0",
+        "imports": [
+          "remotion",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/depth-layer-moves/MultiplaneReal.tsx",
+        "sha256": "b67c6ab37f02f1df6033b54fdb08d1fa0aa85300404578be50715285d16d2124",
+        "imports": [
+          "remotion",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/graze-face-tour/GrazeFaceTour.tsx",
+        "sha256": "67a92ec45709381b23e79b669a154c9fab2d4ce4997d95226c97c297fd038165",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx",
+        "sha256": "a73f96609940cef8a5436126310af3487c685dde9833ae3ffbedc2a48785a29e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/overhead-camera-moves/TiltReveal.tsx",
+        "sha256": "a981ba2bbe4c78e042e11bb6db9efcc63519564acaf5a60caf02237c435db20a",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/space-camera-moves/DroneDiveLanding.tsx",
+        "sha256": "531389b779782c6b8bb4728d11ca1fead05ce98f1ef7d5259061ebde28c95597",
+        "imports": [
+          "react",
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/space-camera-moves/ExplodedView.tsx",
+        "sha256": "75ff3c91f4c0c254db89d3f060a34e23d306c6fa4fb38bccbc5049795d1eed09",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/steep-tilt-glide/SteepTiltGlide.tsx",
+        "sha256": "184740415dfcaf34311e42fe63b82a69ff987fbb4633f5a8bfb4318ec20e179c",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx",
+        "sha256": "975f02697f579905a6d83461727f7e258f285fa4738d783ac96b3e6f997413bb",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/tension-camera-moves/DutchRollToLevel.tsx",
+        "sha256": "de3f0848a382c77d5f1d7824041fce6a371cef804be592845fba981dd83564d0",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/tension-camera-moves/PullBackIsolation.tsx",
+        "sha256": "93e36a2f42e96497627fb6aac92854d914f70037239a772e5cb3830e7f1a9844",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/tension-camera-moves/SlowPushIn.tsx",
+        "sha256": "db43d1d0d52b27cba3a97f17bf2999bcbb8750f5c4aee460889285d7c2647446",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/camera/terminal-3d/Terminal3D.tsx",
+        "sha256": "810807a14ff6a7f813fe2ef999a40364734043428d34d9e272b24e7df18280d4",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": true
+      },
+      {
+        "path": "demos/data/avatar-grid-radial-build-colorize/AvatarGridRadialBuildColorize.tsx",
+        "sha256": "ae2e10a5b3c39c65409dd9e5e417d63729419d468e1e598f323efc8b5435cb0c",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx",
+        "sha256": "69096e8839be16b7818d3ac375ad170828cb08fa7fcd4fd826d4cc1b4cdf7f69",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/chart-live-moves/AxisRescaleShockV2.tsx",
+        "sha256": "13ad5232884e4ad2a3439c4949f7237136ef98d98de17efd7fd261852ebb7313",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/chart-live-moves/OscilloscopeStreamV2.tsx",
+        "sha256": "ef59ae09fda561c104995ad0f080024fb0f1c3a7016ca911f3a68454c4b2675c",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx",
+        "sha256": "8d5527f02869a91cf13b5fe091c347f672c8fab02105d948678b09a86be4e043",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/counter-confetti/CounterConfetti.tsx",
+        "sha256": "eb10f603abc5ae1167cc1d289b81ec7b078b1e0947e8f9e5265a836b1f06ee94",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/cycle-glass-node-morph/CycleGlassNodeMorph.tsx",
+        "sha256": "9fde3566b29e6ca7af2339611a3ee84b674eea69c8318b5a45bccf3b6e6f3f86",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/gauge-readout-moves/NeedleSweepSelftest.tsx",
+        "sha256": "609d771627b254fe7481664248604da72f4331eb565d87cf998336127603f80f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx",
+        "sha256": "dd9c6b97788c86fc96de6cf1711da5d9048b6e9c8ba824e18e0d92efc8d49941",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/hatch-depth/HatchDepth.tsx",
+        "sha256": "a6e3050ac9b86590a6c74fc9aae3f764e5a4664c891957a98a421303bc8e6b49",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/odometer-digit-roll/OdometerDigitRoll.tsx",
+        "sha256": "e91c46c1c80f68f83fbed2c1c39e5ad22d6be5799f3541978f56b9e61ee73af2",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/particle-celebrate-hits/ConfettiCrossfire.tsx",
+        "sha256": "4944a90332df7129abb3c037c5bc9a0982f141b1cd2fa6c40cb12692242494dc",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/particle-celebrate-hits/CounterTickSparks.tsx",
+        "sha256": "c03d41ef49c1d0c919834c037b59d1aed772a555847631bf56a5b3b8736b9aca",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/particle-sand-fill/ParticleSandFill.tsx",
+        "sha256": "f0094421646b5c68af5a57592d4e7f554daeb94d8892aa4bbf40bf381ca97617",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/ring-diagram-annotation-reveal/RingDiagramAnnotationReveal.tsx",
+        "sha256": "183c1a472675d8d31fecffbb8f7a6b75ece56b94e3cdd4a3f2325d536db6a47b",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/scroll-brake-moves/BrakeReticleLock.tsx",
+        "sha256": "a46716c0f5bac8e2967c7c094b71fbe1e46746e42a7c4b871acfe8402cec5be9",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx",
+        "sha256": "d7a6d95511cde7b5d39fbcce7b4b75c1acd118da1ca0020b8bb33bc9c72f528e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/data/timeline-travel/TimelineTravel.tsx",
+        "sha256": "be4399cdbf8ea9b4e27d61471328d508c725158b75ad75124f194e3d83b4a8fc",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/assemble-then-type-flyin/AssembleThenTypeFlyin.tsx",
+        "sha256": "2e5996b09bbef56ef4a8316a60f78cafcc2161d6d034be31a8d281d45100e4f2",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx",
+        "sha256": "0fc90fd03f153065cea48ff973c175c6c66653bb1a035e40c7ac33bbb356fa21",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/brand-frame-snap/BrandFrameSnap.tsx",
+        "sha256": "4a90782092ade6c63ec05dc7e509096c03793242c60ceb836d6b491c34fbf94b",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/dashboard-glow-highlight-pill/DashboardGlowHighlightPill.tsx",
+        "sha256": "84d2f989f506e1bb9059d00468e82daf16c0e38f73984fec98638037583b32bd",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/fui-hud-moves/LineUnfoldPanel.tsx",
+        "sha256": "87329b62b3dfe20b6c08c9f3a559b2f77ee4841b4860cc2be1a00ddf2d5d0122",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/fui-hud-moves/ReticleLockOn.tsx",
+        "sha256": "46bf287a5de1fde17d34e3725ed6cf66d443a90cff63ebcc907293cf0c31fdf5",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/glow-flyline-moves/FlylineArc.tsx",
+        "sha256": "6c2f3a636d343474dcb489393ad7c71d6f454c1962113c9c90988bfa5f48ae4c",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/glow-flyline-moves/GlowOrbAmbient.tsx",
+        "sha256": "ae443fcbf79de1fd63b1219c2073830b47115c168d03aea2ef501154fd09fa60",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/glow-flyline-moves/OrbFlylineRelay.tsx",
+        "sha256": "d554a49d5bef9064c29d5b9b1bb704ca29798486f44b287d56da43acdc246c20",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/icon-performance-moves/AttentionBounce.tsx",
+        "sha256": "c467057383f91a4433be617db40d92d03f5f53f47e4cbcedb66091492f50cb87",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/icon-performance-moves/PopBurstConfirm.tsx",
+        "sha256": "cca22774f4d75754795f96e0060f727a8b062c3005b7bab5cf45fce86f02b80f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/impact-feedback/AnimeImpact.tsx",
+        "sha256": "8a513f31e9899de5eae15962e4a3884f3640c352111dd0ba231e6221a9fef2dc",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/impact-feedback/HitCounter.tsx",
+        "sha256": "dd83270319aca314ee45a08b53fea9737aba88a1b401b1aa3561b5ab9e63a4da",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/light-play-moves/HalationBloom.tsx",
+        "sha256": "515567c881a3b18c8ae92d001b0b656b506f3bbadea32d75a82a476c6ea47096",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/light-play-moves/SheenSweepRetry.tsx",
+        "sha256": "c411aedec951a84afcf1722c93e8d9bec2864752610c652cc8a7d9e862f5e799",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/light-play-moves/SpotlightSweepReveal.tsx",
+        "sha256": "2abd85f00e8221f6a6b67c89d0be24fea3dc661a1f00d68e3dc954567cb4b438",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/line-boil/LineBoil.tsx",
+        "sha256": "063d193e15fe3f742779ebe8c6e9a95339e9d718050c261a96f069e7f213bf25",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/radial-ripple-phone-chips/RadialRipplePhoneChips.tsx",
+        "sha256": "c1157c36434d884d015c3056b44bbf4fd94a3cad616385f53af7a54b1d4104db",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/riso-print-hits/RisoBeatPump.tsx",
+        "sha256": "430f71b64bb4791eb2b6d492c8ca298d48dc795395f188eecbb4a83dd15bdafc",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/riso-print-hits/RisoMisregistrationHit.tsx",
+        "sha256": "55b63608168db7c56b2e4abbe4b8dd7252a61447dd46c364deaaa325d86641df",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx",
+        "sha256": "e96046d8b393545fc17a5b6c5d0158aae95d2f2285b6d2a997232a6595e6686e",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx",
+        "sha256": "c0bff214f004465455400f468847b0ed73f672a6d75b05d6ee8b3704b9d82fd7",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/scanline-assemble-flyin/ScanlineAssembleFlyin.tsx",
+        "sha256": "e088c86069806039e0affbaad44af6af2dcda1c32ae1a37dfed05acb7d5e92eb",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/slam-entrance-moves/ImpactBurstKit.tsx",
+        "sha256": "ae207afed57e5a634528e908da438a58d6734845424f6a96ce0d94b80751aba7",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/slam-entrance-moves/KanadaPerspectiveSnap.tsx",
+        "sha256": "1c768591eb775d4daab8f7f956547df26cf937f920cf0904809793fbdcade026",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/slam-entrance-moves/ScoreSlam.tsx",
+        "sha256": "e2ce99bd4e387e0ff03ffc22948d787fc1e7696f72ffe482f50daabd9336e878",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/spotlight-sweep-moves/CornerSpotlightReveal.tsx",
+        "sha256": "bc5919cf33b701f1080b265ab3f1f3ff9046fe5b2c50355cff2d0c920a8db33d",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx",
+        "sha256": "4ef113f4562992102cc5ffa05fc9f796a840ae9d2fb7cc40bc923b76257277b5",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/effects/spotlight-sweep-moves/SlideSpotlightPan.tsx",
+        "sha256": "4ed15797a085a5526a8c075217413d6b49ceb20d65fcd1b5f2a1c472fd6c4755",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/ai-stream-response/StreamResponse.tsx",
+        "sha256": "017726ea7fd92256de50a1c5018391b88efc9920abb7d0cf42dce0e2c0db3df5",
+        "imports": [
+          "react",
+          "remotion",
+          "./agent-stream.jpg"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx",
+        "sha256": "80766040683f84e3a2465b0dd3d800a4ecacd672c58f9ea4db0a63318e9c1f9c",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/canvas-materialize-moves/DiagramCascadeBuild.tsx",
+        "sha256": "c22146209dc68542d3ac630c8816d713d92786501c9cc9e592d1637852fbb548",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/canvas-materialize-moves/PanelToCanvasMaterialize.tsx",
+        "sha256": "1db5d71355732e59394aaade156e7c9c588bdc1fa7f901b1bdcdaf641f52b595",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx",
+        "sha256": "64edeef21295812d0754a0cc5c1f9652d677db3350eb53b0efe1d82bca793338",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/chip-lift-to-user-pill/ChipLiftToUserPill.tsx",
+        "sha256": "afceecb6c9fa57520df71bd7973471b5e4b5c980537ae7045e6560014fe517bb",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/collab-cursor-moves/CursorCastEnsemble.tsx",
+        "sha256": "9ee65f171a355e99bb6faf6f38effd19c65c9a194b43520b20067d73e264033e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/collab-cursor-moves/CursorDialogueDuet.tsx",
+        "sha256": "d7fd896d41d0ecbe0f538c241f80b1775ea575323d538cd6e69f263880e0f538",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/command-palette-summon/CommandPaletteSummon.tsx",
+        "sha256": "b66b2e5945b72ae36df532a9da0a95cd064515fd837688b1fd666c9e5566f848",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/glass-pill-dictation-typing/GlassPillDictationTyping.tsx",
+        "sha256": "b3d70491d046eb645ea594e5e2a5f9d24d40dd0cf3860d7e65496e528e47f688",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx",
+        "sha256": "e94a48600e18d53f41e2c3caee1ebfb3456a39e5e2681eb63e51ad71df1ddc46",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/input-trigger-moves/CursorPerformancePunchIn.tsx",
+        "sha256": "a2970990b385856cd9e176757eebdcd778fca864f7bf979c976b8fd4cfab53d3",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/input-trigger-moves/KeycapSmashCut.tsx",
+        "sha256": "cd995c264dd139a0e6c161d59bb9b5cff17d92fc2ac4efba2e7003e329d53904",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/picker-carousel-feature-cycle/PickerCarouselFeatureCycle.tsx",
+        "sha256": "123381f36cd03fa6480704b3abd406e09772196a035fcee12d540f3078af69c3",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx",
+        "sha256": "c55e1f2662eba198ccb0fbfba55e6ce37b5bf4cee2b310f33cfe06d44e1d3e41",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/theme-switch-moves/PaletteThemeRipple.tsx",
+        "sha256": "66aa7cd97905c876cda8c0e736efe53a8b19fb1546a2f9b65aa9dea82f6d189f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/theme-switch-moves/ThemeSweepToggle.tsx",
+        "sha256": "2bc27f7ca7c358bfd3fd8e6591b1e3a5f18c48cbd842134aacaefd747598dd39",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/type-and-filter/TypeAndFilter.tsx",
+        "sha256": "95ab942c3e7f0416fbab7563ff326724123cc2a4ddc9fea478aebc8901cdf3b8",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx",
+        "sha256": "77ab5983344687d7d591e2101febe8f80bd72fcef2043b470fa24fb95ee9f833",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/crane-rise-reveal/CraneRiseReveal.tsx",
+        "sha256": "50035f51d88795b4a47e322f86f2efbdd41e2755356857668f555832ed66bbd0",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx",
+        "sha256": "f575d1387ed5fe5bd1172ab50cdda20fe0562d44bfb469ec6d199b97bacd024a",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/fracture/Fracture.tsx",
+        "sha256": "0f413346a2f34863ae7cde0e000f3ee5527edb8650099e07e27001c45bc9e544",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/icon-field-colorize/IconFieldColorize.tsx",
+        "sha256": "d80a950a762bddc1b1b26e6459aabdc47145316f2c873f00845bcba7a6ed6590",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/letterspace-materialize/LetterspaceMaterialize.tsx",
+        "sha256": "c66c6a726608e8de3584afd8ff25406eecd387edcf313c701a14d577cf7c9341",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/magician-card-flourish/MagicianCardFlourish.tsx",
+        "sha256": "b4ce830665fa3db4e82e314efd94bbac1b7777e2fab6e77a914e749244dd63de",
+        "imports": [
+          "react",
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx",
+        "sha256": "54b9528497e2ba43f9726becd862ca51a715fb56d0e7f5b07918d3bcc8f2cd33",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+        "sha256": "9dcc839d8953ff930ade91c82a7da178a31afdaa1e81b1b7ff59820e4b6cb04c",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx",
+        "sha256": "56847499d68a79584b039701ed4236194b5c2ebcdf322364e75c1e21ebce73dc",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/opening/text-as-mask/TextAsMask.tsx",
+        "sha256": "68a6ae67c43cc5b9df63280f3cc0bcf8e212cbe8c86d1c90eeafb935abf61864",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": true
+      },
+      {
+        "path": "demos/outro/edit-hook-moves/LogoStingButton.tsx",
+        "sha256": "b693cbed3ca283502684e3585fb58844e2f707733cec9675c8376143b4cf5d43",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/grain-dissolve/GrainDissolve.tsx",
+        "sha256": "3c5700bf5902266481c891f95028fa016d986f8be380485fc6d0471daf067ca0",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx",
+        "sha256": "d8581f081b037f36954214276aefed9039ebe8d76aadbe91ffdf7c6ff3d4a4df",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/neon-triple-marquee/NeonTripleMarquee.tsx",
+        "sha256": "990ff41bf447308d6dab8b0d9d84320ed1515df6c71ab848830c173c45847df5",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx",
+        "sha256": "af4bbbf21570b65bc8e33b6ed679700089315bd17dffaf17864e4a8ac1e39830",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx",
+        "sha256": "68bc9a8437b2c8f3f4a1980dc8b4e5a3fa4e40127615270140042e5b93a866e3",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx",
+        "sha256": "a4ed4cd2e998df90bb16b4ae958635d14d6bdd48bcd54e2291e8780093664bc9",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/outro/ui-to-brand-morph/InputMorphsIntoLogo.tsx",
+        "sha256": "8822a5505d06a24bcde526ac47904278b4ebdb2d730504b83dfff46f62cff930",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/beat-cut-moves/BeatCutAccelerando.tsx",
+        "sha256": "e84aa85acb422b851c1a65182538a6e23501878a0d64f143a611174832a25b1b",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/beat-cut-moves/PaparazziFlash.tsx",
+        "sha256": "a3f622be9af943c752f7ac2ae293a7fac762c51a29d6e9812e8896cd706888f3",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/beat-step-list-theme-cycle/BeatStepListThemeCycle.tsx",
+        "sha256": "6dfe335735c21865303c3f817489b3c81578a855a2aef4f5f9e678b56e6ac434",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/montage-rhythm-moves/DominoCascade.tsx",
+        "sha256": "9f9bb2d3bda0766bab3f8c19c82c2c7bd7588d2b2d61e53461e74c436dd00323",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/montage-rhythm-moves/DropBlackoutSlam.tsx",
+        "sha256": "da2f4b7a3ed1767525e33ca44551e2ca7ad02dc5104fae14f6fb2eba51ec8529",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/montage-rhythm-moves/WrightTripleCut.tsx",
+        "sha256": "ed71ad7e2081a78876b043601a14b793c0b2637ff33cc1034e2ba93f820a76cf",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx",
+        "sha256": "12f6f3e7cb1039720f4f756aa13b7ba732bdca166467bfca416858e0d2cd2919",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/panel-grid-moves/FlipGridReflow.tsx",
+        "sha256": "b6b4edd123fadc47fa948590f4589dbe19f70b168115222dc48f52f3669aef91",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/panel-grid-moves/GridFlashMosaic.tsx",
+        "sha256": "33188969b8e40ee8bf3a9bac2b794184a8884037021df774bacc06ff7ae7766e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/quad-split-parallel-scenes/QuadSplitParallelScenes.tsx",
+        "sha256": "0ef89104610b5a00fc7bb89367957fa8b42df0b616a6c98ed535af6984f07c8e",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx",
+        "sha256": "8af8c4161f1c66d15e956d1ff1d3a3e87d69bfed35733edd3086efa9bb7732b8",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/rhythm-interrupt-moves/StrobeBlackFrames.tsx",
+        "sha256": "0b8da8214c0c3741cfd5a848cfc264e47d71c6a1d62e8ff7bc3b559c58f01f85",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx",
+        "sha256": "bc514f8b217c102c2ebbce24a546c30e444bd8f7102efa32d22a2792da8cda50",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/smear-multiples/SmearMultiples.tsx",
+        "sha256": "ce3d900cb4ad5cf964997a0f5d2170a5a9749ddee3962c76cdb6e7894ce4ae49",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/spectrum-morph-ui/SpectrumMorphUi.tsx",
+        "sha256": "b161d9ae5240869fffb75a921d2d68a506d8cb0eec7e9fe9056ec65f91146669",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx",
+        "sha256": "5ea9848eb760ed76123ab152d4e2b60bb3b1df9472c3b0ca12e6723fb64f35c7",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/speed-ramp-freeze/SpeedRampReal.tsx",
+        "sha256": "f3f9e54385f0920aad4071d6f85bf9c878946ddb7908894d5802ab2ecd5f11b8",
+        "imports": [
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/trailer-grammar-moves/CardFootageCadence.tsx",
+        "sha256": "ef68729c0fc3152f4b1fda48c3bf7ef8757522c830c77069cef638d301ec8a9b",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/trailer-grammar-moves/SmashCut.tsx",
+        "sha256": "f4ceb69ef80212c21ad14fa9857d31bdb68970812764625da05be6dfecc889ee",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/rhythm/trailer-grammar-moves/TrailerBumper.tsx",
+        "sha256": "b91f352e150d02ee286e8ed1169496503d50fed911c34381fc84195757d9b31d",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/bottom-push-stack-wipe/BottomPushStackWipe.tsx",
+        "sha256": "a4c70143ab37ac55a233cf73c5c00b1fd90730e842b2d48ae24410cca134c457",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/bubble-swarm-takeover/BubbleSwarmTakeover.tsx",
+        "sha256": "c30ff2b341f8777f13040c850d78695e5aaa29f71642c8beda33a192721a1724",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/card-flip-reveal/CardFlipReveal.tsx",
+        "sha256": "fcce7bee9de5a7e6ce1ac74d4a122c0b2147c1c2b3da4db0f5c92103d6e084b9",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/card-flock-tumble/CardFlockTumble.tsx",
+        "sha256": "d89cce89a15012180a3461ee6539ab974fc8f347e3ece9ee62270d1c166cd5c0",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/circle-match-iris/CircleMatchIris.tsx",
+        "sha256": "0c2afbb49d65aa15241396fb2343ba3cb046d0958cd80a9eac1925e4f93efd20",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/color-block-step-wipe/ColorBlockStepWipe.tsx",
+        "sha256": "b20b9a7065356705e27f836e2ea89c9f474e23165a4a9d383b79d5a0fd838677",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/cube-navigation/CubeNavigation.tsx",
+        "sha256": "83cc2966e85698bb4c9837c896989993d3eb2ec1b32612712a69af746961d905",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/gradient-transition/GradientTransition.tsx",
+        "sha256": "a0dfd2721778d9786b99be67b74da846725fadedcdac0a8a08b7ed3e2bb90cc3",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/line-carry-transition/LineCarryTransition.tsx",
+        "sha256": "e3cf0eafab68e3fced8705adedadcd685033af84595d3c738e92af782687ac95",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/mosaic-reframe/MosaicReframe.tsx",
+        "sha256": "78487db1769be4203165835c823c663b676223ee8ad84f3da6e04a7740e89766",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/page-turn-transitions/BarnDoorSplit.tsx",
+        "sha256": "5d1d04f5685e9d270a68beea2c02b6ab90f208f4e3d7ded1722fe260608cfc14",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/page-turn-transitions/CubeRotate.tsx",
+        "sha256": "5270e37dd065f5646254ea7c3607ec93e623636486815079b6a5e23157a91f1f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/paper-plane-messenger/PaperPlaneMessenger.tsx",
+        "sha256": "9355c2bd64750b2d2ca0e7789d61029d10b6554689ce7eb4ea90ab109cee1d37",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/print-texture-transitions/InkBleedReveal.tsx",
+        "sha256": "3f951b09da1fb2a8e1e618661c90a5e944649fa4be49118b536da3a8f39840f8",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/BlackCardTransition.tsx",
+        "sha256": "4e4698247bb6bdd489ff34b46db292da07e616e575681eb13624b4f21d883561",
+        "imports": [
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/DarkTunnelTransition.tsx",
+        "sha256": "526fd36c73b2aebbf01164900bc30e953bfa1361e76835d4efbfe47f7980ca67",
+        "imports": [
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/FocusHandoffTransition.tsx",
+        "sha256": "00662137985de0d86b86cb882544189e6cf69276e8d849f45c7b2c23a84b679f",
+        "imports": [
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/MaskWipeReal.tsx",
+        "sha256": "92eb6e2a34f4f075b286e03fa4ee000fda8369ff5f3b2bd3a02964e2efff3713",
+        "imports": [
+          "remotion",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/PortalWipeV2.tsx",
+        "sha256": "037b4f5bdd9b5c3d73a11d2932acddc471127e7051c122aee0f6423b77f511c1",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/WhipBrakeReal.tsx",
+        "sha256": "87c84d66f0675d921ca4cfd55a9fd9c5a5ba9a7717870d4b44c4c391c81ad063",
+        "imports": [
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/shot-transitions/WhipPanReal.tsx",
+        "sha256": "eda7132e8c2e142be87995b50a30e48c60c925872a9047c6bb8f54a8406be37f",
+        "imports": [
+          "remotion",
+          "@remotion/motion-blur"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/tear-streak-transitions/GlitchDisplace.tsx",
+        "sha256": "4115ff91755da2c21f58962141dbbce3f6318a71d21b9cea8dc67be5f7cc93c6",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/transition-hidden-cut/InvisibleCut.tsx",
+        "sha256": "41e68ca391f37c1ca10288407283c38f71844ab7f796b36a37056d7c56f43ad5",
+        "imports": [
+          "react",
+          "remotion",
+          "@remotion/motion-blur",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/transition-hidden-cut/LightLeakBurn.tsx",
+        "sha256": "31e4be432a84e13d6fa233ef3aff4a40646d67b949e16e9a5bea2a8f7b62b5fb",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/transition-hidden-cut/VersusSlam.tsx",
+        "sha256": "ec0f28e508e4c3706a642798ed8516d90ef1b39c7350e1af15e0f5e9f4cb481a",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/transition-travel/LetterformZoom.tsx",
+        "sha256": "272b01d64d73252aab1b70b8f6214656d046704266ca06e5306edb66fc75da13",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/transition-travel/SharedElementMorph.tsx",
+        "sha256": "fe5d3a1071e71cce96470939bb6f4b4e7dc52e61058697ffa010c3e17e3521f3",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx",
+        "sha256": "3799ba945628b14b28232b7be2a193ef0669faf47f3f62686a8cd4af58eb29d3",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/wipe-transitions/BlindsSlice.tsx",
+        "sha256": "9b650fc5e84c438a016f16f14afb2509f73ccf33eb3ec5b3d2d49cc9a637dd0e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/transition/wipe-transitions/ClockWipe.tsx",
+        "sha256": "44a9acb719879eb491d20aa52119cda5d0517e9799d2d0c8ac996c6fd3689ad7",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/blur-slide/BlurSlide.tsx",
+        "sha256": "1ad15a7dd560d43fe4a6f40a823d69d6f87ac4f5fc31196f556b31342fd8932f",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/brace-expand/BraceExpand.tsx",
+        "sha256": "ef6f5f379c7c785d9b6d9129095920b683a380b0e6eae14d12cb703dcc6c8cb8",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/brand-ink-open/BrandInkOpen.tsx",
+        "sha256": "87896a0e2a0fdf78f07c49759031ed680318b951fb1ca75e2aab4dc503bc0937",
+        "imports": [
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/cel-flash-stomp/CelFlashStomp.tsx",
+        "sha256": "f165ca8da06930e0211e34ad52c269023b3303f89dbb08495e5ebf092d7ed6a6",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/countdown-arc-scatter/CountdownArcScatter.tsx",
+        "sha256": "ab1c55fff0b9122fa06d7ec87f3e21b3c1cbc716e50d8bab0f910ffb3cb7c571",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/flying-words/FlyingWords.tsx",
+        "sha256": "d82f4a34b0b14538cf6404c1dcfa5468a185eb5fa2bd5000595365356387c0b3",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/glitch-cycle/GlitchCycle.tsx",
+        "sha256": "ee7489eb08b840a1989aedc2aa10d3f008e95d256f336ae89cb287230528be1a",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/gradient-word-sweep/GradientWordSweep.tsx",
+        "sha256": "36f6c2deadea09748bc3894c9d8e1960dfce42996fed370f8e193cc0dacc6799",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx",
+        "sha256": "6b6faf14bf6d00fbd81bf0a6085ea7ea979c9ff473d81c3bb6c0bf479ab3b3a5",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx",
+        "sha256": "5881cb0b5e38b53eec9dae5093b9dfdb4c69d5b6cf76cf587bc9b123d0e38477",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/outline-word-fill/OutlineWordFill.tsx",
+        "sha256": "66f522bf6e6f1034f5386d516d20ff36fcc23fc0bf1e418f83d1fd432846c9bf",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/paper-title-card/PaperTitleCard.tsx",
+        "sha256": "5ab4b473e631c2863d6033be22231a07afce2b29d08322d5ba821607c2642a16",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/pill-chip-slot-cycle-handled/PillChipSlotCycleHandled.tsx",
+        "sha256": "0daa028b6476a5d43cc0c8ccf5d45203b161d3f0b99d7dc24e01b4b37cad3bad",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/pill-slot-cycle/PillSlotCycle.tsx",
+        "sha256": "a8db19162d267d107904fd8e46573e9b74854bcbf871dd604fac56ff58b87f2f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/scramble/Scramble.tsx",
+        "sha256": "5ca76d50731f228fb46076706c9442acc03d9afaed903f6ca8cfff8c36787081",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/split-flap-title/SplitFlapFlip.tsx",
+        "sha256": "bbd82fe1d80cffa5a79a1018ac160a240cca38fe242cfbc8c950ab7e3470fa05",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/text-column-converge/TextColumnConverge.tsx",
+        "sha256": "786fbf0226ab8e8e4c38f2635a4e9a3368adcf04c0fe00195f54a018486fdf23",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx",
+        "sha256": "ffcfee81a30bfef2ad6b579710824e0ea6086dd5dc644a42f760987011ea0b97",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-assembly-moves/LetterformDriftAssembly.tsx",
+        "sha256": "dcf5a649fff38bb56b5147b8eb8b70240421ee7b6a82e193efe6b8843c829075",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-assembly-moves/SplitTextStagger.tsx",
+        "sha256": "314fae39b2cd73d031ebfb58fc65d850c9cce01924e5c926155ccfc0f84b5bd5",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-assembly-moves/TextOnPath.tsx",
+        "sha256": "98f06f0adb9cd5a479fe2a55ac16f1f589bfae707f29163454e7da71dbc8618b",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-assembly-moves/TrackingExpandReveal.tsx",
+        "sha256": "86880648f010b1b39a0500152d3ac0bfb10622f17c0dbf6dd243af64dbe11732",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-entrance-moves/LetterDropPhysics.tsx",
+        "sha256": "1aefaaba267e4b7084b094c18c35a818da2ba91d4260412ed9ee0e8197e9b442",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-entrance-moves/ScrambleDecode.tsx",
+        "sha256": "73a045306c38a5fd2b08bf505bf0226a25c3bb520bb77d5e9158d9a2c49660eb",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-rhythm-sync/FontWeightPump.tsx",
+        "sha256": "a79557ac62b13fce83f2477ba15dadebb641006acd1d20f1b2d941f465e7671c",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/type-rhythm-sync/KaraokeFillSync.tsx",
+        "sha256": "eddd5a37905bbc7be54066a349dec2c48ebc1e856b30b9f6de906b6c6a374579",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/typewriter-moves/TerminalTypewriter.tsx",
+        "sha256": "e589839ebf66e85c8710ddaf16f7eca4b8d994d16851345038f6cadcf6456f72",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/typewriter-moves/TypewriterErrorRetype.tsx",
+        "sha256": "5af87340386005641592173da47d049a53b965db7bb7c2bc8a9a0f77d3821560",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/typing-code-block/TypingCodeBlock.tsx",
+        "sha256": "2dafbfe43455a645865ffed317f414fc1855342e98375a56da5a76ce61b10724",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx",
+        "sha256": "b5f5adb87fdd07730759926e765bc4ce81ee97e47cc4379bd98b4c7a5e14b634",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx",
+        "sha256": "683f51fb630b93d1dddc4918e8a9e3d694e509f420df1645936590ce8e551f5a",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/typography/word-relay-geometry/WordRelayGeometry.tsx",
+        "sha256": "02d2a038ab576b6743bf417572694e09833fed49319174c3005712e6fd0ffc7b",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx",
+        "sha256": "b9f125b0f4f1f9ff6a41a05147a7111e85e89015e73e0223b843a87523715efc",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx",
+        "sha256": "a58bdab4308a4f6d92282b969c494359547445b4f8ac92d3742798d31a6adf07",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/card-stack/CardStack.tsx",
+        "sha256": "52d1175ca2e1cbe3cc8cd9eb60d723dfef392b500ee3c22d8dc87b47ec8c4f2d",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/carousel-3d/Carousel3D.tsx",
+        "sha256": "1cd70294e4f695a576c92c2db27d697f2f5b28a7b63788a8f406965a83470006",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/clipcard-looping/ClipCardLooping.tsx",
+        "sha256": "7cb55dade7c7d38b5678e7d84979c49a3ff3ca7a5a2683fdf49b13979477bc40",
+        "imports": [
+          "react",
+          "remotion",
+          "../../../assets/lib/ClipCard"
+        ],
+        "hasFrameClock": false,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx",
+        "sha256": "de76c070fe29cff792e4b49602d4934fcc3ac55f8ec0786713311a26b407a3cb",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx",
+        "sha256": "4738e54d707a82847d1a5081af88876a872465eb3ead94f1c7682acf8e5a251a",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx",
+        "sha256": "852b32b59cc3a894d789ba5e18029bc1e67b70757775488c6fb0b83ce4cb100a",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx",
+        "sha256": "ba67561fb578558ce70504bd6f84e826220fdaacdf9329023d3fd33004843493",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/draw-svg-trace/DrawSvgTrace.tsx",
+        "sha256": "654e26eef7357c64a828a6cbbd790331f9865e0e9c18768de15de46c281aacf5",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/element-body-moves/AxialStretch.tsx",
+        "sha256": "90979985198b44c1fc620e2a8eaad86c09b2d013533d6528ef8892919c86c259",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/element-body-moves/ContactShadowLift.tsx",
+        "sha256": "f29a6d77b407b9c6ad8caa8fe9e5c12cfa2d51202d6ea8258cae5015a736843c",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/floating-glossy-label-pills/FloatingGlossyLabelPills.tsx",
+        "sha256": "4bb7d460ac6201e58b8df4a1f5c6feea06f1f860cd3605b926a5ae138681a0e1",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/integration-hub-map/IntegrationHubMap.tsx",
+        "sha256": "fcd9ed29f4f0ca41a05377f31459c2dba664784ea7f5c900abefabc2dc59f3c9",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/list-reveal/ListReveal.tsx",
+        "sha256": "ac1eb531a625376e355b1970e6a7774e726b7752914544f36ae7ce096f237792",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/list-stack-press/ListStackPress.tsx",
+        "sha256": "6649fa6321663c6b54c9ca326147917d89a2dfd61d582954b996c7dd83c878db",
+        "imports": [
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/morph-from-primitive/MorphFromPrimitive.tsx",
+        "sha256": "f18d82ce6675be5c0b097969285a973c122633f2844fd1c4a81cc1c6a97a0d5e",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/neon-frame-forerun/NeonFrameForerun.tsx",
+        "sha256": "008a3b01017c88bb445e7faf916ad4857949c91e9603373edfdb92c23bb4b9a0",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx",
+        "sha256": "5005f06992ef674174dc09979bde3314419dd4dead19cf3e4580b248cdca8521",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/page-waterfall-wall/PageWaterfallWall.tsx",
+        "sha256": "b3e2de8674a22c0d1f523db4bf40443447e143b35b7d3ecd81ff3ea8db4f9f79",
+        "imports": [
+          "react",
+          "remotion",
+          "./VerticalTicker"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/page-waterfall-wall/VerticalTicker.tsx",
+        "sha256": "e4f90b838559beae465c6bb08736c00097bb0107d6dd4a378f64308e2acf1bae",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/paper-craft-moves/MaskingTapeSlap.tsx",
+        "sha256": "5d36af725cbc9268cc23b039208a7cd21b2237d6e73f7929e20beddb1a481340",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/paper-craft-moves/PopupBookRise.tsx",
+        "sha256": "f1baa230ff76c80de5a60ed52e7c667b7f24acca0ac5971c7ed90a8da3cbbf11",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/platform-hinge-rise/PlatformHingeRise.tsx",
+        "sha256": "858dafe77b967512ad42f0a579ad6042944b5f9201198bd2e11139298e0f2557",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx",
+        "sha256": "e0586d6b7869c5fee3828272be21cf68d4e93bc13d190732b46be365c77f998c",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/radial-wave/RadialWave.tsx",
+        "sha256": "e0c954b2c9d400f68933e7f58c1edd2120493271f46a768fe638b3c8cba6809c",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/research-card-stack-scroll/ResearchCardStackScroll.tsx",
+        "sha256": "a9747d38a761cb499d9b7c1c41eecbc151fae9bf767edc0818b11a57a92d7983",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/row-embed/RowEmbed.tsx",
+        "sha256": "e1fc03102ca9164a3d6fc81133996f10fc1e075820d7800f7554745a68b37b37",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/PageCam2D",
+          "../../_textures/live-layout.json"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/runway-ground-skim/RunwayGroundSkim.tsx",
+        "sha256": "e2197acf61a4fbfd29faa912ef7354a1d13c8f2662256aa9757ab7c1f1415a8d",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/skeleton-reveal/SkeletonReveal.tsx",
+        "sha256": "a2338fd7daf9988805794b69ed1c75f2a035dae1336a7cca65ee3eb3534d5c47",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/svg-shape-morph/SvgShapeMorph.tsx",
+        "sha256": "9e6bfaca697bd36837b3c31163d607863942570daaa0b5abda0c0c5f131172ed",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/value-stagger-gradient/ValueStaggerGradient.tsx",
+        "sha256": "bff99f80839ed7e323cc38c85f61bbf4ce0e609e75a9e89645718e3e1ab053f7",
+        "imports": [
+          "react",
+          "../../_fixtures/Motion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx",
+        "sha256": "eccb4c2211af30cb26b391ea734c326599958906411e9a3c019acfeceb87fd69",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx",
+        "sha256": "c39a5cabdca00167d3354667442b4de477b76a36576815abc483609f1198f481",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx",
+        "sha256": "18d2fc4192a67dbfdcfca390d753eb52f6bcb50be316b71480e54ed32208558f",
+        "imports": [
+          "react",
+          "remotion",
+          "../../_fixtures/Fixtures"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/_fixtures/Fixtures.tsx",
+        "sha256": "e06a6edce67ba854c46b897c11575d487ab265a2b3edf2b480be85dbe29bb5a0",
+        "imports": [
+          "react"
+        ],
+        "hasFrameClock": false,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/_fixtures/Motion.tsx",
+        "sha256": "961a9ce2401e38b5fe22fce7f44d84fc656d76aad0b178082e447feb01494421",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      },
+      {
+        "path": "demos/_fixtures/PageCam2D.tsx",
+        "sha256": "36b3b90680df7e99f0ced02f135181d7037f74c33a4f425cc01f7a110d20f69a",
+        "imports": [
+          "react",
+          "remotion"
+        ],
+        "hasFrameClock": true,
+        "hasRemoteAsset": false
+      }
+    ]
+  },
+  "adoptedStyles": [
+    {
+      "id": "shotcraft-vintage-kraft",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-deep-ocean",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-obsidian-violet",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-modern-light",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-midnight",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-solar-pop",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-coral-burst",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-color-play",
+      "source": "template/src/themes/palettes.json"
+    },
+    {
+      "id": "shotcraft-ink-press",
+      "source": "template/src/aifl/PaperTitleCard.tsx"
+    }
+  ],
+  "adoptedMotions": [
+    {
+      "id": "shotcraft-page-camera",
+      "source": "assets/lib/PageCam.tsx",
+      "adapter": "assets/motion-library/shotcraft-page-camera/component.jsx",
+      "sha256": "5750a89f8bb99d6d87eb12528ef886bfa51f08b7dbe9bc7bbe65ee8885d9332a"
+    },
+    {
+      "id": "shotcraft-digit-roll",
+      "source": "assets/lib/DigitRoll.tsx",
+      "adapter": "assets/motion-library/shotcraft-digit-roll/component.jsx",
+      "sha256": "f579859bdbb17bfceb82923d381b4a6536de5b79d05df6aac8a98a053ff77921"
+    },
+    {
+      "id": "shotcraft-flash-cut",
+      "source": "assets/lib/FlashCut.tsx",
+      "adapter": "assets/motion-library/shotcraft-flash-cut/component.jsx",
+      "sha256": "17890aaf093e410e24d70557453b8a6eb02d28e140842ed38edaf7f120058ad2"
+    },
+    {
+      "id": "shotcraft-clock-wipe",
+      "source": "demos/transition/wipe-transitions/ClockWipe.tsx",
+      "adapter": "assets/motion-library/shotcraft-clock-wipe/component.jsx",
+      "sha256": "b978499aeb4a329f37e37368d05175e03f409365a63f55121d583ec277fab1ad"
+    },
+    {
+      "id": "shotcraft-blinds-slice",
+      "source": "demos/transition/wipe-transitions/BlindsSlice.tsx",
+      "adapter": "assets/motion-library/shotcraft-blinds-slice/component.jsx",
+      "sha256": "0f9b6812a315b8b60e9242e1b5dbabc8323c90e0a7b0366434c6ea9bfe6e45ec"
+    },
+    {
+      "id": "shotcraft-grid-wave-flip",
+      "source": "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx",
+      "adapter": "assets/motion-library/shotcraft-grid-wave-flip/component.jsx",
+      "sha256": "f6650065d2f5da7d0816f4b1949fd64807dd362554c69f38c2876e0c6e6f63bc"
+    },
+    {
+      "id": "shotcraft-wireframe-reveal",
+      "source": "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx",
+      "adapter": "assets/motion-library/shotcraft-wireframe-reveal/component.jsx",
+      "sha256": "2a07478e9288dfc5d189054812c99011aca7d7a18047f419c8f58000293ead1d"
+    },
+    {
+      "id": "shotcraft-word-roll",
+      "source": "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx",
+      "adapter": "assets/motion-library/shotcraft-word-roll/component.jsx",
+      "sha256": "70a66e24754a78c1ede73235eab98a07a38048c015d3d9c2dc7de21f830e6042"
+    },
+    {
+      "id": "shotcraft-bezier-merge",
+      "source": "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx",
+      "adapter": "assets/motion-library/shotcraft-bezier-merge/component.jsx",
+      "sha256": "10fe4042a69be13d056ca0601b7e82dfffae927e5c515ddfa5ec81e15b220aca"
+    },
+    {
+      "id": "shotcraft-timeline-travel",
+      "source": "demos/data/timeline-travel/TimelineTravel.tsx",
+      "adapter": "assets/motion-library/shotcraft-timeline-travel/component.jsx",
+      "sha256": "b32a171adfcc039aacd7b2a5d4d54cefaebdeaf8c3d9d1f61f5ec1a3e71dde27"
+    },
+    {
+      "id": "shotcraft-spotlight-hero",
+      "source": "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+      "adapter": "assets/motion-library/shotcraft-spotlight-hero/component.jsx",
+      "sha256": "9c6d140f85b8c5b80ace5dbd5d8e70a0e2ab7a82d6c6ba3d9420734503931e2b"
+    },
+    {
+      "id": "shotcraft-row-embed",
+      "source": "demos/ui-entrance/row-embed/RowEmbed.tsx",
+      "adapter": "assets/motion-library/shotcraft-row-embed/component.jsx",
+      "sha256": "d18dacf1afdb534997e4555c9775227b04fae3a133753612a58c09a8fc979467"
+    }
+  ],
+  "admission": {
+    "motion": "Requires caller-configurable offline JSX, real local demo, example, scenarios and retrieval description.",
+    "style": "Map semantic palettes to the complete local style schema; themes are not motion-preview variants."
+  },
+  "exclusions": [
+    {
+      "artifact": "Remaining gallery shot implementations",
+      "reason": "Scene fixtures, hardcoded text, screenshots, special dependency graphs and individual timelines need per-shot adaptation; neither cards nor online videos constitute callable local components."
+    },
+    {
+      "artifact": "VerticalTicker.tsx",
+      "reason": "Header declares a separate vibe-motion/skills origin; no independent license provenance was established for this file."
+    },
+    {
+      "artifact": "FlatPanel.tsx",
+      "reason": "Requires three/react-three-fiber/@remotion/three, not installed in the current project."
+    },
+    {
+      "artifact": "Audio",
+      "reason": "Separately licensed Mixkit assets, with unresolved provenance for some files; outside this style/motion integration."
+    },
+    {
+      "artifact": "Screenshots / branded demos / community films",
+      "reason": "Demo-specific or third-party content, not reusable project assets."
+    },
+    {
+      "artifact": "External skill / workbench / installer scripts",
+      "reason": "Untrusted repository instructions and a separate production toolchain, not material library content."
+    }
+  ]
+}

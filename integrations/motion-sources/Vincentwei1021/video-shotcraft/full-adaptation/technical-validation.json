@@ -1,0 +1,4607 @@
+{
+  "checkedAt": "2026-10-01T18:40:36.327Z",
+  "scale": 0.25,
+  "fps": 30,
+  "everyNthFrame": 1,
+  "results": [
+    {
+      "id": "shotcraft-template-basic3-d-scene",
+      "sourceSha256": "cd05eef5f098aecdad8ffc00577f5f13a388752a2052dc39f1957a634a5fa477",
+      "sha256": "df961608242b455b00d7d7fdc2f96c00c09bc5dead3c78334bb285ac50ec6afd",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cursor-flyover",
+      "sourceSha256": "769fc76f9dd16f65cbe50b3976a2cab3d4a3a53cfebdbae0fe67c293204a9f75",
+      "sha256": "a2165333b1ded069476e8d0fa35ef6d28830e54bef6230f7eb15bd6d90fe4b0b",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-graze-face-tour",
+      "sourceSha256": "8cf0bacedf521a2971e6f880be618ac36006a62d251233d255eccec32fd5acdc",
+      "sha256": "af467cf05461ac1819bc433ec6f83d9f588060eb799c69eb84f545f7120cafa5",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-overhead-tabletop-drop",
+      "sourceSha256": "45406844824802c22eeb9dd6c3b958e3c85633110298e6d0d9724727ddf2199d",
+      "sha256": "5fbb6e0eaf6877332dbf7bfeda566e6478486442df79ffacfb62b4ba1fa20b9a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-tilt-reveal",
+      "sourceSha256": "1c1b996a8ee4a4853b3cdf986d6f04786d0b53c33866e3817b6e161f59d0fa5a",
+      "sha256": "73d66ea7dd396ba8983c9ca366633774ac9f093db13827a37a7028fd68c55dc3",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-drone-dive-landing",
+      "sourceSha256": "6109eddba41d17cb6ad5d1594fa9703170ee84aec781b885166c48886d22e58e",
+      "sha256": "9bfb5c3ac5feabc9a1af71d9368ca83ec3241bdc468108cd828bed27b8f68a46",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-exploded-view",
+      "sourceSha256": "576dacb3c60cad9d86592bdef0cae852103b1fd74a9d1011b081b5006a4ffc71",
+      "sha256": "4c500450dc6b5bca3df681dd43c07e1e93cbbf29aae329f477a6e7a625a74f36",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-steep-tilt-glide",
+      "sourceSha256": "91b14f327f5f64eb8162cc594730bc547528e9214b46ab4a0ca4cb537a183db5",
+      "sha256": "71760e6d059c5e6813527c0109cc385ef7cc2986eeb189b652fb9a2a97de3fff",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-bullet-time-freeze-orbit",
+      "sourceSha256": "c00dc1c064df80c2ba24b8f970b4ecc848b36b146ae5644cad811c334f32ac89",
+      "sha256": "078801e75ae06bfa72cc00e0cf4b13c796bb7f91c7c546d15f869d369a0dddca",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-dutch-roll-to-level",
+      "sourceSha256": "90128c15786e651da16a3487a76f76d2a58cb03022fbe4083b314c66453fe5f8",
+      "sha256": "39296d810610ae8d35e5e32cd319dd4a27e16af6e023d5c1d103c2a724f8740a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-pull-back-isolation",
+      "sourceSha256": "d439612b59e6334b8652fada9086b99c6760e7c89480014f45bc0eee6dc2bcf6",
+      "sha256": "b54b3c5ebef80b5410140c6a063c4f04668b652d97a7fabdb1d8ceef88b147f6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-slow-push-in",
+      "sourceSha256": "284b2f587c3ff206d05c082f29a4b9cb145c0e3616154e7fb7071ef8b7dabd8d",
+      "sha256": "59c29db3f6773f33d0bdf63a5fd1e8ffed68c2f92e3849bfdfd40db66a99b9ad",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-terminal3-d",
+      "sourceSha256": "c968720eaba44745ebf331e02e74764b693e0c20e027fd56be178df8d7f4e6ef",
+      "sha256": "7c1cced14145db2edc747db1b85febf9210dfcd332499ace55702d1693dc1018",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-avatar-grid-radial-build-colorize",
+      "sourceSha256": "4e7a93a2ad4bb2016717e4c6f75bf0f1fa7c826640e09245a8667d30184414b5",
+      "sha256": "368fcdfc61dd276fe76cbca4643f6855dfe4088af6dd634194a74388ff8b5043",
+      "durationInFrames": 168,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        41,
+        83,
+        125,
+        167
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-before-after-slider-scrub",
+      "sourceSha256": "5297e4a39135fdaa566f6dae828dde188c208ab7f48a1edf7c61c724b2489f43",
+      "sha256": "e202e6fd38ec7bd662c06150d844ebaae715d5ac5fe545588cf50f82b9ce9842",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-axis-rescale-shock-v2",
+      "sourceSha256": "12195a52890a7d429a09c5e440498b3f34d84aa0f9352a528346e6df04f3aca9",
+      "sha256": "adeae13f38473aa0b63e69565c3ff8c3e379078ec1e41ff6898dab8e051a3ea7",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-oscilloscope-stream-v2",
+      "sourceSha256": "f829247c44103b5be76b41fbb523f4bd2b367604740b68a061757428e1c58d64",
+      "sha256": "de22fc05def3c700a96f5fe0715c8df23eb870843cf7f7693eaceab4fa8ae2be",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-unit-dot-swarm-regroup-v2",
+      "sourceSha256": "7049b9aaa45923904214bf1d3b8103d629717569f310a2cb2ee22fd019e14179",
+      "sha256": "cc2726c213027afe6c21930c8bdc7d537413b1e46296ff6e90b215a07ff13dfc",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-counter-confetti",
+      "sourceSha256": "6970fc57c5bc746de316b3f6dec68f126be1d69a09db7c4640081cf95baa6792",
+      "sha256": "7c7eb78739eb6fc75d43b6e4777732e95d92a2a1b09c04f73c893b4cb476e68e",
+      "durationInFrames": 138,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        34,
+        68,
+        102,
+        137
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-needle-sweep-selftest",
+      "sourceSha256": "702c31cfe866f59cd7640e155f635c2f3fdfebc7a3c6134bd79186e85d011774",
+      "sha256": "c37419a963ebb1e0ea75600b17df4b309e53d3d8d7295a646a5b66259c278e0c",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cycle-glass-node-morph",
+      "sourceSha256": "8a19c14ecdd81130d3c816d71511560a89340e049f8e0d627acb0e707a2bdfc7",
+      "sha256": "78b220768820e8e85aa2b4eb5f42a33b013ca03499c7530525141ffc416a6cd2",
+      "durationInFrames": 257,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        64,
+        128,
+        192,
+        256
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-tape-scroll-fixed-pointer",
+      "sourceSha256": "92a6acce1a4824f0ead03309b3adc953e2c1275a0514eb437ecdf799ec413ff4",
+      "sha256": "38ca01ed7fcc346d8786cd045edb40a5a4d2753e734f974c0b0865977bece579",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-hatch-depth",
+      "sourceSha256": "e2ab3537e9d20442d52c9d73818ce470242b10cd28775995e46c21740ebdd7c1",
+      "sha256": "dc6403f500352e2204337cf72f50cce68732a3967aefdc2180f483f7de0c820d",
+      "durationInFrames": 132,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        32,
+        65,
+        98,
+        131
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-odometer-digit-roll",
+      "sourceSha256": "4edf9ad565e6c92e4eaad8f3a9e2b7c6f7eb8ab16694d4f0e2496088b53a6ecd",
+      "sha256": "8bd2cc85dca153d3a498ea4b96a8ee6431910670298dad8dda778a467c13ecfd",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-confetti-crossfire",
+      "sourceSha256": "20010b0b9beb95060098bc472e8389ed1def42293e8adf4d446b7ee855cfe0c8",
+      "sha256": "62a7c3e732523afa562f6e7bf3c6d8ddc95a5dfd88044725659a6ad5abaca83c",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-counter-tick-sparks",
+      "sourceSha256": "18197ea258e854d187fbd6a6de116790dc782abfcb02f6c39f27180313d2d01c",
+      "sha256": "1d57d9029c9e7a2d1b6d3c1b1eed93c2583e4ba99ed937d59d7ab75598d1ea52",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-particle-sand-fill",
+      "sourceSha256": "3fd5a33218b32cf5a11bbf17e38e5015313048d6f6c72d084b947ded7e0dd7c9",
+      "sha256": "13af0271bb8d6a7829ce6e61a9d94f6f7f19cf4d73ccdbbfe905250736b6b876",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-brake-reticle-lock",
+      "sourceSha256": "b8072463fd4207b2ef0cc0f2296880b728e312b8d751fd8e5ac856663375e897",
+      "sha256": "fab236148b60ae3c6238a31515c7db91ab55375bc4117fae7c2ad18406fcf69b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-ring-diagram-annotation-reveal",
+      "sourceSha256": "e0feadccc2ec3a7f30969b2460332ac0f65b39cc1d74ab976d4d724bed9d7a5e",
+      "sha256": "def48ab419680f35a004ea13af5e67fc84298eeaefe457945e0f3c95d14107f5",
+      "durationInFrames": 190,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        47,
+        94,
+        141,
+        189
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-changelog-scroll-brake",
+      "sourceSha256": "b6a96b0eb26035526f13e04ba121d2859804c4e7a8f3b50695b9862d95f5e671",
+      "sha256": "c8f529e0e4243c11dfac45b210415d7138198f571b9e42634cae40863e0fbe90",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-timeline-travel",
+      "sourceSha256": "33c07689ece5e8d9eb1b1586031a09f43afd31219a1dbb8dd7f89ebdaa5e483f",
+      "sha256": "d2882eb12a9dcff55c0502bb9b9da85f1feebceefb50f5d83c229eceda3f0acc",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-assemble-then-type-flyin",
+      "sourceSha256": "5ae8a857b29936ee9779f042a09ecdb680dbcc2ecdda6f92a05bf74bb15f639b",
+      "sha256": "cb1b0ae34be249f843dc3c99f5a6a204642ddb1f74f63c34daf1baa0890067dd",
+      "durationInFrames": 156,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        38,
+        77,
+        116,
+        155
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-aurora-bloom-bg-flip",
+      "sourceSha256": "1d2d445ffe8fb1781d318cd9a8995e714c1f2985fb63759fd2859e303286d69a",
+      "sha256": "dd077ee9da49278f9dc380ebc3097a4c1b12b2d645a58396eb65bf9951bf9add",
+      "durationInFrames": 156,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        38,
+        77,
+        116,
+        155
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-dashboard-glow-highlight-pill",
+      "sourceSha256": "bcfe531523fcfddca4148c4921b7c22f5639c17be18bfc74d7065b839d110b0e",
+      "sha256": "87dc58c84fbff76f8221b0512beaf6960c0105debc51e4db642f33a98c42de86",
+      "durationInFrames": 60,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        14,
+        29,
+        44,
+        59
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-brand-frame-snap",
+      "sourceSha256": "8940f9008d83cbc6b85925a1e6a7df9e8979e9a325b79dcda4ddda99693d6a7e",
+      "sha256": "7236554bc5572eb1e5611753f90c39a3c12abba5b6faff4b3fef62e54bbb9058",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-line-unfold-panel",
+      "sourceSha256": "4874988ee2fcad508ba83cbd6ed832046fa43affef1159abde2250095379f53c",
+      "sha256": "6fc38eddc5f658bca83abaaffb06cdff73a37cc7b72a56c8ddafa87de581b533",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-reticle-lock-on",
+      "sourceSha256": "3157d4efe9ebb081a4799d315a24c63a38025ecb3853e4a8502d4c22b42e0616",
+      "sha256": "0e1a60ab59af622d1197d11090ea90369d817b6f14d9c15f37042306d0b660c5",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-flyline-arc",
+      "sourceSha256": "6a64328ea9ad97d2cc30067d5c9d4f61e72dc96c1a159de86269de7d9d220178",
+      "sha256": "626d7511610a26ede01ddd2a1952626cec7291d2efe00e8be254ca91c9d77170",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-glow-orb-ambient",
+      "sourceSha256": "90d7fff86dda9dffa58454e71ea0ce83e95ff1e13741bf07e09fd0f5effd0327",
+      "sha256": "30077377188769902da18e214110c37c198998d0c9ea763dc1f450f0eb2ae9b2",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-orb-flyline-relay",
+      "sourceSha256": "4273bb779a2beb264c928b4436c152aa0cc636797b7fe169d021232aa779c1d0",
+      "sha256": "d10f890f697ca2870dc276a9eacd5ec3b8288dabc8876f3ad88b531576bc3ad3",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-attention-bounce",
+      "sourceSha256": "24791d7842036d145d3f3070758d63f7243a70c0cae54d600c73f067fc29f852",
+      "sha256": "8323aebe9cbad1936b308b1c3cdbdb3c02a54eb3afe51d2aab0b183111b5962b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-pop-burst-confirm",
+      "sourceSha256": "8d913fa83ff6ff7b4001035188777f4f6c650d14640be1f06997fda443dbe782",
+      "sha256": "cfc66d8f2cdd7a5c210c6ccb872de6b09d01c9135d00ed58a0c4fabe8e8bc54f",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-anime-impact",
+      "sourceSha256": "c26c663958844b7ac043d2cd6fa9fb18a9ba4bf1d471fb8c756d295457985f78",
+      "sha256": "c40db6c46932846846f095dbbf1afe8dac5b5891a755009193a6871cd4f4231a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-hit-counter",
+      "sourceSha256": "21c2c55df799b616a9f91811d0483dbea1f2ead03211fa3ade3226424cb7c579",
+      "sha256": "42b613dd65913f442c0b6c8a9176cb2f3ad39c001a97040fe3b5fa8fa1495899",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-halation-bloom",
+      "sourceSha256": "ef68981743f6c7fae09a56c040b1fb63e6f92ac172ebcc41b29143ee89a6c994",
+      "sha256": "40814b63bea9e756dd7b3fd26bd15063fabe7db260c8fd15b149ed50b20702b7",
+      "durationInFrames": 159,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        39,
+        79,
+        118,
+        158
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-sheen-sweep-retry",
+      "sourceSha256": "44dda2cb8d1531e847bab4f407ecd1588c8a44a690eda57d0c51efad822c8651",
+      "sha256": "90e0f6caac28ded1c8c985d74ad710cffea634be4c9b78af8b6b0711ef5f57c9",
+      "durationInFrames": 159,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        39,
+        79,
+        118,
+        158
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-spotlight-sweep-reveal",
+      "sourceSha256": "c921584fa8c3d7cb94ff3b6ed422338de7a8025d1488264661b3835442bac029",
+      "sha256": "535a70a64d1b6ce6eac115fff296ca622aacaed02102812b7fe6968d4703da2c",
+      "durationInFrames": 159,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        39,
+        79,
+        118,
+        158
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-line-boil",
+      "sourceSha256": "fdeabe65810f5f563f9dd3bdeac54169d1ac53e8c595bc4b94d710324efdc006",
+      "sha256": "4bf9216c4877597e1adb20c88633f0817632e57bf7a4bfb0ef5eb78be9dde17a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-radial-ripple-phone-chips",
+      "sourceSha256": "ab9f756b75679ce6416c53838907d5cd8f00a36c3b524d5769c1efe2f34b14f8",
+      "sha256": "b02cd924c55bcf12ba55aa001bec5c74dcd48871ddbb1d32c6476fd406299ce9",
+      "durationInFrames": 168,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        41,
+        83,
+        125,
+        167
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-riso-beat-pump",
+      "sourceSha256": "e714c2abf2f5ff91d8b05d083a30f4f7e4c485663a0168b5dd260b3f8b017f3c",
+      "sha256": "e9c48c36b4605e16d824c8993081a65d7054d68a01d5bab8812eaa8f73526c43",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-riso-misregistration-hit",
+      "sourceSha256": "7df0c5d09769f3e19b9ee947e41b0a9747139321049265ea13052957fcbf493f",
+      "sha256": "c31b07a0953958e9f6cc23500d79547e94a22e0e3983c5cca397ecbd71be7f8f",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scan-bracket-sweep",
+      "sourceSha256": "109fc4a9dd8a2949cd1cec25ad9445ec253f85bb19cae25f494537aaa3aca93f",
+      "sha256": "c1f1db07fc02e46265fd1bdd11904d7f58074e3122f3323d6bddb85364400d79",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scanline-annotate-focus",
+      "sourceSha256": "8c11f7b239644594bddbab93bf0bfe6fc21386dd88204abf961142c4efe83ebf",
+      "sha256": "111c74fee3c52e217e2d8a2e960ed4773eabe797a5c1b515dbbbb5cbada3b06f",
+      "durationInFrames": 138,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        34,
+        68,
+        102,
+        137
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scanline-assemble-flyin",
+      "sourceSha256": "090162fd9d16ebe4f9444c5db11c7584dd1fb3dbf38bfc2d5c00032617191814",
+      "sha256": "40f68ca7cae93005c17985c60d49c71a2eb3b69de8cd6bbdf926671876cd1b47",
+      "durationInFrames": 138,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        34,
+        68,
+        102,
+        137
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-impact-burst-kit",
+      "sourceSha256": "d852c454a7ba837c8331b3588df6be901541114398645db1aea6216f47ff6c0b",
+      "sha256": "c3e49600bf050a841330e935a6c740b8dba2d1f3a764657c0fb15cceed02fd48",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-kanada-perspective-snap",
+      "sourceSha256": "ff90b239a3f2f927ab22b7badfad3ab18e79b8653efa86cce34d122e2655ea66",
+      "sha256": "4bc0abb3c6c32dbaab827a4bff6964668732c3e83c9d5e9332edacd4eae764d6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-score-slam",
+      "sourceSha256": "1f30f38ce92a1c56b9d35e8373b0c36c28b92ba364752f9b7b7d8f4f86bcd815",
+      "sha256": "6ac56e86cd05ca392a135052036c01fc35a8b0e6fdffa6f5f97f6a874296ee55",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-corner-spotlight-reveal",
+      "sourceSha256": "0cc7cd3724d4f3e828ef644e4a8917e42fc9d037362200d1c2a27f91d30f5789",
+      "sha256": "fe6bfc295fe5ee5329cded37a35a1426b80f73a53f5ebed070cd2b5ffa60c039",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-glow-wake-sleep-panel",
+      "sourceSha256": "fa9c07a17e2c8cca73e2323a0c75131ad62b1ffbe9dee1719ec54419c9496ea2",
+      "sha256": "971f6c9dd33782925bed2a651a812e0a8c0b6ae064112d3bfa462d1e91ec9ad0",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-slide-spotlight-pan",
+      "sourceSha256": "1a31685074bcbce36e8397c3bcca16fdf8d4f5fa98511c90ff1a6a521ef772c5",
+      "sha256": "c0b5f18a1f59ad0455ec35f1c1f743f78b94f1d5543e1beecf0f27b289ffd919",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-autolayout-gap-dial",
+      "sourceSha256": "3bd1d32c811346e85a77fa853726e0e647084c215953eb66b2ef13570160d4fd",
+      "sha256": "960730f4952ec093b7f486d3dc710073be30634771388b3c9148a56a2225f764",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-diagram-cascade-build",
+      "sourceSha256": "34f18d8dfdaf6d054d46c2354d25680348eb525b3ff94939de24f9075f2ce17e",
+      "sha256": "f5f0db9d6b271f0e224267fd7a9e8b284e081ca47e136c7cc26ef816d5eca8d6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-panel-to-canvas-materialize",
+      "sourceSha256": "d1107dc7515fd8a5487552c3dfe6b811d63edc18ac3f25eb60037e0491383c8d",
+      "sha256": "4d140cf29ef9e668aa705a91eeb430484440fb91329c53b5732ea4f183be9ff3",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-chip-grid-single-select-blackout",
+      "sourceSha256": "affeb1e7884ae91674781b9283218214da5d1912ab138c93cf51e8cfb3bebc2d",
+      "sha256": "9bf2e94b18210b1d36eea3966afe06cf69b78c8eb4ef3a478316b2a9148b8cf6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-chip-lift-to-user-pill",
+      "sourceSha256": "7cdf25af972a16f4ff3fd987a038fc5be9f52df3e8bd64a687cf3961b6acb4c6",
+      "sha256": "b96ecab1486efbba3a9746b00f8dcb111d505224260c69c236001ea332663b3a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cursor-cast-ensemble",
+      "sourceSha256": "ac5491c0cc47c5c2f8de60ece50bfc06a921a6b8ee0d9450193bd1347cfc335e",
+      "sha256": "4c8659d3a26e5ee0d8f67c29e0230eea480425777287a12ca0180c86611582ac",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cursor-dialogue-duet",
+      "sourceSha256": "2a9cc9b8eb64f64542ae4445493223c8da6009838554359ba5693776a20ec94e",
+      "sha256": "b6962c7cdb17cfbc69fecf6fad4b78fbfdeb9acb39ea8084f0af9e3bea5587d6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-glass-pill-dictation-typing",
+      "sourceSha256": "9d976335d9b7bf206aac1ec57fbf821acc1d87371ab9712fccd721987353c0f7",
+      "sha256": "1e04da02a509258f93f8e954244d8ca818a7343b44050dacd1065a003ff6181c",
+      "durationInFrames": 50,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        12,
+        24,
+        36,
+        49
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-command-palette-summon",
+      "sourceSha256": "2f4bd69217c82c094beb5f5db99c744cd4d5057dd03ee2e2155714cc8c6e7d8e",
+      "sha256": "af6a7ac8776fdf57eb37386a26786a3744cc0f94f590e3069e46feaaffee5d3c",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-hashtag-to-pill-materialize",
+      "sourceSha256": "e1e2a1b82716a29efbaf64c4b53502f72ee1d9ada706d7f5ca51c869801386a5",
+      "sha256": "f374173ebf4c605959e95a9126c878345136cb7221ac201050d8840a03f847c7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cursor-performance-punch-in",
+      "sourceSha256": "4244f3b2cdae6e89c4a625e57d0e8dde80d713e7bca939ab9574e43cd268ae2d",
+      "sha256": "fd84e5931e0732ae8730339324a9fa6b11471289ae47c5fcd883ffdede6d0428",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-picker-carousel-feature-cycle",
+      "sourceSha256": "a0d9b36cbbac7a6553146dc28f04b0be0b68be24c2ac70fddb4986ed8380006f",
+      "sha256": "8b601c0220ce570d21e03fc3f3e189bf3f599cc9188745fbd5d3dd3f34874ca5",
+      "durationInFrames": 108,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        26,
+        53,
+        80,
+        107
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-keycap-smash-cut",
+      "sourceSha256": "c1f030c35ce124c0559a34f6f40c45bf9eaf7e9dc860a826dd9f81400026b54b",
+      "sha256": "a0cce03f375a5c5a0661d3036c692be0f9f71ea7fef8d3f6a3212586ec62d8ca",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-segmented-thumb-hero",
+      "sourceSha256": "c67eb2fcd82e1c7ede06145af4af53bd92aa782b23d5b803c311e26228064440",
+      "sha256": "cf99a0c2945e887cef20a55bca49a54f39b85d6d2a1454552bd6f768f5956c87",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-palette-theme-ripple",
+      "sourceSha256": "dac8dd7d10da9621e8b46b11b7fce9c4cc8561fe6c3ef54467e7b5ef4bdffa5d",
+      "sha256": "984dfa5ecd18b77f8201246a15a8ac51b42d5b3a30f65b1f61f1ba066effb558",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-theme-sweep-toggle",
+      "sourceSha256": "6fd3af2a607dfec42f9a3aa014e514328c42f6035c9c8507abb7bfc06b161dcf",
+      "sha256": "493df3dbc0fae735abc1a1feb8811b18fcbba71d3a918fe2f42ac13af279fdee",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-voice-waveform-live",
+      "sourceSha256": "79d96b23f05a3f1f8962a2487c8a3d20aa4e2da1dbf6e475f109d9054dfe8f15",
+      "sha256": "0ec8b455119c197026bd7f12517be1f07228f99bd0b873155dcbab58d6b8b82b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-crane-rise-reveal",
+      "sourceSha256": "03263f1f43ff6b05c8bbf2c82589510e75626605acb86427dcd061be22e37e8c",
+      "sha256": "d42577a4666d682600d8a72aec3e294ac059d51ad0e49ea5ab671c905f09afe6",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-dataviz-landscape-open",
+      "sourceSha256": "5ddd7dc461ef794954dba4d4158fe7119054964e53397248d85863e6bb8bb2ec",
+      "sha256": "c11e984b72fdba8c0b0575b7fa274becc926ac3e7890a0e4dcdb542d834ddcca",
+      "durationInFrames": 240,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        59,
+        119,
+        179,
+        239
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-fracture",
+      "sourceSha256": "903c4f4deaaae726e1548f7183a88ab4f064519d500a3e3b78b3a645d22e46dc",
+      "sha256": "01ff78a2ae1e4b44ba6ea519e61a5dcbbd21635c5391a5026ee680e626dfb9de",
+      "durationInFrames": 156,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        38,
+        77,
+        116,
+        155
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-icon-field-colorize",
+      "sourceSha256": "26c16bd2277cad46afdc781510e4cf115207a8636f989ba096aacca85c5abdc9",
+      "sha256": "fa0e793612c3b9ded696544c3555e89cd7256e5907520ccb788c5cb5d270900b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-orbit-ring-title-open",
+      "sourceSha256": "600c64859592ac665667bad91c199e77cca94cbdf8457187b085650520fbf71b",
+      "sha256": "9df7ceedc7c5fd01ca7c742d0048b82b9fe983fea39f2f48c8c355a138630b17",
+      "durationInFrames": 130,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        32,
+        64,
+        96,
+        129
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-magician-card-flourish",
+      "sourceSha256": "7bc8ff219755e9c818b60264b73cf8257a3b618b8d361eb0ac39505554e05423",
+      "sha256": "dbff3b2ddd53f241f0470f30c8df376ec767b6f604d9f128a236885155c24adc",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-stroke-segment-build",
+      "sourceSha256": "92c6f2451095b4376050becb2b9963567f2424b51288f5155314d1a6cde80e8f",
+      "sha256": "9fa758f07992e4fe08fe6d638951e4fe74dbeb4fcb39a024b6f42e18ce4e0e4e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-text-as-mask",
+      "sourceSha256": "90c4da127a17e05d5bbec88fa1469d7d5bb75b377b73696091088a6bb677ea73",
+      "sha256": "d826c157515b75b18381ea46b0b7b3e41dd504cd1db59cfd43d0e898efd16ac8",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-logo-sting-button",
+      "sourceSha256": "afbfc642a953eb8e1f25d4a6d8a8b4c431f79a812ccbfb152dfb1f1cf21223a8",
+      "sha256": "0525f1aaddec9fa7f1a3e80f72c2adbe7a22ff6dc5881bc195de58649c3d2bbc",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-grain-dissolve",
+      "sourceSha256": "946423c42831b59165281a78422411bf8b8b709ff0b5bcf6a4138bb75b44b6f3",
+      "sha256": "3059708274c4478d2624f92a9fcc4cf15c2ddb8ad9c47b9aa113f93abc3246ae",
+      "durationInFrames": 60,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        14,
+        29,
+        44,
+        59
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-logo-shrink-wordmark-lockup",
+      "sourceSha256": "67087358c63551820ba878f058c1bdd6da75b88f49e515170f35147498d2c2e9",
+      "sha256": "640bf424fbe60b80499881262d5c04038b28eb7e642dbd8582bd31ecb7bcf843",
+      "durationInFrames": 132,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        32,
+        65,
+        98,
+        131
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-neon-triple-marquee",
+      "sourceSha256": "49ea6712550107ceed775c13380f30d5d2901b1f61a14bfb1e092e12165063c8",
+      "sha256": "fbf2f6ec1fc24ccc7045bec046b1581c91f34404ad74732102539fa698ec1d66",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-ui-strip-away-outro",
+      "sourceSha256": "8f2d81fab8bfcc7406a4f56c9403c42f10112e47fd498169e1e60d2261791a26",
+      "sha256": "2fd1c9248ce26c58387028a1bb07b45a336d0d86f9db29e8ca92703d2182eb45",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-icon-flip-bloom-logo",
+      "sourceSha256": "5f32a45de82b3b0dea449deeef904a75f15e97f349bf3ddaacc1a8a50bdb701a",
+      "sha256": "3b53077aa302e15b006bf20caecea52530e15ade8b8cfa540f563ab055500574",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-input-morphs-into-logo",
+      "sourceSha256": "12fdd5f41fbce35b0235169245ebba47459cba429e084f7d6a2fabb8bb684879",
+      "sha256": "11097a6af35123ad82deb6dc7aabe82b57e39321de91a399b67f9d93254ca6ca",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-beat-cut-accelerando",
+      "sourceSha256": "521d39fa108645072252d0013b96574e870d92f5c79fd24e181563731d339d15",
+      "sha256": "2f2a29c1c3aab7c50757b6e57b937477b510256be4dbbb1a0822eb3ce0586437",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-paparazzi-flash",
+      "sourceSha256": "13ab5470918a8bf4e4c4893aef9d954b5fb75090ef2e7b2d1ceb6075b0bf17c5",
+      "sha256": "1030bd3f2de888f702a7e3d14a4936690f069e2f342edc53feb7e63013e0439b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-beat-step-list-theme-cycle",
+      "sourceSha256": "5e4a90a23fc3136535ca84dea67786a3dff34cf58c24c05380a3fc3208199589",
+      "sha256": "84730034b47de78f176e3f436e597b9fd8510faa527db0551dab89f603b4df58",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-domino-cascade",
+      "sourceSha256": "7149c2bd5a3360d9dcbc6474fa75b5b61ccd57f6e03e43260e4c0cd54e19a63d",
+      "sha256": "a65bcd868a2f227b833638d7fd0701942447306d42419f3c2eae16d399e90ce1",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-drop-blackout-slam",
+      "sourceSha256": "3522f19f51073229b2bb7d9ce602a7cefbafedeb45f91ff157391496442e09bc",
+      "sha256": "8bbff4dc18d87cc0315a8806f66f89110cd7c77ed56567dd20e3a68d1dc0c1a1",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-wright-triple-cut",
+      "sourceSha256": "bf77ccd415797832ca2f8490d726c0d1a6d2880470c5acbd0d2026de70055d59",
+      "sha256": "7b10b13f91e3a415027b60f5e764e9d09aca35397949cf7b3a08b8254fd624c5",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-comic-panel-split",
+      "sourceSha256": "c314e93148a3bec9ca4951521b9302bfcbb953e7895ab16f3d39d70495f033ac",
+      "sha256": "c0fa666be4ae4213b6f168746f914e87faabc6bfb92ff12d14ad35a5829b7a13",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-flip-grid-reflow",
+      "sourceSha256": "af3827dabd29d585f33c84d4c304468f64e65a3399350b1f4fe1e04addbcc376",
+      "sha256": "a3171e050a6e602bbf94b3bc5a848e988cf39fa5f6560e98af500f6faa3cf923",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-grid-flash-mosaic",
+      "sourceSha256": "b7723cf0f6a31afba2404af41f46078aa279e863334d5918cf65f461a0ac47ae",
+      "sha256": "772ad55e79dff98012055f4f7ccab4200890c7e2b9a549ba43a60913502c9626",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-quad-split-parallel-scenes",
+      "sourceSha256": "94ddbc326de91e2bb4c7f99a2934cea3f93a7a03a1cb66fddd9ad977b05a9d5a",
+      "sha256": "5f94314357dbc55db186935cdf2c69ecda32007d35ce551858dd9d0e520c09cc",
+      "durationInFrames": 63,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        15,
+        31,
+        46,
+        62
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-jump-cut-punch-in",
+      "sourceSha256": "9224290a3814b9cc5cd5567a67c6ced30e36dfe089786480ff2ba2cc26c056a8",
+      "sha256": "f28a96c833ad2b26ce9cc643067dde65833457fd5f5b6bd4d5b46292825e6acb",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-strobe-black-frames",
+      "sourceSha256": "0437aff669528cea3adfc891a091bf8351f27a79fcafc50889fa31c87a392470",
+      "sha256": "109c82a9c79d149ad809b760cca6f54f5611382430f63375c34960fd733bf3ad",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-sakuga-timing-shift",
+      "sourceSha256": "cfdb0fe9d5f4726adcd1b120406caf559e8e51acb8c22841c46b5dce76717801",
+      "sha256": "f05494ec61614e23492b24e9072cc63ca0bcc5a007435bf490e597aed066070a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-smear-multiples",
+      "sourceSha256": "f50d247fdcf9c2646e1b46cbd4a6de187b654ae7d75f271d7792f65f2471bf7e",
+      "sha256": "3c75b8d5a33c93a01c4fef6fd8b161cd143822abc720ea1d443b64d55598c3c0",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-spectrum-morph-ui",
+      "sourceSha256": "668b88db03622061bcf097081275da0a78e54500b21298f7a6e7a63cacd4e193",
+      "sha256": "c8c7eb8b4e62f0c0cf8e795f5fa92a8ef23844f2841f0ed196ed691e794d86db",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-card-footage-cadence",
+      "sourceSha256": "c1c58f643115026775d2ba26458ea0573a6c76f6f0ea55ffd340510da698f614",
+      "sha256": "12937d0f9f577ef44a0ab4aee942d1beb9c4ddf4bd5b31dfcb43ac2f9e3cba4b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-smash-cut",
+      "sourceSha256": "0553c5373766fae1e44f243dd67db2369e06bfe0601cfecdc7d7e2ad6e73739e",
+      "sha256": "861f45e07a4ed54059d70cf9e153a67b19527440f4b8bc2fe3735f373c62673b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-trailer-bumper",
+      "sourceSha256": "e42255e70e556403208d8ac5989fbd565680a6c4337ee87344cc959751da1cbf",
+      "sha256": "b88087008973cf32b035056b465e008891eb7b66f5d3f111eaa455b32deabad9",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-bottom-push-stack-wipe",
+      "sourceSha256": "62d8afb7b359f40db67641e027cd7be7a3fe21af50c86a0f1e3eec46b25164c2",
+      "sha256": "085deeb28cb85a4cbae495c917b29ffeed213b39e5f85360ed8bf1093c27d388",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-bubble-swarm-takeover",
+      "sourceSha256": "c719d4bf42abc605323372fd3d67373bc560f903eff46eae4b97d0ab1f0ba44a",
+      "sha256": "87397eb3e767f98a413f49ad77d94fddc4c4b8865eea048becc488a37c7a86ff",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-card-flip-reveal",
+      "sourceSha256": "e19d83698c82a30a62deddb579f7ff68283a62913e5ddc27132c74c7037e04ac",
+      "sha256": "8b6da417514f1ab9bc18877f50cfee149852f6a53b1257157dafc00a23b35060",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-card-flock-tumble",
+      "sourceSha256": "06d1722eadde48727cf75a95ac19ed6412b9815ed740efcecb137c652aaf8d5f",
+      "sha256": "0e96a66e12a0cd5148b5f46f02cf0a82ea56f293fbe46a217461286ee0da0ed2",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-circle-match-iris",
+      "sourceSha256": "a84fb8da7d8a4dc6ebb102f5446ba99c50d43454318a021827ac6d245317fb19",
+      "sha256": "0fc2514b978e4029252382f6754cc7386b26c4709c1e51fd12a16ded6d44d3a7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-color-block-step-wipe",
+      "sourceSha256": "2b87dd1d06198bf681a61d0c12756ea3431954bf7692840bb61d8ccad58029c6",
+      "sha256": "df7028c5868ca26e24d0e11a8431bc23eaaf83a02bb39b71adf1a28631fd06ac",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cube-navigation",
+      "sourceSha256": "39594f1732d36deb4af065634aa7a268d9d02434c1ba5d4af1f478623e6ee001",
+      "sha256": "e80b554cdeea9952749419abd54e32fc1d4a9036f3fa88a96332fbf1d4d03d9e",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-gradient-transition",
+      "sourceSha256": "2b1923ac28737b21b144819a8770af9f1b2c0fce448128a937536f649f7d5283",
+      "sha256": "6019d498a22a09950f76e843005cd271edc53175550042e5264ac35ceb645c94",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-line-carry-transition",
+      "sourceSha256": "a8f966fde6832e14bcc2409a9b13f9514ea035f6af54d0d5b8aae203032a077a",
+      "sha256": "b36255795f5ed4207f274f4dc84078f4bb34e206a75ea30b6579014c3f0389f7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-mosaic-reframe",
+      "sourceSha256": "0bfa676e8438190fd4370f7658b40514ca49cae075ca5d42ba413f86690f62fa",
+      "sha256": "2e611157e0f5a39070e5e9243fa93d04353f66191e422961e093872c48f5559b",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-barn-door-split",
+      "sourceSha256": "5bef22021f62b14c36bee0f61fbd1411ab17438d09a5b1f30518ddcffa0ebda1",
+      "sha256": "e53bc064b013fc5270ef817db408ce517c5618d3c8e5d72273f8239be670df39",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cube-rotate",
+      "sourceSha256": "76efe53a74a85e918495d12f953360365be6278270ef7a4ad9fa85574fe77c08",
+      "sha256": "e89fc591f5b12b4a13a4e730bc23c8f10445e102e709446ffbeebbb20c816fca",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-paper-plane-messenger",
+      "sourceSha256": "cda91a58c4b122a79a21232c43b9d7bdc7ab57cc88459e924296b1a2af70a66f",
+      "sha256": "8e7f33b975dd5f9e60f65fcbdbae9b55c02db5381ce358bb140a3a131c601f5a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-ink-bleed-reveal",
+      "sourceSha256": "849e20e19b7dda64762f44f3e092f12f5864dfce3014a58bc0408c03a024e92c",
+      "sha256": "2b9089e147e1d5f7e11a03d77af8d248e97b4ebec65bae177147b68670ec545e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-portal-wipe-v2",
+      "sourceSha256": "5cbce8b54c230182fd9ba45a98629cb91054f4a285012cbda929ce74b4a6dd48",
+      "sha256": "e447bc4cdd786875194c09bcdf4e00e3593fdb8623c78a55e06638c92eab9d93",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-glitch-displace",
+      "sourceSha256": "e6dbcf1c30f81e7456d4f896c235d0de12602ce02cf2891298aa8bfc8252b58c",
+      "sha256": "8466dc9449c0de740d2d82898a14913365cd45b6ade93ff57a15ba7671aa4095",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-invisible-cut",
+      "sourceSha256": "cb253bfabfc6ddb682f1cfcb5bce49e90291635a3c45ab0cd31aea2d7f626c9d",
+      "sha256": "5cda1f0d39de8b09257c50eb2eb2ae736c25b52aaaac0df998241441b9efb1c4",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-light-leak-burn",
+      "sourceSha256": "fcffc417f12e1436b1451abb5dfe00c3941eb137ac9207b2002335e57839e32e",
+      "sha256": "0cb2ba9281ea1514f7f3b3a48e06e547717bbb586d57a25760fb8c89e5be229c",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-versus-slam",
+      "sourceSha256": "24d0fe257ae8b08b4ae6ccb214e5214453695a07f7385f736606f82e139b2aa7",
+      "sha256": "0acc745d73c8d6097a68dc1c50dfa01efadce0789ddbb106c2810b01287bbc3e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-letterform-zoom",
+      "sourceSha256": "eaf56f03bd5926e04f747a744ba960f3f6d1af5f63918059468ffd1225afe34a",
+      "sha256": "3875a6105161e3d9588b0b38f5ab03751925345fb067743f5850ecfe2bcc998f",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-shared-element-morph",
+      "sourceSha256": "27016df70c2f620dc454edfa15bd9fbc3432c2f20a8de1238cd30413c14b0a97",
+      "sha256": "6c5248b2cb99ddba34bcb3ab3981be9c803e1e92f271ea9f416314cf732072cb",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-white-flash-logo-simplify-cut",
+      "sourceSha256": "244a93adab5db089ee89fe2dbb0634240bef6f20311ec76ed2a8792c32edaa81",
+      "sha256": "ebc2c27b6a77777f59696422adfff265e7de42979b1a319952e178e68a0fc32d",
+      "durationInFrames": 108,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        26,
+        53,
+        80,
+        107
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-blinds-slice",
+      "sourceSha256": "639ae4efa065eb0a40cd53ce1578eb34ac908fd1d9545b1bc69101729dd91c8d",
+      "sha256": "842f493089d767f2d0c761c5e3ce2093de3fb0cf7eb9813fb38c8c9dd2752784",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-clock-wipe",
+      "sourceSha256": "b18097bcf2bc22a1b48ccfdf454261d8ecb37adbc85cbda4b1d66247e36e8e22",
+      "sha256": "c94e4f440d156c35bd39352983eacd35c33db5fac48c7ef4f03195aea1a2f5a0",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-blur-slide",
+      "sourceSha256": "324b863061e8d514749dc393be38ea2d9ee4adbaa7ba296e727af974530a225b",
+      "sha256": "e9115f73c458f0ba9d62fe9221e527261f5ccc79507a9b9e84b14101c1e50fe6",
+      "durationInFrames": 114,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        28,
+        56,
+        84,
+        113
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-brace-expand",
+      "sourceSha256": "db8051b66698be3f10005a6fd6a4dd965f0906869081324b06ac3ebf421bc4c9",
+      "sha256": "254338f840b568ee19a5bea182f4f0e9d0dd76eb631ea69bcac948bd5b8e7292",
+      "durationInFrames": 114,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        28,
+        56,
+        84,
+        113
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-brand-ink-open",
+      "sourceSha256": "83c8b82ab3322cfa51cd44fde112885e8fa957d818f887da24207266a392455b",
+      "sha256": "9152f912f95dbbc99e276d773e9b40bdf20c78b205c625a081db68c70824ae3a",
+      "durationInFrames": 104,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        25,
+        51,
+        77,
+        103
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-countdown-arc-scatter",
+      "sourceSha256": "c59ec96e536c27d43e795ad5c09af488247c37ab5c33f650194657a4dcf63f69",
+      "sha256": "71e40ca52509bc7a84bb024650e0e65cfb2059df7b77e7bbd365fb49a1cc4e6e",
+      "durationInFrames": 33,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cel-flash-stomp",
+      "sourceSha256": "982575f35c1c06f842eeae4679a70e5c42bb4ad3f798927f0584ab171b993205",
+      "sha256": "bbe0540db740a94bde824e6686cd0dbbdff6e91c919cd3ffe73cc8486b6b6cd5",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-glitch-cycle",
+      "sourceSha256": "335a1db0af6e79945f3f7e7bf34ebb5a4e8e01db767b7fd340078c9098c16a72",
+      "sha256": "42b1ccc5fa151d82434b679489e3666c31e5c8769812805b8fe3a09b0810c96e",
+      "durationInFrames": 168,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        41,
+        83,
+        125,
+        167
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-flying-words",
+      "sourceSha256": "66b20eefac8fef6f60ef86f2736a11e353b61d44aa82b771bcbf291cda1b811e",
+      "sha256": "590e0e16c52fdf71a508f52e3b1cff9c7de64c475082485b5a82b2637173bd62",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-gradient-word-sweep",
+      "sourceSha256": "f7fd6da22d63fa68a0377fc7084502e27f10f09a6b44139f2e1cbc2e9b0eb87f",
+      "sha256": "9255b3c3dccd70f465fa2f55be3da1781ee25df8cb6eef098d20cf51cf4bdef7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lead-word-zoom-assemble",
+      "sourceSha256": "5a9d89eb74a7a1b365ad0ec4fee3a86296af86636ae9f7e67c1156383f2fc67e",
+      "sha256": "19a7b54178a86ae05c635759b575c655e7525764d81efe1f01ad230809036cab",
+      "durationInFrames": 84,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        20,
+        41,
+        62,
+        83
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-outline-word-fill",
+      "sourceSha256": "0c2787a367b7440995994b9a6269203ce6faeef1ffed9c8ff8b669f0d23def4b",
+      "sha256": "31b1e3d5fd34e6059a03f1d5a44fb9b5f4331e031f765e5464e59690d79f698c",
+      "durationInFrames": 75,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        18,
+        37,
+        55,
+        74
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-marker-underline-title",
+      "sourceSha256": "dc71c12ffe40c1c10a4d652ffd9ca01952e542f0da90ef56a90533543f214274",
+      "sha256": "5a28db59f6631c9366b42db002161dea08731bfb00eee45823665c9831b1cc2e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-paper-title-card",
+      "sourceSha256": "a92cff3020f6206dae34dfb65a1a37ce36fa6c807426b9f6dcb67080c3b9017f",
+      "sha256": "f6eaae5e9b298f5aa22bed829209e6fdf9cbaeb7786707831e5753e96a3473ec",
+      "durationInFrames": 55,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        13,
+        27,
+        40,
+        54
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-pill-chip-slot-cycle-handled",
+      "sourceSha256": "4b97b74f47adf28189efdf4a09eee1473d56862620ba9d5c8d8bbd38f6cb1804",
+      "sha256": "40605affde7c12fa53e2052f71ba1a41e2520d379ec5bd99fa93b05df6bd350b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-pill-slot-cycle",
+      "sourceSha256": "499e47899061b7d2b866c33cfdd4b36c91780570bbc7fc8aaf777c7d4e039643",
+      "sha256": "6f0622e83bd495c0e95c9cf128b809d8e7068e250fda985e8c75b09913f896bc",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scramble",
+      "sourceSha256": "290e4b6afceba2b243194dfb916af25bafab10a43f7e9b2547c45372f5d0e2b4",
+      "sha256": "a412faeb8567dc689129d025684efe1dbe5ab07db9614fcbf12c6fe1719c6da2",
+      "durationInFrames": 96,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        23,
+        47,
+        71,
+        95
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-split-flap-flip",
+      "sourceSha256": "955797910650c8fab0fe68d5652977d247f6db807ee0f24b453b12b89dd277fa",
+      "sha256": "e873d31c978a53708e05e3de158576394315300b2e36279e005fb5870ed7021c",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-title-demote-to-label",
+      "sourceSha256": "6e2b47b39a82c21b307455038fad0da18795be6560cd7d7cb5b162625a56ca1c",
+      "sha256": "483b935f7cccc5a5a16eecdf104c794bfca9cdb9e5d3d37dbd73258e6dc412bf",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-letterform-drift-assembly",
+      "sourceSha256": "e2e9dd78fcef7afadaef0a2c8152a1e278d40e054a1e706403667fe7833b063f",
+      "sha256": "1ecab9bafa0dce8c9f60638a3fd01045e4bdf0d8743ad48dc0ba067624ede40b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-split-text-stagger",
+      "sourceSha256": "b13ef8c5e2f93edeacfebe76b90fbba0bf6ceadfe16611ce9edf95772186fba4",
+      "sha256": "657ac51dfb5d2fad254dc9456ad908ed43a30e2a3dc99f082dcb94258cf194df",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-text-on-path",
+      "sourceSha256": "9cdd657b46fa511cd3275d362e7550a01667fc7b6a722c6112aa6814bf81ff9d",
+      "sha256": "7863a7b7cfe72efac54551e9770ae5bd9aa7292adf7e1b56d4f0f1570de8066b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-tracking-expand-reveal",
+      "sourceSha256": "64d34d9e829b884782973acddf36597bc5f4faf6d4db493466013ba74e7815ec",
+      "sha256": "568d8e0db216672248787e55f51f522323e0876f6ec732ffadf81ce752f38ca9",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-letter-drop-physics",
+      "sourceSha256": "dabf2ea4c4b97b7b4dabbb618422d45570a99bb63e19bae15abfac2b80603ae4",
+      "sha256": "4751ceb1b97906b8355ac6217af34c13936cba27c6c395d16ccdd5ed8d0a7264",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scramble-decode",
+      "sourceSha256": "70edb7e6bcec309717232c14e2eb575b0b9421e25076198436bcd686e7e69959",
+      "sha256": "aa9ca19e02611dce9454b12f9be35c422e1b86d677b7cb510eeccdf3b0a0164a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-font-weight-pump",
+      "sourceSha256": "d19e9d58d9f8c69799f28c49deaf3398755c51237dc73f0130b094f29cb8737b",
+      "sha256": "037a4779da013753e08e041c557700ff575953e2479a3c3c91038422443e25e4",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-karaoke-fill-sync",
+      "sourceSha256": "10e58fbddbf20e548fe959514baea78df76db4f6542a0ccebff14e74ededf53f",
+      "sha256": "748dae6b4eca34bb7af9161027abe50f3d600729151d17fbc7df9b34af0b3c4b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-terminal-typewriter",
+      "sourceSha256": "f6dbd6e3092a10b58905ddb9ac80bf7d6c984c182f4b69432f94e8cce58041d1",
+      "sha256": "f9805d12653c1a48cf3288bce339488b254d911da6a45dd02d5bac9fc67ba8bf",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-typewriter-error-retype",
+      "sourceSha256": "674226bead412e1b82f6dd5af5bab022cdffcf356548a2717c577bae3659bdee",
+      "sha256": "bd928d6715a5844df91cfc960be4e68a564817c460d3d39b0c0277ba025a7633",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-typing-code-block",
+      "sourceSha256": "1f1a4d651864a28b60467de46079fdea004473ef1653ef35430d03a14215f0d3",
+      "sha256": "de3a2aab1dcb80b5975ae6aa5e4bb2758f2d98f9e94bcff4f4ed8211b454a2ac",
+      "durationInFrames": 138,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        34,
+        68,
+        102,
+        137
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-vertical-word-roll-blur-cycle",
+      "sourceSha256": "3e11bf1b8da863aa7e937f4fbd4c9f9f00bec01bd30279a477ccec8fcf7e989c",
+      "sha256": "8790bf23c91bc4552cc99b3f8f98427544dcd9b6e5da6534545d0589f4dd0558",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-word-relay-filmstrip",
+      "sourceSha256": "487bdd7499c85fb476b73e30e4afa174fa8d4ee98c96a087f2dd4354c257104a",
+      "sha256": "71e719b842dab9f8b0d48ad7782564ce79408c45554e480117c700c668f5b31a",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-word-relay-geometry",
+      "sourceSha256": "81ac43c6f501cc1080828fb4d36c57710eeabbe1bb60bd1ba6b7c9866d4bd0c8",
+      "sha256": "fa8b17a45b8148456c54cb65379866e932413f69534704aaf721fda286fbe7c6",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-avatar-bracket-carousel",
+      "sourceSha256": "2ef2943f172a16527ee9f436757cacd1dc46cdcaf4ce54888f9ca7eb40f2e1dd",
+      "sha256": "b228707cb9507c97022a720d48cb9ef56bc2325a823a95eb0d2a713ca2c03ce9",
+      "durationInFrames": 156,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        38,
+        77,
+        116,
+        155
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-bezier-source-converge-merge",
+      "sourceSha256": "925eb73887691e96d837ca579e76278d9f58694771509858d96847864a1ad234",
+      "sha256": "aeadf9249109bad70d447f7579001125a7718711c57c9cfd0667be773ab2693d",
+      "durationInFrames": 168,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        41,
+        83,
+        125,
+        167
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-card-stack",
+      "sourceSha256": "aa3f31395b1f2692b9a054031c8dcff7550e77d56aa2301926db9832356784d7",
+      "sha256": "6d6e648267f9ffe8b9aebccb3d180e4c8be3f5a062692205003fb70f2efc38ea",
+      "durationInFrames": 126,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        31,
+        62,
+        93,
+        125
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-carousel3-d",
+      "sourceSha256": "c5d07d8dd56f3403f85e2b5c2f619e28452278e646479322bd8825b3c036c244",
+      "sha256": "b925478da444c93ed6b7b1ebeed02382560bddfd1f0bc23f29c3d4a17f4bebc2",
+      "durationInFrames": 168,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        41,
+        83,
+        125,
+        167
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-cloner-depth-echo",
+      "sourceSha256": "986cea75c3989fd33e695acd2d827d785a8b6e3a69363bc7a5f0bb68a2218354",
+      "sha256": "79f63ef496f26bf0ae5fefed31cd414556d08cb0cbc691c707626bb9f6e72120",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-clip-card-looping",
+      "sourceSha256": "248de0411a636b8aae744b8bfea61e52c267a1abbbc7c4b2749e46d4dda872be",
+      "sha256": "a863af44cd4b0f25465e371d08d26f421ee4f2019aecb3bf16c91f909d7aa73a",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-doc-park-left-pill-deal",
+      "sourceSha256": "bce029bf3cf47bf6b40a2e5576ab4a5ffb532250b3e64d231d187f41179835b6",
+      "sha256": "a6c1681ae93b8fcdf78bc46e20c105ca056aed4902981e8d08191450bbd4aefb",
+      "durationInFrames": 174,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        43,
+        86,
+        129,
+        173
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-draw-svg-trace",
+      "sourceSha256": "4831019f4fb6749682ea0ca9a5c0c3baa1a16b77c206f88801b6884ef5f542f7",
+      "sha256": "6cc2d4edc2fe3a76be0d0fad8c7bd4107f668a9aa9b672f882a7b2c0ec581cc3",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-axial-stretch",
+      "sourceSha256": "8233d377a69f94b51ec8f277f8c556bbf1b21b9a3f539acf10bafc4b5d710326",
+      "sha256": "e19b7b9b04a5cc08279bef9628b4357222b7c62179219588520db70e9bb9422e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-contact-shadow-lift",
+      "sourceSha256": "9a9e15c241e1df0db320977e3607788a5b768a4f874d657c996fde995fc28b2d",
+      "sha256": "9533cfa5d606813b3a2f47bf5a6428f20142f271d3b7103e1d826546bb2f8934",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-floating-glossy-label-pills",
+      "sourceSha256": "db93a48920b876d11280fd993ac0ba4b6d4cac500686dac1fbf013a5ba1b8be7",
+      "sha256": "5dae07c417c49a88e36e69b7ababb7a9ead23bbe7176f00c9788150892e82a67",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-list-reveal",
+      "sourceSha256": "e290e24f63bbd29e0b19a74adf334469df1c97e15a805dcabcb1ce8cd33f3fa9",
+      "sha256": "35bea0cfa3b1ff09f8cd45b5b451710e9cc2b62dfd287da74385ae353e8a908a",
+      "durationInFrames": 108,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        26,
+        53,
+        80,
+        107
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-integration-hub-map",
+      "sourceSha256": "be97434c059a671f9f1f0960c2748bff89619d54e082e019911bebeb3d71cd23",
+      "sha256": "cb9cfb9fd0ddeddea3046450050629468e978cfe3a8eaa23eb213b274fdebd26",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-morph-from-primitive",
+      "sourceSha256": "7f61080aa6314965daf6d7dc670e78ce3b42880135f8feb2ff5d044aa658eea0",
+      "sha256": "db89b3f55307480d0bc147533373031af8335ac5a2f7c74aa1a01a8b075f8ed3",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun",
+      "sourceSha256": "8d2988ffcc12f38dd9b9628f4b9326b43dd6e6bfae4eec658c73b7e1a52e48fe",
+      "sha256": "4ffa4777a57327bfc866106546d7efdc7887627ac6d474244f0c100204754eef",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-neon-frame-forerun-orbit",
+      "sourceSha256": "b8789007e8b2961888d51ce64c3825dcaee8342533450cf73d58100de0bee230",
+      "sha256": "bf8047154981d7c8e080f825fa71790a60b6199180aa1ed43fba1213fe728117",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-masking-tape-slap",
+      "sourceSha256": "fab4c2acce583ef6582cb7c857e368d48b792d4ebde5d8b2b04eb8522f7f952d",
+      "sha256": "eee2eff79c4cf7ac0055423fff02564eed5ce2e11cbefdb79a50bc3ce3729f91",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-platform-hinge-rise",
+      "sourceSha256": "e80305113d357fb2882d0f11fc6cb0c50d7ca3eb9e0434ede2fe96a6c9885633",
+      "sha256": "b1d7744dc8e752b7b88a9c2aaab52ecdc4c2eb4ddb60b024c3b92198f9b82aef",
+      "durationInFrames": 104,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        25,
+        51,
+        77,
+        103
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-popup-book-rise",
+      "sourceSha256": "37ff9f9d10e7c8a244f6ea20d7f3d32f263d18b89cdda95f7adef32df85a6ea3",
+      "sha256": "f8b6d22a518bd47954e5bb10c04430ae310a0a93889db83f70b01aa3dc1076ab",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-product-card-progressive-assemble",
+      "sourceSha256": "dc93d1cbeb4d67569b064cd1b9834bc6ce8ce0d20a89c3169487776d4b5e20e9",
+      "sha256": "2baa72eca7102a39ee9233729d0ec673d6e4f84f84c78609c01f395897dfe13b",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-radial-wave",
+      "sourceSha256": "68b11147d3314e46ab2d9643bb7b2d6c0578e0baa26c07c3f323d627f0a592be",
+      "sha256": "f3305426a9f7f87643ac9d4a26c00cd6a06783b199b2f5715d9faf73974ca38c",
+      "durationInFrames": 114,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        28,
+        56,
+        84,
+        113
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-research-card-stack-scroll",
+      "sourceSha256": "48249fa04fb25ec6e5c7b398e2d587f85927914a268e1003595662bab1744201",
+      "sha256": "2d8e846c11bb660cb9c0dc2ae3c154f6e23f83397f949fc2b2df24849889597a",
+      "durationInFrames": 144,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        35,
+        71,
+        107,
+        143
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-runway-ground-skim",
+      "sourceSha256": "07f3be4d02a808e7130346dfe636b32bc899689afe0cf47c53f3bfd9a693b7c6",
+      "sha256": "2d9ff0a83587b0515e2bd5c7607e2a9ae55393d3c83de307f3b0a0d433f59d8f",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-skeleton-reveal",
+      "sourceSha256": "4f607a3200ed97a18cd0b2be18732962469f782b30c90e54b7a1e98f822d6f1c",
+      "sha256": "fa7f8acf7e5d5531669dd8152e315c1538b27dd2cce8e35da53f2f073f85046c",
+      "durationInFrames": 172,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        42,
+        85,
+        128,
+        171
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-svg-shape-morph",
+      "sourceSha256": "7512cad39d5219f67f28a5df7fc9ea65a4fcc3b4e66526098116bbf992f26a52",
+      "sha256": "391abe04a36c161010ef5e396d60e55bae1f2a54d9e3fa88029d949606f89364",
+      "durationInFrames": 156,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        38,
+        77,
+        116,
+        155
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-value-stagger-gradient",
+      "sourceSha256": "bb74486c35c70bdbb79019403f48db2a617de563c120b9cd742cedf49920936e",
+      "sha256": "200b2055139fec44310d23428248199e0af8b5e5996ca8976da08bb2af2b1c0e",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-bento-light-up",
+      "sourceSha256": "74c9912eb2b824a5e8bae0938e61247a6dbb8b231a6e94669201a2ab455e0e90",
+      "sha256": "790e459f7d5d2c5f90d77c39114f7dfa9e8801cc9ff7e018727659afe7e4e1be",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-grid-wave-flip",
+      "sourceSha256": "1843311d09979679cec117220697dc0006593955d6971353694cf750f3369410",
+      "sha256": "a10e3b4325ca475086b10439bdbfc0c8ccd1fa27751e0ac45a8127daa5f9816f",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-wireframe-draw-on",
+      "sourceSha256": "fef966df82831a970bcd97eb436da42a57223089c16dc8231de8d3d7bf930077",
+      "sha256": "ad3f3f56a5b60432d32782807495469836bfdec4811df95bdfe8cae17c28b5a1",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lib-caption",
+      "sourceSha256": "8b4a7163fd881530853d93d3f1babd57925ac80df612355ebf4aa480a0c94bbb",
+      "sha256": "f87920b4c194a08cc483158db90d713e27789bbfcd66ee1472fb436b7650084a",
+      "durationInFrames": 90,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        22,
+        44,
+        66,
+        89
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lib-digit-roll",
+      "sourceSha256": "58dfb684ca8d8b78187743f76d64aef08eac0a1cc4b67917c201eb5a4722fdd3",
+      "sha256": "4f3eb4e474813c5753bd1b4cd389a63d781ed2a6ff9b0477a98615f946b55b50",
+      "durationInFrames": 90,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        22,
+        44,
+        66,
+        89
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lib-flash-cut",
+      "sourceSha256": "9ebaf08d2c990f6a8ec5a791b807ec15b0c438dcca8eccce52b6aa42761bacb2",
+      "sha256": "09a1a66a5180f7e1190bd2db1682f1cde703c7e71f3b2cdb71c8b1d95ee09f26",
+      "durationInFrames": 30,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        7,
+        14,
+        21,
+        29
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lib-clip-card",
+      "sourceSha256": "8ec0fb69448ff547311ab9bf8aab81371d3560d8351a2239e3b76644f83b2280",
+      "sha256": "68c02b68a5256ee5b663e8010a5b579a0e26569cf3ce75e3095156405312f21b",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-three-flat-panel",
+      "sourceSha256": "0df79a43201c081fadff2ac00308b811adf1e4533a623e6ef3c5b1e020ba2019",
+      "sha256": "5ba75d70ce6d14ff8daf18a4191bde132c9f3f5589f7a46437c31aa52fe995d8",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-production-paper-title-card",
+      "sourceSha256": "41b8515231d3a2fc4ad5b23d0138466817bd655032e97b1edc3cdd353db65864",
+      "sha256": "ca7d5d6025eb81efdc896c2b5b8aef11182c5def4e6ce1467104b306b0943417",
+      "durationInFrames": 55,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        13,
+        27,
+        40,
+        54
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-vertical-ticker",
+      "sourceSha256": "46f639948cbdf13af19c3b71f055deb529ae26544ac2b93e3fa0014a23766241",
+      "sha256": "b409a37bfdb835d7fd667e57d0e768214cf7da257e4e656c3e836e5a22c31fef",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-production-caption",
+      "sourceSha256": "a70791bfd4dc9d89abcc62a145b3f15be18660a1d08a4eae8172766ae65869f8",
+      "sha256": "f87920b4c194a08cc483158db90d713e27789bbfcd66ee1472fb436b7650084a",
+      "durationInFrames": 90,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        22,
+        44,
+        66,
+        89
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-crash-impact-real",
+      "sourceSha256": "e6de0e2ce4037752bcb07d5ec965fd966eea3b90255bce0cf295326086390b29",
+      "sha256": "2eb569060ae921072b3a602da806b14654f863574f9ba0d142384a3d2deec876",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-crash-zoom-real",
+      "sourceSha256": "1bdbb3efbfef5072a06d616b64aa540f3f3ecea50015a04a3486dec8f09ba4c8",
+      "sha256": "c919783414ddc34740e96ca5425c46819e36790dc1be51ac9b41f398300c1702",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-dolly-zoom-real",
+      "sourceSha256": "1136c85c6b43ab47cae9570d092ef9c8e3101cdda2c0658d3fe01e738a50ffee",
+      "sha256": "66f4a1d95a2570abacdfbcf10c85c8a4de317176e31bf98df257de52ada03810",
+      "durationInFrames": 135,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        33,
+        67,
+        100,
+        134
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-multiplane-real",
+      "sourceSha256": "e8ea60f571d83980338f7aa0e0ce4c047c1dfe7ece6a1c76d0dc7eee74cefdfc",
+      "sha256": "b4468eec43c34459945592a2f8bf65497c43ac7e227deec18ba51b0329baf4f3",
+      "durationInFrames": 135,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        33,
+        67,
+        100,
+        134
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-type-and-filter",
+      "sourceSha256": "403a6954cb962db990021a1309b0402cba0ec3eba41631edc6b311f607d27c86",
+      "sha256": "2091e25ccb7a49bb2bbb670be648ae1ad9caa457b89cd160ea19d5d01617250b",
+      "durationInFrames": 73,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        18,
+        36,
+        54,
+        72
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-stream-response",
+      "sourceSha256": "aea725a0475fab4b2525b8d59100345138c3f21733054337eaac957e6b573039",
+      "sha256": "aa3555af401ebf30c4bd2d989bc2aba407eb203f8dc6d2510e9150fee3aad4ec",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-letterspace-materialize",
+      "sourceSha256": "39c502aea2de232b94977ddb75825efd2ab42b28a8de3bba08004a8946405dad",
+      "sha256": "39698c655155e6cfe0a07e66338919d7f3dfeaf5d33490a8869655793304c2a7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-spotlight-hero-card",
+      "sourceSha256": "20ecd3acca4334668b2903021a3d32f2521b2b1f4f36331cbdb6413d192d277b",
+      "sha256": "df47370995966b275d586547c2212ad81bdfa34a36fbe6fb5875cc8dc6d395ec",
+      "durationInFrames": 139,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        34,
+        69,
+        103,
+        138
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-outro-group-photo-launch",
+      "sourceSha256": "8afbc4a3e4f4de6b57680407c7a12072a58e959a0aef94bfced6f3ba79b91ee7",
+      "sha256": "6da8a0cf86b4eff154843f55df334349b5cc5979820006f0bce934a9d18935dd",
+      "durationInFrames": 145,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        36,
+        72,
+        108,
+        144
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-freeze-annotate-real",
+      "sourceSha256": "62195967aabb552e3a0dba980360d794753d46120e9b7910830baffcf48b3bac",
+      "sha256": "6ad93888624d2ad8e7f26a90b5c83bd9be728a254c04c243d13dab12089d61e7",
+      "durationInFrames": 135,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        33,
+        67,
+        100,
+        134
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-speed-ramp-real",
+      "sourceSha256": "2b5715a887c79053804840f8a49589b1a2a8408d4693ce73ba4a385d4e7afd4e",
+      "sha256": "ab21feb73658a9ecf95d42e98e1cbc2a02deb791994664bf16d1e93479fc1a55",
+      "durationInFrames": 135,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        33,
+        67,
+        100,
+        134
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-black-card-transition",
+      "sourceSha256": "ced0b0a384c714e704ee999c86c4df89bbb3317eda076f8de15d15d9bd75f5ad",
+      "sha256": "e4fd29c643d7cf0d80c3019242f028a73d5936a3a990aca4f30acc1ecf0daba5",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-dark-tunnel-transition",
+      "sourceSha256": "b56d2a632decea38f987d4a21a829487602f1cc5f4e7ad2f2844a605c451534a",
+      "sha256": "ceb3090ac45168054cfefe5bfd1f26d3fca7c481711fbb8135e289542f97e4e6",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-focus-handoff-transition",
+      "sourceSha256": "46716312478837e7fa3bbffc7b5020918b8080e15f6228519a9248a27afe9628",
+      "sha256": "d476628ce22df93ee4f2356acb696daaa729a71002fc0dd679a862c7f7244bec",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-mask-wipe-real",
+      "sourceSha256": "571e21dbf9409ce703644f5afe0c86eed2aab1369de447708746f5a8c2bbad5c",
+      "sha256": "0d8d654c88df9ed5a940a8188918046f3e22302c35d824bfe0c2c6c76055fa0e",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-whip-brake-real",
+      "sourceSha256": "8ef2743eb2dd462c19eba29d987c4305ca846610757e6217a2c640f92ac9ebc6",
+      "sha256": "9e042597612983020745a7a17955e2522e3bdd727f2264950104c612aa0191fe",
+      "durationInFrames": 130,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        32,
+        64,
+        96,
+        129
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-whip-pan-real",
+      "sourceSha256": "2ded1fc81269482dfb574165415cb0dd41a75eb07a7f10464368c37a59d86414",
+      "sha256": "9edf147b485ad94c93e27a735c659f7c1091e4407b38766053cd56bec812b72e",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-text-column-converge",
+      "sourceSha256": "b48252bb5b4b7d1e5872c7717108a44eb86b5a8bd328b00e27a1d5a1db0396f1",
+      "sha256": "1d0e5cf069658e69420e7a45c19f2107a374c9acdfb12de4dca9af9a9523c7b4",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-document-typewriter-reveal",
+      "sourceSha256": "442db32c281c661633df7b195550634c89ca5f1551575d19db39d52fcd1c346a",
+      "sha256": "d530f6d88d7bfaf7607e35398ffd69e98f0883705190f72b89f35816f8b1098d",
+      "durationInFrames": 110,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        27,
+        54,
+        81,
+        109
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-deck-deal-flyin",
+      "sourceSha256": "d5ff7d8b22f20027d6e665d79149da3f6bdd80b63e1b24f44d236cb066b5ca16",
+      "sha256": "b9f9984ac6857a89676349d29e07ea239e57edf602bf643b6232bd0f6fc11ab4",
+      "durationInFrames": 113,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        28,
+        56,
+        84,
+        112
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-list-stack-press",
+      "sourceSha256": "6afde335431229dbff152fb0c9bce6841714ee0750d3ae754f4df998e7f0dbde",
+      "sha256": "c37c658c07b39eda3d914dc553bfd234dab2752447cb41ef4f2beca4c7babbe8",
+      "durationInFrames": 88,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        21,
+        43,
+        65,
+        87
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-page-waterfall-wall",
+      "sourceSha256": "3c45bcc9b4d272fa6dcadf43240cba65bcd3bf5de4ed286f85da665105a570c8",
+      "sha256": "dc9497a80f7f8cf120cfb6f046a320668a3d483e2833a61c75bb87e0ea2b997e",
+      "durationInFrames": 180,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        44,
+        89,
+        134,
+        179
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-row-embed",
+      "sourceSha256": "fc4c9b83f1649f3db0409ac04ffbbe4d8c486370c62e75ecbab9cae34faff747",
+      "sha256": "eff7199fdee268c25f5b0193df6fc36208e95320c797655c71efca9bd5bfdc9a",
+      "durationInFrames": 68,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        16,
+        33,
+        50,
+        67
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-fly-in",
+      "sourceSha256": "697c2a880c3311bcb4035db4f299b8026d07d1c1db4f7ee5f98a7420522d8105",
+      "sha256": "b1a888862575fdd30439634e4db7900bf5b6fe004fb82c71f427122f9c895e95",
+      "durationInFrames": 190,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        47,
+        94,
+        141,
+        189
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-open",
+      "sourceSha256": "bb2301f97bc265123550d816bbf885a27e79d79bb3475881fff2388d5d3cde13",
+      "sha256": "13e5f9846962e3eb3cdb753a6b727d8cd879a4bd460ce8e68147802a4aa3dea8",
+      "durationInFrames": 220,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        54,
+        109,
+        164,
+        219
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-detail",
+      "sourceSha256": "77aca9fd77798d63f8481dcda5a481acca46defae4b5e9b91ca5c7b5536f5d47",
+      "sha256": "898c1a907f106c98b713558e77ce05d8f3b4518112fd8cbf7fec191f59027118",
+      "durationInFrames": 100,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        24,
+        49,
+        74,
+        99
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-papers",
+      "sourceSha256": "55c27ccfc648fe151f7130d1c5ba72f422b6c056c4c86d64d42aba631730cd4c",
+      "sha256": "09af14d0943024174c8945cc2b52fecfbba869e6bd5d1d5a8a025d64f7a93b7d",
+      "durationInFrames": 105,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        26,
+        52,
+        78,
+        104
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-wbr",
+      "sourceSha256": "73afb30aebca235561c8efcc3c93bd711281872c03ae20dc0d6ce72874e88c02",
+      "sha256": "da6404a1694f4212734fa6c597c9e3c321a9c16a8f760f9f622120f948245639",
+      "durationInFrames": 110,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        27,
+        54,
+        81,
+        109
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-scene-outro-live",
+      "sourceSha256": "5ef45dde09ce81e2684533dc9317bbd02bf7420c0d368b4551604f5905d14735",
+      "sha256": "303b87aa3faf08dae12bd657e1296fa868b3b454e9c37f1272a2c001c058ce9e",
+      "durationInFrames": 145,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        36,
+        72,
+        108,
+        144
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-ink-press",
+      "sourceSha256": "c83c47b8507b35af9e411d0b8cd2f313df39ce905d5b5d5b7fc1f8ffcc0b31f2",
+      "sha256": "b05d0a395205dd6ac10594f51dc3b77501d74e19d68b0538110f319a79b301ba",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-vintage-kraft",
+      "sourceSha256": "7947bb72d17f6ee4246dd4f20fd3ba555b5399c2b3f883edf81ce217f6f0e06e",
+      "sha256": "a8c4dfff5f0af5b49587201ee70ec2eecf955a00fe709d8a2133f771944efd6d",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-deep-ocean",
+      "sourceSha256": "79373934f3e4155d419967f5f3d2cf950ddd583b3c862ecd84929f2c16e286ec",
+      "sha256": "1f421f2c60f71ce6fecea6d18f2b0fa036059b8b1e546c589781cdc05a2e104d",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-obsidian-violet",
+      "sourceSha256": "85bd1476bac525d3c18f9af88ffda7431ccbd35b76d7ee027a135732f4b9d07d",
+      "sha256": "b1e27f6a7f0e322d713e0ff9b2fd54a7618387448453afc2b2e08de5d8631306",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-modern-light",
+      "sourceSha256": "da9ab808bc09c444f03439a71aff21cbd539bade042ac62e99c090b9d075495e",
+      "sha256": "8dda8bb5ca4e3cacb1078a3ca2ca7e456530ee01560b36a1c6ffebd5c34f06f1",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-midnight",
+      "sourceSha256": "290f3beff651388a5c7314a48c826c1e30ad69d106cdf56e605790e29df1842d",
+      "sha256": "55d98127c8a2b9f052783fa8c392b339b5452c2ec03420add3378cf933df8d81",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-coral-burst",
+      "sourceSha256": "5ff29e58d28cf19bbfbd51619a2ea2f36dbf8fad18cd6dfde4b31f6ea546a73f",
+      "sha256": "760f62631085b44b10ad8d92ca78ef132a6e659d76712c8299a81cbd7dc27912",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-solar-pop",
+      "sourceSha256": "57a764dac018426c4253e5c7f066083812b06c8396cc952374d7da9ed6521010",
+      "sha256": "adc10171d31aaad66273b5a59f131a8405bfb3260470c255dcb5457a77b3cd94",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-lib-page-cam",
+      "sourceSha256": "1d32ebf51d02f7b30585c3292183f66e665e7060aaf2081b64c0f59b7dd7f347",
+      "sha256": "3f3df15845de74fc734b5e09eed3f26695608c96614bec38576ec4e9b4da67f7",
+      "durationInFrames": 150,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        37,
+        74,
+        111,
+        149
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-flash-cut-shot",
+      "sourceSha256": "a572973a1c8694beefb12400bdf9f691277451ef2fec19eba938d24ddc9ba2df",
+      "sha256": "7e45935a302fa288b92835f706467c03c6ff0f22dfeec76013716c87faa93639",
+      "durationInFrames": 120,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        29,
+        59,
+        89,
+        119
+      ],
+      "decode": "passed"
+    },
+    {
+      "id": "shotcraft-template-film-color-play",
+      "sourceSha256": "e7706bb52d4811b942ad9980125fd1d5dd412dea41c82be4c62deb1d243416ba",
+      "sha256": "4e1ad3b381d30ec21122cd2a0a808772da2ad468dcd316f15f9b464c38caac33",
+      "durationInFrames": 1085,
+      "fps": 30,
+      "dimensions": [
+        480,
+        270
+      ],
+      "frames": [
+        0,
+        271,
+        542,
+        813,
+        1084
+      ],
+      "decode": "passed"
+    }
+  ],
+  "errors": []
+}

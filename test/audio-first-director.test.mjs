@@ -62,8 +62,8 @@ test('GitHub adaptations retain exact pinned source digests and MIT notices; sty
     assert.equal(hash(readFileSync(join(base,m.source.file))),m.source.sha256);
     assert.match(readFileSync(join(root,m.source.licenseFile),'utf8'),/MIT License/);
   }
-  assert.equal(new Set(libraries.styles.map(s=>s.layout.composition)).size,4);
-  assert.equal(new Set(libraries.styles.map(s=>s.background)).size,4);
+  assert.ok(new Set(libraries.styles.map(s=>s.layout.composition)).size>=4, 'Library extensions must preserve composition diversity.');
+  assert.ok(new Set(libraries.styles.map(s=>s.background)).size>=4, 'Library extensions must preserve background diversity.');
   assert.ok(libraries.styles.some(s=>s.typography.heading!==libraries.styles[0].typography.heading));
 });
 test('compiled creative program detects edits to audio, timing, code and shot mapping',t=> {
@@ -75,4 +75,28 @@ test('compiled creative program detects edits to audio, timing, code and shot ma
   assert.equal(verifyCreativeProgram(built.storyboard,resources).program.humanReview,'pending');
   writeFileSync(join(resources,'production/assets/demo.png'),'changed');assert.throws(()=>verifyCreativeProgram(built.storyboard,resources),/material changed/);writeFileSync(join(resources,'production/assets/demo.png'),'asset');
   writeFileSync(join(resources,'production/timing.json'),'changed');assert.throws(()=>verifyCreativeProgram(built.storyboard,resources),/timing changed/);
+});
+
+test('Shotcraft retained source, adapters, licenses and playable demos agree with the admission archive',()=> {
+  const base=join(root,'integrations/motion-sources/Vincentwei1021/video-shotcraft');
+  const review=JSON.parse(readFileSync(join(base,'source-review.json'),'utf8'));
+  const technical=JSON.parse(readFileSync(join(base,'technical-validation.json'),'utf8'));
+  assert.match(review.commit,/^[a-f0-9]{40}$/);
+  assert.equal(review.executedUpstream,false);
+  assert.match(readFileSync(join(base,'LICENSE'),'utf8'),/Apache License/);
+  for(const file of review.inspectedFiles)assert.equal(hash(readFileSync(join(base,file.path))),file.sha256);
+  for(const adopted of review.adoptedMotions) {
+    const material=libraries.motions.find(m=>m.id===adopted.id);
+    assert.ok(material?.module&&material.usage&&material.demo&&material.description);
+    const source=readFileSync(join(root,material.module),'utf8');
+    assert.equal(hash(source),adopted.sha256);
+    assert.match(source,/Copyright 2026 Wei Yihao/);
+    assert.match(source,/Modified 2026-10-02/);
+    assert.equal(hash(readFileSync(join(root,material.demo))),technical.results.find(r=>r.id===material.id).sha256);
+    assert.ok(readFileSync(join(root,material.usage),'utf8').includes(material.exportName));
+  }
+  for(const adopted of review.adoptedStyles) {
+    const style=libraries.styles.find(s=>s.id===adopted.id);assert.ok(style);
+    for(const field of ['palette','background','typography','geometry','layout','illustration','motion','transitions','captions'])assert.ok(style[field]);
+  }
 });

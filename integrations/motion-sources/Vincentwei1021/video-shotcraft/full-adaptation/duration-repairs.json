@@ -1,0 +1,592 @@
+[
+  {
+    "id": "shotcraft-template-overhead-tabletop-drop",
+    "before": 144,
+    "after": 150,
+    "evidence": [
+      "DROP_END=85"
+    ]
+  },
+  {
+    "id": "shotcraft-template-tilt-reveal",
+    "before": 144,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-steep-tilt-glide",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-odometer-digit-roll",
+    "before": 63,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-confetti-crossfire",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-counter-tick-sparks",
+    "before": 120,
+    "after": 150,
+    "evidence": [
+      "COUNT_END=78"
+    ]
+  },
+  {
+    "id": "shotcraft-template-brand-frame-snap",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-line-unfold-panel",
+    "before": 120,
+    "after": 150,
+    "evidence": [
+      "COLLAPSE_END=85",
+      "SHRINK_END=91"
+    ]
+  },
+  {
+    "id": "shotcraft-template-reticle-lock-on",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-attention-bounce",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-pop-burst-confirm",
+    "before": 120,
+    "after": 150,
+    "evidence": [
+      "DUR=120"
+    ]
+  },
+  {
+    "id": "shotcraft-template-riso-beat-pump",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-riso-misregistration-hit",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-impact-burst-kit",
+    "before": 22,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-kanada-perspective-snap",
+    "before": 22,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-score-slam",
+    "before": 22,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-corner-spotlight-reveal",
+    "before": 135,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-glow-wake-sleep-panel",
+    "before": 135,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-slide-spotlight-pan",
+    "before": 135,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-autolayout-gap-dial",
+    "before": 120,
+    "after": 150,
+    "evidence": [
+      "HOLD_END=66"
+    ]
+  },
+  {
+    "id": "shotcraft-template-diagram-cascade-build",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-panel-to-canvas-materialize",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-cursor-cast-ensemble",
+    "before": 140,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-cursor-dialogue-duet",
+    "before": 140,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-hashtag-to-pill-materialize",
+    "before": 40,
+    "after": 150,
+    "evidence": [
+      "MOVE_END=80"
+    ]
+  },
+  {
+    "id": "shotcraft-template-segmented-thumb-hero",
+    "before": 110,
+    "after": 150,
+    "evidence": [
+      "SLIDE_END=60"
+    ]
+  },
+  {
+    "id": "shotcraft-template-palette-theme-ripple",
+    "before": 120,
+    "after": 150,
+    "evidence": [
+      "RIPPLE_END=95"
+    ]
+  },
+  {
+    "id": "shotcraft-template-theme-sweep-toggle",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-crane-rise-reveal",
+    "before": 20,
+    "after": 150,
+    "evidence": [
+      "MOVE_END=120"
+    ]
+  },
+  {
+    "id": "shotcraft-template-icon-field-colorize",
+    "before": 45,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-letterspace-materialize",
+    "before": 15,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-magician-card-flourish",
+    "before": 9,
+    "after": 150,
+    "evidence": [
+      "source total 141"
+    ]
+  },
+  {
+    "id": "shotcraft-template-text-as-mask",
+    "before": 20,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-ui-strip-away-outro",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-icon-flip-bloom-logo",
+    "before": 130,
+    "after": 150,
+    "evidence": [
+      "BLOOM_END=62"
+    ]
+  },
+  {
+    "id": "shotcraft-template-input-morphs-into-logo",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-beat-cut-accelerando",
+    "before": 49,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-paparazzi-flash",
+    "before": 49,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-beat-step-list-theme-cycle",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-domino-cascade",
+    "before": 129,
+    "after": 150,
+    "evidence": [
+      "SIDE_END=92"
+    ]
+  },
+  {
+    "id": "shotcraft-template-drop-blackout-slam",
+    "before": 129,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-wright-triple-cut",
+    "before": 129,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-comic-panel-split",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-flip-grid-reflow",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-grid-flash-mosaic",
+    "before": 141,
+    "after": 150,
+    "evidence": [
+      "ZOOM_END=72"
+    ]
+  },
+  {
+    "id": "shotcraft-template-jump-cut-punch-in",
+    "before": 135,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-strobe-black-frames",
+    "before": 135,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-smear-multiples",
+    "before": 12,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-spectrum-morph-ui",
+    "before": 64,
+    "after": 150,
+    "evidence": [
+      "COLLAPSE_END=101"
+    ]
+  },
+  {
+    "id": "shotcraft-template-card-footage-cadence",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-smash-cut",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-trailer-bumper",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-bottom-push-stack-wipe",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-bubble-swarm-takeover",
+    "before": 130,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-card-flip-reveal",
+    "before": 26,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-card-flock-tumble",
+    "before": 45,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-circle-match-iris",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-color-block-step-wipe",
+    "before": 44,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-line-carry-transition",
+    "before": 60,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-barn-door-split",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-cube-rotate",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-ink-bleed-reveal",
+    "before": 80,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-glitch-displace",
+    "before": 40,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-letterform-zoom",
+    "before": 60,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-shared-element-morph",
+    "before": 60,
+    "after": 150,
+    "evidence": [
+      "MORPH_END=60",
+      "SETTLE_END=70"
+    ]
+  },
+  {
+    "id": "shotcraft-template-blinds-slice",
+    "before": 20,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-clock-wipe",
+    "before": 20,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-cel-flash-stomp",
+    "before": 30,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-gradient-word-sweep",
+    "before": 20,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-marker-underline-title",
+    "before": 12,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-pill-slot-cycle",
+    "before": 12,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-split-flap-flip",
+    "before": 140,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-text-column-converge",
+    "before": 16,
+    "after": 180,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-title-demote-to-label",
+    "before": 92,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-letterform-drift-assembly",
+    "before": 56,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-split-text-stagger",
+    "before": 56,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-text-on-path",
+    "before": 56,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-tracking-expand-reveal",
+    "before": 56,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-letter-drop-physics",
+    "before": 66,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-scramble-decode",
+    "before": 66,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-font-weight-pump",
+    "before": 10,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-karaoke-fill-sync",
+    "before": 10,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-word-relay-filmstrip",
+    "before": 60,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-draw-svg-trace",
+    "before": 40,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-axial-stretch",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-contact-shadow-lift",
+    "before": 141,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-integration-hub-map",
+    "before": 15,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-morph-from-primitive",
+    "before": 20,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-neon-frame-forerun",
+    "before": 18,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-neon-frame-forerun-orbit",
+    "before": 15,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-masking-tape-slap",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-popup-book-rise",
+    "before": 120,
+    "after": 150,
+    "evidence": []
+  },
+  {
+    "id": "shotcraft-template-runway-ground-skim",
+    "before": 12,
+    "after": 150,
+    "evidence": []
+  }
+]

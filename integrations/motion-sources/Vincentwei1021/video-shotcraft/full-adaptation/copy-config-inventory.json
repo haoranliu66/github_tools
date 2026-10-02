@@ -1,0 +1,3912 @@
+{
+  "neutral": {
+    "AI Foundation Lab": "Example Workspace",
+    "Foundation Lab Weekly": "Workspace Weekly",
+    "Foundation Lab": "Example Workspace",
+    "TEAM RESEARCH CONSOLE": "TEAM WORKSPACE",
+    "ClickUp 3.0": "Workspace 3.0",
+    "ClickUp": "Workspace",
+    "Notion AI": "Product AI",
+    "RAYCAST": "WORKSPACE",
+    "SUPERHUMAN": "WORKSPACE",
+    "perplexity": "assistant",
+    "Ask Atlas": "Ask Assistant",
+    "Introducing Lumen Deck": "Introducing Your Product",
+    "Lumen": "Your",
+    "VIDEO-SHOTCRAFT": "YOUR PRODUCT",
+    "让镜头卡替你想好每一个动效": "让每一个想法清晰呈现",
+    "nano-lab": "demo-project",
+    "nano-lab: automated research loop": "Demo project: research workflow",
+    "acme deploy --prod": "workspace deploy --prod",
+    "~/acme-app (main)": "~/workspace (main)",
+    "Split.io Access for Oleg": "Example access request",
+    "Open in GDrive": "Open in Drive",
+    "Find in Drive": "Find in storage",
+    "Find in Slack": "Find in messages",
+    "Latent Caching Reduces Tool-Call Latency by 41%": "Example Study: Tool-Call Latency Evaluation"
+  },
+  "textsByPath": {
+    "demos/camera/basic-3d-scene/Basic3DScene.tsx": [
+      "STEP 01",
+      "Position the idea",
+      "STEP 02",
+      "Rotate the view",
+      "STEP 03",
+      "Spin the frame",
+      "OVERVIEW",
+      "See everything",
+      "1000px",
+      "18px 20px"
+    ],
+    "demos/camera/crash-zoom-punch/CrashImpactReal.tsx": [],
+    "demos/camera/crash-zoom-punch/CrashZoomReal.tsx": [],
+    "demos/camera/cursor-flyover/CursorFlyover.tsx": [
+      "tx",
+      "ty",
+      "cx",
+      "cy",
+      "13px",
+      "0 10px",
+      "app.example.com/overview",
+      "Overview",
+      "Traffic",
+      "Revenue",
+      "Cohorts",
+      "Alerts",
+      "12.4k",
+      "4.1s",
+      "8px 0 0 8px",
+      "METRIC ",
+      "M4 2 L4 19 L9 14.4 L12.2 21.5 L15.4 20 L12.2 13 L19 12.6 Z"
+    ],
+    "demos/camera/depth-layer-moves/DollyZoomReal.tsx": [
+      "960px 540px"
+    ],
+    "demos/camera/depth-layer-moves/MultiplaneReal.tsx": [],
+    "demos/camera/graze-face-tour/GrazeFaceTour.tsx": [
+      "16px solid transparent",
+      "0 solid transparent",
+      "14px solid transparent",
+      "6px 6px 0 0",
+      "tri",
+      "triOpen",
+      "doc",
+      "folder",
+      "dash",
+      "36px 44px",
+      "People & Teams",
+      "Goals",
+      "Docs",
+      "More",
+      "EPD",
+      "Product roadmap",
+      "Design",
+      "Designer handbook",
+      "Design system",
+      "Components",
+      "Patterns",
+      "Tokens",
+      "SPACES",
+      "Recent",
+      "Favorites",
+      "Logo",
+      "Brand refresh",
+      "Split.io Access for Oleg",
+      "Team credentials",
+      "Todo",
+      "Comments",
+      "Done",
+      "22px 46px",
+      "≡ List",
+      "▦ Gallery",
+      "Product analytics",
+      "ClickUp 3.0",
+      "Widget brainstorm",
+      "70px 70px 0",
+      "ClickUp",
+      "30px 44px",
+      "10px 10px 0 0",
+      "Home",
+      "3",
+      "Inbox",
+      "Company",
+      "70px 90px 0",
+      "‹",
+      "›",
+      "34px 46px",
+      "Search by app, filetype…",
+      "Delegated",
+      "24px 52px",
+      "Filter",
+      "Group",
+      "Sort",
+      "20px 48px",
+      "TODAY",
+      "TASK NAME",
+      "New Bugs Per Week",
+      "Mobile screens",
+      "…"
+    ],
+    "demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx": [],
+    "demos/camera/overhead-camera-moves/TiltReveal.tsx": [],
+    "demos/camera/space-camera-moves/DroneDiveLanding.tsx": [],
+    "demos/camera/space-camera-moves/ExplodedView.tsx": [
+      "28px 22px",
+      "0 32px",
+      "side"
+    ],
+    "demos/camera/steep-tilt-glide/SteepTiltGlide.tsx": [
+      "M 14 62 L 50 30 L 86 62",
+      "M 22 84 L 50 62 L 78 84",
+      "M 27 10 L 50 25 L 27 40 L 4 25 Z",
+      "M 73 10 L 96 25 L 73 40 L 50 25 Z",
+      "M 27 40 L 50 55 L 27 70 L 4 55 Z",
+      "M 73 40 L 96 55 L 73 70 L 50 55 Z",
+      "M 27 74 L 50 89 L 73 74 L 50 62 Z",
+      "Product analytics",
+      "ClickUp 3.0",
+      "Widget brainstorm",
+      "Design system",
+      "Design",
+      "ClickUp",
+      "M 10 15 L 20 26 L 30 15",
+      "M 6 20 L 20 7 L 34 20 M 11 17 V 33 H 29 V 17",
+      "Home",
+      "M 20 5 C 13 5 10 10 10 16 V 24 L 6 30 H 34 L 30 24 V 16 C 30 10 27 5 20 5 Z M 16 33 C 16 36 24 36 24 33",
+      "Inbox",
+      "Docs",
+      "Dashboards",
+      "M 26 6 L 12 20 L 26 34",
+      "W",
+      "Product Management",
+      "20px 40px",
+      "List",
+      "Board",
+      "11",
+      "14px 30px",
+      "IN PROGRESS",
+      "TASK NAME",
+      "New Feature Launch",
+      "Roadmap Q3",
+      "User Testing",
+      "Bug Triage",
+      "left top"
+    ],
+    "demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx": [
+      "BULLET TIME",
+      "12px 26px",
+      "FREEZE",
+      "44px 70px",
+      "8px 8px 0 0"
+    ],
+    "demos/camera/tension-camera-moves/DutchRollToLevel.tsx": [
+      "0 28px",
+      "18px solid transparent"
+    ],
+    "demos/camera/tension-camera-moves/PullBackIsolation.tsx": [
+      "960px 540px",
+      "99.9%"
+    ],
+    "demos/camera/tension-camera-moves/SlowPushIn.tsx": [
+      "10x",
+      "FASTER THAN BASELINE"
+    ],
+    "demos/camera/terminal-3d/Terminal3D.tsx": [
+      "~/workspace — zsh",
+      "$ git status -sb",
+      "dev server",
+      "$ npm run dev",
+      "vite v5.2.0  ready in 312 ms",
+      "watching 148 modules",
+      "logs",
+      "$ tail -f server.log",
+      "ry",
+      "top left",
+      "▌"
+    ],
+    "demos/data/avatar-grid-radial-build-colorize/AvatarGridRadialBuildColorize.tsx": [
+      "VS",
+      "KJ",
+      "EM",
+      "AL",
+      "TR",
+      "MN",
+      "BQ",
+      "DW",
+      "RC",
+      "SF",
+      "PL",
+      "GH",
+      "Active",
+      "Pending",
+      "Inactive",
+      "Let's bring them back in",
+      "4px 10px"
+    ],
+    "demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx": [
+      "10px solid transparent",
+      "10px 22px"
+    ],
+    "demos/data/chart-live-moves/AxisRescaleShockV2.tsx": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+      "$25k",
+      "$50k",
+      "$75k",
+      "$100k",
+      "$200k",
+      "$300k",
+      "$400k",
+      "AXIS RESCALE SHOCK V2",
+      "Monthly revenue",
+      "FY2026 · all products · USD",
+      "Helvetica",
+      "$0",
+      "right center",
+      "$340k"
+    ],
+    "demos/data/chart-live-moves/OscilloscopeStreamV2.tsx": [
+      "2.0k",
+      "1.5k",
+      "1.0k",
+      "0.5k",
+      "-60s",
+      "-50s",
+      "-40s",
+      "-30s",
+      "-20s",
+      "-10s",
+      "now",
+      "OSCILLOSCOPE STREAM V2",
+      "Requests per second",
+      "api-gateway · production · last 60 s",
+      "right top",
+      "req/s · live"
+    ],
+    "demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx": [
+      "Free · 7,210",
+      "Pro · 4,102",
+      "Enterprise · 1,535",
+      "UNIT DOT SWARM REGROUP V2",
+      "Each dot ≈ 40 customers",
+      "Free",
+      "Pro",
+      "Enterprise",
+      "Total customers"
+    ],
+    "demos/data/counter-confetti/CounterConfetti.tsx": [
+      "en-US",
+      "METRIC THIS WEEK"
+    ],
+    "demos/data/cycle-glass-node-morph/CycleGlassNodeMorph.tsx": [
+      "4px solid transparent",
+      "SENSE",
+      "MODEL",
+      "ACT",
+      "CONTEXT",
+      "SYSTEM LOOP",
+      "SUBJECT",
+      "M68 98 Q185 4 302 98",
+      "M302 100 Q185 190 68 100",
+      "M-9 -5 L0 0 L-9 5"
+    ],
+    "demos/data/gauge-readout-moves/NeedleSweepSelftest.tsx": [
+      "%",
+      "NEEDLE SWEEP SELF-TEST"
+    ],
+    "demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx": [
+      "TAPE SCROLL · FIXED POINTER",
+      "0 36px"
+    ],
+    "demos/data/hatch-depth/HatchDepth.tsx": [
+      "SERIES_A",
+      "SERIES_B",
+      "GROUP_C",
+      "GROUP_D",
+      "OTHER_E",
+      "36px 60px",
+      "K",
+      "METRICS",
+      "● LIVE",
+      "TOTAL 875K",
+      "AVG 1.02M"
+    ],
+    "demos/data/odometer-digit-roll/OdometerDigitRoll.tsx": [
+      "ODOMETER DIGIT ROLL",
+      "960px 105px"
+    ],
+    "demos/data/particle-celebrate-hits/ConfettiCrossfire.tsx": [
+      "CONFETTI CROSSFIRE",
+      "98.5%"
+    ],
+    "demos/data/particle-celebrate-hits/CounterTickSparks.tsx": [
+      "COUNTER TICK SPARKS",
+      "en-US"
+    ],
+    "demos/data/particle-sand-fill/ParticleSandFill.tsx": [
+      "PARTICLE SAND FILL",
+      "6px 6px 0 0"
+    ],
+    "demos/data/ring-diagram-annotation-reveal/RingDiagramAnnotationReveal.tsx": [
+      "ring-arrow-head",
+      "M0,0 L5,2.5 L0,5 Z",
+      "start center",
+      "CONTENT",
+      "SUBJECT",
+      "left center",
+      "EXPLANATION",
+      "SUPPORTING DETAIL"
+    ],
+    "demos/data/scroll-brake-moves/BrakeReticleLock.tsx": [
+      "0 28px",
+      "0 32px",
+      "left center",
+      "12px 26px",
+      "v2.41"
+    ],
+    "demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx": [
+      "0 30px"
+    ],
+    "demos/data/timeline-travel/TimelineTravel.tsx": [
+      "v1.0",
+      "v2.0",
+      "v3.0",
+      "Today",
+      "TIMELINE TRAVEL"
+    ],
+    "demos/effects/assemble-then-type-flyin/AssembleThenTypeFlyin.tsx": [
+      "The headline for",
+      "your product here",
+      "Acme ",
+      "Studio",
+      "sample",
+      "GET STARTED",
+      "DOCS",
+      "app.example.com",
+      "WORK",
+      "KINETIC TYPE · 04",
+      "H1 · UI-SERIF / GEORGIA",
+      "A PRODUCT OF ACME · ACME LABS, INC.",
+      "@USERNAME"
+    ],
+    "demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx": [
+      "For many years",
+      "everything changed",
+      "0 .18em"
+    ],
+    "demos/effects/brand-frame-snap/BrandFrameSnap.tsx": [
+      "design",
+      "dev",
+      "DESIGN",
+      "DEV MODE",
+      "0 22px",
+      "6px 16px"
+    ],
+    "demos/effects/dashboard-glow-highlight-pill/DashboardGlowHighlightPill.tsx": [
+      "1px 0",
+      "Ready.",
+      "0 8px",
+      "◆ ACME",
+      "Trade",
+      "Earn",
+      "Vault",
+      "Support ",
+      " 0x8f...c2 ",
+      "1px 5px",
+      "Connect",
+      "4px 5px",
+      "Orderbook",
+      "Trades",
+      "155.01 ▼",
+      "4px 6px",
+      "● TOKEN-USD ",
+      "PERP",
+      "155.01",
+      "24h Vol $1,891,145.10 ",
+      " Funding 0.0042% ",
+      " OI $9.4M",
+      "2px 0",
+      "Cross",
+      "10x",
+      "One-Way",
+      "Market",
+      "Limit",
+      "Pro",
+      "4px 0",
+      "▢ Reduce Only",
+      "Buy",
+      "Sell",
+      "Current Position|0.00 TOKEN",
+      "Liq. Price|--",
+      "Order Value|$0.00",
+      "Margin Required|$0.00",
+      "Fees|0.035% / 0.010%",
+      "Account",
+      "Portfolio Margin|$20,182.49",
+      "Unrealized PNL|+$142.11",
+      "Available|$1,021.19",
+      "3px 8px",
+      "Balances",
+      "Order History",
+      "Trade History",
+      "Funding History",
+      "Position History",
+      "TOKEN",
+      "ALT",
+      "-USD",
+      "152.30",
+      "$7,801.75",
+      "$1,775.00",
+      "74,212.07",
+      "$53,225.00",
+      "Market | Limit",
+      "Reverse",
+      "6px 7px",
+      "Focus Mode",
+      "All panels share one unified workspace layout. Changes in one panel are reflected in the others,",
+      "keeping context in one place",
+      ".",
+      "Choose how panels are arranged:",
+      "● Standard",
+      "Placeholder body copy for option one. The selected option directly determines the layout of each panel — simple and predictable.",
+      "○ Pro",
+      "Placeholder body copy for option two, written a little longer so the block keeps its shape. Replace both with your own wording.",
+      "Confirm"
+    ],
+    "demos/effects/fui-hud-moves/LineUnfoldPanel.tsx": [
+      "LINE UNFOLD PANEL"
+    ],
+    "demos/effects/fui-hud-moves/ReticleLockOn.tsx": [
+      "10px 18px",
+      "TARGET · CARD_02"
+    ],
+    "demos/effects/glow-flyline-moves/FlylineArc.tsx": [],
+    "demos/effects/glow-flyline-moves/GlowOrbAmbient.tsx": [],
+    "demos/effects/glow-flyline-moves/OrbFlylineRelay.tsx": [],
+    "demos/effects/icon-performance-moves/AttentionBounce.tsx": [
+      "M 210 110 C 160 110 140 155 138 200 C 136 245 118 272 100 290 L 320 290 C 302 272 284 245 282 200 C 280 155 260 110 210 110 Z",
+      "left bottom",
+      "10px 24px",
+      "New"
+    ],
+    "demos/effects/icon-performance-moves/PopBurstConfirm.tsx": [
+      "M 150 245 L 215 310 L 340 175",
+      "16px 0",
+      "Deployed"
+    ],
+    "demos/effects/impact-feedback/AnimeImpact.tsx": [
+      "IMPACT"
+    ],
+    "demos/effects/impact-feedback/HitCounter.tsx": [
+      "+1.2k",
+      "+2.4k",
+      "+4.8k",
+      "bottom center",
+      "center bottom",
+      "center center",
+      "10px 34px 16px"
+    ],
+    "demos/effects/light-play-moves/HalationBloom.tsx": [
+      "-0.02em",
+      "10x",
+      "0.35em",
+      "HALATION BLOOM"
+    ],
+    "demos/effects/light-play-moves/SheenSweepRetry.tsx": [
+      "64px 72px",
+      "PRO"
+    ],
+    "demos/effects/light-play-moves/SpotlightSweepReveal.tsx": [
+      "0.04em",
+      "SPOTLIGHT\nON"
+    ],
+    "demos/effects/line-boil/LineBoil.tsx": [
+      "10px 22px",
+      "LINE BOIL",
+      "ALIVE",
+      "36px 40px",
+      "boil on",
+      "boil off"
+    ],
+    "demos/effects/radial-ripple-phone-chips/RadialRipplePhoneChips.tsx": [
+      "10px 18px",
+      "-132px 0 0 -66px",
+      "8px 8px 0",
+      "Feature one",
+      "Feature detail"
+    ],
+    "demos/effects/riso-print-hits/RisoBeatPump.tsx": [
+      "ON THE BEAT",
+      "center center"
+    ],
+    "demos/effects/riso-print-hits/RisoMisregistrationHit.tsx": [
+      "IMPACT",
+      "center center"
+    ],
+    "demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx": [
+      "-120px 0 0 -220px"
+    ],
+    "demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx": [
+      "LOGO · MARK + WORDMARK",
+      "MODULE · KINETIC TYPE",
+      "H1 · SERIF DISPLAY",
+      "CTA · PRIMARY + GHOST",
+      "FOOTER · LEGAL",
+      "SOCIAL · BRAND VOICE",
+      "3px 10px",
+      "app.example.com",
+      "200 OK · TLS",
+      "Acme ",
+      "Studio",
+      "The headline for",
+      "your product here",
+      "H1 · UI-SERIF / GEORGIA",
+      "6px 13px",
+      "GET STARTED",
+      "DOCS",
+      "WORK",
+      "04 / 08",
+      "sample",
+      "KINETIC TYPE · 04",
+      "00:30",
+      "A PRODUCT OF ACME · ACME LABS, INC.",
+      "11px",
+      "x",
+      "@USERNAME",
+      "ANALYSIS · COMPLETE"
+    ],
+    "demos/effects/scanline-assemble-flyin/ScanlineAssembleFlyin.tsx": [
+      "topbar",
+      "logo",
+      "module",
+      "h1",
+      "cta",
+      "footer",
+      "social",
+      "3px 10px",
+      "app.example.com",
+      "200 OK · TLS",
+      "Acme ",
+      "Studio",
+      "The headline for",
+      "your product here",
+      "H1 · UI-SERIF / GEORGIA",
+      "6px 13px",
+      "GET STARTED",
+      "DOCS",
+      "WORK",
+      "04 / 08",
+      "sample",
+      "KINETIC TYPE · 04",
+      "00:30",
+      "A PRODUCT OF ACME · ACME LABS, INC.",
+      "11px",
+      "x",
+      "@USERNAME",
+      "ASSEMBLY · COMPLETE"
+    ],
+    "demos/effects/slam-entrance-moves/ImpactBurstKit.tsx": [
+      "IMPACT BURST KIT"
+    ],
+    "demos/effects/slam-entrance-moves/KanadaPerspectiveSnap.tsx": [
+      "KANADA PERSPECTIVE SNAP"
+    ],
+    "demos/effects/slam-entrance-moves/ScoreSlam.tsx": [
+      "SCORE SLAM",
+      "+247%",
+      "QUARTERLY GROWTH"
+    ],
+    "demos/effects/spotlight-sweep-moves/CornerSpotlightReveal.tsx": [
+      "90px 120px",
+      "Inbox",
+      "16px solid transparent",
+      "10px 34px",
+      "All",
+      "10px 0",
+      "Tasks",
+      "Docs",
+      "People",
+      "Chat"
+    ],
+    "demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx": [
+      "14px 0",
+      "30px 28px",
+      "34px 0 16px",
+      "30px 36px"
+    ],
+    "demos/effects/spotlight-sweep-moves/SlideSpotlightPan.tsx": [
+      "26px 0",
+      "52px 48px",
+      "58px 0 24px",
+      "52px 64px",
+      "90deg",
+      "180deg"
+    ],
+    "demos/interaction/ai-stream-response/StreamResponse.tsx": [
+      "Indexed the workspace",
+      "128 files",
+      "Mapped the authentication flow",
+      "12 modules",
+      "Checked recent error traces",
+      "No blockers",
+      "Matched API contracts to handlers",
+      "24 routes",
+      "Verified permission boundaries",
+      "6 roles",
+      "Cross-checked release notes",
+      "3 changes",
+      "Prepared an implementation plan",
+      "Ready",
+      "0 0 auto",
+      "M3.4 8.3 6.6 11l6-6",
+      "0 20px",
+      "-0.015em",
+      "0 34px",
+      "A",
+      "Ask Atlas",
+      " Workspace agent",
+      "28px 38px 34px",
+      "0 18px",
+      "Review this codebase and identify the safest implementation path",
+      "Result summary",
+      "-.022em",
+      "The codebase is ready for a focused, low-risk implementation.",
+      "flex-end",
+      "Analysis complete",
+      "7 checks finished · ready to build"
+    ],
+    "demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx": [
+      "52px 52px",
+      "GAP",
+      "4px 22px",
+      "5px 14px"
+    ],
+    "demos/interaction/canvas-materialize-moves/DiagramCascadeBuild.tsx": [
+      "Generate an entity-relationship diagram",
+      "52px 52px",
+      "0 36px",
+      "|",
+      "960px 620px",
+      "0 24px"
+    ],
+    "demos/interaction/canvas-materialize-moves/PanelToCanvasMaterialize.tsx": [
+      "52px 52px",
+      "Add all to canvas",
+      "0 20px",
+      "M3 9.5 L7.2 13.5 L15 4.5",
+      "M2 1 L2 17 L6.5 13.2 L9.4 20 L12.4 18.7 L9.5 12 L15 11.6 Z"
+    ],
+    "demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx": [
+      "Option one plan",
+      "Option two plan",
+      "Option three long name",
+      "Option four",
+      "Option five variant",
+      "18% off  ·  42.00  →  34.44",
+      "-120px 0 0 -220px",
+      "OPTION GROUP",
+      "0 15px",
+      "-.01em",
+      "em"
+    ],
+    "demos/interaction/chip-lift-to-user-pill/ChipLiftToUserPill.tsx": [
+      "JD",
+      "MK",
+      "CD",
+      "RL",
+      "AV",
+      "TP",
+      "KN",
+      "BW",
+      "CE",
+      "HR",
+      "LM",
+      "DQ",
+      "Casey Doe",
+      "Starting with Casey",
+      "-120px 0 0 -220px",
+      "M12 0.8 L14.3 9.7 L23.2 12 L14.3 14.3 L12 23.2 L9.7 14.3 L0.8 12 L9.7 9.7 Z",
+      "em"
+    ],
+    "demos/interaction/collab-cursor-moves/CursorCastEnsemble.tsx": [
+      "Lisa",
+      "Lucas",
+      "Marta",
+      "Niko",
+      "Rita",
+      "Our customers love it",
+      "M0.5 0.5 L0.5 17.2 L4.7 13.4 L7.3 19.5 L10 18.3 L7.4 12.3 L13 12.3 Z",
+      "4px 11px",
+      "46px 46px"
+    ],
+    "demos/interaction/collab-cursor-moves/CursorDialogueDuet.tsx": [
+      "M0.5 0.5 L0.5 17.2 L4.7 13.4 L7.3 19.5 L10 18.3 L7.4 12.3 L13 12.3 Z",
+      "5px 13px",
+      "Designer",
+      "Developer"
+    ],
+    "demos/interaction/command-palette-summon/CommandPaletteSummon.tsx": [
+      "0 22px",
+      "0 10px 14px 10px"
+    ],
+    "demos/interaction/glass-pill-dictation-typing/GlassPillDictationTyping.tsx": [
+      "Speak or type here",
+      "0 8px 0 16px"
+    ],
+    "demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx": [
+      "music",
+      "My favorite bands",
+      "I want to share a few of my favorite bands",
+      "and the song that I always listen when driving",
+      "to home. Welcome. Bring headphones."
+    ],
+    "demos/interaction/input-trigger-moves/CursorPerformancePunchIn.tsx": [
+      "M2 1 L2 23 L8 17.5 L11.5 25 L15.5 23.2 L12 15.8 L20 15 Z",
+      "Deploy"
+    ],
+    "demos/interaction/input-trigger-moves/KeycapSmashCut.tsx": [],
+    "demos/interaction/picker-carousel-feature-cycle/PickerCarouselFeatureCycle.tsx": [
+      "Data Cleanup",
+      "Direct Message",
+      "Smart Segments",
+      "Batch Actions",
+      "Reward Program",
+      "Automated Flows",
+      "Variant Testing",
+      "-11px 0 0 -186px",
+      "AI"
+    ],
+    "demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx": [
+      "M4 2 L4 24 L9.5 18.5 L13 27 L16.8 25.4 L13.3 17 L21 17 Z",
+      "M14.5 19 Q20 23.5 25.5 19",
+      "M4 31 L36 31",
+      "M16 17 q0-5 4.5-5 q4.5 0 4.5 4.2 q0 3-3.4 4.4 q-1.6 0.7-1.6 2.6",
+      "Ask",
+      "Computer"
+    ],
+    "demos/interaction/theme-switch-moves/PaletteThemeRipple.tsx": [
+      "28px 22px",
+      "0 32px",
+      "1fr",
+      "center center",
+      "0 18px",
+      "6px 12px",
+      "⌘K",
+      "0 16px"
+    ],
+    "demos/interaction/theme-switch-moves/ThemeSweepToggle.tsx": [
+      "28px 22px",
+      "0 32px",
+      "1fr"
+    ],
+    "demos/interaction/type-and-filter/TypeAndFilter.tsx": [
+      "nano-lab",
+      "center center"
+    ],
+    "demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx": [
+      "0 44px",
+      "🎙️",
+      "M12 20V5M12 5l-6.5 6.5M12 5l6.5 6.5"
+    ],
+    "demos/opening/crane-rise-reveal/CraneRiseReveal.tsx": [],
+    "demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx": [
+      "M 130 1270 C 480 830, 880 360, 1290 -130",
+      "M 1480 1240 C 1830 800, 2180 330, 2540 -110",
+      "OKR-1024",
+      "TEAM-4417",
+      "KR-2093",
+      "SYNC-3308",
+      "OBJ-2471",
+      "PLAN-9124",
+      "GOAL-7752"
+    ],
+    "demos/opening/fracture/Fracture.tsx": [
+      "-115px 0 0 -190px",
+      "REASSEMBLE"
+    ],
+    "demos/opening/icon-field-colorize/IconFieldColorize.tsx": [
+      "M12 21s-7.5-4.7-9.6-9C.9 8.7 2.7 5 6.2 5c2 0 3.3 1 4 2.1h3.6C14.5 6 15.8 5 17.8 5c3.5 0 5.3 3.7 3.8 7-2.1 4.3-9.6 9-9.6 9z",
+      "M12 2l2.7 6.3 6.8.5-5.2 4.4 1.6 6.6L12 16.2 6.1 19.8l1.6-6.6L2.5 8.8l6.8-.5z",
+      "M13 2L4 14h6l-1 8 9-12h-6z",
+      "M9 3v12.3A3.5 3.5 0 1 0 11 18V7h7v6.3A3.5 3.5 0 1 0 20 16V3z",
+      "M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2z",
+      "M6.5 19a4.5 4.5 0 0 1-.4-9A6 6 0 0 1 17.8 8.7 4.2 4.2 0 0 1 17.5 19z",
+      "M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z",
+      "M3.5 10L12 3l8.5 7V21h-6v-6h-5v6h-6z",
+      "M9.4 20.6l-1 1.9 7.2-.1 4.9-8.5-2.2.1-2 3.4L13 4.5h-2.1L7.6 17.3z",
+      "M20.3 6.7L9.6 17.4l-5.9-5.9 2.1-2.1 3.8 3.8 8.6-8.6z",
+      "M21.5 15.5L14 12V5.5a2 2 0 1 0-4 0V12l-7.5 3.5v2l7.5-2v4l-2.5 2v1.5l4.5-1 4.5 1V21.5l-2.5-2v-4l7.5 2z",
+      "M12 1.5l1.4 3.6h-2.8zM12 22.5l-1.4-3.6h2.8zM1.5 12l3.6-1.4v2.8zM22.5 12l-3.6 1.4v-2.8zM4.6 4.6l3.5 1.5-2 2zM19.4 19.4l-3.5-1.5 2-2zM19.4 4.6l-1.5 3.5-2-2zM4.6 19.4l1.5-3.5 2 2z",
+      "M20 4C10 4 4.5 9 4 15.7 3.9 17.5 4 20 4 20s2.7-.2 4.4-.3C15 19.2 20 13.5 20 4zM6.8 17.2C10 11 15 8 15 8s-5.5 1.5-8.8 8z"
+    ],
+    "demos/opening/letterspace-materialize/LetterspaceMaterialize.tsx": [
+      "M 62 13 C 51 4, 18 3, 15 15 C 12 26, 29 29, 39 31 C 50 33, 66 37, 63 48 C 60 59, 21 61, 11 50",
+      "M 12 5 L 12 40 C 12 59, 66 59, 66 40 L 66 5",
+      "M 12 59 L 12 5 L 44 5 C 64 5, 64 32, 44 32 L 12 32",
+      "M 62 5 L 12 5 L 12 59 L 62 59 M 12 31 L 56 31",
+      "M 12 59 L 12 5 L 44 5 C 64 5, 64 31, 44 31 L 12 31 M 42 31 L 64 59",
+      "M 12 5 L 12 59 M 66 5 L 66 59 M 12 31 L 66 31",
+      "M 8 59 L 8 6 L 39 38 L 70 6 L 70 59",
+      "M 7 59 L 39 5 L 71 59 M 17 41 L 61 41",
+      "M 12 59 L 12 5 L 66 59 L 66 5",
+      "SUPERHUMAN"
+    ],
+    "demos/opening/magician-card-flourish/MagicianCardFlourish.tsx": [],
+    "demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx": [
+      "让镜头卡替你想好每一个动效",
+      "VIDEO-SHOTCRAFT",
+      "M8 118 L118 92 L228 104 L338 56 L448 68 L558 20 L632 34",
+      "0.06em",
+      "SESSIONS",
+      "M40 380 C 200 380 190 210 340 200 C 500 190 500 90 700 70",
+      "M80 380 L768 380",
+      "M140 380 L200 90 L648 90 L708 380",
+      "M280 90 L280 380",
+      "M500 90 L500 380",
+      "0.4em",
+      "2026 · Q3",
+      "-0.04em",
+      "GO LIVE",
+      "top left",
+      "-0.05em",
+      "0.06em -0.08em",
+      "left center",
+      "0.35em"
+    ],
+    "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx": [
+      "center center",
+      "-0.012em",
+      "One card,",
+      "one project."
+    ],
+    "demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx": [
+      "STROKE SEGMENT BUILD"
+    ],
+    "demos/opening/text-as-mask/TextAsMask.tsx": [
+      "no-repeat",
+      "1920px 1080px",
+      "TEXT AS MASK"
+    ],
+    "demos/outro/edit-hook-moves/LogoStingButton.tsx": [
+      "ACME"
+    ],
+    "demos/outro/grain-dissolve/GrainDissolve.tsx": [
+      "2.5px",
+      "4px",
+      "ACME"
+    ],
+    "demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx": [
+      "BRAND",
+      "BUILD. SHIP. REPEAT."
+    ],
+    "demos/outro/neon-triple-marquee/NeonTripleMarquee.tsx": [
+      "BETTER",
+      "FASTER",
+      "STRONGER"
+    ],
+    "demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx": [
+      "AI Foundation Lab",
+      "nav",
+      "card4",
+      "card1",
+      "paper1",
+      "card7",
+      "paper3",
+      "search",
+      "stats",
+      "wbr",
+      "center center",
+      "34px auto 0",
+      "0.14em",
+      "Team Research Console"
+    ],
+    "demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx": [
+      "90px 24px",
+      "0 24px",
+      "flex-start",
+      "0 18px",
+      "Publish",
+      "WORDMARK",
+      "M2 1 L2 17 L6.5 13.2 L9.4 20 L12.4 18.7 L9.5 12 L15 11.6 Z"
+    ],
+    "demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx": [
+      "M14 18.5 Q20 23.5 26 18.5",
+      "M3.5 31.5 L36.5 31.5",
+      "perplexity",
+      "center 78%"
+    ],
+    "demos/outro/ui-to-brand-morph/InputMorphsIntoLogo.tsx": [
+      "0 34px",
+      "Ready, set, go!",
+      "|",
+      "M3 17 L31 4 L20 30 L15 19 Z",
+      "M4 2 L4 34 L13 26 L19 40 L26 37 L20 23 L32 22 Z"
+    ],
+    "demos/rhythm/beat-cut-moves/BeatCutAccelerando.tsx": [],
+    "demos/rhythm/beat-cut-moves/PaparazziFlash.tsx": [
+      "960px 540px",
+      "1070px 335px",
+      "1070px 350px",
+      "900px 480px"
+    ],
+    "demos/rhythm/beat-step-list-theme-cycle/BeatStepListThemeCycle.tsx": [
+      "modern",
+      "playful",
+      "expressive",
+      "seamless",
+      "intuitive"
+    ],
+    "demos/rhythm/montage-rhythm-moves/DominoCascade.tsx": [
+      "CHAIN REACTION",
+      "32px 24px"
+    ],
+    "demos/rhythm/montage-rhythm-moves/DropBlackoutSlam.tsx": [
+      "DROP"
+    ],
+    "demos/rhythm/montage-rhythm-moves/WrightTripleCut.tsx": [
+      "echo2",
+      "echo1",
+      "main",
+      "1"
+    ],
+    "demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx": [
+      "1,284",
+      "518px 400px"
+    ],
+    "demos/rhythm/panel-grid-moves/FlipGridReflow.tsx": [
+      "FLIP GRID REFLOW"
+    ],
+    "demos/rhythm/panel-grid-moves/GridFlashMosaic.tsx": [
+      "top left",
+      "960px 540px"
+    ],
+    "demos/rhythm/quad-split-parallel-scenes/QuadSplitParallelScenes.tsx": [
+      "Tab One",
+      "Tab Two",
+      "Tab Three",
+      "Tab Four",
+      "Tab Five",
+      "Tab Six",
+      "Placeholder headline text",
+      "and a second line of copy",
+      "One",
+      "clear",
+      "message",
+      "8px 10px 4px",
+      "5px 5px 0 0",
+      "2px 5px",
+      "6px 10px",
+      "0 10px",
+      "◆",
+      "8px 12px 14px",
+      "✦ Section label ›",
+      "_",
+      "6px 9px",
+      "You · just now",
+      "All good!",
+      "0 8px",
+      "1px 5px",
+      "00:00",
+      "Leave your comment...",
+      "➤"
+    ],
+    "demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx": [
+      "JUMP CUT PUNCH-IN"
+    ],
+    "demos/rhythm/rhythm-interrupt-moves/StrobeBlackFrames.tsx": [
+      "STROBE BLACK FRAMES"
+    ],
+    "demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx": [
+      "SAKUGA TIMING SHIFT",
+      "on 3s",
+      "on 1s"
+    ],
+    "demos/rhythm/smear-multiples/SmearMultiples.tsx": [
+      "SMEAR MULTIPLES"
+    ],
+    "demos/rhythm/spectrum-morph-ui/SpectrumMorphUi.tsx": [
+      "LAUNCH WEEK"
+    ],
+    "demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx": [],
+    "demos/rhythm/speed-ramp-freeze/SpeedRampReal.tsx": [],
+    "demos/rhythm/trailer-grammar-moves/CardFootageCadence.tsx": [
+      "SHIP",
+      "FASTER",
+      "TODAY"
+    ],
+    "demos/rhythm/trailer-grammar-moves/SmashCut.tsx": [],
+    "demos/rhythm/trailer-grammar-moves/TrailerBumper.tsx": [
+      "THE LAUNCH"
+    ],
+    "demos/transition/bottom-push-stack-wipe/BottomPushStackWipe.tsx": [
+      "18px 18px 0 0",
+      "0 22px",
+      "0 0 18px 18px"
+    ],
+    "demos/transition/bubble-swarm-takeover/BubbleSwarmTakeover.tsx": [
+      "Hallo!",
+      "¡Hola!",
+      "Ciao!",
+      "18px 40px"
+    ],
+    "demos/transition/card-flip-reveal/CardFlipReveal.tsx": [
+      "CARD FLIP REVEAL"
+    ],
+    "demos/transition/card-flock-tumble/CardFlockTumble.tsx": [
+      "FASTER",
+      "rx",
+      "ry",
+      "rz",
+      "Inbox",
+      "List view",
+      "Home",
+      "STRONGER"
+    ],
+    "demos/transition/circle-match-iris/CircleMatchIris.tsx": [
+      "%"
+    ],
+    "demos/transition/color-block-step-wipe/ColorBlockStepWipe.tsx": [
+      "M32 70 Q55 88 78 70",
+      "M24 28 Q34 20 44 26",
+      "M66 26 Q76 20 86 28",
+      "90px 160px"
+    ],
+    "demos/transition/cube-navigation/CubeNavigation.tsx": [
+      "OVERVIEW",
+      "METRICS",
+      "TIMELINE",
+      "ASSETS",
+      "SETTINGS",
+      "EXPORT",
+      "rx",
+      "ry"
+    ],
+    "demos/transition/gradient-transition/GradientTransition.tsx": [
+      "6px 18px",
+      "LINEAR",
+      "RADIAL",
+      "CONIC"
+    ],
+    "demos/transition/line-carry-transition/LineCarryTransition.tsx": [
+      "M 400 705 L 2600 705 L 2600 375 L 3160 375 L 3160 705 L 2600 705",
+      "Scene A",
+      "Scene B"
+    ],
+    "demos/transition/mosaic-reframe/MosaicReframe.tsx": [
+      "rot"
+    ],
+    "demos/transition/page-turn-transitions/BarnDoorSplit.tsx": [
+      "BARN DOOR SPLIT"
+    ],
+    "demos/transition/page-turn-transitions/CubeRotate.tsx": [
+      "CUBE ROTATE"
+    ],
+    "demos/transition/paper-plane-messenger/PaperPlaneMessenger.tsx": [
+      "0 20px",
+      "flex-end",
+      "16px 46px",
+      "Send ➤"
+    ],
+    "demos/transition/print-texture-transitions/InkBleedReveal.tsx": [
+      "BEFORE"
+    ],
+    "demos/transition/shot-transitions/BlackCardTransition.tsx": [
+      "Every",
+      "project,",
+      "linked",
+      "to",
+      "your",
+      "weekly",
+      "report.",
+      "-0.012em",
+      "0.26em",
+      "30px auto 0",
+      "0.14em",
+      "Weekly Brief · 2026-W28"
+    ],
+    "demos/transition/shot-transitions/DarkTunnelTransition.tsx": [],
+    "demos/transition/shot-transitions/FocusHandoffTransition.tsx": [],
+    "demos/transition/shot-transitions/MaskWipeReal.tsx": [],
+    "demos/transition/shot-transitions/PortalWipeV2.tsx": [
+      "960px 540px",
+      "Scene B"
+    ],
+    "demos/transition/shot-transitions/WhipBrakeReal.tsx": [],
+    "demos/transition/shot-transitions/WhipPanReal.tsx": [],
+    "demos/transition/tear-streak-transitions/GlitchDisplace.tsx": [],
+    "demos/transition/transition-hidden-cut/InvisibleCut.tsx": [],
+    "demos/transition/transition-hidden-cut/LightLeakBurn.tsx": [
+      "Next Page"
+    ],
+    "demos/transition/transition-hidden-cut/VersusSlam.tsx": [
+      "18px 46px",
+      "VS"
+    ],
+    "demos/transition/transition-travel/LetterformZoom.tsx": [
+      "DASH"
+    ],
+    "demos/transition/transition-travel/SharedElementMorph.tsx": [
+      "top left"
+    ],
+    "demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx": [
+      "BRAND",
+      "-60px 0 0 -110px"
+    ],
+    "demos/transition/wipe-transitions/BlindsSlice.tsx": [],
+    "demos/transition/wipe-transitions/ClockWipe.tsx": [],
+    "demos/typography/blur-slide/BlurSlide.tsx": [
+      "Your headline goes here",
+      "Short supporting subtitle for placeholders",
+      "0.32em",
+      "-0.5px"
+    ],
+    "demos/typography/brace-expand/BraceExpand.tsx": [
+      "Your title"
+    ],
+    "demos/typography/brand-ink-open/BrandInkOpen.tsx": [
+      "AI Foundation Lab",
+      "TEAM RESEARCH CONSOLE",
+      "0 auto 34px",
+      "-0.01em",
+      "flex-end",
+      "center bottom",
+      "0.14em"
+    ],
+    "demos/typography/cel-flash-stomp/CelFlashStomp.tsx": [
+      "SHIP",
+      "FASTER",
+      "TODAY",
+      "CEL FLASH STOMP",
+      "0 120px"
+    ],
+    "demos/typography/countdown-arc-scatter/CountdownArcScatter.tsx": [
+      "-0.5px",
+      "min",
+      "to",
+      "install"
+    ],
+    "demos/typography/flying-words/FlyingWords.tsx": [
+      "Motion",
+      "Layout",
+      "Camera",
+      "Stagger",
+      "Easing",
+      "Beat",
+      "Keyframe",
+      "Blur",
+      "Scale",
+      "Transform",
+      "Rotate",
+      "Parallax",
+      "Opacity",
+      "Depth",
+      "Tween",
+      "Loop",
+      "Spring",
+      "Delay",
+      "Fade",
+      "Composite",
+      "Grid",
+      "Pivot",
+      "0.5px",
+      "-14px 0 0 -60px"
+    ],
+    "demos/typography/glitch-cycle/GlitchCycle.tsx": [
+      "INITIALIZING",
+      "LOADING ASSETS",
+      "COMPILING SHADERS",
+      "READY TO SHIP",
+      "0.66em"
+    ],
+    "demos/typography/gradient-word-sweep/GradientWordSweep.tsx": [
+      "Supercharged",
+      "performance",
+      "with rock-solid reliability"
+    ],
+    "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx": [
+      "Introducing Lumen Deck",
+      "Lumen",
+      "-0.03em",
+      "One shot card, one motion recipe — copy, paste, render.",
+      "geometricPrecision"
+    ],
+    "demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx": [
+      "-0.02em",
+      "Meet the",
+      "new",
+      "Notion AI"
+    ],
+    "demos/typography/outline-word-fill/OutlineWordFill.tsx": [
+      "Faster"
+    ],
+    "demos/typography/paper-title-card/PaperTitleCard.tsx": [
+      "All",
+      "your",
+      "team’s",
+      "research,",
+      "one",
+      "place",
+      "to",
+      "go.",
+      "of 31 fetched today",
+      "-0.012em",
+      "0.26em",
+      "38px auto 0",
+      "0.12em",
+      "0.5em"
+    ],
+    "demos/typography/pill-chip-slot-cycle-handled/PillChipSlotCycleHandled.tsx": [
+      "Sales",
+      "Workflow",
+      "Admin",
+      "Reports",
+      "Your",
+      "0 14px",
+      "Handled"
+    ],
+    "demos/typography/pill-slot-cycle/PillSlotCycle.tsx": [
+      "Ask a question",
+      "Find in Drive",
+      "Find in Slack",
+      "Summarize",
+      "Improve writing",
+      "Draft an agenda",
+      "14px 36px 14px 24px",
+      "do it all.",
+      "One AI tool to"
+    ],
+    "demos/typography/scramble/Scramble.tsx": [
+      "TEMPLATE MOTION DEMO",
+      "0.62em"
+    ],
+    "demos/typography/split-flap-title/SplitFlapFlip.tsx": [
+      "SHIP FASTER",
+      "10px 10px 0 0",
+      "0 0 10px 10px"
+    ],
+    "demos/typography/text-column-converge/TextColumnConverge.tsx": [
+      "LAUNCHER DESIGN",
+      "COMPACT MODE",
+      "HOTKEY RECORDER",
+      "HOTKEY TYPES",
+      "VOICE FEATURES",
+      "SETTINGS DESIGN",
+      "AI CHAT",
+      "FILE SEARCH",
+      "RAYCAST",
+      "NEW",
+      "COMING 2026"
+    ],
+    "demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx": [
+      "left center",
+      "10px 18px",
+      "Running Subagents",
+      "Select the Answer"
+    ],
+    "demos/typography/type-assembly-moves/LetterformDriftAssembly.tsx": [
+      "ASSEMBLE",
+      "LETTERFORM DRIFT ASSEMBLY"
+    ],
+    "demos/typography/type-assembly-moves/SplitTextStagger.tsx": [
+      "MOTION SYSTEM",
+      "SPLIT TEXT STAGGER",
+      "flex-end",
+      "flex-start"
+    ],
+    "demos/typography/type-assembly-moves/TextOnPath.tsx": [
+      "GROWTH ALL THE WAY",
+      "TEXT ON PATH"
+    ],
+    "demos/typography/type-assembly-moves/TrackingExpandReveal.tsx": [
+      "BREATHE",
+      "TRACKING EXPAND REVEAL",
+      "0.14em",
+      "0.32em",
+      "A CINEMATIC TITLE ENTRANCE"
+    ],
+    "demos/typography/type-entrance-moves/LetterDropPhysics.tsx": [
+      "GRAVITY",
+      "flex-end"
+    ],
+    "demos/typography/type-entrance-moves/ScrambleDecode.tsx": [
+      "DECODE SPEED",
+      "0.7em",
+      "1ch"
+    ],
+    "demos/typography/type-rhythm-sync/FontWeightPump.tsx": [
+      "center center",
+      "PUMP IT UP"
+    ],
+    "demos/typography/type-rhythm-sync/KaraokeFillSync.tsx": [
+      "SHIP",
+      "FASTER",
+      "BREAK",
+      "NOTHING"
+    ],
+    "demos/typography/typewriter-moves/TerminalTypewriter.tsx": [
+      "acme deploy --prod",
+      "0 22px",
+      "0 auto",
+      "~/acme-app (main)",
+      "960px 540px"
+    ],
+    "demos/typography/typewriter-moves/TypewriterErrorRetype.tsx": [
+      "just a dashboard",
+      "your command center"
+    ],
+    "demos/typography/typing-code-block/TypingCodeBlock.tsx": [
+      "const ",
+      "app",
+      "createApp",
+      "use",
+      "router",
+      "mount",
+      "10px 12px",
+      "LINE FADE-IN",
+      "CHAR TYPING",
+      "1.9em"
+    ],
+    "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx": [
+      "Apps",
+      "Teams",
+      "Data",
+      "Everyone",
+      "Built for"
+    ],
+    "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx": [
+      "38px 46px",
+      "36px 44px",
+      "44px 52px",
+      "22px 30px",
+      "34px 44px",
+      "13px 0",
+      "0 26px",
+      "24px auto 0",
+      "40px 60px",
+      "10px auto 18px",
+      "0 auto 11px",
+      "researches",
+      "builds",
+      "codes",
+      "0.002em",
+      "Computer"
+    ],
+    "demos/typography/word-relay-geometry/WordRelayGeometry.tsx": [
+      "Faster",
+      "Better",
+      "Stronger"
+    ],
+    "demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx": [
+      "Designer",
+      "Support",
+      "Analyst",
+      "Writer",
+      "M4,26 L4,4 L26,4",
+      "M66,4 L88,4 L88,26",
+      "M88,66 L88,88 L66,88",
+      "M26,88 L4,88 L4,66",
+      "Your",
+      "teammates"
+    ],
+    "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "Four sources unified",
+      "-120px 0 0 -220px",
+      "M12 0.8 L14.3 9.7 L23.2 12 L14.3 14.3 L12 23.2 L9.7 14.3 L0.8 12 L9.7 9.7 Z",
+      "em"
+    ],
+    "demos/ui-entrance/card-stack/CardStack.tsx": [
+      "900px",
+      "-85px 0 0 -55px"
+    ],
+    "demos/ui-entrance/carousel-3d/Carousel3D.tsx": [
+      "950px",
+      "CARD 0"
+    ],
+    "demos/ui-entrance/clipcard-looping/ClipCardLooping.tsx": [
+      "muted=false · loop",
+      "startFrom=12 · loop",
+      "short-shot",
+      "45f clip · 120f shot"
+    ],
+    "demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx": [
+      "CLONER DEPTH ECHO"
+    ],
+    "demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx": [
+      "center center"
+    ],
+    "demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx": [
+      "0 0 auto",
+      "leaf",
+      "M3 13c0-6 5-10 10-10 0 6-4 10-10 10Z",
+      "M3 13 13 3",
+      "bowl",
+      "M2 7h12c0 4-2.6 6-6 6S2 11 2 7Z",
+      "M6 4.5V2M9.5 4.5V2",
+      "M4.4 6.2h7.2M4.4 9.8h7.2",
+      "em",
+      "Quick Start",
+      "Start matches their preference",
+      "Bundle Plan",
+      "Plan fits their weekday usage",
+      "Starter Kit",
+      "Kit is their top repeat item",
+      "-120px 0 0 -220px",
+      "0 14px",
+      "-.01em"
+    ],
+    "demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx": [
+      "2026 第 27 周",
+      "7月3日",
+      "2026-W27 · Foundation Lab Weekly",
+      "2026 第 26 周",
+      "6月26日",
+      "2026-W26 · Foundation Lab Weekly",
+      "2026 第 25 周",
+      "6月19日",
+      "2026-W25 · Foundation Lab Weekly",
+      "2026 第 24 周",
+      "6月12日",
+      "2026-W24 · Foundation Lab Weekly",
+      "2026 第 23 周",
+      "6月5日",
+      "2026-W23 · Foundation Lab Weekly",
+      "2026 第 22 周",
+      "5月29日",
+      "2026-W22 · Foundation Lab Weekly",
+      "h2",
+      "li",
+      "8px 10px 0",
+      "0.14em",
+      "Weekly Brief · 2026-W28"
+    ],
+    "demos/ui-entrance/draw-svg-trace/DrawSvgTrace.tsx": [
+      "DRAW SVG TRACE"
+    ],
+    "demos/ui-entrance/element-body-moves/AxialStretch.tsx": [
+      "AXIAL STRETCH"
+    ],
+    "demos/ui-entrance/element-body-moves/ContactShadowLift.tsx": [
+      "0 48px"
+    ],
+    "demos/ui-entrance/floating-glossy-label-pills/FloatingGlossyLabelPills.tsx": [
+      "M8 116 C 40 112, 56 62, 84 64 S 128 120, 152 116 S 196 50, 224 56 L224 134 L8 134 Z",
+      "M8 116 C 40 112, 56 62, 84 64 S 128 120, 152 116 S 196 50, 224 56",
+      "Feature A",
+      "Feature B",
+      "Feature C",
+      "Feature D",
+      "4px 13px",
+      "4px solid transparent",
+      "14px solid transparent"
+    ],
+    "demos/ui-entrance/integration-hub-map/IntegrationHubMap.tsx": [
+      "Q3 Enterprise Deal",
+      "Revenue · Pipeline · Q3 Quota",
+      "Major Enterprise Account - UK",
+      "Revenue · MQL · International",
+      "Enterprise Pitch Deck",
+      "Open in GDrive",
+      "MQL Lead Form Design",
+      "Figma File · Last Edited",
+      "Enterprise Sales",
+      "ClickUp Space",
+      "Enterprise Closed Archive",
+      "Archived · In Enterprise Sales",
+      "Open Enterprise Lead - Follow up",
+      "In Progress · In Enterprise Sales · Yesterday",
+      "26px 30px",
+      "Enterprise MQLs",
+      "All",
+      "Tasks",
+      "Docs",
+      "Whiteboards",
+      "Dashboards",
+      "Files",
+      "Chat",
+      "People",
+      "Recent",
+      "+ Add Location Filter",
+      "QUICK FILTERS",
+      "Assigned to Me",
+      "Created by Me",
+      "TASK FILTERS",
+      "Open",
+      "Closed",
+      "Archived",
+      "30px 34px",
+      "Revenue",
+      "Pipeline",
+      "Q3 Quota",
+      "3px 10px",
+      "figma",
+      "github",
+      "salesforce",
+      "gdrive",
+      "M16 2 L32 2 L48 30 L40 42 L8 42 L0 30 Z",
+      "M16 2 L32 2 L20 24 L4 24 Z",
+      "M32 2 L46 28 L30 28 L18 6 Z",
+      "M6 28 L42 28 L36 38 L12 38 Z",
+      "M12 0 L24 8 L12 16 L0 8 Z",
+      "M36 0 L48 8 L36 16 L24 8 Z",
+      "M12 18 L24 26 L12 34 L0 26 Z",
+      "M36 18 L48 26 L36 34 L24 26 Z",
+      "M 452 322 L 452 440 Q 452 480 492 480 L 552 480",
+      "M 316 612 L 552 612",
+      "M 992 240 L 992 332",
+      "M 1512 332 L 1512 440 Q 1512 480 1472 480 L 1372 480",
+      "dropbox",
+      "M 1640 618 L 1372 618"
+    ],
+    "demos/ui-entrance/list-reveal/ListReveal.tsx": [
+      "Dashboard",
+      "Projects",
+      "Analytics",
+      "Messages",
+      "Settings",
+      "Sign out",
+      "9px 13px"
+    ],
+    "demos/ui-entrance/list-stack-press/ListStackPress.tsx": [
+      "center center",
+      "top right",
+      "0.16em",
+      "Paper Radar",
+      "flex-end",
+      "0.12em",
+      "Of 31 Fetched Today"
+    ],
+    "demos/ui-entrance/morph-from-primitive/MorphFromPrimitive.tsx": [
+      " Z"
+    ],
+    "demos/ui-entrance/neon-frame-forerun/NeonFrameForerun.tsx": [
+      "12px 14px",
+      "26px 24px",
+      "24px 0 12px",
+      "30px 40px",
+      "0 16px"
+    ],
+    "demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx": [
+      "12px 14px",
+      "26px 24px",
+      "24px 0 12px",
+      "30px 40px",
+      "0 16px"
+    ],
+    "demos/ui-entrance/page-waterfall-wall/PageWaterfallWall.tsx": [],
+    "demos/ui-entrance/page-waterfall-wall/VerticalTicker.tsx": [
+      "center center"
+    ],
+    "demos/ui-entrance/paper-craft-moves/MaskingTapeSlap.tsx": [
+      "MASKING TAPE SLAP"
+    ],
+    "demos/ui-entrance/paper-craft-moves/PopupBookRise.tsx": [
+      "28px 22px",
+      "0 32px"
+    ],
+    "demos/ui-entrance/platform-hinge-rise/PlatformHingeRise.tsx": [
+      "SUBJECT",
+      "start center",
+      "CONTEXT",
+      "OUTCOME"
+    ],
+    "demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx": [
+      "rise",
+      "pop",
+      "Placeholder copy for ",
+      "a key highlight",
+      " in the",
+      "product body. ",
+      "Second highlight",
+      " sits here on",
+      "the third line of neutral sample text.",
+      "-.3px",
+      "Sample Product Title",
+      "8px 0 10px",
+      "Category",
+      "Subgroup",
+      "Detail",
+      "3px 9px",
+      "line-through",
+      "$249",
+      "$189",
+      "left center"
+    ],
+    "demos/ui-entrance/radial-wave/RadialWave.tsx": [],
+    "demos/ui-entrance/research-card-stack-scroll/ResearchCardStackScroll.tsx": [
+      "Sparse Attention Mechanisms for Long-Context Reasoning",
+      "Retrieval Drift in Multi-Hop Agent Pipelines",
+      "Latent Caching Reduces Tool-Call Latency by 41%",
+      "On the Calibration of Preference Reward Models",
+      "Grid-Aligned Motion Priors for UI Animation",
+      "Cheap Verifiers Beat Expensive Samplers",
+      "Structured Decoding Without Grammar Loss",
+      "Depth-Ordered Compositing for Live Interfaces",
+      "Token-Budget Routing in Agent Fleets",
+      "Contrastive Layouts for Document Understanding",
+      "Fast Approximate Re-Ranking at Query Time",
+      "Signal Propagation in Deep Residual Agents",
+      "A Note on Deterministic Replay of Motion",
+      "100% 24px"
+    ],
+    "demos/ui-entrance/row-embed/RowEmbed.tsx": [],
+    "demos/ui-entrance/runway-ground-skim/RunwayGroundSkim.tsx": [
+      "30px 40px",
+      "Creative Refresh",
+      "New logo exploration",
+      "New Bugs Per Week",
+      "Bug tracker Dashboard",
+      "Tiger Team Roadmap",
+      "Roadmap Outline",
+      "Design System",
+      "Design Handbook Inspo",
+      "Development Sprint Dashboard",
+      "Dev Team Sprints",
+      "CSS Bug Tracker",
+      "Query Reports",
+      "Platform",
+      "System Health Monitor",
+      "70px 60px 0",
+      "ClickUp",
+      "Home",
+      "Inbox",
+      "Company",
+      "People & Teams",
+      "Goals",
+      "Docs",
+      "More",
+      "SPACES",
+      "EPD",
+      "Product roadmap",
+      "Design",
+      "Designer handbook",
+      "Design system",
+      "70px 100px 0",
+      "Product analytics",
+      "ClickUp 3.0",
+      "Widget brainstorm",
+      "28px 42px",
+      "Search by app, filetype, or keyword",
+      "Recent",
+      "Favorites",
+      "Todo",
+      "Comments",
+      "Done",
+      "Delegated",
+      "16px 40px",
+      "TODAY",
+      "Mobile screens",
+      "sh",
+      "card"
+    ],
+    "demos/ui-entrance/skeleton-reveal/SkeletonReveal.tsx": [
+      " Z",
+      "Ana",
+      "Ben",
+      "Kai",
+      "Mia",
+      "Morning! Kicking off the rebrand today",
+      "Logo drafts are ready for review",
+      "Nice — shipping the deck this afternoon",
+      "Love it. Can we make it pink?",
+      "9:0",
+      " AM",
+      "30px 26px",
+      "0 34px",
+      "30px 40px"
+    ],
+    "demos/ui-entrance/svg-shape-morph/SvgShapeMorph.tsx": [
+      "2px"
+    ],
+    "demos/ui-entrance/value-stagger-gradient/ValueStaggerGradient.tsx": [
+      "1.5px"
+    ],
+    "demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx": [
+      "960px 540px",
+      "Features"
+    ],
+    "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx": [],
+    "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx": [],
+    "demos/_fixtures/Fixtures.tsx": [
+      "28px 22px",
+      "0 32px",
+      "1fr",
+      "0 28px"
+    ],
+    "demos/_fixtures/Motion.tsx": [
+      "scale",
+      "top left"
+    ],
+    "demos/_fixtures/PageCam2D.tsx": [
+      "960px 540px"
+    ],
+    "assets/lib/Caption.tsx": [
+      "0.14em"
+    ],
+    "assets/lib/ClipCard.tsx": [
+      "0 18px",
+      "▸"
+    ],
+    "assets/lib/DigitRoll.tsx": [],
+    "assets/lib/FlashCut.tsx": [],
+    "assets/lib/FlatPanel.tsx": [
+      "canvas",
+      "2d"
+    ],
+    "assets/lib/helpers/camera.tsx": [],
+    "assets/lib/helpers/motion.ts": [],
+    "assets/lib/helpers/rand.ts": [],
+    "assets/lib/helpers/shake.ts": [],
+    "assets/lib/PageCam.tsx": [
+      "960px 540px"
+    ],
+    "assets/lib/VerticalTicker.tsx": [
+      "center center"
+    ],
+    "template/src/aifl/Caption.tsx": [
+      "ink-press",
+      "caption",
+      "0.14em",
+      "0.015em",
+      "max-content",
+      "8px 18px"
+    ],
+    "template/src/aifl/DigitRoll.tsx": [
+      "ink-press"
+    ],
+    "template/src/aifl/FlashCut.tsx": [
+      "ink-press"
+    ],
+    "template/src/aifl/live/PageCam.tsx": [
+      "960px 540px"
+    ],
+    "template/src/aifl/live/SceneDetail.tsx": [
+      "ink-press",
+      "macro"
+    ],
+    "template/src/aifl/live/SceneFlyIn.tsx": [
+      "nano-lab",
+      "ink-press",
+      "table",
+      "center center"
+    ],
+    "template/src/aifl/live/SceneOpen.tsx": [
+      "AI Foundation Lab",
+      "TEAM RESEARCH CONSOLE",
+      "One card,",
+      "one project.",
+      "ink-press",
+      "morning",
+      "center center",
+      "-0.012em",
+      "0 auto 34px",
+      "-0.01em",
+      "flex-end",
+      "center bottom",
+      "0.14em"
+    ],
+    "template/src/aifl/live/SceneOutroLive.tsx": [
+      "AI Foundation Lab",
+      "Team Research Console",
+      "nav",
+      "card4",
+      "card1",
+      "paper1",
+      "card7",
+      "paper3",
+      "search",
+      "stats",
+      "wbr",
+      "ink-press",
+      "outro",
+      "center center",
+      "34px auto 0",
+      "0.14em"
+    ],
+    "template/src/aifl/live/ScenePapers.tsx": [
+      "Paper Radar",
+      "Of 31 Fetched Today",
+      "ink-press",
+      "chart",
+      "center center",
+      "0.16em",
+      "flex-end",
+      "0.12em"
+    ],
+    "template/src/aifl/live/SceneWbr.tsx": [
+      "2026 第 27 周|7月3日|2026-W27 · Foundation Lab Weekly",
+      "2026 第 26 周|6月26日|2026-W26 · Foundation Lab Weekly",
+      "2026 第 25 周|6月19日|2026-W25 · Foundation Lab Weekly",
+      "2026 第 24 周|6月12日|2026-W24 · Foundation Lab Weekly",
+      "2026 第 23 周|6月5日|2026-W23 · Foundation Lab Weekly",
+      "2026 第 22 周|5月29日|2026-W22 · Foundation Lab Weekly",
+      "Weekly Brief · 2026-W28",
+      "h2",
+      "ink-press",
+      "wbr",
+      "li",
+      "8px 10px 0",
+      "0.14em",
+      "0.08em"
+    ],
+    "template/src/aifl/Main.tsx": [
+      "All your team’s research, *one* place to go.",
+      "Paper *Radar,* tailored for your morning reading.",
+      "of 31 fetched today",
+      "Every project, *linked* to your weekly report.",
+      "The whole team, on the *same* page.",
+      "TEN LIVE PROJECTS · FOUR RESEARCHERS",
+      "NEW WORK LANDS ALL WEEK",
+      "SEARCH · FILTER · OPEN",
+      "EVERY QUESTION, TRACKED TO ITS EXPERIMENTS",
+      "THE DAILY PAPER RADAR",
+      "FOUR VOICES, ONE WEEKLY BRIEF"
+    ],
+    "template/src/aifl/PaperTitleCard.tsx": [
+      "ink-press",
+      "title-card",
+      "-0.012em",
+      "0.26em",
+      "38px auto 0",
+      "0.12em",
+      "0.5em"
+    ],
+    "template/src/themes/palette-assets.ts": [
+      "page",
+      "surface",
+      "field",
+      "muted",
+      "accent",
+      "vintage-kraft"
+    ],
+    "template/src/themes/ThemedFilm.tsx": [],
+    "template/src/themes/visual-theme.tsx": [
+      "modern-light",
+      "ink-press",
+      "pageRgb",
+      "lightRgb",
+      "accentRgb",
+      "shadowRgb",
+      "string"
+    ]
+  },
+  "configsByPath": {
+    "demos/camera/basic-3d-scene/Basic3DScene.tsx": [
+      "POSES",
+      "FLY_AT",
+      "FLY"
+    ],
+    "demos/camera/crash-zoom-punch/CrashImpactReal.tsx": [
+      "TARGET",
+      "VIEW_Y",
+      "HIT"
+    ],
+    "demos/camera/crash-zoom-punch/CrashZoomReal.tsx": [
+      "TARGET",
+      "VIEW_Y"
+    ],
+    "demos/camera/cursor-flyover/CursorFlyover.tsx": [
+      "CAM",
+      "WIN",
+      "KEY",
+      "LINE_D"
+    ],
+    "demos/camera/depth-layer-moves/DollyZoomReal.tsx": [
+      "BG_CARDS"
+    ],
+    "demos/camera/depth-layer-moves/MultiplaneReal.tsx": [
+      "CARDS"
+    ],
+    "demos/camera/graze-face-tour/GrazeFaceTour.tsx": [
+      "FONT",
+      "INK",
+      "MID",
+      "FAINT",
+      "SEGS",
+      "SEG_LEN",
+      "FADE"
+    ],
+    "demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "GAP",
+      "PITCH",
+      "INNER",
+      "PAN_END",
+      "DROP_END"
+    ],
+    "demos/camera/overhead-camera-moves/TiltReveal.tsx": [
+      "HOLD",
+      "MOVE"
+    ],
+    "demos/camera/space-camera-moves/DroneDiveLanding.tsx": [
+      "HERO",
+      "DIVE_START",
+      "DIVE_END",
+      "LAND_END",
+      "DIVE_SHARE"
+    ],
+    "demos/camera/space-camera-moves/ExplodedView.tsx": [
+      "EXPLODE",
+      "ASSEMBLE",
+      "STAGGER",
+      "N",
+      "CLOSE",
+      "SIDE_W",
+      "TOP_H",
+      "PAD",
+      "GAP",
+      "CARD_W",
+      "CARD_H",
+      "CARD_Z",
+      "LAYERS"
+    ],
+    "demos/camera/steep-tilt-glide/SteepTiltGlide.tsx": [
+      "FONT",
+      "INK",
+      "PW",
+      "PH",
+      "CAM"
+    ],
+    "demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx": [
+      "PANEL_W",
+      "PANEL_H",
+      "BAR_COUNT"
+    ],
+    "demos/camera/tension-camera-moves/DutchRollToLevel.tsx": [
+      "ROLL",
+      "LEVEL"
+    ],
+    "demos/camera/tension-camera-moves/PullBackIsolation.tsx": [
+      "SIBS",
+      "RANKED",
+      "FADE_START"
+    ],
+    "demos/camera/tension-camera-moves/SlowPushIn.tsx": [
+      "CUT"
+    ],
+    "demos/camera/terminal-3d/Terminal3D.tsx": [
+      "K",
+      "DATA",
+      "STEP",
+      "TYPE",
+      "PK"
+    ],
+    "demos/data/avatar-grid-radial-build-colorize/AvatarGridRadialBuildColorize.tsx": [
+      "PAPER",
+      "INK",
+      "MID",
+      "CARD_WHITE",
+      "FLAG_BG",
+      "COLS",
+      "ROWS",
+      "TOTAL",
+      "GAP",
+      "CELL_W",
+      "CELL_H",
+      "INI",
+      "ICONS",
+      "CELLS",
+      "LEGEND"
+    ],
+    "demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx": [
+      "CL",
+      "T0",
+      "FLING",
+      "BOUNCE",
+      "HOLD",
+      "SCRUB"
+    ],
+    "demos/data/chart-live-moves/AxisRescaleShockV2.tsx": [
+      "AMBER",
+      "CARD_W",
+      "CARD_H",
+      "CX",
+      "CY",
+      "PAD",
+      "AXIS_W",
+      "PLOT_W",
+      "PLOT_H",
+      "PLOT_X",
+      "PLOT_Y",
+      "DATA",
+      "N",
+      "MONTHS",
+      "HOLD",
+      "DRAW_END",
+      "SHOCK_END",
+      "BEAT",
+      "RESCALE_END",
+      "MARK_END",
+      "VAL_END"
+    ],
+    "demos/data/chart-live-moves/OscilloscopeStreamV2.tsx": [
+      "AMBER",
+      "CARD_W",
+      "CARD_H",
+      "CX",
+      "CY",
+      "PAD",
+      "AXIS_W",
+      "PLOT_X",
+      "PLOT_W",
+      "PLOT_H",
+      "PLOT_Y",
+      "HOLD",
+      "FREEZE_START",
+      "FREEZE_END",
+      "SPEED",
+      "AMP",
+      "SPIKE_X0",
+      "SPIKE_W",
+      "SPIKE_GAIN",
+      "Y_TICKS",
+      "X_TICKS"
+    ],
+    "demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx": [
+      "AMBER",
+      "FPS",
+      "N",
+      "DOT_R",
+      "M1",
+      "M2",
+      "M3",
+      "DUR",
+      "STAG",
+      "GROUP_N",
+      "GROUP_LABEL",
+      "CLUSTER_C",
+      "CLUSTER_R",
+      "BAR_BASE",
+      "BAR_X",
+      "SPACING",
+      "ONE",
+      "TWO",
+      "EIGHT",
+      "FOUR",
+      "SEVEN",
+      "CELL",
+      "SUB",
+      "Y0",
+      "DIGIT_PTS",
+      "LABEL_FONT"
+    ],
+    "demos/data/counter-confetti/CounterConfetti.tsx": [
+      "PAL",
+      "BURST",
+      "BITS"
+    ],
+    "demos/data/cycle-glass-node-morph/CycleGlassNodeMorph.tsx": [
+      "CLAMP"
+    ],
+    "demos/data/gauge-readout-moves/NeedleSweepSelftest.tsx": [
+      "AMBER",
+      "RED",
+      "CARD_W",
+      "CARD_H",
+      "CARD_X",
+      "CARD_Y",
+      "GA_W",
+      "R",
+      "CX",
+      "CY",
+      "GAUGES"
+    ],
+    "demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx": [
+      "AMBER",
+      "PXU",
+      "CENTER_Y",
+      "TAPE_X",
+      "TAPE_W"
+    ],
+    "demos/data/hatch-depth/HatchDepth.tsx": [
+      "ACCENT",
+      "ACCENT_HI",
+      "ROWS",
+      "NBSP2"
+    ],
+    "demos/data/odometer-digit-roll/OdometerDigitRoll.tsx": [
+      "ROW",
+      "DW",
+      "FS",
+      "SPIN",
+      "DIGITS"
+    ],
+    "demos/data/particle-celebrate-hits/ConfettiCrossfire.tsx": [
+      "AMBER",
+      "FIRE",
+      "DECAY",
+      "GRAV",
+      "LEFT_GUN",
+      "RIGHT_GUN",
+      "LEFT_POS",
+      "RIGHT_POS"
+    ],
+    "demos/data/particle-celebrate-hits/CounterTickSparks.tsx": [
+      "AMBER",
+      "TARGET",
+      "COUNT_END",
+      "TICKS",
+      "SPARK_LIFE",
+      "GRAV"
+    ],
+    "demos/data/particle-sand-fill/ParticleSandFill.tsx": [
+      "AMBER",
+      "CARD",
+      "PLOT_BOTTOM",
+      "GRAIN",
+      "PER_LAYER",
+      "BAR_W",
+      "DROP_FROM",
+      "GRAV",
+      "STAGGER",
+      "RATE",
+      "BARS"
+    ],
+    "demos/data/ring-diagram-annotation-reveal/RingDiagramAnnotationReveal.tsx": [
+      "CLAMP"
+    ],
+    "demos/data/scroll-brake-moves/BrakeReticleLock.tsx": [
+      "SCROLL_START",
+      "BRAKE",
+      "DUR",
+      "PITCH",
+      "ROW_H",
+      "TARGET_ROW",
+      "FINAL_SCROLL",
+      "LIST_X",
+      "LIST_W"
+    ],
+    "demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx": [
+      "CL",
+      "SCROLL0",
+      "SCROLL1",
+      "LIFT0",
+      "LIFT1",
+      "COL_W",
+      "COL_X",
+      "GAP",
+      "N",
+      "TARGET",
+      "TARGET_CY",
+      "END_T",
+      "START_T"
+    ],
+    "demos/data/timeline-travel/TimelineTravel.tsx": [
+      "W",
+      "AXIS_Y",
+      "TICK_GAP",
+      "TICKS",
+      "WORLD_W",
+      "TRAVEL_START",
+      "TRAVEL_END",
+      "ZOOM_END",
+      "CARD_W",
+      "CARD_H"
+    ],
+    "demos/effects/assemble-then-type-flyin/AssembleThenTypeFlyin.tsx": [
+      "MONO2",
+      "SERIF2",
+      "SH",
+      "BLOCKS",
+      "CHAR_PARAMS"
+    ],
+    "demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx": [
+      "DEEPP",
+      "WHITE",
+      "LIGHT",
+      "DARK",
+      "WA",
+      "WB",
+      "FONT"
+    ],
+    "demos/effects/brand-frame-snap/BrandFrameSnap.tsx": [
+      "FPS",
+      "FIGMA_BLUE",
+      "DEV_GREEN",
+      "FLIP_FRAME"
+    ],
+    "demos/effects/dashboard-glow-highlight-pill/DashboardGlowHighlightPill.tsx": [
+      "OB_ROWS",
+      "CANDLES",
+      "MW",
+      "MH",
+      "MCX",
+      "MCY",
+      "MRAD",
+      "RW",
+      "RH",
+      "BW",
+      "BH",
+      "BO",
+      "SX",
+      "TRACE_D",
+      "P_L",
+      "POSE",
+      "BLOB"
+    ],
+    "demos/effects/fui-hud-moves/LineUnfoldPanel.tsx": [
+      "PANEL_W",
+      "PANEL_H",
+      "CX",
+      "CY",
+      "T0",
+      "LINE_END",
+      "UNFOLD_END",
+      "CONTENT_END",
+      "OUT0",
+      "COLLAPSE_END",
+      "SHRINK_END",
+      "OFF"
+    ],
+    "demos/effects/fui-hud-moves/ReticleLockOn.tsx": [
+      "CARD_X",
+      "CARD_Y",
+      "CARD_W",
+      "CARD_H",
+      "PAD",
+      "TCX",
+      "TCY",
+      "FLY_IN",
+      "FLY_END",
+      "LOCK_END",
+      "LABEL_END",
+      "ARM",
+      "THICK"
+    ],
+    "demos/effects/glow-flyline-moves/FlylineArc.tsx": [
+      "N",
+      "CARD_LT",
+      "CARD_RB",
+      "CARD_TM"
+    ],
+    "demos/effects/glow-flyline-moves/GlowOrbAmbient.tsx": [
+      "W",
+      "H",
+      "CX",
+      "CY",
+      "ORBS",
+      "TAU"
+    ],
+    "demos/effects/glow-flyline-moves/OrbFlylineRelay.tsx": [
+      "TAU",
+      "N",
+      "CARD_W",
+      "CARD_H",
+      "CARDS",
+      "ORBS"
+    ],
+    "demos/effects/icon-performance-moves/AttentionBounce.tsx": [
+      "AMBER",
+      "ICON",
+      "GROUND",
+      "CX",
+      "JUMPS"
+    ],
+    "demos/effects/icon-performance-moves/PopBurstConfirm.tsx": [
+      "AMBER",
+      "POP",
+      "DUR"
+    ],
+    "demos/effects/impact-feedback/AnimeImpact.tsx": [
+      "ZOOM_START",
+      "ZOOM_END",
+      "IMPACT_LEN",
+      "RECOVER",
+      "CARD",
+      "CX",
+      "CY",
+      "SCALE_END"
+    ],
+    "demos/effects/impact-feedback/HitCounter.tsx": [
+      "HITS_T",
+      "STOP",
+      "HITS_REAL",
+      "SLOT_W",
+      "SLOT_H",
+      "SLOT_Y",
+      "SLOT_XS",
+      "DMG_TEXT",
+      "PULSE",
+      "TILT"
+    ],
+    "demos/effects/light-play-moves/HalationBloom.tsx": [
+      "BG",
+      "WHITE",
+      "MID",
+      "ZOOM_START",
+      "IMPACT",
+      "REBOUND_END",
+      "POP_END",
+      "FALL_END",
+      "SETTLE_END"
+    ],
+    "demos/effects/light-play-moves/SheenSweepRetry.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "SHEEN_W"
+    ],
+    "demos/effects/light-play-moves/SpotlightSweepReveal.tsx": [
+      "BG",
+      "INKW",
+      "CX",
+      "CY",
+      "AMP",
+      "PERIOD",
+      "SWEEP_END",
+      "REVEAL_END"
+    ],
+    "demos/effects/line-boil/LineBoil.tsx": [
+      "BOIL_START",
+      "BOIL_END",
+      "BOIL_SCALE"
+    ],
+    "demos/effects/radial-ripple-phone-chips/RadialRipplePhoneChips.tsx": [
+      "ACCENT_RGB",
+      "SANS",
+      "RCOL",
+      "RSZ",
+      "RINGS",
+      "CARDS"
+    ],
+    "demos/effects/riso-print-hits/RisoBeatPump.tsx": [
+      "HITS",
+      "AMP",
+      "PUMP_WIN",
+      "SPLIT_WIN"
+    ],
+    "demos/effects/riso-print-hits/RisoMisregistrationHit.tsx": [
+      "HIT",
+      "SNAP",
+      "AX",
+      "AY",
+      "OMEGA",
+      "TAU"
+    ],
+    "demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx": [
+      "BG",
+      "INK",
+      "LINE",
+      "SKEL",
+      "DW",
+      "DH",
+      "DX",
+      "DY",
+      "COLS",
+      "COL_W",
+      "SKEL_COLS",
+      "CS",
+      "CB",
+      "CORNERS",
+      "PASSES"
+    ],
+    "demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx": [
+      "MONO",
+      "SERIF",
+      "ACCENT",
+      "A_RGB",
+      "TARGETS",
+      "C_BORDER",
+      "CORNERS"
+    ],
+    "demos/effects/scanline-assemble-flyin/ScanlineAssembleFlyin.tsx": [
+      "MONO",
+      "SERIF",
+      "ACCENT",
+      "A_RGB",
+      "PLAN",
+      "FT"
+    ],
+    "demos/effects/slam-entrance-moves/ImpactBurstKit.tsx": [
+      "CW",
+      "CH",
+      "GAP",
+      "X_L",
+      "Y",
+      "CX",
+      "CY",
+      "IMPACT",
+      "HIT_NEIGHBOR",
+      "PARTICLES"
+    ],
+    "demos/effects/slam-entrance-moves/KanadaPerspectiveSnap.tsx": [
+      "CLAMP",
+      "CARD_W",
+      "CARD_H",
+      "CX",
+      "CY"
+    ],
+    "demos/effects/slam-entrance-moves/ScoreSlam.tsx": [
+      "IMPACT",
+      "CX",
+      "CY",
+      "CARD_W",
+      "CARD_H"
+    ],
+    "demos/effects/spotlight-sweep-moves/CornerSpotlightReveal.tsx": [
+      "FONT"
+    ],
+    "demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx": [
+      "W",
+      "H",
+      "R"
+    ],
+    "demos/effects/spotlight-sweep-moves/SlideSpotlightPan.tsx": [
+      "PW",
+      "PH",
+      "TOP",
+      "CR"
+    ],
+    "demos/interaction/ai-stream-response/StreamResponse.tsx": [
+      "ROW_CUES",
+      "ROWS"
+    ],
+    "demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx": [
+      "BLOCK_WIDTHS",
+      "BLOCK_H",
+      "ROW_Y",
+      "G_MIN",
+      "G_MAX",
+      "GROW_START",
+      "GROW_END",
+      "HOLD_END"
+    ],
+    "demos/interaction/canvas-materialize-moves/DiagramCascadeBuild.tsx": [
+      "PROMPT",
+      "TYPE_START",
+      "TYPE_CPS",
+      "NODE_W",
+      "NODE_H",
+      "NODES",
+      "CASCADE_START",
+      "LEVEL_GAP",
+      "SIBLING_STAGGER"
+    ],
+    "demos/interaction/canvas-materialize-moves/PanelToCanvasMaterialize.tsx": [
+      "PANEL_X",
+      "PANEL_Y",
+      "PANEL_W",
+      "ROW_H",
+      "ROWS_TOP",
+      "TARGETS",
+      "CARD_W",
+      "CARD_H",
+      "CHECK_FRAMES",
+      "BUTTON_FRAME",
+      "FLY_START"
+    ],
+    "demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx": [
+      "SANS",
+      "BG",
+      "INK",
+      "TXT",
+      "DIM",
+      "LINE",
+      "NAMES",
+      "TI",
+      "FS",
+      "CAP_TEXT",
+      "CAP_WORDS",
+      "CAP_N",
+      "CAP_ST",
+      "CAP_WIN"
+    ],
+    "demos/interaction/chip-lift-to-user-pill/ChipLiftToUserPill.tsx": [
+      "SANS",
+      "BG",
+      "INK",
+      "TXT",
+      "DIM",
+      "LINE",
+      "COLS",
+      "ROWS",
+      "CW",
+      "CH",
+      "GX",
+      "GY",
+      "GX0",
+      "GY0",
+      "TC",
+      "TR",
+      "LABELS",
+      "TX",
+      "TY",
+      "OTHERS",
+      "PW0",
+      "PW1",
+      "NAME_CHARS",
+      "CAP_WORDS",
+      "CAP_ST",
+      "CAP_WIN",
+      "BADGE_SIZE",
+      "BADGE_SVG"
+    ],
+    "demos/interaction/collab-cursor-moves/CursorCastEnsemble.tsx": [
+      "FPS",
+      "ACTORS",
+      "TYPED"
+    ],
+    "demos/interaction/collab-cursor-moves/CursorDialogueDuet.tsx": [
+      "BLUE",
+      "GREEN",
+      "DARK"
+    ],
+    "demos/interaction/command-palette-summon/CommandPaletteSummon.tsx": [
+      "CL",
+      "DIM0",
+      "DIM1",
+      "PANEL_IN",
+      "ROWS_START",
+      "KEY1",
+      "KEY2",
+      "HL",
+      "BLINK_END",
+      "PANEL_W",
+      "PANEL_X",
+      "PANEL_Y",
+      "ROW_H",
+      "ROW_GAP",
+      "ROWS"
+    ],
+    "demos/interaction/glass-pill-dictation-typing/GlassPillDictationTyping.tsx": [
+      "ACCENT_RGB",
+      "UI",
+      "PH",
+      "ICON",
+      "BASE",
+      "TEXT"
+    ],
+    "demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx": [
+      "FONT",
+      "C",
+      "TEXT",
+      "TYPE_START",
+      "TYPE_AT",
+      "MORPH",
+      "MOVE_START",
+      "MOVE_END",
+      "REVEAL",
+      "FS",
+      "HERO",
+      "PILL_W",
+      "PILL_H",
+      "END_SCALE",
+      "SLOT"
+    ],
+    "demos/interaction/input-trigger-moves/CursorPerformancePunchIn.tsx": [
+      "T",
+      "BTN",
+      "CLICK",
+      "P0",
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "demos/interaction/input-trigger-moves/KeycapSmashCut.tsx": [
+      "T",
+      "FLIES"
+    ],
+    "demos/interaction/picker-carousel-feature-cycle/PickerCarouselFeatureCycle.tsx": [
+      "PAPER",
+      "INK",
+      "MID",
+      "ROW_H",
+      "ITEMS",
+      "ICONS",
+      "STEPS",
+      "HOLD"
+    ],
+    "demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx": [
+      "FONT"
+    ],
+    "demos/interaction/theme-switch-moves/PaletteThemeRipple.tsx": [
+      "DIM_START",
+      "PANEL_IN",
+      "TYPE_FRAMES",
+      "ENTER",
+      "RIPPLE",
+      "RIPPLE_END",
+      "ORIGIN",
+      "MAX_R",
+      "D"
+    ],
+    "demos/interaction/theme-switch-moves/ThemeSweepToggle.tsx": [
+      "CL",
+      "LIGHT",
+      "DARK",
+      "SWEEP0",
+      "SWEEP1",
+      "SETTLE0",
+      "SETTLE1",
+      "SLANT"
+    ],
+    "demos/interaction/type-and-filter/TypeAndFilter.tsx": [
+      "PAGE_H",
+      "PAPER",
+      "FIELD",
+      "AMBER",
+      "QUERY",
+      "TYPE_START",
+      "FILTER_START",
+      "SEARCH",
+      "NANO_TITLE",
+      "NANO_TO",
+      "CLICK_C",
+      "CAM_KEYS"
+    ],
+    "demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx": [
+      "N_BARS"
+    ],
+    "demos/opening/crane-rise-reveal/CraneRiseReveal.tsx": [
+      "HOLD",
+      "MOVE_END",
+      "ROW_LEFT",
+      "ROW_W",
+      "ROW_H",
+      "F0",
+      "F1",
+      "S0"
+    ],
+    "demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx": [
+      "W",
+      "H",
+      "DUR",
+      "WORLD_W",
+      "MID_TRIBS",
+      "FAR_LINES",
+      "FAR_NODE_TS",
+      "NEAR_LINES",
+      "LABELS",
+      "CONV"
+    ],
+    "demos/opening/fracture/Fracture.tsx": [
+      "N",
+      "ACCENT_HUE",
+      "HUES",
+      "TILES"
+    ],
+    "demos/opening/icon-field-colorize/IconFieldColorize.tsx": [
+      "SHAPES",
+      "COLS",
+      "ROWS",
+      "CELL",
+      "ICON",
+      "GRAYS",
+      "WAVES"
+    ],
+    "demos/opening/letterspace-materialize/LetterspaceMaterialize.tsx": [
+      "GLYPHS",
+      "WORD",
+      "START",
+      "DUR"
+    ],
+    "demos/opening/magician-card-flourish/MagicianCardFlourish.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "AX",
+      "AY",
+      "TAKEOFF",
+      "FLASH_END",
+      "FLIGHT",
+      "LAND",
+      "SHEEN_START",
+      "TURNS",
+      "FINAL_SCALE"
+    ],
+    "demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx": [
+      "RX",
+      "RY",
+      "CW",
+      "CH",
+      "N",
+      "ROT_SPEED",
+      "RING_IN",
+      "RING_SCALE_FROM",
+      "PLAY_START",
+      "DEPTH_SCALE",
+      "HEADLINE",
+      "H_SIZE",
+      "H_LEAD",
+      "H_TRAVEL",
+      "H_STAGGER",
+      "H_EASE",
+      "HL_START",
+      "MARKER_AT_F",
+      "MARKER_COLOR",
+      "KICKER",
+      "KICKER_IN",
+      "EXIT_AT",
+      "EXIT_BLUR",
+      "INK",
+      "INK_DIM",
+      "SANS",
+      "MONO",
+      "MESH_BG",
+      "SPARK",
+      "TILES"
+    ],
+    "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx": [
+      "SERIF",
+      "INK",
+      "AMBER",
+      "SLOT_AMBER",
+      "BEAM_CORE",
+      "PATCH",
+      "PAGE_H",
+      "MAIN",
+      "CARD",
+      "MCX",
+      "MCY",
+      "RADIUS",
+      "CAM_KEYS",
+      "PUSH_EASE",
+      "POP_EASE",
+      "RESEAT_EASE"
+    ],
+    "demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx": [
+      "K",
+      "H",
+      "ADV",
+      "SEGS",
+      "ORDER",
+      "FIRST",
+      "STEP",
+      "SEG_IN",
+      "LAST_LAND",
+      "PULSE_END",
+      "WORD_W",
+      "OX",
+      "OY"
+    ],
+    "demos/opening/text-as-mask/TextAsMask.tsx": [
+      "MASK_SVG",
+      "MASK_URL",
+      "ORIGIN"
+    ],
+    "demos/outro/edit-hook-moves/LogoStingButton.tsx": [
+      "T"
+    ],
+    "demos/outro/grain-dissolve/GrainDissolve.tsx": [
+      "BX",
+      "BY",
+      "BW",
+      "BH",
+      "HATCH_XS"
+    ],
+    "demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx": [
+      "ACCENT",
+      "WORDMARK",
+      "ICON",
+      "SHIFT"
+    ],
+    "demos/outro/neon-triple-marquee/NeonTripleMarquee.tsx": [
+      "FONT"
+    ],
+    "demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx": [
+      "SERIF",
+      "MONO",
+      "LETTERS",
+      "PAGE_H",
+      "WBR_PAGE_H",
+      "FLY_EASE",
+      "CRANE_EASE",
+      "ELS",
+      "DUST"
+    ],
+    "demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx": [
+      "CLICK",
+      "STRIP",
+      "BTN_FADE",
+      "LOGO_IN"
+    ],
+    "demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx": [
+      "FONT",
+      "INK",
+      "WORD"
+    ],
+    "demos/outro/ui-to-brand-morph/InputMorphsIntoLogo.tsx": [
+      "BG",
+      "CX",
+      "CY",
+      "FINAL"
+    ],
+    "demos/rhythm/beat-cut-moves/BeatCutAccelerando.tsx": [
+      "VIEWS",
+      "CUTS",
+      "FINAL"
+    ],
+    "demos/rhythm/beat-cut-moves/PaparazziFlash.tsx": [
+      "F1",
+      "F2",
+      "F3",
+      "SETTLE",
+      "DECAY",
+      "FLASHES",
+      "VIEW_WIDE",
+      "VIEW_CARD",
+      "VIEW_DIGIT"
+    ],
+    "demos/rhythm/beat-step-list-theme-cycle/BeatStepListThemeCycle.tsx": [
+      "FONT",
+      "ROW_H",
+      "WORDS",
+      "BEAT_LEN",
+      "FIRST_BEAT",
+      "N_BEATS",
+      "THEMES"
+    ],
+    "demos/rhythm/montage-rhythm-moves/DominoCascade.tsx": [
+      "TITLE_START",
+      "IMPACT_1",
+      "CARD_STAGGER",
+      "IMPACT_2",
+      "SIDE_END",
+      "SIDE_SETTLE",
+      "CARD_W",
+      "CARD_H",
+      "GAP",
+      "ROW_W",
+      "ROW_LEFT",
+      "CARD_TOP"
+    ],
+    "demos/rhythm/montage-rhythm-moves/DropBlackoutSlam.tsx": [
+      "BLACK_IN",
+      "SLAM"
+    ],
+    "demos/rhythm/montage-rhythm-moves/WrightTripleCut.tsx": [
+      "HOLD_END",
+      "C1",
+      "C2",
+      "C3",
+      "WHIP",
+      "RESULT"
+    ],
+    "demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx": [
+      "SPLIT",
+      "POP",
+      "STAGGER",
+      "HOLD_END",
+      "EXPAND_END"
+    ],
+    "demos/rhythm/panel-grid-moves/FlipGridReflow.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "N",
+      "ROW_Y",
+      "ROW_CENTERS",
+      "GC",
+      "GR",
+      "GRID_CENTERS",
+      "BEAT",
+      "STAGGER",
+      "MOVE",
+      "SETTLE",
+      "SCALE_END",
+      "OVERSHOOT",
+      "ALL_SETTLED",
+      "PULSE_IN",
+      "PULSE_MID",
+      "PULSE_OUT"
+    ],
+    "demos/rhythm/panel-grid-moves/GridFlashMosaic.tsx": [
+      "CELL_W",
+      "CELL_H",
+      "GAP",
+      "GRID_X",
+      "GRID_Y",
+      "FILL_START",
+      "STEP",
+      "ORDER",
+      "RANK",
+      "LAST_IN",
+      "HOLD_END",
+      "ZOOM_END",
+      "MINI_SCALE",
+      "ZOOM_SCALE",
+      "CROPS"
+    ],
+    "demos/rhythm/quad-split-parallel-scenes/QuadSplitParallelScenes.tsx": [
+      "ACCENT",
+      "ACCENT_SOFT",
+      "F",
+      "BGS",
+      "TRAFFIC",
+      "TABNAMES",
+      "TXT1",
+      "TXT2",
+      "WORDS"
+    ],
+    "demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx": [
+      "CARD_L",
+      "CARD_T",
+      "CARD_W",
+      "CARD_H",
+      "ORIGIN_X",
+      "ORIGIN_Y"
+    ],
+    "demos/rhythm/rhythm-interrupt-moves/StrobeBlackFrames.tsx": [
+      "CARD_L",
+      "CARD_T",
+      "CARD_W",
+      "CARD_H",
+      "ORIGIN_X",
+      "ORIGIN_Y",
+      "FLASHES"
+    ],
+    "demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx": [
+      "W",
+      "CARD_W",
+      "CARD_H",
+      "CARD_Y",
+      "X_LEFT",
+      "X_RIGHT",
+      "X_CENTER",
+      "OVERSHOOT",
+      "SWITCH",
+      "ARRIVE",
+      "SETTLE"
+    ],
+    "demos/rhythm/smear-multiples/SmearMultiples.tsx": [
+      "X0",
+      "X1",
+      "OVER",
+      "Y"
+    ],
+    "demos/rhythm/spectrum-morph-ui/SpectrumMorphUi.tsx": [
+      "LINE_W",
+      "LINE_H",
+      "LINE_X",
+      "LINE_BOTTOM",
+      "N_BARS",
+      "GAP_MAX",
+      "SPLIT",
+      "DANCE",
+      "COLLAPSE_START",
+      "COLLAPSE_END",
+      "AMP"
+    ],
+    "demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx": [
+      "CARD_W",
+      "GAP",
+      "RAIL",
+      "TARGET_I",
+      "AMBER"
+    ],
+    "demos/rhythm/speed-ramp-freeze/SpeedRampReal.tsx": [
+      "CARD_W",
+      "GAP",
+      "RAIL",
+      "TARGET_I"
+    ],
+    "demos/rhythm/trailer-grammar-moves/CardFootageCadence.tsx": [
+      "CLAMP"
+    ],
+    "demos/rhythm/trailer-grammar-moves/SmashCut.tsx": [
+      "CUT",
+      "FLIES"
+    ],
+    "demos/rhythm/trailer-grammar-moves/TrailerBumper.tsx": [
+      "CUT_1",
+      "CUT_2",
+      "CUT_3",
+      "BLACK",
+      "TITLE",
+      "TITLE_IN"
+    ],
+    "demos/transition/bottom-push-stack-wipe/BottomPushStackWipe.tsx": [
+      "H",
+      "CHAPTERS",
+      "PUSH_STARTS"
+    ],
+    "demos/transition/bubble-swarm-takeover/BubbleSwarmTakeover.tsx": [
+      "PEAK",
+      "W",
+      "H",
+      "CX",
+      "CY",
+      "TINTS",
+      "BUBBLES",
+      "CAPSULES"
+    ],
+    "demos/transition/card-flip-reveal/CardFlipReveal.tsx": [
+      "CW",
+      "CH",
+      "GAP",
+      "X0",
+      "Y",
+      "FLIP_START",
+      "STAGGER",
+      "SETTLE",
+      "OVERSHOOT",
+      "RESULTS"
+    ],
+    "demos/transition/card-flock-tumble/CardFlockTumble.tsx": [
+      "FONT",
+      "WALL_UP",
+      "FLIGHT",
+      "CARD_OUT",
+      "RING_T0",
+      "TEXT_T0",
+      "ROW_GRADS",
+      "POSE_KEYS",
+      "CARDS"
+    ],
+    "demos/transition/circle-match-iris/CircleMatchIris.tsx": [
+      "CX",
+      "CY"
+    ],
+    "demos/transition/color-block-step-wipe/ColorBlockStepWipe.tsx": [
+      "BLUE",
+      "RED"
+    ],
+    "demos/transition/cube-navigation/CubeNavigation.tsx": [
+      "S",
+      "H",
+      "FACES",
+      "CAM",
+      "WIN",
+      "CAM_KEYS",
+      "RAD",
+      "R_CRUSH"
+    ],
+    "demos/transition/gradient-transition/GradientTransition.tsx": [],
+    "demos/transition/line-carry-transition/LineCarryTransition.tsx": [
+      "PATH",
+      "SEGS",
+      "TOTAL"
+    ],
+    "demos/transition/mosaic-reframe/MosaicReframe.tsx": [
+      "KEYS",
+      "A",
+      "SLOTS",
+      "B",
+      "C"
+    ],
+    "demos/transition/page-turn-transitions/BarnDoorSplit.tsx": [],
+    "demos/transition/page-turn-transitions/CubeRotate.tsx": [
+      "S",
+      "W",
+      "H"
+    ],
+    "demos/transition/paper-plane-messenger/PaperPlaneMessenger.tsx": [
+      "AX",
+      "AY",
+      "BX",
+      "BY",
+      "WIN_W",
+      "WIN_H",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "CLICK",
+      "ZOOM_OUT",
+      "FLY",
+      "TAKEOVER",
+      "PROPS"
+    ],
+    "demos/transition/print-texture-transitions/InkBleedReveal.tsx": [],
+    "demos/transition/shot-transitions/BlackCardTransition.tsx": [
+      "A_VIEW_Y",
+      "SERIF",
+      "MONO",
+      "PAPER_LIGHT",
+      "AMBER",
+      "DIM",
+      "WORDS"
+    ],
+    "demos/transition/shot-transitions/DarkTunnelTransition.tsx": [
+      "A_VIEW_Y",
+      "A_W"
+    ],
+    "demos/transition/shot-transitions/FocusHandoffTransition.tsx": [
+      "PAGE_H",
+      "A_VIEW_Y",
+      "B_VIEW_Y"
+    ],
+    "demos/transition/shot-transitions/MaskWipeReal.tsx": [
+      "C4",
+      "VIEW_Y"
+    ],
+    "demos/transition/shot-transitions/PortalWipeV2.tsx": [],
+    "demos/transition/shot-transitions/WhipBrakeReal.tsx": [
+      "RAIL",
+      "GAP",
+      "CARD_W",
+      "TARGET_I",
+      "TOTAL",
+      "END"
+    ],
+    "demos/transition/shot-transitions/WhipPanReal.tsx": [
+      "SWING",
+      "VIEW_Y"
+    ],
+    "demos/transition/tear-streak-transitions/GlitchDisplace.tsx": [
+      "STRIPS",
+      "H",
+      "STRIP_H",
+      "AMP"
+    ],
+    "demos/transition/transition-hidden-cut/InvisibleCut.tsx": [
+      "SW_START",
+      "SW_END",
+      "CUT"
+    ],
+    "demos/transition/transition-hidden-cut/LightLeakBurn.tsx": [
+      "PEAK"
+    ],
+    "demos/transition/transition-hidden-cut/VersusSlam.tsx": [
+      "IMPACT",
+      "SEAM_TOP_X",
+      "SEAM_BOT_X",
+      "SEAM_DEG"
+    ],
+    "demos/transition/transition-travel/LetterformZoom.tsx": [
+      "FS",
+      "ORIGIN",
+      "BASELINE",
+      "ZOOM_MAX"
+    ],
+    "demos/transition/transition-travel/SharedElementMorph.tsx": [
+      "SLOT",
+      "FULL",
+      "MORPH_START",
+      "MORPH_END",
+      "SETTLE_END"
+    ],
+    "demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx": [
+      "GRAD_A",
+      "GRAD_B",
+      "GRAD_C",
+      "WORDMARK"
+    ],
+    "demos/transition/wipe-transitions/BlindsSlice.tsx": [
+      "STRIPS",
+      "W",
+      "WAVE_START",
+      "STAGGER",
+      "FLIP",
+      "WAVE_END"
+    ],
+    "demos/transition/wipe-transitions/ClockWipe.tsx": [
+      "CX",
+      "CY",
+      "R",
+      "SEGS"
+    ],
+    "demos/typography/blur-slide/BlurSlide.tsx": [
+      "H1_WORDS",
+      "H2_WORDS"
+    ],
+    "demos/typography/brace-expand/BraceExpand.tsx": [
+      "FONT",
+      "HALF"
+    ],
+    "demos/typography/brand-ink-open/BrandInkOpen.tsx": [
+      "SERIF",
+      "MONO",
+      "INK",
+      "AMBER",
+      "INK2",
+      "WORDMARK",
+      "KICKER"
+    ],
+    "demos/typography/cel-flash-stomp/CelFlashStomp.tsx": [
+      "LAND",
+      "WORDS"
+    ],
+    "demos/typography/countdown-arc-scatter/CountdownArcScatter.tsx": [
+      "INK",
+      "ACCENT_RGB",
+      "R0",
+      "SP",
+      "NUMS",
+      "TARGET",
+      "NUM_FONT",
+      "WORDS"
+    ],
+    "demos/typography/flying-words/FlyingWords.tsx": [
+      "WORDS",
+      "N",
+      "ITEMS",
+      "OP",
+      "OT",
+      "CYCLES"
+    ],
+    "demos/typography/glitch-cycle/GlitchCycle.tsx": [
+      "PHRASES",
+      "POOL",
+      "KF",
+      "KF_LAST",
+      "MAXCH"
+    ],
+    "demos/typography/gradient-word-sweep/GradientWordSweep.tsx": [
+      "FONT",
+      "GRAD",
+      "FILL_START",
+      "FILL_END",
+      "LIGHT_START",
+      "FLICKER",
+      "BOLTS",
+      "FLASHES"
+    ],
+    "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx": [
+      "TEXT",
+      "HIGHLIGHT_WORD",
+      "FONT_SIZE",
+      "INITIAL_SCALE",
+      "PUSH_SCALE",
+      "WORD_DELAY",
+      "WORD_STAGGER",
+      "WORD_PUSH",
+      "WORD_FADE",
+      "LETTER_SPACING",
+      "LIFT",
+      "LIFT_DISTANCE",
+      "SUBLINE",
+      "CRASH_FRAMES",
+      "CRASH_SCALE",
+      "CRASH_BLUR",
+      "INK",
+      "INK_DIM",
+      "ACCENT",
+      "SANS",
+      "MESH_BG",
+      "PUSH_EASE",
+      "ZOOM_EASE",
+      "WORD_EASE"
+    ],
+    "demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx": [],
+    "demos/typography/outline-word-fill/OutlineWordFill.tsx": [
+      "DUST"
+    ],
+    "demos/typography/paper-title-card/PaperTitleCard.tsx": [
+      "SERIF",
+      "MONO",
+      "WORDS",
+      "SUB",
+      "SUB_DIGITS",
+      "DIGITS"
+    ],
+    "demos/typography/pill-chip-slot-cycle-handled/PillChipSlotCycleHandled.tsx": [
+      "WORDS",
+      "FONT",
+      "FALLBACK_WIDTHS",
+      "SIDE"
+    ],
+    "demos/typography/pill-slot-cycle/PillSlotCycle.tsx": [
+      "FONT",
+      "PILLS",
+      "BEAT",
+      "INTRO",
+      "CYCLES"
+    ],
+    "demos/typography/scramble/Scramble.tsx": [
+      "TEXT",
+      "POOL",
+      "CHARS"
+    ],
+    "demos/typography/split-flap-title/SplitFlapFlip.tsx": [
+      "TEXT",
+      "CHARSET",
+      "START",
+      "STAGGER",
+      "FLIP",
+      "NFLIP",
+      "CELL_W",
+      "CELL_H",
+      "FLAP_BG",
+      "FLAP_INK"
+    ],
+    "demos/typography/text-column-converge/TextColumnConverge.tsx": [
+      "STEPS",
+      "START",
+      "NEW_LEFT_EDGE",
+      "WORD_RIGHT_EDGE",
+      "FS",
+      "LSP",
+      "ADV",
+      "LINE_W",
+      "MERGED_LEFT",
+      "MERGED_RIGHT",
+      "CONVERGE_DELAY",
+      "SUB_DELAY"
+    ],
+    "demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx": [
+      "FONT",
+      "SEL"
+    ],
+    "demos/typography/type-assembly-moves/LetterformDriftAssembly.tsx": [
+      "WORD",
+      "TRAVEL",
+      "STAG"
+    ],
+    "demos/typography/type-assembly-moves/SplitTextStagger.tsx": [
+      "TEXT",
+      "START",
+      "RISE",
+      "SETTLE",
+      "OVERSHOOT",
+      "FONT"
+    ],
+    "demos/typography/type-assembly-moves/TextOnPath.tsx": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "TEXT",
+      "N",
+      "CHAR_W",
+      "FINAL_Y",
+      "FINAL_X0"
+    ],
+    "demos/typography/type-assembly-moves/TrackingExpandReveal.tsx": [
+      "WORD",
+      "FS",
+      "GAP_DELTA"
+    ],
+    "demos/typography/type-entrance-moves/LetterDropPhysics.tsx": [
+      "WORD",
+      "SLOT_W",
+      "FONT",
+      "WORD_W",
+      "LEFT",
+      "REST_TOP",
+      "FLOOR_Y",
+      "DROP",
+      "T_FALL",
+      "T_B1",
+      "T_B2",
+      "SNAP"
+    ],
+    "demos/typography/type-entrance-moves/ScrambleDecode.tsx": [
+      "TEXT",
+      "CHARSET",
+      "LOCK_START",
+      "LOCK_STEP",
+      "FLASH_LEN"
+    ],
+    "demos/typography/type-rhythm-sync/FontWeightPump.tsx": [
+      "BEATS",
+      "ACCENTS",
+      "DECAY"
+    ],
+    "demos/typography/type-rhythm-sync/KaraokeFillSync.tsx": [
+      "LINES"
+    ],
+    "demos/typography/typewriter-moves/TerminalTypewriter.tsx": [
+      "CMD",
+      "T",
+      "TW",
+      "TH",
+      "TL",
+      "TT",
+      "TITLEBAR",
+      "PAD",
+      "FOCUS_X",
+      "FOCUS_Y"
+    ],
+    "demos/typography/typewriter-moves/TypewriterErrorRetype.tsx": [
+      "TEXT1",
+      "KEEP",
+      "DEL",
+      "TEXT2",
+      "T1",
+      "PAUSE_START",
+      "DS",
+      "RS",
+      "TYPE2_END",
+      "CURSOR_OFF",
+      "CHAR_W"
+    ],
+    "demos/typography/typing-code-block/TypingCodeBlock.tsx": [
+      "K",
+      "ID",
+      "FN",
+      "ST",
+      "PU",
+      "CM",
+      "LINES",
+      "FLAT"
+    ],
+    "demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx": [
+      "ROW",
+      "WORDS",
+      "STEPS",
+      "ACCENT",
+      "ACCENT_DIM"
+    ],
+    "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "GAP",
+      "STEP",
+      "CARDS",
+      "WORDS",
+      "SWITCHES",
+      "SERIF"
+    ],
+    "demos/typography/word-relay-geometry/WordRelayGeometry.tsx": [
+      "CIRC_R",
+      "PARTS",
+      "SLOTS"
+    ],
+    "demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx": [
+      "ACCENT",
+      "AV",
+      "CORNERS",
+      "STEP",
+      "SWITCHES"
+    ],
+    "demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx": [
+      "SANS",
+      "BG",
+      "TXT",
+      "DIM",
+      "LINE",
+      "ACCENT",
+      "ACCENT_WASH",
+      "XC",
+      "YC",
+      "SRCS",
+      "SAMPLES",
+      "LINE_LEN",
+      "GEOMS",
+      "CAP_WORDS",
+      "CAP_ST",
+      "CAP_WIN",
+      "BADGE_SIZE",
+      "BADGE_SVG"
+    ],
+    "demos/ui-entrance/card-stack/CardStack.tsx": [
+      "N",
+      "HUES",
+      "GLYPHS"
+    ],
+    "demos/ui-entrance/carousel-3d/Carousel3D.tsx": [
+      "N",
+      "RADIUS",
+      "ICONS"
+    ],
+    "demos/ui-entrance/clipcard-looping/ClipCardLooping.tsx": [
+      "CLIP"
+    ],
+    "demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx": [
+      "FPS",
+      "N",
+      "GAP_Z",
+      "SPREAD_START",
+      "HOLD_END"
+    ],
+    "demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx": [
+      "PAGE_H",
+      "PAPER",
+      "COLS",
+      "CARD_W",
+      "EXTRA_ROWS",
+      "PAPER_EXT",
+      "PILE",
+      "N_CARDS",
+      "DEAL_START",
+      "STACK_STEP",
+      "METAL_FADE",
+      "PILE_CX",
+      "PILE_CY",
+      "HOVER_H",
+      "SETTLE_EASE",
+      "DIVE_EASE",
+      "ANTICIPATE",
+      "CAM_KEYS"
+    ],
+    "demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx": [
+      "SANS",
+      "BG",
+      "INK",
+      "TXT",
+      "DIM",
+      "LINE",
+      "SKEL",
+      "DW",
+      "DH",
+      "COLS",
+      "COL_W",
+      "DOC_COLS",
+      "ITEMS",
+      "PX",
+      "PY",
+      "PH",
+      "PG",
+      "T0"
+    ],
+    "demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx": [
+      "PAGE_H",
+      "MONO",
+      "PAPER",
+      "AMBER",
+      "AMBER_WASH",
+      "SANS",
+      "CAM_KEYS",
+      "REVEAL_EASE",
+      "WIPE",
+      "PAST_WEEKS",
+      "WEEK_Y0",
+      "WEEK_H",
+      "WEEK_DROP"
+    ],
+    "demos/ui-entrance/draw-svg-trace/DrawSvgTrace.tsx": [
+      "CW",
+      "CH",
+      "CX",
+      "CY",
+      "PEN"
+    ],
+    "demos/ui-entrance/element-body-moves/AxialStretch.tsx": [
+      "W",
+      "CARD_W",
+      "CARD_H",
+      "GAP",
+      "ROW_W",
+      "ROW_X0",
+      "ROW_Y",
+      "START_X",
+      "FLIGHT",
+      "STAGGER",
+      "FIRST",
+      "SQUASH",
+      "VEL_MIN",
+      "VEL_REF",
+      "STRETCH_X",
+      "SQUISH_Y"
+    ],
+    "demos/ui-entrance/element-body-moves/ContactShadowLift.tsx": [
+      "LIFT_Y",
+      "LIFT_S",
+      "CARD_W",
+      "CARD_H",
+      "GAP",
+      "STARTS"
+    ],
+    "demos/ui-entrance/floating-glossy-label-pills/FloatingGlossyLabelPills.tsx": [
+      "ACCENT",
+      "ACCENT_LIGHT",
+      "ACCENT_DEEP",
+      "A_RGB",
+      "AL_RGB",
+      "AD_RGB",
+      "F",
+      "CW",
+      "CH",
+      "CS",
+      "W",
+      "H",
+      "SP",
+      "PANEL_TOP",
+      "TITLE",
+      "TEXT",
+      "FAINT",
+      "LINE",
+      "GROUPS",
+      "FOGS",
+      "BEATS"
+    ],
+    "demos/ui-entrance/integration-hub-map/IntegrationHubMap.tsx": [
+      "NOISE",
+      "FONT",
+      "LIST",
+      "PIPES",
+      "GROW",
+      "RECTS"
+    ],
+    "demos/ui-entrance/list-reveal/ListReveal.tsx": [
+      "LABELS",
+      "HUES"
+    ],
+    "demos/ui-entrance/list-stack-press/ListStackPress.tsx": [
+      "PAGE_H",
+      "MONO",
+      "AMBER",
+      "FILES",
+      "CUES",
+      "DUR",
+      "FLY_EASE",
+      "TILTS",
+      "ANTICIPATE_START",
+      "ANTICIPATE_END",
+      "CAM_KEYS",
+      "DIGITS"
+    ],
+    "demos/ui-entrance/morph-from-primitive/MorphFromPrimitive.tsx": [
+      "CX",
+      "CY",
+      "R",
+      "RECT_W",
+      "RECT_H",
+      "RECT_R",
+      "KAPPA"
+    ],
+    "demos/ui-entrance/neon-frame-forerun/NeonFrameForerun.tsx": [
+      "PW",
+      "PH",
+      "PL",
+      "FRAME_D",
+      "HUES",
+      "BG_FRAMES"
+    ],
+    "demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx": [
+      "LAND",
+      "PW",
+      "PH",
+      "PL",
+      "FRAME_D",
+      "HUES",
+      "BG_FRAMES"
+    ],
+    "demos/ui-entrance/page-waterfall-wall/PageWaterfallWall.tsx": [
+      "BG"
+    ],
+    "demos/ui-entrance/page-waterfall-wall/VerticalTicker.tsx": [],
+    "demos/ui-entrance/paper-craft-moves/MaskingTapeSlap.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "CX",
+      "CY",
+      "FLOAT_START",
+      "FLOAT_END",
+      "SLAP1",
+      "SLAP2",
+      "APPROACH",
+      "FREEZE"
+    ],
+    "demos/ui-entrance/paper-craft-moves/PopupBookRise.tsx": [
+      "FPS",
+      "HOLD",
+      "STAGGER",
+      "LAST_START",
+      "SETTLE",
+      "REST",
+      "AREA_X",
+      "AREA_Y",
+      "AREA_W",
+      "AREA_H",
+      "GAP",
+      "CELL_W",
+      "CELL_H"
+    ],
+    "demos/ui-entrance/platform-hinge-rise/PlatformHingeRise.tsx": [
+      "CLAMP"
+    ],
+    "demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx": [
+      "ACCENT",
+      "ACCENT_SOFT",
+      "LINES"
+    ],
+    "demos/ui-entrance/radial-wave/RadialWave.tsx": [
+      "COLS",
+      "ROWS",
+      "CX",
+      "CY",
+      "MAX_D",
+      "DOTS"
+    ],
+    "demos/ui-entrance/research-card-stack-scroll/ResearchCardStackScroll.tsx": [
+      "ORANGE",
+      "ORANGE_SOFT",
+      "INK",
+      "FONT",
+      "W",
+      "H",
+      "F",
+      "PER",
+      "GAP",
+      "XOFF",
+      "LW",
+      "LH",
+      "S",
+      "TITLES",
+      "CW",
+      "CH"
+    ],
+    "demos/ui-entrance/row-embed/RowEmbed.tsx": [
+      "DETAIL_H",
+      "DETAIL_CAM",
+      "FLY_EASE"
+    ],
+    "demos/ui-entrance/runway-ground-skim/RunwayGroundSkim.tsx": [
+      "FONT",
+      "INK",
+      "MID",
+      "FAINT",
+      "CARD_W",
+      "CARDS",
+      "GRID_X",
+      "GRID_Y",
+      "COL_GAP",
+      "ROW_GAP"
+    ],
+    "demos/ui-entrance/skeleton-reveal/SkeletonReveal.tsx": [
+      "INK",
+      "PAPER",
+      "NAMES",
+      "AVA",
+      "MSGS"
+    ],
+    "demos/ui-entrance/svg-shape-morph/SvgShapeMorph.tsx": [
+      "CX",
+      "CY",
+      "N",
+      "BASE",
+      "RAD_A",
+      "RAD_B"
+    ],
+    "demos/ui-entrance/value-stagger-gradient/ValueStaggerGradient.tsx": [
+      "N",
+      "C",
+      "BARS"
+    ],
+    "demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx": [
+      "BG",
+      "AMBER",
+      "FIRST",
+      "GAP",
+      "CELL_W",
+      "CELL_H",
+      "GUT",
+      "LEFT",
+      "TOP"
+    ],
+    "demos/ui-entrance/wall-reveal-moves/GridWaveFlip.tsx": [
+      "COLS",
+      "ROWS",
+      "CELL_W",
+      "CELL_H",
+      "GAP",
+      "HOLD",
+      "STAGGER",
+      "FLIP"
+    ],
+    "demos/ui-entrance/wall-reveal-moves/WireframeDrawOn.tsx": [
+      "CARD_W",
+      "CARD_H",
+      "CARD_X",
+      "CARD_Y"
+    ],
+    "demos/_fixtures/Fixtures.tsx": [
+      "G"
+    ],
+    "demos/_fixtures/Motion.tsx": [
+      "E"
+    ],
+    "demos/_fixtures/PageCam2D.tsx": [],
+    "assets/lib/Caption.tsx": [
+      "MONO",
+      "AMBER"
+    ],
+    "assets/lib/ClipCard.tsx": [
+      "ACCENT"
+    ],
+    "assets/lib/DigitRoll.tsx": [
+      "DIGITS"
+    ],
+    "assets/lib/FlashCut.tsx": [],
+    "assets/lib/FlatPanel.tsx": [],
+    "assets/lib/helpers/camera.tsx": [],
+    "assets/lib/helpers/motion.ts": [],
+    "assets/lib/helpers/rand.ts": [],
+    "assets/lib/helpers/shake.ts": [],
+    "assets/lib/PageCam.tsx": [],
+    "assets/lib/VerticalTicker.tsx": [],
+    "template/src/aifl/Caption.tsx": [
+      "CAPTION_DEFAULTS"
+    ],
+    "template/src/aifl/DigitRoll.tsx": [
+      "DIGITS"
+    ],
+    "template/src/aifl/FlashCut.tsx": [],
+    "template/src/aifl/live/PageCam.tsx": [],
+    "template/src/aifl/live/SceneDetail.tsx": [
+      "DETAIL_H",
+      "DETAIL_CAM",
+      "FLY_EASE",
+      "SCENE_DETAIL_DEFAULTS"
+    ],
+    "template/src/aifl/live/SceneFlyIn.tsx": [
+      "PAGE_H",
+      "HOVER_H",
+      "SETTLE_EASE",
+      "DIVE_EASE",
+      "SLIDE_EASE",
+      "COLS",
+      "CARD_W",
+      "EXTRA_ROWS",
+      "PAPER_EXT",
+      "PILE",
+      "N_CARDS",
+      "DEAL_START",
+      "STACK_STEP",
+      "METAL_FADE",
+      "NANO_TO",
+      "CLICK_C",
+      "SEARCH",
+      "SCENE_FLYIN_DEFAULTS",
+      "TYPE_START",
+      "FILTER_START",
+      "PILE_CX",
+      "PILE_CY",
+      "CAM_KEYS"
+    ],
+    "template/src/aifl/live/SceneOpen.tsx": [
+      "SCENE_OPEN_DEFAULTS",
+      "PAGE_H",
+      "MAIN",
+      "CARD",
+      "MCX",
+      "MCY",
+      "RADIUS",
+      "CAM_KEYS",
+      "PUSH_EASE",
+      "POP_EASE",
+      "RESEAT_EASE"
+    ],
+    "template/src/aifl/live/SceneOutroLive.tsx": [
+      "SCENE_OUTRO_DEFAULTS",
+      "PAGE_H",
+      "WBR_PAGE_H",
+      "FLY_EASE",
+      "CRANE_EASE",
+      "ELS",
+      "DUST"
+    ],
+    "template/src/aifl/live/ScenePapers.tsx": [
+      "PAGE_H",
+      "SCENE_PAPERS_DEFAULTS",
+      "FILES",
+      "CUES",
+      "DUR",
+      "FLY_EASE",
+      "TILTS",
+      "CAM_KEYS"
+    ],
+    "template/src/aifl/live/SceneWbr.tsx": [
+      "PAGE_H",
+      "CAM_KEYS",
+      "REVEAL_EASE",
+      "WIPE",
+      "PAST_WEEKS_DSL",
+      "SCENE_WBR_DEFAULTS",
+      "WEEK_Y0",
+      "WEEK_H",
+      "WEEK_DROP"
+    ],
+    "template/src/aifl/Main.tsx": [
+      "AIFL_SHOTS",
+      "AIFL_TOTAL",
+      "TITLE_CARDS",
+      "FLASH_CUTS",
+      "CAPTIONS",
+      "SFX"
+    ],
+    "template/src/aifl/PaperTitleCard.tsx": [
+      "TITLE_CARD_DEFAULTS"
+    ],
+    "template/src/themes/palette-assets.ts": [],
+    "template/src/themes/ThemedFilm.tsx": [],
+    "template/src/themes/visual-theme.tsx": [
+      "THEME",
+      "VISUAL_THEMES",
+      "INK_RGB_ROLES"
+    ]
+  }
+}

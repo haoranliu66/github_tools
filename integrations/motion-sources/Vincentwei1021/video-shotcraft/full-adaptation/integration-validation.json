@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "libraryDigest": "f6443b3da74ef99e4bb7209a078baba770ce2408ead82590db180873a8bbb48d",
+  "libraryMotions": 272,
+  "composition": "actual project writeShotPreviewHarness bridge",
+  "frames": 313,
+  "fps": 30,
+  "dimensions": [
+    960,
+    540
+  ],
+  "source": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\full\\project-preview\\Shot.jsx",
+  "output": "C:\\Users\\64539\\Documents\\ChatGPT\\自媒体\\implementation\\video-shotcraft\\full\\project-preview\\preview.mp4",
+  "checks": [
+    "All registered adapters import through project bridge",
+    "Custom local screenshots and matching layout",
+    "Configured Confidence target differs from default demo-lab target",
+    "Remotion Three + React Three Fiber frame-derived camera",
+    "Caller local video looping through originalProps",
+    "Original caption input in native parent geometry"
+  ],
+  "visualReview": "sampled frames inspected",
+  "reviewedFrames": [
+    0,
+    35,
+    60,
+    120,
+    230,
+    312
+  ],
+  "notes": [
+    "Validation server supports byte ranges for local video seeking.",
+    "Light search field and caption parent retain original text contrast; custom screenshot pixels are deep-ocean themed."
+  ],
+  "renderedLibraryDigest": "63bf6b2f33d2151df0a979454bcdc680ef509edf560ada648fab52431b930ff0",
+  "catalogRefresh": {
+    "before": "63bf6b2f33d2151df0a979454bcdc680ef509edf560ada648fab52431b930ff0",
+    "after": "f6443b3da74ef99e4bb7209a078baba770ce2408ead82590db180873a8bbb48d",
+    "executableHashesRevalidated": 242,
+    "changes": "Removed imported fixed use-count recommendations from usage descriptions; executable sources and preview media unchanged."
+  }
+}
