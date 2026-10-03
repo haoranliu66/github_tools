@@ -123,11 +123,12 @@ export function buildNarratedStoryboardFromBlocks(draft, blocks, {
     });
     blockSummaries.push({
       id: block.id,
-      profile: block.profile,
+      semanticBlockId: block.semanticBlockId,
       sceneIndexes: block.sceneIndexes,
       topics: block.topics,
       startFrame: totalFrames,
       endFrame: totalFrames + spokenFrames,
+      timelineEndFrame: totalFrames + frames,
       duration: Number(block.duration.toFixed(3)),
       timelineDuration: Number((frames / fps).toFixed(3)),
       characters: block.text.length,
@@ -153,6 +154,8 @@ export function buildNarratedStoryboardFromBlocks(draft, blocks, {
     delete scene.narrationTopic;
   }
   if (sceneStart !== totalFrames) throw new Error('Narration blocks do not cover the complete timeline.');
+  delete storyboard.meta.narrationProfile;
+  storyboard.meta.narrationSegmentation = 'semantic';
   storyboard.meta.narrationAlignment = 'measured-block-weighted-cues';
   storyboard.narrationBlocks = blockSummaries;
   return {storyboard, clips: subtitleClips, audioClips, totalFrames};

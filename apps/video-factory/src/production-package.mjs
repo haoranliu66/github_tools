@@ -1,17 +1,21 @@
+import {isDeepStrictEqual} from 'node:util';
 import {copyFileSync,existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {dirname,join,resolve,sep} from 'node:path';
-import {contentSchema,validateContent,hash,makeCreativePlan,normalizeTiming} from './creative-plan.mjs';
+import {contentSchema,validateContent,hash,makeCreativePlan} from './creative-plan.mjs';
+import {layoutFromVisual,validateVisualLayout,layoutTasks} from './director-layout.mjs';
+import {SHARING_TYPE,selectContentRoute,contentRouteSchema,sharingSchema,validateContentProfile} from './content-skill.mjs';
 import {contractMetadata} from '../../repo-researcher/src/editorial-contract.mjs';
 const text={type:'string',minLength:1},strings={type:'array',items:text};
 const object=properties=>({type:'object',additionalProperties:false,required:Object.keys(properties),properties});
-export function productionPackageSchema() {
-  return object({claims:{type:'array',minItems:1,items:object({claim:text,quote:text})},content:contentSchema(),
+export function productionPackageSchema(route=selectContentRoute()) {
+  return object({contentRoute:contentRouteSchema(route),...(route.skill===SHARING_TYPE?{sharing:sharingSchema()}:{}),claims:{type:'array',minItems:1,items:object({claim:text,quote:text})},content:contentSchema(),
     designContext:text,shots:{type:'array',minItems:1,items:object({id:text,unitId:text,narrationCue:text,
       purpose:text,visualDesign:text,continuity:text,route:{type:'string',enum:['library','compose','custom']},
       libraryIds:strings,assetIds:strings})},assets:{type:'array',items:object({id:text,
-      kind:{type:'string',enum:['svg','readme-media','file']},source:text,purpose:text})}});
+      kind:{type:'string',enum:['svg','readme-media','file']},source:text,purpose:text})},
+    customMaterials:{type:'array',items:object({id:text,exportName:text,source:text,usage:text,demoSource:text,shotIds:{...strings,minItems:1}})}});
 }
-export function validateProductionPackage(value,{readmeText,libraries}) {
+export function validateProductionPackage(value,{readmeText,libraries,route}) {
   if(!value.claims?.length)throw new Error('Used claims are required.');
   const normalize=t=>t.replace(/\s+/gu,' ').trim();
   for(const c of value.claims)if(!c.claim?.trim()||!c.quote?.trim()||!normalize(readmeText).includes(normalize(c.quote)))throw new Error('Claim needs an exact official README excerpt.');
@@ -37,7 +41,23 @@ export function validateProductionPackage(value,{readmeText,libraries}) {
     if(!/^[a-z][a-z0-9_-]*$/u.test(a.id)||!a.purpose?.trim())throw new Error('Invalid asset ID or use.');
     if(a.kind==='svg'&&(!/^\s*<svg\b/u.test(a.source)||/<script|<foreignObject|\bon\w+\s*=|(?:href|url)\s*[=(]["']?(?:https?:|\/\/)|<!DOCTYPE/iu.test(a.source)))throw new Error('SVG must be a self-contained offline image.');
   }
+  const customIds=new Set(),customExports=new Set();
+  for(const m of value.customMaterials??[]) {
+    if(!/^[a-z][a-z0-9_-]*$/u.test(m.id)||assetIds.has(m.id)||customIds.has(m.id)||!/^[A-Z][A-Za-z0-9_]*$/u.test(m.exportName)||!m.shotIds?.length||m.shotIds.some(id=>!shotIds.has(id)))throw new Error('Custom material needs a unique export and actual shot references.');
+    if(customExports.has(m.exportName))throw new Error('Duplicate custom material export: '+m.exportName);customExports.add(m.exportName);
+    customIds.add(m.id);
+    if([m.source,m.usage,m.demoSource].some(p=>typeof p!=='string'||!p.trim()))throw new Error('Custom material needs runnable code, usage and demo implementation.');
+  }
+  validateContentProfile(value,value.shots,{expectedRoute:route});
   return value;
+}
+export function validateMaterialNarrativeIdentity(initial,final) {
+  const spokenIdentity=value=>({claims:value.claims,contentRoute:value.contentRoute,
+    title:value.content.title,styleId:value.content.styleId,fullNarration:value.content.fullNarration,
+    units:value.content.units.map(({id,heading,narration,claimIndexes})=>({id,heading,narration,claimIndexes})),
+    ...(value.contentRoute.skill===SHARING_TYPE?{promise:value.sharing.viewerPromise,story:value.sharing.story,example:value.sharing.example}:{})});
+  if(!isDeepStrictEqual(spokenIdentity(initial),spokenIdentity(final)))throw new Error('Material inspection changed the agreed narration or factual story.');
+  return final;
 }
 export function createProductionPackage(value,{fullName,preview,contract,editingSkill,feedbackText='',libraries}) {
   validateProductionPackage(value,{readmeText:preview.readmeText,libraries});
@@ -49,7 +69,7 @@ export function createProductionPackage(value,{fullName,preview,contract,editing
   const researchText=JSON.stringify(research,null,2)+'\n';
   const plan=makeCreativePlan({fullName,researchText,contract,editingSkill,feedbackText,content:value.content,libraries});
   plan.workflow=research.workflow;plan.phase='production-planned';
-  plan.preproduction={designContext:value.designContext,shots:value.shots,assets:value.assets.map(a=>({id:a.id,
+  plan.preproduction={contentRoute:structuredClone(value.contentRoute),...(value.contentRoute.skill===SHARING_TYPE?{sharing:structuredClone(value.sharing)}:{}),designContext:value.designContext,shots:value.shots,components:[],customMaterials:(value.customMaterials??[]).map(m=>({id:m.id,exportName:m.exportName,shotIds:m.shotIds,codeFile:`prepared-materials/${m.id}/component.jsx`,usageFile:`prepared-materials/${m.id}/usage.md`,demoFile:`prepared-materials/${m.id}/demo.mp4`})),assets:value.assets.map(a=>({id:a.id,
     kind:a.kind,purpose:a.purpose,file:`visual-assets/${a.id}${a.kind==='svg'?'.svg':'.'+a.source.split('.').at(-1).toLowerCase()}`}))};
   plan.preproductionDigest=hash(JSON.stringify(plan.preproduction));
   return {research,researchText,plan};
@@ -72,28 +92,19 @@ export function validatePlannedAssets(plan,resourcesDirectory) {
   return plan.preproduction.assets.map(a=>{const path=resolve(resourcesDirectory,a.file);
     if(!path.startsWith(resolve(resourcesDirectory)+sep)||!existsSync(path))throw new Error('Missing planned material: '+a.id);
     if(a.sha256&&hash(readFileSync(path))!==a.sha256)throw new Error('Planned material changed: '+a.id);
-    return {id:a.id,purpose:a.purpose,src:path};});
-}
-// Convert the pre-audio design to frames only after duration measurement. Cues remain estimated.
-export function bindProductionShots(plan,timing,fps) {
-  const audio=normalizeTiming(timing,fps),narration=audio.clips.map(c=>c.text).join('');
-  if(narration!==plan.content.fullNarration)throw new Error('Measured audio transcript differs from the unified plan.');
-  let offset=0;const clips=audio.clips.map(c=>{const start=offset;offset+=c.text.length;return {...c,charStart:start,charEnd:offset};});
-  let cursor=0;
-  const starts=plan.preproduction.shots.map((s,i)=>{const at=narration.indexOf(s.narrationCue,cursor);if(at<0)throw new Error('Unordered or missing planned cue.');cursor=at+s.narrationCue.length;
-    const clip=clips.find(c=>at>=c.charStart&&at<c.charEnd);return i===0?0:Math.round(clip.startFrame+(at-clip.charStart)/(clip.charEnd-clip.charStart)*(clip.endFrame-clip.startFrame));});
-  return plan.preproduction.shots.map((s,i)=>{const startFrame=starts[i],endFrame=starts[i+1]??audio.totalFrames;
-    if(endFrame<=startFrame)throw new Error('Planned shots are too close for the measured audio; resolve cue positions without rewriting narration.');
-    const unit=plan.content.units.find(u=>u.id===s.unitId);
-    return {...s,title:unit.heading,claimIndexes:unit.claimIndexes,startFrame,endFrame,durationInFrames:endFrame-startFrame};});
+    return {...a,src:path};});
 }
 export {directorContextPrompt} from './director-context.mjs';
 
-export function validatePlannedRealization(plan,shots,visual) {
-  if(visual.styleId!==plan.content.styleId||visual.scenes?.length!==shots.length)throw new Error('Realization differs from the unified shot plan.');
-  for(const [i,scene] of visual.scenes.entries()) {
-    const shot=shots[i],beat=scene.beats?.[0];
-    if(scene.id!==shot.id||scene.startFrame!==shot.startFrame||scene.endFrame!==shot.endFrame||scene.purpose!==shot.purpose||scene.beats?.length!==1||beat?.id!==shot.id||beat.narrationCue!==shot.narrationCue||beat.purpose!==shot.purpose||JSON.stringify(scene.claimIndexes)!==JSON.stringify(shot.claimIndexes)||JSON.stringify(beat.claimIndexes)!==JSON.stringify(shot.claimIndexes))throw new Error('Realization changed planned shot '+shot.id+'. Return to planning for semantic changes.');
+export function validatePlannedRealization(plan,timing,fps,visual,libraries) {
+  const layout=layoutFromVisual(visual);validateVisualLayout(plan,timing,fps,layout,libraries);
+  const tasks=layoutTasks(layout,plan);
+  const source=visual.scenes.flatMap(s=>s.beats.map(b=>b.source??'')).join('\n')+'\n'+Object.values(visual.sharedSources??{}).join('\n');
+  for(const material of plan.preproduction.customMaterials)if(!source.includes(material.exportName))throw new Error('Prepared custom material is unused in actual code: '+material.id);
+  for(const scene of visual.scenes) {
+    const claims=[...new Set(scene.beats.flatMap(b=>tasks.find(t=>t.id===b.id).claimIndexes))].sort((a,b)=>a-b);
+    if(JSON.stringify(scene.claimIndexes)!==JSON.stringify(claims))throw new Error('Scene claims differ from referenced planned purposes.');
+    for(const beat of scene.beats)if(JSON.stringify(beat.claimIndexes)!==JSON.stringify(tasks.find(t=>t.id===beat.id).claimIndexes))throw new Error('Beat claims differ from referenced planned purposes.');
   }
   return visual;
 }

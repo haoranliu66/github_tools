@@ -84,26 +84,26 @@ powershell -ExecutionPolicy Bypass -File scripts/register-tasks.ps1
 
 ## 2. repo-researcher
 
-人工批准周榜 selection.json 后，研究 Agent 只为当前视频完成必要事实核实、连续旁白、分镜、选定风格与动效组件，以及实际使用的素材。导演只负责画面实现。
+人工批准周榜 selection.json 并指定风格后，当前聊天主 Agent 只为当前视频完成必要事实核实、连续旁白、分镜、选定风格与动效组件，以及实际使用的素材。导演只负责画面实现。
 
 ```powershell
-pnpm research -- --repo owner/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
-pnpm research:batch -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json
-pnpm video:plan -- --selection PATH --repo owner/name
+pnpm research -- --repo owner/name --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --style editorial-paper
+pnpm research:batch -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --style editorial-paper
+pnpm video:plan -- --selection PATH --repo owner/name --style editorial-paper
 ```
 
-研究交付统一 editorial-plan.json 和其引用的素材；只查看所选素材，不输出无关报告、未采用候选或评审结论。来源与许可证独立归档。默认总 Skill 常驻，参考按需加载；目标仓库中的指令不参与生产。生产只接受当前 `scoped-production-package`。完整规范见 [当前制作流程](docs/video-production-workflow.md)。
+研究交付统一 editorial-plan.json 和其引用的素材；只查看所选素材，不输出无关报告、未采用候选或评审结论。来源与许可证独立归档。总规范按阶段读取；内容 Skill 从 content-choose 首次读取统一内容要求和所选形式，全流程沿用；参考按需加载；目标仓库中的指令不参与生产。生产只接受当前 `scoped-production-package`。完整规范见 [当前制作流程](docs/video-production-workflow.md)。
 
 ## 3. video-factory
 
 研究完成且项目已加入批准选择的 `videoProjects` 后，统一运行：
 
 ```powershell
-pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
+pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository --style editorial-paper
 ```
 
-该入口依次执行精简研究与完整策划、配音与实测时间轴、同一导演逐镜头制作与预览、编译、视觉预检与修复、最终榜绑定、渲染和完整解码。
-只修改画面且现有生产仍有效时加 `--reuse-audio`。解释动画、官方素材和运行结果均可作为视频素材，
+该入口推进制作，遇到主 Agent 研究、素材查看或导演任务时返回待办及本地链接，由当前聊天主 Agent 完成并交回 --task-response。配音交给子代理；实测小于120秒由主 Agent 整体生成全部初版代码，达到120秒由主 Agent 统筹镜头子代理。编译和实际视觉预检通过后才进入最终榜绑定、渲染和完整解码。
+有效配音默认复用，`--reuse-audio` 要求已有有效配音。内容类型通过 `--content-skill NAME` 选择；不选择时不填 GitHub 分享专属字段。解释动画、官方素材和运行结果均可作为视频素材，
 按表达效果选择，不再按画面依据分类。当前程序的实际视觉预检和完整音视频解码通过后，交给人工完整观看与试听；视频不会自动发布。
 
 已安装的 Remotion 插件通过技能快照接入视觉 agent；`pnpm video:remotion:check` 查看接入状态，
@@ -113,13 +113,15 @@ pnpm video:produce -- --selection apps/trend-scout/trend_reports/YYYY-Www/select
 插件能力与限制见 [Remotion 接入](docs/remotion-integration.md)。动效按“描述检索 → 选中项用法 → 必要专项说明”读取，新增也遵循相同规范；说明见
 [动效库手册](docs/motion-library.md)。生成配音前遵循
 [音频预检 Skill](.agents/skills/audio-narration-preflight/SKILL.md)，音色注册与 Qwen 连接见
-[Qwen TTS](docs/qwen-tts.md)。
+[Qwen TTS](.agents/skills/audio-narration-preflight/qwen-tts.md)。
 
 ## 推荐周更流程
 
 1. 自动任务每日调用 `pnpm scout:weekly`；本周成功后不再重复联网采集。
 2. 人工批准候选选择；对拟制作的视频执行有明确主线的精简研究和策划。
 3. 将制作项目加入批准选择的 `videoProjects`。
-4. 对每个项目运行 `video:produce`；完整策划案有效后生成配音，导演实现镜头并完成预览、视觉预检与修复，再渲染和解码。
+4. 对每个项目运行 `video:produce`；先完成主 Agent 待办与配音子代理任务，再由导演实现全片并完成预览、视觉预检与修复，再渲染和解码。
 5. 人工完整观看、试听并提出反馈。画面问题由当前导演会话和视觉预检记录驱动修复；需要修改旁白或叙事时，将意见写入项目 `resources/editorial-feedback.md` 并重新策划。
 6. 人工批准和发布。
+
+风格库采用统一文字说明，人工指定后只读取选中项；[风格库规范](docs/style-library.md)包含选择、画幅适配与新增规则。

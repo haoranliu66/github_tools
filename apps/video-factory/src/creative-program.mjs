@@ -2,7 +2,7 @@ import {existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {join,relative,resolve,sep} from 'node:path';
 import {hash,loadLibraries,safeResourcePath} from './creative-plan.mjs';
 const ROOT=resolve(import.meta.dirname,'../../..');
-const runtimeFiles=['MaterialRuntime.jsx','ShotRegistry.jsx','DirectorVideo.jsx','MotionLibrary.jsx','ExpandedMotion.jsx','vendor/animation-techniques-kit/text.tsx','vendor/animation-techniques-kit/theme.ts'];
+const runtimeFiles=['MaterialRuntime.jsx','ShotRegistry.jsx','DirectorVideo.jsx','caption-display.mjs','visual-context.mjs','MotionLibrary.jsx','ExpandedMotion.jsx','vendor/animation-techniques-kit/text.tsx','vendor/animation-techniques-kit/theme.ts'];
 export function creativeIdentity(storyboard) {
   const copy=structuredClone(storyboard);delete copy.meta.visualProgram;delete copy.meta.visualPreflight;return hash(JSON.stringify(copy));
 }
@@ -14,6 +14,10 @@ export function buildCreativeProgram(compiled,{resourcesDirectory,remotionGuidan
     runtimeSourceHashes:Object.fromEntries(runtimeFiles.map(name=>[name,hash(readFileSync(join(ROOT,'apps/video-factory/remotion',name)))])),
     materialHashes:Object.fromEntries((storyboard.meta.materials??[]).map(a=>[a.src,hash(readFileSync(safeResourcePath(join(resourcesDirectory,'production'),a.src)))])),
     audioSha256:hash(readFileSync(audioPath)),timingSha256:hash(readFileSync(join(resourcesDirectory,'production/timing.json'))),remotionGuidance};
+  const prepared=compiled.preparedMaterials??[];
+  const preparedBridge=prepared.map(m=>'export {default as '+m.exportName+'} from '+JSON.stringify(m.code.path.replaceAll('\\','/'))+';').join('\n')+'\n';
+  program.preparedSourceHashes=Object.fromEntries((compiled.materialSources??prepared).flatMap(m=>[m.code,m.usage,m.demo,...m.dependencies.files]).map(f=>[f.path,f.sha256]));
+  program.preparedBridgeSha256=hash(preparedBridge);
   program.programDigest=hash(JSON.stringify({...program,createdAt:undefined}));
   const directory=join(resourcesDirectory,'shots',program.programDigest);mkdirSync(directory,{recursive:true});
   for(const [name,source] of Object.entries(compiled.sources)) writeFileSync(join(directory,name),source);
@@ -24,7 +28,17 @@ export function buildCreativeProgram(compiled,{resourcesDirectory,remotionGuidan
   program.librarySourceHashes=Object.fromEntries(additional.map(m=>[m.module,m.sha256]));
   writeFileSync(join(directory,'motion-library.jsx'),bridge);writeFileSync(join(directory,'shot-runtime.jsx'),bridge);
   program.bridgeSha256=hash(bridge);
+  writeFileSync(join(directory,'prepared-materials.jsx'),preparedBridge);
   for(const name of ['RemotionEffects.jsx']) program.runtimeSourceHashes[name]=hash(readFileSync(join(ROOT,'apps/video-factory/remotion',name)));
+  // A rebuild with identical inputs must not invalidate inspected frames because of a clock value.
+  const retainedPath=join(directory,'program.json');
+  if(existsSync(retainedPath)) {
+    try {
+      const retained=JSON.parse(readFileSync(retainedPath,'utf8'));
+      const identity=value=>hash(JSON.stringify({...value,createdAt:undefined}));
+      if(identity(retained)===identity(program))program.createdAt=retained.createdAt;
+    }catch { /* An invalid retained program is replaced by the current compiled content. */ }
+  }
   const text=JSON.stringify(program,null,2)+'\n';writeFileSync(join(directory,'program.json'),text);
   storyboard.meta.visualProgram={schemaVersion:3,directory:relative(resourcesDirectory,directory).replaceAll('\\','/'),digest:hash(text),inputDigest:program.inputDigest};
   return {storyboard,program,directory};
@@ -41,6 +55,8 @@ export function verifyCreativeProgram(storyboard,resourcesDirectory) {
     if(![...runtimeFiles,'RemotionEffects.jsx'].includes(file)||hash(readFileSync(join(ROOT,'apps/video-factory/remotion',file)))!==sha) throw new Error(`Director runtime changed: ${file}`);
   }
   for(const [file,sha] of Object.entries(program.librarySourceHashes??{})) if(hash(readFileSync(safeResourcePath(ROOT,file)))!==sha) throw new Error(`Approved asset changed: ${file}`);
+  for(const [file,sha] of Object.entries(program.preparedSourceHashes??{}))if(hash(readFileSync(file))!==sha)throw new Error('Prepared independent material changed: '+file);
+  if(hash(readFileSync(join(directory,'prepared-materials.jsx')))!==program.preparedBridgeSha256)throw new Error('Prepared material bridge changed.');
   for(const file of ['shot-runtime.jsx','motion-library.jsx']) if(hash(readFileSync(join(directory,file)))!==program.bridgeSha256) throw new Error('Motion library bridge changed.');
   if(hash(readFileSync(join(resourcesDirectory,'production/narration.wav')))!==program.audioSha256||hash(readFileSync(join(resourcesDirectory,'production/timing.json')))!==program.timingSha256) throw new Error('Narration or measured timing changed after visual direction.');
   for(const [file,sha] of Object.entries(program.materialHashes??{}))if(hash(readFileSync(safeResourcePath(join(resourcesDirectory,'production'),file)))!==sha)throw new Error('Production material changed after direction: '+file);

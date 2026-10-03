@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "provider": "installed-codex-remotion-plugin",
-  "pluginVersion": "1.0.7",
-  "skillVersion": "4.0.506",
+  "pluginVersion": "4.0.530",
+  "skillVersion": "4.0.530",
   "files": [
     {
       "path": "remotion-best-practices/SKILL.md",
-      "digest": "41119b9934a5c8252f4c8fe9afbfccde40914afe81c0f86924c8ee2897fae77f"
+      "digest": "2bd4275a2a6ce03d985b3839b94abb770174f5abd18ebdf18d89d1f0cbd8078e"
     },
     {
       "path": "remotion-markup/SKILL.md",
-      "digest": "e0cc02bf5075c1c2bc0825bc138a37c5efbd1f981645a18111f64d42797e6c21"
+      "digest": "8db21d99ac0215db713a6b52f07d8c6a4369022e9288f1255eee47e7fb5b0bc8"
     },
     {
       "path": "remotion-markup/timing.md",
@@ -30,28 +30,30 @@
     },
     {
       "path": "remotion-markup/images.md",
-      "digest": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b"
+      "digest": "0e6c2af8ad73483ebbc761237f230c8c0db1bd9db6b60d01d48a24b8a4059284"
     },
     {
       "path": "remotion-markup/cropping.md",
-      "digest": "b862b4a98e412870ab13172e52c7c0d73c7c17ebbf728046168dfd21240dce94"
+      "digest": "98edcc2767e7087ba097b54f96f6b2f4a175f7374c5f47a383951950961598aa"
     },
     {
       "path": "remotion-markup/embedding-videos.md",
-      "digest": "543ddf73e53bd750019b0283506d2cc30e9acb605c8628fa12fc9dd3edbc145c"
+      "digest": "30baf2ea40751614216e121b9b46afd74f0d69594d25ae494c01f4249f543562",
+      "sourceDigest": "ecaff317f003b62414b85976210a57b7ab8cc7c0e2cfaafb244768e0c7fe2072",
+      "correction": "trimBefore and trimAfter use frames"
     },
     {
       "path": "remotion-markup/text-highlights.md",
-      "digest": "e6210a022785fd6f93a4a1ed75b600da18bc3baff20eef9e656e1f48267bebfe"
+      "digest": "6a3b7629b947e8657c42b73b1f53c91d9b1535af1bfed57e054981c51bb951cc"
     },
     {
       "path": "remotion-render/SKILL.md",
-      "digest": "9c51cee8d71219ad6ed727060c5d4ca83ee7ba88e0fce5cbed6022e87582b1b1"
+      "digest": "67e54248ea31b4560063d34da949cf720dac480238e379dc112b1c386a1b3287"
     },
     {
       "path": "remotion-studio/SKILL.md",
-      "digest": "a2a615fbca1c1fe8809841a405e296f4131b80e88e3d52754b77c8b7d1eeeda4"
+      "digest": "0e9d24ee6abff8fbf63d64e00611c5590d0a09f200a988dbcc4aa91056c03a74"
     }
   ],
-  "digest": "73be8674c4fe2fd0c5558fe9a41e268a118656a97d4fa73e5c6afa98f12e354e"
+  "digest": "1925be851dd3d0e25df255f1c5943d16e75cf6911120e55afbceaa7c845f8921"
 }

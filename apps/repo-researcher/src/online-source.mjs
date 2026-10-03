@@ -36,7 +36,7 @@ function decodeContent(file, label) {
   return Buffer.from(file.content.replace(/\s+/gu, ''), 'base64');
 }
 
-export async function getOnlineSourcePreview(fullName, {token = '', requestOptions = {}, includeLicense = false} = {}) {
+export async function getOnlineSourcePreview(fullName, {token = '', requestOptions = {}, includeLicense = false, includePopularity = false} = {}) {
   const options = {token, ...requestOptions};
   const repo = await json(apiPath(fullName, ''), options);
   if (!repo?.default_branch) throw new Error('GitHub repository has no default branch.');
@@ -68,6 +68,7 @@ export async function getOnlineSourcePreview(fullName, {token = '', requestOptio
     licenseName, licenseText,
     repositoryLicense: repo.license?.spdx_id ?? null,
     primaryLanguage: repo.language ?? null,
+    ...(includePopularity && Number.isSafeInteger(repo.stargazers_count) && repo.stargazers_count >= 0 ? {popularity:{stars:repo.stargazers_count,source:apiPath(fullName,''),observedAt:new Date().toISOString()}} : {}),
   };
 }
 
@@ -84,6 +85,7 @@ export function stageOnlinePreview(preview, runRoot) {
     readme: preview.readmeName,
     repositoryLicense: preview.repositoryLicense,
     primaryLanguage: preview.primaryLanguage,
+    ...(preview.popularity?{popularity:preview.popularity}:{}),
     note: 'API metadata is version identity only; README is the sole static feature evidence.',
   }, null, 2)}\n`, 'utf8');
   return directory;

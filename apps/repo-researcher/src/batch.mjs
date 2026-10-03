@@ -16,8 +16,10 @@ function optionValue(name, fallback = null) {
   return index >= 0 ? process.argv[index + 1] : fallback;
 }
 
-export function researchArgs(fullName,{selectionPath,dryRun=false}={}) {
-  const args = [RESEARCH_CLI, '--repo', fullName, '--selection', selectionPath];
+export function researchArgs(fullName,{selectionPath,dryRun=false,styleId,contentSkill=null,form=null}={}) {
+  if(!styleId)throw new Error('Human style selection required: use --style STYLE_ID.');
+  const args = [RESEARCH_CLI, '--repo', fullName, '--selection', selectionPath, '--style', styleId];
+  if(contentSkill)args.push('--content-skill',contentSkill);if(form)args.push('--form',form);
   if (dryRun) args.push('--dry-run');
   return args;
 }
@@ -26,6 +28,7 @@ export function runResearchBatch({
   selectionPath,
   projectRoot = PROJECT_ROOT,
   dryRun = false,
+  styleId,contentSkill=null,form=null,
   runner = spawnSync,
   now = new Date(),
 } = {}) {
@@ -36,14 +39,19 @@ export function runResearchBatch({
     mkdirSync(layout.resourcesDirectory, {recursive: true});
     const processResult = runner(process.execPath, researchArgs(fullName, {
       selectionPath: absolutePath,
-      dryRun,
+      dryRun,styleId,contentSkill,form,
     }), {
       cwd: projectRoot,
-      stdio: 'inherit',
+      encoding:'utf8',windowsHide:true,
     });
+    if(processResult.stdout)process.stdout.write(processResult.stdout);if(processResult.stderr)process.stderr.write(processResult.stderr);
+    const message=String(processResult.stdout??'').split(/\r?\n/u).filter(Boolean).map(line=>{try{return JSON.parse(line);}catch{return null;}}).filter(Boolean).at(-1);
+    const successful=!processResult.error&&processResult.status===0;
+    const stageStatus=message?.status;
     const item = {
       fullName,
-      status: !processResult.error && processResult.status === 0 ? 'completed' : 'failed',
+      status: !successful?'failed':dryRun?'dry-run':stageStatus==='production-planned'?'completed':stageStatus==='awaiting-main-agent'?'awaiting-main-agent':'failed',
+      ...(message?.taskPath?{taskPath:message.taskPath}:{}),
       exitCode: processResult.status ?? null,
       error: processResult.error?.message ?? null,
     };
@@ -72,12 +80,12 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   try {
     const selectionPath = optionValue('--selection');
     if (!selectionPath) throw new Error('Usage: batch.mjs --selection PATH [--dry-run]');
-    validateCliOptions(process.argv.slice(2),{values:['--selection'],booleans:['--dry-run']});
+    validateCliOptions(process.argv.slice(2),{values:['--selection','--style','--content-skill','--form'],booleans:['--dry-run']});
     const output = runResearchBatch({
       selectionPath,
-      dryRun: process.argv.includes('--dry-run'),
+      dryRun: process.argv.includes('--dry-run'),styleId:optionValue('--style'),contentSkill:optionValue('--content-skill'),form:optionValue('--form'),
     });
-    console.log(`Research batch completed: ${output.manifest.results.length} projects, ` +
+    console.log(`Research batch prepared: ${output.manifest.results.length} projects, ` +
       `${output.failed} failed. Per-project status is stored under each resources directory.`);
     if (output.failed) process.exitCode = 1;
   } catch (error) {

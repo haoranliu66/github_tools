@@ -3,6 +3,7 @@ import {mkdirSync,readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {join,resolve,extname} from 'node:path';
 import {refreshProductionReferenceIndex} from './reference-index.mjs';
 import {searchMaterials} from './material-search.mjs';
+import {findStyle,searchStyles,styleMarkdown} from './style-library.mjs';
 import {spawnSync} from 'node:child_process';
 import {hash,safeResourcePath,validateCreativeSource} from './creative-plan.mjs';
 import {readMotionCatalog,findMaterial,readMaterialUsage,materialDetails,checkMaterial,validateMaterialUsage,validateRetrievalDescription} from './material-usage.mjs';
@@ -10,7 +11,8 @@ const ROOT=resolve(import.meta.dirname,'../../..');
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const command=process.argv[2]??'help',options={fullName:arg('--repo')};
 const help=`Motion reuse: search by visual description → usage for selected ID → implement and preview.
-search --query TEXT [--queries FILE] [--repo owner/name] [--limit 5]
+search --query TEXT [--queries FILE] [--repo owner/name] [--limit 5] [--type style]
+style --id ID [--section purpose|color|typography|composition|materials|motion|captions|adaptation|tokens]
 usage --id ID [--repo owner/name] [--section purpose|example|parameters|assets|timing|references]
 show --id ID [--repo owner/name]                 selected resource paths
 audio --id ID [--repo owner/name]                optional audio file/cue metadata, no embedded bytes
@@ -26,10 +28,13 @@ try {
     const catalog=readMotionCatalog(ROOT,options),offset=Number(arg('--offset')??0),limit=Number(arg('--limit')??20);
     if(!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1||limit>50)throw new Error('List needs a nonnegative offset and limit from 1 to 50.');
     console.log(JSON.stringify({total:catalog.length,offset,matches:catalog.slice(offset,offset+limit).map(({id,description})=>({id,description}))},null,2));
-  } else if(command==='search') {
+  } else if(command==='style')console.log(styleMarkdown(findStyle(ROOT,arg('--id')),{section:arg('--section')}));
+  else if(command==='search') {
     const queriesFile=arg('--queries'),queries=queriesFile?JSON.parse(readFileSync(resolve(queriesFile),'utf8')):[];
     if(!Array.isArray(queries)||queries.some(q=>typeof q!=='string'))throw new Error('--queries must contain a JSON array of visual needs.');
-    console.log(JSON.stringify({retrieval:'description-only keyword + concept expansion + reciprocal-rank fusion',next:'usage --id SELECTED_ID',matches:searchMaterials(readMotionCatalog(ROOT,options),{query:arg('--query')??'',queries,limit:Number(arg('--limit')??5),...options})},null,2));
+    const type=arg('--type')??'motion';if(!['motion','style'].includes(type))throw new Error('--type must be motion or style.');
+    const searchOptions={query:arg('--query')??'',queries,limit:Number(arg('--limit')??5),...options};
+    console.log(JSON.stringify({retrieval:'description-only keyword + concept expansion + reciprocal-rank fusion',next:type==='style'?'style --id SELECTED_ID':'usage --id SELECTED_ID',matches:type==='style'?searchStyles(ROOT,searchOptions):searchMaterials(readMotionCatalog(ROOT,options),searchOptions)},null,2));
   } else if(command==='show')console.log(JSON.stringify(materialDetails(findMaterial(ROOT,arg('--id'),options)),null,2));
   else if(command==='audio') {
     const material=findMaterial(ROOT,arg('--id'),options);if(!material.optionalAudio)throw new Error('This material has no optional audio preset.');

@@ -4,7 +4,7 @@
     {
       "id": "editorial-paper",
       "name": "纸面编辑风",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#23252b",
         "muted": "#72747c",
@@ -62,12 +62,23 @@
         "background": "#ffffffed",
         "radius": 14,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "暖白纸面与淡紫光晕，深色大标题、错落编辑排版和紫色重点标记，卡片以短促动作逐层展开。适合知识讲解、产品原理和步骤说明。",
+      "visualDescription": {
+        "color": "背景使用 radial-gradient(circle at 15% 20%,#f3edff,#f5f2eb 55%)；正文 #23252b，次级文字 #72747c，重点 #6557e8，内容面 #ffffff，分隔线 #d9d6cf。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, sans-serif，字重 800；正文使用 Microsoft YaHei, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "采用非对称编辑版式，标题与主体错位安排，信息按阅读顺序建立；图解、正文和旁注共享清楚的对齐线。",
+        "materials": "纸面质感配几何 SVG，薄边框、柔和阴影和紫色重点标记建立层级。 面板圆角 22px，边框 1px；阴影 0 22px 70px #0002。",
+        "motion": "节奏克制，内容先入场再解释关系；用共享锚点切换、纯色过渡和由模糊到清晰承接语义变化。",
+        "captions": "字幕使用 #23252b，底条 #ffffffed，字号基准 36px，圆角 14px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 纸面纹理和分隔线跟随新布局重建。"
+      },
+      "descriptionFile": "assets/style-library/editorial-paper/description.md"
     },
     {
       "id": "dark-cinematic",
       "name": "深色产品演示",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#f2f4ff",
         "muted": "#929ab4",
@@ -125,12 +136,23 @@
         "background": "#10131fe6",
         "radius": 14,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "深蓝黑背景、浅色文字和青色高光，以宽阔主舞台、透视界面与光影层次营造电影感，镜头连续推进到重点。适合科技产品演示、核心功能揭示和性能亮相。",
+      "visualDescription": {
+        "color": "背景使用 radial-gradient(ellipse at 70% 15%,#16344e,#0b1020 65%)；正文 #f2f4ff，次级文字 #929ab4，重点 #65dcfb，内容面 #171e32，分隔线 #344567。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, sans-serif，字重 800；正文使用 Microsoft YaHei, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "画面以一个主角对象建立宽阔舞台，辅助信息分布在前后层；总览与特写保持对象位置和空间关系。",
+        "materials": "深色面板、柔焦光晕、细亮边和柔和投影共同建立纵深；界面截图与几何图形沿用同一光色。 面板圆角 24px，边框 1px；阴影 0 22px 70px #0002。",
+        "motion": "持续运镜与有目的的落点相结合，平移推近后停留阅读；焦点切换保持对象连续，重点出现再给强调拍。",
+        "captions": "字幕使用 #fff，底条 #10131fe6，字号基准 36px，圆角 14px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/dark-cinematic/description.md"
     },
     {
       "id": "ink-notebook",
       "name": "手绘讲解",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#242329",
         "muted": "#77716a",
@@ -188,12 +210,23 @@
         "background": "#fffdf0",
         "radius": 4,
         "shadow": "4px 4px 0 #222"
-      }
+      },
+      "description": "横线笔记纸、墨色粗描边、楷体手写感和橙色标注，关系线像现场绘出，对象在图解中移动并落定。适合原理拆解、流程解释和教学。",
+      "visualDescription": {
+        "color": "背景使用 repeating-linear-gradient(0deg,#fffaf0,#fffaf0 39px,#e6e0d4 40px)；正文 #242329，次级文字 #77716a，重点 #f08143，内容面 #fffdf8，分隔线 #242329。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 KaiTi, Microsoft YaHei, sans-serif，字重 800；正文使用 KaiTi, Microsoft YaHei, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "像在笔记本上逐步讲解，主体图解占中心，标签、箭头和手写旁注围绕关系就近摆放。",
+        "materials": "用规则纸横线、手绘 SVG、略不规则轮廓和硬偏移阴影形成笔记质感；橙色用于圈点和结论。 面板圆角 6px，边框 3px；阴影 6px 6px 0 #222。",
+        "motion": "先描路径，再沿路径移动例子，最后落到重点标记；画笔擦入、对象匹配与纯色交接延续讲解。",
+        "captions": "字幕使用 #242329，底条 #fffdf0，字号基准 36px，圆角 4px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 纸面纹理和分隔线跟随新布局重建。"
+      },
+      "descriptionFile": "assets/style-library/ink-notebook/description.md"
     },
     {
       "id": "bold-geometric",
       "name": "明亮几何风",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#172725",
         "muted": "#52736a",
@@ -251,12 +284,23 @@
         "background": "#ffffffed",
         "radius": 32,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "薄荷绿到浅青渐变底，大尺寸几何对象配橙色强调，圆角形体以弹性节奏组装、变形和接力。适合轻快科普、功能介绍和年轻化品牌内容。",
+      "visualDescription": {
+        "color": "背景使用 linear-gradient(125deg,#d7f8e7,#c9eff5)；正文 #172725，次级文字 #52736a，重点 #ff6c42，内容面 #ffffff，分隔线 #abd4c8。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, sans-serif，字重 800；正文使用 Microsoft YaHei, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "大图形担当主角，文字与形体形成鲜明大小对比；前后层通过遮挡、错位与留白组织。",
+        "materials": "平面几何 SVG 配轻量体积感，较大圆角、柔和投影和明亮色块形成亲近的图形语言。 面板圆角 32px，边框 1px；阴影 0 22px 70px #0002。",
+        "motion": "形体弹性建立、过冲回稳，利用同形对象接力和方向擦除完成切换；落定后保留读图时间。",
+        "captions": "字幕使用 #172725，底条 #ffffffed，字号基准 36px，圆角 32px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/bold-geometric/description.md"
     },
     {
       "id": "shotcraft-vintage-kraft",
       "name": "复古牛皮纸",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#382a20",
         "muted": "#6b513b",
@@ -314,12 +358,23 @@
         "background": "#dfc69eed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "棕金牛皮纸底、深棕字与棕红强调，纸质卡片以分层入场和轻缓推近展开，整体温暖复古。适合知识收藏、历史回顾和纸面产品展示。",
+      "visualDescription": {
+        "color": "背景使用 radial-gradient(ellipse at 50% 40%,#dfc69e,#c8aa7d 75%)；正文 #382a20，次级文字 #6b513b，重点 #8b4937，内容面 #dfc69e，分隔线 #ac895e。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "牛皮纸色阶、低对比纸纹、较小圆角和棕色细边形成实体纸卡感。 面板圆角 8px，边框 1px；阴影 0 20px 60px #382a2026。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #382a20，底条 #dfc69eed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 纸面纹理和分隔线跟随新布局重建。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-vintage-kraft/description.md"
     },
     {
       "id": "shotcraft-deep-ocean",
       "name": "深海",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#e8f1f5",
         "muted": "#9fb6c3",
@@ -377,12 +432,23 @@
         "background": "#142735ed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "深海蓝底与薄荷青强调，浅色文字落在分层深蓝面板上，界面以冷静推近和清楚落点展开。适合数据仪表盘、研究工具和科技产品介绍。",
+      "visualDescription": {
+        "color": "背景使用 #0b1620；正文 #e8f1f5，次级文字 #9fb6c3，重点 #7cc8b4，内容面 #142735，分隔线 #304957。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "深蓝哑光表面配薄荷色边缘高光，柔光与细边维持克制的空间层次。 面板圆角 20px，边框 1px；阴影 0 20px 60px #e8f1f526。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #e8f1f5，底条 #142735ed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-deep-ocean/description.md"
     },
     {
       "id": "shotcraft-obsidian-violet",
       "name": "黑曜紫",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#f0edf7",
         "muted": "#b3a9c5",
@@ -440,12 +506,23 @@
         "background": "#211d2ced",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "近黑紫底、灰紫面板与淡紫高光，明亮标题和分层界面形成柔和神秘感，重点对象渐亮后被镜头锁定。适合 AI 工具、创意软件和夜色科技产品展示。",
+      "visualDescription": {
+        "color": "背景使用 #14121b；正文 #f0edf7，次级文字 #b3a9c5，重点 #bca0e8，内容面 #211d2c，分隔线 #41364f。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "紫黑色面板、柔和紫光和细描边形成轻盈的暗场层次。 面板圆角 20px，边框 1px；阴影 0 20px 60px #f0edf726。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #f0edf7，底条 #211d2ced，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-obsidian-violet/description.md"
     },
     {
       "id": "shotcraft-modern-light",
       "name": "现代浅色",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#142238",
         "muted": "#5c6b82",
@@ -503,12 +580,23 @@
         "background": "#ffffffed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "浅灰白底、白色面板与鲜蓝强调，深色标题和规整界面层级呈现干净明快的产品感，分层入场后停留阅读。适合软件教程、协作工具和功能操作演示。",
+      "visualDescription": {
+        "color": "背景使用 #f4f7fb；正文 #142238，次级文字 #5c6b82，重点 #2563eb，内容面 #ffffff，分隔线 #d8e2ef。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "干净浅色表面、细灰边、轻投影与蓝色选中状态突出信息组织。 面板圆角 20px，边框 1px；阴影 0 20px 60px #14223826。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #142238，底条 #ffffffed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-modern-light/description.md"
     },
     {
       "id": "shotcraft-midnight",
       "name": "午夜深色",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#f0f5ff",
         "muted": "#9babbe",
@@ -566,12 +654,23 @@
         "background": "#111c2ced",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "午夜蓝黑底、浅亮文字和亮青强调，深色卡片像控制台面板般分层显现，镜头推近后把关注点留在亮色区域。适合开发者工具、监控面板和性能展示。",
+      "visualDescription": {
+        "color": "背景使用 #090f1a；正文 #f0f5ff，次级文字 #9babbe，重点 #61d9ef，内容面 #111c2c，分隔线 #293b52。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "深色哑光卡片配亮青细边与柔光，营造清楚的控制台层级。 面板圆角 20px，边框 1px；阴影 0 20px 60px #f0f5ff26。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #f0f5ff，底条 #111c2ced，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-midnight/description.md"
     },
     {
       "id": "shotcraft-solar-pop",
       "name": "鼠尾草",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#26342b",
         "muted": "#637067",
@@ -629,12 +728,23 @@
         "background": "#ffffffed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "暖浅白底、鼠尾草绿强调与深灰字，白色圆角面板留出舒缓空隙，层次轻轻展开并以重点停留收束。适合效率工具、生活知识和温和的产品说明。",
+      "visualDescription": {
+        "color": "背景使用 #f9faf6；正文 #26342b，次级文字 #637067，重点 #527434，内容面 #ffffff，分隔线 #dde4d5。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "柔和中性底色、自然绿色点缀、低对比细边和轻投影。 面板圆角 20px，边框 1px；阴影 0 20px 60px #26342b26。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #26342b，底条 #ffffffed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-solar-pop/description.md"
     },
     {
       "id": "shotcraft-coral-burst",
       "name": "珊瑚",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#1f1235",
         "muted": "#716579",
@@ -692,12 +802,23 @@
         "background": "#ffffffed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "白底、深紫字与珊瑚红重点块，清爽界面中用醒目红色指引注意，卡片错峰进入并轻快落定。适合消费产品、功能更新和重点信息揭晓。",
+      "visualDescription": {
+        "color": "背景使用 #fffffe；正文 #1f1235，次级文字 #716579，重点 #d94e59，内容面 #ffffff，分隔线 #e9dfe6。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "白色轻质面板、浅边框、柔影与珊瑚色选中块形成活泼层级。 面板圆角 20px，边框 1px；阴影 0 20px 60px #1f123526。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #1f1235，底条 #ffffffed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-coral-burst/description.md"
     },
     {
       "id": "shotcraft-color-play",
       "name": "鸢尾",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#282039",
         "muted": "#726781",
@@ -755,12 +876,23 @@
         "background": "#ffffffed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "浅紫底、墨紫字和鸢尾紫强调，白色面板悬浮成层，柔和推近与局部亮色引导阅读。适合创意工具、写作产品和内容管理演示。",
+      "visualDescription": {
+        "color": "背景使用 #f7f5fb；正文 #282039，次级文字 #726781，重点 #7354b5，内容面 #ffffff，分隔线 #e2dbea。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 Microsoft YaHei, Segoe UI, sans-serif，字重 800；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "产品主体位于主要视觉舞台，内容面板与强调对象组成前后层；总览与特写保持同一页面的阅读关系。",
+        "materials": "淡紫环境色、白色卡片、鸢尾高光与柔和投影保持清雅的数字质感。 面板圆角 20px，边框 1px；阴影 0 20px 60px #28203926。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #282039，底条 #ffffffed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 保留同一对象的空间层级与关注点。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-color-play/description.md"
     },
     {
       "id": "shotcraft-ink-press",
       "name": "纸墨印刷",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "palette": {
         "ink": "#13110f",
         "muted": "#65635f",
@@ -818,7 +950,594 @@
         "background": "#fdfcfaed",
         "radius": 12,
         "shadow": "0 3px 12px #0004"
-      }
+      },
+      "description": "暖纸白底、深墨宋体标题与琥珀强调，卡片像纸面印刷层逐步建立，配合聚光、推近和清楚停顿。适合知识整理、论文收藏和编辑式产品宣传。",
+      "visualDescription": {
+        "color": "背景使用 radial-gradient(ellipse at 50% 40%,#fdfcfa,#f9f6f1 75%)；正文 #13110f，次级文字 #65635f，重点 #955905，内容面 #fdfcfa，分隔线 #d9cbb4。强调色用于当前关键对象与结论。",
+        "typography": "标题使用 SimSun, Georgia, Microsoft YaHei, serif，字重 600；正文使用 Microsoft YaHei, Segoe UI, sans-serif，代码与数字说明使用 Consolas, monospace。主标题、标签与字幕保持明确大小层级。",
+        "composition": "采用纸面编辑层级，主标题、内容层和重点对象形成明确阅读顺序；页面总览与局部特写保留结构联系。",
+        "materials": "用纸面色阶、细墨线和低对比纸纹建立印刷感，琥珀色用于重要对象与注释。 面板圆角 20px，边框 1px；阴影 0 20px 60px #13110f26。",
+        "motion": "聚焦式运镜与分层入场结合，对象建立后停留阅读；共享锚点、顺时针擦除与暖白闪切可承接章节。动作时点由本片实测旁白决定。",
+        "captions": "字幕使用 #13110f，底条 #fdfcfaed，字号基准 36px，圆角 12px；底部位置与安全区随画幅重排，关键词沿用重点色。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。 纸面纹理和分隔线跟随新布局重建。"
+      },
+      "descriptionFile": "assets/style-library/shotcraft-ink-press/description.md"
+    },
+    {
+      "id": "kinetic-type-pop",
+      "name": "节拍大字报",
+      "version": "1.0.0",
+      "description": "高对比底色、超大粗体和荧光色关键词，以字重脉冲、字形推近和硬切把文字变成画面主角。适合短知识钩子、观点输出、发布预告和年度数据回顾。",
+      "palette": {
+        "ink": "#f8f7f2",
+        "muted": "#b8b9c4",
+        "accent": "#d8ff3e",
+        "panel": "#161720",
+        "line": "#494b5e"
+      },
+      "background": "#090a10",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 0,
+        "borderWidth": 0,
+        "shadow": "none"
+      },
+      "layout": {
+        "composition": "oversized type-led poster with sharp scale contrasts",
+        "contentMargin": 72,
+        "captionSafeBottom": 144,
+        "titleSize": 132
+      },
+      "illustration": {
+        "texture": "flat poster with restrained print grain",
+        "strokeWidth": 2,
+        "iconTreatment": "simple block symbols"
+      },
+      "motion": {
+        "cadence": "word-led punches, held conclusions and stepped cuts",
+        "easing": "snappy cubic out",
+        "spring": {
+          "damping": 16,
+          "stiffness": 200
+        },
+        "transitions": [
+          "match-cut",
+          "dip-to-color"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "dip-to-color"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f8f7f2",
+        "background": "#161720ed",
+        "radius": 0,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "近黑底与暖白字形成强对比，荧光黄绿只点亮当前关键词；大块纯色可随语义章节切换。",
+        "typography": "中文采用微软雅黑或黑体回退，标题粗重且短，字号明显大于正文；单词、数字和标点可独立成为图形。",
+        "composition": "以大字报构图为核心，一句主张先占画面，后续词句通过大小、对齐和留白接管焦点；事实图表与文字形成前后主次。",
+        "materials": "用纯色平面、粗线与少量印刷颗粒，字形本身承担视觉冲击；形状用于标记和节奏回应。",
+        "motion": "关键词跟随旁白重音放大或加粗，字形可跳切、错峰升出与形变接力；观点落定后停留，让节奏来自实测语音。",
+        "captions": "主标题与旁白字幕分层；字幕保持稳定底部位置，强调词可以同步变色，避免同一句在多个层面抢占阅读。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/kinetic-type-pop/description.md"
+    },
+    {
+      "id": "mixed-media-collage",
+      "name": "手工混媒拼贴",
+      "version": "1.0.0",
+      "description": "暖纸底上叠放撕边剪纸、照片裁片、手写箭头和印刷字块，元素以停格跳动、贴入与翻纸接力展开。适合知识故事、文化解读、创意工具和过程展示。",
+      "palette": {
+        "ink": "#27231f",
+        "muted": "#766c62",
+        "accent": "#b8322f",
+        "panel": "#f6eedf",
+        "line": "#b8aa96"
+      },
+      "background": "#e9dfca",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 700
+      },
+      "geometry": {
+        "radius": 2,
+        "borderWidth": 2,
+        "shadow": "5px 7px 0 #27231f26"
+      },
+      "layout": {
+        "composition": "asymmetric layered cutout montage with pasted labels",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 90
+      },
+      "illustration": {
+        "texture": "torn paper and halftone print",
+        "strokeWidth": 2,
+        "iconTreatment": "hand-cut silhouettes and marker annotations"
+      },
+      "motion": {
+        "cadence": "stop-frame placements, paper reveals and cutout relays",
+        "easing": "stepped poses with short cubic settles",
+        "spring": {
+          "damping": 19,
+          "stiffness": 170
+        },
+        "transitions": [
+          "brush-reveal",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "brush-reveal",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#27231f",
+        "background": "#f6eedfed",
+        "radius": 2,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "米色纸底、墨棕正文与砖红标记，照片和图形保留各自色彩，重点通过圈点、贴纸和粗字块显现。",
+        "typography": "宋体印刷标题配清楚的无衬线正文，短标签用楷体手写感；字号和排列像剪下贴上的编辑片段。",
+        "composition": "主体裁片与字块非对称叠放，撕边、交叠和窄旁注制造纸面层级；空间关系服务当前故事的阅读顺序。",
+        "materials": "用 SVG 撕边、纸纹、网点、胶带与手绘线构造质感；影片用到的真实图片单独准备并登记。",
+        "motion": "按帧切换纸片姿态形成停格触感，贴入时短促过冲，再以翻纸、画笔揭示或共享剪影衔接；动作与内容解释同步。",
+        "captions": "暖白字幕纸条或干净底部字幕承载旁白，砖红只强调关键短语，手写旁注就近指向画面对象。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/mixed-media-collage/description.md"
+    },
+    {
+      "id": "retro-digital",
+      "name": "复古数字桌面",
+      "version": "1.0.0",
+      "description": "浅灰早期桌面窗口配像素网格、等宽字与电蓝选中块，指针点击、窗口弹出和步进式切换组成低保真数字叙事。适合计算机发展、开发者工具、软件机制和怀旧内容。",
+      "palette": {
+        "ink": "#202127",
+        "muted": "#666a72",
+        "accent": "#123fee",
+        "panel": "#dedfe3",
+        "line": "#777a82"
+      },
+      "background": "linear-gradient(135deg,#acc2d2,#c1bdd7)",
+      "typography": {
+        "heading": "Consolas, Microsoft YaHei, monospace",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 0,
+        "borderWidth": 2,
+        "shadow": "6px 6px 0 #262733"
+      },
+      "layout": {
+        "composition": "overlapping desktop windows and aligned pixel grids",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "pixel grid and low-fi display",
+        "strokeWidth": 2,
+        "iconTreatment": "pixel-like SVG icons and sharp cursor shapes"
+      },
+      "motion": {
+        "cadence": "cursor-led clicks, stepped window changes and typewriter pauses",
+        "easing": "linear and stepped holds",
+        "spring": {
+          "damping": 25,
+          "stiffness": 220
+        },
+        "transitions": [
+          "match-cut",
+          "dip-to-color"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "dip-to-color"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#202127",
+        "background": "#dedfe3ed",
+        "radius": 0,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "蓝灰桌面上用浅灰窗口、深色等宽文字与电蓝选中块，状态条可用亮绿强调当前结果。",
+        "typography": "英文、数字用 Consolas，中文回退微软雅黑；短标题与紧凑字段呈现终端和早期窗口的排版感。",
+        "composition": "多个带标题栏的窗口错层叠放，菜单、结果与状态栏对齐到像素网格；指针动作组织视线顺序。",
+        "materials": "以 SVG 窗口、锐利边缘、像素图标和弱扫描线构造桌面质感，代码和数据作为可读内容进入界面。",
+        "motion": "指针点击后窗口或字段步进变化，输入逐字形成并在执行点暂停，再切到结果；窗口动作保持离散而清楚。",
+        "captions": "字幕置于稳定的浅灰或深色底条，颜色沿用选中状态；字幕字体清晰，不把整段旁白像素化。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/retro-digital/description.md"
+    },
+    {
+      "id": "calm-editorial",
+      "name": "留白杂志讲解",
+      "version": "1.0.0",
+      "description": "暖白与低饱和绿色、衬线标题和细分隔线组成安静杂志版面，以缓慢揭示、局部推近和长短有序的阅读停顿推进。适合深度知识、阅读写作、思考类内容和长信息解释。",
+      "palette": {
+        "ink": "#24312b",
+        "muted": "#647069",
+        "accent": "#386e57",
+        "panel": "#fffdf7",
+        "line": "#d9ddd3"
+      },
+      "background": "#f4f1e8",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 600
+      },
+      "geometry": {
+        "radius": 3,
+        "borderWidth": 1,
+        "shadow": "0 8px 24px #24312b0d"
+      },
+      "layout": {
+        "composition": "quiet column-based magazine with generous white space",
+        "contentMargin": 110,
+        "captionSafeBottom": 144,
+        "titleSize": 82
+      },
+      "illustration": {
+        "texture": "uncoated matte paper",
+        "strokeWidth": 2,
+        "iconTreatment": "fine-line diagrams and editorial markers"
+      },
+      "motion": {
+        "cadence": "readable reveals, restrained pushes and spacious pauses",
+        "easing": "gentle cubic in-out",
+        "spring": {
+          "damping": 28,
+          "stiffness": 105
+        },
+        "transitions": [
+          "defocus-reveal",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "defocus-reveal",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#24312b",
+        "background": "#fffdf7ed",
+        "radius": 3,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "暖白底、深灰绿正文与低饱和绿色标记，细分隔线和少量淡色信息面帮助组织内容。",
+        "typography": "宋体或 Georgia 衬线标题体现编辑质感，正文采用清楚的无衬线中文；段落行距舒展、标题层级明确。",
+        "composition": "使用有留白的杂志栏式布局，标题、主体图解、引文和旁注共享网格；焦点可从整页移到一处论点。",
+        "materials": "哑光纸面、细线图解、干净留白和低对比影子构成轻质感；内容关系通过对齐和线条呈现。",
+        "motion": "内容缓慢清晰显现、线条逐步建立，重点轻微推近；语义完成后给读图停顿，转场沿用对象或排版锚点。",
+        "captions": "底部字幕保持清楚且低干扰，关键词用绿色点明；字幕与引文分区，避免把两种阅读任务叠在一起。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/calm-editorial/description.md"
+    },
+    {
+      "id": "cinematic-documentary",
+      "name": "电影纪实叙事",
+      "version": "1.0.0",
+      "description": "深灰与暖白字幕、琥珀时间标记，以全景到特写、资料裁片和缓慢推拉组成有电影感的叙事，关键结论以干净硬切落定。适合人物故事、事件回顾、科技发展和案例讲解。",
+      "palette": {
+        "ink": "#f2eee5",
+        "muted": "#b4afa5",
+        "accent": "#ecba72",
+        "panel": "#181a1c",
+        "line": "#4b4d50"
+      },
+      "background": "linear-gradient(135deg,#161a1d,#292623)",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 700
+      },
+      "geometry": {
+        "radius": 2,
+        "borderWidth": 1,
+        "shadow": "0 18px 50px #0006"
+      },
+      "layout": {
+        "composition": "full-frame story images with evidence insets and temporal labels",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 86
+      },
+      "illustration": {
+        "texture": "subtle film grain and soft vignette",
+        "strokeWidth": 2,
+        "iconTreatment": "thin documentary callouts and timeline marks"
+      },
+      "motion": {
+        "cadence": "establishing views, purposeful closeups and resolved hard cuts",
+        "easing": "cinematic cubic in-out",
+        "spring": {
+          "damping": 26,
+          "stiffness": 110
+        },
+        "transitions": [
+          "match-cut",
+          "dip-to-color"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "dip-to-color"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f2eee5",
+        "background": "#181a1ced",
+        "radius": 2,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "炭灰暗部与暖白信息形成电影式对比，琥珀色用于时间、地点或当前证据；真实素材可沿用统一的冷暖关系。",
+        "typography": "标题使用清楚的衬线字体，说明、日期和数据用无衬线或等宽字；字卡像章节标题，字幕保持稳定。",
+        "composition": "用全景建立语境，再进入对象特写；资料裁片、时间轴和图表与当前叙事并置，旁注靠近被解释的对象。",
+        "materials": "轻颗粒、柔暗角和低调框线呈现纪实观感；素材由当前影片实际准备，图解保持与实拍相同的光色层级。",
+        "motion": "缓推、后拉和焦点切换提供观察感，结论以干净硬切落定；持续时间跟随旁白含义，证据出现后给可读停留。",
+        "captions": "暖白字幕配低透明度深色底条，时间地点信息与旁白字幕分开；强调色只用于当前关键事实。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/cinematic-documentary/description.md"
+    },
+    {
+      "id": "tactile-miniature",
+      "name": "触感三维小景",
+      "version": "1.0.0",
+      "description": "奶油色背景与陶土、薄荷色的小型圆润物件，软阴影和俯斜视角建立微缩空间，物件通过挤压回弹、拼装和小幅环绕讲清关系。适合机制科普、流程演示和亲近感产品介绍。",
+      "palette": {
+        "ink": "#352e28",
+        "muted": "#7c7165",
+        "accent": "#b95731",
+        "panel": "#fff5e5",
+        "line": "#d3bfaa"
+      },
+      "background": "radial-gradient(ellipse at 50% 30%,#fff7e9,#eadccb)",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 28,
+        "borderWidth": 0,
+        "shadow": "0 20px 40px #65472b33"
+      },
+      "layout": {
+        "composition": "isometric miniature stage with rounded dimensional objects",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 90
+      },
+      "illustration": {
+        "texture": "matte clay-like surfaces and contact shadows",
+        "strokeWidth": 2,
+        "iconTreatment": "rounded volumetric SVG or procedural 3D"
+      },
+      "motion": {
+        "cadence": "tactile assembly, squash settles and small orbital moves",
+        "easing": "soft spring",
+        "spring": {
+          "damping": 19,
+          "stiffness": 135
+        },
+        "transitions": [
+          "match-cut",
+          "card-flip"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "card-flip"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#352e28",
+        "background": "#fff5e5ed",
+        "radius": 14,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "奶油底、陶土强调与薄荷辅助色组成柔和小景，物件用相近明暗面形成体积，正文保持深棕色。",
+        "typography": "标题采用清楚圆润的无衬线中文，标签短而大；文字保持平面清晰，与立体物件形成稳定分工。",
+        "composition": "俯斜视角的小舞台上排列对象，接触点、遮挡和相对大小交代关系；一个机制用同一组对象持续演示。",
+        "materials": "用圆润几何、哑光泥塑感和接触阴影体现触感；可以 SVG/CSS 构造浅体积，需要真实相机时使用已安装的 Three.js 与 Remotion Three。",
+        "motion": "物件逐步拼装，落点挤压回弹，连接与结果在同一空间建立；相机小幅环绕后回到可读视角，运动与旁白推进同步。",
+        "captions": "深棕字幕落在稳定奶油色底条，陶土色强调动作或结果词；物件标签靠近对象，不随相机持续晃动。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/tactile-miniature/description.md"
+    },
+    {
+      "id": "dreamcore-surreal",
+      "name": "梦核超现实",
+      "version": "1.0.0",
+      "description": "雾蓝、淡紫与珍珠白的朦胧空间，熟悉物件以悬浮、尺度错位和光晕形成梦境感，镜头缓慢穿行并以形状连续变换。适合概念隐喻、未来想象、情绪叙事和创意开场。",
+      "palette": {
+        "ink": "#263447",
+        "muted": "#607289",
+        "accent": "#644bb1",
+        "panel": "#f0edf9",
+        "line": "#c6cde2"
+      },
+      "background": "radial-gradient(ellipse at 60% 20%,#f5e5f5,#c6ddeb 55%,#a8bfd3)",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 600
+      },
+      "geometry": {
+        "radius": 34,
+        "borderWidth": 0,
+        "shadow": "0 16px 60px #6b7bb033"
+      },
+      "layout": {
+        "composition": "liminal open space with floating familiar objects and scale shifts",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 94
+      },
+      "illustration": {
+        "texture": "haze, soft bloom and pastel depth",
+        "strokeWidth": 2,
+        "iconTreatment": "simple recognizable silhouettes with surreal scale"
+      },
+      "motion": {
+        "cadence": "slow drifts, perspective passages and continuous shape changes",
+        "easing": "slow cubic in-out",
+        "spring": {
+          "damping": 30,
+          "stiffness": 90
+        },
+        "transitions": [
+          "defocus-reveal",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "defocus-reveal",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#263447",
+        "background": "#f0edf9ed",
+        "radius": 14,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "雾蓝与淡紫渐变建立朦胧空间，珍珠白层面承载对象，紫色重点和深蓝文字保持阅读焦点。",
+        "typography": "标题以轻盈衬线字体配较松字距，正文保持清楚的无衬线；短句像空间中的注释，与主体保持明确层级。",
+        "composition": "熟悉物件悬浮在开放空间中，通过尺度差、门洞、远近层与柔雾建立梦境视角；主角持续可辨认。",
+        "materials": "柔光晕、半透明雾、轻颗粒与低饱和表面呈现梦感，物件轮廓简洁，形状和空间关系承担隐喻。",
+        "motion": "相机缓慢穿行，物件漂浮或连续变形，从一个熟悉形状接到另一个；关键概念显现后停留再进入下一层。",
+        "captions": "深蓝字幕置于稳定浅色底条，画面中的短概念注释与旁白字幕分区；字形保持清楚，不一起做模糊。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/dreamcore-surreal/description.md"
+    },
+    {
+      "id": "liquid-glass-product",
+      "name": "流光玻璃产品",
+      "version": "1.0.0",
+      "description": "柔和浅色光场上浮起半透明圆角层，边缘高光随运动流动，控件与内容连续变形并以轻缓推近聚焦。适合高质感软件展示、交互过程和产品发布。",
+      "palette": {
+        "ink": "#182d46",
+        "muted": "#56728e",
+        "accent": "#1762b5",
+        "panel": "#eef6ff",
+        "line": "#b4cce3"
+      },
+      "background": "radial-gradient(ellipse at 25% 25%,#e0f7fb,#e3e9fa 55%,#cbd7ef)",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 36,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #355b8b26"
+      },
+      "layout": {
+        "composition": "content-first stage with floating translucent controls and soft depth",
+        "contentMargin": 84,
+        "captionSafeBottom": 144,
+        "titleSize": 92
+      },
+      "illustration": {
+        "texture": "translucent glass, soft refraction cues and edge glints",
+        "strokeWidth": 2,
+        "iconTreatment": "precise rounded icons and soft optical layers"
+      },
+      "motion": {
+        "cadence": "continuous control morphs, floating settles and light-followed focus",
+        "easing": "fluid cubic in-out",
+        "spring": {
+          "damping": 24,
+          "stiffness": 120
+        },
+        "transitions": [
+          "match-cut",
+          "card-flip"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "card-flip"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#182d46",
+        "background": "#eef6ffed",
+        "radius": 14,
+        "shadow": "0 3px 12px #0003"
+      },
+      "visualDescription": {
+        "color": "浅青与淡蓝紫光场建立环境色，内容使用深蓝字与蓝色强调，玻璃层通过透明度、亮边和阴影区分前后。",
+        "typography": "采用清楚的系统无衬线中文，标题和数字有明确字号差，按钮与标签字距紧凑，文字保持实色以利阅读。",
+        "composition": "内容占据主舞台，圆角控件与玻璃面板浮在上层；对象之间通过间距、遮挡与层次形成连续操作路径。",
+        "materials": "用透明填充、渐变亮边、柔阴影与移动高光构造光学观感；界面内容本身清楚，光线响应对象的形变。",
+        "motion": "控件连续移动或变形，边缘高光同步跟随，面板浮入后轻缓落定；镜头推进把关注点从整体带到具体操作。",
+        "captions": "实色深蓝字幕放在稳定浅色底条，信息层与玻璃控件分开；强调词沿用蓝色，不把字幕做成透明字。",
+        "adaptation": "横屏按主次组织空间，竖屏将同一信息改为纵向堆叠，保持主角、阅读顺序与字幕安全区；标题按实际文字长度换行，尺寸随画幅调整。"
+      },
+      "descriptionFile": "assets/style-library/liquid-glass-product/description.md"
     }
   ]
 }

@@ -8,16 +8,20 @@ pnpm video:remotion:sync
 pnpm video:remotion:check
 ```
 
-sync 从 `$CODEX_HOME/plugins/cache/openai-curated-remote/remotion/<version>/skills` 发现最新安装版本，
+运行依赖、锁文件与受信参考统一锁定为 **4.0.530**，不保留旧版本运行分支。第三方原始来源档案保留来源摘要，不参与运行依赖解析。
+
+sync 从 `$CODEX_HOME/plugins/cache/openai-curated-remote/remotion/4.0.530/skills` 读取匹配安装版本，
 完整读取已选参考后保存到 `integrations/remotion/skills/`，并在 `manifest.json` 记录插件版本、技能版本和逐文件摘要。
 不同安装位置可设置 `REMOTION_SKILLS_ROOT` 指向插件的 skills 目录。项目不依赖某个用户的绝对安装路径。
-同步来源仅是本机已安装插件，不是目标仓库的规则文件。插件更新后需再次 sync；不会静默改动已锁定快照。
+同步来源仅是本机已安装插件，不是目标仓库的规则文件。同步和检查拒绝版本不匹配的参考，不会静默改动已锁定快照。将来升级须显式更新运行版本与参考版本。
+
+4.0.530 的 `embedding-videos.md` 原文把 `trimBefore`、`trimAfter` 写成秒，但示例乘以 fps，安装 API 也使用帧。同步时统一修正为帧，并在 manifest 保存原始 `sourceDigest`、修正说明及使用内容摘要；原插件文件不修改。核心 `OffthreadVideo` 同样使用帧数，可继续在本地 JSX 中用于静音演示片段；`@remotion/media` 示例的可选依赖须实际安装后才能使用。
 
 默认导演提示词只常驻总视频规范、选定风格、统一策划案及当前任务。`docs/production-reference-index.json` 指向插件快照；需要时间、序列、文字测量、图片裁切等知识时才读取相关文件，避免全量参考进入上下文。插件快照的完整性仍可通过 check 验证。镜头记录按需引用的索引位置，渲染代码以本项目实际版本执行。
 
 | 能力 | 项目中的使用方式 |
 | --- | --- |
-| 帧动画、插值和 spring | 按需读取参考，生成代码以 beat 相对帧确定状态 |
+| 帧动画、插值和 spring | 按需读取参考，生成代码以场景相对帧确定状态 |
 | Sequence 与多层时间安排 | 按需读取序列参考，支持专用 JSX 内的分层编排 |
 | 文字布局与安全区 | 提供测量参考，仍遵循现有字幕和画面安全区 |
 | 图片、视频与裁切 | 需要时读取对应参考，通过已暂存素材路径使用 |

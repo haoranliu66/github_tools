@@ -1,75 +1,43 @@
 ---
 name: audio-narration-preflight
-description: Mandatory project preflight for planning, synthesizing, checking, or regenerating zimeiti narration audio.
+description: 规划、合成、检查或重新生成 zimeiti 旁白音频。
 ---
 
-# Zimeiti narration preflight
+# Zimeiti 旁白
 
-Read this file completely before generating or regenerating narration audio. This rule does not remove any human gate:
-topic selection, factual review, run authorization, voice authorization, and final video approval remain manual.
+仅在旁白阶段使用本 Skill。主 Agent 将配音任务交给子代理；子代理读取总规范配音章节、本 Skill 以及本地 qwen-tts.md，执行已准备策划的合成、实测和字幕分配，返回文件路径及结果。主 Agent 检查结果后进入导演阶段。在生成或重新生成音频前阅读本文件所有内容统一按策划语义块生成旁白，保留实测音频和加权字幕时间分配。
 
-## Non-negotiable constraints
+## 不可协商的约束
 
-- Treat character counts as estimates. Never truncate unfinished meaning to satisfy a soft length target.
-- Preserve every claim and sentence. When a block is too long, split at the nearest complete sentence boundary and
-  synthesize both parts; never crop the WAV or discard text.
-- Use the measured WAV duration as the main limit. A final narration block must be no longer than the configured 64-second ceiling.
-- A Qwen request must contain at most 1,000 characters, including punctuation.
-- A concept-explainer narration block normally covers 2-3 semantic narration units (not final visual scenes) so approximate scene and subtitle timing stays
-  close to the spoken idea. Other profiles may cover up to their configured maximum. Technical duration or request-
-  limit splits may temporarily produce a one-scene block and must be recorded in timing metadata.
-- Keep explanations predominantly Chinese, but preserve proper product, company, model, and project names such as
-  Claude, OpenAI, GitHub, Codex, Qwen, and repository names in their English form. Translate or explain technical
-  jargon when an ordinary viewer would not understand it. Do not cluster many unrelated English terms in one request.
-- The 32-character value is a subtitle readability soft target, not a TTS request limit. A longer cue is acceptable
-  when no clean semantic boundary exists.
-- Never fall back silently to another voice or provider. Confirm the configured voice ID through authenticated
-  preflight without printing the API key.
-- Automated checks may mark narration ready for listening, but never accepted. A human must listen to the complete
-  narration in the final rendered MP4 at normal speed before final video approval.
-- Historical prepared scene timing may be up to the configured 32 seconds. Audio-first semantic containers do not freeze final shot boundaries. This is separate from the 64-second hard ceiling for
-  one synthesized narration block.
+- 将字符数视为估算值。绝不要为了满足软性长度目标而截断未完成的含义。
+- 保留每一个主张和句子。当某个块过长时，在最近的一个完整句子边界处拆分，并合成两个部分；绝不要裁剪 WAV 或丢弃文本。
+- 一次 Qwen 请求最多包含 1，000 个字符。
+- 策划案 content.units 的每个完整语义单元独立成为一个旁白块，通常对应 2-3 个视觉场景。
+- 解释内容以中文为主，但保留正确的产品、公司、模型和项目名称的英文形式，例如 Claude、OpenAI、GitHub、Codex、Qwen 以及仓库名称。当普通观众无法理解技术术语时，对其进行翻译或解释。不要在一次请求中聚集许多不相关的英文术语。
+- 32 字符值是字幕可读性的软性目标，不是 TTS 请求限制。当不存在干净的语义边界时，较长的提示是可以接受的。
+- 绝不要静默回退到另一个语音或提供商。通过已认证的预检验证配置的语音 ID，且不打印 API 密钥。
 
-## Choose cadence from the project
+## 统一语义分块
 
-- `concept-explainer`: prefer coherent blocks spanning 2-3 related scenes. Preserve the same voice and sampling
-  parameters across blocks instead of merging most of an episode into one request.
-- `code-analysis`: reserve this for a separately approved source-code deep dive outside the normal repository
-  research flow; cut when the explanation or flow changes.
-- `operation-demo`: cut by complete operation steps, not by character count.
-- `quick-news`: use short blocks and faster visual changes.
+按一个完整小主题或完整操作步骤确定语义块，不跨主题合并，也不按字符目标或音频秒数切分。语义块用于保持完整叙述，导演按表达需要安排画面变化，场景可以跨语义边界；所有块保持相同语音和采样参数。
+建议单个语义块最低不少于10字符，最长不超过64字符
 
-Use the profile inferred in the draft unless the content clearly requires a different configured profile. Record the
-selected profile in `timing.json`.
+## 必需的工作流程
 
-## Required workflow
+1. 检查计划中的 `audio/jobs.json`。在接受合成之前，确认语义完整性、中文优先措辞、请求长度、场景覆盖和主题分组。
+2. 运行已认证的 Qwen 预检，并验证注册的语音、模型、`max_new_tokens` 和 1，000 字符限制。
+3. 为每个旁白块合成一个连续的 WAV。测量返回的 PCM WAV；不要根据文本长度估算验收结果。
+4. 仅当请求超过字符服务上限或生成超时时，在完整句子处拆分并重试，保留同一语义块标识。不存在句子边界则交由编辑修正，不剪切内容。音频秒数不触发拆分。
+5. 不根据音频时长合并旁白块，也不把不同语义块合成一次请求。
+6. 根据测量到的时长构建近似字幕提示和语义音频单元边界。导演随后基于这个保留的时间线设计最终场景。视觉场景可以变化，而同一个 WAV 继续播放；不要仅仅因为画面变化就插入新的 TTS 请求。`measured-block-weighted-cues` 是一种近似语义分配。
+7. 验证 `timing.json`、`storyboard.json`、`subtitles.srt`、音画同步及语义文本的完整覆盖。标记技术请求拆分或高于软性目标的字幕提示以供审查。
+8. 在最终交付时，人工审核员必须以正常速度收听每一个旁白块。检查跨块边界的语音身份、名称和数字的发音、被截断的音素、重复词语、异常停顿、节奏跳变以及字幕一致性。记录人工全片收听结果；仅凭元数据无法通过此步骤。
 
-1. Inspect the planned `audio/jobs.json`. Confirm semantic completeness, Chinese-first wording, request length, scene
-   coverage, and topic grouping before accepting synthesis.
-2. Run the authenticated Qwen preflight and verify the registered voice, model, `max_new_tokens`, and 1,000-character.
-3. Synthesize one continuous WAV per narration block. Measure the returned PCM WAV; do not estimate acceptance from
-   text length.
-4. If generation times out or the WAV exceeds 64 seconds, split at the nearest complete sentence and retry the two
-   complete parts. If no sentence boundary exists, fail for editorial correction instead of cutting content.
-5. If adjacent blocks share a topic and either is shorter than the profile's short-block threshold, try one merged
-   synthesis. Keep the original valid blocks if the merged request fails or exceeds any hard limit.
-6. Build approximate subtitle cues and semantic audio-unit boundaries from the measured duration. The director then designs final scenes against this retained timeline. Visual scenes may
-   change while the same WAV continues; do not insert a new TTS request merely because the picture changes. The
-   current Qwen endpoint returns WAV without word timestamps, so `measured-block-weighted-cues` is an approximate
-   semantic allocation and must not be described as forced alignment.
-7. Verify `timing.json`, `storyboard.json`, `subtitles.srt`, the final narration duration, and all quality gates. Flag
-   any one-scene technical split or subtitle cue above the soft target for review.
-8. In the final rendered MP4, listen to every narration block at normal speed. Check voice identity across block
-   boundaries, pronunciation of names and numbers, clipped phonemes, duplicated words, abnormal pauses, cadence
-   jumps, and subtitle agreement. Record the human full-episode listening result; metadata alone cannot pass this
-   step.
-
-## Safe commands
+## 安全命令
 
 ```powershell
 pnpm video:voice:check
 pnpm video:prepare -- --selection apps/trend-scout/trend_reports/YYYY-Www/selection.json --repo owner/repository
 ```
 
-Use the approved selection mapping. Regeneration may overwrite that project's current narration and production
-resources; archive an earlier cut only when the user explicitly requests it.
+使用已批准的选片映射。重新生成可能会覆盖该项目当前的旁白和制作资源。

@@ -1,54 +1,9 @@
 {
   "schemaVersion": 1,
-  "durationSeconds": {
-    "min": 45,
-    "max": 120
-  },
   "narrationBlocks": {
-    "defaultProfile": "concept-explainer",
+    "segmentation": "semantic",
     "requiredMaxNewTokens": 1024,
     "maxRequestCharacters": 1000,
-    "maxAudioSeconds": 64,
-    "gapSeconds": 0.24,
-    "profiles": {
-      "concept-explainer": {
-        "minScenes": 2,
-        "targetScenes": 3,
-        "maxScenes": 3,
-        "shortBlockSeconds": 9,
-        "topicChange": "soft"
-      },
-      "code-analysis": {
-        "minScenes": 2,
-        "targetScenes": 3,
-        "maxScenes": 5,
-        "shortBlockSeconds": 10,
-        "topicChange": "hard"
-      },
-      "operation-demo": {
-        "minScenes": 2,
-        "targetScenes": 3,
-        "maxScenes": 4,
-        "shortBlockSeconds": 8,
-        "topicChange": "hard"
-      },
-      "quick-news": {
-        "minScenes": 2,
-        "targetScenes": 2,
-        "maxScenes": 3,
-        "shortBlockSeconds": 6,
-        "topicChange": "soft"
-      }
-    }
-  },
-  "qa": {
-    "sampleFrames": 8,
-    "visualPreflight": {
-      "required": true,
-      "evidenceFps": 3,
-      "framesPerPage": 8,
-      "pagesPerReview": 8,
-      "reviewConcurrency": 2
-    }
+    "gapSeconds": 0.24
   }
 }

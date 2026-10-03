@@ -77,6 +77,23 @@ test('compiled creative program detects edits to audio, timing, code and shot ma
   writeFileSync(join(resources,'production/timing.json'),'changed');assert.throws(()=>verifyCreativeProgram(built.storyboard,resources),/timing changed/);
 });
 
+test('identical recompilation keeps inspected program identity while source changes invalidate it',async t=>{
+  const resources=mkdtempSync(join(tmpdir(),'zimeiti-repeat-compile-'));t.after(()=>rmSync(resources,{recursive:true,force:true}));
+  mkdirSync(join(resources,'production'));writeFileSync(join(resources,'production/narration.wav'),'fixture-audio');
+  writeFileSync(join(resources,'production/timing.json'),JSON.stringify(timing));
+  const compiled=compile(visual),first=buildCreativeProgram(structuredClone(compiled),{resourcesDirectory:resources});
+  await new Promise(resolve=>setTimeout(resolve,10));
+  const second=buildCreativeProgram(structuredClone(compiled),{resourcesDirectory:resources});
+  assert.equal(first.storyboard.meta.visualProgram.digest,second.storyboard.meta.visualProgram.digest);
+  assert.equal(first.program.createdAt,second.program.createdAt);
+  assert.equal(verifyCreativeProgram(first.storyboard,resources).program.programDigest,second.program.programDigest);
+  assert.ok(second.program.runtimeSourceHashes['caption-display.mjs']);
+  const changed=structuredClone(compiled);changed.sources[Object.keys(changed.sources)[0]]+='\n// changed visual source\n';
+  const third=buildCreativeProgram(changed,{resourcesDirectory:resources});
+  assert.notEqual(third.storyboard.meta.visualProgram.digest,second.storyboard.meta.visualProgram.digest);
+  assert.notEqual(third.directory,second.directory);
+});
+
 test('Shotcraft retained source, adapters, licenses and playable demos agree with the admission archive',()=> {
   const base=join(root,'integrations/motion-sources/Vincentwei1021/video-shotcraft');
   const review=JSON.parse(readFileSync(join(base,'source-review.json'),'utf8'));

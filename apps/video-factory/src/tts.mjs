@@ -284,34 +284,15 @@ export async function preflightTts(config, {fetchImpl = fetch} = {}) {
 }
 
 export async function synthesizeNarrationJobs(jobs, config, {
-  fetchImpl = fetch, maxSeconds = null, maxAttempts = 1,
+  fetchImpl = fetch,
 } = {}) {
   if (config.provider !== 'qwen') throw new Error('Remote synthesis requires the qwen provider.');
   if (!Array.isArray(jobs) || jobs.length === 0) throw new Error('Narration jobs are required.');
-  if (maxSeconds !== null && (!Number.isFinite(maxSeconds) || maxSeconds <= 0)) {
-    throw new Error('maxSeconds must be a positive number.');
-  }
-  if (!Number.isInteger(maxAttempts) || maxAttempts < 1 || maxAttempts > 5) {
-    throw new Error('maxAttempts must be an integer from 1 to 5.');
-  }
   for (const [index, job] of jobs.entries()) {
     const text = required(job?.text, `jobs[${index}].text`);
     const path = required(job?.path, `jobs[${index}].path`);
     if (text.length > 1000) throw new Error(`jobs[${index}].text exceeds the service limit of 1000 characters.`);
-    let wave;
-    const rejectedDurations = [];
-    for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-      wave = await requestQwenWave(text, config, fetchImpl, `request ${index + 1}/${jobs.length}`);
-      if (maxSeconds === null) break;
-      const duration = wavDuration(wave);
-      if (duration <= maxSeconds) break;
-      rejectedDurations.push(Number(duration.toFixed(3)));
-      wave = null;
-    }
-    if (!wave) {
-      throw new Error(`Qwen TTS request ${index + 1}/${jobs.length} exceeded ${maxSeconds}s ` +
-        `after ${maxAttempts} attempts (${rejectedDurations.join(', ')}s).`);
-    }
+    const wave = await requestQwenWave(text, config, fetchImpl, `request ${index + 1}/${jobs.length}`);
     mkdirSync(dirname(path), {recursive: true});
     writeFileSync(path, wave);
   }
@@ -322,16 +303,13 @@ export async function synthesizeNarrationBlocks(blocks, config, {
   fetchImpl = fetch,
   outputDirectory,
   maxCharacters = 1000,
-  maxSeconds = 64,
-  maxScenes = 6,
-  shortBlockSeconds = 8,
 } = {}) {
   if (config.provider !== 'qwen') throw new Error('Adaptive narration blocks require the qwen provider.');
   const directory = required(outputDirectory, 'outputDirectory');
   const fitted = await fitNarrationBlocks(blocks, async (block) => {
     const wave = await requestQwenWave(block.text, config, fetchImpl, `block ${block.id ?? 'pending'}`);
     return {wave, duration: wavDuration(wave)};
-  }, {maxCharacters, maxSeconds, maxScenes, shortBlockSeconds});
+  }, {maxCharacters});
 
   mkdirSync(directory, {recursive: true});
   const written = fitted.blocks.map((block, index) => {

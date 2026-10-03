@@ -85,7 +85,7 @@ audio 返回文件名、共享本地路径、摘要和 config.SFX。将选用音
 
 动效清单以 search 为生产检索入口；维护时用 list --offset N --limit N 分页查看。人可通过 [Shotcraft 画廊](../assets/motion-library/shotcraft-gallery.html) 查看完整模板与原音效演示。
 
-选定风格来自 config/style-library.json。专项 Remotion 参考通过 references --query 查询，只有命中当前问题的文件才读取。[生产参考索引](production-reference-index.json)保存路径元信息供工具维护，不作为 Agent 的全量上下文输入。
+人工可先用 search --type style 检索描述，再用 style --id 查看单项并通过 --style 指定；研究只使用人工确认的选择；统一规则见 [风格库规范](style-library.md)。专项 Remotion 参考通过 references --query 查询，只有命中当前问题的文件才读取。[生产参考索引](production-reference-index.json)保存路径元信息供工具维护，不作为 Agent 的全量上下文输入。
 
 <a id="maintenance"></a>
 

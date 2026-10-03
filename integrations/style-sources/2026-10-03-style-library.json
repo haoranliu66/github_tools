@@ -1,0 +1,985 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-03",
+  "change": "Text-only style cards and eight market-inspired video style presets",
+  "beforeLibraryDigest": "8c90b7f0d874a854ec35977aaffe83498e931a6426ef2251d2af49d6b613ae04",
+  "beforeStyleCatalogSha256": "b46239f54d4cb679c83329c834be916329fb1d86fe6dca154c4343d3ee22f2aa",
+  "beforeProductionContractFileDigest": "c3a4c805967c29c3d31a3f6bde1f1a95d9dad1d5bb893547c819c06cc2a4952e",
+  "oldStyleIds": [
+    "editorial-paper",
+    "dark-cinematic",
+    "ink-notebook",
+    "bold-geometric",
+    "shotcraft-vintage-kraft",
+    "shotcraft-deep-ocean",
+    "shotcraft-obsidian-violet",
+    "shotcraft-modern-light",
+    "shotcraft-midnight",
+    "shotcraft-solar-pop",
+    "shotcraft-coral-burst",
+    "shotcraft-color-play",
+    "shotcraft-ink-press"
+  ],
+  "newStyleIds": [
+    "kinetic-type-pop",
+    "mixed-media-collage",
+    "retro-digital",
+    "calm-editorial",
+    "cinematic-documentary",
+    "tactile-miniature",
+    "dreamcore-surreal",
+    "liquid-glass-product"
+  ],
+  "originalStyles": [
+    {
+      "id": "editorial-paper",
+      "name": "纸面编辑风",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#23252b",
+        "muted": "#72747c",
+        "accent": "#6557e8",
+        "panel": "#ffffff",
+        "line": "#d9d6cf"
+      },
+      "background": "radial-gradient(circle at 15% 20%,#f3edff,#f5f2eb 55%)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 22,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "asymmetric editorial hierarchy",
+        "contentMargin": 90,
+        "captionSafeBottom": 128,
+        "titleSize": 82
+      },
+      "illustration": {
+        "texture": "paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "measured with crisp semantic changes",
+        "easing": "cubic out",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "dip-to-color",
+          "defocus"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "dip-to-color",
+        "defocus"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#23252b",
+        "background": "#ffffffed",
+        "radius": 14,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "dark-cinematic",
+      "name": "深色产品演示",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f2f4ff",
+        "muted": "#929ab4",
+        "accent": "#65dcfb",
+        "panel": "#171e32",
+        "line": "#344567"
+      },
+      "background": "radial-gradient(ellipse at 70% 15%,#16344e,#0b1020 65%)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 24,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "wide focal stage and layered depth",
+        "contentMargin": 70,
+        "captionSafeBottom": 132,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "camera continuity and deliberate payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 20,
+          "stiffness": 110
+        },
+        "transitions": [
+          "camera-match",
+          "defocus",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "camera-match",
+        "defocus",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#fff",
+        "background": "#10131fe6",
+        "radius": 14,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "ink-notebook",
+      "name": "手绘讲解",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#242329",
+        "muted": "#77716a",
+        "accent": "#f08143",
+        "panel": "#fffdf8",
+        "line": "#242329"
+      },
+      "background": "repeating-linear-gradient(0deg,#fffaf0,#fffaf0 39px,#e6e0d4 40px)",
+      "typography": {
+        "heading": "KaiTi, Microsoft YaHei, sans-serif",
+        "body": "KaiTi, Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 6,
+        "borderWidth": 3,
+        "shadow": "6px 6px 0 #222"
+      },
+      "layout": {
+        "composition": "spatial diagrams and hand annotations",
+        "contentMargin": 82,
+        "captionSafeBottom": 140,
+        "titleSize": 80
+      },
+      "illustration": {
+        "texture": "ruled-paper",
+        "strokeWidth": 3,
+        "iconTreatment": "hand drawn SVG"
+      },
+      "motion": {
+        "cadence": "draw paths, move examples, resolve highlights",
+        "easing": "quad out",
+        "spring": {
+          "damping": 24,
+          "stiffness": 170
+        },
+        "transitions": [
+          "draw-wipe",
+          "match-cut",
+          "dip-to-color"
+        ]
+      },
+      "transitions": [
+        "draw-wipe",
+        "match-cut",
+        "dip-to-color"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#242329",
+        "background": "#fffdf0",
+        "radius": 4,
+        "shadow": "4px 4px 0 #222"
+      }
+    },
+    {
+      "id": "bold-geometric",
+      "name": "明亮几何风",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#172725",
+        "muted": "#52736a",
+        "accent": "#ff6c42",
+        "panel": "#ffffff",
+        "line": "#abd4c8"
+      },
+      "background": "linear-gradient(125deg,#d7f8e7,#c9eff5)",
+      "typography": {
+        "heading": "Microsoft YaHei, sans-serif",
+        "body": "Microsoft YaHei, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 32,
+        "borderWidth": 1,
+        "shadow": "0 22px 70px #0002"
+      },
+      "layout": {
+        "composition": "large graphic objects and playful dimensional hierarchy",
+        "contentMargin": 76,
+        "captionSafeBottom": 130,
+        "titleSize": 96
+      },
+      "illustration": {
+        "texture": "flat-geometric",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "elastic builds and shape continuity",
+        "easing": "spring",
+        "spring": {
+          "damping": 15,
+          "stiffness": 150
+        },
+        "transitions": [
+          "shape-match",
+          "directional-wipe",
+          "match-cut"
+        ]
+      },
+      "transitions": [
+        "shape-match",
+        "directional-wipe",
+        "match-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#172725",
+        "background": "#ffffffed",
+        "radius": 32,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-vintage-kraft",
+      "name": "复古牛皮纸",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#382a20",
+        "muted": "#6b513b",
+        "accent": "#8b4937",
+        "panel": "#dfc69e",
+        "line": "#ac895e"
+      },
+      "background": "radial-gradient(ellipse at 50% 40%,#dfc69e,#c8aa7d 75%)",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 8,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #382a2026"
+      },
+      "layout": {
+        "composition": "editorial hierarchy with warm paper, ink and accent",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "kraft-paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#382a20",
+        "background": "#dfc69eed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-deep-ocean",
+      "name": "深海",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#e8f1f5",
+        "muted": "#9fb6c3",
+        "accent": "#7cc8b4",
+        "panel": "#142735",
+        "line": "#304957"
+      },
+      "background": "#0b1620",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #e8f1f526"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#e8f1f5",
+        "background": "#142735ed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-obsidian-violet",
+      "name": "黑曜紫",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f0edf7",
+        "muted": "#b3a9c5",
+        "accent": "#bca0e8",
+        "panel": "#211d2c",
+        "line": "#41364f"
+      },
+      "background": "#14121b",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #f0edf726"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f0edf7",
+        "background": "#211d2ced",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-modern-light",
+      "name": "现代浅色",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#142238",
+        "muted": "#5c6b82",
+        "accent": "#2563eb",
+        "panel": "#ffffff",
+        "line": "#d8e2ef"
+      },
+      "background": "#f4f7fb",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #14223826"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#142238",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-midnight",
+      "name": "午夜深色",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#f0f5ff",
+        "muted": "#9babbe",
+        "accent": "#61d9ef",
+        "panel": "#111c2c",
+        "line": "#293b52"
+      },
+      "background": "#090f1a",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #f0f5ff26"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#f0f5ff",
+        "background": "#111c2ced",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-solar-pop",
+      "name": "鼠尾草",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#26342b",
+        "muted": "#637067",
+        "accent": "#527434",
+        "panel": "#ffffff",
+        "line": "#dde4d5"
+      },
+      "background": "#f9faf6",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #26342b26"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#26342b",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-coral-burst",
+      "name": "珊瑚",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#1f1235",
+        "muted": "#716579",
+        "accent": "#d94e59",
+        "panel": "#ffffff",
+        "line": "#e9dfe6"
+      },
+      "background": "#fffffe",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #1f123526"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#1f1235",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-color-play",
+      "name": "鸢尾",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#282039",
+        "muted": "#726781",
+        "accent": "#7354b5",
+        "panel": "#ffffff",
+        "line": "#e2dbea"
+      },
+      "background": "#f7f5fb",
+      "typography": {
+        "heading": "Microsoft YaHei, Segoe UI, sans-serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 800
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #28203926"
+      },
+      "layout": {
+        "composition": "focal product stage with layered semantic surfaces",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "soft-light",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#282039",
+        "background": "#ffffffed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    },
+    {
+      "id": "shotcraft-ink-press",
+      "name": "纸墨印刷",
+      "version": "1.0.0",
+      "palette": {
+        "ink": "#13110f",
+        "muted": "#65635f",
+        "accent": "#955905",
+        "panel": "#fdfcfa",
+        "line": "#d9cbb4"
+      },
+      "background": "radial-gradient(ellipse at 50% 40%,#fdfcfa,#f9f6f1 75%)",
+      "typography": {
+        "heading": "SimSun, Georgia, Microsoft YaHei, serif",
+        "body": "Microsoft YaHei, Segoe UI, sans-serif",
+        "code": "Consolas, monospace",
+        "titleWeight": 600
+      },
+      "geometry": {
+        "radius": 20,
+        "borderWidth": 1,
+        "shadow": "0 20px 60px #13110f26"
+      },
+      "layout": {
+        "composition": "editorial hierarchy with warm paper, ink and accent",
+        "contentMargin": 90,
+        "captionSafeBottom": 140,
+        "titleSize": 88
+      },
+      "illustration": {
+        "texture": "paper",
+        "strokeWidth": 2,
+        "iconTreatment": "geometric SVG"
+      },
+      "motion": {
+        "cadence": "deliberate focus, layered entrances and readable payoff",
+        "easing": "cinematic bezier",
+        "spring": {
+          "damping": 22,
+          "stiffness": 140
+        },
+        "transitions": [
+          "match-cut",
+          "shotcraft-clock-wipe",
+          "shotcraft-flash-cut"
+        ]
+      },
+      "transitions": [
+        "match-cut",
+        "shotcraft-clock-wipe",
+        "shotcraft-flash-cut"
+      ],
+      "captions": {
+        "bottom": 42,
+        "marginPercent": 7,
+        "fontSize": 36,
+        "align": "center",
+        "color": "#13110f",
+        "background": "#fdfcfaed",
+        "radius": 12,
+        "shadow": "0 3px 12px #0004"
+      }
+    }
+  ],
+  "motionCatalogSha256": "8563636f1cb87b6641975b0989a9123ea84246d3bc61b5d9e59184f627aef3e7",
+  "sources": [
+    {
+      "id": "canva-2026",
+      "title": "Canva 2026 Design Trends",
+      "url": "https://www.canva.com/newsroom/news/design-trends-2026/",
+      "observations": "趋势报告涵盖复古科技界面、留白编辑排版、触感表面、电影叙事、手工拼贴及梦境超现实。",
+      "styleIds": [
+        "retro-digital",
+        "calm-editorial",
+        "cinematic-documentary",
+        "dreamcore-surreal"
+      ]
+    },
+    {
+      "id": "storyblocks-2026",
+      "title": "Storyblocks 2026 Video Trends Guide",
+      "url": "https://www.storyblocks.com/guides/video-trends",
+      "observations": "视频趋势指南将手工拼贴与梦核列为视觉方向，关联手作、混合媒介与梦境逃逸。",
+      "styleIds": [
+        "mixed-media-collage",
+        "dreamcore-surreal"
+      ]
+    },
+    {
+      "id": "senate-2026",
+      "title": "Senate Media animation trends 2026",
+      "url": "https://www.senatemedia.co.uk/2026/02/from-vivid-gradients-to-liquid-glass-key-animation-trends-for-2026/",
+      "observations": "动画工作室讨论动态图文、三维图形、复古质感与流动玻璃等方向。",
+      "styleIds": [
+        "kinetic-type-pop",
+        "retro-digital",
+        "tactile-miniature",
+        "liquid-glass-product"
+      ]
+    },
+    {
+      "id": "spotify-wrapped-2025",
+      "title": "Spotify 2025 Wrapped campaign design",
+      "url": "https://newsroom.spotify.com/2025-12-03/wrapped-marketing-campaign/",
+      "observations": "品牌案例用混合带式视觉、纹理、渐变和模拟/数字混合组织大胆而清楚的回顾体验。",
+      "styleIds": [
+        "kinetic-type-pop",
+        "mixed-media-collage"
+      ]
+    },
+    {
+      "id": "adobe-2026",
+      "title": "Adobe 2026 Creative Trends",
+      "url": "https://blog.adobe.com/en/publish/2025/12/09/four-creative-trends-define-marketing-2026",
+      "observations": "官方报告强调触感、深度细节与超现实趣味，本项目据此设计微缩物件和概念空间。",
+      "styleIds": [
+        "tactile-miniature",
+        "dreamcore-surreal"
+      ]
+    },
+    {
+      "id": "apple-liquid-glass",
+      "title": "Apple Liquid Glass design introduction",
+      "url": "https://www.apple.com.cn/newsroom/2025/06/apple-introduces-a-delightful-and-elegant-new-software-design/",
+      "video": "https://www.youtube.com/watch?v=jGztGfRujSE",
+      "observations": "官方案例描述半透明、反射折射、动态高光及连续变形，并强调内容与上层控件的空间关系。",
+      "styleIds": [
+        "liquid-glass-product"
+      ]
+    }
+  ],
+  "method": "Consulted public trend reports and official brand descriptions; new palette, font fallbacks, layout tokens and production recipes are authored for this project. No claim of video frame review or popularity ranking.",
+  "removedImages": [
+    {
+      "path": "assets/style-library/shotcraft-vintage-kraft/preview.png",
+      "sha256": "a3c77c1b59d44956542562e6a335515666157c026e005b57631fcb8d1569dfc4"
+    },
+    {
+      "path": "assets/style-library/shotcraft-deep-ocean/preview.png",
+      "sha256": "035b7ed293e12d4fd60d35950824b115a3e3cc53ac09cd5a307b1b17ea0f91d9"
+    },
+    {
+      "path": "assets/style-library/shotcraft-obsidian-violet/preview.png",
+      "sha256": "b112336a3356710b37628e1f10719522661a3dc8663ce826494a21967e9e7b0f"
+    },
+    {
+      "path": "assets/style-library/shotcraft-modern-light/preview.png",
+      "sha256": "154da8e3bc209289347295c32858fd1c645a0f071103283151b8bbb7b863111e"
+    },
+    {
+      "path": "assets/style-library/shotcraft-midnight/preview.png",
+      "sha256": "7931e45e82ed99c0e09cac251753ab8ead5750075423c532f2d71b682ad70279"
+    },
+    {
+      "path": "assets/style-library/shotcraft-solar-pop/preview.png",
+      "sha256": "b826b7ea57d023b7d37d1ecc01501798b86a50646b07a659bb125856aa35172a"
+    },
+    {
+      "path": "assets/style-library/shotcraft-coral-burst/preview.png",
+      "sha256": "28b8bc22d621d23b7deabbb77448ac2e50c4bdf9c6e0c947a7244b5e3859fe2c"
+    },
+    {
+      "path": "assets/style-library/shotcraft-color-play/preview.png",
+      "sha256": "780b5288669010ba2fe543efdbd6fc9783bf4a77172e9677695dceea58b2ac86"
+    },
+    {
+      "path": "assets/style-library/shotcraft-ink-press/preview.png",
+      "sha256": "e48bb3a25109dc3f9fb5e62485c442ef4cc06c9cfa5281dd301fbc26e1c1599a"
+    }
+  ],
+  "afterLibraryDigest": "67deb54c0b54c5ab0db70c8f66ddbe1fec50a799191b130678fe98b992607a1d",
+  "afterStyleCatalogSha256": "673d9c022ab04001b5e2415de47092496751d801d82f2d6d16bd3f9ca187bc0a",
+  "afterProductionContractFileDigest": "37cb842b1f952c9b93bde98df0fd59f145a74df8c6fdcf1f96bfb3ea0027b60e",
+  "validation": {
+    "projectTests": {
+      "total": 162,
+      "passed": 162,
+      "failed": 0
+    },
+    "targetedStyleAndMotionTests": {
+      "total": 21,
+      "passed": 21,
+      "failed": 0
+    },
+    "textStyles": 21,
+    "removedPreviewImages": 9,
+    "originalStyleRenderingTokens": "all 13 preserved",
+    "motionCatalog": "byte-identical",
+    "documentLinks": {
+      "documents": 25,
+      "links": 35,
+      "broken": 0
+    },
+    "visualClaims": "Textual style definitions and rendering presets; no claim of rendered video visual approval."
+  }
+}

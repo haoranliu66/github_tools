@@ -39,24 +39,6 @@ function blockFromSegments(segments, details = {}) {
   };
 }
 
-function profileFor(draft, config) {
-  const settings = config?.narrationBlocks;
-  if (!settings || typeof settings !== 'object') throw new Error('narrationBlocks configuration is required.');
-  const name = draft?.meta?.narrationProfile ?? settings.defaultProfile;
-  const profile = settings.profiles?.[name];
-  if (!profile) throw new Error(`Unknown narration profile: ${name}`);
-  for (const key of ['minScenes', 'targetScenes', 'maxScenes']) {
-    if (!Number.isInteger(profile[key]) || profile[key] < 1) {
-      throw new Error(`Narration profile ${name}.${key} must be a positive integer.`);
-    }
-  }
-  if (profile.minScenes > profile.targetScenes || profile.targetScenes > profile.maxScenes ||
-      profile.maxScenes > 6) {
-    throw new Error(`Narration profile ${name} must satisfy minScenes <= targetScenes <= maxScenes <= 6.`);
-  }
-  return {name, profile, settings};
-}
-
 function sceneSegments(scene, sceneIndex) {
   if (!Array.isArray(scene?.sentences) || scene.sentences.length === 0) {
     throw new Error(`Scene ${sceneIndex} needs narration before block planning.`);
@@ -76,93 +58,28 @@ function sceneSegments(scene, sceneIndex) {
   });
 }
 
-function canCombine(left, right, profile, characterLimit) {
-  const merged = blockFromSegments([...left.segments, ...right.segments]);
-  return merged.sceneCount <= profile.maxScenes && merged.text.length <= characterLimit;
-}
-
-function mergeSparseBlocks(blocks, profile, characterLimit) {
-  const result = [...blocks];
-  for (let index = result.length - 1; index >= 0; index -= 1) {
-    if (result[index].sceneCount >= profile.minScenes || result.length === 1) continue;
-    const previous = result[index - 1];
-    const next = result[index + 1];
-    if (previous && canCombine(previous, result[index], profile, characterLimit)) {
-      result.splice(index - 1, 2, blockFromSegments([...previous.segments, ...result[index].segments]));
-      index -= 1;
-    } else if (next && canCombine(result[index], next, profile, characterLimit)) {
-      result.splice(index, 2, blockFromSegments([...result[index].segments, ...next.segments]));
-    }
-  }
-  return result;
-}
-
-function rebalanceSparseBlocks(blocks, profile, characterLimit) {
-  const result = [...blocks];
-  for (let index = result.length - 1; index > 0; index -= 1) {
-    let current = result[index];
-    let previous = result[index - 1];
-    while (current.sceneCount < profile.minScenes && previous.sceneCount > profile.minScenes) {
-      const movedSceneIndex = previous.sceneIndexes.at(-1);
-      const splitAt = previous.segments.findIndex((segment) => segment.sceneIndex === movedSceneIndex);
-      if (splitAt <= 0) break;
-      const left = blockFromSegments(previous.segments.slice(0, splitAt));
-      const right = blockFromSegments([...previous.segments.slice(splitAt), ...current.segments]);
-      if (left.sceneCount < profile.minScenes || right.sceneCount > profile.maxScenes ||
-          left.text.length > characterLimit || right.text.length > characterLimit) break;
-      result.splice(index - 1, 2, left, right);
-      previous = left;
-      current = right;
-    }
-  }
-  return result;
-}
-
+// Audio drafts contain semantic units, not final visual scenes.
+// Preserve narration boundaries; visual cuts remain independent.
 export function buildNarrationBlocks(draft, config) {
   if (!Array.isArray(draft?.scenes) || draft.scenes.length === 0) {
-    throw new Error('Narration block planning requires at least one scene.');
+    throw new Error('Narration block planning requires semantic units.');
   }
-  const {name, profile, settings} = profileFor(draft, config);
-  const characterLimit = settings.maxRequestCharacters;
-  if (!Number.isInteger(characterLimit) || characterLimit < 1 || characterLimit > 1000) {
+  const settings = config?.narrationBlocks;
+  if (settings?.segmentation !== 'semantic') {
+    throw new Error('Narration requires semantic segmentation.');
+  }
+  if (!Number.isInteger(settings.maxRequestCharacters) || settings.maxRequestCharacters < 1 || settings.maxRequestCharacters > 1000) {
     throw new Error('narrationBlocks.maxRequestCharacters must be an integer from 1 to 1000.');
   }
-
-  const scenes = draft.scenes.map((scene, sceneIndex) => ({
-    sceneIndex,
-    topic: clean(scene.narrationTopic || `scene-${sceneIndex}`),
-    segments: sceneSegments(scene, sceneIndex),
-  }));
-  const blocks = [];
-  let current = null;
-  for (const scene of scenes) {
-    const candidate = current
-      ? blockFromSegments([...current.segments, ...scene.segments])
-      : blockFromSegments(scene.segments);
-    const topicChanged = current && current.segments.at(-1)?.topic !== scene.topic;
-    const reachedTarget = topicChanged && current && current.sceneCount >= profile.targetScenes;
-    const hardTopicBreak = topicChanged && profile.topicChange === 'hard' &&
-      current.sceneCount >= profile.minScenes;
-    const exceedsHardLimit = candidate.sceneCount > profile.maxScenes || candidate.text.length > characterLimit;
-    if (current && (reachedTarget || hardTopicBreak || exceedsHardLimit)) {
-      blocks.push(current);
-      current = blockFromSegments(scene.segments);
-    } else {
-      current = candidate;
-    }
-  }
-  if (current) blocks.push(current);
-
-  const balanced = mergeSparseBlocks(
-    rebalanceSparseBlocks(blocks, profile, characterLimit),
-    profile,
-    characterLimit,
-  );
-  return balanced.map((block, index) => ({
-    ...block,
-    id: `block-${String(index).padStart(3, '0')}`,
-    profile: name,
-  }));
+  const ids = new Set();
+  return draft.scenes.map((scene, sceneIndex) => {
+    const semanticBlockId = clean(scene.semanticBlockId || scene.id || scene.narrationTopic || 'unit-' + sceneIndex);
+    if (ids.has(semanticBlockId)) throw new Error('Semantic unit IDs must be unique: ' + semanticBlockId);
+    ids.add(semanticBlockId);
+    return blockFromSegments(sceneSegments(scene, sceneIndex), {
+      id: 'block-' + String(sceneIndex).padStart(3, '0'), semanticBlockId,
+    });
+  });
 }
 
 function splitCandidates(block) {
@@ -187,18 +104,11 @@ function splitCandidates(block) {
 export function splitNarrationBlock(block, reason = 'limit') {
   const selected = splitCandidates(block)[0];
   if (!selected) return null;
-  const inherited = {profile: block.profile, splitReason: reason};
+  const inherited = {semanticBlockId: block.semanticBlockId ?? block.id, splitReason: reason};
   return [
     blockFromSegments(block.segments.slice(0, selected.index), inherited),
     blockFromSegments(block.segments.slice(selected.index), inherited),
   ];
-}
-
-export function mergeNarrationBlocks(left, right) {
-  return blockFromSegments([...left.segments, ...right.segments], {
-    profile: left.profile ?? right.profile,
-    mergeReason: 'short-same-topic',
-  });
 }
 
 function isTimeout(error) {
@@ -212,9 +122,6 @@ function validSynthesis(result) {
 
 export async function fitNarrationBlocks(blocks, synthesize, {
   maxCharacters = 1000,
-  maxSeconds = 64,
-  maxScenes = 6,
-  shortBlockSeconds = 8,
 } = {}) {
   if (!Array.isArray(blocks) || blocks.length === 0) throw new Error('Narration blocks are required.');
   if (typeof synthesize !== 'function') throw new Error('A narration synthesizer is required.');
@@ -248,49 +155,11 @@ export async function fitNarrationBlocks(blocks, synthesize, {
       continue;
     }
     if (!validSynthesis(generated)) throw new Error('Narration synthesizer returned invalid audio metadata.');
-    if (generated.duration > maxSeconds) {
-      const parts = splitNarrationBlock(block, 'audio-duration-limit');
-      if (!parts) {
-        throw new Error(`Narration block is ${generated.duration.toFixed(3)}s and exceeds ${maxSeconds}s ` +
-          'without a complete-sentence split point.');
-      }
-      pending.unshift(...parts);
-      splitCount += 1;
-      continue;
-    }
     accepted.push({...block, ...generated});
-  }
-
-  let mergeCount = 0;
-  for (let index = 0; index < accepted.length - 1;) {
-    const left = accepted[index];
-    const right = accepted[index + 1];
-    const sameTopic = left.primaryTopic && left.primaryTopic === right.primaryTopic;
-    const hasShortNeighbor = left.duration < shortBlockSeconds || right.duration < shortBlockSeconds;
-    const candidate = mergeNarrationBlocks(left, right);
-    const eligible = sameTopic && hasShortNeighbor && candidate.sceneCount <= maxScenes &&
-      candidate.text.length <= maxCharacters;
-    if (!eligible) {
-      index += 1;
-      continue;
-    }
-    try {
-      requests += 1;
-      const generated = await synthesize(candidate);
-      if (validSynthesis(generated) && generated.duration <= maxSeconds) {
-        accepted.splice(index, 2, {...candidate, ...generated});
-        mergeCount += 1;
-        if (index > 0) index -= 1;
-        continue;
-      }
-    } catch {
-      // Merging is an optimization. Keep both already valid blocks if it fails.
-    }
-    index += 1;
   }
 
   return {
     blocks: accepted.map((block, index) => ({...block, id: `block-${String(index).padStart(3, '0')}`})),
-    stats: {requests, splitCount, timeoutSplitCount, mergeCount},
+    stats: {requests, splitCount, timeoutSplitCount},
   };
 }

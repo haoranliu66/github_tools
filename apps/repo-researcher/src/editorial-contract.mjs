@@ -5,7 +5,6 @@ import {join} from 'node:path';
 export const EDITORIAL_CONTRACT_FILES = ['.agents/skills/video-production-quality/SKILL.md'];
 export const EDITORIAL_REFERENCE_FILES = [
   '.agents/skills/video-production-quality/references/market-patterns.md',
-  '.agents/skills/video-production-quality/references/acceptance-checklist.md',
   '.agents/skills/video-editorial-agent/SKILL.md',
   '.agents/skills/audio-narration-preflight/SKILL.md',
 ];
@@ -44,6 +43,7 @@ export function assertEditorialContractMetadata(actual, expectedContract = null)
 const STAGE_SECTIONS = {
   research:['共通原则','研究与策划交付'],
   director:['共通原则','导演实现画面'],
+  shot:['共通原则'],
   audio:['共通原则','配音后落实时间'],
   review:['共通原则','视觉预检与修复'],
   render:['共通原则','最终交付'],

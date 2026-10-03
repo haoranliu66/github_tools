@@ -147,7 +147,7 @@ test('fixed episode sampling is sent unchanged with every narration request', as
   }
 });
 
-test('Qwen synthesis retries overlong clips before writing narration', async () => {
+test('Qwen synthesis accepts long audio without duration-based retries', async () => {
   const directory = mkdtempSync(join(tmpdir(), 'zimeiti-tts-retry-'));
   try {
     const config = resolveTtsConfig({
@@ -157,21 +157,21 @@ test('Qwen synthesis retries overlong clips before writing narration', async () 
     let requests = 0;
     const fetchImpl = async () => {
       requests += 1;
-      return new Response(wave(requests === 1 ? 9 : 3), {status: 200});
+      return new Response(wave(130), {status: 200});
     };
     const path = join(directory, 'retry.wav');
     const result = await synthesizeNarrationJobs([{text: '精简口播', path}], config, {
-      fetchImpl, maxSeconds: 8.26, maxAttempts: 3,
+      fetchImpl,
     });
     assert.equal(result.count, 1);
-    assert.equal(requests, 2);
-    assert.equal(readFileSync(path).length, wave(3).length);
+    assert.equal(requests, 1);
+    assert.equal(readFileSync(path).length, wave(130).length);
   } finally {
     rmSync(directory, {recursive: true, force: true});
   }
 });
 
-test('adaptive Qwen blocks split measured overlong audio and write only final blocks', async () => {
+test('semantic Qwen blocks preserve long audio without duration splits', async () => {
   const directory = mkdtempSync(join(tmpdir(), 'zimeiti-tts-blocks-'));
   try {
     const config = resolveTtsConfig({
@@ -182,7 +182,7 @@ test('adaptive Qwen blocks split measured overlong audio and write only final bl
       sceneIndex, sentenceIndex: 0, text: `第${sceneIndex + 1}句。`, sentenceEnd: true, topic: 'mechanism',
     }));
     const blocks = [{
-      id: 'block-000', profile: 'code-analysis', segments,
+      id: 'block-000', semanticBlockId: 'mechanism', segments,
       text: segments.map((item) => item.text).join(''), sceneIndexes: [0, 1, 2, 3],
       sceneCount: 4, topics: ['mechanism'], primaryTopic: 'mechanism',
     }];
@@ -191,10 +191,11 @@ test('adaptive Qwen blocks split measured overlong audio and write only final bl
       return new Response(wave(text.includes('第1句') && text.includes('第3句') ? 70 : 20), {status: 200});
     };
     const result = await synthesizeNarrationBlocks(blocks, config, {
-      fetchImpl, outputDirectory: directory, maxSeconds: 64, shortBlockSeconds: 0,
+      fetchImpl, outputDirectory: directory,
     });
-    assert.equal(result.blocks.length, 2);
-    assert.equal(result.stats.splitCount, 1);
+    assert.equal(result.blocks.length, 1);
+    assert.equal(result.stats.splitCount, 0);
+    assert.equal(result.blocks[0].duration, 70);
     assert.ok(result.blocks.every((block) => readFileSync(block.path).toString('ascii', 0, 4) === 'RIFF'));
     assert.equal(result.blocks.map((block) => block.text).join(''), blocks[0].text);
   } finally {

@@ -8,6 +8,7 @@ import {latestResearch} from '../../trend-scout/src/final-report.mjs';
 import {validateCliOptions} from '../../shared/cli-options.mjs';
 import {loadSelection} from '../../trend-scout/src/selection.mjs';
 import {projectLayoutFromSelection} from '../../shared/pipeline-paths.mjs';
+import {validateProductionMaterials} from './production-materials.mjs';
 import {validatePlannedAssets} from './production-package.mjs';
 import {makeAudioDraft} from './creative-plan.mjs';
 import {loadEditorialPlan,loadVideoEditingSkill} from './editorial-agent.mjs';
@@ -32,6 +33,7 @@ export function prepareMain(){
   const layout=projectLayoutFromSelection(ROOT,selection,fullName),contract=loadEditorialContract(ROOT),research=latestResearch(ROOT,fullName,selection,{editorialContract:contract});
   if(research?.status!=='completed')throw new Error('Complete current research planning is required.');
   const loaded=loadEditorialPlan({resourcesDirectory:layout.resourcesDirectory,fullName,researchText:readFileSync(join(layout.resourcesDirectory,'research.json'),'utf8'),contract,editingSkill:loadVideoEditingSkill(ROOT)});
+  validateProductionMaterials(loaded.plan,{root:ROOT,resourcesDirectory:layout.resourcesDirectory});
   const materials=validatePlannedAssets(loaded.plan,layout.resourcesDirectory).map(a=>({...a,src:a.src}));
   const draft=makeAudioDraft(loaded.plan,loaded.research,materials);draft.meta.editorialPlanDigest=loaded.digest;
   const temporary=mkdtempSync(join(tmpdir(),'zimeiti-current-audio-')),staging=join(layout.resourcesDirectory,'.production-staging-'+process.pid+'-'+Date.now());

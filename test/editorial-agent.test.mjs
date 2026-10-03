@@ -6,6 +6,7 @@ import test from 'node:test';
 import {loadEditorialContract} from '../apps/repo-researcher/src/editorial-contract.mjs';
 import {loadEditorialFeedback, loadEditorialPlan, loadVideoEditingSkill, sha256} from '../apps/video-factory/src/editorial-agent.mjs';
 import {loadLibraries} from '../apps/video-factory/src/creative-plan.mjs';
+import {prepareProductionMaterials} from '../apps/video-factory/src/production-materials.mjs';
 import {createProductionPackage} from '../apps/video-factory/src/production-package.mjs';
 const projectRoot = resolve(import.meta.dirname, '..');
 
@@ -20,8 +21,11 @@ function fixture(t) {
     designContext: '文字输入在连续画面中变为整齐输出',
     shots: [{id: 'shot', unitId: 'input', narrationCue: '工具整理文字', purpose: '说明整理过程',
       visualDesign: '文字在同一画面里重新排列', continuity: '保留原输入对象，落在整理结果', route: 'custom', libraryIds: [], assetIds: []}], assets: []};
+  value.contentRoute={skill:'github-project-sharing',form:'single-short'};
+  value.sharing={viewerPromise:'理解这个任务怎样得到可用结果',story:'同一输入经关键处理形成结果，结尾说明用途',example:'偏好输入、保存、再次找回',resultShotIds:['shot']};
   const {plan, researchText} = createProductionPackage(value, {fullName: 'fixture/current',
     preview: {readmeText: 'Formats text.', readmeName: 'README.md', sha: 'a'.repeat(40)}, contract, editingSkill, libraries});
+  prepareProductionMaterials(plan,{root:projectRoot,resourcesDirectory:directory});
   const path = join(directory, 'editorial-plan.json');
   const save = () => writeFileSync(path, JSON.stringify(plan)); save();
   return {plan, path, save, directory, args: {resourcesDirectory: directory, fullName: 'fixture/current', researchText, contract, editingSkill}};

@@ -29,7 +29,7 @@ test('one measured narration block can drive several visual scenes', () => {
     sceneIndex, sentenceIndex: 0, text: scene.sentences[0].text,
   }));
   const result = timing.buildNarratedStoryboardFromBlocks(blockDraft, [{
-    id: 'block-000', profile: 'concept-explainer', segments, duration: 9,
+    id: 'block-000', semanticBlockId: 'overview', segments, duration: 9,
     text: '第一句。第二句。第三句。', sceneIndexes: [0, 1, 2], topics: ['overview'],
   }], {gapSeconds: 0.2});
   assert.equal(result.audioClips.length, 1);

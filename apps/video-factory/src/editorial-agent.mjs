@@ -2,6 +2,7 @@ import {createHash} from 'node:crypto';
 import {existsSync, readFileSync} from 'node:fs';
 import {join, dirname, resolve} from 'node:path';
 import {loadCreativePlan, loadLibraries} from './creative-plan.mjs';
+import {validateProductionMaterials} from './production-materials.mjs';
 import {assertEditorialContractMetadata} from '../../repo-researcher/src/editorial-contract.mjs';
 
 export const EDITORIAL_PLAN_FILE = 'editorial-plan.json';
@@ -49,5 +50,7 @@ export function loadEditorialPlan({resourcesDirectory, fullName, researchText, c
     throw new Error('Current production plan requires complete preproduction design and materials.');
   }
   const projectRoot = resolve(dirname(editingSkill.path), '../../..');
-  return {path, ...loadCreativePlan(plan, researchText, loadLibraries(projectRoot, {fullName}))};
+  const loaded=loadCreativePlan(plan,researchText,loadLibraries(projectRoot,{fullName}));
+  validateProductionMaterials(plan,{root:projectRoot,resourcesDirectory});
+  return {path,...loaded};
 }

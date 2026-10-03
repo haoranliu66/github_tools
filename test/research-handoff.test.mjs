@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,mkdirSync,copyFileSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
+import {join,dirname} from 'node:path';
+import {tmpdir} from 'node:os';
+import {freshResearchMain} from '../apps/repo-researcher/src/fact-cli.mjs';
+import {writeCurrentProductionFixture,repositoryRoot} from './helpers/current-production-fixture.mjs';
+import {hash} from '../apps/video-factory/src/creative-plan.mjs';
+test('research requires human style and current main Agent material viewing before linked delivery',async t=>{
+  const root=mkdtempSync(join(tmpdir(),'research-handoff-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
+  const f=writeCurrentProductionFixture(root,{visual:false});mkdirSync(join(root,'config'));
+  copyFileSync(join(repositoryRoot,'config/style-library.json'),join(root,'config/style-library.json'));writeFileSync(join(root,'config/motion-library.json'),JSON.stringify({schemaVersion:3,motions:[]}));
+  const directorSkill='.agents/skills/video-editorial-agent/SKILL.md';mkdirSync(dirname(join(root,directorSkill)),{recursive:true});copyFileSync(join(repositoryRoot,directorSkill),join(root,directorSkill));
+  const styleId=f.plan.content.styleId,card='assets/style-library/'+styleId+'/description.md';mkdirSync(dirname(join(root,card)),{recursive:true});copyFileSync(join(repositoryRoot,card),join(root,card));
+  const selection=join(root,'selection.json');writeFileSync(selection,JSON.stringify({schemaVersion:1,weekId:'2026-W38',snapshotDate:'2026-09-14',status:'approved',sourceReport:'output/2026-09-14.json',selectedRepositories:['fixture/approved',...Array.from({length:6},(_,i)=>'fixture/repo'+i)],videoProjects:['fixture/approved']}));
+  let requests=0,views=0;const options={root,sourcePreview:async()=>{requests++;return {fullName:'fixture/approved',sha:f.research.project.versionOrCommit,readmeName:'README.md',readmeText:'Stores memory.',candidates:[]};},prepareEvidence:(assets,{resourcesDirectory,evidenceDirectory})=>{views++;mkdirSync(evidenceDirectory,{recursive:true});return assets.map(a=>{const file='visual-assets/'+a.id+'.svg',image=join(evidenceDirectory,a.id+'.png');writeFileSync(image,'test viewing protocol');return {id:a.id,file,sha256:hash(readFileSync(join(resourcesDirectory,file))),width:80,height:80,animated:false,durationSeconds:null,evidence:[{id:a.id+'-0',file:image,sha256:hash(readFileSync(image)),timeSeconds:0}]};});}};
+  async function invoke(extra){const old=process.argv;process.argv=[old[0],'research','--selection',selection,'--repo','fixture/approved',...extra];try{return await freshResearchMain(options);}finally{process.argv=old;}}
+  await assert.rejects(invoke([]),/Human style selection/);assert.equal(requests,0);
+  let task;await assert.rejects(invoke(['--style',styleId,'--content-skill','github-project-sharing']),e=>{task=e.task;return e.agentTaskStatus==='pending';});
+  assert.equal(task.kind,'research-plan');const prompt=readFileSync(task.promptPath,'utf8');assert.ok(prompt.includes('current main Agent'));assert.ok(!prompt.includes('Select visual style by text'));assert.ok(prompt.includes('viewerPromise'));
+  const value={contentRoute:f.plan.preproduction.contentRoute,sharing:f.plan.preproduction.sharing,claims:[{claim:'保存记忆',quote:'Stores memory.'}],content:f.plan.content,designContext:f.plan.preproduction.designContext,shots:structuredClone(f.plan.preproduction.shots),assets:[{id:'memory',kind:'svg',source:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect width="80" height="80"/></svg>',purpose:'显示记忆'}],customMaterials:[]};value.shots[0].assetIds=['memory'];
+  const response=join(root,'response.json');writeFileSync(response,JSON.stringify({taskId:task.taskId,value}));
+  await assert.rejects(invoke(['--task-response',response]),e=>{task=e.task;return e.agentTaskStatus==='pending';});assert.equal(task.kind,'research-material-view-0');assert.equal(requests,1);assert.equal(views,1);
+  const state=JSON.parse(readFileSync(join(f.layout.resourcesDirectory,'_runs/production-planning/main-agent-state.json'),'utf8')),records=state.inspectedMaterials;
+  const observations=records.map(r=>({assetId:r.id,sha256:r.sha256,evidenceIds:r.evidence.map(e=>e.id),visualObservation:'测试协议中的记忆矩形，用于输入到存储关系。'}));
+  const wrong=structuredClone(value);wrong.content.styleId='dark-cinematic';writeFileSync(response,JSON.stringify({taskId:task.taskId,value:{package:wrong,observations}}));
+  await assert.rejects(invoke(['--task-response',response]),e=>e.agentTaskStatus==='pending'&&e.task.validationError.includes('human-selected style'));
+  writeFileSync(response,JSON.stringify({taskId:task.taskId,value:{package:value,observations}}));await invoke(['--task-response',response]);
+  assert.equal(requests,1);assert.equal(views,1);
+  const delivered=JSON.parse(readFileSync(join(f.layout.resourcesDirectory,'editorial-plan.json'),'utf8'));assert.equal(delivered.phase,'production-planned');assert.equal(delivered.preproduction.assets[0].file,'visual-assets/memory.svg');assert.ok(delivered.preproduction.style.path);assert.ok(!JSON.stringify(delivered).includes('<svg'));assert.equal(delivered.content.styleId,styleId);
+});

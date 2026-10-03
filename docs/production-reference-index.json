@@ -5,67 +5,128 @@
     {
       "id": "editorial-paper",
       "name": "纸面编辑风",
-      "file": "config/style-library.json"
+      "description": "暖白纸面与淡紫光晕，深色大标题、错落编辑排版和紫色重点标记，卡片以短促动作逐层展开。适合知识讲解、产品原理和步骤说明。",
+      "file": "assets/style-library/editorial-paper/description.md"
     },
     {
       "id": "dark-cinematic",
       "name": "深色产品演示",
-      "file": "config/style-library.json"
+      "description": "深蓝黑背景、浅色文字和青色高光，以宽阔主舞台、透视界面与光影层次营造电影感，镜头连续推进到重点。适合科技产品演示、核心功能揭示和性能亮相。",
+      "file": "assets/style-library/dark-cinematic/description.md"
     },
     {
       "id": "ink-notebook",
       "name": "手绘讲解",
-      "file": "config/style-library.json"
+      "description": "横线笔记纸、墨色粗描边、楷体手写感和橙色标注，关系线像现场绘出，对象在图解中移动并落定。适合原理拆解、流程解释和教学。",
+      "file": "assets/style-library/ink-notebook/description.md"
     },
     {
       "id": "bold-geometric",
       "name": "明亮几何风",
-      "file": "config/style-library.json"
+      "description": "薄荷绿到浅青渐变底，大尺寸几何对象配橙色强调，圆角形体以弹性节奏组装、变形和接力。适合轻快科普、功能介绍和年轻化品牌内容。",
+      "file": "assets/style-library/bold-geometric/description.md"
     },
     {
       "id": "shotcraft-vintage-kraft",
       "name": "复古牛皮纸",
-      "file": "config/style-library.json"
+      "description": "棕金牛皮纸底、深棕字与棕红强调，纸质卡片以分层入场和轻缓推近展开，整体温暖复古。适合知识收藏、历史回顾和纸面产品展示。",
+      "file": "assets/style-library/shotcraft-vintage-kraft/description.md"
     },
     {
       "id": "shotcraft-deep-ocean",
       "name": "深海",
-      "file": "config/style-library.json"
+      "description": "深海蓝底与薄荷青强调，浅色文字落在分层深蓝面板上，界面以冷静推近和清楚落点展开。适合数据仪表盘、研究工具和科技产品介绍。",
+      "file": "assets/style-library/shotcraft-deep-ocean/description.md"
     },
     {
       "id": "shotcraft-obsidian-violet",
       "name": "黑曜紫",
-      "file": "config/style-library.json"
+      "description": "近黑紫底、灰紫面板与淡紫高光，明亮标题和分层界面形成柔和神秘感，重点对象渐亮后被镜头锁定。适合 AI 工具、创意软件和夜色科技产品展示。",
+      "file": "assets/style-library/shotcraft-obsidian-violet/description.md"
     },
     {
       "id": "shotcraft-modern-light",
       "name": "现代浅色",
-      "file": "config/style-library.json"
+      "description": "浅灰白底、白色面板与鲜蓝强调，深色标题和规整界面层级呈现干净明快的产品感，分层入场后停留阅读。适合软件教程、协作工具和功能操作演示。",
+      "file": "assets/style-library/shotcraft-modern-light/description.md"
     },
     {
       "id": "shotcraft-midnight",
       "name": "午夜深色",
-      "file": "config/style-library.json"
+      "description": "午夜蓝黑底、浅亮文字和亮青强调，深色卡片像控制台面板般分层显现，镜头推近后把关注点留在亮色区域。适合开发者工具、监控面板和性能展示。",
+      "file": "assets/style-library/shotcraft-midnight/description.md"
     },
     {
       "id": "shotcraft-solar-pop",
       "name": "鼠尾草",
-      "file": "config/style-library.json"
+      "description": "暖浅白底、鼠尾草绿强调与深灰字，白色圆角面板留出舒缓空隙，层次轻轻展开并以重点停留收束。适合效率工具、生活知识和温和的产品说明。",
+      "file": "assets/style-library/shotcraft-solar-pop/description.md"
     },
     {
       "id": "shotcraft-coral-burst",
       "name": "珊瑚",
-      "file": "config/style-library.json"
+      "description": "白底、深紫字与珊瑚红重点块，清爽界面中用醒目红色指引注意，卡片错峰进入并轻快落定。适合消费产品、功能更新和重点信息揭晓。",
+      "file": "assets/style-library/shotcraft-coral-burst/description.md"
     },
     {
       "id": "shotcraft-color-play",
       "name": "鸢尾",
-      "file": "config/style-library.json"
+      "description": "浅紫底、墨紫字和鸢尾紫强调，白色面板悬浮成层，柔和推近与局部亮色引导阅读。适合创意工具、写作产品和内容管理演示。",
+      "file": "assets/style-library/shotcraft-color-play/description.md"
     },
     {
       "id": "shotcraft-ink-press",
       "name": "纸墨印刷",
-      "file": "config/style-library.json"
+      "description": "暖纸白底、深墨宋体标题与琥珀强调，卡片像纸面印刷层逐步建立，配合聚光、推近和清楚停顿。适合知识整理、论文收藏和编辑式产品宣传。",
+      "file": "assets/style-library/shotcraft-ink-press/description.md"
+    },
+    {
+      "id": "kinetic-type-pop",
+      "name": "节拍大字报",
+      "description": "高对比底色、超大粗体和荧光色关键词，以字重脉冲、字形推近和硬切把文字变成画面主角。适合短知识钩子、观点输出、发布预告和年度数据回顾。",
+      "file": "assets/style-library/kinetic-type-pop/description.md"
+    },
+    {
+      "id": "mixed-media-collage",
+      "name": "手工混媒拼贴",
+      "description": "暖纸底上叠放撕边剪纸、照片裁片、手写箭头和印刷字块，元素以停格跳动、贴入与翻纸接力展开。适合知识故事、文化解读、创意工具和过程展示。",
+      "file": "assets/style-library/mixed-media-collage/description.md"
+    },
+    {
+      "id": "retro-digital",
+      "name": "复古数字桌面",
+      "description": "浅灰早期桌面窗口配像素网格、等宽字与电蓝选中块，指针点击、窗口弹出和步进式切换组成低保真数字叙事。适合计算机发展、开发者工具、软件机制和怀旧内容。",
+      "file": "assets/style-library/retro-digital/description.md"
+    },
+    {
+      "id": "calm-editorial",
+      "name": "留白杂志讲解",
+      "description": "暖白与低饱和绿色、衬线标题和细分隔线组成安静杂志版面，以缓慢揭示、局部推近和长短有序的阅读停顿推进。适合深度知识、阅读写作、思考类内容和长信息解释。",
+      "file": "assets/style-library/calm-editorial/description.md"
+    },
+    {
+      "id": "cinematic-documentary",
+      "name": "电影纪实叙事",
+      "description": "深灰与暖白字幕、琥珀时间标记，以全景到特写、资料裁片和缓慢推拉组成有电影感的叙事，关键结论以干净硬切落定。适合人物故事、事件回顾、科技发展和案例讲解。",
+      "file": "assets/style-library/cinematic-documentary/description.md"
+    },
+    {
+      "id": "tactile-miniature",
+      "name": "触感三维小景",
+      "description": "奶油色背景与陶土、薄荷色的小型圆润物件，软阴影和俯斜视角建立微缩空间，物件通过挤压回弹、拼装和小幅环绕讲清关系。适合机制科普、流程演示和亲近感产品介绍。",
+      "file": "assets/style-library/tactile-miniature/description.md"
+    },
+    {
+      "id": "dreamcore-surreal",
+      "name": "梦核超现实",
+      "description": "雾蓝、淡紫与珍珠白的朦胧空间，熟悉物件以悬浮、尺度错位和光晕形成梦境感，镜头缓慢穿行并以形状连续变换。适合概念隐喻、未来想象、情绪叙事和创意开场。",
+      "file": "assets/style-library/dreamcore-surreal/description.md"
+    },
+    {
+      "id": "liquid-glass-product",
+      "name": "流光玻璃产品",
+      "description": "柔和浅色光场上浮起半透明圆角层，边缘高光随运动流动，控件与内容连续变形并以轻缓推近聚焦。适合高质感软件展示、交互过程和产品发布。",
+      "file": "assets/style-library/liquid-glass-product/description.md"
     }
   ],
   "motions": [
@@ -2250,12 +2311,12 @@
     {
       "id": "remotion-best-practices/SKILL.md",
       "file": "integrations/remotion/skills/remotion-best-practices/SKILL.md",
-      "digest": "41119b9934a5c8252f4c8fe9afbfccde40914afe81c0f86924c8ee2897fae77f"
+      "digest": "2bd4275a2a6ce03d985b3839b94abb770174f5abd18ebdf18d89d1f0cbd8078e"
     },
     {
       "id": "remotion-markup/SKILL.md",
       "file": "integrations/remotion/skills/remotion-markup/SKILL.md",
-      "digest": "e0cc02bf5075c1c2bc0825bc138a37c5efbd1f981645a18111f64d42797e6c21"
+      "digest": "8db21d99ac0215db713a6b52f07d8c6a4369022e9288f1255eee47e7fb5b0bc8"
     },
     {
       "id": "remotion-markup/timing.md",
@@ -2280,32 +2341,32 @@
     {
       "id": "remotion-markup/images.md",
       "file": "integrations/remotion/skills/remotion-markup/images.md",
-      "digest": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b"
+      "digest": "0e6c2af8ad73483ebbc761237f230c8c0db1bd9db6b60d01d48a24b8a4059284"
     },
     {
       "id": "remotion-markup/cropping.md",
       "file": "integrations/remotion/skills/remotion-markup/cropping.md",
-      "digest": "b862b4a98e412870ab13172e52c7c0d73c7c17ebbf728046168dfd21240dce94"
+      "digest": "98edcc2767e7087ba097b54f96f6b2f4a175f7374c5f47a383951950961598aa"
     },
     {
       "id": "remotion-markup/embedding-videos.md",
       "file": "integrations/remotion/skills/remotion-markup/embedding-videos.md",
-      "digest": "543ddf73e53bd750019b0283506d2cc30e9acb605c8628fa12fc9dd3edbc145c"
+      "digest": "30baf2ea40751614216e121b9b46afd74f0d69594d25ae494c01f4249f543562"
     },
     {
       "id": "remotion-markup/text-highlights.md",
       "file": "integrations/remotion/skills/remotion-markup/text-highlights.md",
-      "digest": "e6210a022785fd6f93a4a1ed75b600da18bc3baff20eef9e656e1f48267bebfe"
+      "digest": "6a3b7629b947e8657c42b73b1f53c91d9b1535af1bfed57e054981c51bb951cc"
     },
     {
       "id": "remotion-render/SKILL.md",
       "file": "integrations/remotion/skills/remotion-render/SKILL.md",
-      "digest": "9c51cee8d71219ad6ed727060c5d4ca83ee7ba88e0fce5cbed6022e87582b1b1"
+      "digest": "67e54248ea31b4560063d34da949cf720dac480238e379dc112b1c386a1b3287"
     },
     {
       "id": "remotion-studio/SKILL.md",
       "file": "integrations/remotion/skills/remotion-studio/SKILL.md",
-      "digest": "a2a615fbca1c1fe8809841a405e296f4131b80e88e3d52754b77c8b7d1eeeda4"
+      "digest": "0e9d24ee6abff8fbf63d64e00611c5590d0a09f200a988dbcc4aa91056c03a74"
     }
   ],
   "previewCommand": "node apps/video-factory/src/shot-preview.mjs <assignment.json>"

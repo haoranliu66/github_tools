@@ -1,3 +1,6 @@
+import {semanticBlockWindows,validateSemanticScenes} from './semantic-scenes.mjs';
+import {validateStyleCatalog} from './style-library.mjs';
+import {validateContentProfile} from './content-skill.mjs';
 import {createHash} from 'node:crypto';
 import {existsSync,readFileSync} from 'node:fs';
 import {isAbsolute,join,resolve,sep} from 'node:path';
@@ -33,7 +36,9 @@ export function loadCreativePlan(plan,researchText,libraries) {
   validateContent(plan.content,JSON.parse(researchText),libraries);
   if(plan.schemaVersion!==3||plan.workflow!=='scoped-production-package')throw new Error('Current complete scoped production package required.');
   if(!plan.preproduction||hash(JSON.stringify(plan.preproduction))!==plan.preproductionDigest)throw new Error('Preproduction design changed; explicitly refresh the unified plan.');
+  validateContentProfile(plan.preproduction,plan.preproduction.shots);
   if(plan.contentDigest!==hash(JSON.stringify(plan.content))) throw new Error('Content plan digest mismatch.');
+  if(plan.layout&&hash(JSON.stringify(plan.layout))!==plan.layoutDigest)throw new Error('Director layout changed without updating the unified plan.');
   if(plan.visual&&plan.phase!=='visual-ready') throw new Error('Incomplete visual plan.');
   return {plan,research:JSON.parse(researchText),content:plan.content,contentDigest:plan.contentDigest,digest:hash(JSON.stringify(plan))};
 }
@@ -42,10 +47,10 @@ export function makeAudioDraft(plan,research,materials=[]) {
   return {meta:{title:plan.content.title,repo:plan.fullName,template:'editorial',width:1920,height:1080,fps:30,
     accent:'#b8f76c',productionStage:'audio-ready',planner:'audio-first-director',editorialContractDigest:plan.editorialContractDigest,researchCommit:research.project.versionOrCommit,
     editorialPlanDigest:hash(JSON.stringify(plan)),contentDigest:plan.contentDigest,materials,
-    narrationProfile:'concept-explainer',styleId:plan.content.styleId},
+    narrationSegmentation:'semantic',styleId:plan.content.styleId},
     // These containers are semantic narration units, never final shot boundaries.
     scenes:plan.content.units.map(u=>({id:u.id,title:u.heading,source:research.project.url,
-      narrationTopic:u.id,sentences:subtitleSentences(u.narration)}))};
+      semanticBlockId:u.id,narrationTopic:u.id,sentences:subtitleSentences(u.narration)}))};
 }
 function subtitleSentences(text) {
   return (text.match(/[^。！？.!?]+[。！？.!?]?/gu)??[text]).flatMap((sentence,index)=> {
@@ -62,23 +67,16 @@ export function normalizeTiming(timing,fps) {
     if(!Number.isInteger(c.startFrame)||!Number.isInteger(end)||c.startFrame<previous||end<=c.startFrame||end>timing.totalFrames||!c.text?.trim()) throw new Error(`Invalid measured caption ${i}.`);
     previous=end;return {id:`cue-${i}`,startFrame:c.startFrame,endFrame:end,text:c.text};
   });
-  return {fps,totalFrames:timing.totalFrames,measuredTotal:timing.measuredTotal,
+  const semanticBlocks = timing.narrationSegmentation === 'semantic'
+    ? semanticBlockWindows(timing.blocks ?? [], timing.totalFrames) : [];
+  if (timing.narrationSegmentation === 'semantic' && !semanticBlocks.length) throw new Error('Semantic narration timing is missing blocks.');
+  return {fps,totalFrames:timing.totalFrames,measuredTotal:timing.measuredTotal,semanticBlocks,
     alignment:'measured-block-weighted-cues',precision:'Measured block duration; cue positions are weighted estimates, not word alignment.',clips,blocks:timing.blocks??[]};
-}
-
-export function visualSchema() {
-  const frames={startFrame:{type:'integer',minimum:0},endFrame:{type:'integer',minimum:1}};
-  const claims={type:'array',minItems:1,items:{type:'integer',minimum:0}};
-  const beat=object({id:string,...frames,narrationCue:string,purpose:string,claimIndexes:claims,
-    route:{type:'string',enum:['library','compose','custom']},libraryIds:{type:'array',items:string},
-    candidates:{type:'array',items:object({id:string,fit:string})},reason:string,source:string});
-  const scene=object({id:string,title:string,...frames,purpose:string,claimIndexes:claims,
-    beats:{type:'array',minItems:1,items:beat}});
-  return object({styleId:string,designSummary:string,scenes:{type:'array',minItems:1,items:scene}});
 }
 
 export function compileTimeline({audioStoryboard,timing,visual,research,libraries,contentDigest}) {
   const audio=normalizeTiming(timing,audioStoryboard.meta.fps);
+  validateSemanticScenes(visual.scenes,audio.semanticBlocks);
   const style=libraries.styles.find(s=>s.id===visual.styleId);if(!style) throw new Error('Unknown full-frame style.');
   let end=0;const ids=new Set();const sources={};const decisions=[];
   const scenes=visual.scenes.map((s,sceneIndex)=> {
@@ -100,20 +98,25 @@ export function compileTimeline({audioStoryboard,timing,visual,research,librarie
       validateCreativeSource(b.source);sources[`${key}.jsx`]=b.source;
       for(const id of b.libraryIds) {
         const motion=libraries.motions.find(m=>m.id===id);
-        if(motion.exportName&&!b.source.includes(motion.exportName)) throw new Error(`Selected asset ${id} is not used in its source.`);
+        if(motion.exportName&&!(b.source+'\n'+Object.values(visual.sharedSources??{}).join('\n')).includes(motion.exportName)) throw new Error(`Selected asset ${id} is not used in its source.`);
       }
       decisions.push({...b,source:undefined,key,beatId:b.id,sceneIndex,designReason:b.reason});
       return {id:b.id,narrationCue:b.narrationCue,purpose:b.purpose,claimIndexes:b.claimIndexes,
+        planShotIds:b.planShotIds,visualDesign:b.visualDesign,continuity:b.continuity,assetIds:b.assetIds,
         startFrame:b.startFrame,endFrame:b.endFrame,
         implementation:{key,route:b.route}};
     });
     if(beatEnd!==frames) throw new Error(`Scene ${s.id} beats must cover the entire scene.`);
     const captions=audio.clips.filter(c=>c.startFrame<s.endFrame&&c.endFrame>s.startFrame).map(c=>({
       startFrame:Math.max(c.startFrame,s.startFrame)-s.startFrame,endFrame:Math.min(c.endFrame,s.endFrame)-s.startFrame,text:c.text}));
-    return {id:s.id,type:'custom',title:s.title,source:research.project.url,purpose:s.purpose,duration:frames/audio.fps,
+    return {id:s.id,type:'custom',title:s.title,source:research.project.url,purpose:s.purpose,startFrame:s.startFrame,endFrame:s.endFrame,durationInFrames:frames,duration:frames/audio.fps,
       claimIndexes:s.claimIndexes,captions,visualBeats:beats};
   });
   if(end!==audio.totalFrames) throw new Error('Visuals do not cover the complete measured narration.');
+  for(const [name,source] of Object.entries(visual.sharedSources??{})) {
+    if(name!=='shared.jsx')throw new Error('Only the supplied shared module is allowed.');
+    validateCreativeSource(source,{requireDefault:false});sources[name]=source;
+  }
   const storyboard={...structuredClone(audioStoryboard),scenes,meta:{...audioStoryboard.meta,
     directorVersion:1,productionStage:'visual-ready',styleId:style.id,style,
     libraryDigest:libraries.digest,contentDigest,globalCaptions:audio.clips,totalFrames:audio.totalFrames}};
@@ -121,14 +124,14 @@ export function compileTimeline({audioStoryboard,timing,visual,research,librarie
   return {storyboard,sources,decisions,audio};
 }
 
-export function validateCreativeSource(source) {
-  if(typeof source!=='string'||!source.includes('export default')) throw new Error('Generated shot must export a React component.');
+export function validateCreativeSource(source,{allowedImports=[],requireDefault=true}={}) {
+  if(typeof source!=='string'||(requireDefault&&!source.includes('export default'))) throw new Error('Generated shot must export a React component.');
   // No object/action/layout/import enum: installed browser packages are available to creativity.
   // Host access and wall-clock driven animation are execution concerns, not visual restrictions.
   if(/(?:from\s*|import\s*)['"](?:node:|[A-Za-z]:|\/)|\b(?:eval|fetch|XMLHttpRequest|WebSocket|setTimeout|setInterval)\s*\(|Math\.random\s*\(|Date\.now\s*\(/u.test(source)) throw new Error('Generated source needs frame-driven, offline browser rendering.');
   if(/(?:\b(?:src|href|poster)\s*[:=]\s*[\{"']*\s*https?:\/\/|url\(\s*["']?https?:\/\/|staticFile\(\s*["']https?:\/\/)/iu.test(source))throw new Error('Network media must be staged and hashed before offline rendering.');
   for(const m of source.matchAll(/(?:from\s*|import\s*)['"]([^'"]+)['"]/gu)) {
-    if(m[1].startsWith('.')&&!['./shot-runtime.jsx','./motion-library.jsx'].includes(m[1])) throw new Error(`Local import is not a staged library bridge: ${m[1]}`);
+    if(m[1].startsWith('.')&&!['./shot-runtime.jsx','./motion-library.jsx','./shared.jsx','./prepared-materials.jsx',...allowedImports].includes(m[1])) throw new Error(`Local import is not a staged library bridge: ${m[1]}`);
   }
   return source;
 }
@@ -136,7 +139,7 @@ export function validateCreativeSource(source) {
 export function loadLibraries(root,{fullName=null}={}) {
   const styleCatalog=JSON.parse(readFileSync(join(root,'config/style-library.json'),'utf8')),catalog=JSON.parse(readFileSync(join(root,'config/motion-library.json'),'utf8'));
   if(catalog.schemaVersion!==3||styleCatalog.schemaVersion!==1)throw new Error('Current material and style catalogs are required.');
-  const styles=styleCatalog.styles;
+  const styles=validateStyleCatalog(styleCatalog).styles;
   const motions=catalog.motions.filter(m=>!fullName||m.reuseScope!=='project'||m.sourceProject===fullName);
   for(const m of motions.filter(m=>m.module)) if(hash(readFileSync(safeResourcePath(root,m.module)))!==m.sha256) throw new Error(`Approved library source changed: ${m.id}`);
   if(motions.some(m=>!m.description?.trim()))throw new Error('Every material needs a visual retrieval description.');
@@ -148,4 +151,3 @@ export function safeResourcePath(root,path) {
   if(isAbsolute(path)) throw new Error('Library paths must be resource relative.');
   const target=resolve(root,path);if(!target.startsWith(resolve(root)+sep)) throw new Error('Library path escapes resources.');return target;
 }
-

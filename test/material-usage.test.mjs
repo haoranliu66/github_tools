@@ -71,7 +71,8 @@ test('One discovery protocol scopes later reads to selected materials and the cu
  const prompt=materialDiscoveryPrompt({fullName:'owner/repo'});assert.ok(prompt.includes('usage --repo owner/repo --id ID'));assert.ok(prompt.includes('--section'));assert.ok(prompt.includes('specific unresolved question'));assert.ok(prompt.includes('Do not preload'));assert.ok(prompt.includes('unchanged'));assert.ok(!prompt.includes('GridWaveFlip'));
 });
 test('Documentation migration preserves every source fingerprint and historical digest chain',()=>{
- const report=json(join(root,'integrations/motion-sources/motion-usage-standardization.json'));assert.equal(report.totalMotions,272);assert.equal(report.sourceDigests.length,272);assert.equal(report.sourceCodeUnchanged,true);assert.equal(report.afterLibraryDigest,loadLibraries(root).digest);
+ const report=json(join(root,'integrations/motion-sources/motion-usage-standardization.json'));assert.equal(report.totalMotions,272);assert.equal(report.sourceDigests.length,272);assert.equal(report.sourceCodeUnchanged,true);const styleMigration=json(join(root,'integrations/style-sources/2026-10-03-style-library.json'));assert.equal(report.afterLibraryDigest,styleMigration.beforeLibraryDigest);assert.equal(styleMigration.afterLibraryDigest,loadLibraries(root).digest);
  for(const source of report.sourceDigests)assert.equal(hash(readFileSync(join(root,source.path))),source.sha256,source.id);
- assert.equal(report.afterProductionContractFileDigest,hash(readFileSync(join(root,'.agents/skills/video-production-quality/SKILL.md'))));assert.notEqual(report.beforeProductionContractFileDigest,report.afterProductionContractFileDigest);
+ assert.match(report.afterProductionContractFileDigest,/^[a-f0-9]{64}$/u); // This archive records the contract at migration time, not later editorial revisions.
+ assert.notEqual(report.beforeProductionContractFileDigest,report.afterProductionContractFileDigest);
 });

@@ -1,15 +1,18 @@
 import React,{useContext} from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {ShotRegistryContext} from './ShotRegistry.jsx';
+import {visualContext} from './visual-context.mjs';
+import {captionAtFrame} from './caption-display.mjs';
 
 function Beat({scene,beat,meta}) {
   const frame=useCurrentFrame();const registry=useContext(ShotRegistryContext);const Component=registry[beat.implementation.key];
   if(!Component) throw new Error(`Compiled director shot is missing: ${beat.implementation.key}`);
-  return <Component frame={frame} scene={scene} beat={beat} fps={meta.fps} style={meta.style}
-    accent={meta.style.palette.accent} assets={meta.materials??[]} durationInFrames={beat.endFrame-beat.startFrame}/>;
+  const context=visualContext(scene,beat,meta.fps);
+  return <Component frame={frame} scene={context.scene} beat={context.beat} fps={meta.fps} style={meta.style}
+    accent={meta.style.palette.accent} assets={(meta.materials??[]).filter(m=>context.beat.assetIds.includes(m.id))} durationInFrames={beat.endFrame-beat.startFrame}/>;
 }
 function Captions({meta}) {
-  const frame=useCurrentFrame();const cue=meta.globalCaptions.find(c=>frame>=c.startFrame&&frame<c.endFrame);
+  const frame=useCurrentFrame();const cue=captionAtFrame(meta.globalCaptions,frame);
   if(!cue) return null;const s=meta.style;const c=s.captions;
   return <div style={{position:'absolute',left:`${c.marginPercent}%`,right:`${c.marginPercent}%`,bottom:c.bottom,
     display:'flex',justifyContent:c.align,fontFamily:s.typography.body}}><div style={{fontSize:c.fontSize,lineHeight:1.45,

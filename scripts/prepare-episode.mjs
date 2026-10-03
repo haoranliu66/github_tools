@@ -52,14 +52,11 @@ const draft = JSON.parse(readFileSync(draftPath, 'utf8'));
 if(draft.meta?.productionStage!=='audio-ready'||draft.meta.planner!=='audio-first-director')throw new Error('Only current planned narration drafts can be prepared.');
 const narrationConfig=JSON.parse(readFileSync(join(root,'config/video-editorial.json'),'utf8'));
 const blockSettings = narrationConfig.narrationBlocks;
-const profileName = draft.meta?.narrationProfile ?? blockSettings.defaultProfile;
-const profile = blockSettings.profiles[profileName];
-if (!profile) throw new Error(`Unknown narration profile: ${profileName}`);
 const plannedBlocks = buildNarrationBlocks(draft, narrationConfig);
 const jobPath = join(output, 'audio', 'jobs.json');
 writeFileSync(jobPath, JSON.stringify(plannedBlocks.map((block) => ({
   id: block.id,
-  profile: block.profile,
+  semanticBlockId: block.semanticBlockId,
   sceneIndexes: block.sceneIndexes,
   topics: block.topics,
   characters: block.text.length,
@@ -92,9 +89,6 @@ async function synthesizeWindowsNarrationBlocks(blocks, ttsConfig) {
       return {wave, duration: wavDuration(wave)};
     }, {
       maxCharacters: blockSettings.maxRequestCharacters,
-      maxSeconds: blockSettings.maxAudioSeconds,
-      maxScenes: profile.maxScenes,
-      shortBlockSeconds: profile.shortBlockSeconds,
     });
     const written = fitted.blocks.map((block, index) => {
       const path = join(output, 'audio', `block-${String(index).padStart(3, '0')}.wav`);
@@ -132,9 +126,6 @@ try {
     synthesis = await synthesizeNarrationBlocks(plannedBlocks, ttsConfig, {
       outputDirectory: join(output, 'audio'),
       maxCharacters: blockSettings.maxRequestCharacters,
-      maxSeconds: blockSettings.maxAudioSeconds,
-      maxScenes: profile.maxScenes,
-      shortBlockSeconds: profile.shortBlockSeconds,
     });
   } else {
     synthesis = await synthesizeWindowsNarrationBlocks(plannedBlocks, ttsConfig);
@@ -188,7 +179,7 @@ writeFileSync(join(output, 'timing.json'), JSON.stringify({
     maxNewTokens: ttsPreflight.maxNewTokens,
     maxTextCharacters: ttsPreflight.maxTextCharacters,
   },
-  narrationProfile: profileName,
+  narrationSegmentation: blockSettings.segmentation,
   plannedBlockCount: plannedBlocks.length,
   finalBlockCount: synthesis.blocks.length,
   synthesisStats: synthesis.stats,

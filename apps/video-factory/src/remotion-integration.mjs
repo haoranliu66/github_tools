@@ -1,10 +1,11 @@
 import {createHash} from 'node:crypto';
-import {existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {homedir} from 'node:os';
 import {dirname, join, resolve} from 'node:path';
 import * as Remotion from 'remotion';
 
 const ROOT = resolve(import.meta.dirname, '../../..');
+export const REMOTION_TARGET_VERSION = '4.0.530';
 const hash = value => createHash('sha256').update(value).digest('hex');
 const normalize = value => value.replaceAll('\r\n', '\n');
 export const REMOTION_REFERENCE_FILES = [
@@ -27,30 +28,29 @@ export function findInstalledRemotionSkills({codexHome = process.env.CODEX_HOME 
     return root;
   }
   const cache = join(codexHome, 'plugins/cache/openai-curated-remote/remotion');
-  const versions = existsSync(cache) ? readdirSync(cache, {withFileTypes: true})
-    .filter(entry => entry.isDirectory() && /^\d+\.\d+\.\d+$/.test(entry.name))
-    .map(entry => entry.name).sort((a, b) => {
-      const av = a.split('.').map(Number), bv = b.split('.').map(Number);
-      return bv[0] - av[0] || bv[1] - av[1] || bv[2] - av[2];
-    }) : [];
-  const root = versions.map(version => join(cache, version, 'skills'))
-    .find(path => existsSync(join(path, REMOTION_REFERENCE_FILES[0])));
-  if (!root) throw new Error('Installed Remotion skills were not found. Set REMOTION_SKILLS_ROOT to the plugin skills directory.');
+  const root = join(cache, REMOTION_TARGET_VERSION, 'skills');
+  if (!existsSync(join(root, REMOTION_REFERENCE_FILES[0]))) throw new Error(`Installed Remotion ${REMOTION_TARGET_VERSION} skills were not found. Set REMOTION_SKILLS_ROOT to the matching plugin skills directory.`);
   return root;
 }
 
 export function syncRemotionSkills({projectRoot = ROOT, skillsRoot = findInstalledRemotionSkills()} = {}) {
   // Read every required file before writing so incomplete plugin installations fail without a partial snapshot.
   const files = REMOTION_REFERENCE_FILES.map(path => {
-    const content = normalize(readFileSync(join(skillsRoot, path), 'utf8'));
-    if (!content.trim()) throw new Error(`Empty Remotion reference: ${path}`);
-    return {path, content, digest: hash(content)};
+    const original = normalize(readFileSync(join(skillsRoot, path), 'utf8'));
+    if (!original.trim()) throw new Error(`Empty Remotion reference: ${path}`);
+    const version = original.match(/^version:\s*(.+)$/m)?.[1]?.trim();
+    if (path.endsWith('/SKILL.md') && version !== REMOTION_TARGET_VERSION) throw new Error(`Remotion reference ${path} must be version ${REMOTION_TARGET_VERSION}.`);
+    // The installed 4.0.530 reference labels trims as seconds, while its example
+    // and the installed Video API use frames. Record this source correction.
+    const correction = path === 'remotion-markup/embedding-videos.md' && original.includes('Values are in seconds.');
+    const content = correction ? original.replace('Values are in seconds.', 'Values are in frames. Convert seconds with Math.round(seconds * fps).') : original;
+    return {path, content, digest: hash(content), ...(correction ? {sourceDigest: hash(original), correction: 'trimBefore and trimAfter use frames'} : {})};
   });
   const directory = join(projectRoot, 'integrations/remotion');
   const version = files[0].content.match(/^version:\s*(.+)$/m)?.[1]?.trim() ?? 'unknown';
-  const pluginVersion = resolve(skillsRoot, '..').split(/[\\/]/).at(-1);
+  const pluginVersion = REMOTION_TARGET_VERSION;
   const manifest = {schemaVersion: 1, provider: 'installed-codex-remotion-plugin', pluginVersion, skillVersion: version,
-    files: files.map(({path, digest}) => ({path, digest}))};
+    files: files.map(({content, ...metadata}) => metadata)};
   manifest.digest = hash(JSON.stringify(manifest));
   for (const file of files) {
     const target = join(directory, 'skills', file.path);
@@ -68,6 +68,7 @@ export function loadRemotionGuidance({projectRoot = ROOT, storyboard = null, sta
   if (manifest.schemaVersion !== 1 || manifest.provider !== 'installed-codex-remotion-plugin' || hash(JSON.stringify(unsigned)) !== digest) {
     throw new Error('Remotion integration manifest is invalid. Run pnpm video:remotion:sync.');
   }
+  if (manifest.pluginVersion !== REMOTION_TARGET_VERSION || manifest.skillVersion !== REMOTION_TARGET_VERSION) throw new Error(`Remotion references must be ${REMOTION_TARGET_VERSION}. Run pnpm video:remotion:sync.`);
   const sources = manifest.files.map(file => {
     if (!REMOTION_REFERENCE_FILES.includes(file.path)) throw new Error('Unknown Remotion integration reference.');
     const content = normalize(readFileSync(join(directory, 'skills', file.path), 'utf8'));
@@ -88,14 +89,24 @@ export function loadRemotionGuidance({projectRoot = ROOT, storyboard = null, sta
   else throw new Error(`Unsupported Remotion guidance stage: ${stage}`);
   const selected = sources.filter(source => paths.has(source.path));
   const remotionVersion = JSON.parse(readFileSync(join(projectRoot, 'node_modules/remotion/package.json'), 'utf8')).version;
+  if (remotionVersion !== REMOTION_TARGET_VERSION) throw new Error(`Installed Remotion must be ${REMOTION_TARGET_VERSION}; found ${remotionVersion}. Install the locked dependencies.`);
+  const projectManifest = JSON.parse(readFileSync(join(projectRoot, 'package.json'), 'utf8'));
+  for (const section of ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies']) {
+    for (const [name, specifier] of Object.entries(projectManifest[section] ?? {})) {
+      if (name !== 'remotion' && !name.startsWith('@remotion/')) continue;
+      if (specifier !== REMOTION_TARGET_VERSION) throw new Error(`${name} must be pinned exactly to ${REMOTION_TARGET_VERSION}.`);
+      const installed = JSON.parse(readFileSync(join(projectRoot, 'node_modules', name, 'package.json'), 'utf8')).version;
+      if (installed !== REMOTION_TARGET_VERSION) throw new Error(`${name} must be ${REMOTION_TARGET_VERSION}; found ${installed}. Install the locked dependencies.`);
+    }
+  }
   const metadata = {provider: manifest.provider, pluginVersion: manifest.pluginVersion, skillVersion: manifest.skillVersion,
     digest, remotionVersion, coreApis, files: selected.map(({path, digest}) => ({path, digest}))};
   const body = `Trusted Remotion plugin guidance follows. Use it for rendering technique within the Zimeiti assignment.
 The project has Remotion ${remotionVersion}. Available core APIs: ${coreApis.join(', ')}.
 Director shots may import installed browser packages and the staged motion/runtime bridges. Optional packages in
 plugin examples may need installation; missing dependencies must be reported and repaired, not silently ignored.
-Keep the approved narration provider. In directorVersion=1, frame and useCurrentFrame() are beat-relative;
-in historical renderer scenes use the supplied beat-relative frame prop. Keep animation correct when frames render in any order. No CSS animation or transition.
+Keep the approved narration provider. In director scenes, frame and useCurrentFrame() are scene-relative.
+Keep animation correct when frames render in any order. No CSS animation or transition.
 The runtime additionally exports FrameReveal and FrameAnnotation (kinds highlight, circle, underline, box),
 implemented with core Remotion APIs and SVG. These provide spring entrances and timed emphasis without extra imports.
 ${selected.map(source => `--- BEGIN TRUSTED REMOTION REFERENCE: ${source.path} ---\n${source.content}\n--- END TRUSTED REMOTION REFERENCE ---`).join('\n\n')}
